@@ -272,8 +272,8 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 	 */
 	public void dispose() {
 		if (allocationContextItemProvider != null) allocationContextItemProvider.dispose();
-		if (infrastructureComponentScopeItemProvider != null) infrastructureComponentScopeItemProvider.dispose();
 		if (allocationItemProvider != null) allocationItemProvider.dispose();
+		if (infrastructureComponentScopeItemProvider != null) infrastructureComponentScopeItemProvider.dispose();
 		if (infrastructureComponentAllocationConnectorItemProvider != null) infrastructureComponentAllocationConnectorItemProvider.dispose();
 	}
 

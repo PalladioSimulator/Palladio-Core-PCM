@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.allocation.provider;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
+import de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope;
+import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import java.util.Collection;
@@ -34,7 +36,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class InfrastructureComponentScopeItemProvider
-	extends ItemProviderAdapter
+	extends ComposedProvidingRequiringEntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -69,33 +71,12 @@ public class InfrastructureComponentScopeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAssemblyContext_InfrastructureComponentScopePropertyDescriptor(object);
 			addLowerLayerPropertyDescriptor(object);
 			addUpperLayerPropertyDescriptor(object);
+			addResourceContainer_InfrastructureComponentScopePropertyDescriptor(object);
+			addAllLowerLayersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Assembly Context Infrastructure Component Scope feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssemblyContext_InfrastructureComponentScopePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_InfrastructureComponentScope_assemblyContext_InfrastructureComponentScope_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureComponentScope_assemblyContext_InfrastructureComponentScope_feature", "_UI_InfrastructureComponentScope_type"),
-				 AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -143,6 +124,50 @@ public class InfrastructureComponentScopeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Resource Container Infrastructure Component Scope feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceContainer_InfrastructureComponentScopePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InfrastructureComponentScope_resourceContainer_InfrastructureComponentScope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureComponentScope_resourceContainer_InfrastructureComponentScope_feature", "_UI_InfrastructureComponentScope_type"),
+				 AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the All Lower Layers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllLowerLayersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InfrastructureComponentScope_allLowerLayers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureComponentScope_allLowerLayers_feature", "_UI_InfrastructureComponentScope_type"),
+				 AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns InfrastructureComponentScope.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,7 +186,10 @@ public class InfrastructureComponentScopeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InfrastructureComponentScope_type");
+		String label = ((InfrastructureComponentScope)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InfrastructureComponentScope_type") :
+			getString("_UI_InfrastructureComponentScope_type") + " " + label;
 	}
 
 	/**

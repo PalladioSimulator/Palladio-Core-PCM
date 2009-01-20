@@ -71,7 +71,8 @@ public class ControllerLayerItemProvider
 
 			addUpperLayerPropertyDescriptor(object);
 			addLowerLayerPropertyDescriptor(object);
-			addControllerType_ControllerScopePropertyDescriptor(object);
+			addControllerType_ControllerLayerPropertyDescriptor(object);
+			addAllLowerLayersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,19 +122,41 @@ public class ControllerLayerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Controller Type Controller Scope feature.
+	 * This adds a property descriptor for the Controller Type Controller Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addControllerType_ControllerScopePropertyDescriptor(Object object) {
+	protected void addControllerType_ControllerLayerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ControllerLayer_controllerType_ControllerScope_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_controllerType_ControllerScope_feature", "_UI_ControllerLayer_type"),
-				 ResourcetypePackage.Literals.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE,
+				 getString("_UI_ControllerLayer_controllerType_ControllerLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_controllerType_ControllerLayer_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the All Lower Layers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllLowerLayersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerLayer_allLowerLayers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_allLowerLayers_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__ALL_LOWER_LAYERS,
 				 true,
 				 false,
 				 true,

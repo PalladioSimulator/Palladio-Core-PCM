@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.pcm.allocation.provider.ResourceProvidedRoleConnectorItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -68,25 +69,25 @@ public class ControllerAllocationConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProvidingControllerInstance_ControllerAllocationConnectorPropertyDescriptor(object);
+			addToControllerInstance_ControllerAllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Providing Controller Instance Controller Allocation Connector feature.
+	 * This adds a property descriptor for the To Controller Instance Controller Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProvidingControllerInstance_ControllerAllocationConnectorPropertyDescriptor(Object object) {
+	protected void addToControllerInstance_ControllerAllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ControllerAllocationConnector_providingControllerInstance_ControllerAllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerAllocationConnector_providingControllerInstance_ControllerAllocationConnector_feature", "_UI_ControllerAllocationConnector_type"),
-				 ResourceenvironmentPackage.Literals.CONTROLLER_ALLOCATION_CONNECTOR__PROVIDING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR,
+				 getString("_UI_ControllerAllocationConnector_toControllerInstance_ControllerAllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerAllocationConnector_toControllerInstance_ControllerAllocationConnector_feature", "_UI_ControllerAllocationConnector_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_ALLOCATION_CONNECTOR__TO_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,

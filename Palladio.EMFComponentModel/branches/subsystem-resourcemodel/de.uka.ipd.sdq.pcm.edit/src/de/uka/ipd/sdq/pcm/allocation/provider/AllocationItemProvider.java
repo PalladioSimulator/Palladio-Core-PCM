@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.Allocation} object.
@@ -133,6 +134,8 @@ public class AllocationItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
+			childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__INFRASTRUCTURE_COMPONENT_SCOPES_ALLOCATION);
+			childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION);
 		}
 		return childrenFeatures;
 	}
@@ -188,6 +191,8 @@ public class AllocationItemProvider
 
 		switch (notification.getFeatureID(Allocation.class)) {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+			case AllocationPackage.ALLOCATION__INFRASTRUCTURE_COMPONENT_SCOPES_ALLOCATION:
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -209,6 +214,26 @@ public class AllocationItemProvider
 			(createChildParameter
 				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
 				 AllocationFactory.eINSTANCE.createAllocationContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AllocationPackage.Literals.ALLOCATION__INFRASTRUCTURE_COMPONENT_SCOPES_ALLOCATION,
+				 AllocationFactory.eINSTANCE.createInfrastructureComponentScope()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION,
+				 AllocationFactory.eINSTANCE.createInfrastructureComponentAllocationConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION,
+				 ResourceenvironmentFactory.eINSTANCE.createControllerAllocationConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION,
+				 ResourceenvironmentFactory.eINSTANCE.createResourceAllocationConnector()));
 	}
 
 	/**

@@ -72,10 +72,9 @@ public class InfrastructureComponentAllocationConnectorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addResourceRequiredRole_AllocationConnectorPropertyDescriptor(object);
-			addResourceContainer_AllocationConnectorPropertyDescriptor(object);
-			addAssemblyContext_AllocationConnectorPropertyDescriptor(object);
+			addFromAssemblyContext_AllocationConnectorPropertyDescriptor(object);
 			addProvidedRole_AllocationConnectorPropertyDescriptor(object);
-			addInfrastructureComponentScope_InfrastructureComponentAllocationConnectorPropertyDescriptor(object);
+			addToInfrastructureComponentScope_InfrastructureComponentAllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,41 +102,19 @@ public class InfrastructureComponentAllocationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Container Allocation Connector feature.
+	 * This adds a property descriptor for the From Assembly Context Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceContainer_AllocationConnectorPropertyDescriptor(Object object) {
+	protected void addFromAssemblyContext_AllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AllocationConnector_resourceContainer_AllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_resourceContainer_AllocationConnector_feature", "_UI_AllocationConnector_type"),
-				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Assembly Context Allocation Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssemblyContext_AllocationConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AllocationConnector_assemblyContext_AllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_assemblyContext_AllocationConnector_feature", "_UI_AllocationConnector_type"),
-				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR,
+				 getString("_UI_AllocationConnector_fromAssemblyContext_AllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_fromAssemblyContext_AllocationConnector_feature", "_UI_AllocationConnector_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -169,19 +146,19 @@ public class InfrastructureComponentAllocationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Infrastructure Component Scope Infrastructure Component Allocation Connector feature.
+	 * This adds a property descriptor for the To Infrastructure Component Scope Infrastructure Component Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInfrastructureComponentScope_InfrastructureComponentAllocationConnectorPropertyDescriptor(Object object) {
+	protected void addToInfrastructureComponentScope_InfrastructureComponentAllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InfrastructureComponentAllocationConnector_infrastructureComponentScope_InfrastructureComponentAllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureComponentAllocationConnector_infrastructureComponentScope_InfrastructureComponentAllocationConnector_feature", "_UI_InfrastructureComponentAllocationConnector_type"),
-				 AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR,
+				 getString("_UI_InfrastructureComponentAllocationConnector_toInfrastructureComponentScope_InfrastructureComponentAllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureComponentAllocationConnector_toInfrastructureComponentScope_InfrastructureComponentAllocationConnector_feature", "_UI_InfrastructureComponentAllocationConnector_type"),
+				 AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,

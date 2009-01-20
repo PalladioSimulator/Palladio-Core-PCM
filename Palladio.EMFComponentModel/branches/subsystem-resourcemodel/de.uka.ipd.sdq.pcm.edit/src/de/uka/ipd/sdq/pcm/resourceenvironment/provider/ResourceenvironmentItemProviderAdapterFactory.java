@@ -364,13 +364,13 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 */
 	public void dispose() {
 		if (controllerAllocationConnectorItemProvider != null) controllerAllocationConnectorItemProvider.dispose();
-		if (controllerInstanceItemProvider != null) controllerInstanceItemProvider.dispose();
 		if (resourceEnvironmentItemProvider != null) resourceEnvironmentItemProvider.dispose();
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
-		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
-		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
-		if (resourceAllocationConnectorItemProvider != null) resourceAllocationConnectorItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();
+		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
+		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
+		if (resourceAllocationConnectorItemProvider != null) resourceAllocationConnectorItemProvider.dispose();
+		if (controllerInstanceItemProvider != null) controllerInstanceItemProvider.dispose();
 	}
 
 }

@@ -70,8 +70,7 @@ public class AllocationConnectorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addResourceRequiredRole_AllocationConnectorPropertyDescriptor(object);
-			addResourceContainer_AllocationConnectorPropertyDescriptor(object);
-			addAssemblyContext_AllocationConnectorPropertyDescriptor(object);
+			addFromAssemblyContext_AllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,41 +98,19 @@ public class AllocationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Container Allocation Connector feature.
+	 * This adds a property descriptor for the From Assembly Context Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceContainer_AllocationConnectorPropertyDescriptor(Object object) {
+	protected void addFromAssemblyContext_AllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AllocationConnector_resourceContainer_AllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_resourceContainer_AllocationConnector_feature", "_UI_AllocationConnector_type"),
-				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Assembly Context Allocation Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssemblyContext_AllocationConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AllocationConnector_assemblyContext_AllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_assemblyContext_AllocationConnector_feature", "_UI_AllocationConnector_type"),
-				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR,
+				 getString("_UI_AllocationConnector_fromAssemblyContext_AllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_fromAssemblyContext_AllocationConnector_feature", "_UI_AllocationConnector_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,

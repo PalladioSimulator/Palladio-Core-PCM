@@ -3,14 +3,12 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
+package de.uka.ipd.sdq.pcm.allocation.provider;
 
 
-import de.uka.ipd.sdq.pcm.allocation.provider.AllocationConnectorItemProvider;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,7 +27,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -71,7 +69,7 @@ public class ResourceProvidedRoleConnectorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addResourceProvidedRole_ResourceProvidedRoleAllocationConnectorPropertyDescriptor(object);
-			addRequiringControllerInstance_ControllerAllocationConnectorPropertyDescriptor(object);
+			addFromControllerInstance_ControllerAllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,7 +87,7 @@ public class ResourceProvidedRoleConnectorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ResourceProvidedRoleConnector_resourceProvidedRole_ResourceProvidedRoleAllocationConnector_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceProvidedRoleConnector_resourceProvidedRole_ResourceProvidedRoleAllocationConnector_feature", "_UI_ResourceProvidedRoleConnector_type"),
-				 ResourceenvironmentPackage.Literals.RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR,
+				 AllocationPackage.Literals.RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -99,19 +97,19 @@ public class ResourceProvidedRoleConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Requiring Controller Instance Controller Allocation Connector feature.
+	 * This adds a property descriptor for the From Controller Instance Controller Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiringControllerInstance_ControllerAllocationConnectorPropertyDescriptor(Object object) {
+	protected void addFromControllerInstance_ControllerAllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceProvidedRoleConnector_requiringControllerInstance_ControllerAllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceProvidedRoleConnector_requiringControllerInstance_ControllerAllocationConnector_feature", "_UI_ResourceProvidedRoleConnector_type"),
-				 ResourceenvironmentPackage.Literals.RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR,
+				 getString("_UI_ResourceProvidedRoleConnector_fromControllerInstance_ControllerAllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceProvidedRoleConnector_fromControllerInstance_ControllerAllocationConnector_feature", "_UI_ResourceProvidedRoleConnector_type"),
+				 AllocationPackage.Literals.RESOURCE_PROVIDED_ROLE_CONNECTOR__FROM_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,

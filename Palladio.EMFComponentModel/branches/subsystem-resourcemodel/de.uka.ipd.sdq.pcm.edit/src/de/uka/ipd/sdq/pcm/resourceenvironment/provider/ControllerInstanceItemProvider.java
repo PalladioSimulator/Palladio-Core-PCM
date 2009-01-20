@@ -69,27 +69,27 @@ public class ControllerInstanceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addControllerScope_ResourceContainerPropertyDescriptor(object);
 			addUpperControllerAllocationConnectors_ControllerInstancePropertyDescriptor(object);
+			addControllerLayer_ControllerInstancePropertyDescriptor(object);
 			addLowerControllerAllocationConnectors_ControllerInstancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Controller Scope Resource Container feature.
+	 * This adds a property descriptor for the Controller Layer Controller Instance feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addControllerScope_ResourceContainerPropertyDescriptor(Object object) {
+	protected void addControllerLayer_ControllerInstancePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ControllerInstance_controllerScope_ResourceContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerInstance_controllerScope_ResourceContainer_feature", "_UI_ControllerInstance_type"),
-				 ResourceenvironmentPackage.Literals.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER,
+				 getString("_UI_ControllerInstance_controllerLayer_ControllerInstance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerInstance_controllerLayer_ControllerInstance_feature", "_UI_ControllerInstance_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE,
 				 true,
 				 false,
 				 true,

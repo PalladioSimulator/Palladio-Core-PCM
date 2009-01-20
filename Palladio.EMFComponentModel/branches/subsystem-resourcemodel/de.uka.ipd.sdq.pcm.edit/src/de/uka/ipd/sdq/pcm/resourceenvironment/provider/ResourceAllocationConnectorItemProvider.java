@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.pcm.allocation.provider.ResourceProvidedRoleConnectorItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -68,25 +69,25 @@ public class ResourceAllocationConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProcessingResourceSpecification_ResourceAllocationConnectorPropertyDescriptor(object);
+			addToProcessingResourceSpecification_ResourceAllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Processing Resource Specification Resource Allocation Connector feature.
+	 * This adds a property descriptor for the To Processing Resource Specification Resource Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProcessingResourceSpecification_ResourceAllocationConnectorPropertyDescriptor(Object object) {
+	protected void addToProcessingResourceSpecification_ResourceAllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceAllocationConnector_processingResourceSpecification_ResourceAllocationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceAllocationConnector_processingResourceSpecification_ResourceAllocationConnector_feature", "_UI_ResourceAllocationConnector_type"),
-				 ResourceenvironmentPackage.Literals.RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR,
+				 getString("_UI_ResourceAllocationConnector_toProcessingResourceSpecification_ResourceAllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceAllocationConnector_toProcessingResourceSpecification_ResourceAllocationConnector_feature", "_UI_ResourceAllocationConnector_type"),
+				 ResourceenvironmentPackage.Literals.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
