@@ -36,7 +36,11 @@ public class ParameterCollectionIteratorActionEditHelperAdvice extends
 		ResourceDemandingSEFF seff = null;
 
 		seff = getSEFF(request.getElementToConfigure());
-		signature = seff.getDescribedService__SEFF();
+		// Hauck 2008.11.19 Temporary cast to Signature
+		// TODO Caution: Since AbstractService can also be a ResourceService,
+		// this has to be adapted!
+		signature = (Signature)seff.getDescribedService__SEFF();
+		//signature = seff.getDescribedService__SEFF();
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(ResourceDemandingSEFF.class);

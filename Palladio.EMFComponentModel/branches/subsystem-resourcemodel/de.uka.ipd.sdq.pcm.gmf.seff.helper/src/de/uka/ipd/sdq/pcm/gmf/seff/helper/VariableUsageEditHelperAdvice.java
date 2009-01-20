@@ -146,7 +146,11 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		EObject current = elementToConfigure;
 		while (current != null && !(current instanceof ResourceDemandingSEFF))
 			current = current.eContainer();
-		return ((ResourceDemandingSEFF)current).getDescribedService__SEFF();
+		// Hauck 2008.11.19 Temporary cast to Signature
+		// TODO Caution: Since AbstractService can also be a ResourceService,
+		// this has to be adapted!
+		return (Signature)((ResourceDemandingSEFF)current).getDescribedService__SEFF();
+		//return ((ResourceDemandingSEFF)current).getDescribedService__SEFF();
 	}
 
 	private ICommand caseExternalCallActionInputParameter(
