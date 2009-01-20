@@ -7,7 +7,6 @@ Bundle-Activator: de.uka.ipd.sdq.featureinstance.FeatureModelInstancePlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.editors,
- de.uka.ipd.sdq.identifier,
  org.eclipse.jface.text,
  org.eclipse.ui.ide,
  de.uka.ipd.sdq.featuremodel,
@@ -15,8 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  org.eclipse.core.resources,
  de.uka.ipd.sdq.featuremodel.edit,
- de.uka.ipd.sdq.identifier.edit,
  de.uka.ipd.sdq.featureconfig,
  de.uka.ipd.sdq.featureconfig.edit,
  de.uka.ipd.sdq.dialogs,
- de.uka.ipd.sdq.pcm.gmf.usage
+ de.uka.ipd.sdq.identifier.edit;bundle-version="2.0.0"
