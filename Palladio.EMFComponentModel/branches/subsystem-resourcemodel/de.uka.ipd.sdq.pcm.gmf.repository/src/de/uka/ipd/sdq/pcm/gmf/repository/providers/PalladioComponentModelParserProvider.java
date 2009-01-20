@@ -236,7 +236,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	protected IParser createSignature_3101Parser() {
 		EAttribute[] features = new EAttribute[] { RepositoryPackage.eINSTANCE
-				.getSignature_ServiceName(), };
+				.getAbstractService_ServiceName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
@@ -260,8 +260,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createResourceService_3106Parser() {
-		EAttribute[] features = new EAttribute[] { ResourcetypePackage.eINSTANCE
-				.getResourceService_ServiceName(), };
+		EAttribute[] features = new EAttribute[] { RepositoryPackage.eINSTANCE
+				.getAbstractService_ServiceName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
