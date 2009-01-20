@@ -15,6 +15,7 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
@@ -64,8 +65,16 @@ public class OpenStoExDialog extends OpenEditPolicy {
 		ResourceDemandingSEFF seff = getSEFF(
 				rv);
 
-		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
-			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+		// Hauck 2008.11.19: Test first if Seff has a Signature. It could also be a ResourceService!
+		// TODO: return demand parameter if Seff has a ResourceService
+		if (seff != null && seff.getDescribedService__SEFF() != null) {
+			if (seff.getDescribedService__SEFF() instanceof Signature) {
+				Signature sig = (Signature)seff.getDescribedService__SEFF();
+				if (sig.getParameters__Signature() != null) {
+					parameters = (Parameter[]) sig.getParameters__Signature().toArray();
+				}
+			}
+		}
 
 		return parameters;
 	}
