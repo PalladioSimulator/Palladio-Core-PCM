@@ -7,4 +7,8 @@
     <resourceServices_ResourceInterface serviceName="read"/>
     <resourceServices_ResourceInterface serviceName="write"/>
   </interfaces__Repository>
+  <interfaces__Repository xsi:type="_1:ResourceInterface" id="_dkJXQdNwEd2_dM80-WIC0Q" entityName="IJvm">
+    <resourceServices_ResourceInterface serviceName="iadd"/>
+    <resourceServices_ResourceInterface serviceName="imul"/>
+  </interfaces__Repository>
 </Repository>
