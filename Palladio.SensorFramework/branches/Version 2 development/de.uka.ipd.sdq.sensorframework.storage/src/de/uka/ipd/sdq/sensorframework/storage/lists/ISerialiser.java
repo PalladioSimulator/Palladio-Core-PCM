@@ -19,7 +19,7 @@ public interface ISerialiser<T> {
 	 * @param count The number of elements to serialise
 	 * @return The elements in their serialised form
 	 */
-	byte[] serialise(Object[] objects,int count);
+	byte[] serialise(Object[] objects, int count);
 	
 	
 	/** Convert a serialised form into an array of elements of the serialiser's type
