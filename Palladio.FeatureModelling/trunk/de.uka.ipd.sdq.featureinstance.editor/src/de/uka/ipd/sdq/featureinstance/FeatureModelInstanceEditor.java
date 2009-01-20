@@ -60,8 +60,6 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import com.sun.org.apache.bcel.internal.generic.GOTO;
-
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
@@ -69,10 +67,11 @@ import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.impl.featureconfigFactoryImpl;
 import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.Node;
+import de.uka.ipd.sdq.featuremodel.Simple;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
@@ -643,8 +642,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			treeViewer.setGrayed(root.getRootFeature(), true);
 
 			//Gray FeatureGroups
-			Node curRoot = root.getRootFeature();
-			grayFeatureGroups(curRoot);
+			Feature curRoot = root.getRootFeature();
+			//grayFeatureGroups(curRoot);
 		}
 		
 		if (defaultConfig != null) {
@@ -827,6 +826,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	}
 	
 	/**
+	 * Checks, if any siblings of the selected Node are also selected
+	 * 
 	 * @param current
 	 * @return <code>true</code> if there are any siblings of current checked
 	 * 		   <code>false</code> otherwise
@@ -840,23 +841,35 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			EList<Feature> children = ((FeatureGroup) parent).getChildren();
 			Iterator<Feature> tempIter = children.iterator();
 			Feature next;
-			loop: while(tempIter.hasNext()) {
+			while(tempIter.hasNext()) {
 				next = tempIter.next();
 				if (treeViewer.getChecked(next)) {
 					checked = true;
-					break loop;
 				}
 			}
 		}
 		else if (parent instanceof Feature) {
-			EList<Node> children = ((Feature) parent).getChildren();
-			Iterator<Node> tempIter = children.iterator();
-			Node next;
-			loop: while(tempIter.hasNext()) {
-				next = tempIter.next();
-				if (treeViewer.getChecked(next)) {
-					checked = true;
-					break loop;
+			ChildRelation childRel = ((Feature) parent).getChildrelation();
+			if (!(childRel instanceof FeatureGroup)) {
+				EList<Feature> childrenMan = ((Simple)childRel).getMandatoryChildren();
+				EList<Feature> childrenOpt = ((Simple)childRel).getOptionalChildren();
+				
+				Iterator<Feature> manIter = childrenMan.iterator();
+				Feature next;
+				while(manIter.hasNext()) {
+					next = manIter.next();
+					if (treeViewer.getChecked(next)) {
+						checked = true;
+					}
+				}
+				if (!checked) {
+					Iterator<Feature> optIter = childrenOpt.iterator();
+					while(optIter.hasNext()) {
+						next = optIter.next();
+						if (treeViewer.getChecked(next)) {
+							checked = true;
+						}
+					}
 				}
 			}
 		}
@@ -871,7 +884,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @param curRoot The root Node, where the graying should be started
 	 * @deprecated not necessary any more after the model changes (no FeatureGroups)
 	 */
-	public void grayFeatureGroups (Node curRoot) {
+	public void grayFeatureGroups (Feature curRoot) {
+		//TODO: Parameter needs to be changed, cause Node doesnt exist anymore and Feature doesnt make sense
 		if (curRoot != null) {
 			if (curRoot instanceof FeatureGroup) {
 				treeViewer.setGrayed(curRoot, true);
@@ -881,13 +895,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					grayFeatureGroups(nodesIter.next());
 				}
 			}
-			else if(curRoot instanceof Feature) {
-				EList<Node> nodes = ((Feature)curRoot).getChildren();
-				Iterator<Node> nodesIter = nodes.iterator();
+			/*else if(curRoot instanceof Feature) {
+				EList<Feature> nodes = ((Feature)curRoot).getChildrelation();
+				Iterator<Feature> nodesIter = nodes.iterator();
 				while (nodesIter.hasNext()) {
 					grayFeatureGroups(nodesIter.next());
 				}
-			}
+			}*/
 			
 		
 		}
@@ -1020,7 +1034,7 @@ class TreeLabelProvider implements ILabelProvider {
 			return ((Feature)element).getName();
 		}
 		else if (element instanceof FeatureGroup) {
-			return "FeatureGroup: " + ((FeatureGroup)element).getName();
+			return "FeatureGroup; Min: " + ((FeatureGroup)element).getMin() + ", Max: " + ((FeatureGroup)element).getMax();
 		}
 		return null;
 	}
@@ -1051,15 +1065,30 @@ class TreeContentProvider implements ITreeContentProvider {
 	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof Feature) {
-			return ((Feature)parentElement).getChildren().toArray();
+			Object [] children;
+			ChildRelation childRel = ((Feature)parentElement).getChildrelation();
+			if (childRel instanceof Simple) {
+				Object [] mandatory = ((Simple)childRel).getMandatoryChildren().toArray();
+				Object [] optional = ((Simple)childRel).getOptionalChildren().toArray();
+				children = new Object [mandatory.length + optional.length];
+				
+				System.arraycopy(mandatory, 0, children, 0, mandatory.length);
+				System.arraycopy(optional, 0, children, mandatory.length, optional.length);
+			}
+			//childRel is FeatureGroup
+			else {
+				children = new Object[1];
+				children[0] = ((FeatureGroup)childRel);
+			}
+			return children;
+		}
+		else if (parentElement instanceof FeatureGroup) {
+			return ((FeatureGroup)parentElement).getChildren().toArray();
 		}
 		else if (parentElement instanceof FeatureDiagram) {
 			Object [] newArray = new Object[1];
 			newArray[0] = ((FeatureDiagram)parentElement).getRootFeature();
 			return newArray;
-		}
-		else if (parentElement instanceof FeatureGroup) {
-			return ((FeatureGroup)parentElement).getChildren().toArray();
 		}
 			return null;
 	}
@@ -1073,13 +1102,29 @@ class TreeContentProvider implements ITreeContentProvider {
 
 	@Override
 	public boolean hasChildren(Object element) {
+		boolean children = true;
 		if (element instanceof Feature) {
-			return (((Feature) element).getChildren().size() != 0);	
+			ChildRelation childRel = ((Feature)element).getChildrelation();
+			if (childRel == null) {
+				children = false;
+			}
+			else if (childRel instanceof Simple) {
+				if ((((Simple)childRel).getMandatoryChildren().size() == 0) && (((Simple)childRel).getOptionalChildren().size() == 0)) {
+					children = false;
+				}
+			}
+			else {
+				if (((FeatureGroup)childRel).getChildren().size() == 0) {
+					children = false;
+				}
+			}
 		}
 		else if (element instanceof FeatureGroup) {
-			return (((FeatureGroup) element).getChildren().size() != 0);	
+			if (((FeatureGroup) element).getChildren().size() == 0) {
+				children = false;
+			}
 		}
-		return false;
+		return children;
 	}
 
 	@Override
