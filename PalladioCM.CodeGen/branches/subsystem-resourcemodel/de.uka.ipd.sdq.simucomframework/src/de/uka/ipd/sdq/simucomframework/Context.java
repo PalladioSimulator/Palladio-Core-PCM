@@ -45,6 +45,8 @@ public abstract class Context extends StackContext {
 			this.registry = myModel.getResourceRegistry();
 			this.myModel = myModel;
 			initialiseAssemblyContextLookup();
+			initialiseAllocationConnectors();
+			
 		} else {
 			stack.createAndPushNewStackFrame();
 		}
@@ -62,6 +64,20 @@ public abstract class Context extends StackContext {
 				.get(assemblyContextID);
 		if (container == null)
 			throw new ResourceContainerNotFound("Resource container for assembly context "+assemblyContextID+" not found. Check your allocation model.");
+		return container;
+	}
+	
+	/**
+	 * Lookup method to find the resource container for a given resource container ID.
+	 * @param resourceContainerID The ID of the resource container 
+	 * @return The resource container.
+	 * @author hauck
+	 */
+	public AbstractSimulatedResourceContainer findResourceContainer(String resourceContainerID) {
+		AbstractSimulatedResourceContainer container = registry
+		.getResourceContainer(resourceContainerID);
+		if (container == null)
+			throw new ResourceContainerNotFound("Resource container for container ID "+resourceContainerID+" not found. Check your allocation model.");
 		return container;
 	}
 
@@ -86,6 +102,13 @@ public abstract class Context extends StackContext {
 	 * deployment specified in the allocation model 
 	 */
 	protected abstract void initialiseAssemblyContextLookup();
+	
+	
+	/**
+	 * Template method to be filled in by the generator. Sets all
+	 * allocation connectors from the model. 
+	 */
+	protected abstract void initialiseAllocationConnectors();
 
 	public SimProcess getThread() {
 		return myThread;

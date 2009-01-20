@@ -49,6 +49,12 @@ class ForkContext extends Context {
 	protected void initialiseAssemblyContextLookup() {
 		// Emtpy as we use our parents allocation lookup
 	}
+	
+	@Override
+	protected void initialiseAllocationConnectors() {
+		// TODO:
+		// Probably empty. Check!
+	}
 }
 
 /**
