@@ -3,12 +3,21 @@ package de.uka.ipd.sdq.sensorframework.storage.tests;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+
+import org.junit.Test;
+
 import junit.framework.Assert;
-import junit.framework.TestCase;
 import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
-public class DoubleSerialiserTest extends TestCase {
+/**Test the behavior of the DoubleSerialiser.
+ * @author Steffen Becker
+ */
+public class DoubleSerialiserTest {
 	
+	/**Tests the serialization by saving, reloading and comparing elements.
+	 * @throws IOException
+	 */
+	@Test
 	public void testDoubleSerialiser() throws IOException {
 		File tempFile = File.createTempFile("TestDB", "lst");
 		RandomAccessFile raf = new RandomAccessFile(tempFile.getAbsolutePath(),"rw");
