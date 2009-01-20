@@ -9,20 +9,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -89,8 +86,8 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
 		EObject signature = null;
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(ProvidedRole.class);
-		filterList.add(Interface.class);
-		filterList.add(Signature.class);
+		filterList.add(AbstractInterface.class);
+		filterList.add(AbstractService.class);
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole());
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
@@ -98,13 +95,13 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
 				filterList, 
 				additionalReferences,
 				request.getElementToConfigure().eContainer());
-		dialog.setProvidedService(Signature.class);
+		dialog.setProvidedService(AbstractService.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof Signature))
+		if (!(dialog.getResult() instanceof AbstractService))
 			return new CanceledCommand();
-		signature = (Signature) dialog.getResult();
+		signature = (AbstractService) dialog.getResult();
 		
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
