@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT repository»
+«IMPORT resourcetype»
 «IMPORT seff»
 «IMPORT system»
 «IMPORT core::entity»
@@ -12,10 +13,24 @@
 	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
 «ENDDEFINE»
 
+«DEFINE PortDelegationDelegatingCall FOR ResourceService»
+	return myComponent.«this.resourceInterface_ResourceService.javaName().toFirstLower()»_«this.javaResourceService()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+«ENDDEFINE»
+
 «DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR Signature»
 	logger.debug("Entering port of composed structure «cs.entityName»");
 	«EXPAND PrePortCode FOR cs»
 	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+	«EXPAND PostPortCode FOR cs»
+	return result;
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR ResourceService»
+	logger.debug("Entering port of composed structure «cs.entityName»");
+	«EXPAND PrePortCode FOR cs»
+	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaResourceService()»(
 	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
 	«EXPAND PostPortCode FOR cs»
 	return result;

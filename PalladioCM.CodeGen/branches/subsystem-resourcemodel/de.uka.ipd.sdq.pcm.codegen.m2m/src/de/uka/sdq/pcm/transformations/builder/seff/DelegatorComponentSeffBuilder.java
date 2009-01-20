@@ -6,6 +6,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -54,10 +55,16 @@ implements ISeffBuilder {
 	}	
 	
 	public void build() {
-		for (Signature providedService : domainProvRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
-			ResourceDemandingSEFF seff = buildSeff(providedService);
-			this.createdSeffs.add(seff);
+		if (domainProvRole.getProvidedInterface__ProvidedRole() instanceof Interface) {
+			for (Signature providedService : ((Interface)domainProvRole.getProvidedInterface__ProvidedRole()).getSignatures__Interface()){
+				ResourceDemandingSEFF seff = buildSeff(providedService);
+				this.createdSeffs.add(seff);
+			}	
 		}
+		
+		// TODO
+		// Build seffs for ResourceServices?
+		
 	}
 	
 	

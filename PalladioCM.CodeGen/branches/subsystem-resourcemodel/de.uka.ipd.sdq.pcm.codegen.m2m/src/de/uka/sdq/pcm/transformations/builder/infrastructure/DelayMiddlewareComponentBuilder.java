@@ -22,10 +22,11 @@ public class DelayMiddlewareComponentBuilder extends
 	}
 
 	@Override
+	// Hauck 2008.12.23: Do not use ProcessingResourceType, but ResourceRequiredRole and ResourceService
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
 		DelegatorComponentSeffBuilder builder = super.getSeffBuilder();
-		builder.appendPreAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
-		builder.appendPostAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
+		builder.appendPreAction(new StaticInternalActionDescriptor(demandStoEx,findResourceRequiredRole(findResourceType("cpu")), findResourceService(findResourceType("cpu"), "process")));
+		builder.appendPostAction(new StaticInternalActionDescriptor(demandStoEx,findResourceRequiredRole(findResourceType("cpu")), findResourceService(findResourceType("cpu"), "process")));
 		return builder;
 	}
 

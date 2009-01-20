@@ -12,7 +12,7 @@
 // annotations of the system
 //-------------------------------
 «DEFINE DummyMethodBody(System s,RequiredRole r) FOR Signature»
-	«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(spet|spet.role_SpecifiedQoSAnnotation==r && spet.signature_SpecifiedQoSAnnation==this) AS annotations»
+	«LET s.qosAnnotations_System.specifiedExecutionTimes_QoSAnnotations.select(spet|spet.role_SpecifiedExecutionTime==r && spet.signature_SpecifiedTimeConsumption==this) AS annotations»
 		«IF annotations.size == 1»
 			double delay = (Double)ctx.evaluate("«annotations.get(0).specification_SpecifiedExecutionTime.specification.javaString()»");
 			// TODO: Maybe improve this... Because of context switches, etc...

@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
@@ -140,7 +140,8 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	 * @return the allocation context which has been found
 	 */
 	private AllocationContext findAllocationContext(
-			ResourceContainer resourceContainer, Interface interfaceToSearch) {
+			ResourceContainer resourceContainer, AbstractInterface interfaceToSearch) {
+		// Hauck 2008.11.19: Use AbstractInterface instead of Interface as parameter type
 		for (AllocationContext context : models.getAllocation().getAllocationContexts_Allocation())
 			if (context.getResourceContainer_AllocationContext() == resourceContainer && 
 					context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().size() > 0 &&

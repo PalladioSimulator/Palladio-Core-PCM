@@ -17,7 +17,7 @@
       try {
 		//Thread.sleep((long) (demand * 1000));
 		//TODO: Erstmal nur CPU, sonst hier unterscheiden!
-		String neededResource = "«this.requiredResource_ParametricResourceDemand.entityName»";
+		String neededResource = "«this.resourceRequiredRole_ParametricResourceDemand.entityName»";
 		
 		if (neededResource.toLowerCase().contains("cpu")){
 		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()

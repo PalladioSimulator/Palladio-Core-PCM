@@ -1,6 +1,7 @@
 «IMPORT system»
 «IMPORT core::composition»
 «IMPORT repository»
+«IMPORT resourcetype»
 «IMPORT core::entity»
 «IMPORT completions»
 «EXTENSION m2t_transforms::pcm»
@@ -27,6 +28,11 @@
 	public «this.className()»() {
 		logger.info("Creating composed structure «this.entityName»");
 		«EXPAND ChildMemberVarInit FOREACH this.assemblyContexts_ComposedStructure»
+		
+		«IF ResourceInterfaceRequiringEntity.isInstance(this)»
+			/* My resource context*/
+			«REM»«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity»«ENDREM»
+		«ENDIF»
 	      
 		«IF InterfaceProvidingEntity.isInstance(this)»
 			/* And finally, my ports */
@@ -58,6 +64,17 @@
          my«this.javaName()» = null;
 «ENDDEFINE»
 
+//--------------------------------------
+// Generate a getter method for every given
+// assembly context
+//--------------------------------------
+«DEFINE ChildMemberGetter FOR AssemblyContext»
+   public «this.encapsulatedComponent_AssemblyContext.fqn()» 
+         get«this.javaName()»() {
+         	return my«this.javaName()»;
+         }
+«ENDDEFINE»
+
 «DEFINE ChildMemberVarInit FOR AssemblyContext»
    my«this.javaName()» = new «this.encapsulatedComponent_AssemblyContext.fqn()»
          	(«EXPAND ComponentConstructorParametersTM FOR this»);
@@ -66,6 +83,7 @@
 «DEFINE InnerImplementation FOR ComposedStructure»
       // Composed child components member variables
       «EXPAND ChildMemberVar FOREACH this.assemblyContexts_ComposedStructure»
+      «EXPAND ChildMemberGetter FOREACH this.assemblyContexts_ComposedStructure»
             
       /**
       * Inner Structure initialisation
@@ -103,8 +121,12 @@
    private void init«this.javaName()»() {
       «this.encapsulatedComponent_AssemblyContext.fqnContext()» context = new «this.encapsulatedComponent_AssemblyContext.fqnContext()»(
          «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
-      );
+	  );
       my«this.javaName()».setContext(context);
+      «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()» resourceContext = new «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()»(
+         «EXPAND ResourcePortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity SEPARATOR ","»
+      );
+      my«this.javaName()».setResourceContext(resourceContext);
       «EXPAND ChildInitTM(s) FOR this»
    }
 «ENDDEFINE»
@@ -136,7 +158,25 @@
 				)
 			«ENDIF»
 	    «ELSE»
-	        null
+	     null
 	    «ENDIF» 
     «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ResourcePortQuery(ComposedStructure s, AssemblyContext ctx) FOR ResourceRequiredRole»
+	«IF hasResourceRequiredDelegationConnector(s,ctx,this)»
+		«IF Completion.isInstance(s)»
+			«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredResourceInterface_ResourceRequiredRole»
+			new «this.requiredResourceInterface_ResourceRequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredResourceInterface_ResourceRequiredRole.javaName()»
+			(
+		«ENDIF»
+		«LET getResourceRequiredDelegationConnector(s,ctx,this) AS connector»
+			this.myResourceContext.getRole«connector.outerResourceRequiredRole_ResourceRequiredDelegationConnector.javaName()»()
+   		«ENDLET»
+		«IF Completion.isInstance(s)»
+			)
+		«ENDIF»
+    «ELSE»
+        null
+    «ENDIF» 
 «ENDDEFINE»

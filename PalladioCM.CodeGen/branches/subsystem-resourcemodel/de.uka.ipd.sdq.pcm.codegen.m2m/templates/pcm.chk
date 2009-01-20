@@ -41,7 +41,7 @@ context UsageScenario ERROR 'Usage Scenarios need a Workload Specification':
 context BasicComponent ERROR this.entityName +': basic component must have at least a minimal SEFF for any provided method':
 	//this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));
 	this.providedRoles_InterfaceProvidingEntity.select(role|Interface.isInstance(role.providedInterface__ProvidedRole)).forAll(role|((Interface)role.providedInterface__ProvidedRole).signatures__Interface.forAll(s|s.hasSEFF(this))) &&
-	this.providedRoles_InterfaceProvidingEntity.select(role|ResourceInterface.isInstance(role.providedInterface__ProvidedRole)).forAll(role|((ResourceInterface)role.providedInterface__ProvidedRole).resourceServices_ResourceInterface.forAll(s|s.hasSEFF(this)))
+	this.providedRoles_InterfaceProvidingEntity.select(role|ResourceInterface.isInstance(role.providedInterface__ProvidedRole)).forAll(role|((ResourceInterface)role.providedInterface__ProvidedRole).resourceServices_ResourceInterface.forAll(s|s.hasSEFF(this)));
 	
 context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
 	this.assemblyContexts_ComposedStructure.forAll(ctx1|!this.assemblyContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));

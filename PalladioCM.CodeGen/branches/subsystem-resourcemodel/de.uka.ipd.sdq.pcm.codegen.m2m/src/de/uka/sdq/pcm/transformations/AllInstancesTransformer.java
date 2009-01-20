@@ -38,6 +38,7 @@ public abstract class AllInstancesTransformer<T> {
         		transform((T)eObject);
 			}
     	} catch (Exception ex) {
+    		ex.printStackTrace();
 			issues.addError("Exception during M2M transformation: " + ex.getClass().getName() + " Exception message: " + ex.getMessage());
     	}
 	}

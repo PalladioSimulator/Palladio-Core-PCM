@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«IMPORT core::entity»
 «IMPORT repository»
 «IMPORT seff::performance»
 «IMPORT resourcetype»
@@ -12,10 +13,20 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
+      //double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
+      de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx
+					.getStack().currentStackFrame();
+	// prepare stackframe
+      de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
+      stackframe.addValue("demand.VALUE", ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",
+					currentFrame));
+      myResourceContext.getRole«this.resourceRequiredRole_ParametricResourceDemand.javaName()»().«this.calledResourceService_ParametricResourceDemand.javaResourceService()» 
+	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.calledResourceService_ParametricResourceDemand»);
+      //ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole_ParametricResourceDemand.entityName»",demand);
+      ctx.getStack().removeStackFrame();
    }
 «ENDDEFINE»
+
 
 // ----------------------------
 // Templates for a simulated resource environment
@@ -30,9 +41,116 @@
 		   «EXPAND ResourceContainerInit FOR this»
 		}
 	«ENDFILE»
+	«FILE "main/ResourceRegistry.java"»
+		package main;
+		
+		import java.util.HashMap;
+		
+		/**
+		* This class manages all component instances.
+		**/
+		public class ResourceRegistry 
+		{	
+			private static HashMap<String, Object> resourceInstances = new HashMap<String, Object>();
+			
+			public static void register(String resourceID, Object resourceInstance) {
+				resourceInstances.put(resourceID, resourceInstance);
+			}
+			
+			public static Object getResourceInstance(String resourceID) {
+				return resourceInstances.get(resourceID);
+			}
+			
+		}
+	«ENDFILE»
+	«EXPAND Resources FOR this»
 «ENDDEFINE»
 
-«DEFINE ResourceContainerInit FOR ResourceEnvironment»
+// Hauck 2008.12.25
+// Template to generate interface classes of all provided resource interfaces
+«DEFINE Resources FOR resourceenvironment::ResourceEnvironment»
+	«FOREACH this.resourceContainer_ResourceEnvironment AS rc»
+		«FOREACH rc.activeResourceSpecifications_ResourceContainer.activeResourceType_ActiveResourceSpecification AS rt»
+		   «EXPAND ResourceInterfaceFile FOR rt.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole»
+		   «EXPAND ResourceFile FOREACH rc.activeResourceSpecifications_ResourceContainer»
+		«ENDFOREACH»				   
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE InterfaceFile FOR AbstractInterface»
+«IF Interface.isInstance(this)»
+«EXPAND InterfFile FOR (Interface)this»
+«ENDIF»
+«IF ResourceInterface.isInstance(this)»
+«EXPAND ResourceInterfaceFile FOR (ResourceInterface)this»
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE InterfFile FOR Interface»
+   «FILE this.fqn().fqnToDirectoryPath()+".java"»
+      package «this.repository_AbstractInterface.basePackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceInterfaceFile FOR ResourceInterface»
+   «FILE this.fqn().fqnToDirectoryPath()+".java"»
+      package «this.getPackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::ResourceService FOREACH this.resourceServices_ResourceInterface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceFile FOR ProcessingResourceSpecification»
+ «FILE ("resourceenvironment.resources."+((ResourceContainer)this.eContainer).id.javaString()+"_"+this.activeResourceType_ActiveResourceSpecification.javaName()).fqnToDirectoryPath()+".java"»
+		package resourceenvironment.resources;
+		
+            
+		public class «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» implements «this.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.fqn()» {
+		«FOREACH this.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.resourceServices_ResourceInterface AS service»
+		public «EXPAND ReturnTypeTM FOR service»
+		«service.javaResourceService()»
+		( «EXPAND ParameterListTM FOR service» ) {
+			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+			ctx.findResourceContainer("«((ResourceContainer)this.eContainer).id»").loadActiveResource(
+				ctx.getThread(), "«this.activeResourceType_ActiveResourceSpecification.entityName»", (Double) ctx
+				.evaluate("demand.VALUE", Double.class));
+			return resultStackFrame;
+		}
+		«ENDFOREACH»
+	        
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR ResourceService»
+	de.uka.ipd.sdq.simucomframework.Context ctx
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR ResourceService»
+	ctx
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR ResourceService»
+   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
+«ENDDEFINE»
+
+«DEFINE ResourceInterfaceFile FOR ResourceInterface»
+   «FILE this.fqn().fqnToDirectoryPath()+".java"»
+      package «this.getPackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::ResourceService FOREACH this.resourceServices_ResourceInterface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceContainerInit FOR resourceenvironment::ResourceEnvironment»
 	public String[] getResourceContainerIDList() {
 		return new String[] { 
 			«FOREACH this.resourceContainer_ResourceEnvironment AS rc SEPARATOR ","»
@@ -89,12 +207,17 @@
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
+
 	rc.addActiveResource(
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
 		"TODO: unit!",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
+		
+	// Create proxy for resource instance
+	resourceenvironment.resources.«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» = new resourceenvironment.resources.«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»();
+	main.ResourceRegistry.register("«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»", «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»);
 «ENDDEFINE»
 
 «REM»TODO: Refactor

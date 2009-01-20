@@ -55,19 +55,39 @@
 	de.uka.ipd.sdq.simucomframework.Context ctx
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::ParameterListTM FOR ResourceService»
+	«EXPAND m2t_transforms::sim::resources::ParameterListTM FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
 	ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR ResourceService»
+	«EXPAND m2t_transforms::sim::resources::ParameterUsageListTM FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
    de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR ResourceService»
+   «EXPAND m2t_transforms::sim::resources::ReturnTypeTM FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
    «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
 «ENDAROUND»
 
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR ResourceService»
+   «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR ResourceService»
    «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
 «ENDAROUND»
 

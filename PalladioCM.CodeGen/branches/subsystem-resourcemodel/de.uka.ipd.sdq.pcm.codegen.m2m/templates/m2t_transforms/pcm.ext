@@ -4,6 +4,7 @@ import seff;
 import system;
 import core::composition;
 import usagemodel;
+import resourcetype;
 import parameter;
 import stoex;
 import completions;
@@ -31,10 +32,16 @@ getProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
    s.providedDelegationConnectors_ComposedStructure.select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).get(0);
    
 hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
-   s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).size == 1;    
+   s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).size == 1; 
    
 getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
    s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);  
+   
+hasResourceRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, ResourceRequiredRole r) :
+   s.resourceRequiredDelegationConnectors_ComposedStructure.select(dc|dc.innerResourceRequiredRole_ResourceRequiredDelegationConnector ==  r).size == 1;
+
+getResourceRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, ResourceRequiredRole r) :
+   s.resourceRequiredDelegationConnectors_ComposedStructure.select(dc|dc.innerResourceRequiredRole_ResourceRequiredDelegationConnector ==  r).get(0);
    
 List[EntryLevelSystemCall] querySytemCallsInLoops(ScenarioBehaviour scenBe):
 	scenBe.actions_ScenarioBehaviour.typeSelect(Loop).collect(l|querySystemCalls(l.bodyBehaviour_Loop)).flatten();
@@ -99,6 +106,9 @@ hasSEFF(ResourceService service, RepositoryComponent c):
 	!BasicComponent.isInstance(c) ? false : ((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).size > 0;
 	
 getSEFF(Signature service, RepositoryComponent c):
+	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
+	
+getSEFF(ResourceService service, RepositoryComponent c):
 	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
 	
 getAllCompletions(ComposedStructure s):

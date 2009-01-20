@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT repository»
+«IMPORT resourcetype»
 «IMPORT core::entity»
 «IMPORT system»
 «IMPORT core::composition»
@@ -15,12 +16,31 @@
    «EXPAND ComponentRoot FOREACH this.components__Repository»
 «ENDDEFINE»
 
-«DEFINE InterfaceFile FOR Interface»
+«DEFINE InterfaceFile FOR AbstractInterface»
+«IF Interface.isInstance(this)»
+«EXPAND InterfFile FOR (Interface)this»
+«ENDIF»
+«IF ResourceInterface.isInstance(this)»
+«EXPAND ResourceInterfaceFile FOR (ResourceInterface)this»
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE InterfFile FOR Interface»
    «FILE this.getFileName() INTERFACES»
-      package «this.repository_Interface.basePackageName()»;
+      package «this.repository_AbstractInterface.basePackageName()»;
             
       public interface «this.javaName()» {
 	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceInterfaceFile FOR ResourceInterface»
+   «FILE this.getFileName()»
+      package «this.repository_AbstractInterface.basePackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::ResourceService FOREACH this.resourceServices_ResourceInterface SEPARATOR ";"»;
       }
    «ENDFILE»
 «ENDDEFINE»
@@ -34,6 +54,7 @@
 		«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
 	    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
 		«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+		«EXPAND m2t_transforms::resource_context_pattern::RequiredResourceInterfaces FOR this»
 		«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
 	«ENDFILE»
 	«REM»

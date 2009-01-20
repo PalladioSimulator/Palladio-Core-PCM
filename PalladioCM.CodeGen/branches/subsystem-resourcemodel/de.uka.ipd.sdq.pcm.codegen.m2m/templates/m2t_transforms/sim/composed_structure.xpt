@@ -6,6 +6,7 @@
 «EXTENSION m2t_transforms::java_names»
  
 «DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+
 	//Initialise Component Parameters
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
 		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
@@ -16,6 +17,10 @@
 			   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
 		«ENDFOREACH»
 	«ENDFOREACH»
+	
+	// Register component instance
+	main.AssemblyContextRegistry.register("«this.id.javaVariableName()»", my«this.javaName()»);
+	
 	my«this.javaName()».setComponentFrame(componentStackFrame);
 «ENDDEFINE»
  

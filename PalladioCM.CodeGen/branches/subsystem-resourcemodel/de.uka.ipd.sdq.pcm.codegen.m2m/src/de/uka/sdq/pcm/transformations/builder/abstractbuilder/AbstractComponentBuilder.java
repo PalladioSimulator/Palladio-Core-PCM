@@ -7,7 +7,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
@@ -23,6 +27,7 @@ implements IComponentBuilder {
 	protected RepositoryComponent myComponent;
 	protected ProvidedRole myProvidedRole;
 	protected RequiredRole myRequiredRole;
+	protected ResourceRequiredRole myResourceRequiredRole;
 	protected AssemblyContext myAssemblyContext;
 	protected PCMAndCompletionModelHolder myModels;
 	private static int counter = 0;
@@ -53,6 +58,14 @@ implements IComponentBuilder {
 		myComponent.getRequiredRoles_InterfaceRequiringEntity().add(result);
 		return result;
 	}
+	
+	protected ResourceRequiredRole addResourceRequiredRole(ResourceInterface resourceInterf, String roleName) {
+		ResourceRequiredRole result = ResourcetypeFactory.eINSTANCE.createResourceRequiredRole();
+		result.setRequiredResourceInterface_ResourceRequiredRole(resourceInterf);
+		result.setEntityName(roleName);
+		myComponent.getResourceRequiredRoles_ResourceInterfaceRequiringEntity().add(result);
+		return result;
+	}
 
 	public ProvidedRole getProvidedRole() {
 		return myProvidedRole;
@@ -60,6 +73,10 @@ implements IComponentBuilder {
 
 	public RequiredRole getRequiredRole() {
 		return myRequiredRole;
+	}
+	
+	public ResourceRequiredRole getResourceRequiredRole() {
+		return myResourceRequiredRole;
 	}
 	
 	protected int getNextCounter(){
@@ -81,5 +98,23 @@ implements IComponentBuilder {
 				return (ProcessingResourceType) type;
 		}
 		throw new RuntimeException("Neccessary resourcetype "+nameFragment+" not found");
+	}
+	
+	// Hauck 2008.12.23: New lookup method for resource service
+	protected ResourceService findResourceService(ProcessingResourceType resourceType, String nameFragment) {
+		for (ResourceService service: resourceType.getResourceProvidedRole_ResourceInterfaceProvidingEntity().getProvidedResourceInterface_ResourceProvidedRole().getResourceServices_ResourceInterface()) {
+			if (service.getServiceName().toLowerCase().contains(nameFragment.toLowerCase())) {
+				return service;
+			}
+		}
+		throw new RuntimeException("Neccessary resourceservice "+nameFragment+" not found");
+	}
+	
+	// Hauck 2008.12.23: New lookup method for resource required role
+	protected ResourceRequiredRole findResourceRequiredRole(ProcessingResourceType resourceType) {
+		if (myResourceRequiredRole.getRequiredResourceInterface_ResourceRequiredRole().equals(resourceType.getResourceProvidedRole_ResourceInterfaceProvidingEntity().getProvidedResourceInterface_ResourceProvidedRole())) {
+			return myResourceRequiredRole;
+		}
+		throw new RuntimeException("Neccessary resourcerequiredrole for resource "+resourceType.getEntityName()+" not found");
 	}
 }

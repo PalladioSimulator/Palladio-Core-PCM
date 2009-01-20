@@ -13,6 +13,7 @@
 	«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
     «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
 	«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	«EXPAND m2t_transforms::resource_context_pattern::RequiredResourceInterfaces FOR this»
 	«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
 	«EXPAND SystemAdditionsTM FOR this»
 «ENDDEFINE»

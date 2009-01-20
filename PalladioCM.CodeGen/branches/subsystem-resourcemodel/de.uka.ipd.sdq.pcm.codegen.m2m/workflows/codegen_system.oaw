@@ -55,7 +55,7 @@
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
 			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
         <prExcludes value=".svn"/>		
-	</component>	
+	</component>
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
 		<advices value="${aop_templates}"/>
@@ -108,5 +108,5 @@
 
 	<component adviceTarget="generator2" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
 		<advices value="${aop_templates}"/>
-	</component>	
+	</component>
 </workflow>

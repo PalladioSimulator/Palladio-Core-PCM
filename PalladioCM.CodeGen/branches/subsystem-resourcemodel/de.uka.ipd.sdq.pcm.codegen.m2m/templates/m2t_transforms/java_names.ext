@@ -1,6 +1,8 @@
 import core::entity;
 import entity;
 import repository;
+import resourcetype;
+import resourceenvironment;
 import system;
 import core::composition;
 import usagemodel;
@@ -30,10 +32,17 @@ specificationString(String s) :
  
 String javaSignature(Signature s) :
    s.serviceName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
+   
+String javaResourceService(ResourceService s) :
+   s.serviceName + s.posInResourceInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
          
 // TODO: Disable in Code Generations!
 String posInInterface(Signature s, int pos) :
-	s.interface_Signature.signatures__Interface.get(pos) == s ? pos : s.posInInterface(pos+1); 
+	s.interface_Signature.signatures__Interface.get(pos) == s ? pos : s.posInInterface(pos+1);
+	
+// TODO: Disable in Code Generations!
+String posInResourceInterface(ResourceService s, int pos) :
+	s.resourceInterface_ResourceService.resourceServices_ResourceInterface.get(pos) == s ? pos : s.posInResourceInterface(pos+1); 
 	
 // ID of a single port class
 portClassName(ProvidedRole r) :
@@ -42,15 +51,22 @@ portClassName(ProvidedRole r) :
 // Name of the class containing the interfaces of the required roles
 contextClassName(InterfaceRequiringEntity c) :
    c.javaName()+"Context";
+
+// Name of the class containing the resource interfaces of the required roles
+resourceContextClassName(ResourceInterfaceRequiringEntity c) :
+   c.javaName()+"ResourceContext";
    
 contextInterfaceName(InterfaceRequiringEntity c) :
    "I"+c.javaName()+"Context";
+   
+contextResourceInterfaceName(ResourceInterfaceRequiringEntity c) :
+   "I"+c.javaName()+"ResourceContext";
    
 // ID of a member variable used in the main component implementation to store the singleton port
 // instance
 portMemberVar(ProvidedRole r) :
    "m_port"+r.providedInterface__ProvidedRole.javaName();
-   
+
 // Name of the getter Method used to get the singleton port instances
 // of the provided ports
 portGetter(ProvidedRole r) :
@@ -66,6 +82,10 @@ implementationPackage(Entity e) :
 // Base package of the implementation of an abstract interface
 implementationPackage(AbstractInterface i) :
    i.repository_AbstractInterface.basePackageName();
+   
+// Base package of the implementation of an infrastructure component scope
+implementationPackage(InfrastructureComponentScope i) :
+   i.basePackageName()+".impl";
    
 // Base package of the implementation of a system
 implementationPackage(System s) :
@@ -102,12 +122,21 @@ fqn(Entity e) :
 
 fqn(Interface i) :
   i.implementationPackage()+"."+i.javaName();
+
+fqn(ResourceInterface i) :
+  i.implementationPackage()+"."+i.javaName();
+
+//fqn(ResourceContainer rc, ProcessingResourceSpecification p) :
+//  "resourceenvironment.resources."+rc.id+"_"+p.activeResourceType_ActiveResourceSpecification.javaName();
      
 fqn(RepositoryComponent c) :
   c.implementationPackage()+"."+c.javaName();
 
 fqn(System s) :
   s.implementationPackage()+"."+s.javaName();
+  
+fqn(InfrastructureComponentScope i) :
+  i.implementationPackage()+"."+i.javaName();
 
 // Completion should be matched by RepositoryComponent
 //fqn(Completion s) :
@@ -121,9 +150,18 @@ fqnContextPackage(Entity c) :
 
 fqnContext(InterfaceRequiringEntity c) :
   c.fqnContextPackage()+"."+c.contextClassName();
+  
+fqnContext(InfrastructureComponentScope i) :
+  i.fqnContextPackage()+"."+i.contextClassName();
+
+fqnResourceContext(ResourceInterfaceRequiringEntity c) :
+  c.fqnContextPackage()+"."+c.resourceContextClassName();
 
 fqnContextInterface(InterfaceRequiringEntity c) :
   c.fqnContextPackage()+".I"+c.contextClassName();
+  
+fqnContextResourceInterface(ResourceInterfaceRequiringEntity c) :
+  c.fqnContextPackage()+".I"+c.resourceContextClassName();
 
 fqnPortPackage(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports";
@@ -157,4 +195,7 @@ fqnToDirectoryPath(String fqn) :
         
 getFileName(Entity e) :
   e.implementationPackage().fqnToDirectoryPath()+"/"+e.javaName()+".java";
+  
+getPackageName(ResourceInterface e) :
+  e.implementationPackage();
   

@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT repository»
+«IMPORT resourcetype»
 «IMPORT seff»
 «IMPORT system»
 «IMPORT core::entity»
@@ -47,7 +48,7 @@
 	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent){
 	        this.myComponent = myComponent;
 	     }
-	     «EXPAND PortDelegator FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
+	     «EXPAND PortDelegator FOR this.providedInterface__ProvidedRole»
 	  }
 «ENDDEFINE»
 
@@ -63,10 +64,18 @@
 	     public «this.portClassName()»(«this.providedInterface__ProvidedRole.fqn()» myInnerPort){
 	        this.myInnerPort = myInnerPort;
 	     }
-	     «EXPAND ComposedStructurePortDelegator(cs) FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
+	     «EXPAND ComposedStructurePortDelegator(cs) FOR this.providedInterface__ProvidedRole»
 	  }
 «ENDDEFINE»
 
+«DEFINE PortDelegator FOR AbstractInterface»
+«IF Interface.isInstance(this)»
+	«EXPAND PortDelegator FOREACH ((Interface)this).signatures__Interface»
+«ENDIF»
+«IF ResourceInterface.isInstance(this)»
+	«EXPAND PortDelegator FOREACH ((ResourceInterface)this).resourceServices_ResourceInterface»
+«ENDIF»
+«ENDDEFINE»
 
 «DEFINE PortDelegator FOR Signature»
    public «EXPAND m2t_transforms::java_core::Signature FOR this» {
@@ -74,8 +83,29 @@
    }   
 «ENDDEFINE»
 
-«DEFINE ComposedStructurePortDelegator(ComposedProvidingRequiringEntity cs) FOR Signature»
+«DEFINE PortDelegator FOR ResourceService»
+   public «EXPAND m2t_transforms::java_core::ResourceService FOR this» {
+   	  «EXPAND PortDelegationDelegatingCallTM FOR this»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegator(ComposedProvidingRequiringEntity cs) FOR AbstractInterface»
+	«IF Interface.isInstance(this)»
+		«EXPAND ComposedStructurePortDelegatorSignature(cs) FOREACH ((Interface)this).signatures__Interface»
+	«ENDIF»
+   «IF ResourceInterface.isInstance(this)»
+		«EXPAND ComposedStructurePortDelegatorResourceService(cs) FOREACH ((ResourceInterface)this).resourceServices_ResourceInterface»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegatorSignature(ComposedProvidingRequiringEntity cs) FOR Signature»
    public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+   	  «EXPAND ComposedStructurePortDelegationDelegatingCallTM(cs) FOR this»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegatorResourceService(ComposedProvidingRequiringEntity cs) FOR ResourceService»
+   public «EXPAND m2t_transforms::java_core::ResourceService FOR this» {
    	  «EXPAND ComposedStructurePortDelegationDelegatingCallTM(cs) FOR this»
    }   
 «ENDDEFINE»
@@ -84,7 +114,15 @@
 	«ERROR "PortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
+«DEFINE PortDelegationDelegatingCallTM FOR ResourceService»
+	«ERROR "PortDelegationDelegatingCallTM must be overridden"»
+«ENDDEFINE»
+
 «DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+	«ERROR "ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR ResourceService»
 	«ERROR "ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 

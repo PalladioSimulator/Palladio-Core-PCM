@@ -1,16 +1,18 @@
 package de.uka.sdq.pcm.transformations.builder.seff;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 
 public abstract class SignatureDependentInternalActionDescriptor extends
 		AbstractInternalActionDescriptor implements ISignatureDependentAction {
 
 	protected Signature currentSignature;
 
+	// Hauck 2008.11.19: Do not use ProcessingResourceType, but ResourceRequiredRole and ResourceService
 	public SignatureDependentInternalActionDescriptor(
-			ProcessingResourceType resourceType) {
-		super(resourceType);
+			ResourceRequiredRole role, ResourceService service) {
+		super(role, service);
 	}
 
 	/* (non-Javadoc)

@@ -28,6 +28,7 @@
 						«system.fqn()» my«system.javaName()» = new «system.fqn()»();
 						«EXPAND UsageScenarioConstructorContextInit FOR system»
 					«ENDFOREACH»
+					
 				return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
 					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
 				};
@@ -38,6 +39,30 @@
 			protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
 				return new ResourceEnvironment();
 			}
+		}
+	«ENDFILE»
+	«FILE "main/AssemblyContextRegistry.java"»
+		package main;
+		
+		import java.util.HashMap;
+		
+		/**
+		* This class manages all component instances.
+		**/
+		public class AssemblyContextRegistry 
+		{	
+			private static HashMap<String, Object> componentInstances = new HashMap<String, Object>();
+			
+			public static void register(String assemblyContextID, Object componentInstance) {
+			System.err.println("Registering: " + assemblyContextID); 
+				componentInstances.put(assemblyContextID, componentInstance);
+			}
+			
+			public static Object getComponentInstance(String assemblyContextID) {
+			System.err.println("Retrieving: " + assemblyContextID);
+				return componentInstances.get(assemblyContextID);
+			}
+			
 		}
 	«ENDFILE»
 «ENDDEFINE»

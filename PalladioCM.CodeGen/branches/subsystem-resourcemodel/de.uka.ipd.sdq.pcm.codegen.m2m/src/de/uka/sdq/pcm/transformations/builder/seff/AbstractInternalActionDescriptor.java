@@ -2,7 +2,9 @@ package de.uka.sdq.pcm.transformations.builder.seff;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
@@ -14,12 +16,25 @@ import de.uka.ipd.sdq.pcm.seff.performance.PerformanceFactory;
  */
 public abstract class AbstractInternalActionDescriptor extends AbstractActionDescriptor {
 
-	private ProcessingResourceType resourceType;
+	// Hauck 2008.11.19: Do not use ProcessingResourceType, but ResourceRequiredRole and ResourceService
+	// TODO communicationLinkResourceType only is used if needed
+	private CommunicationLinkResourceType communicationLinkResourceType = null;
+	private ResourceService resourceService;
+	private ResourceRequiredRole resourceRequiredRole;
 	
+	// Hauck 2008.11.19: Do not use ProcessingResourceType, but ResourceRequiredRole and ResourceService
 	public AbstractInternalActionDescriptor(
-			ProcessingResourceType resourceType) {
+			ResourceRequiredRole role, ResourceService service) {
 		super();
-		this.resourceType = resourceType;
+		this.resourceRequiredRole = role;
+		this.resourceService = service;
+	}
+	
+	// Constructor for InternalActions that use CommunicationLinkResourceTypes
+	public AbstractInternalActionDescriptor(
+			CommunicationLinkResourceType type) {
+		super();
+		this.communicationLinkResourceType = type;
 	}
 
 	public abstract String getResourceDemand();
@@ -27,19 +42,35 @@ public abstract class AbstractInternalActionDescriptor extends AbstractActionDes
 	/**
 	 * @return
 	 */
-	public ProcessingResourceType getResourceType() {
-		return resourceType;
+	public ResourceRequiredRole getResourceRequiredRole() {
+		return resourceRequiredRole;
+	}
+	
+	/**
+	 * @return
+	 */
+	public ResourceService getResourceService() {
+		return resourceService;
 	}
 
 	@Override
 	public AbstractAction createAction() {
-		return createInternalAction(getResourceType(), getResourceDemand());
+		return createInternalAction(getResourceRequiredRole(), getResourceService(), getResourceDemand());
 	}
 
-	private InternalAction createInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
+	// Hauck 2008.11.19: Do not use ProcessingResourceType, but ResourceRequiredRole and ResourceService
+	private InternalAction createInternalAction(ResourceRequiredRole role, ResourceService service, String resourceDemandSpec) {
+		// TODO CommunicationLinkResourceTypes do not have ResourceInterfaceProvidingRoles!
+		// Specify resource demand in a different way!
+		if (communicationLinkResourceType != null) {
+			InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
+			// TODO Specify resource demand here!
+			return action;
+		}
 		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
 		ParametricResourceDemand d = PerformanceFactory.eINSTANCE.createParametricResourceDemand();
-		d.setRequiredResource_ParametricResourceDemand(type);
+		d.setResourceRequiredRole_ParametricResourceDemand(role);
+		d.setCalledResourceService_ParametricResourceDemand(service);
 		PCMRandomVariable specification = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		specification.setSpecification(getSaveResourceDemand(resourceDemandSpec));
 		d.setSpecification_ParametericResourceDemand(specification);

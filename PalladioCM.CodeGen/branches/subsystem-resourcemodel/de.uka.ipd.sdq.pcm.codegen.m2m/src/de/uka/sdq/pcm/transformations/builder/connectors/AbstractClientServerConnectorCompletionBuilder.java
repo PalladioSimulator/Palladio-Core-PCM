@@ -31,7 +31,9 @@ implements IClientServerConnectorCompletionComponentBuilder {
 			IComponentBuilder innerBuilder) {
 		super(models, connector);
 		
-		middlewareInterface = models.getMiddlewareRepository().getInterfaces__Repository().get(0);
+		// TODO
+		// What if middlewareInterface is a ResourceInterface?
+		middlewareInterface = (Interface)models.getMiddlewareRepository().getInterfaces__Repository().get(0);
 		this.fromResourceContainer = fromResourceContainer;
 		this.toResourceContainer = toResourceContainer;
 		this.innerBuilder = innerBuilder;
