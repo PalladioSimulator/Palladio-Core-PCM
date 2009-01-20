@@ -239,7 +239,7 @@
     <packageImport xmi:id="_hNlMJOMTEd2JfbkN3aMA7A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Package" xmi:id="_8sFlIOMSEd2JfbkN3aMA7A" name="repository">
+    <packagedElement xmi:type="uml:Package" xmi:id="_8sFlIOMSEd2JfbkN3aMA7A" name="repositorydecorator">
       <eAnnotations xmi:id="_8sFlIeMSEd2JfbkN3aMA7A" source="uml2.diagrams">
         <contents xmi:type="notation:Diagram" xmi:id="_BRx94OMTEd2JfbkN3aMA7A" type="Class" name="repositoryResultDecorator">
           <children xmi:id="_F5kBUOMTEd2JfbkN3aMA7A">
@@ -349,7 +349,9 @@
         <ownedAttribute xmi:id="_QgSvcOMTEd2JfbkN3aMA7A" name="normalisedResourceDemand" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_M8SgUOZMEd2JfbkN3aMA7A" name="normalisedResponseTime" visibility="public" type="_OcQeQeZMEd2JfbkN3aMA7A"/>
+        <ownedAttribute xmi:id="_M8SgUOZMEd2JfbkN3aMA7A" name="normalisedResponseTime" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_K8UJgOMTEd2JfbkN3aMA7A" memberEnd="_K8UJgeMTEd2JfbkN3aMA7A _K8UJhOMTEd2JfbkN3aMA7A">
         <ownedEnd xmi:id="_K8UJhOMTEd2JfbkN3aMA7A" name="interfaceprovidingrequiringentityresults" visibility="public" type="_GwsdoOMTEd2JfbkN3aMA7A" association="_K8UJgOMTEd2JfbkN3aMA7A">
@@ -358,7 +360,7 @@
         </ownedEnd>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_8S-XAOMREd2JfbkN3aMA7A" name="resourceenvironment">
+    <packagedElement xmi:type="uml:Package" xmi:id="_8S-XAOMREd2JfbkN3aMA7A" name="resourceenvironmentdecorator">
       <eAnnotations xmi:id="_8S-XAeMREd2JfbkN3aMA7A" source="uml2.diagrams">
         <contents xmi:type="notation:Diagram" xmi:id="_-Lq-AOMREd2JfbkN3aMA7A" type="Class" name="resourceenvironmentResultDecorator">
           <children xmi:id="_A2JAMOMSEd2JfbkN3aMA7A">
@@ -616,7 +618,9 @@
         <ownedAttribute xmi:id="_Ryh2gOZMEd2JfbkN3aMA7A" name="normalisedDemandedTime" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_cAOZkOZMEd2JfbkN3aMA7A" name="normalisedWaitTime" visibility="public" type="_OcQeQeZMEd2JfbkN3aMA7A"/>
+        <ownedAttribute xmi:id="_cAOZkOZMEd2JfbkN3aMA7A" name="normalisedWaitTime" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_m6tjgOMSEd2JfbkN3aMA7A" memberEnd="_m6tjgeMSEd2JfbkN3aMA7A _m6tjhOMSEd2JfbkN3aMA7A">
         <ownedEnd xmi:id="_m6tjhOMSEd2JfbkN3aMA7A" name="" visibility="private" type="_Pw1d4OMSEd2JfbkN3aMA7A" association="_m6tjgOMSEd2JfbkN3aMA7A">
@@ -647,9 +651,6 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_U9xpkOMiEd2JfbkN3aMA7A" memberEnd="_U9xpkeMiEd2JfbkN3aMA7A _U9xplOMiEd2JfbkN3aMA7A">
       <ownedEnd xmi:id="_U9xplOMiEd2JfbkN3aMA7A" name="" visibility="private" type="_Qt1eYOMiEd2JfbkN3aMA7A" association="_U9xpkOMiEd2JfbkN3aMA7A"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_OcQeQOZMEd2JfbkN3aMA7A" name="PrimitiveTypes">
-      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_OcQeQeZMEd2JfbkN3aMA7A" name="EDouble"/>
-    </packagedElement>
     <profileApplication xmi:id="_hNlMJeMTEd2JfbkN3aMA7A">
       <eAnnotations xmi:id="_hNlMJuMTEd2JfbkN3aMA7A" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -675,7 +676,7 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_tiuj4OMTEd2JfbkN3aMA7A" base_Package="_8sFlIOMSEd2JfbkN3aMA7A" packageName="repository" nsURI="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0" prefix="Repository"/>
-  <Ecore:EPackage xmi:id="_ugt2IOMTEd2JfbkN3aMA7A" base_Package="_8S-XAOMREd2JfbkN3aMA7A" packageName="resourceenvironment" nsURI="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0" basePackage="" prefix="ResourceEnvironment"/>
+  <Ecore:EPackage xmi:id="_tiuj4OMTEd2JfbkN3aMA7A" base_Package="_8sFlIOMSEd2JfbkN3aMA7A" packageName="repositorydecorator" nsPrefix="repositorydecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0" basePackage="" prefix="Repository"/>
+  <Ecore:EPackage xmi:id="_ugt2IOMTEd2JfbkN3aMA7A" base_Package="_8S-XAOMREd2JfbkN3aMA7A" packageName="resourceenvironmentdecorator" nsPrefix="resourceenvironmentdecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0" basePackage="" prefix="ResourceEnvironment"/>
   <Ecore:EPackage xmi:id="_vQP1oOMTEd2JfbkN3aMA7A" base_Package="_hNlMIOMTEd2JfbkN3aMA7A" packageName="resultdecorator" nsPrefix="resultdecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/1.0" basePackage="de.uka.ipd.sdq.pcm" prefix="Resultdecorator"/>
 </xmi:XMI>
