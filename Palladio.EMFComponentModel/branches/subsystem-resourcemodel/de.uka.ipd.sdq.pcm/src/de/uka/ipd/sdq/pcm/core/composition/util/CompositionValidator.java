@@ -103,12 +103,28 @@ public class CompositionValidator extends EObjectValidator {
 	public static final int ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH = 6;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Required Delegation Connector And The Connected Component Must Be Part Of The Same Composite Structure' of 'Resource Required Delegation Connector'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int RESOURCE_REQUIRED_DELEGATION_CONNECTOR__RESOURCE_REQUIRED_DELEGATION_CONNECTOR_AND_THE_CONNECTED_COMPONENT_MUST_BE_PART_OF_THE_SAME_COMPOSITE_STRUCTURE = 7;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Component Of Child Component Context And Inner Role Resource Requiring Component Need To Be The Same' of 'Resource Required Delegation Connector'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int RESOURCE_REQUIRED_DELEGATION_CONNECTOR__COMPONENT_OF_CHILD_COMPONENT_CONTEXT_AND_INNER_ROLE_RESOURCE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME = 8;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 6;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 8;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -322,7 +338,29 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceRequiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceRequiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceRequiredDelegationConnector_ResourceRequiredDelegationConnectorAndTheConnectedComponentMustBePartOfTheSameCompositeStructure(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceRequiredDelegationConnector_ComponentOfChildComponentContextAndInnerRoleResourceRequiringComponentNeedToBeTheSame(resourceRequiredDelegationConnector, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the ResourceRequiredDelegationConnectorAndTheConnectedComponentMustBePartOfTheSameCompositeStructure constraint of '<em>Resource Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceRequiredDelegationConnector_ResourceRequiredDelegationConnectorAndTheConnectedComponentMustBePartOfTheSameCompositeStructure(ResourceRequiredDelegationConnector resourceRequiredDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceRequiredDelegationConnector.ResourceRequiredDelegationConnectorAndTheConnectedComponentMustBePartOfTheSameCompositeStructure(diagnostics, context);
+	}
+
+	/**
+	 * Validates the ComponentOfChildComponentContextAndInnerRoleResourceRequiringComponentNeedToBeTheSame constraint of '<em>Resource Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceRequiredDelegationConnector_ComponentOfChildComponentContextAndInnerRoleResourceRequiringComponentNeedToBeTheSame(ResourceRequiredDelegationConnector resourceRequiredDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceRequiredDelegationConnector.ComponentOfChildComponentContextAndInnerRoleResourceRequiringComponentNeedToBeTheSame(diagnostics, context);
 	}
 
 	/**

@@ -14,8 +14,11 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
@@ -74,13 +77,13 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourceenvironmentPackage.CONTROLLER_ALLOCATION_CONNECTOR: return createControllerAllocationConnector();
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: return createControllerInstance();
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return createResourceEnvironment();
 			case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
-			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR: return createResourceAllocationConnector();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR: return createResourceAllocationConnector();
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: return createControllerInstance();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

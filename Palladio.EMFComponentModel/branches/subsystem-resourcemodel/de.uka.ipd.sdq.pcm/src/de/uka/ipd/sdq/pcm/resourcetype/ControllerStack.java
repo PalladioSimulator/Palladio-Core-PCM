@@ -14,6 +14,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Controller Stack</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A ControllerStack bundels several controller layers for reuse. Therefore, a ControllerStack is stored in a ResourceRepository.
+ * If a ControllerStack should be reused, it is referenced from a ResourceContainer. The corresponding ControllerInstances of the 
+ * ResourceContainer have to be created anyway (if possible, automatically?).
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

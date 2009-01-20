@@ -178,9 +178,8 @@ public interface AssemblyConnector extends Connector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. 
-	 * self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)
-	 * 
+	 * -- An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context.
+	 * self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -191,8 +190,8 @@ public interface AssemblyConnector extends Connector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. 
-	 * self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)
+	 * -- An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. 
+	 * self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_CompositeAssemblyConnector)
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

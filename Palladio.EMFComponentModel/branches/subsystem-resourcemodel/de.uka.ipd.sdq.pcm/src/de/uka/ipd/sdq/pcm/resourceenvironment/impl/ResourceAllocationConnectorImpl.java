@@ -5,12 +5,15 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.pcm.allocation.impl.ResourceProvidedRoleConnectorImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl#getProcessingResourceSpecification_ResourceAllocationConnector <em>Processing Resource Specification Resource Allocation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl#getToProcessingResourceSpecification_ResourceAllocationConnector <em>To Processing Resource Specification Resource Allocation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,6 +35,16 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The cached value of the '{@link #getToProcessingResourceSpecification_ResourceAllocationConnector() <em>To Processing Resource Specification Resource Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToProcessingResourceSpecification_ResourceAllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProcessingResourceSpecification toProcessingResourceSpecification_ResourceAllocationConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,9 +70,16 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingResourceSpecification getProcessingResourceSpecification_ResourceAllocationConnector() {
-		ProcessingResourceSpecification processingResourceSpecification_ResourceAllocationConnector = basicGetProcessingResourceSpecification_ResourceAllocationConnector();
-		return processingResourceSpecification_ResourceAllocationConnector != null && processingResourceSpecification_ResourceAllocationConnector.eIsProxy() ? (ProcessingResourceSpecification)eResolveProxy((InternalEObject)processingResourceSpecification_ResourceAllocationConnector) : processingResourceSpecification_ResourceAllocationConnector;
+	public ProcessingResourceSpecification getToProcessingResourceSpecification_ResourceAllocationConnector() {
+		if (toProcessingResourceSpecification_ResourceAllocationConnector != null && toProcessingResourceSpecification_ResourceAllocationConnector.eIsProxy()) {
+			InternalEObject oldToProcessingResourceSpecification_ResourceAllocationConnector = (InternalEObject)toProcessingResourceSpecification_ResourceAllocationConnector;
+			toProcessingResourceSpecification_ResourceAllocationConnector = (ProcessingResourceSpecification)eResolveProxy(oldToProcessingResourceSpecification_ResourceAllocationConnector);
+			if (toProcessingResourceSpecification_ResourceAllocationConnector != oldToProcessingResourceSpecification_ResourceAllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR, oldToProcessingResourceSpecification_ResourceAllocationConnector, toProcessingResourceSpecification_ResourceAllocationConnector));
+			}
+		}
+		return toProcessingResourceSpecification_ResourceAllocationConnector;
 	}
 
 	/**
@@ -67,10 +87,8 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingResourceSpecification basicGetProcessingResourceSpecification_ResourceAllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public ProcessingResourceSpecification basicGetToProcessingResourceSpecification_ResourceAllocationConnector() {
+		return toProcessingResourceSpecification_ResourceAllocationConnector;
 	}
 
 	/**
@@ -78,10 +96,11 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcessingResourceSpecification_ResourceAllocationConnector(ProcessingResourceSpecification newProcessingResourceSpecification_ResourceAllocationConnector) {
-		// TODO: implement this method to set the 'Processing Resource Specification Resource Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setToProcessingResourceSpecification_ResourceAllocationConnector(ProcessingResourceSpecification newToProcessingResourceSpecification_ResourceAllocationConnector) {
+		ProcessingResourceSpecification oldToProcessingResourceSpecification_ResourceAllocationConnector = toProcessingResourceSpecification_ResourceAllocationConnector;
+		toProcessingResourceSpecification_ResourceAllocationConnector = newToProcessingResourceSpecification_ResourceAllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR, oldToProcessingResourceSpecification_ResourceAllocationConnector, toProcessingResourceSpecification_ResourceAllocationConnector));
 	}
 
 	/**
@@ -92,9 +111,9 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
-				if (resolve) return getProcessingResourceSpecification_ResourceAllocationConnector();
-				return basicGetProcessingResourceSpecification_ResourceAllocationConnector();
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
+				if (resolve) return getToProcessingResourceSpecification_ResourceAllocationConnector();
+				return basicGetToProcessingResourceSpecification_ResourceAllocationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +126,8 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
-				setProcessingResourceSpecification_ResourceAllocationConnector((ProcessingResourceSpecification)newValue);
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
+				setToProcessingResourceSpecification_ResourceAllocationConnector((ProcessingResourceSpecification)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +141,8 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
-				setProcessingResourceSpecification_ResourceAllocationConnector((ProcessingResourceSpecification)null);
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
+				setToProcessingResourceSpecification_ResourceAllocationConnector((ProcessingResourceSpecification)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +156,8 @@ public class ResourceAllocationConnectorImpl extends ResourceProvidedRoleConnect
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
-				return basicGetProcessingResourceSpecification_ResourceAllocationConnector() != null;
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR:
+				return toProcessingResourceSpecification_ResourceAllocationConnector != null;
 		}
 		return super.eIsSet(featureID);
 	}

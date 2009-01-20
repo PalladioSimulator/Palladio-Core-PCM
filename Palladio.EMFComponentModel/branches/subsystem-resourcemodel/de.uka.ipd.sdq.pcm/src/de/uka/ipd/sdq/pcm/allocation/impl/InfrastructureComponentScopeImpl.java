@@ -8,15 +8,35 @@ package de.uka.ipd.sdq.pcm.allocation.impl;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope;
 
+import de.uka.ipd.sdq.pcm.allocation.util.AllocationValidator;
+import de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import java.util.Collection;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
@@ -26,31 +46,22 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getAssemblyContext_InfrastructureComponentScope <em>Assembly Context Infrastructure Component Scope</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getUpperLayer <em>Upper Layer</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InfrastructureComponentScopeImpl extends EObjectImpl implements InfrastructureComponentScope {
+public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiringEntityImpl implements InfrastructureComponentScope {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The cached value of the '{@link #getAssemblyContext_InfrastructureComponentScope() <em>Assembly Context Infrastructure Component Scope</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssemblyContext_InfrastructureComponentScope()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssemblyContext assemblyContext_InfrastructureComponentScope;
 
 	/**
 	 * The cached value of the '{@link #getLowerLayer() <em>Lower Layer</em>}' reference.
@@ -61,6 +72,16 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	 * @ordered
 	 */
 	protected InfrastructureComponentScope lowerLayer;
+	
+	/**
+	 * The cached value of the '{@link #getLowerLayer() <em>All Lower Layers</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllLowerLayers()
+	 * @generated not
+	 * @ordered
+	 */
+	protected EList<InfrastructureComponentScope> allLowerLayers;
 
 	/**
 	 * The cached value of the '{@link #getUpperLayer() <em>Upper Layer</em>}' reference.
@@ -71,6 +92,45 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	 * @ordered
 	 */
 	protected InfrastructureComponentScope upperLayer;
+
+	/**
+	 * The cached value of the '{@link #getResourceContainer_InfrastructureComponentScope() <em>Resource Container Infrastructure Component Scope</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceContainer_InfrastructureComponentScope()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceContainer resourceContainer_InfrastructureComponentScope;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotContainRequiredRoles <em>Scope Must Not Contain Required Roles</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ScopeMustNotContainRequiredRoles
+	 * @generated
+	 */
+	private static OCLExpression ScopeMustNotContainRequiredRolesInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotBePartOfACircle <em>Scope Must Not Be Part Of ACircle</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ScopeMustNotBePartOfACircle
+	 * @generated
+	 */
+	private static OCLExpression ScopeMustNotBePartOfACircleInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotContainResourceRequiredRoles <em>Scope Must Not Contain Resource Required Roles</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ScopeMustNotContainResourceRequiredRoles
+	 * @generated
+	 */
+	private static OCLExpression ScopeMustNotContainResourceRequiredRolesInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,44 +149,6 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	@Override
 	protected EClass eStaticClass() {
 		return AllocationPackage.Literals.INFRASTRUCTURE_COMPONENT_SCOPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext getAssemblyContext_InfrastructureComponentScope() {
-		if (assemblyContext_InfrastructureComponentScope != null && assemblyContext_InfrastructureComponentScope.eIsProxy()) {
-			InternalEObject oldAssemblyContext_InfrastructureComponentScope = (InternalEObject)assemblyContext_InfrastructureComponentScope;
-			assemblyContext_InfrastructureComponentScope = (AssemblyContext)eResolveProxy(oldAssemblyContext_InfrastructureComponentScope);
-			if (assemblyContext_InfrastructureComponentScope != oldAssemblyContext_InfrastructureComponentScope) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE, oldAssemblyContext_InfrastructureComponentScope, assemblyContext_InfrastructureComponentScope));
-			}
-		}
-		return assemblyContext_InfrastructureComponentScope;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext basicGetAssemblyContext_InfrastructureComponentScope() {
-		return assemblyContext_InfrastructureComponentScope;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssemblyContext_InfrastructureComponentScope(AssemblyContext newAssemblyContext_InfrastructureComponentScope) {
-		AssemblyContext oldAssemblyContext_InfrastructureComponentScope = assemblyContext_InfrastructureComponentScope;
-		assemblyContext_InfrastructureComponentScope = newAssemblyContext_InfrastructureComponentScope;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE, oldAssemblyContext_InfrastructureComponentScope, assemblyContext_InfrastructureComponentScope));
 	}
 
 	/**
@@ -158,11 +180,13 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public NotificationChain basicSetLowerLayer(InfrastructureComponentScope newLowerLayer, NotificationChain msgs) {
 		InfrastructureComponentScope oldLowerLayer = lowerLayer;
 		lowerLayer = newLowerLayer;
+		// Refresh allLowerLayers association as well
+		getAllLowerLayers();
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER, oldLowerLayer, newLowerLayer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -254,6 +278,186 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ResourceContainer getResourceContainer_InfrastructureComponentScope() {
+		if (resourceContainer_InfrastructureComponentScope != null && resourceContainer_InfrastructureComponentScope.eIsProxy()) {
+			InternalEObject oldResourceContainer_InfrastructureComponentScope = (InternalEObject)resourceContainer_InfrastructureComponentScope;
+			resourceContainer_InfrastructureComponentScope = (ResourceContainer)eResolveProxy(oldResourceContainer_InfrastructureComponentScope);
+			if (resourceContainer_InfrastructureComponentScope != oldResourceContainer_InfrastructureComponentScope) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE, oldResourceContainer_InfrastructureComponentScope, resourceContainer_InfrastructureComponentScope));
+			}
+		}
+		return resourceContainer_InfrastructureComponentScope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceContainer basicGetResourceContainer_InfrastructureComponentScope() {
+		return resourceContainer_InfrastructureComponentScope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourceContainer_InfrastructureComponentScope(ResourceContainer newResourceContainer_InfrastructureComponentScope) {
+		ResourceContainer oldResourceContainer_InfrastructureComponentScope = resourceContainer_InfrastructureComponentScope;
+		resourceContainer_InfrastructureComponentScope = newResourceContainer_InfrastructureComponentScope;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE, oldResourceContainer_InfrastructureComponentScope, resourceContainer_InfrastructureComponentScope));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public EList<InfrastructureComponentScope> getAllLowerLayers() {
+		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
+		allLowerLayers = new EObjectResolvingEList<InfrastructureComponentScope>(InfrastructureComponentScope.class, this, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS);
+		// Search iteratively for lower layers. Stop if a circle is found.
+		InfrastructureComponentScope nextLayer = this.getLowerLayer();
+		if ((nextLayer != null) && nextLayer.equals(this)) {
+			allLowerLayers.add(nextLayer);
+			return allLowerLayers;
+		}
+		while ((nextLayer!= null)) {
+			if (nextLayer.equals(this)) {
+				allLowerLayers.add(nextLayer);
+				break;
+			}
+			allLowerLayers.add(nextLayer);
+			nextLayer = nextLayer.getLowerLayer();
+		}			
+		return allLowerLayers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ScopeMustNotContainRequiredRoles(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ScopeMustNotContainRequiredRolesInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.requiredRoles_InterfaceRequiringEntity->size() = 0 ";
+			
+			try {
+				ScopeMustNotContainRequiredRolesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ScopeMustNotContainRequiredRolesInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 AllocationValidator.DIAGNOSTIC_SOURCE,
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_CONTAIN_REQUIRED_ROLES,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ScopeMustNotContainRequiredRoles", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ScopeMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ScopeMustNotBePartOfACircleInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.allLowerLayers->includes(self)   ";
+			
+			try {
+				ScopeMustNotBePartOfACircleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ScopeMustNotBePartOfACircleInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 AllocationValidator.DIAGNOSTIC_SOURCE,
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_BE_PART_OF_ACIRCLE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ScopeMustNotBePartOfACircle", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ScopeMustNotContainResourceRequiredRoles(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ScopeMustNotContainResourceRequiredRolesInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.resourceRequiredRoles_ResourceInterfaceRequiringEntity->size() = 0 ";
+			
+			try {
+				ScopeMustNotContainResourceRequiredRolesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ScopeMustNotContainResourceRequiredRolesInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 AllocationValidator.DIAGNOSTIC_SOURCE,
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_CONTAIN_RESOURCE_REQUIRED_ROLES,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ScopeMustNotContainResourceRequiredRoles", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -293,15 +497,17 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE:
-				if (resolve) return getAssemblyContext_InfrastructureComponentScope();
-				return basicGetAssemblyContext_InfrastructureComponentScope();
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER:
 				if (resolve) return getLowerLayer();
 				return basicGetLowerLayer();
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER:
 				if (resolve) return getUpperLayer();
 				return basicGetUpperLayer();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
+				if (resolve) return getResourceContainer_InfrastructureComponentScope();
+				return basicGetResourceContainer_InfrastructureComponentScope();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
+				return getAllLowerLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,17 +517,22 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE:
-				setAssemblyContext_InfrastructureComponentScope((AssemblyContext)newValue);
-				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER:
 				setLowerLayer((InfrastructureComponentScope)newValue);
 				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER:
 				setUpperLayer((InfrastructureComponentScope)newValue);
+				return;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
+				setResourceContainer_InfrastructureComponentScope((ResourceContainer)newValue);
+				return;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
+				getAllLowerLayers().clear();
+				getAllLowerLayers().addAll((Collection<? extends InfrastructureComponentScope>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -335,14 +546,17 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE:
-				setAssemblyContext_InfrastructureComponentScope((AssemblyContext)null);
-				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER:
 				setLowerLayer((InfrastructureComponentScope)null);
 				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER:
 				setUpperLayer((InfrastructureComponentScope)null);
+				return;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
+				setResourceContainer_InfrastructureComponentScope((ResourceContainer)null);
+				return;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
+				getAllLowerLayers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -356,12 +570,14 @@ public class InfrastructureComponentScopeImpl extends EObjectImpl implements Inf
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE:
-				return assemblyContext_InfrastructureComponentScope != null;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER:
 				return lowerLayer != null;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER:
 				return upperLayer != null;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
+				return resourceContainer_InfrastructureComponentScope != null;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
+				return !getAllLowerLayers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

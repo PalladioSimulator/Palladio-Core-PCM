@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.AllocationConnector;
+import de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
@@ -90,14 +91,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createControllerAllocationConnectorAdapter();
 			}
 			@Override
-			public Adapter caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
-				return createResourceProvidedRoleConnectorAdapter();
-			}
-			@Override
-			public Adapter caseControllerInstance(ControllerInstance object) {
-				return createControllerInstanceAdapter();
-			}
-			@Override
 			public Adapter caseResourceEnvironment(ResourceEnvironment object) {
 				return createResourceEnvironmentAdapter();
 			}
@@ -106,24 +99,32 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createLinkingResourceAdapter();
 			}
 			@Override
-			public Adapter caseCommunicationLinkResourceSpecification(CommunicationLinkResourceSpecification object) {
-				return createCommunicationLinkResourceSpecificationAdapter();
+			public Adapter caseResourceContainer(ResourceContainer object) {
+				return createResourceContainerAdapter();
 			}
 			@Override
 			public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
 				return createProcessingResourceSpecificationAdapter();
 			}
 			@Override
+			public Adapter caseCommunicationLinkResourceSpecification(CommunicationLinkResourceSpecification object) {
+				return createCommunicationLinkResourceSpecificationAdapter();
+			}
+			@Override
 			public Adapter caseResourceAllocationConnector(ResourceAllocationConnector object) {
 				return createResourceAllocationConnectorAdapter();
 			}
 			@Override
-			public Adapter caseResourceContainer(ResourceContainer object) {
-				return createResourceContainerAdapter();
+			public Adapter caseControllerInstance(ControllerInstance object) {
+				return createControllerInstanceAdapter();
 			}
 			@Override
 			public Adapter caseAllocationConnector(AllocationConnector object) {
 				return createAllocationConnectorAdapter();
+			}
+			@Override
+			public Adapter caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
+				return createResourceProvidedRoleConnectorAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -172,13 +173,13 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector
+	 * @see de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector
 	 * @generated
 	 */
 	public Adapter createResourceProvidedRoleConnectorAdapter() {

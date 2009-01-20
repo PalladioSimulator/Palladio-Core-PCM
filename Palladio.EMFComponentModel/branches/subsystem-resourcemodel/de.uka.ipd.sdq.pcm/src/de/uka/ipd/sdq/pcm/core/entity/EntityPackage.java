@@ -453,7 +453,7 @@ public interface EntityPackage extends EPackage {
 	int COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list.
+	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

@@ -75,7 +75,99 @@ public interface AllocationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocationContext()
 	 * @generated
 	 */
-	int ALLOCATION_CONTEXT = 0;
+	int ALLOCATION_CONTEXT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl <em>Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocationConnector()
+	 * @generated
+	 */
+	int ALLOCATION_CONNECTOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>From Assembly Context Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION_CONNECTOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.ResourceProvidedRoleConnectorImpl <em>Resource Provided Role Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.ResourceProvidedRoleConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>From Assembly Context Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = ALLOCATION_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>From Controller Instance Controller Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__FROM_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = ALLOCATION_CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Resource Provided Role Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT = ALLOCATION_CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -123,52 +215,6 @@ public interface AllocationPackage extends EPackage {
 	int ALLOCATION_CONTEXT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl <em>Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocationConnector()
-	 * @generated
-	 */
-	int ALLOCATION_CONNECTOR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Allocation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Context Allocation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = 2;
-
-	/**
-	 * The number of structural features of the '<em>Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_CONNECTOR_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl <em>Infrastructure Component Scope</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,43 +222,7 @@ public interface AllocationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getInfrastructureComponentScope()
 	 * @generated
 	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Context Infrastructure Component Scope</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Lower Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Upper Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER = 2;
-
-	/**
-	 * The number of structural features of the '<em>Infrastructure Component Scope</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE_FEATURE_COUNT = 3;
+	int INFRASTRUCTURE_COMPONENT_SCOPE = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}' class.
@@ -223,6 +233,16 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	int ALLOCATION = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl <em>Infrastructure Component Allocation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getInfrastructureComponentAllocationConnector()
+	 * @generated
+	 */
+	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -270,24 +290,166 @@ public interface AllocationPackage extends EPackage {
 	int ALLOCATION__SYSTEM_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Infrastructure Component Scopes Allocation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION__INFRASTRUCTURE_COMPONENT_SCOPES_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Allocation Connectors Allocation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Allocation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
-
+	int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl <em>Infrastructure Component Allocation Connector</em>}' class.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getInfrastructureComponentAllocationConnector()
 	 * @generated
+	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = 4;
+	int INFRASTRUCTURE_COMPONENT_SCOPE__ID = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__ENTITY_NAME = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Lower Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Upper Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Resource Container Infrastructure Component Scope</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>All Lower Layers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Infrastructure Component Scope</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_COMPONENT_SCOPE_FEATURE_COUNT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -317,22 +479,13 @@ public interface AllocationPackage extends EPackage {
 	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Resource Container Allocation Connector</b></em>' reference.
+	 * The feature id for the '<em><b>From Assembly Context Allocation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Context Allocation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 2;
+	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Provided Role Allocation Connector</b></em>' reference.
@@ -341,16 +494,16 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 3;
+	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Infrastructure Component Scope Infrastructure Component Allocation Connector</b></em>' reference.
+	 * The feature id for the '<em><b>To Infrastructure Component Scope Infrastructure Component Allocation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 4;
+	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure Component Allocation Connector</em>' class.
@@ -359,8 +512,40 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 5;
+	int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 4;
 
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Provided Role Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector
+	 * @generated
+	 */
+	EClass getResourceProvidedRoleConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector#getResourceProvidedRole_ResourceProvidedRoleAllocationConnector <em>Resource Provided Role Resource Provided Role Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Provided Role Resource Provided Role Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector#getResourceProvidedRole_ResourceProvidedRoleAllocationConnector()
+	 * @see #getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	EReference getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector#getFromControllerInstance_ControllerAllocationConnector <em>From Controller Instance Controller Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From Controller Instance Controller Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector#getFromControllerInstance_ControllerAllocationConnector()
+	 * @see #getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	EReference getResourceProvidedRoleConnector_FromControllerInstance_ControllerAllocationConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext <em>Context</em>}'.
@@ -416,26 +601,15 @@ public interface AllocationPackage extends EPackage {
 	EReference getAllocationConnector_ResourceRequiredRole_AllocationConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getResourceContainer_AllocationConnector <em>Resource Container Allocation Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getFromAssemblyContext_AllocationConnector <em>From Assembly Context Allocation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource Container Allocation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getResourceContainer_AllocationConnector()
+	 * @return the meta object for the reference '<em>From Assembly Context Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getFromAssemblyContext_AllocationConnector()
 	 * @see #getAllocationConnector()
 	 * @generated
 	 */
-	EReference getAllocationConnector_ResourceContainer_AllocationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getAssemblyContext_AllocationConnector <em>Assembly Context Allocation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assembly Context Allocation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationConnector#getAssemblyContext_AllocationConnector()
-	 * @see #getAllocationConnector()
-	 * @generated
-	 */
-	EReference getAllocationConnector_AssemblyContext_AllocationConnector();
+	EReference getAllocationConnector_FromAssemblyContext_AllocationConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope <em>Infrastructure Component Scope</em>}'.
@@ -446,17 +620,6 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInfrastructureComponentScope();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAssemblyContext_InfrastructureComponentScope <em>Assembly Context Infrastructure Component Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assembly Context Infrastructure Component Scope</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAssemblyContext_InfrastructureComponentScope()
-	 * @see #getInfrastructureComponentScope()
-	 * @generated
-	 */
-	EReference getInfrastructureComponentScope_AssemblyContext_InfrastructureComponentScope();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getLowerLayer <em>Lower Layer</em>}'.
@@ -479,6 +642,28 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInfrastructureComponentScope_UpperLayer();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Container Infrastructure Component Scope</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getResourceContainer_InfrastructureComponentScope()
+	 * @see #getInfrastructureComponentScope()
+	 * @generated
+	 */
+	EReference getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers <em>All Lower Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>All Lower Layers</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers()
+	 * @see #getInfrastructureComponentScope()
+	 * @generated
+	 */
+	EReference getInfrastructureComponentScope_AllLowerLayers();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.Allocation <em>Allocation</em>}'.
@@ -524,6 +709,28 @@ public interface AllocationPackage extends EPackage {
 	EReference getAllocation_System_Allocation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getInfrastructureComponentScopes_Allocation <em>Infrastructure Component Scopes Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Infrastructure Component Scopes Allocation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getInfrastructureComponentScopes_Allocation()
+	 * @see #getAllocation()
+	 * @generated
+	 */
+	EReference getAllocation_InfrastructureComponentScopes_Allocation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationConnectors_Allocation <em>Allocation Connectors Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Allocation Connectors Allocation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationConnectors_Allocation()
+	 * @see #getAllocation()
+	 * @generated
+	 */
+	EReference getAllocation_AllocationConnectors_Allocation();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector <em>Infrastructure Component Allocation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -545,15 +752,15 @@ public interface AllocationPackage extends EPackage {
 	EReference getInfrastructureComponentAllocationConnector_ProvidedRole_AllocationConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector#getInfrastructureComponentScope_InfrastructureComponentAllocationConnector <em>Infrastructure Component Scope Infrastructure Component Allocation Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector#getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector <em>To Infrastructure Component Scope Infrastructure Component Allocation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Infrastructure Component Scope Infrastructure Component Allocation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector#getInfrastructureComponentScope_InfrastructureComponentAllocationConnector()
+	 * @return the meta object for the reference '<em>To Infrastructure Component Scope Infrastructure Component Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector#getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector()
 	 * @see #getInfrastructureComponentAllocationConnector()
 	 * @generated
 	 */
-	EReference getInfrastructureComponentAllocationConnector_InfrastructureComponentScope_InfrastructureComponentAllocationConnector();
+	EReference getInfrastructureComponentAllocationConnector_ToInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -577,6 +784,32 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.ResourceProvidedRoleConnectorImpl <em>Resource Provided Role Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.allocation.impl.ResourceProvidedRoleConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getResourceProvidedRoleConnector()
+		 * @generated
+		 */
+		EClass RESOURCE_PROVIDED_ROLE_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>From Controller Instance Controller Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_PROVIDED_ROLE_CONNECTOR__FROM_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector_FromControllerInstance_ControllerAllocationConnector();
+
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -622,20 +855,12 @@ public interface AllocationPackage extends EPackage {
 		EReference ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = eINSTANCE.getAllocationConnector_ResourceRequiredRole_AllocationConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Container Allocation Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>From Assembly Context Allocation Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = eINSTANCE.getAllocationConnector_ResourceContainer_AllocationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Assembly Context Allocation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = eINSTANCE.getAllocationConnector_AssemblyContext_AllocationConnector();
+		EReference ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = eINSTANCE.getAllocationConnector_FromAssemblyContext_AllocationConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl <em>Infrastructure Component Scope</em>}' class.
@@ -646,14 +871,6 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INFRASTRUCTURE_COMPONENT_SCOPE = eINSTANCE.getInfrastructureComponentScope();
-
-		/**
-		 * The meta object literal for the '<em><b>Assembly Context Infrastructure Component Scope</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INFRASTRUCTURE_COMPONENT_SCOPE__ASSEMBLY_CONTEXT_INFRASTRUCTURE_COMPONENT_SCOPE = eINSTANCE.getInfrastructureComponentScope_AssemblyContext_InfrastructureComponentScope();
 
 		/**
 		 * The meta object literal for the '<em><b>Lower Layer</b></em>' reference feature.
@@ -670,6 +887,22 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER = eINSTANCE.getInfrastructureComponentScope_UpperLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Container Infrastructure Component Scope</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE = eINSTANCE.getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope();
+
+		/**
+		 * The meta object literal for the '<em><b>All Lower Layers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS = eINSTANCE.getInfrastructureComponentScope_AllLowerLayers();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}' class.
@@ -706,6 +939,22 @@ public interface AllocationPackage extends EPackage {
 		EReference ALLOCATION__SYSTEM_ALLOCATION = eINSTANCE.getAllocation_System_Allocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Infrastructure Component Scopes Allocation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOCATION__INFRASTRUCTURE_COMPONENT_SCOPES_ALLOCATION = eINSTANCE.getAllocation_InfrastructureComponentScopes_Allocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Allocation Connectors Allocation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOCATION__ALLOCATION_CONNECTORS_ALLOCATION = eINSTANCE.getAllocation_AllocationConnectors_Allocation();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl <em>Infrastructure Component Allocation Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -724,12 +973,12 @@ public interface AllocationPackage extends EPackage {
 		EReference INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR = eINSTANCE.getInfrastructureComponentAllocationConnector_ProvidedRole_AllocationConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Infrastructure Component Scope Infrastructure Component Allocation Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>To Infrastructure Component Scope Infrastructure Component Allocation Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = eINSTANCE.getInfrastructureComponentAllocationConnector_InfrastructureComponentScope_InfrastructureComponentAllocationConnector();
+		EReference INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR = eINSTANCE.getInfrastructureComponentAllocationConnector_ToInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
 
 	}
 

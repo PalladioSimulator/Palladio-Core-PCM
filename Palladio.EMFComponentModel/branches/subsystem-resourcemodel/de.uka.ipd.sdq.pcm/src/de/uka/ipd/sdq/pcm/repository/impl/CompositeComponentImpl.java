@@ -103,6 +103,15 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	private static OCLExpression RequireSameInterfacesInvOCL;
 	
 	/**
+	 * The parsed OCL expression for the definition of the '{@link #ResourceRequiredRolesMustBeBound <em>Resource Required Roles Must Be Bound</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ResourceRequiredRolesMustBeBound
+	 * @generated
+	 */
+	private static OCLExpression ResourceRequiredRolesMustBeBoundInvOCL;
+
+	/**
 	 * The parsed OCL expression for the definition of the '{@link #RequiredInterfacesHaveToConformToCompleteType <em>Required Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,7 +225,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.providedInterface__ProvidedRole.id->asBag())  	)  else  	Bag{}  endif ";
+			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()  else  	true  endif ";
 			
 			try {
 				ProvideSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -255,7 +264,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.requiredInterface__RequiredRole.id->asBag())  	)  else  	Bag{}  endif ";
+			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()  else  	true  endif ";
 			
 			try {
 				RequireSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -276,6 +285,45 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
 						 RepositoryValidator.COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ResourceRequiredRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ResourceRequiredRolesMustBeBoundInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "  self.assemblyContexts_ComposedStructure->forAll(ctx|ctx.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->forAll(role|self.resourceRequiredDelegationConnectors_ComposedStructure->exists(connector|connector.innerResourceRequiredRole_ResourceRequiredDelegationConnector = role))) ";
+			
+			try {
+				ResourceRequiredRolesMustBeBoundInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ResourceRequiredRolesMustBeBoundInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 RepositoryValidator.DIAGNOSTIC_SOURCE,
+						 RepositoryValidator.COMPOSITE_COMPONENT__RESOURCE_REQUIRED_ROLES_MUST_BE_BOUND,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ResourceRequiredRolesMustBeBound", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

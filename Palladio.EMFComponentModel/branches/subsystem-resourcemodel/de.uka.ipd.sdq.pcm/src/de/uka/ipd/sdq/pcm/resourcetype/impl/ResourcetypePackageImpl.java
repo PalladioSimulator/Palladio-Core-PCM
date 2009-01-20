@@ -387,8 +387,17 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControllerLayer_ControllerType_ControllerScope() {
+	public EReference getControllerLayer_ControllerType_ControllerLayer() {
 		return (EReference)controllerLayerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControllerLayer_AllLowerLayers() {
+		return (EReference)controllerLayerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -567,7 +576,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		controllerLayerEClass = createEClass(CONTROLLER_LAYER);
 		createEReference(controllerLayerEClass, CONTROLLER_LAYER__UPPER_LAYER);
 		createEReference(controllerLayerEClass, CONTROLLER_LAYER__LOWER_LAYER);
-		createEReference(controllerLayerEClass, CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE);
+		createEReference(controllerLayerEClass, CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER);
+		createEReference(controllerLayerEClass, CONTROLLER_LAYER__ALL_LOWER_LAYERS);
 
 		controllerTypeEClass = createEClass(CONTROLLER_TYPE);
 
@@ -651,7 +661,17 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		initEClass(controllerLayerEClass, ControllerLayer.class, "ControllerLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getControllerLayer_UpperLayer(), this.getControllerLayer(), this.getControllerLayer_LowerLayer(), "upperLayer", null, 0, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getControllerLayer_LowerLayer(), this.getControllerLayer(), this.getControllerLayer_UpperLayer(), "lowerLayer", null, 0, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getControllerLayer_ControllerType_ControllerScope(), this.getControllerType(), null, "controllerType_ControllerScope", null, 1, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerLayer_ControllerType_ControllerLayer(), this.getControllerType(), null, "controllerType_ControllerLayer", null, 1, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerLayer_AllLowerLayers(), this.getControllerLayer(), null, "allLowerLayers", null, 0, -1, ControllerLayer.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(controllerLayerEClass, ecorePackage.getEBoolean(), "ControllerLayerMustNotBePartOfACircle", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(controllerTypeEClass, ControllerType.class, "ControllerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -664,10 +684,10 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		initEReference(getResourceInterface_AncestorResourceInterfaces_ResourceInterface(), this.getResourceInterface(), null, "ancestorResourceInterfaces_ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceInterface_ParentResourceInterface__ResourceInterface(), this.getResourceInterface(), null, "parentResourceInterface__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(resourceInterfaceEClass, ecorePackage.getEBoolean(), "ResourceServiceNamesHaveToBeUniqueForAResourceInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(resourceInterfaceEClass, ecorePackage.getEBoolean(), "ResourceServiceNamesHaveToBeUniqueForAResourceInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);

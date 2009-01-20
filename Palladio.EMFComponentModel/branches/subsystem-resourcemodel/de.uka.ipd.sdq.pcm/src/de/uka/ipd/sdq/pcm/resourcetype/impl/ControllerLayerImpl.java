@@ -5,18 +5,37 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope;
 import de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer;
 import de.uka.ipd.sdq.pcm.resourcetype.ControllerType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
+import de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeValidator;
+import java.util.Collection;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +46,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getLowerLayer <em>Lower Layer</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getControllerType_ControllerScope <em>Controller Type Controller Scope</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,16 +80,37 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * @ordered
 	 */
 	protected ControllerLayer lowerLayer;
-
+	
 	/**
-	 * The cached value of the '{@link #getControllerType_ControllerScope() <em>Controller Type Controller Scope</em>}' reference.
+	 * The cached value of the '{@link #getLowerLayer() <em>All Lower Layers</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getControllerType_ControllerScope()
+	 * @see #getAllLowerLayers()
+	 * @generated not
+	 * @ordered
+	 */
+	protected EList<ControllerLayer> allLowerLayers;
+
+	/**
+	 * The cached value of the '{@link #getControllerType_ControllerLayer() <em>Controller Type Controller Layer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getControllerType_ControllerLayer()
 	 * @generated
 	 * @ordered
 	 */
-	protected ControllerType controllerType_ControllerScope;
+	protected ControllerType controllerType_ControllerLayer;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ControllerLayerMustNotBePartOfACircle <em>Controller Layer Must Not Be Part Of ACircle</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ControllerLayerMustNotBePartOfACircle
+	 * @generated
+	 */
+	private static OCLExpression ControllerLayerMustNotBePartOfACircleInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,11 +220,13 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public NotificationChain basicSetLowerLayer(ControllerLayer newLowerLayer, NotificationChain msgs) {
 		ControllerLayer oldLowerLayer = lowerLayer;
 		lowerLayer = newLowerLayer;
+		// Refresh allLowerLayers association as well
+		getAllLowerLayers();
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER, oldLowerLayer, newLowerLayer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -215,16 +258,16 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControllerType getControllerType_ControllerScope() {
-		if (controllerType_ControllerScope != null && controllerType_ControllerScope.eIsProxy()) {
-			InternalEObject oldControllerType_ControllerScope = (InternalEObject)controllerType_ControllerScope;
-			controllerType_ControllerScope = (ControllerType)eResolveProxy(oldControllerType_ControllerScope);
-			if (controllerType_ControllerScope != oldControllerType_ControllerScope) {
+	public ControllerType getControllerType_ControllerLayer() {
+		if (controllerType_ControllerLayer != null && controllerType_ControllerLayer.eIsProxy()) {
+			InternalEObject oldControllerType_ControllerLayer = (InternalEObject)controllerType_ControllerLayer;
+			controllerType_ControllerLayer = (ControllerType)eResolveProxy(oldControllerType_ControllerLayer);
+			if (controllerType_ControllerLayer != oldControllerType_ControllerLayer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE, oldControllerType_ControllerScope, controllerType_ControllerScope));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER, oldControllerType_ControllerLayer, controllerType_ControllerLayer));
 			}
 		}
-		return controllerType_ControllerScope;
+		return controllerType_ControllerLayer;
 	}
 
 	/**
@@ -232,8 +275,8 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControllerType basicGetControllerType_ControllerScope() {
-		return controllerType_ControllerScope;
+	public ControllerType basicGetControllerType_ControllerLayer() {
+		return controllerType_ControllerLayer;
 	}
 
 	/**
@@ -241,11 +284,75 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setControllerType_ControllerScope(ControllerType newControllerType_ControllerScope) {
-		ControllerType oldControllerType_ControllerScope = controllerType_ControllerScope;
-		controllerType_ControllerScope = newControllerType_ControllerScope;
+	public void setControllerType_ControllerLayer(ControllerType newControllerType_ControllerLayer) {
+		ControllerType oldControllerType_ControllerLayer = controllerType_ControllerLayer;
+		controllerType_ControllerLayer = newControllerType_ControllerLayer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE, oldControllerType_ControllerScope, controllerType_ControllerScope));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER, oldControllerType_ControllerLayer, controllerType_ControllerLayer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public EList<ControllerLayer> getAllLowerLayers() {
+		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
+		allLowerLayers = new EObjectResolvingEList<ControllerLayer>(InfrastructureComponentScope.class, this, ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS);
+		// Search iteratively for lower layers. Stop if a circle is found.
+		ControllerLayer nextLayer = this.getLowerLayer();
+		if ((nextLayer != null) && nextLayer.equals(this)) {
+			allLowerLayers.add(nextLayer);
+			return allLowerLayers;
+		}
+		while ((nextLayer!= null)) {
+			if (nextLayer.equals(this)) {
+				allLowerLayers.add(nextLayer);
+				break;
+			}
+			allLowerLayers.add(nextLayer);
+			nextLayer = nextLayer.getLowerLayer();
+		}			
+		return allLowerLayers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ControllerLayerMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ControllerLayerMustNotBePartOfACircleInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.allLowerLayers->includes(self) ";
+			
+			try {
+				ControllerLayerMustNotBePartOfACircleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ControllerLayerMustNotBePartOfACircleInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 ResourcetypeValidator.DIAGNOSTIC_SOURCE,
+						 ResourcetypeValidator.CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACIRCLE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ControllerLayerMustNotBePartOfACircle", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**
@@ -298,9 +405,11 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 			case ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER:
 				if (resolve) return getLowerLayer();
 				return basicGetLowerLayer();
-			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE:
-				if (resolve) return getControllerType_ControllerScope();
-				return basicGetControllerType_ControllerScope();
+			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
+				if (resolve) return getControllerType_ControllerLayer();
+				return basicGetControllerType_ControllerLayer();
+			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
+				return getAllLowerLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +419,7 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -319,8 +429,12 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 			case ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER:
 				setLowerLayer((ControllerLayer)newValue);
 				return;
-			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE:
-				setControllerType_ControllerScope((ControllerType)newValue);
+			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
+				setControllerType_ControllerLayer((ControllerType)newValue);
+				return;
+			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
+				getAllLowerLayers().clear();
+				getAllLowerLayers().addAll((Collection<? extends ControllerLayer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,8 +454,11 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 			case ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER:
 				setLowerLayer((ControllerLayer)null);
 				return;
-			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE:
-				setControllerType_ControllerScope((ControllerType)null);
+			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
+				setControllerType_ControllerLayer((ControllerType)null);
+				return;
+			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
+				getAllLowerLayers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -359,8 +476,10 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 				return upperLayer != null;
 			case ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER:
 				return lowerLayer != null;
-			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE:
-				return controllerType_ControllerScope != null;
+			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
+				return controllerType_ControllerLayer != null;
+			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
+				return !getAllLowerLayers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

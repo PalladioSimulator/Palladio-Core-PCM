@@ -44,7 +44,7 @@ public interface ComposedProvidingRequiringEntity extends ComposedStructure, Int
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).
+	 * -- This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).
 	 * self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))
 	 * 
 	 * <!-- end-model-doc -->

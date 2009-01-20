@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
@@ -87,6 +88,16 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @ordered
 	 */
 	protected EList<AssemblyConnector> assemblyConnectors_ComposedStructure;
+	
+	/**
+	 * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure() <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceRequiredDelegationConnector> resourceRequiredDelegationConnectors_ComposedStructure;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,9 +172,10 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @generated
 	 */
 	public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (resourceRequiredDelegationConnectors_ComposedStructure == null) {
+			resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(ResourceRequiredDelegationConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
+		}
+		return resourceRequiredDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -183,6 +195,8 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -203,6 +217,8 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 				return ((InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -306,7 +322,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return assemblyConnectors_ComposedStructure != null && !assemblyConnectors_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-				return !getResourceRequiredDelegationConnectors_ComposedStructure().isEmpty();
+				return resourceRequiredDelegationConnectors_ComposedStructure != null && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -12,12 +12,17 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,8 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl#getResourceRequiredRole_AllocationConnector <em>Resource Required Role Allocation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl#getResourceContainer_AllocationConnector <em>Resource Container Allocation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl#getAssemblyContext_AllocationConnector <em>Assembly Context Allocation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationConnectorImpl#getFromAssemblyContext_AllocationConnector <em>From Assembly Context Allocation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +45,25 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The cached value of the '{@link #getResourceRequiredRole_AllocationConnector() <em>Resource Required Role Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceRequiredRole_AllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceRequiredRole resourceRequiredRole_AllocationConnector;
+	/**
+	 * The cached value of the '{@link #getFromAssemblyContext_AllocationConnector() <em>From Assembly Context Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromAssemblyContext_AllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssemblyContext fromAssemblyContext_AllocationConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,8 +90,15 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * @generated
 	 */
 	public ResourceRequiredRole getResourceRequiredRole_AllocationConnector() {
-		ResourceRequiredRole resourceRequiredRole_AllocationConnector = basicGetResourceRequiredRole_AllocationConnector();
-		return resourceRequiredRole_AllocationConnector != null && resourceRequiredRole_AllocationConnector.eIsProxy() ? (ResourceRequiredRole)eResolveProxy((InternalEObject)resourceRequiredRole_AllocationConnector) : resourceRequiredRole_AllocationConnector;
+		if (resourceRequiredRole_AllocationConnector != null && resourceRequiredRole_AllocationConnector.eIsProxy()) {
+			InternalEObject oldResourceRequiredRole_AllocationConnector = (InternalEObject)resourceRequiredRole_AllocationConnector;
+			resourceRequiredRole_AllocationConnector = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole_AllocationConnector);
+			if (resourceRequiredRole_AllocationConnector != oldResourceRequiredRole_AllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR, oldResourceRequiredRole_AllocationConnector, resourceRequiredRole_AllocationConnector));
+			}
+		}
+		return resourceRequiredRole_AllocationConnector;
 	}
 
 	/**
@@ -77,9 +107,7 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * @generated
 	 */
 	public ResourceRequiredRole basicGetResourceRequiredRole_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return resourceRequiredRole_AllocationConnector;
 	}
 
 	/**
@@ -88,9 +116,10 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * @generated
 	 */
 	public void setResourceRequiredRole_AllocationConnector(ResourceRequiredRole newResourceRequiredRole_AllocationConnector) {
-		// TODO: implement this method to set the 'Resource Required Role Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ResourceRequiredRole oldResourceRequiredRole_AllocationConnector = resourceRequiredRole_AllocationConnector;
+		resourceRequiredRole_AllocationConnector = newResourceRequiredRole_AllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR, oldResourceRequiredRole_AllocationConnector, resourceRequiredRole_AllocationConnector));
 	}
 
 	/**
@@ -98,9 +127,16 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceContainer getResourceContainer_AllocationConnector() {
-		ResourceContainer resourceContainer_AllocationConnector = basicGetResourceContainer_AllocationConnector();
-		return resourceContainer_AllocationConnector != null && resourceContainer_AllocationConnector.eIsProxy() ? (ResourceContainer)eResolveProxy((InternalEObject)resourceContainer_AllocationConnector) : resourceContainer_AllocationConnector;
+	public AssemblyContext getFromAssemblyContext_AllocationConnector() {
+		if (fromAssemblyContext_AllocationConnector != null && fromAssemblyContext_AllocationConnector.eIsProxy()) {
+			InternalEObject oldFromAssemblyContext_AllocationConnector = (InternalEObject)fromAssemblyContext_AllocationConnector;
+			fromAssemblyContext_AllocationConnector = (AssemblyContext)eResolveProxy(oldFromAssemblyContext_AllocationConnector);
+			if (fromAssemblyContext_AllocationConnector != oldFromAssemblyContext_AllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR, oldFromAssemblyContext_AllocationConnector, fromAssemblyContext_AllocationConnector));
+			}
+		}
+		return fromAssemblyContext_AllocationConnector;
 	}
 
 	/**
@@ -108,10 +144,8 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceContainer basicGetResourceContainer_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public AssemblyContext basicGetFromAssemblyContext_AllocationConnector() {
+		return fromAssemblyContext_AllocationConnector;
 	}
 
 	/**
@@ -119,42 +153,11 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceContainer_AllocationConnector(ResourceContainer newResourceContainer_AllocationConnector) {
-		// TODO: implement this method to set the 'Resource Container Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext getAssemblyContext_AllocationConnector() {
-		AssemblyContext assemblyContext_AllocationConnector = basicGetAssemblyContext_AllocationConnector();
-		return assemblyContext_AllocationConnector != null && assemblyContext_AllocationConnector.eIsProxy() ? (AssemblyContext)eResolveProxy((InternalEObject)assemblyContext_AllocationConnector) : assemblyContext_AllocationConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext basicGetAssemblyContext_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssemblyContext_AllocationConnector(AssemblyContext newAssemblyContext_AllocationConnector) {
-		// TODO: implement this method to set the 'Assembly Context Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setFromAssemblyContext_AllocationConnector(AssemblyContext newFromAssemblyContext_AllocationConnector) {
+		AssemblyContext oldFromAssemblyContext_AllocationConnector = fromAssemblyContext_AllocationConnector;
+		fromAssemblyContext_AllocationConnector = newFromAssemblyContext_AllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR, oldFromAssemblyContext_AllocationConnector, fromAssemblyContext_AllocationConnector));
 	}
 
 	/**
@@ -168,12 +171,9 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				if (resolve) return getResourceRequiredRole_AllocationConnector();
 				return basicGetResourceRequiredRole_AllocationConnector();
-			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				if (resolve) return getResourceContainer_AllocationConnector();
-				return basicGetResourceContainer_AllocationConnector();
-			case AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				if (resolve) return getAssemblyContext_AllocationConnector();
-				return basicGetAssemblyContext_AllocationConnector();
+			case AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				if (resolve) return getFromAssemblyContext_AllocationConnector();
+				return basicGetFromAssemblyContext_AllocationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,11 +189,8 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				setResourceRequiredRole_AllocationConnector((ResourceRequiredRole)newValue);
 				return;
-			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				setResourceContainer_AllocationConnector((ResourceContainer)newValue);
-				return;
-			case AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				setAssemblyContext_AllocationConnector((AssemblyContext)newValue);
+			case AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				setFromAssemblyContext_AllocationConnector((AssemblyContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -210,11 +207,8 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				setResourceRequiredRole_AllocationConnector((ResourceRequiredRole)null);
 				return;
-			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				setResourceContainer_AllocationConnector((ResourceContainer)null);
-				return;
-			case AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				setAssemblyContext_AllocationConnector((AssemblyContext)null);
+			case AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				setFromAssemblyContext_AllocationConnector((AssemblyContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -229,11 +223,9 @@ public abstract class AllocationConnectorImpl extends EObjectImpl implements All
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
-				return basicGetResourceRequiredRole_AllocationConnector() != null;
-			case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				return basicGetResourceContainer_AllocationConnector() != null;
-			case AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				return basicGetAssemblyContext_AllocationConnector() != null;
+				return resourceRequiredRole_AllocationConnector != null;
+			case AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				return fromAssemblyContext_AllocationConnector != null;
 		}
 		return super.eIsSet(featureID);
 	}

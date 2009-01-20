@@ -57,12 +57,20 @@ public class ResourcetypeValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.resourcetype";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Controller Layer Must Not Be Part Of ACircle' of 'Controller Layer'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACIRCLE = 1;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Service Names Have To Be Unique For AResource Interface' of 'Resource Interface'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_INTERFACE__RESOURCE_SERVICE_NAMES_HAVE_TO_BE_UNIQUE_FOR_ARESOURCE_INTERFACE = 1;
+	public static final int RESOURCE_INTERFACE__RESOURCE_SERVICE_NAMES_HAVE_TO_BE_UNIQUE_FOR_ARESOURCE_INTERFACE = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -70,7 +78,7 @@ public class ResourcetypeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -187,7 +195,25 @@ public class ResourcetypeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateControllerLayer(ControllerLayer controllerLayer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(controllerLayer, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateControllerLayer_ControllerLayerMustNotBePartOfACircle(controllerLayer, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ControllerLayerMustNotBePartOfACircle constraint of '<em>Controller Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateControllerLayer_ControllerLayerMustNotBePartOfACircle(ControllerLayer controllerLayer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return controllerLayer.ControllerLayerMustNotBePartOfACircle(diagnostics, context);
 	}
 
 	/**

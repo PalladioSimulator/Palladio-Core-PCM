@@ -5,24 +5,36 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationConnector;
-import de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentValidator;
 import de.uka.ipd.sdq.pcm.resourcetype.ControllerStack;
 
 /**
@@ -32,10 +44,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ControllerStack;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getAllocationConnectors_ResourceContainer <em>Allocation Connectors Resource Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getInfrastructureComponentScope_ResourceContainer <em>Infrastructure Component Scope Resource Container</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getControllerInstance_ResourceContainer <em>Controller Instance Resource Container</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getControllerInstances_ResourceContainer <em>Controller Instances Resource Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getControllerStack_ResourceContainer <em>Controller Stack Resource Container</em>}</li>
  * </ul>
  * </p>
@@ -61,24 +71,14 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
 
 	/**
-	 * The cached value of the '{@link #getInfrastructureComponentScope_ResourceContainer() <em>Infrastructure Component Scope Resource Container</em>}' containment reference list.
+	 * The cached value of the '{@link #getControllerInstances_ResourceContainer() <em>Controller Instances Resource Container</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInfrastructureComponentScope_ResourceContainer()
+	 * @see #getControllerInstances_ResourceContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InfrastructureComponentScope> infrastructureComponentScope_ResourceContainer;
-
-	/**
-	 * The cached value of the '{@link #getControllerInstance_ResourceContainer() <em>Controller Instance Resource Container</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getControllerInstance_ResourceContainer()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ControllerInstance> controllerInstance_ResourceContainer;
+	protected EList<ControllerInstance> controllerInstances_ResourceContainer;
 
 	/**
 	 * The cached value of the '{@link #getControllerStack_ResourceContainer() <em>Controller Stack Resource Container</em>}' reference.
@@ -89,6 +89,26 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @ordered
 	 */
 	protected ControllerStack controllerStack_ResourceContainer;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ForAllControllerLayersOnlyOneLayerIsTheUppestOne <em>For All Controller Layers Only One Layer Is The Uppest One</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ForAllControllerLayersOnlyOneLayerIsTheUppestOne
+	 * @generated
+	 */
+	private static OCLExpression ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ForAllControllerLayersOnlyOneLayerIsTheLowestOne <em>For All Controller Layers Only One Layer Is The Lowest One</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ForAllControllerLayersOnlyOneLayerIsTheLowestOne
+	 * @generated
+	 */
+	private static OCLExpression ForAllControllerLayersOnlyOneLayerIsTheLowestOneInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,17 +134,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AllocationConnector> getAllocationConnectors_ResourceContainer() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
 		if (activeResourceSpecifications_ResourceContainer == null) {
 			activeResourceSpecifications_ResourceContainer = new EObjectContainmentEList<ProcessingResourceSpecification>(ProcessingResourceSpecification.class, this, ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
@@ -137,23 +146,11 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InfrastructureComponentScope> getInfrastructureComponentScope_ResourceContainer() {
-		if (infrastructureComponentScope_ResourceContainer == null) {
-			infrastructureComponentScope_ResourceContainer = new EObjectContainmentEList<InfrastructureComponentScope>(InfrastructureComponentScope.class, this, ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER);
+	public EList<ControllerInstance> getControllerInstances_ResourceContainer() {
+		if (controllerInstances_ResourceContainer == null) {
+			controllerInstances_ResourceContainer = new EObjectContainmentEList<ControllerInstance>(ControllerInstance.class, this, ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER);
 		}
-		return infrastructureComponentScope_ResourceContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ControllerInstance> getControllerInstance_ResourceContainer() {
-		if (controllerInstance_ResourceContainer == null) {
-			controllerInstance_ResourceContainer = new EObjectContainmentEList<ControllerInstance>(ControllerInstance.class, this, ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER);
-		}
-		return controllerInstance_ResourceContainer;
+		return controllerInstances_ResourceContainer;
 	}
 
 	/**
@@ -199,15 +196,91 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean ForAllControllerLayersOnlyOneLayerIsTheUppestOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() <= 1 ";
+			
+			try {
+				ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 ResourceenvironmentValidator.DIAGNOSTIC_SOURCE,
+						 ResourceenvironmentValidator.RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_UPPEST_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllControllerLayersOnlyOneLayerIsTheUppestOne", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ForAllControllerLayersOnlyOneLayerIsTheLowestOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ForAllControllerLayersOnlyOneLayerIsTheLowestOneInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.lowerLayer->asBag()->isEmpty())->size() <= 1 ";
+			
+			try {
+				ForAllControllerLayersOnlyOneLayerIsTheLowestOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ForAllControllerLayersOnlyOneLayerIsTheLowestOneInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 ResourceenvironmentValidator.DIAGNOSTIC_SOURCE,
+						 ResourceenvironmentValidator.RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_LOWEST_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllControllerLayersOnlyOneLayerIsTheLowestOne", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return ((InternalEList<?>)getActiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd, msgs);
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
-				return ((InternalEList<?>)getInfrastructureComponentScope_ResourceContainer()).basicRemove(otherEnd, msgs);
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
-				return ((InternalEList<?>)getControllerInstance_ResourceContainer()).basicRemove(otherEnd, msgs);
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER:
+				return ((InternalEList<?>)getControllerInstances_ResourceContainer()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -220,14 +293,10 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER:
-				return getAllocationConnectors_ResourceContainer();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return getActiveResourceSpecifications_ResourceContainer();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
-				return getInfrastructureComponentScope_ResourceContainer();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
-				return getControllerInstance_ResourceContainer();
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER:
+				return getControllerInstances_ResourceContainer();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER:
 				if (resolve) return getControllerStack_ResourceContainer();
 				return basicGetControllerStack_ResourceContainer();
@@ -244,21 +313,13 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER:
-				getAllocationConnectors_ResourceContainer().clear();
-				getAllocationConnectors_ResourceContainer().addAll((Collection<? extends AllocationConnector>)newValue);
-				return;
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				getActiveResourceSpecifications_ResourceContainer().addAll((Collection<? extends ProcessingResourceSpecification>)newValue);
 				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
-				getInfrastructureComponentScope_ResourceContainer().clear();
-				getInfrastructureComponentScope_ResourceContainer().addAll((Collection<? extends InfrastructureComponentScope>)newValue);
-				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
-				getControllerInstance_ResourceContainer().clear();
-				getControllerInstance_ResourceContainer().addAll((Collection<? extends ControllerInstance>)newValue);
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER:
+				getControllerInstances_ResourceContainer().clear();
+				getControllerInstances_ResourceContainer().addAll((Collection<? extends ControllerInstance>)newValue);
 				return;
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER:
 				setControllerStack_ResourceContainer((ControllerStack)newValue);
@@ -275,17 +336,11 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER:
-				getAllocationConnectors_ResourceContainer().clear();
-				return;
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
-				getInfrastructureComponentScope_ResourceContainer().clear();
-				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
-				getControllerInstance_ResourceContainer().clear();
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER:
+				getControllerInstances_ResourceContainer().clear();
 				return;
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER:
 				setControllerStack_ResourceContainer((ControllerStack)null);
@@ -302,14 +357,10 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER:
-				return !getAllocationConnectors_ResourceContainer().isEmpty();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return activeResourceSpecifications_ResourceContainer != null && !activeResourceSpecifications_ResourceContainer.isEmpty();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
-				return infrastructureComponentScope_ResourceContainer != null && !infrastructureComponentScope_ResourceContainer.isEmpty();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
-				return controllerInstance_ResourceContainer != null && !controllerInstance_ResourceContainer.isEmpty();
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER:
+				return controllerInstances_ResourceContainer != null && !controllerInstances_ResourceContainer.isEmpty();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER:
 				return controllerStack_ResourceContainer != null;
 		}

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.AllocationConnector;
+import de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
@@ -111,19 +112,6 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceenvironmentPackage.RESOURCE_PROVIDED_ROLE_CONNECTOR: {
-				ResourceProvidedRoleConnector resourceProvidedRoleConnector = (ResourceProvidedRoleConnector)theEObject;
-				T result = caseResourceProvidedRoleConnector(resourceProvidedRoleConnector);
-				if (result == null) result = caseAllocationConnector(resourceProvidedRoleConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: {
-				ControllerInstance controllerInstance = (ControllerInstance)theEObject;
-				T result = caseControllerInstance(controllerInstance);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: {
 				ResourceEnvironment resourceEnvironment = (ResourceEnvironment)theEObject;
 				T result = caseResourceEnvironment(resourceEnvironment);
@@ -139,15 +127,24 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: {
-				CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)theEObject;
-				T result = caseCommunicationLinkResourceSpecification(communicationLinkResourceSpecification);
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER: {
+				ResourceContainer resourceContainer = (ResourceContainer)theEObject;
+				T result = caseResourceContainer(resourceContainer);
+				if (result == null) result = caseEntity(resourceContainer);
+				if (result == null) result = caseIdentifier(resourceContainer);
+				if (result == null) result = caseNamedElement(resourceContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
 				ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)theEObject;
 				T result = caseProcessingResourceSpecification(processingResourceSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: {
+				CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)theEObject;
+				T result = caseCommunicationLinkResourceSpecification(communicationLinkResourceSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,12 +156,9 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER: {
-				ResourceContainer resourceContainer = (ResourceContainer)theEObject;
-				T result = caseResourceContainer(resourceContainer);
-				if (result == null) result = caseEntity(resourceContainer);
-				if (result == null) result = caseIdentifier(resourceContainer);
-				if (result == null) result = caseNamedElement(resourceContainer);
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: {
+				ControllerInstance controllerInstance = (ControllerInstance)theEObject;
+				T result = caseControllerInstance(controllerInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

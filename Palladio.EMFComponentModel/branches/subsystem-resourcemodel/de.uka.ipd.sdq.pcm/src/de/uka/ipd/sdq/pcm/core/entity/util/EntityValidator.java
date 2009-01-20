@@ -57,12 +57,20 @@ public class EntityValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.core.entity";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Interface Is Provided Twice' of 'Interface Providing Entity'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INTERFACE_PROVIDING_ENTITY__NO_INTERFACE_IS_PROVIDED_TWICE = 1;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Roles Must Be Bound' of 'Composed Providing Requiring Entity'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND = 1;
+	public static final int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -70,7 +78,7 @@ public class EntityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -180,7 +188,18 @@ public class EntityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInterfaceProvidingEntity_NoInterfaceIsProvidedTwice(interfaceProvidingEntity, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the NoInterfaceIsProvidedTwice constraint of '<em>Interface Providing Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInterfaceProvidingEntity_NoInterfaceIsProvidedTwice(InterfaceProvidingEntity interfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return interfaceProvidingEntity.NoInterfaceIsProvidedTwice(diagnostics, context);
 	}
 
 	/**
@@ -214,6 +233,7 @@ public class EntityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interfaceProvidingRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInterfaceProvidingEntity_NoInterfaceIsProvidedTwice(interfaceProvidingRequiringEntity, diagnostics, context);
 		return result;
 	}
 
@@ -248,6 +268,7 @@ public class EntityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedProvidingRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInterfaceProvidingEntity_NoInterfaceIsProvidedTwice(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(composedProvidingRequiringEntity, diagnostics, context);
 		return result;
 	}

@@ -389,7 +389,7 @@ public interface CompositionPackage extends EPackage {
 	int RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ENTITY_NAME = RepositoryPackage.DELEGATION_CONNECTOR__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -498,7 +498,7 @@ public interface CompositionPackage extends EPackage {
 	int COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list.
+	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -743,10 +743,10 @@ public interface CompositionPackage extends EPackage {
 	EClass getResourceRequiredDelegationConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent Structure Resource Required Delegation Connector</em>'.
+	 * @return the meta object for the container reference '<em>Parent Structure Resource Required Delegation Connector</em>'.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector()
 	 * @see #getResourceRequiredDelegationConnector()
 	 * @generated
@@ -841,10 +841,10 @@ public interface CompositionPackage extends EPackage {
 	EReference getComposedStructure_AssemblyConnectors_ComposedStructure();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resource Required Delegation Connectors Composed Structure</em>'.
+	 * @return the meta object for the containment reference list '<em>Resource Required Delegation Connectors Composed Structure</em>'.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure()
 	 * @see #getComposedStructure()
 	 * @generated
@@ -1052,7 +1052,7 @@ public interface CompositionPackage extends EPackage {
 		EClass RESOURCE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getResourceRequiredDelegationConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1126,7 +1126,7 @@ public interface CompositionPackage extends EPackage {
 		EReference COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = eINSTANCE.getComposedStructure_AssemblyConnectors_ComposedStructure();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

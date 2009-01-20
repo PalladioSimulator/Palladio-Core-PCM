@@ -12,12 +12,18 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,20 +89,24 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	protected AllocationSwitch<Adapter> modelSwitch =
 		new AllocationSwitch<Adapter>() {
 			@Override
-			public Adapter caseAllocationContext(AllocationContext object) {
-				return createAllocationContextAdapter();
+			public Adapter caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
+				return createResourceProvidedRoleConnectorAdapter();
 			}
 			@Override
 			public Adapter caseAllocationConnector(AllocationConnector object) {
 				return createAllocationConnectorAdapter();
 			}
 			@Override
-			public Adapter caseInfrastructureComponentScope(InfrastructureComponentScope object) {
-				return createInfrastructureComponentScopeAdapter();
+			public Adapter caseAllocationContext(AllocationContext object) {
+				return createAllocationContextAdapter();
 			}
 			@Override
 			public Adapter caseAllocation(Allocation object) {
 				return createAllocationAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureComponentScope(InfrastructureComponentScope object) {
+				return createInfrastructureComponentScopeAdapter();
 			}
 			@Override
 			public Adapter caseInfrastructureComponentAllocationConnector(InfrastructureComponentAllocationConnector object) {
@@ -113,6 +123,30 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseComposedStructure(ComposedStructure object) {
+				return createComposedStructureAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+				return createInterfaceProvidingEntityAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+				return createInterfaceRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+				return createResourceInterfaceRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+				return createInterfaceProvidingRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+				return createComposedProvidingRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseConnector(Connector object) {
@@ -137,6 +171,20 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector
+	 * @generated
+	 */
+	public Adapter createResourceProvidedRoleConnectorAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext <em>Context</em>}'.
@@ -247,6 +295,90 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+	 * @generated
+	 */
+	public Adapter createComposedStructureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity <em>Interface Providing Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
+	 * @generated
+	 */
+	public Adapter createInterfaceProvidingEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity <em>Interface Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
+	 * @generated
+	 */
+	public Adapter createInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource Interface Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity <em>Interface Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
+	 * @generated
+	 */
+	public Adapter createInterfaceProvidingRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+	 * @generated
+	 */
+	public Adapter createComposedProvidingRequiringEntityAdapter() {
 		return null;
 	}
 

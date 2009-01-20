@@ -342,7 +342,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context.   self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)  ";
+			String body = " self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector) ";
 			
 			try {
 				AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatchInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -381,7 +381,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context.   self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector) ";
+			String body = " self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_CompositeAssemblyConnector) ";
 			
 			try {
 				AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatchInvOCL = ExpressionsUtil.createInvariant(env, body, true);

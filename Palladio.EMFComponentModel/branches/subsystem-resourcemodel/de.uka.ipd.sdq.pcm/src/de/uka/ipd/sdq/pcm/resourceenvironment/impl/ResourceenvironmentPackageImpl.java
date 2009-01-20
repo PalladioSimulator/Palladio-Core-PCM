@@ -8,8 +8,11 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -41,10 +44,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
+import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentValidator;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -81,13 +84,6 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	private EClass controllerAllocationConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass resourceProvidedRoleConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,6 +262,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		theUsagemodelPackage.initializePackageContents();
 		theSubsystemPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theResourceenvironmentPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ResourceenvironmentValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theResourceenvironmentPackage.freeze();
 
@@ -286,35 +291,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControllerAllocationConnector_ProvidingControllerInstance_ControllerAllocationConnector() {
+	public EReference getControllerAllocationConnector_ToControllerInstance_ControllerAllocationConnector() {
 		return (EReference)controllerAllocationConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResourceProvidedRoleConnector() {
-		return resourceProvidedRoleConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector() {
-		return (EReference)resourceProvidedRoleConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceProvidedRoleConnector_RequiringControllerInstance_ControllerAllocationConnector() {
-		return (EReference)resourceProvidedRoleConnectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -331,8 +309,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControllerInstance_ControllerScope_ResourceContainer() {
-		return (EReference)controllerInstanceEClass.getEStructuralFeatures().get(0);
+	public EReference getControllerInstance_ControllerLayer_ControllerInstance() {
+		return (EReference)controllerInstanceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -341,7 +319,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	public EReference getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance() {
-		return (EReference)controllerInstanceEClass.getEStructuralFeatures().get(1);
+		return (EReference)controllerInstanceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -502,7 +480,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceAllocationConnector_ProcessingResourceSpecification_ResourceAllocationConnector() {
+	public EReference getResourceAllocationConnector_ToProcessingResourceSpecification_ResourceAllocationConnector() {
 		return (EReference)resourceAllocationConnectorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -520,7 +498,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_AllocationConnectors_ResourceContainer() {
+	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
 		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -529,7 +507,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
+	public EReference getResourceContainer_ControllerInstances_ResourceContainer() {
 		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -538,26 +516,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_InfrastructureComponentScope_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceContainer_ControllerInstance_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getResourceContainer_ControllerStack_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(4);
+		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -598,16 +558,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Create classes and their features
 		controllerAllocationConnectorEClass = createEClass(CONTROLLER_ALLOCATION_CONNECTOR);
-		createEReference(controllerAllocationConnectorEClass, CONTROLLER_ALLOCATION_CONNECTOR__PROVIDING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR);
-
-		resourceProvidedRoleConnectorEClass = createEClass(RESOURCE_PROVIDED_ROLE_CONNECTOR);
-		createEReference(resourceProvidedRoleConnectorEClass, RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR);
-		createEReference(resourceProvidedRoleConnectorEClass, RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR);
-
-		controllerInstanceEClass = createEClass(CONTROLLER_INSTANCE);
-		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER);
-		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE);
-		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE);
+		createEReference(controllerAllocationConnectorEClass, CONTROLLER_ALLOCATION_CONNECTOR__TO_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR);
 
 		resourceEnvironmentEClass = createEClass(RESOURCE_ENVIRONMENT);
 		createEReference(resourceEnvironmentEClass, RESOURCE_ENVIRONMENT__LINKINGRESOURCE);
@@ -618,25 +569,28 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		createEReference(linkingResourceEClass, LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE);
 		createEReference(linkingResourceEClass, LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE);
 
-		communicationLinkResourceSpecificationEClass = createEClass(COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
-		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
-		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
-		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
+		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
+		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__CONTROLLER_INSTANCES_RESOURCE_CONTAINER);
+		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER);
 
 		processingResourceSpecificationEClass = createEClass(PROCESSING_RESOURCE_SPECIFICATION);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION);
 
-		resourceAllocationConnectorEClass = createEClass(RESOURCE_ALLOCATION_CONNECTOR);
-		createEReference(resourceAllocationConnectorEClass, RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR);
+		communicationLinkResourceSpecificationEClass = createEClass(COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
 
-		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
-		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER);
-		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
-		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER);
-		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER);
-		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER);
+		resourceAllocationConnectorEClass = createEClass(RESOURCE_ALLOCATION_CONNECTOR);
+		createEReference(resourceAllocationConnectorEClass, RESOURCE_ALLOCATION_CONNECTOR__TO_PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR);
+
+		controllerInstanceEClass = createEClass(CONTROLLER_INSTANCE);
+		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE);
+		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE);
+		createEReference(controllerInstanceEClass, CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE);
 
 		// Create enums
 		schedulingPolicyEEnum = createEEnum(SCHEDULING_POLICY);
@@ -667,8 +621,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Obtain other dependent packages
 		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Create type parameters
@@ -676,24 +630,14 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		controllerAllocationConnectorEClass.getESuperTypes().add(this.getResourceProvidedRoleConnector());
-		resourceProvidedRoleConnectorEClass.getESuperTypes().add(theAllocationPackage.getAllocationConnector());
+		controllerAllocationConnectorEClass.getESuperTypes().add(theAllocationPackage.getResourceProvidedRoleConnector());
 		linkingResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		resourceAllocationConnectorEClass.getESuperTypes().add(this.getResourceProvidedRoleConnector());
 		resourceContainerEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		resourceAllocationConnectorEClass.getESuperTypes().add(theAllocationPackage.getResourceProvidedRoleConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(controllerAllocationConnectorEClass, ControllerAllocationConnector.class, "ControllerAllocationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getControllerAllocationConnector_ProvidingControllerInstance_ControllerAllocationConnector(), this.getControllerInstance(), this.getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance(), "providingControllerInstance_ControllerAllocationConnector", null, 0, 1, ControllerAllocationConnector.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-
-		initEClass(resourceProvidedRoleConnectorEClass, ResourceProvidedRoleConnector.class, "ResourceProvidedRoleConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector(), theResourcetypePackage.getResourceProvidedRole(), null, "resourceProvidedRole_ResourceProvidedRoleAllocationConnector", null, 1, 1, ResourceProvidedRoleConnector.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceProvidedRoleConnector_RequiringControllerInstance_ControllerAllocationConnector(), this.getControllerInstance(), this.getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance(), "requiringControllerInstance_ControllerAllocationConnector", null, 0, 1, ResourceProvidedRoleConnector.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-
-		initEClass(controllerInstanceEClass, ControllerInstance.class, "ControllerInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getControllerInstance_ControllerScope_ResourceContainer(), theResourcetypePackage.getControllerLayer(), null, "controllerScope_ResourceContainer", null, 1, 1, ControllerInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance(), this.getControllerAllocationConnector(), this.getControllerAllocationConnector_ProvidingControllerInstance_ControllerAllocationConnector(), "upperControllerAllocationConnectors_ControllerInstance", null, 0, -1, ControllerInstance.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance(), this.getResourceProvidedRoleConnector(), this.getResourceProvidedRoleConnector_RequiringControllerInstance_ControllerAllocationConnector(), "lowerControllerAllocationConnectors_ControllerInstance", null, 0, -1, ControllerInstance.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerAllocationConnector_ToControllerInstance_ControllerAllocationConnector(), this.getControllerInstance(), this.getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance(), "toControllerInstance_ControllerAllocationConnector", null, 0, 1, ControllerAllocationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(resourceEnvironmentEClass, ResourceEnvironment.class, "ResourceEnvironment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceEnvironment_Linkingresource(), this.getLinkingResource(), null, "linkingresource", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -704,25 +648,46 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEReference(getLinkingResource_FromResourceContainer_LinkingResource(), this.getResourceContainer(), null, "fromResourceContainer_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(), this.getCommunicationLinkResourceSpecification(), null, "communicationLinkResourceSpecifications_LinkingResource", null, 1, 1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class, "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(), theResourcetypePackage.getCommunicationLinkResourceType(), null, "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "latency_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "throughput_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceContainer_ActiveResourceSpecifications_ResourceContainer(), this.getProcessingResourceSpecification(), null, "activeResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceContainer_ControllerInstances_ResourceContainer(), this.getControllerInstance(), null, "controllerInstances_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceContainer_ControllerStack_ResourceContainer(), theResourcetypePackage.getControllerStack(), null, "controllerStack_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(resourceContainerEClass, ecorePackage.getEBoolean(), "ForAllControllerLayersOnlyOneLayerIsTheUppestOne", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(resourceContainerEClass, ecorePackage.getEBoolean(), "ForAllControllerLayersOnlyOneLayerIsTheLowestOne", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(processingResourceSpecificationEClass, ProcessingResourceSpecification.class, "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(resourceAllocationConnectorEClass, ResourceAllocationConnector.class, "ResourceAllocationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceAllocationConnector_ProcessingResourceSpecification_ResourceAllocationConnector(), this.getProcessingResourceSpecification(), null, "processingResourceSpecification_ResourceAllocationConnector", null, 1, 1, ResourceAllocationConnector.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEClass(communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class, "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(), theResourcetypePackage.getCommunicationLinkResourceType(), null, "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "latency_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "throughput_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceContainer_AllocationConnectors_ResourceContainer(), theAllocationPackage.getAllocationConnector(), theAllocationPackage.getAllocationConnector_ResourceContainer_AllocationConnector(), "allocationConnectors_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceContainer_ActiveResourceSpecifications_ResourceContainer(), this.getProcessingResourceSpecification(), null, "activeResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceContainer_InfrastructureComponentScope_ResourceContainer(), theAllocationPackage.getInfrastructureComponentScope(), null, "infrastructureComponentScope_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceContainer_ControllerInstance_ResourceContainer(), this.getControllerInstance(), null, "controllerInstance_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceContainer_ControllerStack_ResourceContainer(), theResourcetypePackage.getControllerStack(), null, "controllerStack_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(resourceAllocationConnectorEClass, ResourceAllocationConnector.class, "ResourceAllocationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceAllocationConnector_ToProcessingResourceSpecification_ResourceAllocationConnector(), this.getProcessingResourceSpecification(), null, "toProcessingResourceSpecification_ResourceAllocationConnector", null, 1, 1, ResourceAllocationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(controllerInstanceEClass, ControllerInstance.class, "ControllerInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance(), this.getControllerAllocationConnector(), this.getControllerAllocationConnector_ToControllerInstance_ControllerAllocationConnector(), "upperControllerAllocationConnectors_ControllerInstance", null, 0, -1, ControllerInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerInstance_ControllerLayer_ControllerInstance(), theResourcetypePackage.getControllerLayer(), null, "controllerLayer_ControllerInstance", null, 1, 1, ControllerInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance(), theAllocationPackage.getResourceProvidedRoleConnector(), theAllocationPackage.getResourceProvidedRoleConnector_FromControllerInstance_ControllerAllocationConnector(), "lowerControllerAllocationConnectors_ControllerInstance", null, 0, -1, ControllerInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schedulingPolicyEEnum, SchedulingPolicy.class, "SchedulingPolicy");

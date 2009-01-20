@@ -5,8 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.allocation;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,12 +19,27 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Infrastructure Component Scope</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An InfrastructureComponentScope contains components which are used as infrastructure components, i. e. which are 
+ * accessed through resource demands. As it inherits from ComposedProvidingRequiringEntity, it may contain any amount of 
+ * components in an AssemblyContext.
+ * An InfrastructureComponentScope references a ResourceContainer, on which the internal components of the 
+ * InfrastructureComponentScope are deployed.
+ * 
+ * This entity is used for stacking Controllers. Any resource access on this ResourceContainer first has to go through the 
+ * InfrastructureComponentScopes before it is issued to controllers and resources: If a Component specifies a ResourceDemand, it has to specify the ResourceService of the corresponding ResourceInterface.
+ * Then, the most upper InfrastructureComponentScope is being checked if it provides the same ResourceInterface. If it provides the ResourceInterface, the resource demand is being issued 
+ * to the InfrastructureComponentScope. Otherwise, the search is being repeated for the next InfrastructureComponentScope (lowerLayer). The last InfrastructureComponentScope does not have a further lowerLayer reference. Instead, the controllers and resources are being accessed.
+ * This lookup occurs before simulation (automatically) and creates appropriate AllocationConnectors.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAssemblyContext_InfrastructureComponentScope <em>Assembly Context Infrastructure Component Scope</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getUpperLayer <em>Upper Layer</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,39 +47,13 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface InfrastructureComponentScope extends EObject {
+public interface InfrastructureComponentScope extends ComposedProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Assembly Context Infrastructure Component Scope</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Assembly Context Infrastructure Component Scope</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assembly Context Infrastructure Component Scope</em>' reference.
-	 * @see #setAssemblyContext_InfrastructureComponentScope(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getInfrastructureComponentScope_AssemblyContext_InfrastructureComponentScope()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	AssemblyContext getAssemblyContext_InfrastructureComponentScope();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAssemblyContext_InfrastructureComponentScope <em>Assembly Context Infrastructure Component Scope</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assembly Context Infrastructure Component Scope</em>' reference.
-	 * @see #getAssemblyContext_InfrastructureComponentScope()
-	 * @generated
-	 */
-	void setAssemblyContext_InfrastructureComponentScope(AssemblyContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Lower Layer</b></em>' reference.
@@ -116,5 +110,82 @@ public interface InfrastructureComponentScope extends EObject {
 	 * @generated
 	 */
 	void setUpperLayer(InfrastructureComponentScope value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource Container Infrastructure Component Scope</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resource Container Infrastructure Component Scope</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resource Container Infrastructure Component Scope</em>' reference.
+	 * @see #setResourceContainer_InfrastructureComponentScope(ResourceContainer)
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ResourceContainer getResourceContainer_InfrastructureComponentScope();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resource Container Infrastructure Component Scope</em>' reference.
+	 * @see #getResourceContainer_InfrastructureComponentScope()
+	 * @generated
+	 */
+	void setResourceContainer_InfrastructureComponentScope(ResourceContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>All Lower Layers</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>All Lower Layers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>All Lower Layers</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getInfrastructureComponentScope_AllLowerLayers()
+	 * @model transient="true" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	EList<InfrastructureComponentScope> getAllLowerLayers();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.requiredRoles_InterfaceRequiringEntity->size() = 0
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ScopeMustNotContainRequiredRoles(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.allLowerLayers->includes(self)
+	 * --not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ScopeMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.resourceRequiredRoles_ResourceInterfaceRequiringEntity->size() = 0
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ScopeMustNotContainResourceRequiredRoles(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // InfrastructureComponentScope

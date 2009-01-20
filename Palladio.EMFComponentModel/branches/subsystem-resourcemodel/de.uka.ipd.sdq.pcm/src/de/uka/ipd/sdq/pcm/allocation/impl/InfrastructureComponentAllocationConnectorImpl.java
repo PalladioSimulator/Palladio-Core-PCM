@@ -20,10 +20,13 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -31,10 +34,12 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
@@ -54,10 +59,9 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getResourceRequiredRole_AllocationConnector <em>Resource Required Role Allocation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getResourceContainer_AllocationConnector <em>Resource Container Allocation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getAssemblyContext_AllocationConnector <em>Assembly Context Allocation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getFromAssemblyContext_AllocationConnector <em>From Assembly Context Allocation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getProvidedRole_AllocationConnector <em>Provided Role Allocation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getInfrastructureComponentScope_InfrastructureComponentAllocationConnector <em>Infrastructure Component Scope Infrastructure Component Allocation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentAllocationConnectorImpl#getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector <em>To Infrastructure Component Scope Infrastructure Component Allocation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,14 +76,63 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}' invariant constraint.
+	 * The cached value of the '{@link #getResourceRequiredRole_AllocationConnector() <em>Resource Required Role Allocation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch
+	 * @see #getResourceRequiredRole_AllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceRequiredRole resourceRequiredRole_AllocationConnector;
+
+	/**
+	 * The cached value of the '{@link #getFromAssemblyContext_AllocationConnector() <em>From Assembly Context Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromAssemblyContext_AllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssemblyContext fromAssemblyContext_AllocationConnector;
+
+	/**
+	 * The cached value of the '{@link #getProvidedRole_AllocationConnector() <em>Provided Role Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidedRole_AllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProvidedRole providedRole_AllocationConnector;
+
+	/**
+	 * The cached value of the '{@link #getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector() <em>To Infrastructure Component Scope Infrastructure Component Allocation Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected InfrastructureComponentScope toInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ChildContextContainsRoleWithReferencedInterface <em>Child Context Contains Role With Referenced Interface</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ChildContextContainsRoleWithReferencedInterface
 	 * @generated
 	 */
-	private static OCLExpression AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatchInvOCL;
-	
+	private static OCLExpression ChildContextContainsRoleWithReferencedInterfaceInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #FromAssemblyContextHasToBeSet <em>From Assembly Context Has To Be Set</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FromAssemblyContextHasToBeSet
+	 * @generated
+	 */
+	private static OCLExpression FromAssemblyContextHasToBeSetInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -107,8 +160,15 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public ResourceRequiredRole getResourceRequiredRole_AllocationConnector() {
-		ResourceRequiredRole resourceRequiredRole_AllocationConnector = basicGetResourceRequiredRole_AllocationConnector();
-		return resourceRequiredRole_AllocationConnector != null && resourceRequiredRole_AllocationConnector.eIsProxy() ? (ResourceRequiredRole)eResolveProxy((InternalEObject)resourceRequiredRole_AllocationConnector) : resourceRequiredRole_AllocationConnector;
+		if (resourceRequiredRole_AllocationConnector != null && resourceRequiredRole_AllocationConnector.eIsProxy()) {
+			InternalEObject oldResourceRequiredRole_AllocationConnector = (InternalEObject)resourceRequiredRole_AllocationConnector;
+			resourceRequiredRole_AllocationConnector = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole_AllocationConnector);
+			if (resourceRequiredRole_AllocationConnector != oldResourceRequiredRole_AllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR, oldResourceRequiredRole_AllocationConnector, resourceRequiredRole_AllocationConnector));
+			}
+		}
+		return resourceRequiredRole_AllocationConnector;
 	}
 
 	/**
@@ -117,9 +177,7 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public ResourceRequiredRole basicGetResourceRequiredRole_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return resourceRequiredRole_AllocationConnector;
 	}
 
 	/**
@@ -128,9 +186,10 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public void setResourceRequiredRole_AllocationConnector(ResourceRequiredRole newResourceRequiredRole_AllocationConnector) {
-		// TODO: implement this method to set the 'Resource Required Role Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ResourceRequiredRole oldResourceRequiredRole_AllocationConnector = resourceRequiredRole_AllocationConnector;
+		resourceRequiredRole_AllocationConnector = newResourceRequiredRole_AllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR, oldResourceRequiredRole_AllocationConnector, resourceRequiredRole_AllocationConnector));
 	}
 
 	/**
@@ -138,9 +197,16 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceContainer getResourceContainer_AllocationConnector() {
-		ResourceContainer resourceContainer_AllocationConnector = basicGetResourceContainer_AllocationConnector();
-		return resourceContainer_AllocationConnector != null && resourceContainer_AllocationConnector.eIsProxy() ? (ResourceContainer)eResolveProxy((InternalEObject)resourceContainer_AllocationConnector) : resourceContainer_AllocationConnector;
+	public AssemblyContext getFromAssemblyContext_AllocationConnector() {
+		if (fromAssemblyContext_AllocationConnector != null && fromAssemblyContext_AllocationConnector.eIsProxy()) {
+			InternalEObject oldFromAssemblyContext_AllocationConnector = (InternalEObject)fromAssemblyContext_AllocationConnector;
+			fromAssemblyContext_AllocationConnector = (AssemblyContext)eResolveProxy(oldFromAssemblyContext_AllocationConnector);
+			if (fromAssemblyContext_AllocationConnector != oldFromAssemblyContext_AllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR, oldFromAssemblyContext_AllocationConnector, fromAssemblyContext_AllocationConnector));
+			}
+		}
+		return fromAssemblyContext_AllocationConnector;
 	}
 
 	/**
@@ -148,10 +214,8 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceContainer basicGetResourceContainer_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public AssemblyContext basicGetFromAssemblyContext_AllocationConnector() {
+		return fromAssemblyContext_AllocationConnector;
 	}
 
 	/**
@@ -159,42 +223,11 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceContainer_AllocationConnector(ResourceContainer newResourceContainer_AllocationConnector) {
-		// TODO: implement this method to set the 'Resource Container Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext getAssemblyContext_AllocationConnector() {
-		AssemblyContext assemblyContext_AllocationConnector = basicGetAssemblyContext_AllocationConnector();
-		return assemblyContext_AllocationConnector != null && assemblyContext_AllocationConnector.eIsProxy() ? (AssemblyContext)eResolveProxy((InternalEObject)assemblyContext_AllocationConnector) : assemblyContext_AllocationConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext basicGetAssemblyContext_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssemblyContext_AllocationConnector(AssemblyContext newAssemblyContext_AllocationConnector) {
-		// TODO: implement this method to set the 'Assembly Context Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setFromAssemblyContext_AllocationConnector(AssemblyContext newFromAssemblyContext_AllocationConnector) {
+		AssemblyContext oldFromAssemblyContext_AllocationConnector = fromAssemblyContext_AllocationConnector;
+		fromAssemblyContext_AllocationConnector = newFromAssemblyContext_AllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR, oldFromAssemblyContext_AllocationConnector, fromAssemblyContext_AllocationConnector));
 	}
 
 	/**
@@ -203,8 +236,15 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public ProvidedRole getProvidedRole_AllocationConnector() {
-		ProvidedRole providedRole_AllocationConnector = basicGetProvidedRole_AllocationConnector();
-		return providedRole_AllocationConnector != null && providedRole_AllocationConnector.eIsProxy() ? (ProvidedRole)eResolveProxy((InternalEObject)providedRole_AllocationConnector) : providedRole_AllocationConnector;
+		if (providedRole_AllocationConnector != null && providedRole_AllocationConnector.eIsProxy()) {
+			InternalEObject oldProvidedRole_AllocationConnector = (InternalEObject)providedRole_AllocationConnector;
+			providedRole_AllocationConnector = (ProvidedRole)eResolveProxy(oldProvidedRole_AllocationConnector);
+			if (providedRole_AllocationConnector != oldProvidedRole_AllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR, oldProvidedRole_AllocationConnector, providedRole_AllocationConnector));
+			}
+		}
+		return providedRole_AllocationConnector;
 	}
 
 	/**
@@ -213,9 +253,7 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public ProvidedRole basicGetProvidedRole_AllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return providedRole_AllocationConnector;
 	}
 
 	/**
@@ -224,9 +262,10 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * @generated
 	 */
 	public void setProvidedRole_AllocationConnector(ProvidedRole newProvidedRole_AllocationConnector) {
-		// TODO: implement this method to set the 'Provided Role Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ProvidedRole oldProvidedRole_AllocationConnector = providedRole_AllocationConnector;
+		providedRole_AllocationConnector = newProvidedRole_AllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR, oldProvidedRole_AllocationConnector, providedRole_AllocationConnector));
 	}
 
 	/**
@@ -234,9 +273,16 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponentScope getInfrastructureComponentScope_InfrastructureComponentAllocationConnector() {
-		InfrastructureComponentScope infrastructureComponentScope_InfrastructureComponentAllocationConnector = basicGetInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
-		return infrastructureComponentScope_InfrastructureComponentAllocationConnector != null && infrastructureComponentScope_InfrastructureComponentAllocationConnector.eIsProxy() ? (InfrastructureComponentScope)eResolveProxy((InternalEObject)infrastructureComponentScope_InfrastructureComponentAllocationConnector) : infrastructureComponentScope_InfrastructureComponentAllocationConnector;
+	public InfrastructureComponentScope getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector() {
+		if (toInfrastructureComponentScope_InfrastructureComponentAllocationConnector != null && toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.eIsProxy()) {
+			InternalEObject oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector = (InternalEObject)toInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
+			toInfrastructureComponentScope_InfrastructureComponentAllocationConnector = (InfrastructureComponentScope)eResolveProxy(oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector);
+			if (toInfrastructureComponentScope_InfrastructureComponentAllocationConnector != oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR, oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector, toInfrastructureComponentScope_InfrastructureComponentAllocationConnector));
+			}
+		}
+		return toInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
 	}
 
 	/**
@@ -244,10 +290,8 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InfrastructureComponentScope basicGetInfrastructureComponentScope_InfrastructureComponentAllocationConnector() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public InfrastructureComponentScope basicGetToInfrastructureComponentScope_InfrastructureComponentAllocationConnector() {
+		return toInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
 	}
 
 	/**
@@ -255,10 +299,11 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInfrastructureComponentScope_InfrastructureComponentAllocationConnector(InfrastructureComponentScope newInfrastructureComponentScope_InfrastructureComponentAllocationConnector) {
-		// TODO: implement this method to set the 'Infrastructure Component Scope Infrastructure Component Allocation Connector' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setToInfrastructureComponentScope_InfrastructureComponentAllocationConnector(InfrastructureComponentScope newToInfrastructureComponentScope_InfrastructureComponentAllocationConnector) {
+		InfrastructureComponentScope oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector = toInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
+		toInfrastructureComponentScope_InfrastructureComponentAllocationConnector = newToInfrastructureComponentScope_InfrastructureComponentAllocationConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR, oldToInfrastructureComponentScope_InfrastructureComponentAllocationConnector, toInfrastructureComponentScope_InfrastructureComponentAllocationConnector));
 	}
 
 	/**
@@ -266,21 +311,21 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatchInvOCL == null) {
+	public boolean ChildContextContainsRoleWithReferencedInterface(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ChildContextContainsRoleWithReferencedInterfaceInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.assemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AllocationConnector) ";
+			String body = "self.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole) ";
 			
 			try {
-				AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatchInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ChildContextContainsRoleWithReferencedInterfaceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatchInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ChildContextContainsRoleWithReferencedInterfaceInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -290,8 +335,47 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 AllocationValidator.DIAGNOSTIC_SOURCE,
-						 AllocationValidator.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch", EObjectValidator.getObjectLabel(this, context) }),
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__CHILD_CONTEXT_CONTAINS_ROLE_WITH_REFERENCED_INTERFACE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ChildContextContainsRoleWithReferencedInterface", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean FromAssemblyContextHasToBeSet(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (FromAssemblyContextHasToBeSetInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.fromAssemblyContext_AllocationConnector->size() = 1 ";
+			
+			try {
+				FromAssemblyContextHasToBeSetInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(FromAssemblyContextHasToBeSetInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 AllocationValidator.DIAGNOSTIC_SOURCE,
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_HAS_TO_BE_SET,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "FromAssemblyContextHasToBeSet", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -311,18 +395,15 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				if (resolve) return getResourceRequiredRole_AllocationConnector();
 				return basicGetResourceRequiredRole_AllocationConnector();
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				if (resolve) return getResourceContainer_AllocationConnector();
-				return basicGetResourceContainer_AllocationConnector();
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				if (resolve) return getAssemblyContext_AllocationConnector();
-				return basicGetAssemblyContext_AllocationConnector();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				if (resolve) return getFromAssemblyContext_AllocationConnector();
+				return basicGetFromAssemblyContext_AllocationConnector();
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR:
 				if (resolve) return getProvidedRole_AllocationConnector();
 				return basicGetProvidedRole_AllocationConnector();
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
-				if (resolve) return getInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
-				return basicGetInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
+				if (resolve) return getToInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
+				return basicGetToInfrastructureComponentScope_InfrastructureComponentAllocationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,17 +419,14 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				setResourceRequiredRole_AllocationConnector((ResourceRequiredRole)newValue);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				setResourceContainer_AllocationConnector((ResourceContainer)newValue);
-				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				setAssemblyContext_AllocationConnector((AssemblyContext)newValue);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				setFromAssemblyContext_AllocationConnector((AssemblyContext)newValue);
 				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR:
 				setProvidedRole_AllocationConnector((ProvidedRole)newValue);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
-				setInfrastructureComponentScope_InfrastructureComponentAllocationConnector((InfrastructureComponentScope)newValue);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
+				setToInfrastructureComponentScope_InfrastructureComponentAllocationConnector((InfrastructureComponentScope)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -365,17 +443,14 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
 				setResourceRequiredRole_AllocationConnector((ResourceRequiredRole)null);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				setResourceContainer_AllocationConnector((ResourceContainer)null);
-				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				setAssemblyContext_AllocationConnector((AssemblyContext)null);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				setFromAssemblyContext_AllocationConnector((AssemblyContext)null);
 				return;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR:
 				setProvidedRole_AllocationConnector((ProvidedRole)null);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
-				setInfrastructureComponentScope_InfrastructureComponentAllocationConnector((InfrastructureComponentScope)null);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
+				setToInfrastructureComponentScope_InfrastructureComponentAllocationConnector((InfrastructureComponentScope)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -390,15 +465,13 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR:
-				return basicGetResourceRequiredRole_AllocationConnector() != null;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR:
-				return basicGetResourceContainer_AllocationConnector() != null;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
-				return basicGetAssemblyContext_AllocationConnector() != null;
+				return resourceRequiredRole_AllocationConnector != null;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR:
+				return fromAssemblyContext_AllocationConnector != null;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR:
-				return basicGetProvidedRole_AllocationConnector() != null;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
-				return basicGetInfrastructureComponentScope_InfrastructureComponentAllocationConnector() != null;
+				return providedRole_AllocationConnector != null;
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__TO_INFRASTRUCTURE_COMPONENT_SCOPE_INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
+				return toInfrastructureComponentScope_InfrastructureComponentAllocationConnector != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -413,8 +486,7 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 		if (baseClass == AllocationConnector.class) {
 			switch (derivedFeatureID) {
 				case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR: return AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
-				case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR: return AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR;
-				case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR: return AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+				case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR: return AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
 				default: return -1;
 			}
 		}
@@ -431,8 +503,7 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 		if (baseClass == AllocationConnector.class) {
 			switch (baseFeatureID) {
 				case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR: return AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
-				case AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR: return AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR;
-				case AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR: return AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+				case AllocationPackage.ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR: return AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
 				default: return -1;
 			}
 		}

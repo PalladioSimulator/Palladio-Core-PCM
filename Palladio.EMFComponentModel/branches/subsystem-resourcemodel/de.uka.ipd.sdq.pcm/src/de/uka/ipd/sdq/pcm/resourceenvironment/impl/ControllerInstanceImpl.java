@@ -5,24 +5,24 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.allocation.ResourceProvidedRoleConnector;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl#getControllerScope_ResourceContainer <em>Controller Scope Resource Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl#getUpperControllerAllocationConnectors_ControllerInstance <em>Upper Controller Allocation Connectors Controller Instance</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl#getControllerLayer_ControllerInstance <em>Controller Layer Controller Instance</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl#getLowerControllerAllocationConnectors_ControllerInstance <em>Lower Controller Allocation Connectors Controller Instance</em>}</li>
  * </ul>
  * </p>
@@ -48,14 +48,34 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getControllerScope_ResourceContainer() <em>Controller Scope Resource Container</em>}' reference.
+	 * The cached value of the '{@link #getUpperControllerAllocationConnectors_ControllerInstance() <em>Upper Controller Allocation Connectors Controller Instance</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getControllerScope_ResourceContainer()
+	 * @see #getUpperControllerAllocationConnectors_ControllerInstance()
 	 * @generated
 	 * @ordered
 	 */
-	protected ControllerLayer controllerScope_ResourceContainer;
+	protected EList<ControllerAllocationConnector> upperControllerAllocationConnectors_ControllerInstance;
+
+	/**
+	 * The cached value of the '{@link #getControllerLayer_ControllerInstance() <em>Controller Layer Controller Instance</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getControllerLayer_ControllerInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected ControllerLayer controllerLayer_ControllerInstance;
+
+	/**
+	 * The cached value of the '{@link #getLowerControllerAllocationConnectors_ControllerInstance() <em>Lower Controller Allocation Connectors Controller Instance</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLowerControllerAllocationConnectors_ControllerInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceProvidedRoleConnector> lowerControllerAllocationConnectors_ControllerInstance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,16 +101,16 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControllerLayer getControllerScope_ResourceContainer() {
-		if (controllerScope_ResourceContainer != null && controllerScope_ResourceContainer.eIsProxy()) {
-			InternalEObject oldControllerScope_ResourceContainer = (InternalEObject)controllerScope_ResourceContainer;
-			controllerScope_ResourceContainer = (ControllerLayer)eResolveProxy(oldControllerScope_ResourceContainer);
-			if (controllerScope_ResourceContainer != oldControllerScope_ResourceContainer) {
+	public ControllerLayer getControllerLayer_ControllerInstance() {
+		if (controllerLayer_ControllerInstance != null && controllerLayer_ControllerInstance.eIsProxy()) {
+			InternalEObject oldControllerLayer_ControllerInstance = (InternalEObject)controllerLayer_ControllerInstance;
+			controllerLayer_ControllerInstance = (ControllerLayer)eResolveProxy(oldControllerLayer_ControllerInstance);
+			if (controllerLayer_ControllerInstance != oldControllerLayer_ControllerInstance) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER, oldControllerScope_ResourceContainer, controllerScope_ResourceContainer));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE, oldControllerLayer_ControllerInstance, controllerLayer_ControllerInstance));
 			}
 		}
-		return controllerScope_ResourceContainer;
+		return controllerLayer_ControllerInstance;
 	}
 
 	/**
@@ -98,8 +118,8 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControllerLayer basicGetControllerScope_ResourceContainer() {
-		return controllerScope_ResourceContainer;
+	public ControllerLayer basicGetControllerLayer_ControllerInstance() {
+		return controllerLayer_ControllerInstance;
 	}
 
 	/**
@@ -107,11 +127,11 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setControllerScope_ResourceContainer(ControllerLayer newControllerScope_ResourceContainer) {
-		ControllerLayer oldControllerScope_ResourceContainer = controllerScope_ResourceContainer;
-		controllerScope_ResourceContainer = newControllerScope_ResourceContainer;
+	public void setControllerLayer_ControllerInstance(ControllerLayer newControllerLayer_ControllerInstance) {
+		ControllerLayer oldControllerLayer_ControllerInstance = controllerLayer_ControllerInstance;
+		controllerLayer_ControllerInstance = newControllerLayer_ControllerInstance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER, oldControllerScope_ResourceContainer, controllerScope_ResourceContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE, oldControllerLayer_ControllerInstance, controllerLayer_ControllerInstance));
 	}
 
 	/**
@@ -120,9 +140,10 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	 * @generated
 	 */
 	public EList<ControllerAllocationConnector> getUpperControllerAllocationConnectors_ControllerInstance() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (upperControllerAllocationConnectors_ControllerInstance == null) {
+			upperControllerAllocationConnectors_ControllerInstance = new EObjectWithInverseResolvingEList<ControllerAllocationConnector>(ControllerAllocationConnector.class, this, ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE, ResourceenvironmentPackage.CONTROLLER_ALLOCATION_CONNECTOR__TO_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR);
+		}
+		return upperControllerAllocationConnectors_ControllerInstance;
 	}
 
 	/**
@@ -131,9 +152,43 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	 * @generated
 	 */
 	public EList<ResourceProvidedRoleConnector> getLowerControllerAllocationConnectors_ControllerInstance() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (lowerControllerAllocationConnectors_ControllerInstance == null) {
+			lowerControllerAllocationConnectors_ControllerInstance = new EObjectWithInverseResolvingEList<ResourceProvidedRoleConnector>(ResourceProvidedRoleConnector.class, this, ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE, AllocationPackage.RESOURCE_PROVIDED_ROLE_CONNECTOR__FROM_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR);
+		}
+		return lowerControllerAllocationConnectors_ControllerInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUpperControllerAllocationConnectors_ControllerInstance()).basicAdd(otherEnd, msgs);
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLowerControllerAllocationConnectors_ControllerInstance()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
+				return ((InternalEList<?>)getUpperControllerAllocationConnectors_ControllerInstance()).basicRemove(otherEnd, msgs);
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
+				return ((InternalEList<?>)getLowerControllerAllocationConnectors_ControllerInstance()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -144,11 +199,11 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER:
-				if (resolve) return getControllerScope_ResourceContainer();
-				return basicGetControllerScope_ResourceContainer();
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				return getUpperControllerAllocationConnectors_ControllerInstance();
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE:
+				if (resolve) return getControllerLayer_ControllerInstance();
+				return basicGetControllerLayer_ControllerInstance();
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				return getLowerControllerAllocationConnectors_ControllerInstance();
 		}
@@ -164,12 +219,12 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER:
-				setControllerScope_ResourceContainer((ControllerLayer)newValue);
-				return;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				getUpperControllerAllocationConnectors_ControllerInstance().clear();
 				getUpperControllerAllocationConnectors_ControllerInstance().addAll((Collection<? extends ControllerAllocationConnector>)newValue);
+				return;
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE:
+				setControllerLayer_ControllerInstance((ControllerLayer)newValue);
 				return;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				getLowerControllerAllocationConnectors_ControllerInstance().clear();
@@ -187,11 +242,11 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER:
-				setControllerScope_ResourceContainer((ControllerLayer)null);
-				return;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				getUpperControllerAllocationConnectors_ControllerInstance().clear();
+				return;
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE:
+				setControllerLayer_ControllerInstance((ControllerLayer)null);
 				return;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
 				getLowerControllerAllocationConnectors_ControllerInstance().clear();
@@ -208,12 +263,12 @@ public class ControllerInstanceImpl extends EObjectImpl implements ControllerIns
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER:
-				return controllerScope_ResourceContainer != null;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
-				return !getUpperControllerAllocationConnectors_ControllerInstance().isEmpty();
+				return upperControllerAllocationConnectors_ControllerInstance != null && !upperControllerAllocationConnectors_ControllerInstance.isEmpty();
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__CONTROLLER_LAYER_CONTROLLER_INSTANCE:
+				return controllerLayer_ControllerInstance != null;
 			case ResourceenvironmentPackage.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE:
-				return !getLowerControllerAllocationConnectors_ControllerInstance().isEmpty();
+				return lowerControllerAllocationConnectors_ControllerInstance != null && !lowerControllerAllocationConnectors_ControllerInstance.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

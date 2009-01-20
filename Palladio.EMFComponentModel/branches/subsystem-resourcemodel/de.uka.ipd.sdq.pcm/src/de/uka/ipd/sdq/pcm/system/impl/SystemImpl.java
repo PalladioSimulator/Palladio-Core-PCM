@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ocl.expressions.OCLExpression;
@@ -119,6 +120,16 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * @ordered
 	 */
 	protected EList<AssemblyConnector> assemblyConnectors_ComposedStructure;
+	
+	/**
+	 * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure() <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceRequiredDelegationConnector> resourceRequiredDelegationConnectors_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
@@ -168,6 +179,15 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * @generated
 	 */
 	private static OCLExpression ProvidedRolesMustBeBoundInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #NoInterfaceIsProvidedTwice <em>No Interface Is Provided Twice</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NoInterfaceIsProvidedTwice
+	 * @generated
+	 */
+	private static OCLExpression NoInterfaceIsProvidedTwiceInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -244,9 +264,10 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * @generated
 	 */
 	public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (resourceRequiredDelegationConnectors_ComposedStructure == null) {
+			resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(ResourceRequiredDelegationConnector.class, this, SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
+		}
+		return resourceRequiredDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -307,7 +328,7 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).  self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))  ";
+			String body = " self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))  ";
 			
 			try {
 				ProvidedRolesMustBeBoundInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -341,6 +362,45 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean NoInterfaceIsProvidedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NoInterfaceIsProvidedTwiceInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "   self.providedRoles_InterfaceProvidingEntity->forAll(p1, p2 | if p1 <> p2 then p1.providedInterface__ProvidedRole <> p2.providedInterface__ProvidedRole  else true endif) ";
+			
+			try {
+				NoInterfaceIsProvidedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(NoInterfaceIsProvidedTwiceInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 EntityValidator.DIAGNOSTIC_SOURCE,
+						 EntityValidator.INTERFACE_PROVIDING_ENTITY__NO_INTERFACE_IS_PROVIDED_TWICE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NoInterfaceIsProvidedTwice", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -353,6 +413,8 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
@@ -379,6 +441,8 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return ((InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				return ((InternalEList<?>)getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
@@ -526,7 +590,7 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 				return assemblyConnectors_ComposedStructure != null && !assemblyConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-				return !getResourceRequiredDelegationConnectors_ComposedStructure().isEmpty();
+				return resourceRequiredDelegationConnectors_ComposedStructure != null && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:

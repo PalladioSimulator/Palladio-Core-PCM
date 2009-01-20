@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.core.entity;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,5 +61,18 @@ public interface InterfaceProvidingEntity extends Entity {
 	 * @generated
 	 */
 	EList<ProvidedRole> getProvidedRoles_InterfaceProvidingEntity();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * --self.providedRoles_InterfaceProvidingEntity->forAll(p1 | self.providedRoles_InterfaceProvidingEntity->select(providedInterface__ProvidedRole = p1.providedInterface__ProvidedRole)->size() = 1)
+	 * 
+	 * self.providedRoles_InterfaceProvidingEntity->forAll(p1, p2 | if p1 <> p2 then p1.providedInterface__ProvidedRole <> p2.providedInterface__ProvidedRole  else true endif)
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean NoInterfaceIsProvidedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // InterfaceProvidingEntity

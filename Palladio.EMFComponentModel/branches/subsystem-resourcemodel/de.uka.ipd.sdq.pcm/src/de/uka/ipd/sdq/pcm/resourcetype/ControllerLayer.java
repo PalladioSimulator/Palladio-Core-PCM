@@ -5,6 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,11 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This entity is used for stacking Controllers. A ControllerScope is deployed on a ResourceContainer. Any resource access on this ResourceContainer first has to go through the 
- * ControllerScope before it is issued to resources: If a Component specifies a ResourceDemand, it has to specify the ResourceService of the corresponding ResourceInterface.
- * Then, the outest ControllerScope is being checked if its ControllerType provides the same ResourceInterface. If it provides the ResourceInterface, the resource demand is being issued 
- * to the Controller. Otherwise, the search is being repeated for the next ControllerScope (innerScope). The last ControllerScope does not have a further innerScope reference. Instead, the 
+ * This entity is used for stacking Controllers. Any resource access on this ResourceContainer first has to go through the 
+ * ControllerLayers before it is issued to resources: If a Component specifies a ResourceDemand, it has to specify the ResourceService of the corresponding ResourceInterface.
+ * Then, the most upper ControllerLayer is being checked if its ControllerType provides the same ResourceInterface. If it provides the ResourceInterface, the resource demand is being issued 
+ * to the Controller. Otherwise, the search is being repeated for the next ControllerLayer (lowerLayer). The last ControllerLayer does not have a further innerLayer reference. Instead, the 
  * ProcessingResourceType is being accessed.
+ * This lookup occurs before simulation (automatically) and creates appropriate AllocationConnectors.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -25,7 +29,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getLowerLayer <em>Lower Layer</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope <em>Controller Type Controller Scope</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,29 +103,56 @@ public interface ControllerLayer extends EObject {
 	void setLowerLayer(ControllerLayer value);
 
 	/**
-	 * Returns the value of the '<em><b>Controller Type Controller Scope</b></em>' reference.
+	 * Returns the value of the '<em><b>Controller Type Controller Layer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Controller Type Controller Scope</em>' reference isn't clear,
+	 * If the meaning of the '<em>Controller Type Controller Layer</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Controller Type Controller Scope</em>' reference.
-	 * @see #setControllerType_ControllerScope(ControllerType)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getControllerLayer_ControllerType_ControllerScope()
+	 * @return the value of the '<em>Controller Type Controller Layer</em>' reference.
+	 * @see #setControllerType_ControllerLayer(ControllerType)
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getControllerLayer_ControllerType_ControllerLayer()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ControllerType getControllerType_ControllerScope();
+	ControllerType getControllerType_ControllerLayer();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope <em>Controller Type Controller Scope</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Controller Type Controller Scope</em>' reference.
-	 * @see #getControllerType_ControllerScope()
+	 * @param value the new value of the '<em>Controller Type Controller Layer</em>' reference.
+	 * @see #getControllerType_ControllerLayer()
 	 * @generated
 	 */
-	void setControllerType_ControllerScope(ControllerType value);
+	void setControllerType_ControllerLayer(ControllerType value);
+
+	/**
+	 * Returns the value of the '<em><b>All Lower Layers</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>All Lower Layers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>All Lower Layers</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getControllerLayer_AllLowerLayers()
+	 * @model transient="true" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	EList<ControllerLayer> getAllLowerLayers();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.allLowerLayers->includes(self)
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ControllerLayerMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ControllerLayer

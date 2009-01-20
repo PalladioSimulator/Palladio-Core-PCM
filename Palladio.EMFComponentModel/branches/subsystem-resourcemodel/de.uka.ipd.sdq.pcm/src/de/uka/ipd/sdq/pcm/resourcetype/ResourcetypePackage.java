@@ -226,13 +226,22 @@ public interface ResourcetypePackage extends EPackage {
 	int CONTROLLER_LAYER__LOWER_LAYER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Controller Type Controller Scope</b></em>' reference.
+	 * The feature id for the '<em><b>Controller Type Controller Layer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE = 2;
+	int CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER = 2;
+
+	/**
+	 * The feature id for the '<em><b>All Lower Layers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER__ALL_LOWER_LAYERS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Controller Layer</em>' class.
@@ -241,7 +250,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_LAYER_FEATURE_COUNT = 3;
+	int CONTROLLER_LAYER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl <em>Controller Type</em>}' class.
@@ -745,15 +754,26 @@ public interface ResourcetypePackage extends EPackage {
 	EReference getControllerLayer_LowerLayer();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope <em>Controller Type Controller Scope</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Controller Type Controller Scope</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope()
+	 * @return the meta object for the reference '<em>Controller Type Controller Layer</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerLayer()
 	 * @see #getControllerLayer()
 	 * @generated
 	 */
-	EReference getControllerLayer_ControllerType_ControllerScope();
+	EReference getControllerLayer_ControllerType_ControllerLayer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers <em>All Lower Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>All Lower Layers</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers()
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	EReference getControllerLayer_AllLowerLayers();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType <em>Controller Type</em>}'.
@@ -1024,12 +1044,20 @@ public interface ResourcetypePackage extends EPackage {
 		EReference CONTROLLER_LAYER__LOWER_LAYER = eINSTANCE.getControllerLayer_LowerLayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Controller Type Controller Scope</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Controller Type Controller Layer</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE = eINSTANCE.getControllerLayer_ControllerType_ControllerScope();
+		EReference CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER = eINSTANCE.getControllerLayer_ControllerType_ControllerLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>All Lower Layers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_LAYER__ALL_LOWER_LAYERS = eINSTANCE.getControllerLayer_AllLowerLayers();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl <em>Controller Type</em>}' class.

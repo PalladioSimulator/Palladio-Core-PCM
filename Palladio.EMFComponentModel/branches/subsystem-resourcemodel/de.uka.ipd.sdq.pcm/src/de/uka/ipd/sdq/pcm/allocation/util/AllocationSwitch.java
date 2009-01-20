@@ -12,12 +12,18 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,12 +106,10 @@ public class AllocationSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AllocationPackage.ALLOCATION_CONTEXT: {
-				AllocationContext allocationContext = (AllocationContext)theEObject;
-				T result = caseAllocationContext(allocationContext);
-				if (result == null) result = caseEntity(allocationContext);
-				if (result == null) result = caseIdentifier(allocationContext);
-				if (result == null) result = caseNamedElement(allocationContext);
+			case AllocationPackage.RESOURCE_PROVIDED_ROLE_CONNECTOR: {
+				ResourceProvidedRoleConnector resourceProvidedRoleConnector = (ResourceProvidedRoleConnector)theEObject;
+				T result = caseResourceProvidedRoleConnector(resourceProvidedRoleConnector);
+				if (result == null) result = caseAllocationConnector(resourceProvidedRoleConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,9 +119,12 @@ public class AllocationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE: {
-				InfrastructureComponentScope infrastructureComponentScope = (InfrastructureComponentScope)theEObject;
-				T result = caseInfrastructureComponentScope(infrastructureComponentScope);
+			case AllocationPackage.ALLOCATION_CONTEXT: {
+				AllocationContext allocationContext = (AllocationContext)theEObject;
+				T result = caseAllocationContext(allocationContext);
+				if (result == null) result = caseEntity(allocationContext);
+				if (result == null) result = caseIdentifier(allocationContext);
+				if (result == null) result = caseNamedElement(allocationContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,6 +134,21 @@ public class AllocationSwitch<T> {
 				if (result == null) result = caseEntity(allocation);
 				if (result == null) result = caseIdentifier(allocation);
 				if (result == null) result = caseNamedElement(allocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE: {
+				InfrastructureComponentScope infrastructureComponentScope = (InfrastructureComponentScope)theEObject;
+				T result = caseInfrastructureComponentScope(infrastructureComponentScope);
+				if (result == null) result = caseComposedProvidingRequiringEntity(infrastructureComponentScope);
+				if (result == null) result = caseComposedStructure(infrastructureComponentScope);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(infrastructureComponentScope);
+				if (result == null) result = caseEntity(infrastructureComponentScope);
+				if (result == null) result = caseInterfaceProvidingEntity(infrastructureComponentScope);
+				if (result == null) result = caseInterfaceRequiringEntity(infrastructureComponentScope);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(infrastructureComponentScope);
+				if (result == null) result = caseIdentifier(infrastructureComponentScope);
+				if (result == null) result = caseNamedElement(infrastructureComponentScope);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -143,6 +165,21 @@ public class AllocationSwitch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Provided Role Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Provided Role Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
+		return null;
 	}
 
 	/**
@@ -262,6 +299,96 @@ public class AllocationSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComposedStructure(ComposedStructure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
 		return null;
 	}
 
