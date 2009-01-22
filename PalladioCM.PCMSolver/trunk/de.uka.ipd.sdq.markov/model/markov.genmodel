@@ -5,7 +5,8 @@
     modelPluginID="de.uka.ipd.sdq.markov" modelName="Markov" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>markov.ecore</foreignModel>
-  <genPackages prefix="Markov" disposableProviderFactory="true" ecorePackage="markov.ecore#/">
+  <genPackages prefix="Markov" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="markov.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="markov.ecore#//StateType">
       <genEnumLiterals ecoreEnumLiteral="markov.ecore#//StateType/Default"/>
       <genEnumLiterals ecoreEnumLiteral="markov.ecore#//StateType/Start"/>

@@ -8,13 +8,8 @@ package de.uka.ipd.sdq.markov.impl;
 
 import java.util.Collection;
 
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import de.uka.ipd.sdq.markov.MarkovChain;

@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.markov;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
