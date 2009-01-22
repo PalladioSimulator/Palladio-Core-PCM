@@ -1647,7 +1647,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_KS-B4zHmEduYw4tR7Gtf7Q"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_KS0Q4THmEduYw4tR7Gtf7Q" showStereotype="Label"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_Y8AekOD3Edq8ysXH3gTiEg?pcm/seff/ParametricResourceDemand?"/>
+            <element xmi:type="uml:Class" href="pcm.emx#_Y8AekOD3Edq8ysXH3gTiEg?pcm/seff/performance/ParametricResourceDemand?"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KS0Q4jHmEduYw4tR7Gtf7Q" x="3816" y="8586"/>
           </children>
           <children xmi:id="_OHWScDHmEduYw4tR7Gtf7Q">
@@ -2171,7 +2171,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_FScHQDHmEduYw4tR7Gtf7Q" name="ResourceDemand">
         <ownedAttribute xmi:id="_LhfqgTHmEduYw4tR7Gtf7Q" name="parametricResourceDemand_ResourceDemand" association="_LhfqgDHmEduYw4tR7Gtf7Q">
-          <type xmi:type="uml:Class" href="pcm.emx#_Y8AekOD3Edq8ysXH3gTiEg?pcm/seff/ParametricResourceDemand?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_Y8AekOD3Edq8ysXH3gTiEg?pcm/seff/performance/ParametricResourceDemand?"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LhfqhDHmEduYw4tR7Gtf7Q" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LhfqgzHmEduYw4tR7Gtf7Q" value="1"/>
         </ownedAttribute>
@@ -2246,7 +2246,7 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_MXCGoAFcEd2hAt0r1_4OrQ" base_Package="_1R48IDHiEduYw4tR7Gtf7Q" packageName="" nsPrefix="context" nsURI="http://sdq.ipd.uka.de/Context/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
-  <Ecore:EPackage xmi:id="_MXCGoQFcEd2hAt0r1_4OrQ" base_Package="_cK-soDHjEduYw4tR7Gtf7Q" packageName="" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Usage/1.0" basePackage="" prefix=""/>
-  <Ecore:EPackage xmi:id="_MXCGogFcEd2hAt0r1_4OrQ" base_Package="_t6z5gDHlEduYw4tR7Gtf7Q" packageName="" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0" basePackage="" prefix=""/>
+  <Ecore:EPackage xmi:id="_MXCGoAFcEd2hAt0r1_4OrQ" base_Package="_1R48IDHiEduYw4tR7Gtf7Q" packageName="context" nsPrefix="context" nsURI="http://sdq.ipd.uka.de/Context/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
+  <Ecore:EPackage xmi:id="_MXCGoQFcEd2hAt0r1_4OrQ" base_Package="_cK-soDHjEduYw4tR7Gtf7Q" packageName="computed_usage" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Usage/1.0" basePackage="" prefix="Computed_usage"/>
+  <Ecore:EPackage xmi:id="_MXCGogFcEd2hAt0r1_4OrQ" base_Package="_t6z5gDHlEduYw4tR7Gtf7Q" packageName="computed_allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0" basePackage="" prefix="Computed_allocation"/>
 </xmi:XMI>
