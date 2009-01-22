@@ -119,7 +119,6 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
 		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
@@ -132,9 +131,6 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
 		SubsystemPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCompletionsPackage.createPackageContents();
