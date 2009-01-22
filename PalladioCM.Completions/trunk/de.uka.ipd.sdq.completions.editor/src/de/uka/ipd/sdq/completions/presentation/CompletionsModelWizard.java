@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.completions.presentation;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -94,6 +95,24 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class CompletionsModelWizard extends Wizard implements INewWizard {
+	/**
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSIONS =
+		Collections.unmodifiableList(Arrays.asList(CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameExtensions").split("\\s*,\\s*")));
+
+	/**
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String FORMATTED_FILE_EXTENSIONS =
+		CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
@@ -314,21 +333,15 @@ public class CompletionsModelWizard extends Wizard implements INewWizard {
 	@Override
 		protected boolean validatePage() {
 			if (super.validatePage()) {
-				// Make sure the file ends in ".completions".
-				//
-				String requiredExt = CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameExtension");
-				String enteredExt = new Path(getFileName()).getFileExtension();
-				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(CompletionsEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+				String extension = new Path(getFileName()).getFileExtension();
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(CompletionsEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
-				else {
-					return true;
-				}
+				return true;
 			}
-			else {
-				return false;
-			}
+			return false;
 		}
 
 		/**
@@ -385,8 +398,7 @@ public class CompletionsModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -563,7 +575,7 @@ public class CompletionsModelWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new CompletionsModelWizardNewFileCreationPage("Whatever", selection);
 		newFileCreationPage.setTitle(CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsModelWizard_label"));
 		newFileCreationPage.setDescription(CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsModelWizard_description"));
-		newFileCreationPage.setFileName(CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameDefaultBase") + "." + CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameExtension"));
+		newFileCreationPage.setFileName(CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -590,7 +602,7 @@ public class CompletionsModelWizard extends Wizard implements INewWizard {
 					// Make up a unique new name here.
 					//
 					String defaultModelBaseFilename = CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = CompletionsEditorPlugin.INSTANCE.getString("_UI_CompletionsEditorFilenameExtension");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
