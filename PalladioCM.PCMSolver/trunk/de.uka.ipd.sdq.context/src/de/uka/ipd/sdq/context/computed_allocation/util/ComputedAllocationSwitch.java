@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage
  * @generated
  */
-public class ComputedAllocationSwitch {
+public class ComputedAllocationSwitch<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +65,7 @@ public class ComputedAllocationSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public Object doSwitch(EObject theEObject) {
+	public T doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -76,16 +76,16 @@ public class ComputedAllocationSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(EClass theEClass, EObject theEObject) {
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
 		else {
-			List eSuperTypes = theEClass.getESuperTypes();
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return
 				eSuperTypes.isEmpty() ?
 					defaultCase(theEObject) :
-					doSwitch((EClass)eSuperTypes.get(0), theEObject);
+					doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -96,11 +96,11 @@ public class ComputedAllocationSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT: {
 				ComputedAllocationContext computedAllocationContext = (ComputedAllocationContext)theEObject;
-				Object result = caseComputedAllocationContext(computedAllocationContext);
+				T result = caseComputedAllocationContext(computedAllocationContext);
 				if (result == null) result = caseEntity(computedAllocationContext);
 				if (result == null) result = caseIdentifier(computedAllocationContext);
 				if (result == null) result = caseNamedElement(computedAllocationContext);
@@ -109,13 +109,13 @@ public class ComputedAllocationSwitch {
 			}
 			case ComputedAllocationPackage.RESOURCE_DEMAND: {
 				ResourceDemand resourceDemand = (ResourceDemand)theEObject;
-				Object result = caseResourceDemand(resourceDemand);
+				T result = caseResourceDemand(resourceDemand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION: {
 				ComputedAllocation computedAllocation = (ComputedAllocation)theEObject;
-				Object result = caseComputedAllocation(computedAllocation);
+				T result = caseComputedAllocation(computedAllocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,7 +134,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseComputedAllocationContext(ComputedAllocationContext object) {
+	public T caseComputedAllocationContext(ComputedAllocationContext object) {
 		return null;
 	}
 
@@ -149,7 +149,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseResourceDemand(ResourceDemand object) {
+	public T caseResourceDemand(ResourceDemand object) {
 		return null;
 	}
 
@@ -164,7 +164,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseComputedAllocation(ComputedAllocation object) {
+	public T caseComputedAllocation(ComputedAllocation object) {
 		return null;
 	}
 
@@ -179,7 +179,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseIdentifier(Identifier object) {
+	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 
@@ -194,7 +194,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseNamedElement(NamedElement object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -209,7 +209,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseEntity(Entity object) {
+	public T caseEntity(Entity object) {
 		return null;
 	}
 
@@ -224,7 +224,7 @@ public class ComputedAllocationSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public Object defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

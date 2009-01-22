@@ -52,7 +52,7 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList computedAllocationContexts_ComputedAllocation;
+	protected EList<ComputedAllocationContext> computedAllocationContexts_ComputedAllocation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,6 +68,7 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION;
 	}
@@ -77,9 +78,9 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getComputedAllocationContexts_ComputedAllocation() {
+	public EList<ComputedAllocationContext> getComputedAllocationContexts_ComputedAllocation() {
 		if (computedAllocationContexts_ComputedAllocation == null) {
-			computedAllocationContexts_ComputedAllocation = new EObjectContainmentEList(ComputedAllocationContext.class, this, ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION);
+			computedAllocationContexts_ComputedAllocation = new EObjectContainmentEList<ComputedAllocationContext>(ComputedAllocationContext.class, this, ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION);
 		}
 		return computedAllocationContexts_ComputedAllocation;
 	}
@@ -89,10 +90,11 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION:
-				return ((InternalEList)getComputedAllocationContexts_ComputedAllocation()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getComputedAllocationContexts_ComputedAllocation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -102,6 +104,7 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION:
@@ -115,11 +118,13 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION:
 				getComputedAllocationContexts_ComputedAllocation().clear();
-				getComputedAllocationContexts_ComputedAllocation().addAll((Collection)newValue);
+				getComputedAllocationContexts_ComputedAllocation().addAll((Collection<? extends ComputedAllocationContext>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +135,7 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION:
@@ -144,6 +150,7 @@ public class ComputedAllocationImpl extends EObjectImpl implements ComputedAlloc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION__COMPUTED_ALLOCATION_CONTEXTS_COMPUTED_ALLOCATION:

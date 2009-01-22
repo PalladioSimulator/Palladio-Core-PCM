@@ -63,6 +63,7 @@ public class ComputedAllocationFactoryImpl extends EFactoryImpl implements Compu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT: return createComputedAllocationContext();
@@ -118,6 +119,7 @@ public class ComputedAllocationFactoryImpl extends EFactoryImpl implements Compu
 	 * @deprecated
 	 * @generated
 	 */
+	@Deprecated
 	public static ComputedAllocationPackage getPackage() {
 		return ComputedAllocationPackage.eINSTANCE;
 	}

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.context.computed_usage;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -44,9 +45,9 @@ public interface Input extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Chacterisations Input</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getInput_ParameterChacterisations_Input()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getParameterChacterisations_Input();
+	EList<VariableUsage> getParameterChacterisations_Input();
 
 } // Input

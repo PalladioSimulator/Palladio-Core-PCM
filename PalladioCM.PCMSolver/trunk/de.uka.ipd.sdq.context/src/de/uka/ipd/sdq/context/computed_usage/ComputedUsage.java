@@ -44,9 +44,9 @@ public interface ComputedUsage extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Usage Contexts Computed Usage</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getComputedUsage_UsageContexts_ComputedUsage()
-	 * @model type="de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getUsageContexts_ComputedUsage();
+	EList<ComputedUsageContext> getUsageContexts_ComputedUsage();
 
 } // ComputedUsage

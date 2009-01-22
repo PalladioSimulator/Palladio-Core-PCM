@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2006, SDQ Group, University Karlsruhe (TH)"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" copyrightText="Copyright 2006, SDQ Group, University Karlsruhe (TH)"
     modelDirectory="/de.uka.ipd.sdq.context/src" modelPluginID="de.uka.ipd.sdq.context"
     modelName="Context" importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0"
     usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
@@ -21,68 +21,89 @@
     <details key="COMMENTS" value="PROCESS"/>
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Models/context.uml2</foreignModel>
-  <genPackages prefix="Context" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
-      ecorePackage="context.ecore#/">
-    <nestedGenPackages prefix="ComputedUsage" basePackage="de.uka.ipd.sdq.context"
+  <foreignModel>file:/C:/temp/rsa/context.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsa/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsa/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsa/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsa/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsa/Units.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Context" basePackage="de.uka.ipd.sdq"
+      disposableProviderFactory="true" ecorePackage="context.ecore#/">
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="ComputedUsage" basePackage="de.uka.ipd.sdq.context"
         disposableProviderFactory="true" ecorePackage="context.ecore#//computed_usage">
-      <genClasses ecoreClass="context.ecore#//computed_usage/ComputedUsageContext">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/branchProbabilities_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/loopiterations_ComputedUsageContext"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/assemblyContext_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/input_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallOutput_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallInput_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/output_ComputedUsageContext"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/ComputedUsageContext">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/branchProbabilities_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/loopiterations_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/assemblyContext_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/input_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallOutput_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallInput_ComputedUsageContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/output_ComputedUsageContext"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/BranchProbability">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute context.ecore#//computed_usage/BranchProbability/probability"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_usage/BranchProbability/branchtransition_BranchProbability"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/BranchProbability">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute context.ecore#//computed_usage/BranchProbability/probability"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/BranchProbability/branchtransition_BranchProbability"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/LoopIteration">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/loopaction_LoopIteration"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/specification_LoopIteration"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/LoopIteration">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/loopaction_LoopIteration"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/specification_LoopIteration"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/Input">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Input/parameterChacterisations_Input"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/Input">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Input/parameterChacterisations_Input"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/ExternalCallOutput">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/parameterCharacterisations_ExternalCallOutput"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/externalCallAction_ExternalCallOutput"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/ExternalCallOutput">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/parameterCharacterisations_ExternalCallOutput"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/externalCallAction_ExternalCallOutput"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/ExternalCallInput">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/parameterCharacterisations_ExternalCallInput"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/externalCallAction_ExternalCallInput"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/ExternalCallInput">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/parameterCharacterisations_ExternalCallInput"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/externalCallAction_ExternalCallInput"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/Output">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Output/parameterCharacterisations_Output"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/Output">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Output/parameterCharacterisations_Output"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_usage/ComputedUsage">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsage/usageContexts_ComputedUsage"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_usage/ComputedUsage">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsage/usageContexts_ComputedUsage"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="ComputedAllocation" basePackage="de.uka.ipd.sdq.context"
-        disposableProviderFactory="true" ecorePackage="context.ecore#//computed_allocation">
-      <genClasses ecoreClass="context.ecore#//computed_allocation/ComputedAllocationContext">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/resourceDemands_ComputedAllocationContext"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/usageContext_ComputedAllocationContext"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/allocationContext_ComputedAllocationContext"/>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="ComputedAllocation"
+        basePackage="de.uka.ipd.sdq.context" disposableProviderFactory="true" ecorePackage="context.ecore#//computed_allocation">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_allocation/ComputedAllocationContext">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/resourceDemands_ComputedAllocationContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/usageContext_ComputedAllocationContext"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/allocationContext_ComputedAllocationContext"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_allocation/ResourceDemand">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ResourceDemand/parametricResourceDemand_ResourceDemand"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ResourceDemand/specification_ResourceDemand"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_allocation/ResourceDemand">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ResourceDemand/parametricResourceDemand_ResourceDemand"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ResourceDemand/specification_ResourceDemand"/>
       </genClasses>
-      <genClasses ecoreClass="context.ecore#//computed_allocation/ComputedAllocation">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocation/computedAllocationContexts_ComputedAllocation"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="context.ecore#//computed_allocation/ComputedAllocation">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocation/computedAllocationContexts_ComputedAllocation"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

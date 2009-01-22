@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
@@ -40,6 +41,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -148,10 +150,7 @@ public class ComputedAllocationPackageImpl extends EPackageImpl implements Compu
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
-		EntityPackage.eINSTANCE.eClass();
-		ConnectorsPackage.eINSTANCE.eClass();
-		CompositionPackage.eINSTANCE.eClass();
+		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		ParameterPackage.eINSTANCE.eClass();
@@ -162,9 +161,7 @@ public class ComputedAllocationPackageImpl extends EPackageImpl implements Compu
 		SystemPackage.eINSTANCE.eClass();
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
+		SubsystemPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		ComputedUsagePackageImpl theComputedUsagePackage = (ComputedUsagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ComputedUsagePackage.eNS_URI) instanceof ComputedUsagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ComputedUsagePackage.eNS_URI) : ComputedUsagePackage.eINSTANCE);
@@ -332,9 +329,12 @@ public class ComputedAllocationPackageImpl extends EPackageImpl implements Compu
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		ComputedUsagePackage theComputedUsagePackage = (ComputedUsagePackage)EPackage.Registry.INSTANCE.getEPackage(ComputedUsagePackage.eNS_URI);
 		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		PerformancePackage thePerformancePackage = (PerformancePackage)EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI);
-		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+
+		// Create type parameters
+
+		// Set bounds for type parameters
 
 		// Add supertypes to classes
 		computedAllocationContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
@@ -347,7 +347,7 @@ public class ComputedAllocationPackageImpl extends EPackageImpl implements Compu
 
 		initEClass(resourceDemandEClass, ResourceDemand.class, "ResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceDemand_ParametricResourceDemand_ResourceDemand(), thePerformancePackage.getParametricResourceDemand(), null, "parametricResourceDemand_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceDemand_Specification_ResourceDemand(), theStoexPackage.getRandomVariable(), null, "specification_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceDemand_Specification_ResourceDemand(), theCorePackage.getPCMRandomVariable(), null, "specification_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(computedAllocationEClass, ComputedAllocation.class, "ComputedAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComputedAllocation_ComputedAllocationContexts_ComputedAllocation(), this.getComputedAllocationContext(), null, "computedAllocationContexts_ComputedAllocation", null, 0, -1, ComputedAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

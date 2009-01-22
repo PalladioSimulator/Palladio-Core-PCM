@@ -84,6 +84,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.BRANCH_PROBABILITY;
 	}
@@ -152,6 +153,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.BRANCH_PROBABILITY__PROBABILITY:
@@ -168,6 +170,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.BRANCH_PROBABILITY__PROBABILITY:
@@ -185,6 +188,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.BRANCH_PROBABILITY__PROBABILITY:
@@ -202,6 +206,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.BRANCH_PROBABILITY__PROBABILITY:
@@ -217,6 +222,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -52,7 +52,7 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList usageContexts_ComputedUsage;
+	protected EList<ComputedUsageContext> usageContexts_ComputedUsage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,6 +68,7 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.COMPUTED_USAGE;
 	}
@@ -77,9 +78,9 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getUsageContexts_ComputedUsage() {
+	public EList<ComputedUsageContext> getUsageContexts_ComputedUsage() {
 		if (usageContexts_ComputedUsage == null) {
-			usageContexts_ComputedUsage = new EObjectContainmentEList(ComputedUsageContext.class, this, ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE);
+			usageContexts_ComputedUsage = new EObjectContainmentEList<ComputedUsageContext>(ComputedUsageContext.class, this, ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE);
 		}
 		return usageContexts_ComputedUsage;
 	}
@@ -89,10 +90,11 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE:
-				return ((InternalEList)getUsageContexts_ComputedUsage()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getUsageContexts_ComputedUsage()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -102,6 +104,7 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE:
@@ -115,11 +118,13 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE:
 				getUsageContexts_ComputedUsage().clear();
-				getUsageContexts_ComputedUsage().addAll((Collection)newValue);
+				getUsageContexts_ComputedUsage().addAll((Collection<? extends ComputedUsageContext>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +135,7 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE:
@@ -144,6 +150,7 @@ public class ComputedUsageImpl extends EObjectImpl implements ComputedUsage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE__USAGE_CONTEXTS_COMPUTED_USAGE:

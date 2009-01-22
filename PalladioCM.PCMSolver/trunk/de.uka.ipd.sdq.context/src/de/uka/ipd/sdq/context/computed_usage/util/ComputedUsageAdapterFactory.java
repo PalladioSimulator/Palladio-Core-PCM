@@ -63,6 +63,7 @@ public class ComputedUsageAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -74,47 +75,59 @@ public class ComputedUsageAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComputedUsageSwitch modelSwitch =
-		new ComputedUsageSwitch() {
-			public Object caseComputedUsageContext(ComputedUsageContext object) {
+	protected ComputedUsageSwitch<Adapter> modelSwitch =
+		new ComputedUsageSwitch<Adapter>() {
+			@Override
+			public Adapter caseComputedUsageContext(ComputedUsageContext object) {
 				return createComputedUsageContextAdapter();
 			}
-			public Object caseBranchProbability(BranchProbability object) {
+			@Override
+			public Adapter caseBranchProbability(BranchProbability object) {
 				return createBranchProbabilityAdapter();
 			}
-			public Object caseLoopIteration(LoopIteration object) {
+			@Override
+			public Adapter caseLoopIteration(LoopIteration object) {
 				return createLoopIterationAdapter();
 			}
-			public Object caseInput(Input object) {
+			@Override
+			public Adapter caseInput(Input object) {
 				return createInputAdapter();
 			}
-			public Object caseExternalCallOutput(ExternalCallOutput object) {
+			@Override
+			public Adapter caseExternalCallOutput(ExternalCallOutput object) {
 				return createExternalCallOutputAdapter();
 			}
-			public Object caseExternalCallInput(ExternalCallInput object) {
+			@Override
+			public Adapter caseExternalCallInput(ExternalCallInput object) {
 				return createExternalCallInputAdapter();
 			}
-			public Object caseOutput(Output object) {
+			@Override
+			public Adapter caseOutput(Output object) {
 				return createOutputAdapter();
 			}
-			public Object caseComputedUsage(ComputedUsage object) {
+			@Override
+			public Adapter caseComputedUsage(ComputedUsage object) {
 				return createComputedUsageAdapter();
 			}
-			public Object caseIdentifier(Identifier object) {
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
-			public Object caseNamedElement(NamedElement object) {
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
-			public Object caseEntity(Entity object) {
+			@Override
+			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
-			public Object defaultCase(EObject object) {
+			@Override
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -127,8 +140,9 @@ public class ComputedUsageAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
+	@Override
 	public Adapter createAdapter(Notifier target) {
-		return (Adapter)modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 

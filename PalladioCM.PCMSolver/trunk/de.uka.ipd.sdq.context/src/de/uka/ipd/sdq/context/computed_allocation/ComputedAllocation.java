@@ -44,9 +44,9 @@ public interface ComputedAllocation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Computed Allocation Contexts Computed Allocation</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage#getComputedAllocation_ComputedAllocationContexts_ComputedAllocation()
-	 * @model type="de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getComputedAllocationContexts_ComputedAllocation();
+	EList<ComputedAllocationContext> getComputedAllocationContexts_ComputedAllocation();
 
 } // ComputedAllocation

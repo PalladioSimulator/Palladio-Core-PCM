@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.context.computed_usage.presentation;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 
@@ -62,9 +62,9 @@ public final class ContextEditorPlugin extends EMFPlugin {
 			(new ResourceLocator [] {
 				IdentifierEditPlugin.INSTANCE,
 				PalladioComponentModelEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
 				StoexEditPlugin.INSTANCE,
 				UnitsEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
 			});
 	}
 
@@ -75,6 +75,7 @@ public final class ContextEditorPlugin extends EMFPlugin {
 	 * @return the singleton instance.
 	 * @generated
 	 */
+	@Override
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}

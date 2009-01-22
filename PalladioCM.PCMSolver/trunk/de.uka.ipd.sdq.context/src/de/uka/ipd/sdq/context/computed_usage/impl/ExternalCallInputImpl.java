@@ -58,7 +58,7 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parameterCharacterisations_ExternalCallInput;
+	protected EList<VariableUsage> parameterCharacterisations_ExternalCallInput;
 
 	/**
 	 * The cached value of the '{@link #getExternalCallAction_ExternalCallInput() <em>External Call Action External Call Input</em>}' reference.
@@ -84,6 +84,7 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.EXTERNAL_CALL_INPUT;
 	}
@@ -93,9 +94,9 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParameterCharacterisations_ExternalCallInput() {
+	public EList<VariableUsage> getParameterCharacterisations_ExternalCallInput() {
 		if (parameterCharacterisations_ExternalCallInput == null) {
-			parameterCharacterisations_ExternalCallInput = new EObjectContainmentEList(VariableUsage.class, this, ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT);
+			parameterCharacterisations_ExternalCallInput = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT);
 		}
 		return parameterCharacterisations_ExternalCallInput;
 	}
@@ -143,10 +144,11 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT:
-				return ((InternalEList)getParameterCharacterisations_ExternalCallInput()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getParameterCharacterisations_ExternalCallInput()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,6 +158,7 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT:
@@ -172,11 +175,13 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT:
 				getParameterCharacterisations_ExternalCallInput().clear();
-				getParameterCharacterisations_ExternalCallInput().addAll((Collection)newValue);
+				getParameterCharacterisations_ExternalCallInput().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__EXTERNAL_CALL_ACTION_EXTERNAL_CALL_INPUT:
 				setExternalCallAction_ExternalCallInput((ExternalCallAction)newValue);
@@ -190,6 +195,7 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT:
@@ -207,6 +213,7 @@ public class ExternalCallInputImpl extends EObjectImpl implements ExternalCallIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT__PARAMETER_CHARACTERISATIONS_EXTERNAL_CALL_INPUT:

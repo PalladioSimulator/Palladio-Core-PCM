@@ -65,7 +65,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -95,6 +95,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createComputedAllocationContextAdapter() {
 		if (computedAllocationContextItemProvider == null) {
 			computedAllocationContextItemProvider = new ComputedAllocationContextItemProvider(this);
@@ -117,6 +118,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createResourceDemandAdapter() {
 		if (resourceDemandItemProvider == null) {
 			resourceDemandItemProvider = new ResourceDemandItemProvider(this);
@@ -139,6 +141,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createComputedAllocationAdapter() {
 		if (computedAllocationItemProvider == null) {
 			computedAllocationItemProvider = new ComputedAllocationItemProvider(this);
@@ -172,6 +175,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -182,6 +186,7 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -191,10 +196,11 @@ public class ComputedAllocationItemProviderAdapterFactory extends ComputedAlloca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

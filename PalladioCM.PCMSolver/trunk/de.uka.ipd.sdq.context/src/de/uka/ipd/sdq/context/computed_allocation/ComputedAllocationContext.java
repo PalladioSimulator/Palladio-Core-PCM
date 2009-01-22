@@ -50,10 +50,10 @@ public interface ComputedAllocationContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Demands Computed Allocation Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage#getComputedAllocationContext_ResourceDemands_ComputedAllocationContext()
-	 * @model type="de.uka.ipd.sdq.context.computed_allocation.ResourceDemand" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getResourceDemands_ComputedAllocationContext();
+	EList<ResourceDemand> getResourceDemands_ComputedAllocationContext();
 
 	/**
 	 * Returns the value of the '<em><b>Usage Context Computed Allocation Context</b></em>' reference.

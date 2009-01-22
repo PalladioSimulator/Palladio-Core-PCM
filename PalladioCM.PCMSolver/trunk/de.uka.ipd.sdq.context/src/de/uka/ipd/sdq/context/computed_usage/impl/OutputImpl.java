@@ -53,7 +53,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parameterCharacterisations_Output;
+	protected EList<VariableUsage> parameterCharacterisations_Output;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,6 +69,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.OUTPUT;
 	}
@@ -78,9 +79,9 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParameterCharacterisations_Output() {
+	public EList<VariableUsage> getParameterCharacterisations_Output() {
 		if (parameterCharacterisations_Output == null) {
-			parameterCharacterisations_Output = new EObjectContainmentEList(VariableUsage.class, this, ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT);
+			parameterCharacterisations_Output = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT);
 		}
 		return parameterCharacterisations_Output;
 	}
@@ -90,10 +91,11 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT:
-				return ((InternalEList)getParameterCharacterisations_Output()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getParameterCharacterisations_Output()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -103,6 +105,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT:
@@ -116,11 +119,13 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT:
 				getParameterCharacterisations_Output().clear();
-				getParameterCharacterisations_Output().addAll((Collection)newValue);
+				getParameterCharacterisations_Output().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,6 +136,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT:
@@ -145,6 +151,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.OUTPUT__PARAMETER_CHARACTERISATIONS_OUTPUT:

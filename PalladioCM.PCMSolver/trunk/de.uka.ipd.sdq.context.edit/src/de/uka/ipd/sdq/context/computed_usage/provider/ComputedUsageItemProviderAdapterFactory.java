@@ -65,7 +65,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -95,6 +95,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createComputedUsageContextAdapter() {
 		if (computedUsageContextItemProvider == null) {
 			computedUsageContextItemProvider = new ComputedUsageContextItemProvider(this);
@@ -117,6 +118,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBranchProbabilityAdapter() {
 		if (branchProbabilityItemProvider == null) {
 			branchProbabilityItemProvider = new BranchProbabilityItemProvider(this);
@@ -139,12 +141,105 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createLoopIterationAdapter() {
 		if (loopIterationItemProvider == null) {
 			loopIterationItemProvider = new LoopIterationItemProvider(this);
 		}
 
 		return loopIterationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.computed_usage.Input} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputItemProvider inputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.computed_usage.Input}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputAdapter() {
+		if (inputItemProvider == null) {
+			inputItemProvider = new InputItemProvider(this);
+		}
+
+		return inputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalCallOutputItemProvider externalCallOutputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalCallOutputAdapter() {
+		if (externalCallOutputItemProvider == null) {
+			externalCallOutputItemProvider = new ExternalCallOutputItemProvider(this);
+		}
+
+		return externalCallOutputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.computed_usage.ExternalCallInput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalCallInputItemProvider externalCallInputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.computed_usage.ExternalCallInput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalCallInputAdapter() {
+		if (externalCallInputItemProvider == null) {
+			externalCallInputItemProvider = new ExternalCallInputItemProvider(this);
+		}
+
+		return externalCallInputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.computed_usage.Output} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputItemProvider outputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.computed_usage.Output}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputAdapter() {
+		if (outputItemProvider == null) {
+			outputItemProvider = new OutputItemProvider(this);
+		}
+
+		return outputItemProvider;
 	}
 
 	/**
@@ -161,6 +256,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createComputedUsageAdapter() {
 		if (computedUsageItemProvider == null) {
 			computedUsageItemProvider = new ComputedUsageItemProvider(this);
@@ -194,6 +290,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -204,6 +301,7 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -213,10 +311,11 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -268,6 +367,10 @@ public class ComputedUsageItemProviderAdapterFactory extends ComputedUsageAdapte
 		if (computedUsageContextItemProvider != null) computedUsageContextItemProvider.dispose();
 		if (branchProbabilityItemProvider != null) branchProbabilityItemProvider.dispose();
 		if (loopIterationItemProvider != null) loopIterationItemProvider.dispose();
+		if (inputItemProvider != null) inputItemProvider.dispose();
+		if (externalCallOutputItemProvider != null) externalCallOutputItemProvider.dispose();
+		if (externalCallInputItemProvider != null) externalCallInputItemProvider.dispose();
+		if (outputItemProvider != null) outputItemProvider.dispose();
 		if (computedUsageItemProvider != null) computedUsageItemProvider.dispose();
 	}
 

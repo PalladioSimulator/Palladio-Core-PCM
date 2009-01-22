@@ -57,7 +57,7 @@ public interface ComputedUsagePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "context.computed_usage";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

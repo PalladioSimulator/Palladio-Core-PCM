@@ -77,6 +77,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.LOOP_ITERATION;
 	}
@@ -167,6 +168,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.LOOP_ITERATION__SPECIFICATION_LOOP_ITERATION:
@@ -180,6 +182,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
@@ -196,6 +199,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
@@ -213,6 +217,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
@@ -230,6 +235,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:

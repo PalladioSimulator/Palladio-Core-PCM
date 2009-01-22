@@ -53,7 +53,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parameterChacterisations_Input;
+	protected EList<VariableUsage> parameterChacterisations_Input;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,6 +69,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.INPUT;
 	}
@@ -78,9 +79,9 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParameterChacterisations_Input() {
+	public EList<VariableUsage> getParameterChacterisations_Input() {
 		if (parameterChacterisations_Input == null) {
-			parameterChacterisations_Input = new EObjectContainmentEList(VariableUsage.class, this, ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT);
+			parameterChacterisations_Input = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT);
 		}
 		return parameterChacterisations_Input;
 	}
@@ -90,10 +91,11 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:
-				return ((InternalEList)getParameterChacterisations_Input()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getParameterChacterisations_Input()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -103,6 +105,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:
@@ -116,11 +119,13 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:
 				getParameterChacterisations_Input().clear();
-				getParameterChacterisations_Input().addAll((Collection)newValue);
+				getParameterChacterisations_Input().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,6 +136,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:
@@ -145,6 +151,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:

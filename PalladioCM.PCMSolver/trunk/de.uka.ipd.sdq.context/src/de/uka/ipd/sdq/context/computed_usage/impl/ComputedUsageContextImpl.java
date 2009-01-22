@@ -68,7 +68,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * @generated
 	 * @ordered
 	 */
-	protected EList branchProbabilities_ComputedUsageContext;
+	protected EList<BranchProbability> branchProbabilities_ComputedUsageContext;
 
 	/**
 	 * The cached value of the '{@link #getLoopiterations_ComputedUsageContext() <em>Loopiterations Computed Usage Context</em>}' containment reference list.
@@ -78,7 +78,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * @generated
 	 * @ordered
 	 */
-	protected EList loopiterations_ComputedUsageContext;
+	protected EList<LoopIteration> loopiterations_ComputedUsageContext;
 
 	/**
 	 * The cached value of the '{@link #getAssemblyContext_ComputedUsageContext() <em>Assembly Context Computed Usage Context</em>}' reference.
@@ -108,7 +108,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * @generated
 	 * @ordered
 	 */
-	protected EList externalCallOutput_ComputedUsageContext;
+	protected EList<ExternalCallOutput> externalCallOutput_ComputedUsageContext;
 
 	/**
 	 * The cached value of the '{@link #getExternalCallInput_ComputedUsageContext() <em>External Call Input Computed Usage Context</em>}' containment reference list.
@@ -118,7 +118,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * @generated
 	 * @ordered
 	 */
-	protected EList externalCallInput_ComputedUsageContext;
+	protected EList<ExternalCallInput> externalCallInput_ComputedUsageContext;
 
 	/**
 	 * The cached value of the '{@link #getOutput_ComputedUsageContext() <em>Output Computed Usage Context</em>}' containment reference.
@@ -144,6 +144,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT;
 	}
@@ -153,9 +154,9 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getBranchProbabilities_ComputedUsageContext() {
+	public EList<BranchProbability> getBranchProbabilities_ComputedUsageContext() {
 		if (branchProbabilities_ComputedUsageContext == null) {
-			branchProbabilities_ComputedUsageContext = new EObjectContainmentEList(BranchProbability.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT);
+			branchProbabilities_ComputedUsageContext = new EObjectContainmentEList<BranchProbability>(BranchProbability.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT);
 		}
 		return branchProbabilities_ComputedUsageContext;
 	}
@@ -165,9 +166,9 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getLoopiterations_ComputedUsageContext() {
+	public EList<LoopIteration> getLoopiterations_ComputedUsageContext() {
 		if (loopiterations_ComputedUsageContext == null) {
-			loopiterations_ComputedUsageContext = new EObjectContainmentEList(LoopIteration.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT);
+			loopiterations_ComputedUsageContext = new EObjectContainmentEList<LoopIteration>(LoopIteration.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT);
 		}
 		return loopiterations_ComputedUsageContext;
 	}
@@ -258,9 +259,9 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getExternalCallOutput_ComputedUsageContext() {
+	public EList<ExternalCallOutput> getExternalCallOutput_ComputedUsageContext() {
 		if (externalCallOutput_ComputedUsageContext == null) {
-			externalCallOutput_ComputedUsageContext = new EObjectContainmentEList(ExternalCallOutput.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT);
+			externalCallOutput_ComputedUsageContext = new EObjectContainmentEList<ExternalCallOutput>(ExternalCallOutput.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT);
 		}
 		return externalCallOutput_ComputedUsageContext;
 	}
@@ -270,9 +271,9 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getExternalCallInput_ComputedUsageContext() {
+	public EList<ExternalCallInput> getExternalCallInput_ComputedUsageContext() {
 		if (externalCallInput_ComputedUsageContext == null) {
-			externalCallInput_ComputedUsageContext = new EObjectContainmentEList(ExternalCallInput.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT);
+			externalCallInput_ComputedUsageContext = new EObjectContainmentEList<ExternalCallInput>(ExternalCallInput.class, this, ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT);
 		}
 		return externalCallInput_ComputedUsageContext;
 	}
@@ -325,18 +326,19 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
-				return ((InternalEList)getBranchProbabilities_ComputedUsageContext()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getBranchProbabilities_ComputedUsageContext()).basicRemove(otherEnd, msgs);
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT:
-				return ((InternalEList)getLoopiterations_ComputedUsageContext()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getLoopiterations_ComputedUsageContext()).basicRemove(otherEnd, msgs);
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__INPUT_COMPUTED_USAGE_CONTEXT:
 				return basicSetInput_ComputedUsageContext(null, msgs);
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT:
-				return ((InternalEList)getExternalCallOutput_ComputedUsageContext()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getExternalCallOutput_ComputedUsageContext()).basicRemove(otherEnd, msgs);
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT:
-				return ((InternalEList)getExternalCallInput_ComputedUsageContext()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getExternalCallInput_ComputedUsageContext()).basicRemove(otherEnd, msgs);
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__OUTPUT_COMPUTED_USAGE_CONTEXT:
 				return basicSetOutput_ComputedUsageContext(null, msgs);
 		}
@@ -348,6 +350,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
@@ -374,15 +377,17 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
 				getBranchProbabilities_ComputedUsageContext().clear();
-				getBranchProbabilities_ComputedUsageContext().addAll((Collection)newValue);
+				getBranchProbabilities_ComputedUsageContext().addAll((Collection<? extends BranchProbability>)newValue);
 				return;
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT:
 				getLoopiterations_ComputedUsageContext().clear();
-				getLoopiterations_ComputedUsageContext().addAll((Collection)newValue);
+				getLoopiterations_ComputedUsageContext().addAll((Collection<? extends LoopIteration>)newValue);
 				return;
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__ASSEMBLY_CONTEXT_COMPUTED_USAGE_CONTEXT:
 				setAssemblyContext_ComputedUsageContext((AssemblyContext)newValue);
@@ -392,11 +397,11 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 				return;
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT:
 				getExternalCallOutput_ComputedUsageContext().clear();
-				getExternalCallOutput_ComputedUsageContext().addAll((Collection)newValue);
+				getExternalCallOutput_ComputedUsageContext().addAll((Collection<? extends ExternalCallOutput>)newValue);
 				return;
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT:
 				getExternalCallInput_ComputedUsageContext().clear();
-				getExternalCallInput_ComputedUsageContext().addAll((Collection)newValue);
+				getExternalCallInput_ComputedUsageContext().addAll((Collection<? extends ExternalCallInput>)newValue);
 				return;
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__OUTPUT_COMPUTED_USAGE_CONTEXT:
 				setOutput_ComputedUsageContext((Output)newValue);
@@ -410,6 +415,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
@@ -442,6 +448,7 @@ public class ComputedUsageContextImpl extends EntityImpl implements ComputedUsag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:

@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="context"
     nsURI="http://sdq.ipd.uka.de/Context/1.0" nsPrefix="context">
   <eSubpackages name="computed_usage" nsURI="http://sdq.ipd.uka.de/Context/Usage/1.0"
-      nsPrefix="context.computed_usage">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ComputedUsageContext" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchProbabilities_ComputedUsageContext"
           ordered="false" upperBound="-1" eType="#//computed_usage/BranchProbability"
@@ -69,7 +69,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="computed_allocation" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0"
-      nsPrefix="context.computed_allocation">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ComputedAllocationContext" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemands_ComputedAllocationContext"
           ordered="false" upperBound="-1" eType="#//computed_allocation/ResourceDemand"
@@ -81,7 +81,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceDemand">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemand_ResourceDemand"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ParametricResourceDemand"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/performance/ParametricResourceDemand"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/PCMRandomVariable"
           containment="true"/>

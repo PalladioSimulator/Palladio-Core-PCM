@@ -52,10 +52,10 @@ public interface ComputedUsageContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branch Probabilities Computed Usage Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getComputedUsageContext_BranchProbabilities_ComputedUsageContext()
-	 * @model type="de.uka.ipd.sdq.context.computed_usage.BranchProbability" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getBranchProbabilities_ComputedUsageContext();
+	EList<BranchProbability> getBranchProbabilities_ComputedUsageContext();
 
 	/**
 	 * Returns the value of the '<em><b>Loopiterations Computed Usage Context</b></em>' containment reference list.
@@ -68,10 +68,10 @@ public interface ComputedUsageContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Loopiterations Computed Usage Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getComputedUsageContext_Loopiterations_ComputedUsageContext()
-	 * @model type="de.uka.ipd.sdq.context.computed_usage.LoopIteration" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getLoopiterations_ComputedUsageContext();
+	EList<LoopIteration> getLoopiterations_ComputedUsageContext();
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Context Computed Usage Context</b></em>' reference.
@@ -136,10 +136,10 @@ public interface ComputedUsageContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>External Call Output Computed Usage Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getComputedUsageContext_ExternalCallOutput_ComputedUsageContext()
-	 * @model type="de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getExternalCallOutput_ComputedUsageContext();
+	EList<ExternalCallOutput> getExternalCallOutput_ComputedUsageContext();
 
 	/**
 	 * Returns the value of the '<em><b>External Call Input Computed Usage Context</b></em>' containment reference list.
@@ -152,10 +152,10 @@ public interface ComputedUsageContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>External Call Input Computed Usage Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getComputedUsageContext_ExternalCallInput_ComputedUsageContext()
-	 * @model type="de.uka.ipd.sdq.context.computed_usage.ExternalCallInput" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getExternalCallInput_ComputedUsageContext();
+	EList<ExternalCallInput> getExternalCallInput_ComputedUsageContext();
 
 	/**
 	 * Returns the value of the '<em><b>Output Computed Usage Context</b></em>' containment reference.

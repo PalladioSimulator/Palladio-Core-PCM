@@ -77,6 +77,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedAllocationPackage.Literals.RESOURCE_DEMAND;
 	}
@@ -167,6 +168,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedAllocationPackage.RESOURCE_DEMAND__SPECIFICATION_RESOURCE_DEMAND:
@@ -180,6 +182,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedAllocationPackage.RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_RESOURCE_DEMAND:
@@ -196,6 +199,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedAllocationPackage.RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_RESOURCE_DEMAND:
@@ -213,6 +217,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_RESOURCE_DEMAND:
@@ -230,6 +235,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_RESOURCE_DEMAND:

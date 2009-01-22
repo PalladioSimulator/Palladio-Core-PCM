@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.context.computed_usage;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
 import org.eclipse.emf.common.util.EList;
@@ -47,10 +48,10 @@ public interface ExternalCallInput extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Characterisations External Call Input</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getExternalCallInput_ParameterCharacterisations_ExternalCallInput()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getParameterCharacterisations_ExternalCallInput();
+	EList<VariableUsage> getParameterCharacterisations_ExternalCallInput();
 
 	/**
 	 * Returns the value of the '<em><b>External Call Action External Call Input</b></em>' reference.

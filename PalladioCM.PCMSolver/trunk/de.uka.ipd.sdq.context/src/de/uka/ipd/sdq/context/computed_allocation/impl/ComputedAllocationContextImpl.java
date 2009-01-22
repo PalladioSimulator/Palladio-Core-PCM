@@ -61,7 +61,7 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * @generated
 	 * @ordered
 	 */
-	protected EList resourceDemands_ComputedAllocationContext;
+	protected EList<ResourceDemand> resourceDemands_ComputedAllocationContext;
 
 	/**
 	 * The cached value of the '{@link #getUsageContext_ComputedAllocationContext() <em>Usage Context Computed Allocation Context</em>}' reference.
@@ -97,6 +97,7 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION_CONTEXT;
 	}
@@ -106,9 +107,9 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getResourceDemands_ComputedAllocationContext() {
+	public EList<ResourceDemand> getResourceDemands_ComputedAllocationContext() {
 		if (resourceDemands_ComputedAllocationContext == null) {
-			resourceDemands_ComputedAllocationContext = new EObjectContainmentEList(ResourceDemand.class, this, ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT);
+			resourceDemands_ComputedAllocationContext = new EObjectContainmentEList<ResourceDemand>(ResourceDemand.class, this, ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT);
 		}
 		return resourceDemands_ComputedAllocationContext;
 	}
@@ -194,10 +195,11 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:
-				return ((InternalEList)getResourceDemands_ComputedAllocationContext()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getResourceDemands_ComputedAllocationContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -207,6 +209,7 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:
@@ -226,11 +229,13 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:
 				getResourceDemands_ComputedAllocationContext().clear();
-				getResourceDemands_ComputedAllocationContext().addAll((Collection)newValue);
+				getResourceDemands_ComputedAllocationContext().addAll((Collection<? extends ResourceDemand>)newValue);
 				return;
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__USAGE_CONTEXT_COMPUTED_ALLOCATION_CONTEXT:
 				setUsageContext_ComputedAllocationContext((ComputedUsageContext)newValue);
@@ -247,6 +252,7 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:
@@ -267,6 +273,7 @@ public class ComputedAllocationContextImpl extends EntityImpl implements Compute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:

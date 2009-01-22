@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage
  * @generated
  */
-public class ComputedUsageSwitch {
+public class ComputedUsageSwitch<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +65,7 @@ public class ComputedUsageSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public Object doSwitch(EObject theEObject) {
+	public T doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -76,16 +76,16 @@ public class ComputedUsageSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(EClass theEClass, EObject theEObject) {
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
 		else {
-			List eSuperTypes = theEClass.getESuperTypes();
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return
 				eSuperTypes.isEmpty() ?
 					defaultCase(theEObject) :
-					doSwitch((EClass)eSuperTypes.get(0), theEObject);
+					doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -96,11 +96,11 @@ public class ComputedUsageSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT: {
 				ComputedUsageContext computedUsageContext = (ComputedUsageContext)theEObject;
-				Object result = caseComputedUsageContext(computedUsageContext);
+				T result = caseComputedUsageContext(computedUsageContext);
 				if (result == null) result = caseEntity(computedUsageContext);
 				if (result == null) result = caseIdentifier(computedUsageContext);
 				if (result == null) result = caseNamedElement(computedUsageContext);
@@ -109,43 +109,43 @@ public class ComputedUsageSwitch {
 			}
 			case ComputedUsagePackage.BRANCH_PROBABILITY: {
 				BranchProbability branchProbability = (BranchProbability)theEObject;
-				Object result = caseBranchProbability(branchProbability);
+				T result = caseBranchProbability(branchProbability);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.LOOP_ITERATION: {
 				LoopIteration loopIteration = (LoopIteration)theEObject;
-				Object result = caseLoopIteration(loopIteration);
+				T result = caseLoopIteration(loopIteration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.INPUT: {
 				Input input = (Input)theEObject;
-				Object result = caseInput(input);
+				T result = caseInput(input);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.EXTERNAL_CALL_OUTPUT: {
 				ExternalCallOutput externalCallOutput = (ExternalCallOutput)theEObject;
-				Object result = caseExternalCallOutput(externalCallOutput);
+				T result = caseExternalCallOutput(externalCallOutput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.EXTERNAL_CALL_INPUT: {
 				ExternalCallInput externalCallInput = (ExternalCallInput)theEObject;
-				Object result = caseExternalCallInput(externalCallInput);
+				T result = caseExternalCallInput(externalCallInput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.OUTPUT: {
 				Output output = (Output)theEObject;
-				Object result = caseOutput(output);
+				T result = caseOutput(output);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComputedUsagePackage.COMPUTED_USAGE: {
 				ComputedUsage computedUsage = (ComputedUsage)theEObject;
-				Object result = caseComputedUsage(computedUsage);
+				T result = caseComputedUsage(computedUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,7 +164,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseComputedUsageContext(ComputedUsageContext object) {
+	public T caseComputedUsageContext(ComputedUsageContext object) {
 		return null;
 	}
 
@@ -179,7 +179,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseBranchProbability(BranchProbability object) {
+	public T caseBranchProbability(BranchProbability object) {
 		return null;
 	}
 
@@ -194,7 +194,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseLoopIteration(LoopIteration object) {
+	public T caseLoopIteration(LoopIteration object) {
 		return null;
 	}
 
@@ -209,7 +209,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseInput(Input object) {
+	public T caseInput(Input object) {
 		return null;
 	}
 
@@ -224,7 +224,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseExternalCallOutput(ExternalCallOutput object) {
+	public T caseExternalCallOutput(ExternalCallOutput object) {
 		return null;
 	}
 
@@ -239,7 +239,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseExternalCallInput(ExternalCallInput object) {
+	public T caseExternalCallInput(ExternalCallInput object) {
 		return null;
 	}
 
@@ -254,7 +254,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseOutput(Output object) {
+	public T caseOutput(Output object) {
 		return null;
 	}
 
@@ -269,7 +269,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseComputedUsage(ComputedUsage object) {
+	public T caseComputedUsage(ComputedUsage object) {
 		return null;
 	}
 
@@ -284,7 +284,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseIdentifier(Identifier object) {
+	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 
@@ -299,7 +299,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseNamedElement(NamedElement object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -314,7 +314,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseEntity(Entity object) {
+	public T caseEntity(Entity object) {
 		return null;
 	}
 
@@ -329,7 +329,7 @@ public class ComputedUsageSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public Object defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

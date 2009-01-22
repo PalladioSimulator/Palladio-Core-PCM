@@ -63,6 +63,7 @@ public class ComputedUsageFactoryImpl extends EFactoryImpl implements ComputedUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT: return createComputedUsageContext();
@@ -173,6 +174,7 @@ public class ComputedUsageFactoryImpl extends EFactoryImpl implements ComputedUs
 	 * @deprecated
 	 * @generated
 	 */
+	@Deprecated
 	public static ComputedUsagePackage getPackage() {
 		return ComputedUsagePackage.eINSTANCE;
 	}

@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
@@ -44,6 +45,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -188,10 +190,7 @@ public class ComputedUsagePackageImpl extends EPackageImpl implements ComputedUs
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
-		EntityPackage.eINSTANCE.eClass();
-		ConnectorsPackage.eINSTANCE.eClass();
-		CompositionPackage.eINSTANCE.eClass();
+		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		ParameterPackage.eINSTANCE.eClass();
@@ -202,9 +201,7 @@ public class ComputedUsagePackageImpl extends EPackageImpl implements ComputedUs
 		SystemPackage.eINSTANCE.eClass();
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
+		SubsystemPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		ComputedAllocationPackageImpl theComputedAllocationPackage = (ComputedAllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ComputedAllocationPackage.eNS_URI) instanceof ComputedAllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ComputedAllocationPackage.eNS_URI) : ComputedAllocationPackage.eINSTANCE);
@@ -547,8 +544,12 @@ public class ComputedUsagePackageImpl extends EPackageImpl implements ComputedUs
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
+
+		// Create type parameters
+
+		// Set bounds for type parameters
 
 		// Add supertypes to classes
 		computedUsageContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
@@ -569,7 +570,7 @@ public class ComputedUsagePackageImpl extends EPackageImpl implements ComputedUs
 
 		initEClass(loopIterationEClass, LoopIteration.class, "LoopIteration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoopIteration_Loopaction_LoopIteration(), theSeffPackage.getAbstractLoopAction(), null, "loopaction_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoopIteration_Specification_LoopIteration(), theStoexPackage.getRandomVariable(), null, "specification_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoopIteration_Specification_LoopIteration(), theCorePackage.getPCMRandomVariable(), null, "specification_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInput_ParameterChacterisations_Input(), theParameterPackage.getVariableUsage(), null, "parameterChacterisations_Input", null, 0, -1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

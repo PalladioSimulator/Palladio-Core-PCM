@@ -3,16 +3,14 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.computed_allocation.provider;
+package de.uka.ipd.sdq.context.computed_usage.provider;
 
 
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage;
+import de.uka.ipd.sdq.context.computed_usage.Input;
 
-import de.uka.ipd.sdq.context.computed_usage.provider.ContextEditPlugin;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,7 +21,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -34,18 +31,18 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.computed_usage.Input} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComputedAllocationContextItemProvider
-	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class InputItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,7 +57,7 @@ public class ComputedAllocationContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComputedAllocationContextItemProvider(AdapterFactory adapterFactory) {
+	public InputItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -75,54 +72,8 @@ public class ComputedAllocationContextItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUsageContext_ComputedAllocationContextPropertyDescriptor(object);
-			addAllocationContext_ComputedAllocationContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Usage Context Computed Allocation Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUsageContext_ComputedAllocationContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComputedAllocationContext_usageContext_ComputedAllocationContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComputedAllocationContext_usageContext_ComputedAllocationContext_feature", "_UI_ComputedAllocationContext_type"),
-				 ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION_CONTEXT__USAGE_CONTEXT_COMPUTED_ALLOCATION_CONTEXT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Allocation Context Computed Allocation Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAllocationContext_ComputedAllocationContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComputedAllocationContext_allocationContext_ComputedAllocationContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComputedAllocationContext_allocationContext_ComputedAllocationContext_feature", "_UI_ComputedAllocationContext_type"),
-				 ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION_CONTEXT__ALLOCATION_CONTEXT_COMPUTED_ALLOCATION_CONTEXT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -137,7 +88,7 @@ public class ComputedAllocationContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT);
+			childrenFeatures.add(ComputedUsagePackage.Literals.INPUT__PARAMETER_CHACTERISATIONS_INPUT);
 		}
 		return childrenFeatures;
 	}
@@ -156,14 +107,14 @@ public class ComputedAllocationContextItemProvider
 	}
 
 	/**
-	 * This returns ComputedAllocationContext.gif.
+	 * This returns Input.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComputedAllocationContext"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Input"));
 	}
 
 	/**
@@ -174,10 +125,7 @@ public class ComputedAllocationContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ComputedAllocationContext)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ComputedAllocationContext_type") :
-			getString("_UI_ComputedAllocationContext_type") + " " + label;
+		return getString("_UI_Input_type");
 	}
 
 	/**
@@ -191,8 +139,8 @@ public class ComputedAllocationContextItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ComputedAllocationContext.class)) {
-			case ComputedAllocationPackage.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT:
+		switch (notification.getFeatureID(Input.class)) {
+			case ComputedUsagePackage.INPUT__PARAMETER_CHACTERISATIONS_INPUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -212,8 +160,8 @@ public class ComputedAllocationContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ComputedAllocationPackage.Literals.COMPUTED_ALLOCATION_CONTEXT__RESOURCE_DEMANDS_COMPUTED_ALLOCATION_CONTEXT,
-				 ComputedAllocationFactory.eINSTANCE.createResourceDemand()));
+				(ComputedUsagePackage.Literals.INPUT__PARAMETER_CHACTERISATIONS_INPUT,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**

@@ -56,7 +56,7 @@ public interface ComputedAllocationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "context.computed_allocation";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

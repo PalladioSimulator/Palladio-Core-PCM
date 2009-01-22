@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage;
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
 import java.util.Collection;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
@@ -38,7 +40,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ComputedUsageContextItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -68,7 +70,8 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List getPropertyDescriptors(Object object) {
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -107,13 +110,16 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Collection getChildrenFeatures(Object object) {
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT);
 			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT);
-			// FIXME: removed next line because code was invalid (KK)
-			//childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT);
+			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__INPUT_COMPUTED_USAGE_CONTEXT);
+			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT);
+			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT);
+			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__OUTPUT_COMPUTED_USAGE_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -123,6 +129,7 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
@@ -136,6 +143,7 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComputedUsageContext"));
 	}
@@ -146,8 +154,12 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getText(Object object) {
-		return getString("_UI_ComputedUsageContext_type");
+		String label = ((ComputedUsageContext)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ComputedUsageContext_type") :
+			getString("_UI_ComputedUsageContext_type") + " " + label;
 	}
 
 	/**
@@ -157,14 +169,17 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComputedUsageContext.class)) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT:
-			// FIXME: removed next line because code was invalid (KK)
-			//case ComputedUsagePackage.Comp.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT:			
+			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__INPUT_COMPUTED_USAGE_CONTEXT:
+			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT:
+			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT:
+			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__OUTPUT_COMPUTED_USAGE_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,7 +193,8 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
@@ -191,11 +207,25 @@ public class ComputedUsageContextItemProvider
 				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT,
 				 ComputedUsageFactory.eINSTANCE.createLoopIteration()));
 
-		// FIXME: removed next line because code was invalid (KK)
-		/*newChildDescriptors.add
+		newChildDescriptors.add
 			(createChildParameter
-				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));*/
+				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__INPUT_COMPUTED_USAGE_CONTEXT,
+				 ComputedUsageFactory.eINSTANCE.createInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_OUTPUT_COMPUTED_USAGE_CONTEXT,
+				 ComputedUsageFactory.eINSTANCE.createExternalCallOutput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__EXTERNAL_CALL_INPUT_COMPUTED_USAGE_CONTEXT,
+				 ComputedUsageFactory.eINSTANCE.createExternalCallInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__OUTPUT_COMPUTED_USAGE_CONTEXT,
+				 ComputedUsageFactory.eINSTANCE.createOutput()));
 	}
 
 	/**
@@ -204,6 +234,7 @@ public class ComputedUsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return ContextEditPlugin.INSTANCE;
 	}

@@ -63,6 +63,7 @@ public class ComputedAllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -74,32 +75,39 @@ public class ComputedAllocationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComputedAllocationSwitch modelSwitch =
-		new ComputedAllocationSwitch() {
-			public Object caseComputedAllocationContext(ComputedAllocationContext object) {
+	protected ComputedAllocationSwitch<Adapter> modelSwitch =
+		new ComputedAllocationSwitch<Adapter>() {
+			@Override
+			public Adapter caseComputedAllocationContext(ComputedAllocationContext object) {
 				return createComputedAllocationContextAdapter();
 			}
-			public Object caseResourceDemand(ResourceDemand object) {
+			@Override
+			public Adapter caseResourceDemand(ResourceDemand object) {
 				return createResourceDemandAdapter();
 			}
-			public Object caseComputedAllocation(ComputedAllocation object) {
+			@Override
+			public Adapter caseComputedAllocation(ComputedAllocation object) {
 				return createComputedAllocationAdapter();
 			}
-			public Object caseIdentifier(Identifier object) {
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
-			public Object caseNamedElement(NamedElement object) {
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
-			public Object caseEntity(Entity object) {
+			@Override
+			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
-			public Object defaultCase(EObject object) {
+			@Override
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -112,8 +120,9 @@ public class ComputedAllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
+	@Override
 	public Adapter createAdapter(Notifier target) {
-		return (Adapter)modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 
