@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector} object.
@@ -221,7 +221,7 @@ public class AssemblyConnectorItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PcmEditPlugin.INSTANCE;
+		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

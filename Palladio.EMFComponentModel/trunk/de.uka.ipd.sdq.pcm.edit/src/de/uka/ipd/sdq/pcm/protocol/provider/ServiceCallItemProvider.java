@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 /**
@@ -137,7 +137,7 @@ public class ServiceCallItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PcmEditPlugin.INSTANCE;
+		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
@@ -170,7 +170,7 @@ public class SystemItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PcmEditPlugin.INSTANCE;
+		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

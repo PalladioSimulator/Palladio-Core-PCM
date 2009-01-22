@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.DataType} object.
@@ -112,7 +112,7 @@ public class DataTypeItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PcmEditPlugin.INSTANCE;
+		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

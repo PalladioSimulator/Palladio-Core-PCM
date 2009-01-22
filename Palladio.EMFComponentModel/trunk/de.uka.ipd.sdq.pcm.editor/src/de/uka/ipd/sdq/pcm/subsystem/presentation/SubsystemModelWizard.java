@@ -60,9 +60,10 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 
 
 /**
@@ -86,7 +87,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -95,7 +96,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -162,8 +163,8 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PcmEditorPlugin.INSTANCE.getImage("full/wizban/NewSubsystem")));
+		setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PalladioComponentModelEditorPlugin.INSTANCE.getImage("full/wizban/NewSubsystem")));
 	}
 
 	/**
@@ -246,7 +247,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							PcmEditorPlugin.INSTANCE.log(exception);
+							PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -279,14 +280,14 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), PcmEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -320,7 +321,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(PcmEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -397,7 +398,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -423,7 +424,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -522,10 +523,10 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return PcmEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return PalladioComponentModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				PcmEditorPlugin.INSTANCE.log(mre);
+				PalladioComponentModelEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -538,7 +539,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -557,9 +558,9 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new SubsystemModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_label"));
-		newFileCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_description"));
-		newFileCreationPage.setFileName(PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_label"));
+		newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_description"));
+		newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -585,7 +586,7 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -596,8 +597,8 @@ public class SubsystemModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new SubsystemModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_label"));
-		initialObjectCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SubsystemModelWizard_label"));
+		initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

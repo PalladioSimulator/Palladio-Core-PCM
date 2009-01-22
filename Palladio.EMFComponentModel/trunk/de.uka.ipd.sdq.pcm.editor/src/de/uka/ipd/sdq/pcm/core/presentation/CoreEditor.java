@@ -512,7 +512,7 @@ public class CoreEditor
 					}
 				}
 				catch (CoreException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -628,7 +628,7 @@ public class CoreEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -639,7 +639,7 @@ public class CoreEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						PcmEditorPlugin.INSTANCE.log(exception);
+						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -1524,7 +1524,7 @@ public class CoreEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1617,7 +1617,7 @@ public class CoreEditor
 			}
 		}
 		catch (CoreException exception) {
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1739,7 +1739,7 @@ public class CoreEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return PcmEditorPlugin.INSTANCE.getString(key);
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1749,7 +1749,7 @@ public class CoreEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PcmEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

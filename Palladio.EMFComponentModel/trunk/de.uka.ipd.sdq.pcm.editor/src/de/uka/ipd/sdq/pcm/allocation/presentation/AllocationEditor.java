@@ -127,6 +127,7 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
@@ -515,7 +516,7 @@ public class AllocationEditor
 					}
 				}
 				catch (CoreException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -631,7 +632,7 @@ public class AllocationEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -642,7 +643,7 @@ public class AllocationEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						PcmEditorPlugin.INSTANCE.log(exception);
+						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -1535,7 +1536,7 @@ public class AllocationEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1628,7 +1629,7 @@ public class AllocationEditor
 			}
 		}
 		catch (CoreException exception) {
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1750,7 +1751,7 @@ public class AllocationEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return PcmEditorPlugin.INSTANCE.getString(key);
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1760,7 +1761,7 @@ public class AllocationEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PcmEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -25,7 +25,7 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Keep track of the singleton.
@@ -53,9 +53,9 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     IdentifierEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
 		     StoexEditPlugin.INSTANCE,
 		     UnitsEditPlugin.INSTANCE,
-		     ProbabilityFunctionEditPlugin.INSTANCE,
 		   });
 	}
 
