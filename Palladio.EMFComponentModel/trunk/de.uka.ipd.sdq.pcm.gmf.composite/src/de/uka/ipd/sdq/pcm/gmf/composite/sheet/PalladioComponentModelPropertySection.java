@@ -22,7 +22,6 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
