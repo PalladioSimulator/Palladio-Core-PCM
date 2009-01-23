@@ -319,13 +319,13 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	public EList<InfrastructureComponentScope> getAllLowerLayers() {
 		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
 		allLowerLayers = new EObjectResolvingEList<InfrastructureComponentScope>(InfrastructureComponentScope.class, this, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS);
-		// Search iteratively for lower layers. Stop if a circle is found.
+		// Search iteratively for lower layers. Stop if a cycle is found.
 		InfrastructureComponentScope nextLayer = this.getLowerLayer();
 		if ((nextLayer != null) && nextLayer.equals(this)) {
 			allLowerLayers.add(nextLayer);
 			return allLowerLayers;
 		}
-		while ((nextLayer!= null)) {
+		while (nextLayer!= null) {
 			if (nextLayer.equals(this)) {
 				allLowerLayers.add(nextLayer);
 				break;

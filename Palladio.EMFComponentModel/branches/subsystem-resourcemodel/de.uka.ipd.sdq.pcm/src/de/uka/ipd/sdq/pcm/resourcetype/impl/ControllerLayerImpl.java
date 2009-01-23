@@ -298,14 +298,14 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 */
 	public EList<ControllerLayer> getAllLowerLayers() {
 		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
-		allLowerLayers = new EObjectResolvingEList<ControllerLayer>(InfrastructureComponentScope.class, this, ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS);
-		// Search iteratively for lower layers. Stop if a circle is found.
+		allLowerLayers = new EObjectResolvingEList<ControllerLayer>(ControllerLayer.class, this, ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS);
+		// Search iteratively for lower layers. Stop if a cycle is found.
 		ControllerLayer nextLayer = this.getLowerLayer();
 		if ((nextLayer != null) && nextLayer.equals(this)) {
 			allLowerLayers.add(nextLayer);
 			return allLowerLayers;
 		}
-		while ((nextLayer!= null)) {
+		while (nextLayer != null) {
 			if (nextLayer.equals(this)) {
 				allLowerLayers.add(nextLayer);
 				break;
