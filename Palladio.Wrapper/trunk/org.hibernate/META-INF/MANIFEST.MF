@@ -122,4 +122,4 @@ Export-Package: antlr,
 Require-Bundle: org.apache.commons.logging,
  org.apache.log4j
 Bundle-Vendor: hibernate.org
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
