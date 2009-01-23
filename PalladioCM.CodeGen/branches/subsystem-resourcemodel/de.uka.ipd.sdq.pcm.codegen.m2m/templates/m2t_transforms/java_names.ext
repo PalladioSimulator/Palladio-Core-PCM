@@ -21,7 +21,7 @@ javaName(Entity e) :
 // Generate a java name by replacing all characters which are not java conform
 javaString(String s) :
    s.replaceAll('"','\\\\"').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
-   .replaceAll("\\.","_");
+   .replaceAll("\\.","_").replaceAll("-","_");
 
 javaVariableName(String s) :
    s.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")

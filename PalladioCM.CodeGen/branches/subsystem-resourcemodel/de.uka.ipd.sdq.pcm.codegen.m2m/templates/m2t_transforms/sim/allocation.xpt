@@ -75,32 +75,25 @@
 // The following rule assumes the current 1:1 relationship between allocation context and
 // assembly context!
 «DEFINE AssemblyContextLink FOR AllocationContext»
-	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
+	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id.javaString()»","«this.resourceContainer_AllocationContext.id»");
 	«IF CompositeComponent.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent_AssemblyContext)»
-		«EXPAND CompositeAllocation(this) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
-	«ENDIF»
-«ENDDEFINE»
-
-«DEFINE CompositeAllocation(AllocationContext allocCxt) FOR AssemblyContext»
-	linkAssemblyContextAndResourceContainer("«this.id»","«allocCxt.resourceContainer_AllocationContext.id»");
-	«IF CompositeComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
-		«EXPAND CompositeAllocation(allocCxt) FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
+		«EXPAND CompositeAllocation(this.resourceContainer_AllocationContext) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE AssemblyContextLink FOR InfrastructureComponentScope»
 «FOREACH this.assemblyContexts_ComposedStructure AS as»
-linkAssemblyContextAndResourceContainer("«as.id»","«this.resourceContainer_InfrastructureComponentScope.id»");
+linkAssemblyContextAndResourceContainer("«as.id.javaString()»","«this.resourceContainer_InfrastructureComponentScope.id»");
 «IF CompositeComponent.isInstance(as.encapsulatedComponent_AssemblyContext)»
-		«EXPAND CompositeAllocation(this) FOREACH ((CompositeComponent)as.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
+		«EXPAND CompositeAllocation(this.resourceContainer_InfrastructureComponentScope) FOREACH ((CompositeComponent)as.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
 	«ENDIF»
 «ENDFOREACH»
 «ENDDEFINE»
 
-«DEFINE CompositeAllocation(InfrastructureComponentScope infrScope) FOR AssemblyContext»
-	linkAssemblyContextAndResourceContainer("«this.id»","«infrScope.resourceContainer_InfrastructureComponentScope.id»");
+«DEFINE CompositeAllocation(ResourceContainer resContainer) FOR AssemblyContext»
+	linkAssemblyContextAndResourceContainer("«this.id.javaString()»","«resContainer.id»");
 	«IF CompositeComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
-		«EXPAND CompositeAllocation(infrScope) FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
+		«EXPAND CompositeAllocation(resContainer) FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»
 
@@ -115,17 +108,13 @@ linkAssemblyContextAndResourceContainer("«as.id»","«this.resourceContainer_Infra
 «ENDDEFINE»
 
 «DEFINE AllocationConnectors FOR Allocation»
-	// Create all temporary resource context variables
-	«REM»TODO: Do this only once for each assemblyContext! Currently buggy if more than 1 AllocationConnector reference the same AssemblyContext!«ENDREM»
-	«FOREACH this.allocationConnectors_Allocation.fromAssemblyContext_AllocationConnector AS as»
-	«as.encapsulatedComponent_AssemblyContext.fqnContextResourceInterface()» «as.id.javaVariableName()»_«as.encapsulatedComponent_AssemblyContext.javaName()» = ((«as.encapsulatedComponent_AssemblyContext.fqn()»)main.AssemblyContextRegistry.getComponentInstance("«as.id.javaVariableName()»")).getResourceContext();
-	«ENDFOREACH»
-
+	// Create all temporary resource context variables first, then set the role appropriatly
 	«FOREACH this.allocationConnectors_Allocation AS ac»
+	«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.fqnContextResourceInterface()» «ac.resourceRequiredRole_AllocationConnector.javaName()»_«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()» = ((«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.fqn()»)main.AssemblyContextRegistry.getComponentInstance("«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»")).getResourceContext();
 	«IF InfrastructureComponentAllocationConnector.isInstance(ac)»
-	«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()».setRole«ac.resourceRequiredRole_AllocationConnector.javaName()»(my«((InfrastructureComponentAllocationConnector)ac).toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.javaName()».«((InfrastructureComponentAllocationConnector)ac).providedRole_AllocationConnector.portGetter()»());
+	«ac.resourceRequiredRole_AllocationConnector.javaName()»_«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()».setRole«ac.resourceRequiredRole_AllocationConnector.javaName()»(my«((InfrastructureComponentAllocationConnector)ac).toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.javaName()».«((InfrastructureComponentAllocationConnector)ac).providedRole_AllocationConnector.portGetter()»());
 	«ELSEIF ResourceAllocationConnector.isInstance(ac)»
-	«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()».setRole«ac.resourceRequiredRole_AllocationConnector.javaName()»((«((ResourceAllocationConnector)ac).toProcessingResourceSpecification_ResourceAllocationConnector.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.fqn()»)main.ResourceRegistry.getResourceInstance(findResource("«ac.fromAssemblyContext_AllocationConnector.id.javaString()»").getResourceContainerID()+"_«((ResourceAllocationConnector)ac).toProcessingResourceSpecification_ResourceAllocationConnector.activeResourceType_ActiveResourceSpecification.javaName()»"));
+	«ac.resourceRequiredRole_AllocationConnector.javaName()»_«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()».setRole«ac.resourceRequiredRole_AllocationConnector.javaName()»((«((ResourceAllocationConnector)ac).toProcessingResourceSpecification_ResourceAllocationConnector.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.fqn()»)main.ResourceRegistry.getResourceInstance(findResource("«ac.fromAssemblyContext_AllocationConnector.id.javaString()»").getResourceContainerID()+"_«((ResourceAllocationConnector)ac).toProcessingResourceSpecification_ResourceAllocationConnector.activeResourceType_ActiveResourceSpecification.javaName()»"));
 	«ELSEIF ControllerAllocationConnector.isInstance(ac)»
 	«REM»TODO«ENDREM»
 	«ENDIF»

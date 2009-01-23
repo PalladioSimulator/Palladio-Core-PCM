@@ -217,7 +217,7 @@
 		
 	// Create proxy for resource instance
 	resourceenvironment.resources.«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» = new resourceenvironment.resources.«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»();
-	main.ResourceRegistry.register("«((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»", «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»);
+	main.ResourceRegistry.register("«((ResourceContainer)this.eContainer).id»_«this.activeResourceType_ActiveResourceSpecification.javaName()»", «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()»);
 «ENDDEFINE»
 
 «REM»TODO: Refactor
