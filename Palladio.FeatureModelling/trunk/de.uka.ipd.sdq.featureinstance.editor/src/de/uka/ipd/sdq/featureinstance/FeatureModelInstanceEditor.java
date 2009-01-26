@@ -21,11 +21,19 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -41,6 +49,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
@@ -49,6 +59,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -58,6 +69,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
@@ -79,7 +91,7 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
  * @author fish
  *
  */
-public class FeatureModelInstanceEditor extends MultiPageEditorPart implements ISelectionProvider {
+public class FeatureModelInstanceEditor extends MultiPageEditorPart implements ISelectionProvider, IEditingDomainProvider {
 	
 	protected ISelectionChangedListener selectionChangedListener;
 	
@@ -100,11 +112,14 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	
 	protected Object root;
 	
+	protected TreeViewer contentOutlineViewer;
+
+	protected IContentOutlinePage contentOutlinePage;
+	
 	protected boolean dirtyFlag = false;
 	
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
-	
 	
 	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
@@ -133,6 +148,12 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
+	
+	@Override
+	public EditingDomain getEditingDomain() {
+		return editingDomain;
+	}
+
 
 	/**
 	 * Initializes the adapterFactory, the commandStack and with these objects the editingDomain
@@ -155,6 +176,15 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	public FeatureModelInstanceEditor() {
 		super();
 		initializeEditingDomain();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EditingDomainActionBarContributor getActionBarContributor() {
+		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
 	}
 	
 	@Override
