@@ -28,6 +28,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Text lqnsConfig2;
 	private Text lqnsConfig3;
 	private Text lqnsConfig4;
+	private Combo comboLqnsOutput;
 		
 	private Text lqsimConfig1;
 	private Text lqsimConfig2;
@@ -166,6 +167,19 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		lqnsConfig4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		lqnsConfig4.addModifyListener(listener);
 		
+		Label label5 = new Label(group, SWT.NONE);
+		label5.setText("Output Type:");
+		label5.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
+		
+		comboLqnsOutput = new Combo(group, SWT.READ_ONLY);
+		comboLqnsOutput.setItems (new String [] {
+				MessageStrings.LQNS_OUTPUT_HUMAN,
+				MessageStrings.LQNS_OUTPUT_XML
+				});
+		comboLqnsOutput.setSize (400, 200);
+		comboLqnsOutput.addModifyListener(listener);
+		comboLqnsOutput.addSelectionListener(comboListener);
+		
 		return group;
 	}
 
@@ -218,6 +232,19 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 			setVisibleConfigurationOptions(solverStr);
 		} catch(CoreException e){
 			comboSolver.select(0);
+		}
+		try{
+			String outputStr = configuration.getAttribute(MessageStrings.LQNS_OUTPUT, 
+					MessageStrings.LQNS_OUTPUT_HUMAN);
+			String[] items = comboLqnsOutput.getItems();
+			for (int i=0; i<items.length; i++){
+				String str = items[i];
+				if (str.equals(outputStr)){
+					comboLqnsOutput.select(i);
+				}
+			}
+		} catch(CoreException e){
+			comboLqnsOutput.select(0);
 		}
 		try{
 			textSamplingDist.setText(configuration.getAttribute(MessageStrings.SAMPLING_DIST, "1.0"));
@@ -290,6 +317,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(MessageStrings.IT_LIMIT, lqnsConfig2.getText());
 		configuration.setAttribute(MessageStrings.PRINT_INT, lqnsConfig3.getText());
 		configuration.setAttribute(MessageStrings.UNDER_COEFF, lqnsConfig4.getText());
+		configuration.setAttribute(MessageStrings.LQNS_OUTPUT, comboLqnsOutput.getText());
 
 		configuration.setAttribute(MessageStrings.RUN_TIME, lqsimConfig1.getText());
 		configuration.setAttribute(MessageStrings.BLOCKS, lqsimConfig2.getText());
