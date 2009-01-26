@@ -17,14 +17,14 @@
 //------------------------------
 «DEFINE Allocation FOR Allocation»
 	«EXPAND m2t_transforms::sim::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
-	«EXPAND InfrastructureComponentRoot FOREACH this.infrastructureComponentScopes_Allocation»
+	«FOREACH this.infrastructureComponentScopes_Allocation AS is»
+		«EXPAND InfrastructureComponentRoot FOR is»
+		«EXPAND InfrastructureComponentInit FOR is»
+	«ENDFOREACH»
 	«EXPAND AllocationRuntimeContext FOR this»
 «ENDDEFINE»
 
 «DEFINE AllocationRuntimeContext FOR Allocation»
-	«FOREACH this.infrastructureComponentScopes_Allocation AS is»
-			«EXPAND InfrastructureComponentInit FOR is»
-	«ENDFOREACH»
 	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
 		package «this.fqnAllocationContextPackage()»;
 		 

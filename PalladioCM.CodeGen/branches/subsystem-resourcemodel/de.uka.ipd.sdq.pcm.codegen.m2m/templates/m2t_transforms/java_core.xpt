@@ -72,10 +72,10 @@ public class «this.javaName()»
 // Generate method implementations by traversing the SEFF
 «DEFINE ComponentService(RepositoryComponent component) FOR ProvidedRole»
 	«IF Interface.isInstance(this.providedInterface__ProvidedRole)»
-	«EXPAND ComponentService(component) FOREACH ((Interface)this.providedInterface__ProvidedRole).signatures__Interface SEPARATOR ";"»;
+	«EXPAND ComponentService(component) FOREACH ((Interface)this.providedInterface__ProvidedRole).signatures__Interface»
 «ENDIF»
 «IF ResourceInterface.isInstance(this.providedInterface__ProvidedRole)»
-	«EXPAND ComponentService(component) FOREACH ((ResourceInterface)this.providedInterface__ProvidedRole).resourceServices_ResourceInterface SEPARATOR ";"»;
+	«EXPAND ComponentService(component) FOREACH ((ResourceInterface)this.providedInterface__ProvidedRole).resourceServices_ResourceInterface»
 «ENDIF»
 «ENDDEFINE»
 
@@ -170,7 +170,7 @@ public class «this.javaName()»
 	      
 		public interface «this.interfaceName()»
 	    {
-	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity SEPARATOR ";"»;
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity»
 	    }
 	«ENDFILE»
 «ENDDEFINE»
