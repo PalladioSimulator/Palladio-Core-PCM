@@ -20893,25 +20893,25 @@ Like SubSystems, Systems are white-box entities for the Software Architect and a
           <edges xmi:id="_9eFwBZGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwCJGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwCpGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <children xmi:id="_9eFwC5GyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwCZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwDJGyEduVgYSffmI32A" type="ToMultiplicityLabel">
               <children xmi:id="_9eFwDpGyEduVgYSffmI32A" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwDZGyEduVgYSffmI32A" x="79" y="-206"/>
             </children>
             <children xmi:id="_9eFwD5GyEduVgYSffmI32A" type="ToRoleLabel">
               <children xmi:id="_9eFwEZGyEduVgYSffmI32A" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwEJGyEduVgYSffmI32A" y="-397"/>
             </children>
             <children xmi:id="_9eFwEpGyEduVgYSffmI32A" type="FromMultiplicityLabel">
@@ -20931,9 +20931,9 @@ Like SubSystems, Systems are white-box entities for the Software Architect and a
             <children xmi:id="_9eFwGJGyEduVgYSffmI32A" type="ToQualifierLabel">
               <children xmi:id="_9eFwGpGyEduVgYSffmI32A" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwG5GyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwGZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwHJGyEduVgYSffmI32A" type="FromQualifierLabel">
@@ -20948,7 +20948,7 @@ Like SubSystems, Systems are white-box entities for the Software Architect and a
               <children xmi:id="_Rjul0ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjul0pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjul05ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjul1JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -20962,9 +20962,9 @@ Like SubSystems, Systems are white-box entities for the Software Architect and a
               <eAnnotations xmi:id="_9eFwIpGyEduVgYSffmI32A" source="ToConstraintLabel"/>
               <children xmi:id="_9eFwI5GyEduVgYSffmI32A" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwJJGyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwIZGyEduVgYSffmI32A" y="1058"/>
             </children>
             <children xmi:id="_9eFwJZGyEduVgYSffmI32A" type="FromRoleLabel">
@@ -20977,35 +20977,35 @@ Like SubSystems, Systems are white-box entities for the Software Architect and a
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwJpGyEduVgYSffmI32A" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwBpGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwB5GyEduVgYSffmI32A" points="[-317, -582, -3360, 1403]$[-317, -2117, -3360, -132]$[450, -2117, -2593, -132]"/>
           </edges>
           <edges xmi:id="_9eFwKpGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwLZGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwL5GyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_9eFwMJGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwLpGyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwK5GyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwLJGyEduVgYSffmI32A" points="[979, -635, -3334, 2011]$[3149, -1958, -1164, 688]"/>
           </edges>
           <edges xmi:id="_-SZh35GyEduVgYSffmI32A" source="_-SZh0JGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_-SZh4pGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_-SZh5JGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_-SZh5ZGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-SZh45GyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-SZh4JGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-SZh4ZGyEduVgYSffmI32A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
           </edges>
           <edges xmi:id="_B3VacLIdEd2cRs6GwUwg9g" element="_kLsjwEpDEdyyNsXlb1tNsw" source="_xBLjYJGyEduVgYSffmI32A" target="_Bz6TALIdEd2cRs6GwUwg9g">
@@ -22273,29 +22273,29 @@ Example: To model a layered architecture, of which each layer is potentially spl
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" basePackage="de.uka.ipd.sdq" prefix=""/>
-  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0" basePackage="" prefix="Core"/>
-  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0" basePackage="" prefix="Entity"/>
-  <Ecore:EPackage xmi:id="_U1n0YJZwEdyvM-KRcbKtDQ" base_Package="_7h8GkOJREdqxcra4qpeplw" packageName="connectors" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0" basePackage="" prefix="Connectors"/>
-  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0" basePackage="" prefix="Composition"/>
-  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" basePackage="" prefix="Allocation"/>
-  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" basePackage="" prefix="Repository"/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sla-at-soi.eu/PalladioComponentModel/4.0" basePackage="org.slasoi.negotiation.repository" prefix="pcm"/>
+  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/4.0" basePackage="" prefix="core"/>
+  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/Entity/4.0" basePackage="" prefix="entity"/>
+  <Ecore:EPackage xmi:id="_U1n0YJZwEdyvM-KRcbKtDQ" base_Package="_7h8GkOJREdqxcra4qpeplw" packageName="connectors" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/Connectors/4.0" basePackage="" prefix="connectors"/>
+  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/Composition/4.0" basePackage="" prefix="composition"/>
+  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Allocation/4.0" basePackage="" prefix="allocation"/>
+  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Repository/4.0" basePackage="" prefix="repository"/>
   <Default:Documentation xmi:id="_U2glMJZwEdyvM-KRcbKtDQ" base_Comment="_7gFgQJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQJZwEdyvM-KRcbKtDQ" base_Comment="_pfXlcJvmEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQZZwEdyvM-KRcbKtDQ" base_Comment="_v8sVkJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQpZwEdyvM-KRcbKtDQ" base_Comment="_0sfFgJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hzUJZwEdyvM-KRcbKtDQ" base_Comment="_1Xd8MJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2jBcJZwEdyvM-KRcbKtDQ" base_Comment="_Z-XIUKN-EdqfKJQ-jd0-uQ"/>
-  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0" basePackage="" prefix="Protocol"/>
-  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" basePackage="" prefix="Resourceenvironment"/>
-  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" basePackage="" prefix="Usagemodel"/>
-  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" basePackage="" prefix="Seff"/>
-  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0" basePackage="" prefix="Resourcetype"/>
-  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" basePackage="" prefix="System"/>
-  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" basePackage="" prefix="Parameter"/>
-  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0" basePackage="" prefix="Qosannotations"/>
-  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/4.0" basePackage="" prefix="Performance"/>
-  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="reliability" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Reliability/4.0" prefix="Reliability"/>
+  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Protocol/4.0" basePackage="" prefix="protocol"/>
+  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/ResourceEnvironment/4.0" basePackage="" prefix="resourceenvironment"/>
+  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/UsageModel/4.0" basePackage="" prefix="usagemodel"/>
+  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/SEFF/4.0" basePackage="" prefix="seff"/>
+  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/ResourceType/4.0" basePackage="" prefix="resourcetype"/>
+  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/System/4.0" basePackage="" prefix="system"/>
+  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Parameter/4.0" basePackage="" prefix="parameter"/>
+  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/QoSAnnotations/4.0" basePackage="" prefix="qosannotations"/>
+  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="performance" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/QoSAnnotations/Performance/4.0" basePackage="" prefix="performance"/>
+  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="reliability" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/QoSAnnotations/Reliability/4.0" prefix="reliability"/>
   <Default:Documentation xmi:id="_ElYt0H5kEd2w8a0eK9hypA" base_Comment="_ElI2MH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_qCzxkH5kEd2w8a0eK9hypA" base_Comment="_qCrOsH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_BSN3cH5lEd2w8a0eK9hypA" base_Comment="_BSF7oH5lEd2w8a0eK9hypA"/>
@@ -22357,8 +22357,8 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_aAWikIVfEd2pasxENQ18jg" base_Comment="_aAMxkIVfEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
-  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0" prefix="Subsystem"/>
-  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0" prefix="Performance"/>
+  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sla-at-soi.eu/PalladioComponentModel/SubSystem/4.0" prefix="subsystem"/>
+  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="performance" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/SEFF/Performance/1.0" prefix="performance"/>
   <Ecore:EReference xmi:id="_2N-RwKGhEd2ZzfSAo7TyCQ" isTransient="true" base_Property="_6Sm8IaMYEdqfKJQ-jd0-uQ"/>
   <Default:Documentation xmi:id="_XUdFcKHZEd2av7jcZUzHwg" base_Comment="_XM2ooKHZEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_3vIBAaHZEd2av7jcZUzHwg" base_Comment="_3vIBAKHZEd2av7jcZUzHwg"/>

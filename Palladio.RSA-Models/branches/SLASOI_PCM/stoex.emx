@@ -2174,15 +2174,15 @@
         <edges xmi:id="_XvZXADhvEdy4wo8LP9zxLA" source="_3riEIDuSEduKtOWw2f6nDA" target="_UcPkMDhvEdy4wo8LP9zxLA">
           <children xmi:id="_XvZXAzhvEdy4wo8LP9zxLA" type="NameLabel">
             <children xmi:id="_XvZXBThvEdy4wo8LP9zxLA" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E?"/>
+              <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralisierung%3E?"/>
             </children>
             <children xmi:id="_XvZXBjhvEdy4wo8LP9zxLA" type="Name">
-              <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E?"/>
+              <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralisierung%3E?"/>
             </children>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XvZXBDhvEdy4wo8LP9zxLA" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_XvZXAThvEdy4wo8LP9zxLA" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E?"/>
+          <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralisierung%3E?"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XvZXAjhvEdy4wo8LP9zxLA" points="[-84, -14, 129, 7]$[-143, -14, 70, 7]"/>
         </edges>
         <edges xmi:id="_ew9VQDhvEdy4wo8LP9zxLA" element="_evUWgDhvEdy4wo8LP9zxLA" source="_UcPkMDhvEdy4wo8LP9zxLA" target="_IZWfEDpQEduKtOWw2f6nDA">
@@ -2741,6 +2741,6 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_UHne4JZwEdyvM-KRcbKtDQ" base_Package="_wRehYH4BEduxavwLjLThgg" packageName="stoex" nsPrefix="stoex" nsURI="http://sdq.ipd.uka.de/StochasticExpressions/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
+  <Ecore:EPackage xmi:id="_UHne4JZwEdyvM-KRcbKtDQ" base_Package="_wRehYH4BEduxavwLjLThgg" packageName="stoex" nsPrefix="stoex" nsURI="http://sla-at-soi.eu/StochasticExpressions/1.0" basePackage="org.slasoi.negotiation.repository" prefix="stoex"/>
   <Ecore:EReference xmi:id="_UHs-cJZwEdyvM-KRcbKtDQ" xmlName="" isTransient="true" isVolatile="true" isUnsettable="true" xmlNamespace="" visibility="ReadOnly" base_Property="_evUWgThvEdy4wo8LP9zxLA" referenceName="expression"/>
 </xmi:XMI>

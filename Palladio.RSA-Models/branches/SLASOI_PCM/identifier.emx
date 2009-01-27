@@ -50,7 +50,7 @@ Identifier implementations can be found in external projects only.</body>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_TF6xUJZwEdyvM-KRcbKtDQ" base_Package="_hFALoK6GEdqR97hrnpMlhg" packageName="identifier" nsPrefix="identifier" nsURI="http://sdq.ipd.uka.de/Identifier/1.0" basePackage="de.uka.ipd.sdq" prefix="identifier"/>
+  <Ecore:EPackage xmi:id="_TF6xUJZwEdyvM-KRcbKtDQ" base_Package="_hFALoK6GEdqR97hrnpMlhg" packageName="identifier" nsPrefix="identifier" nsURI="http://sla-at-soi.eu/Identifier/1.0" basePackage="org.slasoi.negotiation.repository" prefix="identifier"/>
   <Default:Documentation xmi:id="_TF_p0JZwEdyvM-KRcbKtDQ" base_Comment="_ozoGMJ1ZEdqX-LqEpACX-A"/>
   <Ecore:EAttribute xmi:id="_TF90oJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_bTQrMJMWEdqSSImFLKDkSg" attributeName="id" isID="true"/>
 </xmi:XMI>
