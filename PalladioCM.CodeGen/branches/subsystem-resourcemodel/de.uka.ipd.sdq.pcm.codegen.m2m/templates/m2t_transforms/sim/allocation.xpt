@@ -60,6 +60,30 @@
 			
 		}
 	«ENDFILE»
+	«FILE "main/AssemblyContextRegistry.java"»
+		package main;
+		
+		import java.util.HashMap;
+		
+		/**
+		* This class manages all component instances.
+		**/
+		public class AssemblyContextRegistry 
+		{	
+			private static HashMap<String, Object> componentInstances = new HashMap<String, Object>();
+			
+			public static void register(String assemblyContextID, Object componentInstance) {
+			System.err.println("Registering: " + assemblyContextID); 
+				componentInstances.put(assemblyContextID, componentInstance);
+			}
+			
+			public static Object getComponentInstance(String assemblyContextID) {
+			System.err.println("Retrieving: " + assemblyContextID);
+				return componentInstances.get(assemblyContextID);
+			}
+			
+		}
+	«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE InfrastructureComponentRoot FOR InfrastructureComponentScope»
@@ -108,7 +132,9 @@ linkAssemblyContextAndResourceContainer("«as.id.javaString()»","«this.resourceCo
 «ENDDEFINE»
 
 «DEFINE AllocationConnectors FOR Allocation»
-	// Create all temporary resource context variables first, then set the role appropriatly
+	
+	// AllocationConnectors
+	// Create all temporary resource context variables first, then set the role appropriately
 	«FOREACH this.allocationConnectors_Allocation AS ac»
 	«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.fqnContextResourceInterface()» «ac.resourceRequiredRole_AllocationConnector.javaName()»_«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»_«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.javaName()» = ((«ac.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.fqn()»)main.AssemblyContextRegistry.getComponentInstance("«ac.fromAssemblyContext_AllocationConnector.id.javaVariableName()»")).getResourceContext();
 	«IF InfrastructureComponentAllocationConnector.isInstance(ac)»
@@ -119,4 +145,18 @@ linkAssemblyContextAndResourceContainer("«as.id.javaString()»","«this.resourceCo
 	«REM»TODO«ENDREM»
 	«ENDIF»
 	«ENDFOREACH»
+	
+	// ResourceRequiredDelegationConnectors
+	«FOREACH this.allocationContexts_Allocation AS ac»
+	«EXPAND ResourceRequiredDelegationConnectors FOR ac.assemblyContext_AllocationContext»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE ResourceRequiredDelegationConnectors FOR AssemblyContext»
+	«IF CompositeComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
+		«FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).resourceRequiredDelegationConnectors_ComposedStructure AS resReqCon»
+	 		((«resReqCon.assemblyContext_ResourceRequiredDelegationConnector.encapsulatedComponent_AssemblyContext.fqn()»)main.AssemblyContextRegistry.getComponentInstance("«resReqCon.assemblyContext_ResourceRequiredDelegationConnector.id.javaVariableName()»")).getResourceContext().setRole«resReqCon.innerResourceRequiredRole_ResourceRequiredDelegationConnector.javaName()»(((«this.encapsulatedComponent_AssemblyContext.fqn()»)main.AssemblyContextRegistry.getComponentInstance("«this.id.javaVariableName()»")).getResourceContext().getRole«resReqCon.outerResourceRequiredRole_ResourceRequiredDelegationConnector.javaName()»());		
+		«ENDFOREACH»
+		«EXPAND ResourceRequiredDelegationConnectors FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
+	«ENDIF»
 «ENDDEFINE»

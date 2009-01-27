@@ -18,9 +18,6 @@
 		«ENDFOREACH»
 	«ENDFOREACH»
 	
-	// Register component instance
-	main.AssemblyContextRegistry.register("«this.id.javaVariableName()»", my«this.javaName()»);
-	
 	my«this.javaName()».setComponentFrame(componentStackFrame);
 «ENDDEFINE»
  

@@ -31,7 +31,7 @@
 		
 		«IF ResourceInterfaceRequiringEntity.isInstance(this)»
 			/* My resource context*/
-			«REM»«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity»«ENDREM»
+			this.myResourceContext = new «this.fqnResourceContext()»();
 		«ENDIF»
 	      
 		«IF InterfaceProvidingEntity.isInstance(this)»
@@ -123,10 +123,13 @@
          «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
 	  );
       my«this.javaName()».setContext(context);
-      «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()» resourceContext = new «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()»(
+      «REM»«this.encapsulatedComponent_AssemblyContext.fqnResourceContext()» resourceContext = new «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()»(
          «EXPAND ResourcePortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity SEPARATOR ","»
-      );
+      );«ENDREM»
+      «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()» resourceContext = new «this.encapsulatedComponent_AssemblyContext.fqnResourceContext()»();
       my«this.javaName()».setResourceContext(resourceContext);
+      // Register component instance
+	  main.AssemblyContextRegistry.register("«this.id.javaVariableName()»", my«this.javaName()»);
       «EXPAND ChildInitTM(s) FOR this»
    }
 «ENDDEFINE»
