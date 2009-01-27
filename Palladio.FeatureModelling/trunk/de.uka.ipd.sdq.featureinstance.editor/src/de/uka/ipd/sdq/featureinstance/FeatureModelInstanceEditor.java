@@ -28,12 +28,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -49,7 +44,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -59,7 +53,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -88,7 +81,7 @@ import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFacto
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 /**
- * @author fish
+ * @author Grischa Liebel
  *
  */
 public class FeatureModelInstanceEditor extends MultiPageEditorPart implements ISelectionProvider, IEditingDomainProvider {
@@ -208,6 +201,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
 		}
 		catch (Exception e) {
+			//TODO Exception-Handling
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 			if (resource == null) {
 				e.printStackTrace();
@@ -305,7 +299,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				resource.load(Collections.EMPTY_MAP);
 				resource.save(Collections.EMPTY_MAP);
 			}
-			catch (Exception e) {
+			catch (IOException e) {
+				//TODO Exception-Handling
 				e.printStackTrace();
 			}
 		}
@@ -393,7 +388,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					try {
 						existingResource.load(Collections.EMPTY_MAP);
 					}
-					catch (Exception e) {
+					catch (IOException e) {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
 						errord.open();
 						//TODO what to do after errorDialog ?
@@ -407,7 +402,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.load(Collections.EMPTY_MAP);
 							resource.save(Collections.EMPTY_MAP);
 						}
-						catch (Exception e) {
+						catch (IOException e) {
+							//TODO Exception-Handling
 							e.printStackTrace();
 						}
 					}
@@ -440,7 +436,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					try {
 						existingResource.load(Collections.EMPTY_MAP);
 					}
-					catch (Exception e) {
+					catch (IOException e) {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
 						errord.open();
 						//TODO what to do after errorDialog ?
@@ -454,7 +450,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.load(Collections.EMPTY_MAP);
 							resource.save(Collections.EMPTY_MAP);
 						}
-						catch (Exception e) {
+						catch (IOException e) {
+							//TODO Exception-Handling
 							e.printStackTrace();
 						}
 					}
@@ -673,7 +670,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 			//Gray FeatureGroups
 			Feature curRoot = root.getRootFeature();
-			//grayFeatureGroups(curRoot);
+			grayFeatureGroups(curRoot.getChildrelation());
 		}
 		
 		if (defaultConfig != null) {
@@ -718,7 +715,48 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		};
 		
 		treeViewer.addCheckStateListener(listener);
+		
+		//Selects all mandatory Features
+		if (root != null) {
+			Feature curRoot = root.getRootFeature();
+			selectMandatoryFeatures(curRoot.getChildrelation());
+		}
+		
 
+	}
+	
+	/**
+	 * Selects recursively the mandatory Features
+	 * 
+	 * @param curRelation The ChildRelation, where the selecting should start
+	 */
+	public void selectMandatoryFeatures(ChildRelation curRelation) {
+		if (curRelation != null) {
+			if (curRelation instanceof FeatureGroup) {
+				EList<Feature> nodes = ((FeatureGroup)curRelation).getChildren();
+				Iterator<Feature> nodesIter = nodes.iterator();
+				while (nodesIter.hasNext()) {
+					selectMandatoryFeatures(nodesIter.next().getChildrelation());
+				}
+			}
+			else if(curRelation instanceof Simple) {
+				EList<Feature> mandFeatures = ((Simple)curRelation).getMandatoryChildren();
+				EList<Feature> optFeatures = ((Simple)curRelation).getOptionalChildren();
+				
+				Iterator<Feature> featureIter = mandFeatures.iterator();
+				while (featureIter.hasNext()) {
+					Feature next = featureIter.next();
+					treeViewer.setChecked(next, true);
+					uncheckInModel(next, true);
+					selectMandatoryFeatures(next.getChildrelation());
+				}
+				
+				featureIter = optFeatures.iterator();
+				while (featureIter.hasNext()) {
+					selectMandatoryFeatures(featureIter.next().getChildrelation());
+				}
+			}
+		}
 	}
 	
 	/**
@@ -845,7 +883,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		Object parent = editingDomain.getParent(current);
 		if (parent != null) {
 			if (!(treeViewer.getChecked(parent))) {
-				treeViewer.setChecked(parent, true);
+				if (!(parent instanceof FeatureGroup)) {
+					treeViewer.setChecked(parent, true);
+				}
 				
 				if (parent instanceof Feature) {
 					uncheckInModel((Feature)parent,true);
@@ -911,29 +951,32 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	/**
 	 * Grays out the FeatureGroups in the treeViewer
 	 * 
-	 * @param curRoot The root Node, where the graying should be started
-	 * @deprecated not necessary any more after the model changes (no FeatureGroups)
+	 * @param curRoot The current ChildRelation
 	 */
-	public void grayFeatureGroups (Feature curRoot) {
-		//TODO: Parameter needs to be changed, cause Node doesnt exist anymore and Feature doesnt make sense
-		if (curRoot != null) {
-			if (curRoot instanceof FeatureGroup) {
-				treeViewer.setGrayed(curRoot, true);
-				EList<Feature> nodes = ((FeatureGroup)curRoot).getChildren();
+	public void grayFeatureGroups (ChildRelation curRelation) {
+		if (curRelation != null) {
+			if (curRelation instanceof FeatureGroup) {
+				treeViewer.setGrayed(curRelation, true);
+				EList<Feature> nodes = ((FeatureGroup)curRelation).getChildren();
 				Iterator<Feature> nodesIter = nodes.iterator();
 				while (nodesIter.hasNext()) {
-					grayFeatureGroups(nodesIter.next());
+					grayFeatureGroups(nodesIter.next().getChildrelation());
 				}
 			}
-			/*else if(curRoot instanceof Feature) {
-				EList<Feature> nodes = ((Feature)curRoot).getChildrelation();
-				Iterator<Feature> nodesIter = nodes.iterator();
-				while (nodesIter.hasNext()) {
-					grayFeatureGroups(nodesIter.next());
+			else if(curRelation instanceof Simple) {
+				EList<Feature> mandFeatures = ((Simple)curRelation).getMandatoryChildren();
+				EList<Feature> optFeatures = ((Simple)curRelation).getOptionalChildren();
+				
+				Iterator<Feature> featureIter = mandFeatures.iterator();
+				while (featureIter.hasNext()) {
+					grayFeatureGroups(featureIter.next().getChildrelation());
 				}
-			}*/
-			
-		
+				
+				featureIter = optFeatures.iterator();
+				while (featureIter.hasNext()) {
+					grayFeatureGroups(featureIter.next().getChildrelation());
+				}
+			}
 		}
 	}
 	
@@ -965,7 +1008,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							try {
 								resource.save(saveOptions);
 							}
-							catch (Exception exception) {
+							catch (IOException exception) {
+								//TODO Exception-Handling
 							}
 							first = false;
 						}
@@ -984,7 +1028,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			dirtyFlag = false;
 			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
-		catch (Exception exception) {
+		catch (Exception e) {
+			//TODO Exception-Handling
 		}
 	}
 	
