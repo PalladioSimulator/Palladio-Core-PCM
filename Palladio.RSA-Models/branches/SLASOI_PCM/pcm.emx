@@ -22273,7 +22273,7 @@ Example: To model a layered architecture, of which each layer is potentially spl
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sla-at-soi.eu/PalladioComponentModel/4.0" basePackage="org.slasoi.negotiation.repository" prefix="pcm"/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sla-at-soi.eu/PalladioComponentModel/4.0" basePackage="org.slasoi.negotiation.repository.emf" prefix="pcm"/>
   <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/4.0" basePackage="" prefix="core"/>
   <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/Entity/4.0" basePackage="" prefix="entity"/>
   <Ecore:EPackage xmi:id="_U1n0YJZwEdyvM-KRcbKtDQ" base_Package="_7h8GkOJREdqxcra4qpeplw" packageName="connectors" nsPrefix="" nsURI="http://sla-at-soi.eu/PalladioComponentModel/Core/Connectors/4.0" basePackage="" prefix="connectors"/>

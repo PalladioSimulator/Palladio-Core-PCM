@@ -646,5 +646,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_Gx1qYFSiEdywv4JH0AaZwg" base_Package="_zWMAsFYOEduVzvtHWuORYA" packageName="probfunction" nsPrefix="probfunction" nsURI="http://sla-at-soi.eu/ProbFunction/1.0" basePackage="org.slasoi.negotiation.repository" prefix="probfunction"/>
+  <Ecore:EPackage xmi:id="_Gx1qYFSiEdywv4JH0AaZwg" base_Package="_zWMAsFYOEduVzvtHWuORYA" packageName="probfunction" nsPrefix="probfunction" nsURI="http://sla-at-soi.eu/ProbFunction/1.0" basePackage="org.slasoi.negotiation.repository.emf" prefix="probfunction"/>
 </xmi:XMI>

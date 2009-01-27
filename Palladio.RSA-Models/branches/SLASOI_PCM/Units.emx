@@ -594,7 +594,7 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_Twaf0JZwEdyvM-KRcbKtDQ" base_Package="_28FLUDaUEdypU_bkgRAm2w" packageName="units" nsPrefix="units" nsURI="http://sla-at-soi.eu/Units/1.0" basePackage="org.slasoi.negotiation.repository" prefix="units"/>
+  <Ecore:EPackage xmi:id="_Twaf0JZwEdyvM-KRcbKtDQ" base_Package="_28FLUDaUEdypU_bkgRAm2w" packageName="units" nsPrefix="units" nsURI="http://sla-at-soi.eu/Units/1.0" basePackage="org.slasoi.negotiation.repository.emf" prefix="units"/>
   <Ecore:EReference xmi:id="_Twbt8JZwEdyvM-KRcbKtDQ" xmlName="" isTransient="true" isVolatile="true" xmlNamespace="" visibility="ReadOnly" base_Property="_J8G_UTaYEdypU_bkgRAm2w" referenceName="unit"/>
   <Ecore:EAttribute xmi:id="_TwcVAJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_k9ZbYDaYEdypU_bkgRAm2w" attributeName="name" isID="true"/>
 </xmi:XMI>
