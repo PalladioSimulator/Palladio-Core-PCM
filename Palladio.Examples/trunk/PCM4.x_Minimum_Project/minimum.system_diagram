@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" type="CompositeModel" name="minimum.system_diagram" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" x="-20" y="50"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="minimum.repository#_gKD3MOr2Ed2XgqS7o1wi1w"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children type="3004">
+          <children type="5005">
+            <layoutConstraint xsi:type="notation:Location" x="-20" y="50"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="minimum.repository#_eNVr0Or2Ed2XgqS7o1wi1w"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="minimum.system#_xVK4UOr2Ed2XgqS7o1wi1w"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="125" y="31" width="171" height="65"/>
+      </children>
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <children type="3003">
+      <children type="5003">
+        <layoutConstraint xsi:type="notation:Location" x="-20" y="-36"/>
+      </children>
+      <styles xsi:type="notation:FontStyle"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="minimum.system#_4tFhEOr2Ed2XgqS7o1wi1w"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <children type="3005">
+      <children type="5006">
+        <layoutConstraint xsi:type="notation:Location" x="-20" y="-36"/>
+      </children>
+      <styles xsi:type="notation:FontStyle"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="minimum.system#_5fdZMOr2Ed2XgqS7o1wi1w"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="30" y="30" width="446" height="221"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="minimum.system#_vJ_aMOr2Ed2XgqS7o1wi1w"/>
+  <edges type="4002" source="//@children.0/@children.1/@children.0/@children.2" target="//@children.0/@children.3">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="minimum.system#_7NIb8Or2Ed2XgqS7o1wi1w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -237, 23]$[232, -21, -12, 2]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.2,0.56666666)"/>
+  </edges>
+  <edges type="4003" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="minimum.system#_7qoQQOr2Ed2XgqS7o1wi1w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -202, -28]$[225, 28, -7, 0]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.23333333,0.53333336)"/>
+  </edges>
+</notation:Diagram>

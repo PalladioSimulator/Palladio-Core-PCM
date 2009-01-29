@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_QhmUkOr2Ed2XgqS7o1wi1w" entityName="defaultRepository" repositoryDescription="Minimum Project Repository">
+  <components__Repository xsi:type="BasicComponent" id="_cUfT0Or2Ed2XgqS7o1wi1w" entityName="myComponent">
+    <providedRoles_InterfaceProvidingEntity id="_gKD3MOr2Ed2XgqS7o1wi1w" entityName="Provided_myComponent" providedInterface__ProvidedRole="_RWy3MOr2Ed2XgqS7o1wi1w"/>
+    <requiredRoles_InterfaceRequiringEntity id="_eNVr0Or2Ed2XgqS7o1wi1w" entityName="Required_myComponent" requiredInterface__RequiredRole="_RWy3MOr2Ed2XgqS7o1wi1w"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0" id="SEFF1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_FZDrIOr8Ed2jvZc97P3YzA" entityName="myStartAction" successor_AbstractAction="_KNqpoOr8Ed2jvZc97P3YzA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_FZDrIer8Ed2jvZc97P3YzA" entityName="myStopAction" predecessor_AbstractAction="_KNqpoOr8Ed2jvZc97P3YzA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_KNqpoOr8Ed2jvZc97P3YzA" entityName="myInternalAction" predecessor_AbstractAction="_FZDrIOr8Ed2jvZc97P3YzA" successor_AbstractAction="_FZDrIer8Ed2jvZc97P3YzA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="1"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_RWy3MOr2Ed2XgqS7o1wi1w" entityName="myInterface">
+    <signatures__Interface serviceName="doSth"/>
+  </interfaces__Repository>
+</Repository>

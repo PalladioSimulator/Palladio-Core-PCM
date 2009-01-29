@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+  <usageScenario_UsageModel id="_5s1xEOr6Ed2jvZc97P3YzA" entityName="defaultUsageScenario">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="0.0"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_5s1xEer6Ed2jvZc97P3YzA" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_5s1xEur6Ed2jvZc97P3YzA" entityName="myStartAction" successor="_alqLwOr8Ed2jvZc97P3YzA"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_5s1xE-r6Ed2jvZc97P3YzA" entityName="myStopAction" predecessor="_alqLwOr8Ed2jvZc97P3YzA"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_alqLwOr8Ed2jvZc97P3YzA" entityName="mySystemCall" successor="_5s1xE-r6Ed2jvZc97P3YzA" predecessor="_5s1xEur6Ed2jvZc97P3YzA">
+        <providedRole_EntryLevelSystemCall href="minimum.system#_4tFhEOr2Ed2XgqS7o1wi1w"/>
+        <signature_EntryLevelSystemCall href="minimum.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>
