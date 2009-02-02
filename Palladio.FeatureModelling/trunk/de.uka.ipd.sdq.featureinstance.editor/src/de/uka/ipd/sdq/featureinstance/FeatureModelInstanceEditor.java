@@ -357,7 +357,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * Handles the different file types for the loaded resource.
 	 * 
 	 * @param fileExtension The file extension of the loaded resource
-	 * @param path The complete path to the file
+	 * @param path The complete path to the file including the fileName
 	 * @param fileName The filename
 	 */
 	protected void handleFileCases(String fileExtension, String path, String fileName) {
@@ -373,7 +373,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			}
 			
 			//Check if the equivalent featureconfig-file already exists
-			File myFile = new File(path + fileName + ".featureconfig");
+			File myFile = new File(path + ".featureconfig");
 			
 			if (myFile.exists()) {
 				//ask if existing file should be used
@@ -561,7 +561,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		String fileName = resource.getURI().trimFileExtension().lastSegment();
 		String path = Platform.getLocation() + resource.getURI().trimFileExtension().toPlatformString(true);
 		int fileNameLocation = path.lastIndexOf(fileName);
-		path = path.substring(0, fileNameLocation);
 		
 		//handles the different cases of opened files and model/configuration cases
 		handleFileCases(fileExtension, path, fileName);
@@ -1094,10 +1093,10 @@ class TreeLabelProvider implements ILabelProvider {
 	public Image getImage(Object element){
 		ImageDescriptor descriptor = null;
 		if (element instanceof Feature) {
-			descriptor = FeatureModelInstancePlugin.getImageDescriptor("Feature.gif");
+			descriptor = FeatureModelInstancePlugin.getImageDescriptor("Feature.png");
 		}
 		else if (element instanceof FeatureGroup) {
-			descriptor = FeatureModelInstancePlugin.getImageDescriptor("FeatureGroup.gif");
+			descriptor = FeatureModelInstancePlugin.getImageDescriptor("FeatureGroup.png");
 		}
 		Image image = descriptor.createImage();
 		return image;
