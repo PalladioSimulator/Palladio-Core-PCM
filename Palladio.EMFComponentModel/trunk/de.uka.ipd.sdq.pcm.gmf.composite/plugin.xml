@@ -70,7 +70,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    <extension point="org.eclipse.ui.popupMenus">
       <?gmfgen generated="false"?>
       <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
+            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.Repository"
             nameFilter="*.repository"
             objectClass="org.eclipse.core.resources.IFile">
          <action
@@ -82,7 +82,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          </action>
       </objectContribution>
       <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
+            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.System"
             nameFilter="*.system"
             objectClass="org.eclipse.core.resources.IFile">
          <action
@@ -94,7 +94,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          </action>
       </objectContribution>
       <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
+            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.Completions"
             nameFilter="*.completions"
             objectClass="org.eclipse.core.resources.IFile">
          <action
