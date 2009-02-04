@@ -2,13 +2,13 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sensorframework"
-    nsURI="http://sdq.ipd.uka.de/SensorFramework/2.0.0" nsPrefix="de.uka.ipd.sdq">
-  <eClassifiers xsi:type="ecore:EClass" name="AggregatedMeasurements" abstract="true">
+    nsURI="http://sdq.ipd.uka.de/SensorFramework/2.0.0" nsPrefix="de.uka.ipd.sdq.sensorframework">
+  <eClassifiers xsi:type="ecore:EClass" name="AggregatedMeasurements" abstract="true"
+      eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="measurementRange" ordered="false"
         lowerBound="1" eType="#//MeasurementRange" eOpposite="#//MeasurementRange/aggregatedMeasurements"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinctValuesBeforeAggregation"
-        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
-        volatile="true" derived="true">
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The number of distinct data values before aggregation.&#xD;&#xA;"/>
       </eAnnotations>
@@ -19,6 +19,13 @@
         <details key="documentation" value="The number of distinct data values after aggregation.&#xD;&#xA;&#xD;&#xA;For example if measurements were aggregated to three different groups the number is three."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationCharacterization"
+        ordered="false" lowerBound="1" eType="#//AggregationCharacterization" containment="true"
+        eOpposite="#//AggregationCharacterization/aggregatedMeasurements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MeasurementRange">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -44,18 +51,21 @@
         ordered="false" upperBound="-1" eType="#//AggregatedMeasurements" containment="true"
         eOpposite="#//AggregatedMeasurements/measurementRange"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RawMeasurements" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="RawMeasurements" abstract="true" eSuperTypes="#//Identifiable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Raw measurements contains an orderered list of measurements for a sensor. For each measurement at least the time when the measurement was taken is stored. Hence, n measurements lead to an array size of event time of n. I.e. inheriting classes have to ensure the same number and ordering for additionally stored measurements."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawXValues" ordered="false"
-        lowerBound="1" eType="#//RawXValues" containment="true"/>
+        lowerBound="1" eType="#//RawXValues" containment="true" eOpposite="#//RawXValues/rawMeasurements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawYValues" ordered="false"
-        lowerBound="1" eType="#//RawYValues" containment="true"/>
+        lowerBound="1" eType="#//RawYValues" containment="true" eOpposite="#//RawYValues/rawMeasurements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measurementRange" ordered="false"
         lowerBound="1" eType="#//MeasurementRange" eOpposite="#//MeasurementRange/rawMeasurements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RawXValues" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RawXValues" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawMeasurements" ordered="false"
+        lowerBound="1" eType="#//RawMeasurements" eOpposite="#//RawMeasurements/rawXValues"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RawYValues" abstract="true">
     <eOperations name="Statisticsonlyformeasurablevalues" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -65,7 +75,11 @@
       <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statistics" ordered="false"
-        eType="#//Statistics" containment="true"/>
+        eType="#//Statistics" containment="true" eOpposite="#//Statistics/rawYValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedMeasurements"
+        ordered="false" lowerBound="1" eType="#//FixedWidthAggregation" eOpposite="#//FixedWidthAggregation/rawYValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawMeasurements" ordered="false"
+        lowerBound="1" eType="#//RawMeasurements" eOpposite="#//RawMeasurements/rawYValues"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statistics">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" ordered="false"
@@ -74,14 +88,40 @@
         eType="#//EJSMeasure"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" ordered="false"
         lowerBound="1" eType="#//EJSMeasure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sum" ordered="false" lowerBound="1"
+        eType="#//EJSMeasure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawYValues" ordered="false"
+        lowerBound="1" eType="#//RawYValues" eOpposite="#//RawYValues/statistics"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EJSMeasure" instanceClassName="javax.measure.Measure"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedWidthAggregation" abstract="true"
+      eSuperTypes="#//AggregatedMeasurements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawXValues" ordered="false"
+        lowerBound="1" eType="#//Intervals" containment="true" eOpposite="#//Intervals/aggregatedMeasurements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawYValues" ordered="false"
+        lowerBound="1" eType="#//RawYValues" containment="true" eOpposite="#//RawYValues/aggregatedMeasurements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intervals" eSuperTypes="#//RawXValues">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes the different aggregation intervals in detail. Includes start and end of each interval as well as two special intervals to reflect outliers. Intervals are not allowed to contain no value, there has to be a default. The default value is also saved to disc. The upper bound can be calculated as follows: upperBound = lowerBound + width * numberOfIntervals. The lower bound belongs to the first regular interval whereas the upper bound is the first value which is associated with the upper outlier interval.&#xD;&#xA;&#xD;&#xA;The data structure is build up as follows for n=numberOfIntervals different requested measurement intervals:&#xD;&#xA;First interval 'lower outlier interval': All measurements in the interval (-\infty, lowerBound).&#xD;&#xA;Second to n-th interval 'regular interval': All measurements in the interval [lowerBound+width*(n-1), lowerBound+width*n).&#xD;&#xA;n-th interval 'upper outlier interval': All measurements in the interval [lowerBound+width*n, \infty) = [upperBound+width*n, \infty).&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" ordered="false"
+        lowerBound="1" eType="#//EJSMeasure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" ordered="false"
+        lowerBound="1" eType="#//EJSMeasure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfIntervals" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedMeasurements"
+        ordered="false" lowerBound="1" eType="#//FixedWidthAggregation" eOpposite="#//FixedWidthAggregation/rawXValues"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EJSDurationMeasure" instanceClassName="javax.measure.Measure"/>
   <eClassifiers xsi:type="ecore:EClass" name="CollectedData" eSuperTypes="#//Propertyable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="There is exactly one instance of this class for each combination of experiment run and corresponding sensor declaration."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorDeclaration" ordered="false"
         lowerBound="1" eType="#//SensorDeclaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentRun" ordered="false"
         lowerBound="1" eType="#//ExperimentRun" eOpposite="#//ExperimentRun/collectedData"/>
@@ -103,7 +143,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="TODO&#xD;&#xA;&#xD;&#xA;The abstract SensorDeclaration class needs to be subclassed to create concrete Sensors that can handle specific data. Visualisations can later use the specific subtype to know the best way how to visualise the data. "/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owningExperiment" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSetting" ordered="false"
         lowerBound="1" eType="#//ExperimentSetting" eOpposite="#//ExperimentSetting/sensors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measureCharacterization"
         ordered="false" lowerBound="1" eType="#//MeasureCharacterization" containment="true"
@@ -120,9 +160,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentRuns" ordered="false"
         upperBound="-1" eType="#//ExperimentRun" containment="true" eOpposite="#//ExperimentRun/experimentSetting"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" ordered="false"
-        upperBound="-1" eType="#//SensorDeclaration" containment="true" eOpposite="#//SensorDeclaration/owningExperiment"/>
+        upperBound="-1" eType="#//SensorDeclaration" containment="true" eOpposite="#//SensorDeclaration/experimentSetting"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExperimentRun" eSuperTypes="#//Propertyable">
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentRun" eSuperTypes="#//Identifiable #//Propertyable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Experiment runs contain the collected data (results) for each replication of an experiment. The data is collected for each sensor declared in the experiment setting. There is one instance of collected data for each declared sensor.&#xD;&#xA;&#xD;&#xA;The time when the experiment was started and how long it took are stored as attributes. The end of the experiment run can be calculated by: endTime = startTime + duration."/>
     </eAnnotations>
@@ -167,10 +207,27 @@
     <eLiterals name="XmlJScience" value="2"/>
     <eLiterals name="Emf" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LongMeasurements" eSuperTypes="#//RawYValues">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregationCharacterization">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes the used aggregation function.&#xD;&#xA;&#xD;&#xA;Examples are: sum, minimum, average, mean, maximum or count for the number of measurements falling into one interval."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedMeasurements"
+        ordered="false" lowerBound="1" eType="#//AggregatedMeasurements" eOpposite="#//AggregatedMeasurements/aggregationCharacterization"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LongBinaryMeasurements" eSuperTypes="#//RawYValues">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This class is responsible for long measurements. These are stored in IEEE standardized binary format. All values are stored in the same unit."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="#//EBackgroundList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false" lowerBound="1"
+        eType="#//EJSUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBackgroundList" instanceClassName="de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EJSUnit" instanceClassName="javax.measure.unit.Unit"/>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateLiteral" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -195,15 +252,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialState" ordered="false"
         lowerBound="1" eType="#//State"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DoubleMeasurements" eSuperTypes="#//RawYValues">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleBinaryMeasurements" eSuperTypes="#//RawYValues">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This class is responsible for double measurements. These are stored in IEEE standardized binary format. All values are stored in the same unit."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        lowerBound="1" eType="#//EBackgroundList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false" lowerBound="1"
+        eType="#//EJSUnit"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExperimentGroup" eSuperTypes="#//Propertyable">
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentGroup" eSuperTypes="#//Identifiable #//Propertyable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An experiment group contains all experiments which belong to a single analysis. An example for an experiment group is a scalability analysis or architectural alternative comparison including the corresponding set of experiments.&#xD;&#xA;&#xD;&#xA;Experiment groups can be either a manual or automatic analysis"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="experiments" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
         upperBound="-1" eType="#//ExperimentSetting" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MeasurableSensor" eSuperTypes="#//SensorDeclaration">
@@ -220,33 +282,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitOfMeasurements" ordered="false"
         lowerBound="1" eType="#//EJSUnit"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EJSUnit" instanceClassName="javax.measure.unit.Unit"/>
   <eClassifiers xsi:type="ecore:EClass" name="JSXmlMeasurements" eSuperTypes="#//RawYValues">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Stores the JScience types for which no fast background storage facility is available."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        lowerBound="1" eType="#//EJSMeasure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+        eType="#//EJSMeasure"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventTimeAggregation" eSuperTypes="#//FixedWidthAggregation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The aggregation interval is within the eventTime(s) of the measurements.&#xD;&#xA;&#xD;&#xA;An Example is to calculate the throughput per event time second if the values stored are completions of processes and summing is used to generate the aggregated values."/>
     </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FixedWidthAggregation" abstract="true"
-      eSuperTypes="#//AggregatedMeasurements">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rawYValues" ordered="false"
-        lowerBound="1" eType="#//RawYValues" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rawXValues" ordered="false"
-        lowerBound="1" eType="#//Intervals" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Intervals" eSuperTypes="#//RawXValues">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" ordered="false"
-        lowerBound="1" eType="#//EJSMeasure"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervalWidth" ordered="false"
-        lowerBound="1" eType="#//EJSMeasure"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfIntervals" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueAggregation" eSuperTypes="#//FixedWidthAggregation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -262,23 +308,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="standardDeviation" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JSXmlEventTimes" eSuperTypes="#//RawXValues">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Event times are stores as JScience durations."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measurementTime" ordered="false"
-        unique="false" upperBound="-1" eType="#//EJSDurationMeasure">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Intentionally designed as array to allow efficient persistence. It refers to the point in time when the measurement is taken. Expresses the time passed since the start of the measuring.&#xD;&#xA;&#xD;&#xA;For example, in a simulation environment this would mean simulation time passed since the start of the simulation. In a real world environment this would be the real time passed after the measurement has been started."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleEventTimes" eSuperTypes="#//RawXValues">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Event times are stored as double values with the implicit unit 'second'."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measurementTime" ordered="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IJSDuration" instanceClassName="javax.measure.quantity.Duration"
       abstract="true" interface="true"/>
