@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * The list has some restrictions:
  * First, all elements have to be serializable with constant memory footprint.
  * Second, deletion of elements in the list is not implemented.
- * Thrid, insertion is only possible at the end of the list.
+ * Third, insertion is only possible at the end of the list.
  * @param <T> The generic type parameter of the list's elements
  * @author Henning Groenda
  * @author Steffen Becker
@@ -26,6 +26,7 @@ public class BackgroundMemoryList<T>
 	extends AbstractList<T>
 	implements List<T>, RandomAccess, Serializable {
 
+	private static final String ACCESS_MODIFIER_READ_WRITE = "rw";
 	/**Serialization UID for this class. Change upon altered serialization. */
 	private static final long serialVersionUID = 1L;
 	/** Logger for this class. */
@@ -83,7 +84,7 @@ public class BackgroundMemoryList<T>
 			logger.warning(msg);
 			throw new IllegalStateException(msg);
 		}
-		raf = new RandomAccessFile(relativeFilename, "rw");
+		raf = new RandomAccessFile(relativeFilename, ACCESS_MODIFIER_READ_WRITE);
 		chunks = new Chunk<T>(raf, serialiser, chunkSize);
 		closed = false;
 		// list size is calculated in open() and readObject() to allow error detection.
