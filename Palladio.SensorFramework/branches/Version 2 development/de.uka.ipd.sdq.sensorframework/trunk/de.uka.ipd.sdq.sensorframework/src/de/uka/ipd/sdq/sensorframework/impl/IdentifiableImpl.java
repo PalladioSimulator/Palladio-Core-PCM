@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class IdentifiableImpl extends EObjectImpl implements Identifiable {
+public abstract class IdentifiableImpl extends EObjectImpl implements Identifiable {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -69,7 +69,6 @@ public class SensorframeworkFactoryImpl extends EFactoryImpl implements Sensorfr
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SensorframeworkPackage.IDENTIFIABLE: return createIdentifiable();
 			case SensorframeworkPackage.MEASUREMENT_RANGE: return createMeasurementRange();
 			case SensorframeworkPackage.STATISTICS: return createStatistics();
 			case SensorframeworkPackage.INTERVALS: return createIntervals();
@@ -141,16 +140,6 @@ public class SensorframeworkFactoryImpl extends EFactoryImpl implements Sensorfr
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifiable createIdentifiable() {
-		IdentifiableImpl identifiable = new IdentifiableImpl();
-		return identifiable;
 	}
 
 	/**

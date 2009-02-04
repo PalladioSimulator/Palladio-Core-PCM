@@ -23,7 +23,7 @@
         ordered="false" lowerBound="1" eType="#//AggregationCharacterization" containment="true"
         eOpposite="#//AggregationCharacterization/aggregatedMeasurements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Identifiable">
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>

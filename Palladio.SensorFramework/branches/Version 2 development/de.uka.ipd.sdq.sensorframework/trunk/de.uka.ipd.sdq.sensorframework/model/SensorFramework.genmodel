@@ -23,7 +23,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AggregatedMeasurements/distinctValuesAfterAggregation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//AggregatedMeasurements/aggregationCharacterization"/>
     </genClasses>
-    <genClasses ecoreClass="SensorFramework.ecore#//Identifiable">
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//Identifiable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Identifiable/id"/>
     </genClasses>
     <genClasses ecoreClass="SensorFramework.ecore#//MeasurementRange">

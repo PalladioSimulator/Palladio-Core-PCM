@@ -12,5 +12,6 @@ Export-Package: de.uka.ipd.sdq.sensorframework,
  de.uka.ipd.sdq.sensorframework.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.jscience;bundle-version="4.1.3"
+ org.jscience;bundle-version="4.1.3",
+ de.uka.ipd.sdq.sensorframework.storage
 Bundle-ActivationPolicy: lazy

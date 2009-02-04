@@ -26,15 +26,6 @@ public interface SensorframeworkFactory extends EFactory {
 	SensorframeworkFactory eINSTANCE = de.uka.ipd.sdq.sensorframework.impl.SensorframeworkFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Identifiable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Identifiable</em>'.
-	 * @generated
-	 */
-	Identifiable createIdentifiable();
-
-	/**
 	 * Returns a new object of class '<em>Measurement Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

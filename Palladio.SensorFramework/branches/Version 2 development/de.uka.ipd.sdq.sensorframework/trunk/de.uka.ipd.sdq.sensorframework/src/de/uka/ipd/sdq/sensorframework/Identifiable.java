@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see de.uka.ipd.sdq.sensorframework.SensorframeworkPackage#getIdentifiable()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Identifiable extends EObject {
