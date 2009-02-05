@@ -41,10 +41,10 @@ public class ExactCPUResource extends AbstractScheduledResource {
 	ActiveResourceConfiguration resourceConf = null;
 
 	
-	private IActiveResource getResource(String schedulerName, int numReplicas) {
+	private IActiveResource getResource(String schedulerLibFileName, String schedulerName, int numReplicas) {
 		
 		SchedulerLibrary lib = (SchedulerLibrary) SchedulerTools
-				.loadFromXMI("D:\\Diss\\dev\\InteractiveWorkspace\\Interactivity\\Library.scheduler");
+				.loadFromXMI(schedulerLibFileName);
 		SchedulerConfiguration selectedConf = null;
 		for (SchedulerConfiguration conf : lib.getSchedulerConfiguration()) {
 			if (conf.getName().equals(schedulerName)) {
@@ -87,46 +87,9 @@ public class ExactCPUResource extends AbstractScheduledResource {
 	public ExactCPUResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy)
 	{
 		super (myModel, typeID, description, strategy);
-		
 		this.processingRate = processingRate;
 		this.units = units;
-//		config = ConfigurationFactory.eINSTANCE.createActiveResourceConfiguration();
-//		config.setId(description);
-//		config.setName(description);
-//		config.setReplicas(1);
-//		SchedulerConfiguration schedConf = ConfigurationFactory.eINSTANCE.createSchedulerConfiguration();
-//		config.setSchedulerConfiguration(schedConf);
-//		schedConf.setId(description+"Scheduler");
-//		schedConf.setName(description+"Scheduler");
-//		PreemptionConfiguration preemptconfig = ConfigurationFactory.eINSTANCE.createPreemptionConfiguration();
-//		TimeSliceConfiguration timesliceConfig = ConfigurationFactory.eINSTANCE.createPredefinedTimeSliceConfiguration();
-//		timesliceConfig.setGranularity(1);
-//		TimeValue timedValue = ConfigurationFactory.eINSTANCE.createTimeValue();
-//		timedValue.setValue(0.1);
-//		TimeValue timedValue2 = ConfigurationFactory.eINSTANCE.createTimeValue();
-//		timedValue2.setValue(0.1);
-//		timesliceConfig.setTimeslice(timedValue);
-//		preemptconfig.setTimesliceConfiguration(timesliceConfig);
-//		schedConf.setPreemptionConfiguration(preemptconfig);
-//		PriorityConfiguration prioConfig = ConfigurationFactory.eINSTANCE.createPriorityConfiguration();
-//		PriorityRange range = ConfigurationFactory.eINSTANCE.createPriorityRange();
-//		range.setHigh(15);
-//		range.setLow(1);
-//		range.setAverage(7);
-//		range.setDefault(7);
-//		range.setHighest(20);
-//		range.setLowest(0);
-//		prioConfig.setRange(range);
-//		schedConf.setPriorityConfiguration(prioConfig);
-//		SingleQueueConfiguration queueConfig = ConfigurationFactory.eINSTANCE.createSingleQueueConfiguration();
-//		queueConfig.setInitialInstanceSelection(ResourceInstanceSelection.ROUND_ROBIN);
-//		queueConfig.setProcessSelection(ProcessSelection.NEXT_RUNNABLE);
-//		queueConfig.setRunqueueType(RunQueueType.SINGLE);
-//		schedConf.setQueueingConfiguration(queueConfig);
-//		schedConf.setInterval(timedValue2);
-//		myCPU = SchedulingFactory.eINSTANCE.createActiveResource(config);
-		
-		myCPU = getResource("Windows 2003", 1);
+		myCPU = getResource("D:\\Diss\\dev\\InteractiveWorkspace\\Interactivity\\Library.scheduler", "Windows 2003", 1);
 	}
 
 	@Override
