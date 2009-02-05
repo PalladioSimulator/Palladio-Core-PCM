@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.strategy.impl.AbstractScheduler;
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {
 
@@ -81,7 +82,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 
 		double waiting = getRunQueueFor(src).getWaitingTime(process);
 		getRunQueueFor(src).removeProcess(process);
-		getRunQueueFor(dest).addProcess(process, false);
+		getRunQueueFor(dest).addProcess(process, !AbstractScheduler.IS_WINDOWS);
 		getRunQueueFor(dest).setWaitingTime(process, waiting);
 		process.wasMovedTo(dest);
 	}

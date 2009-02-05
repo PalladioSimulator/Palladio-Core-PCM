@@ -12,8 +12,6 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
-	private static final boolean STARVATION_BOOST = false;
-	private static final double STARVATION_LIMIT = 3000.0;
 	private double overhead;
 
 	public PreemptiveScheduler(SimActiveResource resource,
@@ -82,8 +80,8 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	private void scheduleNextProcess(IResourceInstance instance) {
-		if(STARVATION_BOOST ){
-			for (IActiveProcess p : queueing_strategy.getStarvingProcesses(instance, STARVATION_LIMIT)){
+		if(IS_WINDOWS ){
+			for (IActiveProcess p : queueing_strategy.getStarvingProcesses(instance, WINDOWS_STARVATION_LIMIT)){
 				applyStarvationBoost((ProcessWithPriority)p);
 			}
 				
@@ -108,7 +106,6 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	private void unschedule(ProcessWithPriority running_process,
 			boolean next_has_higher_priority, IResourceInstance current) {
 		if (running_process != null) {
-			this.queueing_strategy.resetStarvationInfo();
 			if (running_process.getTimeslice().completelyFinished()){
 				running_process.update(); 
 				fromRunningToReady(running_process, current, next_has_higher_priority
@@ -121,7 +118,10 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				fromRunningToReady(running_process, current, next_has_higher_priority
 						&& !running_process.getTimeslice().partFinished());
 			}
-		}
+			if (running_process.getRunQueue().getCurrentLoad() == 1){
+					running_process.getRunQueue().resetStarvationInfo();
+			}
+		} 
 	}
 
 	/**

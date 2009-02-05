@@ -147,7 +147,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 				resource = new SimUnfairPassiveResource(configuration
 						.getCapacity(), configuration.getName(), configuration
 						.getId(), priority_boost, managing_resource,
-						configuration.getAcquisitionDemand().getValue());
+						configuration.getAcquisitionDemand().getValue(),true);
 				break;
 
 			default:

@@ -89,7 +89,9 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	public IActiveProcess createNewInstance(ISchedulableProcess process) {
 		ProcessWithPriority p = new ProcessWithPriority(process,staticPriority);
 		p.dynamicPriority = staticPriority;
-		p.priorityUpdateStrategy = this.priorityUpdateStrategy.cloneFor(p);
+		if (this.priorityUpdateStrategy != null){
+			p.priorityUpdateStrategy = this.priorityUpdateStrategy.cloneFor(p);
+		}
 		p.setTimeSlice(this.getTimeslice().clone());
 		p.updatePriority();
 		return p;

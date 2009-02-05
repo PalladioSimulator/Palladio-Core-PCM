@@ -100,6 +100,11 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	}
 
 	public void enoughTime() {
-		
+		// if the remaining time is smaller than a jiffies the
+		// timeslice needs to be reset first.
+		if (remaining_time < 11){
+			remaining_time = 0;
+			remaining_part = 0;
+		} 
 	}
 }

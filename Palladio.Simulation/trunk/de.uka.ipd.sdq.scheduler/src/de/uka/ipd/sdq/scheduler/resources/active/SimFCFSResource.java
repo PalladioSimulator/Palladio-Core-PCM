@@ -79,6 +79,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 			}
 		}
 		last_time = now;
+		
 	}
 
 	public void start() {

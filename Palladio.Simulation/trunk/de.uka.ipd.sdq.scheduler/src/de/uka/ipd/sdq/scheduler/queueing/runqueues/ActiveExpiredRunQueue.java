@@ -30,7 +30,10 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	 */
 	@Override
 	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
-		updateStarvationTime();
+
+		if (((PreemptiveProcess) process).getTimeslice().completelyFinished()) {
+			updateStarvationTime();
+		}
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
 			if (preemptiveProcess.getTimeslice().completelyFinished()) {
@@ -69,6 +72,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		IProcessQueue temp = activePriorityArray;
 		activePriorityArray = expiredPriorityArray;
 		expiredPriorityArray = temp;
+		resetStarvationInfo();
 	}
 
 	@Override
@@ -118,13 +122,11 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	}
 
 	public boolean processStarving(double threshold) {
-		if (expired_timestamp >= 0){
+		if (expired_timestamp >= 0) {
 			return simulator.time() - expired_timestamp > threshold;
 		} else {
 			return false;
 		}
-//		return expiredPriorityArray.processStarving(threshold)
-//				|| activePriorityArray.processStarving(threshold);
 	}
 
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
@@ -137,7 +139,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	}
 
 	public void setWaitingTime(IActiveProcess process, double waiting) {
-		updateStarvationTime(waiting);
 		if (expiredPriorityArray.contains(process)) {
 			expiredPriorityArray.setWaitingTime(process, waiting);
 		} else {
@@ -152,26 +153,19 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 			return activePriorityArray.getWaitingTime(process);
 		}
 	}
-	
+
 	public void resetStarvationInfo() {
-		// activeprio array empty or all queues empty
-		if (this.activePriorityArray.isEmpty()){
-			expired_timestamp = -1;
-		}
+		expired_timestamp = -1;
 	}
-	
+
 	private void updateStarvationTime() {
 		updateStarvationTime(simulator.time());
 	}
-	
+
 	private void updateStarvationTime(double waiting) {
-		if (expired_timestamp < 0 || waiting < expired_timestamp){
+		if (expired_timestamp < 0) {
 			expired_timestamp = waiting;
-		} 
+		}
 	}
 
-
-
-
 }
-

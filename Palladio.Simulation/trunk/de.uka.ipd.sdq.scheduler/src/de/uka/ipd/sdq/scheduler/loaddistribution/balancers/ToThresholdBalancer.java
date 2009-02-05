@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 /**
@@ -63,12 +64,51 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 									receiver, prio_increasing, queue_ascending,
 									distance / 2);
 					for (IActiveProcess process : processList) {
-						queue_holder.move(process, sender, receiver);
+						fakeThreadLoadBalancing(process, sender, receiver);
+						//queue_holder.move(process, sender, receiver);
 					}
 				}
 			}
 		}
 	}
+	
+	/**
+	 * From the beautiful method name, the careful reader might have guessed
+	 * that things get a bit, well, messy at this point. Fact is, that Windows
+	 * (or Java ?) balances threads differently from processes by simply
+	 * changing the association between light weight processes and (user level)
+	 * threads. That makes things a bit difficult as heavy weight and light
+	 * weight processes as well as threads would have to be reflected in the
+	 * model.
+	 * 
+	 * Sorry for anyone responsible fixing this, but I hope this comment helps.
+	 * Further discussion can be found in class 'SimResourceInstance' at
+	 * variable 'last_running_process'.
+	 * 
+	 * @param process
+	 *            moved process
+	 * @param sender
+	 *            sending resource instance
+	 * @param receiver
+	 *            receiving resource instance
+	 */
+	private void fakeThreadLoadBalancing(IActiveProcess process,
+			IResourceInstance sender, IResourceInstance receiver) {
+		if (receiver.getLastRunningProcess() != null) {
+			PreemptiveProcess p = (PreemptiveProcess) receiver.getLastRunningProcess();
+
+			// here we assume that the waiting process is in fact a thread that
+			// belongs to the same process as the thread (process) to move.
+			// the following assigns the waiting thread to the resource of
+			// the sender. This fakes the switch of LWPs.
+			if (p.isWaiting()) {
+				p.setLastInstance(process.getLastInstance());
+				p.setIdealInstance(process.getIdealInstance());
+			} 
+		}
+		queue_holder.move(process, sender, receiver);
+	}
+
 
 	private IResourceInstance getLaziest() {
 		IResourceInstance result = null;

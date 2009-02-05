@@ -4,6 +4,7 @@ import java.util.Deque;
 
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
@@ -11,6 +12,8 @@ import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public abstract class AbstractScheduler implements IScheduler {
+	public static final boolean IS_WINDOWS = true;
+	protected static final double WINDOWS_STARVATION_LIMIT = 3000.0;
 
 	protected SimActiveResource resource;
 
@@ -97,7 +100,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		queueing_strategy.fromRunningToWaiting(process);
 		stopProcess(process);
 		process.setWaiting();
-
+		
 		if (in_front) {
 			waiting_queue.addFirst(waiting_process);
 		} else {
@@ -125,6 +128,12 @@ public abstract class AbstractScheduler implements IScheduler {
 
 		waitingQueue.remove(waiting_process);
 		process.setReady();
+		
+		// TODO: Sauber über die Config einweben.
+		// Achtung, Fix für Linux!!
+		if (!IS_WINDOWS){
+			((PreemptiveProcess)process).getTimeslice().enoughTime();
+		}
 		queueing_strategy.fromWaitingToReady(process, current, in_front_after_waiting);
 		process.toNow();
 		process.update();

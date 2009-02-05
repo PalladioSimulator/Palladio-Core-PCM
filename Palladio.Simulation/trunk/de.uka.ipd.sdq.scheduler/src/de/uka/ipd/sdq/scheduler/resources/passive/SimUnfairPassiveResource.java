@@ -11,12 +11,14 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 
 	private double acquisition_demand;
+	private boolean isFifo;
 
 	public SimUnfairPassiveResource(int capacity, String name, String id,
 			IPriorityBoost priority_boost, SimActiveResource managing_resource,
-			double acquisition_demand) {
+			double acquisition_demand, boolean isFifo) {
 		super(capacity, name, id, priority_boost, managing_resource);
 		this.acquisition_demand = acquisition_demand;
+		this.isFifo = isFifo;
 	}
 
 	public boolean acquire(ISchedulableProcess sched_process, int num) {
@@ -29,7 +31,7 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 			LoggingWrapper.log("Process " + process + " is waiting for " + num
 					+ " of " + this);
 			WaitingProcess waiting_process = new WaitingProcess(process, num);
-			fromRunningToWaiting(waiting_process, false);
+			fromRunningToWaiting(waiting_process, !isFifo);
 			process.getSchedulableProcess().passivate();
 			return false;
 		}

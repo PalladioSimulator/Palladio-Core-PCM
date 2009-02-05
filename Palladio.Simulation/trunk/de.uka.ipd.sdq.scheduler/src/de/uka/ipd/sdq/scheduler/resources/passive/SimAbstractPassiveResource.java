@@ -26,25 +26,29 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 		this.waiting_queue = new ArrayDeque<WaitingProcess>();
 	}
 
-	protected void fromWaitingToReady(WaitingProcess waiting_process, IResourceInstance current) {
-		main_resource.getScheduler().fromWaitingToReady(waiting_process,
-				waiting_queue, current);
+	protected void fromWaitingToReady(WaitingProcess waiting_process,
+			IResourceInstance current) {
+		if (main_resource != null){
+			main_resource.getScheduler().fromWaitingToReady(waiting_process,
+					waiting_queue, current);
+		}
 	}
 
 	protected void fromRunningToWaiting(WaitingProcess waiting_process,
 			boolean inFront) {
-		main_resource.getScheduler().fromRunningToWaiting(waiting_process,
-				waiting_queue, inFront);
+		if (main_resource != null) {
+			main_resource.getScheduler().fromRunningToWaiting(waiting_process,
+					waiting_queue, inFront);
+		}
 	}
 
-	
 	protected void boostPriority(IRunningProcess process) {
 		if (priority_boost != null) {
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";
 			priority_boost.boost((ProcessWithPriority) process);
 		}
 	}
-	
+
 	protected void punish(IRunningProcess process) {
 		if (priority_boost != null) {
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";

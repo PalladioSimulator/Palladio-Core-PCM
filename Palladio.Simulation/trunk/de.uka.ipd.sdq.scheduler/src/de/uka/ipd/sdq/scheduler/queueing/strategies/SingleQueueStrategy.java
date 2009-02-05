@@ -14,8 +14,6 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	private IRunQueue runQueue;
 	private IProcessSelector processSelector;
 	private IInstanceSelector idealInstanceSelector;
-
-
 	public SingleQueueStrategy(IRunQueue runQueue,
 			IProcessSelector processSelector,
 			IInstanceSelector idealInstanceSelector) {

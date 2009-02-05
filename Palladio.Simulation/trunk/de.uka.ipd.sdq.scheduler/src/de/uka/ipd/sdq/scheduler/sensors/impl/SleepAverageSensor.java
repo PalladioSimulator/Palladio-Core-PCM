@@ -5,6 +5,7 @@ import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
 
 public class SleepAverageSensor implements IProcessStateSensor {
@@ -24,13 +25,14 @@ public class SleepAverageSensor implements IProcessStateSensor {
 			int max_bonus) {
 		this.simulator = SchedulingFactory.getUsedSimulator();
 		
-		this.sleep_average = max_sleep_average * FACTOR;
 		this.lastUpdateTime = simulator.time();
 		this.last_state = process.getState();
 		this.max_sleep_average = max_sleep_average;
 		this.max_bonus = max_bonus;
 		this.process = process;
 		this.last_bonus = (int) Math.ceil(max_bonus * FACTOR);
+		this.sleep_average = interactiveSleep((ProcessWithPriority) process);
+		this.update(process.getState());
 	}
 
 	public double getSleepAverage() {
@@ -54,7 +56,7 @@ public class SleepAverageSensor implements IProcessStateSensor {
 		if (last_state == PROCESS_STATE.WAITING) {
 			// sleepAverage cannot exceed its maximum value
 			sleep_average = Math.min(max_sleep_average, sleep_average
-					+ passedTime ); 
+					+ Math.floor(passedTime) );
 		}
 
 		// Process was running
@@ -110,5 +112,26 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	public double jiffiesToMs(int jiffies) {
 		// Please note that the divisor depends on the actual HZ rate of the scheduler. (1000 / HZ)
 		return (double) jiffies * 10;
+	}
+	
+	public double interactiveSleep(ProcessWithPriority p){
+		// #define SCALE(v1,v1_max,v2_max) \
+		//  	(v1) * (v2_max) / (v1_max)
+		// (SCALE(TASK_NICE(p) + 20, 40, MAX_BONUS)
+		int scale = ((p.getDynamicPriority().getValue() + 20) * max_bonus) / 40;
+		
+		// #define DELTA(p) \
+		// (SCALE(TASK_NICE(p) + 20, 40, MAX_BONUS) - 20 * MAX_BONUS / 40 + \
+		//  	INTERACTIVE_DELTA)
+		int delta = scale - (20 * max_bonus) / 40 + 2;
+
+		//(MAX_SLEEP_AVG * (MAX_BONUS / 2 + DELTA((p)) + 1) / MAX_BONUS - 1)
+		int result = (msToJiffies(max_sleep_average) * (max_bonus / 2 + delta + 1)) / max_bonus - 1;
+		
+		//JIFFIES_TO_NS(...)
+		return jiffiesToMs(result);
+		
+		// this would be the simplified variant of the code above.
+		// return (int) (max_sleep_average * (3.0d / max_bonus  + 0.5 + p.getStaticPriority().getValue() / 40.0d) - 1.0);
 	}
 }
