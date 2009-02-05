@@ -57,32 +57,34 @@ public class TransformationWorkflowComponent
 				(Repository)context.get("middleware")
 				);
 		
-		featureConfiguration = (Configuration) context.get("featureConfig");
-		
-		new AllInstancesTransformer<ResourceContainer>(
-				ResourceenvironmentPackage.eINSTANCE.getResourceContainer(),
-				models.getAllocation().getTargetResourceEnvironment_Allocation()) {
-
-					@Override
-					protected void transform(ResourceContainer object) {
-						addMiddleware(object);
-					}
+		if (respectLinkingResources) {
+			featureConfiguration = (Configuration) context.get("featureConfig");
 			
-		}.transform(issues);
-		
-		new AllInstancesTransformer<AssemblyConnector>(
-				CompositionPackage.eINSTANCE.getAssemblyConnector(),
-				models.getSystem()) {
-
-					@Override
-					protected void transform(AssemblyConnector connector) {
-						if ( respectLinkingResources ) {
-							ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models,connector,featureConfiguration.getDefaultConfig());
-							replacer.build();
+			new AllInstancesTransformer<ResourceContainer>(
+					ResourceenvironmentPackage.eINSTANCE.getResourceContainer(),
+					models.getAllocation().getTargetResourceEnvironment_Allocation()) {
+	
+						@Override
+						protected void transform(ResourceContainer object) {
+							addMiddleware(object);
 						}
-					}
+				
+			}.transform(issues);
 			
-		}.transform(issues);
+			new AllInstancesTransformer<AssemblyConnector>(
+					CompositionPackage.eINSTANCE.getAssemblyConnector(),
+					models.getSystem()) {
+	
+						@Override
+						protected void transform(AssemblyConnector connector) {
+							if ( respectLinkingResources ) {
+								ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models,connector,featureConfiguration.getDefaultConfig());
+								replacer.build();
+							}
+						}
+				
+			}.transform(issues);
+		}
 	}
 
 	/**
