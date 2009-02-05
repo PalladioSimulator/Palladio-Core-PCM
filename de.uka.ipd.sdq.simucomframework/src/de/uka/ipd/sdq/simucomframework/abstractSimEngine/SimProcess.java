@@ -15,8 +15,10 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	protected static Logger logger = 
 		Logger.getLogger(SimProcess.class.getName());
 	
+
 	ISimProcessDelegate delegate = null;
 	private Process processStatus = null;
+	private long id;
 
 	private boolean isDebug;
 	
@@ -24,6 +26,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		super(model, name);
 		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
 		isDebug = model.getConfig().isDebug();
+		id = getNextID();
 	}
 
 	/* (non-Javadoc)
@@ -98,7 +101,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	}
 	
 	public String getId() {
-		return Thread.currentThread().getName();
+		return getName() + "_" + id;
 	}
 	
 	public ISchedulableProcess getRootProcess(){
@@ -113,5 +116,12 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	public Process getSimProcessStatus() {
 		return this.processStatus;
 	}
+	
+	private static long processID = 0;
+	
+	protected static long getNextID(){
+		return processID++;
+	}
+	
 	
 }
