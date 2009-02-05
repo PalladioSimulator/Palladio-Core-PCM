@@ -111,6 +111,8 @@ public class SSJExperiment implements ISimulationControlDelegate {
 				if (isRunning()){
 					logger.debug("Executing Stop Event");
 					stop();
+					// This is not reliable but a quick fix...
+					simulator.stop();
 				}
 			}
 			
