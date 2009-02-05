@@ -35,6 +35,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		
 		this.model = model;
 		createStartEvent(model).schedule(0);
+		createCheckEvent(model).schedule(1);
 	}
 
 	public void addStopCondition(Condition condition) {
@@ -123,6 +124,19 @@ public class SSJExperiment implements ISimulationControlDelegate {
 			public void actions() {
 				logger.debug("Executing Initial Event");
 				model.doInitialSchedules();
+			}
+			
+		};
+	}
+
+	private Event createCheckEvent(final SimuComModel model) {
+		return new Event(simulator) {
+
+			@Override
+			public void actions() {
+				checkStopConditions();
+				if (model.getSimulationControl().isRunning())
+					this.schedule(1);
 			}
 			
 		};
