@@ -93,7 +93,9 @@ public class ActiveProcess implements IActiveProcess {
 
 	@Override
 	public int hashCode() {
-		return getId().hashCode();
+		String id = getId();
+		int hashCode = id.hashCode();
+		return hashCode;
 	}
 
 	// /////////////////////////////////////////////////////////////////////

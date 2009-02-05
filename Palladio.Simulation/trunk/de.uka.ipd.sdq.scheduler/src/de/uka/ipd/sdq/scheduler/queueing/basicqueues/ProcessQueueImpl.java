@@ -153,7 +153,8 @@ public class ProcessQueueImpl implements IProcessQueue {
 		double now = simulator.time();
 		List<IActiveProcess> result = new ArrayList<IActiveProcess>();
 		for (IActiveProcess process : ascending()){
-			double waiting_time = now - waiting_time_table.get(process);
+			Double time = waiting_time_table.get(process);
+			double waiting_time = now - time;
 			if (waiting_time > starvationLimit){
 				result.add(process);
 			}

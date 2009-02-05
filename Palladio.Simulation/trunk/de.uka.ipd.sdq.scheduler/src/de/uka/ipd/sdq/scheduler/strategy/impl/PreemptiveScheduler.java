@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -32,6 +34,8 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		// So, the next runnable process can only be determined after the
 		// balancing was finished.
 		queueing_strategy.activelyBalance(instance);
+		
+		double time = SchedulingFactory.getUsedSimulator().time();
 
 		// get the currently scheduled process for the instance.
 		ProcessWithPriority running_process = (ProcessWithPriority) instance

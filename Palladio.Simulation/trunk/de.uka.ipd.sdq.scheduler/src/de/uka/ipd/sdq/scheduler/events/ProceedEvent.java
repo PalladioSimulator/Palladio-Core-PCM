@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler.events;
 
+import javax.print.attribute.standard.Finishings;
+
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
@@ -24,15 +26,18 @@ import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
  */
 public class ProceedEvent extends Event {
 
-	IActiveProcess process;
+	protected IActiveProcess process;
 	private IDelayedAction action;
-	private IScheduler scheduler;
+	protected IScheduler scheduler;
 	static Logger logger = Logger.getLogger(ProceedEvent.class);
+	private CheckFinishedEvent finishEvent;
 
 	public ProceedEvent(IActiveProcess process) {
 		super(SchedulingFactory.getUsedSimulator());
 		this.process = process;
 		this.action = null;
+		this.finishEvent = new CheckFinishedEvent(this);
+		
 	}
 
 	public void setDelayedAction(IDelayedAction action) {
@@ -49,9 +54,7 @@ public class ProceedEvent extends Event {
 				action = null;
 		} else {
 			process.getSchedulableProcess().activate();
-			if (process.getSchedulableProcess().isFinished()){
-				scheduler.terminateProcess(process, process.getIdealInstance());
-			}
+			finishEvent.schedule(0);
 		}
 	}
 
