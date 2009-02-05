@@ -89,7 +89,7 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
 		this.units = units;
-		myCPU = getResource("D:\\Diss\\dev\\InteractiveWorkspace\\Interactivity\\Library.scheduler", "Windows 2003", 1);
+		myCPU = getResource("pathmap://PCM_MODELS/Library.scheduler", "Windows 2003", 4);
 	}
 
 	@Override
