@@ -38,10 +38,10 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 	}
 
 	public void addActiveResource(String typeID, String description, String processingRate, String units, SchedulingStrategy strategy) {
-		activeResources.put(typeID, 
-				new SimulatedActiveResource(myModel, typeID, description, processingRate, units, strategy));
 //		activeResources.put(typeID, 
-//				new ExactCPUResource(myModel, typeID, description, processingRate, units, strategy));
+//				new SimulatedActiveResource(myModel, typeID, description, processingRate, units, strategy));
+		activeResources.put(typeID, 
+				new ExactCPUResource(myModel, typeID, description, processingRate, units, strategy));
 	}
 	
 }
