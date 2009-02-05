@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Component Types</TITLE>
+<META NAME="description" CONTENT="Component Types">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node110.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node69.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1671"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1659"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1669"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1672"
+  HREF="node81.html">Type Hierarchy</A>
+<B> Up:</B> <A NAME="tex2html1666"
+  HREF="node69.html">Component Developer (OLD)</A>
+<B> Previous:</B> <A NAME="tex2html1660"
+  HREF="node79.html">Interpretations of Required Interfaces</A>
+ &nbsp; <B>  <A NAME="tex2html1668"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1670"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00425000000000000000"></A>
+<A NAME="sec:Component_Types"></A><A NAME="1411"></A>
+<BR>
+Component Types
+</H2>
+
+<FONT COLOR="#009900"><I>stable</I></FONT>
+<BR>
+A component type is an exterior view on a component. It attests component properties that can be observed from outside of the component, such as the provided and required roles including their associated interfaces, the component name, and a SEFF. The PCM differentiates component types on different modelling layers (which are described in section&nbsp;<A HREF="node81.html#sec:Type_hierarchy">3.2.5.1</A>; cf. figure&nbsp;<A HREF="node81.html#fig:cm-type-levels-01">3.3</A>):
+
+<P>
+
+<UL>
+<LI>Provided component type
+</LI>
+<LI>Complete component type
+</LI>
+<LI>Implementation component types: Basic and composite components
+</LI>
+</UL>
+
+<P>
+Note that implementation component types are not source code implementations, but abstractions of component implementations.
+
+<P>
+Each component type represents a different level of abstraction. Lower component levels provide more information than upper levels. The modelling layers are aligned with the component development process (c. f. section&nbsp;<A HREF="node81.html#fig:cm-type-levels-01">3.3</A>.
+
+<P>
+It is possible to follow two approaches for component type specification: top-down and bottom-up. On the one hand a top-down-approach (see [<A
+ HREF="node177.html#Wikipedia2006">18</A>]) of modelling is supported. The component development starts at an abstract level. Step by step component details are added, ending at lower levels of component types. There are specific guidelines the detailing process has to follow for each component type. These guidelines are expressed by the <I>conforms</I>-relation (c. f. section&nbsp;<A HREF="node86.html#sec:Relations_between_component_type_layers">3.2.5.3</A>) between adjoining layers. The <I>conforms</I>-relation ensures to have a consistent component type definition for each component type across the type layers.
+
+<P>
+On the other hand, it is possible to follow a bottom-up-approach (see [<A
+ HREF="node177.html#Wikipedia2006">18</A>]). A component development process does not have to start from zero: there may be existing components. Those components can be analysed to extract component types. This leads to fully specified component types (implementation component types). The type layers then dictate how to gain higher levels of abstractions, informations that have to be abstracted away are explicitly specified.
+
+<P>
+The PCM is able to accommodate component types of different levels at the same time. This allows one to use even mixed approaches of top-down and bottom-up, as experienced developers tend to use a mixed approach.
+
+<P>
+Especially, it is possible to have a different abstraction level for each component. Detailed information for components can be added for those components only:
+
+<UL>
+<LI>That actually are of interest,
+</LI>
+<LI>That are treated within an iterative proceeding,
+</LI>
+<LI>For which there are detail informations available at all.
+</LI>
+<LI>To prevent plenty of information that might prevent analysability of model instances.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1673"
+  HREF="node81.html">Type Hierarchy</A>
+<LI><A NAME="tex2html1674"
+  HREF="node82.html">Component types</A>
+<UL>
+<LI><A NAME="tex2html1675"
+  HREF="node83.html">Provided Component Type</A>
+<LI><A NAME="tex2html1676"
+  HREF="node84.html">Complete Component Type</A>
+<LI><A NAME="tex2html1677"
+  HREF="node85.html">Implementation Component Type</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1678"
+  HREF="node86.html">Relations between Component Type Layers</A>
+<UL>
+<LI><A NAME="tex2html1679"
+  HREF="node87.html">Introductory Note</A>
+<LI><A NAME="tex2html1680"
+  HREF="node88.html">Component inheritance</A>
+<LI><A NAME="tex2html1681"
+  HREF="node89.html">Visualization</A>
+<LI><A NAME="tex2html1682"
+  HREF="node90.html">Conforms-relation</A>
+<UL>
+<LI><A NAME="tex2html1683"
+  HREF="node91.html">Conforms-relation between Complete Type and Provided Type</A>
+<LI><A NAME="tex2html1684"
+  HREF="node92.html">Impl-conforms-relation between Implementation Type and Complete Type</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html1685"
+  HREF="node93.html">Characterization of Component Types</A>
+<UL>
+<LI><A NAME="tex2html1686"
+  HREF="node94.html">Provided Type</A>
+<LI><A NAME="tex2html1687"
+  HREF="node95.html">Complete Type</A>
+<LI><A NAME="tex2html1688"
+  HREF="node96.html">Implementation Type</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1689"
+  HREF="node97.html">Quantities of Sub-Type-Relations</A>
+<UL>
+<LI><A NAME="tex2html1690"
+  HREF="node98.html">1:n</A>
+<LI><A NAME="tex2html1691"
+  HREF="node99.html">m:1</A>
+<LI><A NAME="tex2html1692"
+  HREF="node100.html">m:n</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1693"
+  HREF="node101.html">Implementation Type Occurrence</A>
+<UL>
+<LI><A NAME="tex2html1694"
+  HREF="node102.html">Basic Components</A>
+<LI><A NAME="tex2html1695"
+  HREF="node103.html">Composite Components</A>
+<LI><A NAME="tex2html1696"
+  HREF="node104.html">Connectors</A>
+<LI><A NAME="tex2html1697"
+  HREF="node105.html">Assembly Connectors</A>
+<LI><A NAME="tex2html1698"
+  HREF="node106.html">Visualisation</A>
+<LI><A NAME="tex2html1699"
+  HREF="node107.html">Delegation Connector</A>
+<LI><A NAME="tex2html1700"
+  HREF="node108.html">Formal description of composite components</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1701"
+  HREF="node109.html">Differentiation of Provided Interfaces</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1671"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1659"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1669"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1672"
+  HREF="node81.html">Type Hierarchy</A>
+<B> Up:</B> <A NAME="tex2html1666"
+  HREF="node69.html">Component Developer (OLD)</A>
+<B> Previous:</B> <A NAME="tex2html1660"
+  HREF="node79.html">Interpretations of Required Interfaces</A>
+ &nbsp; <B>  <A NAME="tex2html1668"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1670"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
