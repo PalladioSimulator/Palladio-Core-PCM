@@ -127,7 +127,11 @@ public class InternalActionHandler{
 	private String getSolvedSpecification(String specification, ProcessingResourceSpecification prs) {
 
 		// quickly incorporate processing rate
-		specification = "("+ specification+") / "+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification();
+		/* As both divisor and divident may evaluate to an integer and the first may be smaller  
+		 * than the latter, I added the factor *1.0 so that it is not falsely rounded to 0 
+		 * (without *1.0, e.g. (4) / 20 would result in a demand of 0 instead of 0.2) 
+		 */
+		specification = "("+ specification+") / (("+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification()+")*1.0)";
 		logger.info("Actual Resource Demand (Expression): "+specification);
 		
 		Expression solvedExpr = (Expression) ExpressionHelper

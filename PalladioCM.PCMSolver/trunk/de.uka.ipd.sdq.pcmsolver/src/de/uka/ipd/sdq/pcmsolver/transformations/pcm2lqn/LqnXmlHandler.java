@@ -108,7 +108,8 @@ public class LqnXmlHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
+		//TODO: remove hard coded path to xsd file. 
 		String content = new String(b);
 		content = content.replaceAll("LqnModelType", "lqn-model");
 		content = content.replaceAll("xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"", "xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"");
