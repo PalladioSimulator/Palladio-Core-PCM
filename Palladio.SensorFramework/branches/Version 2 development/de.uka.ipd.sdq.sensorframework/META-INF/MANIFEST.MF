@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sensorframework File Storage Utils
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework
+Bundle-Version: 2.0.0.qualifier
+Require-Bundle: org.junit4,
+ de.uka.ipd.sdq.sensorframework.models;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: de.uka.ipd.sdq.sensorframework,
+ de.uka.ipd.sdq.sensorframework.file,
+ de.uka.ipd.sdq.sensorframework.file.impl,
+ de.uka.ipd.sdq.sensorframework.impl
