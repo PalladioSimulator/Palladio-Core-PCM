@@ -5425,55 +5425,6 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_DjAH6N8cEd2lfsi_6_QkLw" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DjAH6d8cEd2lfsi_6_QkLw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
         </edges>
-        <edges xmi:id="_DjAICt8cEd2lfsi_6_QkLw" element="_m7B5oNzdEd2x3811xzuwfA" source="_DitM4N8cEd2lfsi_6_QkLw" target="_DitM4N8cEd2lfsi_6_QkLw">
-          <children xmi:id="_DjAIDd8cEd2lfsi_6_QkLw" type="NameLabel">
-            <children xmi:id="_DjAID98cEd2lfsi_6_QkLw" type="Stereotype"/>
-            <children xmi:id="_DjAIEN8cEd2lfsi_6_QkLw" type="Name"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DjAIDt8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_DjAIEd8cEd2lfsi_6_QkLw" type="ToMultiplicityLabel" element="_m7B5otzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIE98cEd2lfsi_6_QkLw" type="ToMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIEt8cEd2lfsi_6_QkLw" y="396"/>
-          </children>
-          <children xmi:id="_DjAIFN8cEd2lfsi_6_QkLw" type="ToRoleLabel" element="_m7B5otzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIFt8cEd2lfsi_6_QkLw" type="ToRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIFd8cEd2lfsi_6_QkLw" y="-397"/>
-          </children>
-          <children xmi:id="_DjAIF98cEd2lfsi_6_QkLw" type="FromMultiplicityLabel" element="_m7B5odzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIGd8cEd2lfsi_6_QkLw" type="FromMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIGN8cEd2lfsi_6_QkLw" y="396"/>
-          </children>
-          <children xmi:id="_DjAIGt8cEd2lfsi_6_QkLw" visible="false" type="FromRoleLabel" element="_m7B5odzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIHN8cEd2lfsi_6_QkLw" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIG98cEd2lfsi_6_QkLw" y="-397"/>
-          </children>
-          <children xmi:id="_DjAIHd8cEd2lfsi_6_QkLw" type="ToQualifierLabel" element="_m7B5otzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIH98cEd2lfsi_6_QkLw" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DjAIIN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIHt8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_DjAIId8cEd2lfsi_6_QkLw" type="FromQualifierLabel" element="_m7B5odzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAII98cEd2lfsi_6_QkLw" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DjAIJN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIIt8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_DjAIJd8cEd2lfsi_6_QkLw" type="ToConstraintLabel" element="_m7B5otzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIJ98cEd2lfsi_6_QkLw" type="ToConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DjAIKN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIJt8cEd2lfsi_6_QkLw" y="1058"/>
-          </children>
-          <children xmi:id="_DjAIKd8cEd2lfsi_6_QkLw" type="FromConstraintLabel" element="_m7B5odzdEd2x3811xzuwfA">
-            <children xmi:id="_DjAIK98cEd2lfsi_6_QkLw" type="FromConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DjAILN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_DjAIKt8cEd2lfsi_6_QkLw" y="1058"/>
-          </children>
-          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_DjAIC98cEd2lfsi_6_QkLw" routing="Rectilinear" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DjAIDN8cEd2lfsi_6_QkLw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-        </edges>
         <edges xmi:id="_DjAILd8cEd2lfsi_6_QkLw" element="_61_OIMeSEd2TNKuW7xAQHw" source="_DitM4N8cEd2lfsi_6_QkLw" target="_DitM4N8cEd2lfsi_6_QkLw">
           <children xmi:id="_DjAIMN8cEd2lfsi_6_QkLw" type="NameLabel">
             <children xmi:id="_DjAIMt8cEd2lfsi_6_QkLw" type="Stereotype"/>
@@ -7576,55 +7527,6 @@
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_somzMd8cEd2lfsi_6_QkLw" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_somzMt8cEd2lfsi_6_QkLw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-        </edges>
-        <edges xmi:id="_somzdt8cEd2lfsi_6_QkLw" element="_V5qWEN8cEd2lfsi_6_QkLw" source="_sodpQN8cEd2lfsi_6_QkLw" target="_sodpQN8cEd2lfsi_6_QkLw">
-          <children xmi:id="_somzed8cEd2lfsi_6_QkLw" type="NameLabel">
-            <children xmi:id="_somze98cEd2lfsi_6_QkLw" type="Stereotype"/>
-            <children xmi:id="_somzfN8cEd2lfsi_6_QkLw" type="Name"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_somzet8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_somzfd8cEd2lfsi_6_QkLw" type="ToMultiplicityLabel" element="_V5zgAN8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzf98cEd2lfsi_6_QkLw" type="ToMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzft8cEd2lfsi_6_QkLw" x="1322" y="-265"/>
-          </children>
-          <children xmi:id="_somzgN8cEd2lfsi_6_QkLw" visible="false" type="ToRoleLabel" element="_V5zgAN8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzgt8cEd2lfsi_6_QkLw" type="ToRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzgd8cEd2lfsi_6_QkLw" y="-397"/>
-          </children>
-          <children xmi:id="_somzg98cEd2lfsi_6_QkLw" type="FromMultiplicityLabel" element="_V5qWEd8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzhd8cEd2lfsi_6_QkLw" type="FromMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzhN8cEd2lfsi_6_QkLw" y="396"/>
-          </children>
-          <children xmi:id="_somzht8cEd2lfsi_6_QkLw" type="FromRoleLabel" element="_V5qWEd8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somziN8cEd2lfsi_6_QkLw" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzh98cEd2lfsi_6_QkLw" x="186" y="-1271"/>
-          </children>
-          <children xmi:id="_somzid8cEd2lfsi_6_QkLw" type="ToQualifierLabel" element="_V5zgAN8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzi98cEd2lfsi_6_QkLw" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_somzjN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzit8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_somzjd8cEd2lfsi_6_QkLw" type="FromQualifierLabel" element="_V5qWEd8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzj98cEd2lfsi_6_QkLw" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_somzkN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzjt8cEd2lfsi_6_QkLw" y="-186"/>
-          </children>
-          <children xmi:id="_somzkd8cEd2lfsi_6_QkLw" type="ToConstraintLabel" element="_V5zgAN8cEd2lfsi_6_QkLw">
-            <children xmi:id="_somzk98cEd2lfsi_6_QkLw" type="ToConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_somzlN8cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_somzkt8cEd2lfsi_6_QkLw" y="1058"/>
-          </children>
-          <children xmi:id="_sowkMN8cEd2lfsi_6_QkLw" type="FromConstraintLabel" element="_V5qWEd8cEd2lfsi_6_QkLw">
-            <children xmi:id="_sowkMt8cEd2lfsi_6_QkLw" type="FromConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_sowkM98cEd2lfsi_6_QkLw"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_sowkMd8cEd2lfsi_6_QkLw" y="1058"/>
-          </children>
-          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_somzd98cEd2lfsi_6_QkLw" routing="Rectilinear" lineColor="16711680" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_somzeN8cEd2lfsi_6_QkLw" points="[1905, -132, 1905, -132]$[3016, -132, 3016, -132]$[3016, -3625, 3016, -3625]$[-186, -3625, -186, -3625]$[-186, -662, -186, -662]"/>
         </edges>
         <edges xmi:id="_sowkV98cEd2lfsi_6_QkLw" element="_4GFlcMBXEd2HY5CoyN9fhA" source="_sodpQN8cEd2lfsi_6_QkLw" target="_sodpQN8cEd2lfsi_6_QkLw">
           <children xmi:id="_sowkWt8cEd2lfsi_6_QkLw" type="NameLabel">
@@ -12236,7 +12138,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedComment xmi:id="_RZ2MQNuBEd2HOOcISLYbXw" annotatedElement="_hs_p4MxHEd2WY7Axv1JJtQ">
           <body>This abstract class represents all AllocationConnectors that are connected with an entity that provides a ResourceInterface. i. e. a Controller or a Resource. Either it connects from a component (business component or infrastructure component), then the &quot;fromAssemblyContext_AllocationConnector&quot; assocatiation is used, or it connects from a controller, then the &quot;fromControllerInstance_ControllerAllocationConnector&quot; association is used.</body>
         </ownedComment>
-        <ownedRule xmi:id="_16uwQNQjEd28Rqg_jh31VA" name="ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch" constrainedElement="_hs_p4MxHEd2WY7Axv1JJtQ">
+        <ownedRule xmi:id="_16uwQNQjEd28Rqg_jh31VA" name="ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch" constrainedElement="_hs_p4MxHEd2WY7Axv1JJtQ">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_16uwQdQjEd28Rqg_jh31VA">
             <language>OCL</language>
             <body>self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole = self.resourceProvidedRole_ResourceProvidedRoleAllocationConnector.providedResourceInterface_ResourceProvidedRole</body>
@@ -12349,6 +12251,12 @@ The &quot;from&quot; component can be a business component or a component which 
             <body>self.fromAssemblyContext_AllocationConnector->size() = 1</body>
           </specification>
         </ownedRule>
+        <ownedRule xmi:id="_uCMkAPYgEd2s1Kk7TIzhRw" name="ProvidedRoleHasToBelongToInfrastructureComponentScope" constrainedElement="_LI4dkLZrEd2w14sx0UoE9Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_uCMkAfYgEd2s1Kk7TIzhRw">
+            <language>OCL</language>
+            <body>self.toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.providedRoles_InterfaceProvidingEntity->exists(role | role = self.providedRole_AllocationConnector)</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_JEnBMMrOEd2UAtuiYRGpfQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
         <generalization xmi:id="_egmtwMxEEd2WY7Axv1JJtQ" general="_NcpdgMxEEd2WY7Axv1JJtQ"/>
         <ownedAttribute xmi:id="_CCmiocePEd2TNKuW7xAQHw" name="providedRole_AllocationConnector" visibility="public" type="_-M7kYJJIEdqSSImFLKDkSg" association="_CCmioMePEd2TNKuW7xAQHw">
@@ -12383,7 +12291,7 @@ This lookup occurs before simulation (automatically) and creates appropriate All
         <ownedRule xmi:id="_hUaWwNzaEd2x3811xzuwfA" name="ScopeMustNotBePartOfACircle" constrainedElement="_z-uYMMeOEd2TNKuW7xAQHw">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_hUaWwdzaEd2x3811xzuwfA">
             <language>OCL</language>
-            <body>not self.allLowerLayers->includes(self)&#xD;&#xA;--not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)&#xD;&#xA;</body>
+            <body>self.isPartOfCycle = false&#xD;&#xA;--not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)&#xD;&#xA;</body>
           </specification>
         </ownedRule>
         <ownedRule xmi:id="_wQdq0N2UEd2FXdMNM7m8Og" name="ScopeMustNotContainResourceRequiredRoles" constrainedElement="_z-uYMMeOEd2TNKuW7xAQHw">
@@ -12402,9 +12310,8 @@ This lookup occurs before simulation (automatically) and creates appropriate All
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CAMyEMeTEd2TNKuW7xAQHw"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_7cApI8eOEd2TNKuW7xAQHw" name="resourceContainer_InfrastructureComponentScope" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_7b24IMeOEd2TNKuW7xAQHw"/>
-        <ownedAttribute xmi:id="_m7B5otzdEd2x3811xzuwfA" name="allLowerLayers" visibility="private" type="_z-uYMMeOEd2TNKuW7xAQHw" isDerived="true" association="_m7B5oNzdEd2x3811xzuwfA">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_puSrcdzdEd2x3811xzuwfA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_puSrcNzdEd2x3811xzuwfA"/>
+        <ownedAttribute xmi:id="_jtaF4PBLEd2kcJXF3JX6Sw" name="isPartOfCycle" visibility="private" isDerived="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_7b24IMeOEd2TNKuW7xAQHw" name="deloyedOn" memberEnd="_7cApIMeOEd2TNKuW7xAQHw _7cApI8eOEd2TNKuW7xAQHw">
@@ -12455,12 +12362,6 @@ Before analysis,AllocationeConnectors have to be created (automatically). This m
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Od4FENXIEd2OZ4WawgDLNg" memberEnd="_Od4FEdXIEd2OZ4WawgDLNg _OeBPANXIEd2OZ4WawgDLNg">
         <ownedEnd xmi:id="_OeBPANXIEd2OZ4WawgDLNg" name="" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_Od4FENXIEd2OZ4WawgDLNg"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_m7B5oNzdEd2x3811xzuwfA" memberEnd="_m7B5odzdEd2x3811xzuwfA _m7B5otzdEd2x3811xzuwfA">
-        <ownedEnd xmi:id="_m7B5odzdEd2x3811xzuwfA" name="infrastructurecomponentscope" visibility="private" type="_z-uYMMeOEd2TNKuW7xAQHw" association="_m7B5oNzdEd2x3811xzuwfA">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t4R_odzdEd2x3811xzuwfA" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t4R_oNzdEd2x3811xzuwfA"/>
-        </ownedEnd>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_BdlGMCh9Edue7oeC4NTCGg" name="repository">
@@ -28044,9 +27945,12 @@ This lookup occurs before simulation (automatically) and creates appropriate All
         <ownedRule xmi:id="_jc74YN8dEd2lfsi_6_QkLw" name="ControllerLayerMustNotBePartOfACircle" constrainedElement="_rnrkAMBXEd2HY5CoyN9fhA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_jdFpYN8dEd2lfsi_6_QkLw">
             <language>OCL</language>
-            <body>not self.allLowerLayers->includes(self)</body>
+            <body>self.isPartOfCycle = false</body>
           </specification>
         </ownedRule>
+        <ownedAttribute xmi:id="_2N-Z4PBSEd27Y5qkAQJWqA" name="isPartOfCycle" visibility="private" isDerived="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_4GFlccBXEd2HY5CoyN9fhA" name="upperLayer" visibility="public" type="_rnrkAMBXEd2HY5CoyN9fhA" association="_4GFlcMBXEd2HY5CoyN9fhA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B-f1AcBYEd2HY5CoyN9fhA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B-f1AMBYEd2HY5CoyN9fhA"/>
@@ -28058,10 +27962,6 @@ This lookup occurs before simulation (automatically) and creates appropriate All
         <ownedAttribute xmi:id="_A5TFccEyEd2h7aoy3YfQBA" name="controllerType_ControllerLayer" visibility="public" type="_9cUBMMExEd2h7aoy3YfQBA" association="_A5TFcMEyEd2h7aoy3YfQBA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A5TFc8EyEd2h7aoy3YfQBA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A5TFcsEyEd2h7aoy3YfQBA" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_V5qWEd8cEd2lfsi_6_QkLw" name="allLowerLayers" visibility="private" type="_rnrkAMBXEd2HY5CoyN9fhA" isDerived="true" association="_V5qWEN8cEd2lfsi_6_QkLw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ahTPkd8cEd2lfsi_6_QkLw" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ahTPkN8cEd2lfsi_6_QkLw"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_4GFlcMBXEd2HY5CoyN9fhA" memberEnd="_4GFlccBXEd2HY5CoyN9fhA _4GPWcMBXEd2HY5CoyN9fhA"/>
@@ -28110,12 +28010,6 @@ ResourceContainer have to be created anyway (if possible, automatically?).</body
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_9JnNgMw7Ed2WY7Axv1JJtQ" memberEnd="_9JnNgcw7Ed2WY7Axv1JJtQ _9JnNhMw7Ed2WY7Axv1JJtQ">
         <ownedEnd xmi:id="_9JnNhMw7Ed2WY7Axv1JJtQ" name="" visibility="private" type="_1ZaAkMw7Ed2WY7Axv1JJtQ" association="_9JnNgMw7Ed2WY7Axv1JJtQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_V5qWEN8cEd2lfsi_6_QkLw" memberEnd="_V5qWEd8cEd2lfsi_6_QkLw _V5zgAN8cEd2lfsi_6_QkLw">
-        <ownedEnd xmi:id="_V5zgAN8cEd2lfsi_6_QkLw" name="controllerlayer4" visibility="private" type="_rnrkAMBXEd2HY5CoyN9fhA" association="_V5qWEN8cEd2lfsi_6_QkLw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aF4e4d8cEd2lfsi_6_QkLw" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aF4e4N8cEd2lfsi_6_QkLw"/>
-        </ownedEnd>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_ezkv0Ch9Edue7oeC4NTCGg" name="system">
@@ -30654,6 +30548,6 @@ Note:&#xD;
   <Default:Documentation xmi:id="_RZ2MQduBEd2HOOcISLYbXw" base_Comment="_RZ2MQNuBEd2HOOcISLYbXw"/>
   <Default:Documentation xmi:id="_ZCEscduCEd2HOOcISLYbXw" base_Comment="_ZCEscNuCEd2HOOcISLYbXw"/>
   <Default:Documentation xmi:id="_oF4p4duCEd2HOOcISLYbXw" base_Comment="_oF4p4NuCEd2HOOcISLYbXw"/>
-  <Ecore:EReference xmi:id="_94er0NzoEd2x3811xzuwfA" isTransient="true" base_Property="_m7B5otzdEd2x3811xzuwfA"/>
-  <Ecore:EReference xmi:id="_dqd_8N8cEd2lfsi_6_QkLw" isTransient="true" base_Property="_V5qWEd8cEd2lfsi_6_QkLw"/>
+  <Ecore:EAttribute xmi:id="_nsOE0PBLEd2kcJXF3JX6Sw" isTransient="true" base_Property="_jtaF4PBLEd2kcJXF3JX6Sw"/>
+  <Ecore:EAttribute xmi:id="_6nc7kPBSEd27Y5qkAQJWqA" isTransient="true" base_Property="_2N-Z4PBSEd27Y5qkAQJWqA"/>
 </xmi:XMI>
