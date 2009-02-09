@@ -56,7 +56,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterListTM FOR ResourceService»
-	«EXPAND m2t_transforms::sim::resources::ParameterListTM FOR this»
+	de.uka.ipd.sdq.simucomframework.Context ctx
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
@@ -64,7 +64,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterUsageListTM FOR ResourceService»
-	«EXPAND m2t_transforms::sim::resources::ParameterUsageListTM FOR this»
+	ctx
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
@@ -72,7 +72,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ReturnTypeTM FOR ResourceService»
-   «EXPAND m2t_transforms::sim::resources::ReturnTypeTM FOR this»
+    de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
 «ENDAROUND»
 
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»

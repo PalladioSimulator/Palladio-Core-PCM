@@ -47,7 +47,7 @@
 		import java.util.HashMap;
 		
 		/**
-		* This class manages all component instances.
+		* This class manages all resource instances.
 		**/
 		public class ResourceRegistry 
 		{	
@@ -71,7 +71,7 @@
 «DEFINE Resources FOR resourceenvironment::ResourceEnvironment»
 	«FOREACH this.resourceContainer_ResourceEnvironment AS rc»
 		«FOREACH rc.activeResourceSpecifications_ResourceContainer.activeResourceType_ActiveResourceSpecification AS rt»
-		   «EXPAND ResourceInterfaceFile FOR rt.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole»
+		   «EXPAND ResourceInterfaceFile FOREACH rt.resourceProvidedRoles_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole»
 		   «EXPAND ResourceFile FOREACH rc.activeResourceSpecifications_ResourceContainer»
 		«ENDFOREACH»				   
 	«ENDFOREACH»
@@ -111,11 +111,11 @@
 		package resourceenvironment.resources;
 		
             
-		public class «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» implements «this.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.fqn()» {
-		«FOREACH this.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.resourceServices_ResourceInterface AS service»
-		public «EXPAND ReturnTypeTM FOR service»
+		public class «((ResourceContainer)this.eContainer).id.javaString()»_«this.activeResourceType_ActiveResourceSpecification.javaName()» implements «EXPAND ResourceInterfaceName FOREACH this.activeResourceType_ActiveResourceSpecification.resourceProvidedRoles_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole SEPARATOR ","» {
+		«FOREACH this.activeResourceType_ActiveResourceSpecification.resourceProvidedRoles_ResourceInterfaceProvidingEntity.providedResourceInterface_ResourceProvidedRole.resourceServices_ResourceInterface AS service»
+		public «EXPAND m2t_transforms::java_core::ReturnTypeTM FOR service»
 		«service.javaResourceService()»
-		( «EXPAND ParameterListTM FOR service» ) {
+		( «EXPAND m2t_transforms::java_core::ParameterListTM FOR service» ) {
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 			ctx.findResourceContainer("«((ResourceContainer)this.eContainer).id»").loadActiveResource(
 				ctx.getThread(), "«this.activeResourceType_ActiveResourceSpecification.entityName»", (Double) ctx
@@ -128,26 +128,8 @@
    «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE ParameterListTM FOR ResourceService»
-	de.uka.ipd.sdq.simucomframework.Context ctx
-«ENDDEFINE»
-
-«DEFINE ParameterUsageListTM FOR ResourceService»
-	ctx
-«ENDDEFINE»
-
-«DEFINE ReturnTypeTM FOR ResourceService»
-   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
-«ENDDEFINE»
-
-«DEFINE ResourceInterfaceFile FOR ResourceInterface»
-   «FILE this.fqn().fqnToDirectoryPath()+".java"»
-      package «this.getPackageName()»;
-            
-      public interface «this.javaName()» {
-	         «EXPAND m2t_transforms::java_core::ResourceService FOREACH this.resourceServices_ResourceInterface SEPARATOR ";"»;
-      }
-   «ENDFILE»
+«DEFINE ResourceInterfaceName FOR ResourceInterface»
+   «this.fqn()»
 «ENDDEFINE»
 
 «DEFINE ResourceContainerInit FOR resourceenvironment::ResourceEnvironment»

@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
@@ -102,9 +103,11 @@ implements IComponentBuilder {
 	
 	// Hauck 2008.12.23: New lookup method for resource service
 	protected ResourceService findResourceService(ProcessingResourceType resourceType, String nameFragment) {
-		for (ResourceService service: resourceType.getResourceProvidedRole_ResourceInterfaceProvidingEntity().getProvidedResourceInterface_ResourceProvidedRole().getResourceServices_ResourceInterface()) {
-			if (service.getServiceName().toLowerCase().contains(nameFragment.toLowerCase())) {
-				return service;
+		for (ResourceProvidedRole role: resourceType.getResourceProvidedRoles_ResourceInterfaceProvidingEntity()) {
+			for (ResourceService service: role.getProvidedResourceInterface_ResourceProvidedRole().getResourceServices_ResourceInterface()) {
+				if (service.getServiceName().toLowerCase().contains(nameFragment.toLowerCase())) {
+					return service;
+				}
 			}
 		}
 		throw new RuntimeException("Neccessary resourceservice "+nameFragment+" not found");
@@ -112,8 +115,10 @@ implements IComponentBuilder {
 	
 	// Hauck 2008.12.23: New lookup method for resource required role
 	protected ResourceRequiredRole findResourceRequiredRole(ProcessingResourceType resourceType) {
-		if (myResourceRequiredRole.getRequiredResourceInterface_ResourceRequiredRole().equals(resourceType.getResourceProvidedRole_ResourceInterfaceProvidingEntity().getProvidedResourceInterface_ResourceProvidedRole())) {
-			return myResourceRequiredRole;
+		for (ResourceProvidedRole role: resourceType.getResourceProvidedRoles_ResourceInterfaceProvidingEntity()) {
+			if (myResourceRequiredRole.getRequiredResourceInterface_ResourceRequiredRole().equals(role.getProvidedResourceInterface_ResourceProvidedRole())) {
+				return myResourceRequiredRole;
+			}	
 		}
 		throw new RuntimeException("Neccessary resourcerequiredrole for resource "+resourceType.getEntityName()+" not found");
 	}

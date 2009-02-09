@@ -1,5 +1,6 @@
 import parameter;
 import seff;
+import allocation;
 import repository;
 import core::composition;
 import system;
@@ -93,3 +94,6 @@ context RandomVariable ERROR 'Random variable without specification is invalid':
 	
 context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
 	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
+
+context Allocation ERROR 'All infrastructure component scopes must have unique names':
+	this.infrastructureComponentScopes_Allocation.forAll(s1|this.infrastructureComponentScopes_Allocation.forAll(s2 | s1 == s2 || s1.entityName != s2.entityName));

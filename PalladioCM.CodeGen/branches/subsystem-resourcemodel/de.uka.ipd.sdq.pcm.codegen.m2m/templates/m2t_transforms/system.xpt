@@ -7,6 +7,28 @@
    «FILE this.getFileName()»
       «EXPAND System FOR this»
    «ENDFILE»
+   «FILE "main/AssemblyContextRegistry.java"»
+		package main;
+		
+		import java.util.HashMap;
+		
+		/**
+		* This class manages all component instances.
+		**/
+		public class AssemblyContextRegistry 
+		{	
+			private static HashMap<String, Object> componentInstances = new HashMap<String, Object>();
+			
+			public static void register(String assemblyContextID, Object componentInstance) { 
+				componentInstances.put(assemblyContextID, componentInstance);
+			}
+			
+			public static Object getComponentInstance(String assemblyContextID) {
+				return componentInstances.get(assemblyContextID);
+			}
+			
+		}
+	«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE System FOR System»
