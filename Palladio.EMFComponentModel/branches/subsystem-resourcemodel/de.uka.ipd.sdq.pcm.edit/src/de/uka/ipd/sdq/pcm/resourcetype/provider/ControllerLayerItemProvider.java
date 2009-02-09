@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 import java.util.Collection;
@@ -25,7 +26,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer} object.
@@ -69,12 +72,34 @@ public class ControllerLayerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIsPartOfCyclePropertyDescriptor(object);
 			addUpperLayerPropertyDescriptor(object);
 			addLowerLayerPropertyDescriptor(object);
 			addControllerType_ControllerLayerPropertyDescriptor(object);
-			addAllLowerLayersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Part Of Cycle feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsPartOfCyclePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerLayer_isPartOfCycle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_isPartOfCycle_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__IS_PART_OF_CYCLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -144,28 +169,6 @@ public class ControllerLayerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the All Lower Layers feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAllLowerLayersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ControllerLayer_allLowerLayers_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_allLowerLayers_feature", "_UI_ControllerLayer_type"),
-				 ResourcetypePackage.Literals.CONTROLLER_LAYER__ALL_LOWER_LAYERS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns ControllerLayer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,7 +187,8 @@ public class ControllerLayerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ControllerLayer_type");
+		ControllerLayer controllerLayer = (ControllerLayer)object;
+		return getString("_UI_ControllerLayer_type") + " " + controllerLayer.isIsPartOfCycle();
 	}
 
 	/**
@@ -197,6 +201,12 @@ public class ControllerLayerItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ControllerLayer.class)) {
+			case ResourcetypePackage.CONTROLLER_LAYER__IS_PART_OF_CYCLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

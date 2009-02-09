@@ -92,7 +92,7 @@ public class ControllerTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY);
+			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +147,7 @@ public class ControllerTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ControllerType.class)) {
-			case ResourcetypePackage.CONTROLLER_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+			case ResourcetypePackage.CONTROLLER_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,7 +167,7 @@ public class ControllerTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+				(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
 				 ResourcetypeFactory.eINSTANCE.createResourceProvidedRole()));
 	}
 
