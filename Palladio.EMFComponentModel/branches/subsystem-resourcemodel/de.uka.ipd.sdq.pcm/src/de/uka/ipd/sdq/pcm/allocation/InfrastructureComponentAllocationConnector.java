@@ -118,4 +118,15 @@ public interface InfrastructureComponentAllocationConnector extends Connector, A
 	 */
 	boolean FromAssemblyContextHasToBeSet(DiagnosticChain diagnostics, Map<Object, Object> context);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.providedRoles_InterfaceProvidingEntity->exists(role | role = self.providedRole_AllocationConnector)
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ProvidedRoleHasToBelongToInfrastructureComponentScope(DiagnosticChain diagnostics, Map<Object, Object> context);
+
 } // InfrastructureComponentAllocationConnector

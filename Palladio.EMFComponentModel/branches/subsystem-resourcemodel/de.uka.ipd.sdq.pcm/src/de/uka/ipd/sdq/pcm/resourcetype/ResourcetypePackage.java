@@ -208,13 +208,22 @@ public interface ResourcetypePackage extends EPackage {
 	int CONTROLLER_LAYER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Is Part Of Cycle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER__IS_PART_OF_CYCLE = 0;
+
+	/**
 	 * The feature id for the '<em><b>Upper Layer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_LAYER__UPPER_LAYER = 0;
+	int CONTROLLER_LAYER__UPPER_LAYER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Lower Layer</b></em>' reference.
@@ -223,7 +232,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_LAYER__LOWER_LAYER = 1;
+	int CONTROLLER_LAYER__LOWER_LAYER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Controller Type Controller Layer</b></em>' reference.
@@ -232,16 +241,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER = 2;
-
-	/**
-	 * The feature id for the '<em><b>All Lower Layers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROLLER_LAYER__ALL_LOWER_LAYERS = 3;
+	int CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER = 3;
 
 	/**
 	 * The number of structural features of the '<em>Controller Layer</em>' class.
@@ -290,13 +290,13 @@ public interface ResourcetypePackage extends EPackage {
 	int CONTROLLER_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Resource Provided Role Resource Interface Providing Entity</b></em>' containment reference.
+	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROLLER_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+	int CONTROLLER_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Controller Type</em>' class.
@@ -529,13 +529,13 @@ public interface ResourcetypePackage extends EPackage {
 	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Resource Provided Role Resource Interface Providing Entity</b></em>' containment reference.
+	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
+	int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
@@ -732,6 +732,17 @@ public interface ResourcetypePackage extends EPackage {
 	EClass getControllerLayer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#isIsPartOfCycle <em>Is Part Of Cycle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Part Of Cycle</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#isIsPartOfCycle()
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	EAttribute getControllerLayer_IsPartOfCycle();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getUpperLayer <em>Upper Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -763,17 +774,6 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getControllerLayer_ControllerType_ControllerLayer();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers <em>All Lower Layers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>All Lower Layers</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers()
-	 * @see #getControllerLayer()
-	 * @generated
-	 */
-	EReference getControllerLayer_AllLowerLayers();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType <em>Controller Type</em>}'.
@@ -1028,6 +1028,14 @@ public interface ResourcetypePackage extends EPackage {
 		EClass CONTROLLER_LAYER = eINSTANCE.getControllerLayer();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Part Of Cycle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROLLER_LAYER__IS_PART_OF_CYCLE = eINSTANCE.getControllerLayer_IsPartOfCycle();
+
+		/**
 		 * The meta object literal for the '<em><b>Upper Layer</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1050,14 +1058,6 @@ public interface ResourcetypePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER = eINSTANCE.getControllerLayer_ControllerType_ControllerLayer();
-
-		/**
-		 * The meta object literal for the '<em><b>All Lower Layers</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTROLLER_LAYER__ALL_LOWER_LAYERS = eINSTANCE.getControllerLayer_AllLowerLayers();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl <em>Controller Type</em>}' class.

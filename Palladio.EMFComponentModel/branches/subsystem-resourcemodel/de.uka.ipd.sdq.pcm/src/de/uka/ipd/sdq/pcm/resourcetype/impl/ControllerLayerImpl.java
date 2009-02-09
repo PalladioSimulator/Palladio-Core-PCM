@@ -44,10 +44,10 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#isIsPartOfCycle <em>Is Part Of Cycle</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +60,16 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The default value of the '{@link #isIsPartOfCycle() <em>Is Part Of Cycle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPartOfCycle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_PART_OF_CYCLE_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #getUpperLayer() <em>Upper Layer</em>}' reference.
@@ -80,16 +90,6 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	 * @ordered
 	 */
 	protected ControllerLayer lowerLayer;
-	
-	/**
-	 * The cached value of the '{@link #getLowerLayer() <em>All Lower Layers</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAllLowerLayers()
-	 * @generated not
-	 * @ordered
-	 */
-	protected EList<ControllerLayer> allLowerLayers;
 
 	/**
 	 * The cached value of the '{@link #getControllerType_ControllerLayer() <em>Controller Type Controller Layer</em>}' reference.
@@ -102,13 +102,13 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	protected ControllerType controllerType_ControllerLayer;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ControllerLayerMustNotBePartOfACircle <em>Controller Layer Must Not Be Part Of ACircle</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ControllerLayerMustNotBePartOfACycle <em>Controller Layer Must Not Be Part Of ACycle</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ControllerLayerMustNotBePartOfACircle
+	 * @see #ControllerLayerMustNotBePartOfACycle
 	 * @generated
 	 */
-	private static OCLExpression ControllerLayerMustNotBePartOfACircleInvOCL;
+	private static OCLExpression ControllerLayerMustNotBePartOfACycleInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -129,6 +129,34 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	@Override
 	protected EClass eStaticClass() {
 		return ResourcetypePackage.Literals.CONTROLLER_LAYER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public boolean isIsPartOfCycle() {
+		// Search iteratively for lower layers. Stop if a cycle or the lowest layer is found.
+		ControllerLayer nextLayer = this.getLowerLayer();
+		while (nextLayer!= null) {
+			if (nextLayer.equals(this)) {
+				return true;
+			}
+			nextLayer = nextLayer.getLowerLayer();
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsPartOfCycle(boolean newIsPartOfCycle) {
+		// TODO: implement this method to set the 'Is Part Of Cycle' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -220,13 +248,11 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
 	 */
 	public NotificationChain basicSetLowerLayer(ControllerLayer newLowerLayer, NotificationChain msgs) {
 		ControllerLayer oldLowerLayer = lowerLayer;
 		lowerLayer = newLowerLayer;
-		// Refresh allLowerLayers association as well
-		getAllLowerLayers();
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER, oldLowerLayer, newLowerLayer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -294,48 +320,23 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
-	 */
-	public EList<ControllerLayer> getAllLowerLayers() {
-		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
-		allLowerLayers = new EObjectResolvingEList<ControllerLayer>(ControllerLayer.class, this, ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS);
-		// Search iteratively for lower layers. Stop if a cycle is found.
-		ControllerLayer nextLayer = this.getLowerLayer();
-		if ((nextLayer != null) && nextLayer.equals(this)) {
-			allLowerLayers.add(nextLayer);
-			return allLowerLayers;
-		}
-		while (nextLayer != null) {
-			if (nextLayer.equals(this)) {
-				allLowerLayers.add(nextLayer);
-				break;
-			}
-			allLowerLayers.add(nextLayer);
-			nextLayer = nextLayer.getLowerLayer();
-		}			
-		return allLowerLayers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ControllerLayerMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ControllerLayerMustNotBePartOfACircleInvOCL == null) {
+	public boolean ControllerLayerMustNotBePartOfACycle(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ControllerLayerMustNotBePartOfACycleInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "not self.allLowerLayers->includes(self) ";
+			String body = "self.isPartOfCycle = false ";
 			
 			try {
-				ControllerLayerMustNotBePartOfACircleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ControllerLayerMustNotBePartOfACycleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ControllerLayerMustNotBePartOfACircleInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ControllerLayerMustNotBePartOfACycleInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -345,8 +346,8 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 ResourcetypeValidator.DIAGNOSTIC_SOURCE,
-						 ResourcetypeValidator.CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACIRCLE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ControllerLayerMustNotBePartOfACircle", EObjectValidator.getObjectLabel(this, context) }),
+						 ResourcetypeValidator.CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACYCLE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ControllerLayerMustNotBePartOfACycle", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -399,6 +400,8 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ResourcetypePackage.CONTROLLER_LAYER__IS_PART_OF_CYCLE:
+				return isIsPartOfCycle() ? Boolean.TRUE : Boolean.FALSE;
 			case ResourcetypePackage.CONTROLLER_LAYER__UPPER_LAYER:
 				if (resolve) return getUpperLayer();
 				return basicGetUpperLayer();
@@ -408,8 +411,6 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
 				if (resolve) return getControllerType_ControllerLayer();
 				return basicGetControllerType_ControllerLayer();
-			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
-				return getAllLowerLayers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -423,6 +424,9 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ResourcetypePackage.CONTROLLER_LAYER__IS_PART_OF_CYCLE:
+				setIsPartOfCycle(((Boolean)newValue).booleanValue());
+				return;
 			case ResourcetypePackage.CONTROLLER_LAYER__UPPER_LAYER:
 				setUpperLayer((ControllerLayer)newValue);
 				return;
@@ -431,10 +435,6 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 				return;
 			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
 				setControllerType_ControllerLayer((ControllerType)newValue);
-				return;
-			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
-				getAllLowerLayers().clear();
-				getAllLowerLayers().addAll((Collection<? extends ControllerLayer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -448,6 +448,9 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ResourcetypePackage.CONTROLLER_LAYER__IS_PART_OF_CYCLE:
+				setIsPartOfCycle(IS_PART_OF_CYCLE_EDEFAULT);
+				return;
 			case ResourcetypePackage.CONTROLLER_LAYER__UPPER_LAYER:
 				setUpperLayer((ControllerLayer)null);
 				return;
@@ -456,9 +459,6 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 				return;
 			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
 				setControllerType_ControllerLayer((ControllerType)null);
-				return;
-			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
-				getAllLowerLayers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -472,14 +472,14 @@ public class ControllerLayerImpl extends EObjectImpl implements ControllerLayer 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ResourcetypePackage.CONTROLLER_LAYER__IS_PART_OF_CYCLE:
+				return isIsPartOfCycle() != IS_PART_OF_CYCLE_EDEFAULT;
 			case ResourcetypePackage.CONTROLLER_LAYER__UPPER_LAYER:
 				return upperLayer != null;
 			case ResourcetypePackage.CONTROLLER_LAYER__LOWER_LAYER:
 				return lowerLayer != null;
 			case ResourcetypePackage.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_LAYER:
 				return controllerType_ControllerLayer != null;
-			case ResourcetypePackage.CONTROLLER_LAYER__ALL_LOWER_LAYERS:
-				return !getAllLowerLayers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

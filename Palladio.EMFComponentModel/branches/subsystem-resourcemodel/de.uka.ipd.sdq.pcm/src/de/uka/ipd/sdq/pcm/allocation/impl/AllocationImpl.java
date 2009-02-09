@@ -123,13 +123,13 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	private static OCLExpression EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL;
 	
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne <em>For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Uppest One</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne <em>For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Uppermost One</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne
+	 * @see #ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne
 	 * @generated
 	 */
-	private static OCLExpression ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOneInvOCL;
+	private static OCLExpression ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOneInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheLowestOne <em>For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Lowest One</em>}' invariant constraint.
@@ -346,21 +346,21 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOneInvOCL == null) {
+	public boolean ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOneInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "(self.infrastructureComponentScopes_Allocation->select(scope|scope.upperLayer->asBag()->isEmpty()))->forAll(scope1, scope2| scope1 <> scope2 implies scope1.resourceContainer_InfrastructureComponentScope <> scope2.resourceContainer_InfrastructureComponentScope) ";
 			
 			try {
-				ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOneInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOneInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -370,8 +370,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 AllocationValidator.DIAGNOSTIC_SOURCE,
-						 AllocationValidator.ALLOCATION__FOR_ALL_INFRASTRUCTURE_COMPONENT_SCOPES_ON_THE_SAME_RESOURCE_CONTAINER_ONLY_ONE_SCOPE_IS_THE_UPPEST_ONE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne", EObjectValidator.getObjectLabel(this, context) }),
+						 AllocationValidator.ALLOCATION__FOR_ALL_INFRASTRUCTURE_COMPONENT_SCOPES_ON_THE_SAME_RESOURCE_CONTAINER_ONLY_ONE_SCOPE_IS_THE_UPPERMOST_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

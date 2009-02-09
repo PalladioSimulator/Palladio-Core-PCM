@@ -105,6 +105,6 @@ public interface ResourceProvidedRoleConnector extends AllocationConnector {
 	 * @model
 	 * @generated
 	 */
-	boolean ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ResourceProvidedRoleConnector

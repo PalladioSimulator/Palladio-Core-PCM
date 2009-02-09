@@ -57,12 +57,12 @@ public class ResourcetypeValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.resourcetype";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Controller Layer Must Not Be Part Of ACircle' of 'Controller Layer'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Controller Layer Must Not Be Part Of ACycle' of 'Controller Layer'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACIRCLE = 1;
+	public static final int CONTROLLER_LAYER__CONTROLLER_LAYER_MUST_NOT_BE_PART_OF_ACYCLE = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Service Names Have To Be Unique For AResource Interface' of 'Resource Interface'.
@@ -202,18 +202,18 @@ public class ResourcetypeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(controllerLayer, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(controllerLayer, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(controllerLayer, diagnostics, context);
-		if (result || diagnostics != null) result &= validateControllerLayer_ControllerLayerMustNotBePartOfACircle(controllerLayer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateControllerLayer_ControllerLayerMustNotBePartOfACycle(controllerLayer, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the ControllerLayerMustNotBePartOfACircle constraint of '<em>Controller Layer</em>'.
+	 * Validates the ControllerLayerMustNotBePartOfACycle constraint of '<em>Controller Layer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateControllerLayer_ControllerLayerMustNotBePartOfACircle(ControllerLayer controllerLayer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return controllerLayer.ControllerLayerMustNotBePartOfACircle(diagnostics, context);
+	public boolean validateControllerLayer_ControllerLayerMustNotBePartOfACycle(ControllerLayer controllerLayer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return controllerLayer.ControllerLayerMustNotBePartOfACycle(diagnostics, context);
 	}
 
 	/**

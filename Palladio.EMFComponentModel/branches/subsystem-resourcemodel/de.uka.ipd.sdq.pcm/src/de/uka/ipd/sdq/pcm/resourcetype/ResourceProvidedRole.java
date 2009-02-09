@@ -65,7 +65,7 @@ public interface ResourceProvidedRole extends Role {
 
 	/**
 	 * Returns the value of the '<em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRole_ResourceInterfaceProvidingEntity <em>Resource Provided Role Resource Interface Providing Entity</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles_ResourceInterfaceProvidingEntity <em>Resource Provided Roles Resource Interface Providing Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resource Interface Providing Entity Resource Provided Role</em>' container reference isn't clear,
@@ -75,8 +75,8 @@ public interface ResourceProvidedRole extends Role {
 	 * @return the value of the '<em>Resource Interface Providing Entity Resource Provided Role</em>' container reference.
 	 * @see #setResourceInterfaceProvidingEntity_ResourceProvidedRole(ResourceInterfaceProvidingEntity)
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole()
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRole_ResourceInterfaceProvidingEntity
-	 * @model opposite="resourceProvidedRole_ResourceInterfaceProvidingEntity" required="true" transient="false" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles_ResourceInterfaceProvidingEntity
+	 * @model opposite="resourceProvidedRoles_ResourceInterfaceProvidingEntity" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ResourceInterfaceProvidingEntity getResourceInterfaceProvidingEntity_ResourceProvidedRole();

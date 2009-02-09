@@ -381,7 +381,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceInterfaceProvidingEntity_ResourceProvidedRole_ResourceInterfaceProvidingEntity() {
+	public EReference getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity() {
 		return (EReference)resourceInterfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -430,7 +430,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		createEReference(resourceInterfaceRequiringEntityEClass, RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
 
 		resourceInterfaceProvidingEntityEClass = createEClass(RESOURCE_INTERFACE_PROVIDING_ENTITY);
-		createEReference(resourceInterfaceProvidingEntityEClass, RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY);
+		createEReference(resourceInterfaceProvidingEntityEClass, RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
 
 		composedProvidingRequiringEntityEClass = createEClass(COMPOSED_PROVIDING_REQUIRING_ENTITY);
 	}
@@ -508,7 +508,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		initEReference(getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity(), theResourcetypePackage.getResourceRequiredRole(), theResourcetypePackage.getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole(), "resourceRequiredRoles_ResourceInterfaceRequiringEntity", null, 0, -1, ResourceInterfaceRequiringEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(resourceInterfaceProvidingEntityEClass, ResourceInterfaceProvidingEntity.class, "ResourceInterfaceProvidingEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceInterfaceProvidingEntity_ResourceProvidedRole_ResourceInterfaceProvidingEntity(), theResourcetypePackage.getResourceProvidedRole(), theResourcetypePackage.getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), "resourceProvidedRole_ResourceInterfaceProvidingEntity", null, 1, 1, ResourceInterfaceProvidingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity(), theResourcetypePackage.getResourceProvidedRole(), theResourcetypePackage.getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), "resourceProvidedRoles_ResourceInterfaceProvidingEntity", null, 0, -1, ResourceInterfaceProvidingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(composedProvidingRequiringEntityEClass, ComposedProvidingRequiringEntity.class, "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

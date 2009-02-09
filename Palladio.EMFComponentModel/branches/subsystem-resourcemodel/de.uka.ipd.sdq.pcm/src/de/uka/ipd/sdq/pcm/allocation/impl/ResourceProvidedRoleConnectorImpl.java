@@ -87,14 +87,14 @@ public abstract class ResourceProvidedRoleConnectorImpl extends AllocationConnec
 	protected ControllerInstance fromControllerInstance_ControllerAllocationConnector;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch <em>Referenced Resource Required Role Role And Resource Provided Role Must Match</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch <em>Referenced Resource Required Role And Resource Provided Role Must Match</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch
+	 * @see #ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch
 	 * @generated
 	 */
-	private static OCLExpression ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatchInvOCL;
-	
+	private static OCLExpression ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatchInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -219,21 +219,21 @@ public abstract class ResourceProvidedRoleConnectorImpl extends AllocationConnec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatchInvOCL == null) {
+	public boolean ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatchInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole = self.resourceProvidedRole_ResourceProvidedRoleAllocationConnector.providedResourceInterface_ResourceProvidedRole ";
 			
 			try {
-				ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatchInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatchInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatchInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatchInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -243,8 +243,8 @@ public abstract class ResourceProvidedRoleConnectorImpl extends AllocationConnec
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 AllocationValidator.DIAGNOSTIC_SOURCE,
-						 AllocationValidator.RESOURCE_PROVIDED_ROLE_CONNECTOR__REFERENCED_RESOURCE_REQUIRED_ROLE_ROLE_AND_RESOURCE_PROVIDED_ROLE_MUST_MATCH,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch", EObjectValidator.getObjectLabel(this, context) }),
+						 AllocationValidator.RESOURCE_PROVIDED_ROLE_CONNECTOR__REFERENCED_RESOURCE_REQUIRED_ROLE_AND_RESOURCE_PROVIDED_ROLE_MUST_MATCH,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

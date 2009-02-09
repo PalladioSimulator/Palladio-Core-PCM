@@ -52,12 +52,12 @@ public class AllocationValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.allocation";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Referenced Resource Required Role Role And Resource Provided Role Must Match' of 'Resource Provided Role Connector'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Referenced Resource Required Role And Resource Provided Role Must Match' of 'Resource Provided Role Connector'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_PROVIDED_ROLE_CONNECTOR__REFERENCED_RESOURCE_REQUIRED_ROLE_ROLE_AND_RESOURCE_PROVIDED_ROLE_MUST_MATCH = 1;
+	public static final int RESOURCE_PROVIDED_ROLE_CONNECTOR__REFERENCED_RESOURCE_REQUIRED_ROLE_AND_RESOURCE_PROVIDED_ROLE_MUST_MATCH = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each Assembly Context Within System Has To Be Allocated Exactly Once' of 'Allocation'.
@@ -68,12 +68,12 @@ public class AllocationValidator extends EObjectValidator {
 	public static final int ALLOCATION__EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE = 2;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Uppest One' of 'Allocation'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Uppermost One' of 'Allocation'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int ALLOCATION__FOR_ALL_INFRASTRUCTURE_COMPONENT_SCOPES_ON_THE_SAME_RESOURCE_CONTAINER_ONLY_ONE_SCOPE_IS_THE_UPPEST_ONE = 3;
+	public static final int ALLOCATION__FOR_ALL_INFRASTRUCTURE_COMPONENT_SCOPES_ON_THE_SAME_RESOURCE_CONTAINER_ONLY_ONE_SCOPE_IS_THE_UPPERMOST_ONE = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Infrastructure Component Scopes On The Same Resource Container Only One Scope Is The Lowest One' of 'Allocation'.
@@ -116,12 +116,12 @@ public class AllocationValidator extends EObjectValidator {
 	public static final int INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_CONTAIN_REQUIRED_ROLES = 8;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Scope Must Not Be Part Of ACircle' of 'Infrastructure Component Scope'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Scope Must Not Be Part Of ACycle' of 'Infrastructure Component Scope'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_BE_PART_OF_ACIRCLE = 9;
+	public static final int INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_BE_PART_OF_ACYCLE = 9;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Scope Must Not Contain Resource Required Roles' of 'Infrastructure Component Scope'.
@@ -148,12 +148,20 @@ public class AllocationValidator extends EObjectValidator {
 	public static final int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_HAS_TO_BE_SET = 12;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Role Has To Belong To Infrastructure Component Scope' of 'Infrastructure Component Allocation Connector'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_HAS_TO_BELONG_TO_INFRASTRUCTURE_COMPONENT_SCOPE = 13;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -241,18 +249,18 @@ public class AllocationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(resourceProvidedRoleConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceProvidedRoleConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceProvidedRoleConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(resourceProvidedRoleConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(resourceProvidedRoleConnector, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch constraint of '<em>Resource Provided Role Connector</em>'.
+	 * Validates the ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch constraint of '<em>Resource Provided Role Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(ResourceProvidedRoleConnector resourceProvidedRoleConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return resourceProvidedRoleConnector.ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(diagnostics, context);
+	public boolean validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(ResourceProvidedRoleConnector resourceProvidedRoleConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceProvidedRoleConnector.ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(diagnostics, context);
 	}
 
 	/**
@@ -298,7 +306,7 @@ public class AllocationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= entityValidator.validateInterfaceProvidingEntity_NoInterfaceIsProvidedTwice(infrastructureComponentScope, diagnostics, context);
 		if (result || diagnostics != null) result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(infrastructureComponentScope, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureComponentScope_ScopeMustNotContainRequiredRoles(infrastructureComponentScope, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInfrastructureComponentScope_ScopeMustNotBePartOfACircle(infrastructureComponentScope, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInfrastructureComponentScope_ScopeMustNotBePartOfACycle(infrastructureComponentScope, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureComponentScope_ScopeMustNotContainResourceRequiredRoles(infrastructureComponentScope, diagnostics, context);
 		return result;
 	}
@@ -314,13 +322,13 @@ public class AllocationValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the ScopeMustNotBePartOfACircle constraint of '<em>Infrastructure Component Scope</em>'.
+	 * Validates the ScopeMustNotBePartOfACycle constraint of '<em>Infrastructure Component Scope</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInfrastructureComponentScope_ScopeMustNotBePartOfACircle(InfrastructureComponentScope infrastructureComponentScope, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return infrastructureComponentScope.ScopeMustNotBePartOfACircle(diagnostics, context);
+	public boolean validateInfrastructureComponentScope_ScopeMustNotBePartOfACycle(InfrastructureComponentScope infrastructureComponentScope, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return infrastructureComponentScope.ScopeMustNotBePartOfACycle(diagnostics, context);
 	}
 
 	/**
@@ -348,7 +356,7 @@ public class AllocationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(allocation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAllocation_ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne(allocation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAllocation_ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAllocation_ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheLowestOne(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAllocation_EachResourceRequiredRoleOfAComponentInAnInfrastructureComponentScopeHasToBeBound(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAllocation_ForEachResourceContainerAllResourceRequiredRolesOfAllControllerLayersHaveToBeBound(allocation, diagnostics, context);
@@ -368,13 +376,13 @@ public class AllocationValidator extends EObjectValidator {
 
 
 	/**
-	 * Validates the ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne constraint of '<em>Allocation</em>'.
+	 * Validates the ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne constraint of '<em>Allocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAllocation_ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return allocation.ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne(diagnostics, context);
+	public boolean validateAllocation_ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return allocation.ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne(diagnostics, context);
 	}
 
 	/**
@@ -433,6 +441,7 @@ public class AllocationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(infrastructureComponentAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureComponentAllocationConnector_ChildContextContainsRoleWithReferencedInterface(infrastructureComponentAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureComponentAllocationConnector_FromAssemblyContextHasToBeSet(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInfrastructureComponentAllocationConnector_ProvidedRoleHasToBelongToInfrastructureComponentScope(infrastructureComponentAllocationConnector, diagnostics, context);
 		return result;
 	}
 
@@ -454,6 +463,16 @@ public class AllocationValidator extends EObjectValidator {
 	 */
 	public boolean validateInfrastructureComponentAllocationConnector_FromAssemblyContextHasToBeSet(InfrastructureComponentAllocationConnector infrastructureComponentAllocationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return infrastructureComponentAllocationConnector.FromAssemblyContextHasToBeSet(diagnostics, context);
+	}
+
+	/**
+	 * Validates the ProvidedRoleHasToBelongToInfrastructureComponentScope constraint of '<em>Infrastructure Component Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureComponentAllocationConnector_ProvidedRoleHasToBelongToInfrastructureComponentScope(InfrastructureComponentAllocationConnector infrastructureComponentAllocationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return infrastructureComponentAllocationConnector.ProvidedRoleHasToBelongToInfrastructureComponentScope(diagnostics, context);
 	}
 
 } //AllocationValidator

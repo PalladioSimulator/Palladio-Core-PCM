@@ -49,7 +49,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#getAllLowerLayers <em>All Lower Layers</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.InfrastructureComponentScopeImpl#isIsPartOfCycle <em>Is Part Of Cycle</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,16 +72,6 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	 * @ordered
 	 */
 	protected InfrastructureComponentScope lowerLayer;
-	
-	/**
-	 * The cached value of the '{@link #getLowerLayer() <em>All Lower Layers</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAllLowerLayers()
-	 * @generated not
-	 * @ordered
-	 */
-	protected EList<InfrastructureComponentScope> allLowerLayers;
 
 	/**
 	 * The cached value of the '{@link #getUpperLayer() <em>Upper Layer</em>}' reference.
@@ -104,6 +94,16 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	protected ResourceContainer resourceContainer_InfrastructureComponentScope;
 
 	/**
+	 * The default value of the '{@link #isIsPartOfCycle() <em>Is Part Of Cycle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPartOfCycle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_PART_OF_CYCLE_EDEFAULT = false;
+
+	/**
 	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotContainRequiredRoles <em>Scope Must Not Contain Required Roles</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,13 +113,13 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	private static OCLExpression ScopeMustNotContainRequiredRolesInvOCL;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotBePartOfACircle <em>Scope Must Not Be Part Of ACircle</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotBePartOfACycle <em>Scope Must Not Be Part Of ACycle</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ScopeMustNotBePartOfACircle
+	 * @see #ScopeMustNotBePartOfACycle
 	 * @generated
 	 */
-	private static OCLExpression ScopeMustNotBePartOfACircleInvOCL;
+	private static OCLExpression ScopeMustNotBePartOfACycleInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ScopeMustNotContainResourceRequiredRoles <em>Scope Must Not Contain Resource Required Roles</em>}' invariant constraint.
@@ -180,13 +180,11 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
 	 */
 	public NotificationChain basicSetLowerLayer(InfrastructureComponentScope newLowerLayer, NotificationChain msgs) {
 		InfrastructureComponentScope oldLowerLayer = lowerLayer;
 		lowerLayer = newLowerLayer;
-		// Refresh allLowerLayers association as well
-		getAllLowerLayers();
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER, oldLowerLayer, newLowerLayer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -316,24 +314,27 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	 * <!-- end-user-doc -->
 	 * @generated not
 	 */
-	public EList<InfrastructureComponentScope> getAllLowerLayers() {
-		// Clear existing list, since this method may be called after lowerLayer association has been refreshed
-		allLowerLayers = new EObjectResolvingEList<InfrastructureComponentScope>(InfrastructureComponentScope.class, this, AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS);
-		// Search iteratively for lower layers. Stop if a cycle is found.
+	public boolean isIsPartOfCycle() {
+		// Search iteratively for lower layers. Stop if a cycle or the lowest layer is found.
 		InfrastructureComponentScope nextLayer = this.getLowerLayer();
-		if ((nextLayer != null) && nextLayer.equals(this)) {
-			allLowerLayers.add(nextLayer);
-			return allLowerLayers;
-		}
 		while (nextLayer!= null) {
 			if (nextLayer.equals(this)) {
-				allLowerLayers.add(nextLayer);
-				break;
+				return true;
 			}
-			allLowerLayers.add(nextLayer);
 			nextLayer = nextLayer.getLowerLayer();
-		}			
-		return allLowerLayers;
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsPartOfCycle(boolean newIsPartOfCycle) {
+		// TODO: implement this method to set the 'Is Part Of Cycle' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -380,21 +381,21 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ScopeMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ScopeMustNotBePartOfACircleInvOCL == null) {
+	public boolean ScopeMustNotBePartOfACycle(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ScopeMustNotBePartOfACycleInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "not self.allLowerLayers->includes(self)   ";
+			String body = "self.isPartOfCycle = false   ";
 			
 			try {
-				ScopeMustNotBePartOfACircleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ScopeMustNotBePartOfACycleInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ScopeMustNotBePartOfACircleInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ScopeMustNotBePartOfACycleInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -404,8 +405,8 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 AllocationValidator.DIAGNOSTIC_SOURCE,
-						 AllocationValidator.INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_BE_PART_OF_ACIRCLE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ScopeMustNotBePartOfACircle", EObjectValidator.getObjectLabel(this, context) }),
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_SCOPE__SCOPE_MUST_NOT_BE_PART_OF_ACYCLE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ScopeMustNotBePartOfACycle", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -506,8 +507,8 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
 				if (resolve) return getResourceContainer_InfrastructureComponentScope();
 				return basicGetResourceContainer_InfrastructureComponentScope();
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
-				return getAllLowerLayers();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE:
+				return isIsPartOfCycle() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -530,9 +531,8 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
 				setResourceContainer_InfrastructureComponentScope((ResourceContainer)newValue);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
-				getAllLowerLayers().clear();
-				getAllLowerLayers().addAll((Collection<? extends InfrastructureComponentScope>)newValue);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE:
+				setIsPartOfCycle(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -555,8 +555,8 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
 				setResourceContainer_InfrastructureComponentScope((ResourceContainer)null);
 				return;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
-				getAllLowerLayers().clear();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE:
+				setIsPartOfCycle(IS_PART_OF_CYCLE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -576,8 +576,8 @@ public class InfrastructureComponentScopeImpl extends ComposedProvidingRequiring
 				return upperLayer != null;
 			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE:
 				return resourceContainer_InfrastructureComponentScope != null;
-			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS:
-				return !getAllLowerLayers().isEmpty();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE:
+				return isIsPartOfCycle() != IS_PART_OF_CYCLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

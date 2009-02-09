@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import org.eclipse.emf.ecore.EAttribute;
 
 /**
  * <!-- begin-user-doc -->
@@ -434,13 +435,13 @@ public interface AllocationPackage extends EPackage {
 	int INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>All Lower Layers</b></em>' reference list.
+	 * The feature id for the '<em><b>Is Part Of Cycle</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 3;
+	int INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure Component Scope</em>' class.
@@ -655,15 +656,15 @@ public interface AllocationPackage extends EPackage {
 	EReference getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers <em>All Lower Layers</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#isIsPartOfCycle <em>Is Part Of Cycle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>All Lower Layers</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers()
+	 * @return the meta object for the attribute '<em>Is Part Of Cycle</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#isIsPartOfCycle()
 	 * @see #getInfrastructureComponentScope()
 	 * @generated
 	 */
-	EReference getInfrastructureComponentScope_AllLowerLayers();
+	EAttribute getInfrastructureComponentScope_IsPartOfCycle();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.Allocation <em>Allocation</em>}'.
@@ -897,12 +898,12 @@ public interface AllocationPackage extends EPackage {
 		EReference INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE = eINSTANCE.getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope();
 
 		/**
-		 * The meta object literal for the '<em><b>All Lower Layers</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Is Part Of Cycle</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS = eINSTANCE.getInfrastructureComponentScope_AllLowerLayers();
+		EAttribute INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE = eINSTANCE.getInfrastructureComponentScope_IsPartOfCycle();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}' class.

@@ -141,7 +141,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newResourceInterfaceProvidingEntity_ResourceProvidedRole != null)
-				msgs = ((InternalEObject)newResourceInterfaceProvidingEntity_ResourceProvidedRole).eInverseAdd(this, EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY, ResourceInterfaceProvidingEntity.class, msgs);
+				msgs = ((InternalEObject)newResourceInterfaceProvidingEntity_ResourceProvidedRole).eInverseAdd(this, EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY, ResourceInterfaceProvidingEntity.class, msgs);
 			msgs = basicSetResourceInterfaceProvidingEntity_ResourceProvidedRole(newResourceInterfaceProvidingEntity_ResourceProvidedRole, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -188,7 +188,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE:
-				return eInternalContainer().eInverseRemove(this, EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY, ResourceInterfaceProvidingEntity.class, msgs);
+				return eInternalContainer().eInverseRemove(this, EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY, ResourceInterfaceProvidingEntity.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

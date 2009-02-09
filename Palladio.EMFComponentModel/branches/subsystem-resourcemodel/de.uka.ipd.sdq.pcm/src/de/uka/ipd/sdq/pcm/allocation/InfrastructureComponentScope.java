@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getResourceContainer_InfrastructureComponentScope <em>Resource Container Infrastructure Component Scope</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#getAllLowerLayers <em>All Lower Layers</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#isIsPartOfCycle <em>Is Part Of Cycle</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,20 +138,30 @@ public interface InfrastructureComponentScope extends ComposedProvidingRequiring
 	void setResourceContainer_InfrastructureComponentScope(ResourceContainer value);
 
 	/**
-	 * Returns the value of the '<em><b>All Lower Layers</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope}.
+	 * Returns the value of the '<em><b>Is Part Of Cycle</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>All Lower Layers</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Is Part Of Cycle</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>All Lower Layers</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getInfrastructureComponentScope_AllLowerLayers()
-	 * @model transient="true" volatile="true" derived="true" ordered="false"
+	 * @return the value of the '<em>Is Part Of Cycle</em>' attribute.
+	 * @see #setIsPartOfCycle(boolean)
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getInfrastructureComponentScope_IsPartOfCycle()
+	 * @model required="true" transient="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
-	EList<InfrastructureComponentScope> getAllLowerLayers();
+	boolean isIsPartOfCycle();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope#isIsPartOfCycle <em>Is Part Of Cycle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Part Of Cycle</em>' attribute.
+	 * @see #isIsPartOfCycle()
+	 * @generated
+	 */
+	void setIsPartOfCycle(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,14 +178,14 @@ public interface InfrastructureComponentScope extends ComposedProvidingRequiring
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * not self.allLowerLayers->includes(self)
+	 * self.isPartOfCycle = false
 	 * --not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)
 	 * 
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean ScopeMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ScopeMustNotBePartOfACycle(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->

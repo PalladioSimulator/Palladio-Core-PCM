@@ -64,7 +64,7 @@
           xsi:type="gmfgen:FeatureLabelModelFacet"
           editPattern="">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/repository/Signature/serviceName"/>
+            href="../../pcm.genmodel#//pcm/repository/AbstractService/serviceName"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -101,7 +101,7 @@
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/resourcetype/ResourceService/serviceName"/>
+            href="../../pcm.genmodel#//pcm/repository/AbstractService/serviceName"/>
       </labelModelFacet>
     </childNodes>
     <childNodes

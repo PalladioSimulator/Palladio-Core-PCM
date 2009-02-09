@@ -111,18 +111,18 @@ public interface ResourceContainer extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() = 1
+	 * self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() <= 1
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean ForAllControllerLayersOnlyOneLayerIsTheUppestOne(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ForAllControllerLayersOnlyOneLayerIsTheUppermostOne(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.lowerLayer->asBag()->isEmpty())->size() = 1
+	 * self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.lowerLayer->asBag()->isEmpty())->size() <= 1
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

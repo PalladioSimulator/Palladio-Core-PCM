@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRole_ResourceInterfaceProvidingEntity <em>Resource Provided Role Resource Interface Providing Entity</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles_ResourceInterfaceProvidingEntity <em>Resource Provided Roles Resource Interface Providing Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,31 +41,21 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Resource Provided Role Resource Interface Providing Entity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getResourceInterfaceProvidingEntity_ResourceProvidedRole <em>Resource Interface Providing Entity Resource Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resource Provided Role Resource Interface Providing Entity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Resource Provided Roles Resource Interface Providing Entity</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Provided Role Resource Interface Providing Entity</em>' containment reference.
-	 * @see #setResourceProvidedRole_ResourceInterfaceProvidingEntity(ResourceProvidedRole)
-	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingEntity_ResourceProvidedRole_ResourceInterfaceProvidingEntity()
+	 * @return the value of the '<em>Resource Provided Roles Resource Interface Providing Entity</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity()
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getResourceInterfaceProvidingEntity_ResourceProvidedRole
-	 * @model opposite="resourceInterfaceProvidingEntity_ResourceProvidedRole" containment="true" required="true" ordered="false"
+	 * @model opposite="resourceInterfaceProvidingEntity_ResourceProvidedRole" containment="true" ordered="false"
 	 * @generated
 	 */
-	ResourceProvidedRole getResourceProvidedRole_ResourceInterfaceProvidingEntity();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRole_ResourceInterfaceProvidingEntity <em>Resource Provided Role Resource Interface Providing Entity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Provided Role Resource Interface Providing Entity</em>' containment reference.
-	 * @see #getResourceProvidedRole_ResourceInterfaceProvidingEntity()
-	 * @generated
-	 */
-	void setResourceProvidedRole_ResourceInterfaceProvidingEntity(ResourceProvidedRole value);
+	EList<ResourceProvidedRole> getResourceProvidedRoles_ResourceInterfaceProvidingEntity();
 
 } // ResourceInterfaceProvidingEntity

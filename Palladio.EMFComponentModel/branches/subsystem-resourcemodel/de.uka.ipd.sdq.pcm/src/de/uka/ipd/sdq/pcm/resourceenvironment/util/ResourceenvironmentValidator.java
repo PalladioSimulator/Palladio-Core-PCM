@@ -52,12 +52,12 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.resourceenvironment";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Controller Layers Only One Layer Is The Uppest One' of 'Resource Container'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Controller Layers Only One Layer Is The Uppermost One' of 'Resource Container'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_UPPEST_ONE = 1;
+	public static final int RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_UPPERMOST_ONE = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'For All Controller Layers Only One Layer Is The Lowest One' of 'Resource Container'.
@@ -167,7 +167,7 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(controllerAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(controllerAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(controllerAllocationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= allocationValidator.validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(controllerAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= allocationValidator.validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(controllerAllocationConnector, diagnostics, context);
 		return result;
 	}
 
@@ -237,7 +237,7 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(resourceAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceAllocationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceAllocationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= allocationValidator.validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch(resourceAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= allocationValidator.validateResourceProvidedRoleConnector_ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch(resourceAllocationConnector, diagnostics, context);
 		return result;
 	}
 
@@ -255,19 +255,19 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceContainer, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceContainer, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceContainer_ForAllControllerLayersOnlyOneLayerIsTheUppestOne(resourceContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceContainer_ForAllControllerLayersOnlyOneLayerIsTheUppermostOne(resourceContainer, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceContainer_ForAllControllerLayersOnlyOneLayerIsTheLowestOne(resourceContainer, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the ForAllControllerLayersOnlyOneLayerIsTheUppestOne constraint of '<em>Resource Container</em>'.
+	 * Validates the ForAllControllerLayersOnlyOneLayerIsTheUppermostOne constraint of '<em>Resource Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateResourceContainer_ForAllControllerLayersOnlyOneLayerIsTheUppestOne(ResourceContainer resourceContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return resourceContainer.ForAllControllerLayersOnlyOneLayerIsTheUppestOne(diagnostics, context);
+	public boolean validateResourceContainer_ForAllControllerLayersOnlyOneLayerIsTheUppermostOne(ResourceContainer resourceContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceContainer.ForAllControllerLayersOnlyOneLayerIsTheUppermostOne(diagnostics, context);
 	}
 
 	/**

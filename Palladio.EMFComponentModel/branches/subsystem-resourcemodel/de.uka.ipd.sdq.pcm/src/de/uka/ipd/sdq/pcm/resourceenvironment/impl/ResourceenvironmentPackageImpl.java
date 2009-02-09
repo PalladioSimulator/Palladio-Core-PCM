@@ -653,7 +653,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEReference(getResourceContainer_ControllerInstances_ResourceContainer(), this.getControllerInstance(), null, "controllerInstances_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceContainer_ControllerStack_ResourceContainer(), theResourcetypePackage.getControllerStack(), null, "controllerStack_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(resourceContainerEClass, ecorePackage.getEBoolean(), "ForAllControllerLayersOnlyOneLayerIsTheUppestOne", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(resourceContainerEClass, ecorePackage.getEBoolean(), "ForAllControllerLayersOnlyOneLayerIsTheUppermostOne", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());

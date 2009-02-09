@@ -58,6 +58,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.units.UnitsPackage;
+import org.eclipse.emf.ecore.EAttribute;
 
 /**
  * <!-- begin-user-doc -->
@@ -373,8 +374,8 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructureComponentScope_AllLowerLayers() {
-		return (EReference)infrastructureComponentScopeEClass.getEStructuralFeatures().get(3);
+	public EAttribute getInfrastructureComponentScope_IsPartOfCycle() {
+		return (EAttribute)infrastructureComponentScopeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -509,7 +510,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		createEReference(infrastructureComponentScopeEClass, INFRASTRUCTURE_COMPONENT_SCOPE__LOWER_LAYER);
 		createEReference(infrastructureComponentScopeEClass, INFRASTRUCTURE_COMPONENT_SCOPE__UPPER_LAYER);
 		createEReference(infrastructureComponentScopeEClass, INFRASTRUCTURE_COMPONENT_SCOPE__RESOURCE_CONTAINER_INFRASTRUCTURE_COMPONENT_SCOPE);
-		createEReference(infrastructureComponentScopeEClass, INFRASTRUCTURE_COMPONENT_SCOPE__ALL_LOWER_LAYERS);
+		createEAttribute(infrastructureComponentScopeEClass, INFRASTRUCTURE_COMPONENT_SCOPE__IS_PART_OF_CYCLE);
 
 		infrastructureComponentAllocationConnectorEClass = createEClass(INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR);
 		createEReference(infrastructureComponentAllocationConnectorEClass, INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_ALLOCATION_CONNECTOR);
@@ -565,7 +566,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		initEReference(getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector(), theResourcetypePackage.getResourceProvidedRole(), null, "resourceProvidedRole_ResourceProvidedRoleAllocationConnector", null, 1, 1, ResourceProvidedRoleConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceProvidedRoleConnector_FromControllerInstance_ControllerAllocationConnector(), theResourceenvironmentPackage.getControllerInstance(), theResourceenvironmentPackage.getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance(), "fromControllerInstance_ControllerAllocationConnector", null, 0, 1, ResourceProvidedRoleConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(resourceProvidedRoleConnectorEClass, ecorePackage.getEBoolean(), "ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(resourceProvidedRoleConnectorEClass, ecorePackage.getEBoolean(), "ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -598,7 +599,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(allocationEClass, ecorePackage.getEBoolean(), "ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(allocationEClass, ecorePackage.getEBoolean(), "ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -647,7 +648,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		initEReference(getInfrastructureComponentScope_LowerLayer(), this.getInfrastructureComponentScope(), this.getInfrastructureComponentScope_UpperLayer(), "lowerLayer", null, 0, 1, InfrastructureComponentScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInfrastructureComponentScope_UpperLayer(), this.getInfrastructureComponentScope(), this.getInfrastructureComponentScope_LowerLayer(), "upperLayer", null, 0, 1, InfrastructureComponentScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInfrastructureComponentScope_ResourceContainer_InfrastructureComponentScope(), theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer_InfrastructureComponentScope", null, 1, 1, InfrastructureComponentScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInfrastructureComponentScope_AllLowerLayers(), this.getInfrastructureComponentScope(), null, "allLowerLayers", null, 0, -1, InfrastructureComponentScope.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getInfrastructureComponentScope_IsPartOfCycle(), ecorePackage.getEBoolean(), "isPartOfCycle", null, 1, 1, InfrastructureComponentScope.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(infrastructureComponentScopeEClass, ecorePackage.getEBoolean(), "ScopeMustNotContainRequiredRoles", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -658,7 +659,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(infrastructureComponentScopeEClass, ecorePackage.getEBoolean(), "ScopeMustNotBePartOfACircle", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(infrastructureComponentScopeEClass, ecorePackage.getEBoolean(), "ScopeMustNotBePartOfACycle", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -690,6 +691,15 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(infrastructureComponentAllocationConnectorEClass, ecorePackage.getEBoolean(), "FromAssemblyContextHasToBeSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(infrastructureComponentAllocationConnectorEClass, ecorePackage.getEBoolean(), "ProvidedRoleHasToBelongToInfrastructureComponentScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());

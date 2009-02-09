@@ -162,7 +162,7 @@ public interface Allocation extends Entity {
 	 * @model
 	 * @generated
 	 */
-	boolean ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,7 +193,7 @@ public interface Allocation extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.targetResourceEnvironment_Allocation.resourceContainer_ResourceEnvironment->forAll(container|container.controllerInstance_ResourceContainer->forAll(contrInst|contrInst.controllerLayer_ControllerInstance.controllerType_ControllerLayer.resourceRequiredRoles_ResourceInterfaceRequiringEntity->forAll(role|self.allocationConnectors_Allocation->exists(connector|connector.oclIsKindOf(ResourceProvidedRoleConnector) and connector.oclAsType(ResourceProvidedRoleConnector).resourceProvidedRole_ResourceProvidedRoleAllocationConnector = role))))
+	 * self.targetResourceEnvironment_Allocation.resourceContainer_ResourceEnvironment->forAll(container|container.controllerInstances_ResourceContainer->forAll(contrInst|contrInst.controllerLayer_ControllerInstance.controllerType_ControllerLayer.resourceRequiredRoles_ResourceInterfaceRequiringEntity->forAll(role|self.allocationConnectors_Allocation->exists(connector|connector.oclIsKindOf(ResourceProvidedRoleConnector) and connector.oclAsType(ResourceProvidedRoleConnector).resourceProvidedRole_ResourceProvidedRoleAllocationConnector = role))))
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

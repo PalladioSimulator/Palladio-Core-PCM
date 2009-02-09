@@ -40,7 +40,7 @@
             <diagramLabel
                 href="repository.gmfgraph#SignatureServiceName"/>
             <features
-                href="../../pcm.ecore#//repository/Signature/serviceName"/>
+                href="../../pcm.ecore#//repository/AbstractService/serviceName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -91,7 +91,7 @@
             <diagramLabel
                 href="repository.gmfgraph#ResourceServiceServiceName"/>
             <features
-                href="../../pcm.ecore#//resourcetype/ResourceService/serviceName"/>
+                href="../../pcm.ecore#//repository/AbstractService/serviceName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

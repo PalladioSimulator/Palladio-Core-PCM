@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#isIsPartOfCycle <em>Is Part Of Cycle</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getUpperLayer <em>Upper Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getLowerLayer <em>Lower Layer</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerLayer <em>Controller Type Controller Layer</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getAllLowerLayers <em>All Lower Layers</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +45,32 @@ public interface ControllerLayer extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>Is Part Of Cycle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Part Of Cycle</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Part Of Cycle</em>' attribute.
+	 * @see #setIsPartOfCycle(boolean)
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getControllerLayer_IsPartOfCycle()
+	 * @model required="true" transient="true" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	boolean isIsPartOfCycle();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#isIsPartOfCycle <em>Is Part Of Cycle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Part Of Cycle</em>' attribute.
+	 * @see #isIsPartOfCycle()
+	 * @generated
+	 */
+	void setIsPartOfCycle(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Upper Layer</b></em>' reference.
@@ -129,30 +155,14 @@ public interface ControllerLayer extends EObject {
 	void setControllerType_ControllerLayer(ControllerType value);
 
 	/**
-	 * Returns the value of the '<em><b>All Lower Layers</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>All Lower Layers</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>All Lower Layers</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getControllerLayer_AllLowerLayers()
-	 * @model transient="true" volatile="true" derived="true" ordered="false"
-	 * @generated
-	 */
-	EList<ControllerLayer> getAllLowerLayers();
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * not self.allLowerLayers->includes(self)
+	 * self.isPartOfCycle = false
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean ControllerLayerMustNotBePartOfACircle(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ControllerLayerMustNotBePartOfACycle(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ControllerLayer

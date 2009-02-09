@@ -133,6 +133,15 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 	 */
 	private static OCLExpression FromAssemblyContextHasToBeSetInvOCL;
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ProvidedRoleHasToBelongToInfrastructureComponentScope <em>Provided Role Has To Belong To Infrastructure Component Scope</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ProvidedRoleHasToBelongToInfrastructureComponentScope
+	 * @generated
+	 */
+	private static OCLExpression ProvidedRoleHasToBelongToInfrastructureComponentScopeInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -376,6 +385,45 @@ public class InfrastructureComponentAllocationConnectorImpl extends ConnectorImp
 						 AllocationValidator.DIAGNOSTIC_SOURCE,
 						 AllocationValidator.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__FROM_ASSEMBLY_CONTEXT_HAS_TO_BE_SET,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "FromAssemblyContextHasToBeSet", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ProvidedRoleHasToBelongToInfrastructureComponentScope(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ProvidedRoleHasToBelongToInfrastructureComponentScopeInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.providedRoles_InterfaceProvidingEntity->exists(role | role = self.providedRole_AllocationConnector) ";
+			
+			try {
+				ProvidedRoleHasToBelongToInfrastructureComponentScopeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ProvidedRoleHasToBelongToInfrastructureComponentScopeInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 AllocationValidator.DIAGNOSTIC_SOURCE,
+						 AllocationValidator.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__PROVIDED_ROLE_HAS_TO_BELONG_TO_INFRASTRUCTURE_COMPONENT_SCOPE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvidedRoleHasToBelongToInfrastructureComponentScope", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

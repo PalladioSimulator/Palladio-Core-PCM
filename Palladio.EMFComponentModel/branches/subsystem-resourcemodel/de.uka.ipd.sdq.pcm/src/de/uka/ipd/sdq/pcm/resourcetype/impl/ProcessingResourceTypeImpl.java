@@ -29,7 +29,7 @@ import org.eclipse.emf.common.notify.Notification;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl#getResourceProvidedRole_ResourceInterfaceProvidingEntity <em>Resource Provided Role Resource Interface Providing Entity</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl#getResourceProvidedRoles_ResourceInterfaceProvidingEntity <em>Resource Provided Roles Resource Interface Providing Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,14 +44,14 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getResourceProvidedRole_ResourceInterfaceProvidingEntity() <em>Resource Provided Role Resource Interface Providing Entity</em>}' containment reference.
+	 * The cached value of the '{@link #getResourceProvidedRoles_ResourceInterfaceProvidingEntity() <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceProvidedRole_ResourceInterfaceProvidingEntity()
+	 * @see #getResourceProvidedRoles_ResourceInterfaceProvidingEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceProvidedRole resourceProvidedRole_ResourceInterfaceProvidingEntity;
+	protected EList<ResourceProvidedRole> resourceProvidedRoles_ResourceInterfaceProvidingEntity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,42 +77,11 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceProvidedRole getResourceProvidedRole_ResourceInterfaceProvidingEntity() {
-		return resourceProvidedRole_ResourceInterfaceProvidingEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResourceProvidedRole_ResourceInterfaceProvidingEntity(ResourceProvidedRole newResourceProvidedRole_ResourceInterfaceProvidingEntity, NotificationChain msgs) {
-		ResourceProvidedRole oldResourceProvidedRole_ResourceInterfaceProvidingEntity = resourceProvidedRole_ResourceInterfaceProvidingEntity;
-		resourceProvidedRole_ResourceInterfaceProvidingEntity = newResourceProvidedRole_ResourceInterfaceProvidingEntity;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY, oldResourceProvidedRole_ResourceInterfaceProvidingEntity, newResourceProvidedRole_ResourceInterfaceProvidingEntity);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ResourceProvidedRole> getResourceProvidedRoles_ResourceInterfaceProvidingEntity() {
+		if (resourceProvidedRoles_ResourceInterfaceProvidingEntity == null) {
+			resourceProvidedRoles_ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(ResourceProvidedRole.class, this, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY, ResourcetypePackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResourceProvidedRole_ResourceInterfaceProvidingEntity(ResourceProvidedRole newResourceProvidedRole_ResourceInterfaceProvidingEntity) {
-		if (newResourceProvidedRole_ResourceInterfaceProvidingEntity != resourceProvidedRole_ResourceInterfaceProvidingEntity) {
-			NotificationChain msgs = null;
-			if (resourceProvidedRole_ResourceInterfaceProvidingEntity != null)
-				msgs = ((InternalEObject)resourceProvidedRole_ResourceInterfaceProvidingEntity).eInverseRemove(this, ResourcetypePackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE, ResourceProvidedRole.class, msgs);
-			if (newResourceProvidedRole_ResourceInterfaceProvidingEntity != null)
-				msgs = ((InternalEObject)newResourceProvidedRole_ResourceInterfaceProvidingEntity).eInverseAdd(this, ResourcetypePackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE, ResourceProvidedRole.class, msgs);
-			msgs = basicSetResourceProvidedRole_ResourceInterfaceProvidingEntity(newResourceProvidedRole_ResourceInterfaceProvidingEntity, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY, newResourceProvidedRole_ResourceInterfaceProvidingEntity, newResourceProvidedRole_ResourceInterfaceProvidingEntity));
+		return resourceProvidedRoles_ResourceInterfaceProvidingEntity;
 	}
 
 	/**
@@ -124,10 +93,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				if (resourceProvidedRole_ResourceInterfaceProvidingEntity != null)
-					msgs = ((InternalEObject)resourceProvidedRole_ResourceInterfaceProvidingEntity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY, null, msgs);
-				return basicSetResourceProvidedRole_ResourceInterfaceProvidingEntity((ResourceProvidedRole)otherEnd, msgs);
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceProvidedRoles_ResourceInterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -140,8 +107,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				return basicSetResourceProvidedRole_ResourceInterfaceProvidingEntity(null, msgs);
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList<?>)getResourceProvidedRoles_ResourceInterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -154,8 +121,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				return getResourceProvidedRole_ResourceInterfaceProvidingEntity();
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				return getResourceProvidedRoles_ResourceInterfaceProvidingEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,8 +136,9 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				setResourceProvidedRole_ResourceInterfaceProvidingEntity((ResourceProvidedRole)newValue);
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				getResourceProvidedRoles_ResourceInterfaceProvidingEntity().clear();
+				getResourceProvidedRoles_ResourceInterfaceProvidingEntity().addAll((Collection<? extends ResourceProvidedRole>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,8 +152,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				setResourceProvidedRole_ResourceInterfaceProvidingEntity((ResourceProvidedRole)null);
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				getResourceProvidedRoles_ResourceInterfaceProvidingEntity().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -199,8 +167,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				return resourceProvidedRole_ResourceInterfaceProvidingEntity != null;
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				return resourceProvidedRoles_ResourceInterfaceProvidingEntity != null && !resourceProvidedRoles_ResourceInterfaceProvidingEntity.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,7 +182,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ResourceInterfaceProvidingEntity.class) {
 			switch (derivedFeatureID) {
-				case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY: return EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY;
+				case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY: return EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
 				default: return -1;
 			}
 		}
@@ -230,7 +198,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ResourceInterfaceProvidingEntity.class) {
 			switch (baseFeatureID) {
-				case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY: return ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY;
+				case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY: return ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
 				default: return -1;
 			}
 		}

@@ -91,13 +91,13 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	protected ControllerStack controllerStack_ResourceContainer;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ForAllControllerLayersOnlyOneLayerIsTheUppestOne <em>For All Controller Layers Only One Layer Is The Uppest One</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ForAllControllerLayersOnlyOneLayerIsTheUppermostOne <em>For All Controller Layers Only One Layer Is The Uppermost One</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ForAllControllerLayersOnlyOneLayerIsTheUppestOne
+	 * @see #ForAllControllerLayersOnlyOneLayerIsTheUppermostOne
 	 * @generated
 	 */
-	private static OCLExpression ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL;
+	private static OCLExpression ForAllControllerLayersOnlyOneLayerIsTheUppermostOneInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ForAllControllerLayersOnlyOneLayerIsTheLowestOne <em>For All Controller Layers Only One Layer Is The Lowest One</em>}' invariant constraint.
@@ -196,21 +196,21 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ForAllControllerLayersOnlyOneLayerIsTheUppestOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL == null) {
+	public boolean ForAllControllerLayersOnlyOneLayerIsTheUppermostOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ForAllControllerLayersOnlyOneLayerIsTheUppermostOneInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() <= 1 ";
 			
 			try {
-				ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ForAllControllerLayersOnlyOneLayerIsTheUppermostOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ForAllControllerLayersOnlyOneLayerIsTheUppestOneInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ForAllControllerLayersOnlyOneLayerIsTheUppermostOneInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -220,8 +220,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 ResourceenvironmentValidator.DIAGNOSTIC_SOURCE,
-						 ResourceenvironmentValidator.RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_UPPEST_ONE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllControllerLayersOnlyOneLayerIsTheUppestOne", EObjectValidator.getObjectLabel(this, context) }),
+						 ResourceenvironmentValidator.RESOURCE_CONTAINER__FOR_ALL_CONTROLLER_LAYERS_ONLY_ONE_LAYER_IS_THE_UPPERMOST_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ForAllControllerLayersOnlyOneLayerIsTheUppermostOne", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

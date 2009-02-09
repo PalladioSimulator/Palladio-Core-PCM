@@ -107,8 +107,8 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="All Entities that provide a ResourceInterface are represented by this class. Inheriting classes are Controllers which manage resource access and ProcessingResourceTypes.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;ResourceInterface, InterfaceProvidingEntity, ResourceProvidedRole"/>
         </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRole_ResourceInterfaceProvidingEntity"
-            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceProvidedRole"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRoles_ResourceInterfaceProvidingEntity"
+            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceProvidedRole"
             containment="true" eOpposite="#//resourcetype/ResourceProvidedRole/resourceInterfaceProvidingEntity_ResourceProvidedRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
@@ -1076,9 +1076,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity is used for stacking Controllers. Any resource access on this ResourceContainer first has to go through the &#xD;&#xA;ControllerLayers before it is issued to resources: If a Component specifies a ResourceDemand, it has to specify the ResourceService of the corresponding ResourceInterface.&#xD;&#xA;Then, the most upper ControllerLayer is being checked if its ControllerType provides the same ResourceInterface. If it provides the ResourceInterface, the resource demand is being issued &#xD;&#xA;to the Controller. Otherwise, the search is being repeated for the next ControllerLayer (lowerLayer). The last ControllerLayer does not have a further innerLayer reference. Instead, the &#xD;&#xA;ProcessingResourceType is being accessed.&#xD;&#xA;This lookup occurs before simulation (automatically) and creates appropriate AllocationConnectors."/>
       </eAnnotations>
-      <eOperations name="ControllerLayerMustNotBePartOfACircle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="ControllerLayerMustNotBePartOfACycle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="not self.allLowerLayers->includes(self)"/>
+          <details key="documentation" value="self.isPartOfCycle = false"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1095,15 +1095,15 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPartOfCycle" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          volatile="true" transient="true" derived="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="upperLayer" ordered="false"
           eType="#//resourcetype/ControllerLayer" eOpposite="#//resourcetype/ControllerLayer/lowerLayer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="lowerLayer" ordered="false"
           eType="#//resourcetype/ControllerLayer" eOpposite="#//resourcetype/ControllerLayer/upperLayer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="controllerType_ControllerLayer"
           ordered="false" lowerBound="1" eType="#//resourcetype/ControllerType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allLowerLayers" ordered="false"
-          upperBound="-1" eType="#//resourcetype/ControllerLayer" volatile="true"
-          transient="true" derived="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ControllerType" eSuperTypes="#//core/entity/ResourceInterfaceRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1118,7 +1118,7 @@
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity_ResourceProvidedRole"
           ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceProvidingEntity"
-          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRole_ResourceInterfaceProvidingEntity"/>
+          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceInterface" eSuperTypes="#//repository/AbstractInterface">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1512,7 +1512,7 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. &#xD;&#xA;It assigns the demand specified as a Random-Variable to a ResourceService, which is part of a ResourceInterface (e.g. ICpuInterface, IHddInterface) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification is being accessed by a Controller which manages resource access. The controller specifies a &#xD;&#xA;processing rate for demands (e.g., 1000 WorkUnits/s, 20 MB/s), which is used in analysis to &#xD;&#xA;compute an actual timing value in seconds. This timing value for example can be the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. &#xD;&#xA;It assigns the demand specified as a Random-Variable to a ResourceService, which is part of a ResourceInterface (e.g. ICpuInterface, IHddInterface) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification is being accessed by a Controller which manages resource access. The controller specifies a &#xD;&#xA;processing rate for demands (e.g., 1000 WorkUnits/s, 20 MB/s), which is used in analysis to &#xD;&#xA;compute an actual timing value in seconds. This timing value for example can be the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2A􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 A􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1533,7 +1533,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This abstract class represents all AllocationConnectors that are connected with an entity that provides a ResourceInterface. i. e. a Controller or a Resource. Either it connects from a component (business component or infrastructure component), then the &quot;fromAssemblyContext_AllocationConnector&quot; assocatiation is used, or it connects from a controller, then the &quot;fromControllerInstance_ControllerAllocationConnector&quot; association is used."/>
       </eAnnotations>
-      <eOperations name="ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch"
+      <eOperations name="ReferencedResourceRequiredRoleAndResourceProvidedRoleMustMatch"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole = self.resourceProvidedRole_ResourceProvidedRoleAllocationConnector.providedResourceInterface_ResourceProvidedRole"/>
@@ -1594,7 +1594,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppestOne"
+      <eOperations name="ForAllInfrastructureComponentScopesOnTheSameResourceContainerOnlyOneScopeIsTheUppermostOne"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="(self.infrastructureComponentScopes_Allocation->select(scope|scope.upperLayer->asBag()->isEmpty()))->forAll(scope1, scope2| scope1 &lt;> scope2 implies scope1.resourceContainer_InfrastructureComponentScope &lt;> scope2.resourceContainer_InfrastructureComponentScope)"/>
@@ -1657,7 +1657,7 @@
       <eOperations name="ForEachResourceContainerAllResourceRequiredRolesOfAllControllerLayersHaveToBeBound"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.targetResourceEnvironment_Allocation.resourceContainer_ResourceEnvironment->forAll(container|container.controllerInstance_ResourceContainer->forAll(contrInst|contrInst.controllerLayer_ControllerInstance.controllerType_ControllerLayer.resourceRequiredRoles_ResourceInterfaceRequiringEntity->forAll(role|self.allocationConnectors_Allocation->exists(connector|connector.oclIsKindOf(ResourceProvidedRoleConnector) and connector.oclAsType(ResourceProvidedRoleConnector).resourceProvidedRole_ResourceProvidedRoleAllocationConnector = role))))"/>
+          <details key="documentation" value="self.targetResourceEnvironment_Allocation.resourceContainer_ResourceEnvironment->forAll(container|container.controllerInstances_ResourceContainer->forAll(contrInst|contrInst.controllerLayer_ControllerInstance.controllerType_ControllerLayer.resourceRequiredRoles_ResourceInterfaceRequiringEntity->forAll(role|self.allocationConnectors_Allocation->exists(connector|connector.oclIsKindOf(ResourceProvidedRoleConnector) and connector.oclAsType(ResourceProvidedRoleConnector).resourceProvidedRole_ResourceProvidedRoleAllocationConnector = role))))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1731,9 +1731,9 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="ScopeMustNotBePartOfACircle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="ScopeMustNotBePartOfACycle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="not self.allLowerLayers->includes(self)&#xD;&#xA;--not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)&#xD;&#xA;"/>
+          <details key="documentation" value="self.isPartOfCycle = false&#xD;&#xA;--not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)&#xD;&#xA;"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1775,9 +1775,9 @@
           eType="#//allocation/InfrastructureComponentScope" eOpposite="#//allocation/InfrastructureComponentScope/lowerLayer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_InfrastructureComponentScope"
           ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allLowerLayers" ordered="false"
-          upperBound="-1" eType="#//allocation/InfrastructureComponentScope" volatile="true"
-          transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPartOfCycle" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          volatile="true" transient="true" derived="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponentAllocationConnector"
         eSuperTypes="#//core/connectors/Connector #//allocation/AllocationConnector">
@@ -1806,6 +1806,25 @@
       <eOperations name="FromAssemblyContextHasToBeSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.fromAssemblyContext_AllocationConnector->size() = 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="ProvidedRoleHasToBelongToInfrastructureComponentScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.toInfrastructureComponentScope_InfrastructureComponentAllocationConnector.providedRoles_InterfaceProvidingEntity->exists(role | role = self.providedRole_AllocationConnector)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1857,9 +1876,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A ResourceContainer denotes a physical machine which contains resources and on which components are deployed.&#xD;&#xA;It contains ProcessingResourceSpecifications which describe the deployed resources, as well as ControllerInstances, which are instances of controller types.&#xD;&#xA;Controller instances are layered. Such layered controllers can be reused (see ControllerStack)&#xD;&#xA;If no controllers are reused, ControllerInstances can be specified nevertheless.&#xD;&#xA;Two ResourceContainers can be connected by a LinkingResource, which denotes some kind of network connection."/>
       </eAnnotations>
-      <eOperations name="ForAllControllerLayersOnlyOneLayerIsTheUppestOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="ForAllControllerLayersOnlyOneLayerIsTheUppermostOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() = 1"/>
+          <details key="documentation" value="self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.upperLayer->asBag()->isEmpty())->size() &lt;= 1"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1878,7 +1897,7 @@
       </eOperations>
       <eOperations name="ForAllControllerLayersOnlyOneLayerIsTheLowestOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.lowerLayer->asBag()->isEmpty())->size() = 1"/>
+          <details key="documentation" value="self.controllerInstances_ResourceContainer->select(instance|instance.controllerLayer_ControllerInstance.lowerLayer->asBag()->isEmpty())->size() &lt;= 1"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
