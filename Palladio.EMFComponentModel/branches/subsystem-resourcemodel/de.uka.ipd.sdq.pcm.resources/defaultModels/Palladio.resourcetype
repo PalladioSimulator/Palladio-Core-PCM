@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_okLRMNE2Ed2AbYrIJeVc1w" entityName="CPU">
-    <resourceProvidedRole_ResourceInterfaceProvidingEntity id="_6XErENE2Ed2AbYrIJeVc1w" entityName="cpuRole">
+    <resourceProvidedRoles_ResourceInterfaceProvidingEntity id="_6XErENE2Ed2AbYrIJeVc1w" entityName="cpuRole">
       <providedResourceInterface_ResourceProvidedRole href="pathmap://PCM_MODELS/ResourceInterfaces.repository#_9GyUb7JPEd2fubW_lvKw1w"/>
-    </resourceProvidedRole_ResourceInterfaceProvidingEntity>
+    </resourceProvidedRoles_ResourceInterfaceProvidingEntity>
   </availableResourceTypes_ResourceRepository>
   <availableResourceTypes_ResourceRepository xsi:type="CommunicationLinkResourceType" id="_rAVxodE2Ed2AbYrIJeVc1w" entityName="LAN"/>
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_r_YMwNE2Ed2AbYrIJeVc1w" entityName="HDD">
-    <resourceProvidedRole_ResourceInterfaceProvidingEntity id="_F1ZvkNE3Ed2AbYrIJeVc1w" entityName="hddRole">
+    <resourceProvidedRoles_ResourceInterfaceProvidingEntity id="_F1ZvkNE3Ed2AbYrIJeVc1w" entityName="hddRole">
       <providedResourceInterface_ResourceProvidedRole href="pathmap://PCM_MODELS/ResourceInterfaces.repository#_Gh15lrJQEd2fubW_lvKw1w"/>
-    </resourceProvidedRole_ResourceInterfaceProvidingEntity>
+    </resourceProvidedRoles_ResourceInterfaceProvidingEntity>
   </availableResourceTypes_ResourceRepository>
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_HuZ4kNE3Ed2AbYrIJeVc1w" entityName="DELAY">
-    <resourceProvidedRole_ResourceInterfaceProvidingEntity id="_Irpj9NE3Ed2AbYrIJeVc1w" entityName="delayRole">
+    <resourceProvidedRoles_ResourceInterfaceProvidingEntity id="_Irpj9NE3Ed2AbYrIJeVc1w" entityName="delayRole">
       <providedResourceInterface_ResourceProvidedRole href="pathmap://PCM_MODELS/ResourceInterfaces.repository#_9GyUb7JPEd2fubW_lvKw1w"/>
-    </resourceProvidedRole_ResourceInterfaceProvidingEntity>
+    </resourceProvidedRoles_ResourceInterfaceProvidingEntity>
   </availableResourceTypes_ResourceRepository>
 </ResourceRepository>
