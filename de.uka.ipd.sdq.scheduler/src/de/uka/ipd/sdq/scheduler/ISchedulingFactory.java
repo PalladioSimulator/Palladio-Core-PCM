@@ -8,6 +8,12 @@ import scheduler.configuration.ProcessConfiguration;
 public interface ISchedulingFactory {
 	
 	public static ISchedulingFactory eINSTANCE = new SchedulingFactory();
+	
+	public IActiveResource createSimFCFSResource(String resourceName, String resourceId);
+	
+	public IActiveResource createSimDelayResource(String resourceName, String resourceId);
+	
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId);
 
 	public abstract IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration);

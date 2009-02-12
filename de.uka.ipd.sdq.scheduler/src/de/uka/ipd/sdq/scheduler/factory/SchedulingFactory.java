@@ -98,26 +98,39 @@ public class SchedulingFactory implements ISchedulingFactory {
 		IActiveResource resource = (IActiveResource) active_resource_map
 				.get(configuration.getId());
 		if (resource == null) {
-			if (configuration.getReplicas() == -1) {
-				resource = new SimDelayResource(configuration.getName(),
-						configuration.getId());
-			} else if (configuration.getReplicas() == -2) {
-				resource = new SimProcessorSharingResource(configuration
-						.getName(), configuration.getId(), configuration
-						.getReplicas());
-			} else if (configuration.getReplicas() == -3) {
-				resource = new SimFCFSResource(configuration
-						.getName(), configuration.getId(), configuration
-						.getReplicas());
-			} else {
 				resource = new SimActiveResource(configuration.getReplicas(),
 						configuration.getName(), configuration.getId());
 				IScheduler scheduler = createScheduler(configuration
 						.getSchedulerConfiguration(), resource);
 				((SimActiveResource) resource).setScheduler(scheduler);
-			}
 			active_resource_map.put(configuration.getId(), resource);
 		}
+		return resource;
+	}
+	
+	
+	public IActiveResource createSimFCFSResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimFCFSResource(resourceName, resourceId, 1);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
+	
+	public IActiveResource createSimDelayResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimDelayResource(resourceName, resourceId);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
+
+	
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimProcessorSharingResource(resourceName, resourceId, 1);
+		active_resource_map.put(resourceId, resource);
 		return resource;
 	}
 
