@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.featureinstance;
 
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -15,6 +18,44 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.ui.IEditorPart;
 
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+
+class InstanceValidateAction extends ValidateAction {
+	
+	ConfigNode configRoot;
+	
+	@Override
+	public void run() {
+			Diagnostician diagnostician = new Diagnostician();
+			Diagnostic d = diagnostician.validate(configRoot);
+			switch (d.getSeverity()) {
+			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
+			case Diagnostic.ERROR: System.out.println("Validation error"); break;
+			case Diagnostic.WARNING: System.out.println("Validation warning"); break;
+			default: System.out.println("Validation cancelled");
+			}
+			for (Diagnostic child : d.getChildren()) {
+				System.out.println(child.getMessage());
+			}
+			System.out.println(d.getMessage());
+	}
+	
+	public void setConfiguration (FeatureConfig config, FeatureDiagram diagram) {
+		EList<ConfigNode> list = config.getConfignode();
+		
+		for (ConfigNode current : list) {
+			if (current.getOrigin().equals(diagram.getRootFeature())) {
+				configRoot = current;
+			}
+		}
+		
+		
+		
+	}
+
+}
 /**
  * @author Grischa Liebel
  *
@@ -46,8 +87,10 @@ public class FeatureModelInstanceContributor extends
 	 */
 	public FeatureModelInstanceContributor() {
 		super(ADDITIONS_LAST_STYLE);
-		validateAction = new ValidateAction();
+		validateAction = new InstanceValidateAction();
 	}
+	
+	
 	
 	/**
 	 * This adds to the menu bar a menu and some separators for editor additions,
@@ -66,6 +109,12 @@ public class FeatureModelInstanceContributor extends
 		submenuManager.add(new Separator("additions-end"));
 
 		addGlobalActions(submenuManager);
+	}
+	
+	public void setConfiguration(FeatureConfig config, FeatureDiagram diagram) {
+		if (validateAction instanceof InstanceValidateAction) {
+			((InstanceValidateAction)validateAction).setConfiguration(config, diagram);
+		}
 	}
 
 	/**
@@ -100,6 +149,7 @@ public class FeatureModelInstanceContributor extends
 	}
 
 	public void selectionChanged(SelectionChangedEvent event) {
+		System.out.println(event.getSource().getClass());
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection) {
 			validateAction.updateSelection((IStructuredSelection)selection);

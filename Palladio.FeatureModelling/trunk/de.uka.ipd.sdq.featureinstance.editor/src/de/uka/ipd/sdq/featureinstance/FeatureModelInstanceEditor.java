@@ -560,7 +560,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		String fileExtension = resource.getURI().fileExtension();
 		String fileName = resource.getURI().trimFileExtension().lastSegment();
 		String path = Platform.getLocation() + resource.getURI().trimFileExtension().toPlatformString(true);
-		int fileNameLocation = path.lastIndexOf(fileName);
 		
 		//handles the different cases of opened files and model/configuration cases
 		handleFileCases(fileExtension, path, fileName);
@@ -578,6 +577,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 		int index = addPage(comp);
 		setPageText(index, "");
+		
+		EditingDomainActionBarContributor contrib = getActionBarContributor();
+		if (contrib instanceof FeatureModelInstanceContributor) {
+			((FeatureModelInstanceContributor)contrib).setConfiguration(overridesConfig, featureDiagram);
+		}
         
         //Hide editor tabs
 		if (getContainer() instanceof CTabFolder) {
