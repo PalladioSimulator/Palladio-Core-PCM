@@ -378,6 +378,20 @@ public interface IProbabilityFunctionFactory {
 			throws ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
+	 * Converts a model object to a function object with the same attributes.
+	 * 
+	 * @param ePDF
+	 *            Object to transform.
+	 * @param randomNumberGenerator
+	 * 			  Number generator to use
+	 * @return New BoxedPDF instance.
+	 * @throws DoubleSampleException
+	 * @throws ProbabilitySumNotOneException
+	 */
+	IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction ePDF,
+			IRandomGenerator randomNumberGenerator)
+			throws ProbabilitySumNotOneException, DoubleSampleException;	
+	/**
 	 * Converts a function object to a model object with the same attributes.
 	 * 
 	 * @param pdf
@@ -451,6 +465,16 @@ public interface IProbabilityFunctionFactory {
 	IProbabilityMassFunction transformToPMF(ProbabilityMassFunction ePMF);
 
 	/**
+	 * Converts a model object to a function object with the same attributes.
+	 * 
+	 * @param ePMF
+	 *            Object to transform.
+	 * @return New ProbabilityMassFunction instance.
+	 */
+	IProbabilityMassFunction transformToPMF(ProbabilityMassFunction ePMF,
+			IRandomGenerator randomNumberGenerator);
+	
+	/**
 	 * Converts a function object to a model object with the same attributes.
 	 * 
 	 * @param pmf
@@ -474,6 +498,21 @@ public interface IProbabilityFunctionFactory {
 			DoubleSampleException;
 
 	/**
+	 * Converts a model object to a function object with the same attributes.
+	 * (BoxedPDF -> IBoxedPDF, SamplePDF -> ISamplePDF)
+	 * 
+	 * @param ePDF
+	 *            Object to transform.
+	 * @return New ProbabilityDensityFunction instance.
+	 * @throws DoubleSampleException
+	 * @throws ProbabilitySumNotOneException
+	 */
+	IProbabilityDensityFunction transformToPDF(ProbabilityDensityFunction ePDF,
+			IRandomGenerator randomNumberGenerator)
+			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
+			DoubleSampleException;
+	
+	/**
 	 * Converts a function object to a model object with the same attributes.
 	 * 
 	 * @param pdf
@@ -486,5 +525,4 @@ public interface IProbabilityFunctionFactory {
 	ProbabilityDensityFunction transformToModelPDF(
 			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException,
 			DoubleSampleException, FunctionNotInTimeDomainException;
-
 }
