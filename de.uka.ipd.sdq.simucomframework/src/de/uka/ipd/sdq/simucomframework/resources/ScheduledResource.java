@@ -33,14 +33,17 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  * @author Snowball
  *
  */
-public class ExactCPUResource extends AbstractScheduledResource {
+public class ScheduledResource extends AbstractScheduledResource {
 
+	private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "pathmap://PCM_MODELS/Library.scheduler";
+	private static long resourceId = 1;
 	private String processingRate = "0";
 	private String units = null;
-	IActiveResource myCPU = null;
+	IActiveResource aResource = null;
 	ActiveResourceConfiguration resourceConf = null;
 
 	
+	/* Loads scheduler configuration */
 	private IActiveResource getResource(String schedulerLibFileName, String schedulerName, int numReplicas) {
 		
 		SchedulerLibrary lib = (SchedulerLibrary) SchedulerTools
@@ -55,7 +58,7 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		if (selectedConf != null) {
 			resourceConf = ConfigurationFactory.eINSTANCE
 					.createActiveResourceConfiguration();
-			resourceConf.setId("1");
+			resourceConf.setId(getNextResourceId());
 			resourceConf.setName(schedulerName);
 			resourceConf.setReplicas(numReplicas);
 			resourceConf.setSchedulerConfiguration(selectedConf);
@@ -65,6 +68,40 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		return null;
 	}
 
+	private IActiveResource getScheduledResource(SchedulingStrategy strategy, int numberOfCores)
+	{
+		IActiveResource scheduledResource = null;
+
+		switch (strategy) {
+		
+		// active resources scheduled by standard scheduling techniques
+		case FCFS:
+			scheduledResource = ISchedulingFactory.eINSTANCE.
+				createSimFCFSResource(SchedulingStrategy.FCFS.toString(), getNextResourceId());
+			break;
+		case PROCESSOR_SHARING:
+			scheduledResource = ISchedulingFactory.eINSTANCE.
+				createSimProcessorSharingResource(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId());
+			break;
+		case DELAY:
+			scheduledResource = ISchedulingFactory.eINSTANCE.
+				createSimDelayResource(SchedulingStrategy.DELAY.toString(), getNextResourceId());
+			break;
+			
+		// active resources scheduled by improved scheduler
+		case LINUX_2_6:
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.20", numberOfCores);
+			break;
+		case WINDOWS_SERVER_2003:
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows 2003", numberOfCores);
+			break;
+		case WINDOWS_XP:
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows XP", numberOfCores);
+			break;
+		}
+		
+		return scheduledResource;
+	}
 	
 	private void registerProcessWindows(ISchedulableProcess process,
 			IActiveResource resource, int prio) {
@@ -84,13 +121,15 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		}
 	}
 	
-	public ExactCPUResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfCores)
+	public ScheduledResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfCores)
 	{
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
 		this.units = units;
-		myCPU = getResource("pathmap://PCM_MODELS/Library.scheduler", "Windows 2003", numberOfCores);
+		
+		aResource = getScheduledResource(strategy, numberOfCores);
 	}
+	
 
 	@Override
 	protected double calculateDemand(double demand) {
@@ -99,7 +138,7 @@ public class ExactCPUResource extends AbstractScheduledResource {
 
 	@Override
 	public void activateResource() {
-		myCPU.start();
+		aResource.start();
 	}
 
 	@Override
@@ -108,8 +147,8 @@ public class ExactCPUResource extends AbstractScheduledResource {
 
 	@Override
 	public void consumeResource(SimProcess thread, double demand) {
-		registerProcessWindows(thread, myCPU, 8);
-		myCPU.process(thread, demand);
+		registerProcessWindows(thread, aResource, 8);
+		aResource.process(thread, demand);
 	}
 
 	@Override
@@ -150,5 +189,10 @@ public class ExactCPUResource extends AbstractScheduledResource {
 	@Override
 	public void setIdle(boolean b) {
 		throw new UnsupportedOperationException();
+	}
+
+	public static String getNextResourceId() {
+		
+		return Long.toString(resourceId++);
 	}
 }
