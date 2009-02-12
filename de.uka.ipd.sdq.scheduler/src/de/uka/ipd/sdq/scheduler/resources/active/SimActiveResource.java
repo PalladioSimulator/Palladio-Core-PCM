@@ -144,7 +144,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		processRegistry.registerProcess(p);
 		IResourceInstance instance = getInstanceFor(p);
 		scheduler.registerProcess(p, instance);
-		
+		p.getSchedulableProcess().addTerminatedObserver(this);
 	}
 
 	public void unregisterProcess(IActiveProcess process) {
@@ -164,6 +164,9 @@ public class SimActiveResource extends AbstractActiveResource {
 	
 	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
-		//TODO
+		IActiveProcess activeProcess = lookUp(simProcess);
+		IResourceInstance instance = activeProcess.getLastInstance();
+		getScheduler().terminateProcess(activeProcess, instance);
+		simProcess.removeTerminatedObserver(this);
 	}
 }
