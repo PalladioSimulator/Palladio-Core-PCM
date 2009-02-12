@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cost"
+    nsURI="http://sdq.ipd.uka.de/CostModel/1.0" nsPrefix="cost">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentCost">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentOperatingCost"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentInitialCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryComponent" ordered="false"
+        lowerBound="1" eType="#//AnnotatedThing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotatedThing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cost">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        volatile="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedLinkingResourceCost">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
+        lowerBound="1" eType="#//AnnotatedThing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedProcessingResourceCost">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="need additional repository of available resource &quot;subtypes&quot;. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
+        ordered="false" lowerBound="1" eType="#//AnnotatedThing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableCost" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedInitialCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedOperatingCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableLinkingResourceCost">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: make cost depend on processing rate!"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwithInitialFactor"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwidthOperatingFactor"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
+        lowerBound="1" eType="#//AnnotatedThing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableProcessingResourceCost">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: make cost depend on processing rate!"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingRateInitialFactor"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingRateOperatingFactor"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
+        ordered="false" lowerBound="1" eType="#//AnnotatedThing"/>
+  </eClassifiers>
+</ecore:EPackage>
