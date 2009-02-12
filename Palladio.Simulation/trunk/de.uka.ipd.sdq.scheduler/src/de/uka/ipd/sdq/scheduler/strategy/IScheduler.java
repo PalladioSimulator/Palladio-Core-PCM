@@ -83,8 +83,6 @@ public interface IScheduler {
 
 	public abstract void terminateProcess(IActiveProcess lookUp, IResourceInstance current);
 
-	public abstract void postSchedule(IResourceInstance instance);
-
 	public abstract void registerProcess(IActiveProcess p,
 			IResourceInstance instance);
 

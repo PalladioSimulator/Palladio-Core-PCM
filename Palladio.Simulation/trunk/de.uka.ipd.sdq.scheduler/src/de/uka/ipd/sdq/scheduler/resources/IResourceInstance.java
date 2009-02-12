@@ -77,8 +77,6 @@ public interface IResourceInstance {
 
 	public abstract boolean isScheduling();
 
-	public abstract void schedulePostSchedulingEvent(double overhead);
-
 	public abstract void addObserver(IActiveResourceStateSensor observer);
 	
 	public abstract void removeObserver(IActiveResourceStateSensor observer);

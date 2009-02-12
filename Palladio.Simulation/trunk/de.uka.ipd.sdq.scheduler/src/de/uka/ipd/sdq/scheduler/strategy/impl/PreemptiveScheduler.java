@@ -14,14 +14,11 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
-	private double overhead;
-
 	public PreemptiveScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
 			double scheduling_interval) {
 		super(resource, queueingStrategy, in_front_after_waiting);
 		this.scheduling_interval = scheduling_interval;
-		this.overhead = 0.001;
 	}
 
 	
@@ -35,8 +32,6 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		// balancing was finished.
 		queueing_strategy.activelyBalance(instance);
 		
-		double time = SchedulingFactory.getUsedSimulator().time();
-
 		// get the currently scheduled process for the instance.
 		ProcessWithPriority running_process = (ProcessWithPriority) instance
 				.getRunningProcess();
@@ -56,24 +51,10 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				unschedule(running_process, true, instance);
 //			}
 		}
-		schedulePostSchedulingEvent(instance);
-	}
-	
-	
-	private void schedulePostSchedulingEvent(IResourceInstance instance) {
-		instance.setIsScheduling(true);
-		instance.schedulePostSchedulingEvent(overhead);
-	}
-
-
-	public void postSchedule(IResourceInstance instance){
-		assert instance.getRunningProcess() == null : instance.getRunningProcess();
-		assert instance.isScheduling();
-		instance.setIsScheduling(false);
-		
 		scheduleNextProcess(instance);
 		scheduleNextEvent(instance);
 	}
+	
 
 	private void scheduleNextProcess(ProcessWithPriority next_process, IResourceInstance instance) {
 		if (next_process != null) {
@@ -146,6 +127,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	public void scheduleNextEvent(IResourceInstance instance) {
+		double time = SchedulingFactory.getUsedSimulator().time();
 		ProcessWithPriority running = (ProcessWithPriority) instance
 				.getRunningProcess();
 		if (running != null) {

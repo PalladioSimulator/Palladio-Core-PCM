@@ -16,7 +16,7 @@ public class CheckFinishedEvent extends Event {
 	@Override
 	public void actions() {
 		if (proceedEvent.process.getSchedulableProcess().isFinished()){
-			proceedEvent.scheduler.terminateProcess(proceedEvent.process, proceedEvent.process.getIdealInstance());
+			proceedEvent.scheduler.terminateProcess(proceedEvent.process, proceedEvent.process.getLastInstance());
 		}
 	}
 }

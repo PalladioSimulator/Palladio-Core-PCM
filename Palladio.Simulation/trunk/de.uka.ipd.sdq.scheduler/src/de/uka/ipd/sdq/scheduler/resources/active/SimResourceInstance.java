@@ -6,7 +6,6 @@ import java.util.List;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
-import de.uka.ipd.sdq.scheduler.events.PostSchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingInterruptEvent;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
@@ -45,7 +44,6 @@ public class SimResourceInstance implements IResourceInstance {
 	private SchedulingEvent scheduling_event;
 	private Simulator simulator;
 	private boolean isScheduling;
-	private PostSchedulingEvent postSchedulingEvent;
 	private List<IActiveResourceStateSensor> resourceObserverList = new ArrayList<IActiveResourceStateSensor>();
 
 	public SimResourceInstance(int number, IActiveResource containing_resource) {
@@ -145,8 +143,6 @@ public class SimResourceInstance implements IResourceInstance {
 	public void start() {
 		this.scheduling_event = new SchedulingEvent(
 				(SimActiveResource) containing_resource, this);
-		this.postSchedulingEvent = new PostSchedulingEvent(
-				(SimActiveResource) containing_resource, this);
 		scheduling_event.schedule(0);
 	}
 
@@ -159,11 +155,6 @@ public class SimResourceInstance implements IResourceInstance {
 
 	public boolean isScheduling() {
 		return isScheduling;
-	}
-
-	public void schedulePostSchedulingEvent(double overhead) {
-		postSchedulingEvent.cancel();
-		postSchedulingEvent.schedule(overhead);
 	}
 
 	public boolean isIdle() {

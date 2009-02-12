@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.scheduler.events;
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
@@ -30,7 +31,7 @@ public class SchedulingInterruptEvent extends Event {
 
 	@Override
 	public void actions() {
-		logger.debug("Scheduling Interrupt Event handler triggered");
+		LoggingWrapper.log("Scheduling Interrupt Event handler triggered");
 		containingResource.getScheduler().schedule(instance/*,quantum_finished*/);
 	}
 }
