@@ -158,8 +158,24 @@ public class FixedLinkingResourceCostImpl extends CostImpl implements FixedLinki
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
 	@Override
 	public double getOperatingCost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	@Override
+	public double getInitialCost() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

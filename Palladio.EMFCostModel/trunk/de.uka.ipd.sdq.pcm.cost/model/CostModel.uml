@@ -35,10 +35,10 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost" isAbstract="true">
-      <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isDerived="true">
+      <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isReadOnly="true" isDerived="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_4qAQAPhsEd23O5YGd3Oe8g" name="initialCost" visibility="public" isDerived="true">
+      <ownedAttribute xmi:id="_4qAQAPhsEd23O5YGd3Oe8g" name="initialCost" visibility="public" isReadOnly="true" isDerived="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
     </packagedElement>
@@ -134,4 +134,6 @@
   <Default:Documentation xmi:id="_XaxZEPhuEd23O5YGd3Oe8g" base_Comment="_XaoPIPhuEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_fTeasPhuEd23O5YGd3Oe8g" base_Comment="_fTUpsPhuEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_vHHSkfhuEd23O5YGd3Oe8g" base_Comment="_vHHSkPhuEd23O5YGd3Oe8g"/>
+  <Ecore:EAttribute xmi:id="_LmyHAPkFEd23O5YGd3Oe8g" isTransient="true" isVolatile="true" base_Property="_6_drgPhsEd23O5YGd3Oe8g"/>
+  <Ecore:EAttribute xmi:id="_QQp1IPkFEd23O5YGd3Oe8g" isTransient="true" isVolatile="true" base_Property="_4qAQAPhsEd23O5YGd3Oe8g"/>
 </xmi:XMI>

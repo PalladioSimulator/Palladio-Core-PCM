@@ -516,8 +516,8 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		initEReference(getComponentCost_RepositoryComponent(), theRepositoryPackage.getRepositoryComponent(), null, "repositoryComponent", null, 1, 1, ComponentCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(costEClass, Cost.class, "Cost", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCost_OperatingCost(), ecorePackage.getEDouble(), "operatingCost", null, 1, 1, Cost.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCost_InitialCost(), ecorePackage.getEDouble(), "initialCost", null, 1, 1, Cost.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCost_OperatingCost(), ecorePackage.getEDouble(), "operatingCost", null, 1, 1, Cost.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCost_InitialCost(), ecorePackage.getEDouble(), "initialCost", null, 1, 1, Cost.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		initEClass(fixedLinkingResourceCostEClass, FixedLinkingResourceCost.class, "FixedLinkingResourceCost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFixedLinkingResourceCost_Linkingresource(), theResourceenvironmentPackage.getLinkingResource(), null, "linkingresource", null, 1, 1, FixedLinkingResourceCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

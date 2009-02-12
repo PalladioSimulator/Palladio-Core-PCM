@@ -81,35 +81,13 @@ public abstract class CostImpl extends EObjectImpl implements Cost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
-	public void setOperatingCost(double newOperatingCost) {
-		// TODO: implement this method to set the 'Operating Cost' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getInitialCost() {
+	public abstract double getInitialCost(); /* {
 		// TODO: implement this method to return the 'Initial Cost' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialCost(double newInitialCost) {
-		// TODO: implement this method to set the 'Initial Cost' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	}*/
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,42 +103,6 @@ public abstract class CostImpl extends EObjectImpl implements Cost {
 				return new Double(getInitialCost());
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case costPackage.COST__OPERATING_COST:
-				setOperatingCost(((Double)newValue).doubleValue());
-				return;
-			case costPackage.COST__INITIAL_COST:
-				setInitialCost(((Double)newValue).doubleValue());
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case costPackage.COST__OPERATING_COST:
-				setOperatingCost(OPERATING_COST_EDEFAULT);
-				return;
-			case costPackage.COST__INITIAL_COST:
-				setInitialCost(INITIAL_COST_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
 	}
 
 	/**

@@ -287,8 +287,17 @@ public class ComponentCostImpl extends CostImpl implements ComponentCost {
 	 */
 	@Override
 	public double getOperatingCost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getComponentOperatingCost();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	@Override
+	public double getInitialCost() {
+		return this.getComponentInitialCost();
 	}
 
 } //ComponentCostImpl

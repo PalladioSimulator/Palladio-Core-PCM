@@ -14,10 +14,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Cost" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingCost" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        volatile="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialCost" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        volatile="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FixedLinkingResourceCost" eSuperTypes="#//Cost">
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"

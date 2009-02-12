@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.cost.presentation;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
@@ -55,7 +56,7 @@ public final class CostModelEditorPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				IdentifierEditPlugin.INSTANCE,
-				PalladioComponentModelEditPlugin.INSTANCE,
+				PcmEditPlugin.INSTANCE,
 				ProbabilityFunctionEditPlugin.INSTANCE,
 				StoexEditPlugin.INSTANCE,
 				UnitsEditPlugin.INSTANCE,

@@ -280,8 +280,24 @@ public class VariableLinkingResourceCostImpl extends VariableCostImpl implements
 		return result.toString();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
 	@Override
 	public double getOperatingCost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	@Override
+	public double getInitialCost() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
