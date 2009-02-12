@@ -72,6 +72,8 @@ public class SSJSimProcess implements ISimProcessDelegate {
 			public void run() {
 				SSJSimProcess.this.actions();
 				SSJSimProcess.this.myThread = null;
+				myAbstractProcess.fireTerminated();
+				waitingForSuspendSemaphore.release();
 			}
 			
 		});
