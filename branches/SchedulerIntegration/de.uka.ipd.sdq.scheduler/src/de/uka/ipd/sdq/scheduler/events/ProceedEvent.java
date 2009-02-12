@@ -30,13 +30,11 @@ public class ProceedEvent extends Event {
 	private IDelayedAction action;
 	protected IScheduler scheduler;
 	static Logger logger = Logger.getLogger(ProceedEvent.class);
-	private CheckFinishedEvent finishEvent;
 
 	public ProceedEvent(IActiveProcess process) {
 		super(SchedulingFactory.getUsedSimulator());
 		this.process = process;
 		this.action = null;
-		this.finishEvent = new CheckFinishedEvent(this);
 		
 	}
 
@@ -54,7 +52,6 @@ public class ProceedEvent extends Event {
 				action = null;
 		} else {
 			process.getSchedulableProcess().activate();
-			finishEvent.schedule(0);
 		}
 	}
 
