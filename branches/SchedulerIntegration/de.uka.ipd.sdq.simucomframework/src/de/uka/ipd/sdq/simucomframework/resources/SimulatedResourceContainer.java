@@ -42,7 +42,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 			// Use Jens Simulator to simulate exact CPUs
 			// TODO: Ask Jens whether his simulator can be combined with my simulator for the other resource types!
 			activeResources.put(typeID, 
-					new ExactCPUResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
+					new ScheduledResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
 		} else {
 			activeResources.put(typeID, 
 					new SimulatedActiveResource(myModel, typeID, description, processingRate, units, strategy));
