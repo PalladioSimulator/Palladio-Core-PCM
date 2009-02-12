@@ -33,7 +33,7 @@
 	{
 		«LET this.id.javaVariableName() AS counterID»
 			«IF ProbabilisticBranchTransition.isInstance(this.branches_Branch.get(0))»
-				double u«counterID» = Math.random();
+				double u«counterID» = (Double)de.uka.ipd.sdq.simucomframework.variables.StackContext.evaluateStatic("DoublePDF[(1;1.0)]",Double.class);
 				double sum«counterID» = 0;
 				«EXPAND BranchTransition(counterID) FOREACH this.branches_Branch SEPARATOR ""»
 			«ELSE»

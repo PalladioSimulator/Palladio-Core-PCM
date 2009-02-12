@@ -84,12 +84,12 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		}
 	}
 	
-	public ExactCPUResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy)
+	public ExactCPUResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfCores)
 	{
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
 		this.units = units;
-		myCPU = getResource("pathmap://PCM_MODELS/Library.scheduler", "Windows 2003", 4);
+		myCPU = getResource("pathmap://PCM_MODELS/Library.scheduler", "Windows 2003", numberOfCores);
 	}
 
 	@Override

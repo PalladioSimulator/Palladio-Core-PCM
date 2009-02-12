@@ -85,7 +85,8 @@
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
 		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
 		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
+		1 /*TODO: Get number of cores from model*/);
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
@@ -94,7 +95,8 @@
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
 		"TODO: unit!",
-		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
+		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»,
+		1 /*TODO: Get number of cores from model*/);
 «ENDDEFINE»
 
 «REM»TODO: Refactor
