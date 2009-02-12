@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
+import java.util.Observer;
+
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 /**
@@ -9,7 +11,7 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
  * @author jens
  * 
  */
-public interface ISchedulableProcess {
+public interface ISchedulableProcess  {
 
 	/**
 	 * Notifies the process to resume its execution. Is only called if the
@@ -21,6 +23,10 @@ public interface ISchedulableProcess {
 	 * Notifies the process to suspend its execution.
 	 */
 	public abstract void passivate();
+	
+	public abstract void fireTerminated();
+	public abstract void addTerminatedObserver(IActiveResource o);
+	public abstract void removeTerminatedObserver(IActiveResource o);
 	
 	/**
 	 * Unique identifier of the process.

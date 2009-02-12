@@ -1,7 +1,11 @@
 package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
+import java.util.ArrayList;
+import java.util.Observer;
+
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -123,5 +127,18 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return processID++;
 	}
 	
+	private ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
+	public void fireTerminated() {
+		for (IActiveResource o : terminatedObservers)
+			o.notifyTerminated(this);
+	}
 	
+	public void addTerminatedObserver(IActiveResource r) {
+		terminatedObservers.add(r);
+	}
+
+	public void removeTerminatedObserver(IActiveResource r) {
+		terminatedObservers.remove(r);
+	}
+
 }
