@@ -31,11 +31,11 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//ComponentCost/repositoryComponent"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//AnnotatedThing"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//Cost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//Cost/operatingCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//Cost/initialCost"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//AnnotatedThing"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedLinkingResourceCost">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//FixedLinkingResourceCost/linkingresource"/>
@@ -59,6 +59,10 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableProcessingResourceCost/processingRateOperatingFactor"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//VariableProcessingResourceCost/processingresourcespecification"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//CostRepository">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cost.ecore#//CostRepository/cost"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

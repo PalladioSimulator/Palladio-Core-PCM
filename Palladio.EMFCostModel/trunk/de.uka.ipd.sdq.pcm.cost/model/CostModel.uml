@@ -23,6 +23,7 @@
       <ownedEnd xmi:id="_J-A4kPjoEd23O5YGd3Oe8g" name="componentcost" visibility="private" type="_IHZVMPjoEd23O5YGd3Oe8g" association="_J93HkPjoEd23O5YGd3Oe8g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IHZVMPjoEd23O5YGd3Oe8g" name="ComponentCost">
+      <generalization xmi:id="_hgDCsPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_WoCUIPjoEd23O5YGd3Oe8g" name="componentOperatingCost" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
@@ -31,7 +32,7 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_J93HkfjoEd23O5YGd3Oe8g" name="repositoryComponent" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_J93HkPjoEd23O5YGd3Oe8g"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost">
+    <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost" isAbstract="true">
       <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isDerived="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
@@ -40,15 +41,18 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Ul-E0PjfEd23O5YGd3Oe8g" name="FixedLinkingResourceCost">
+      <generalization xmi:id="_j6RpcPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_aCNrEfjfEd23O5YGd3Oe8g" name="linkingresource" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_aCNrEPjfEd23O5YGd3Oe8g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_-Y5QAPhtEd23O5YGd3Oe8g" name="FixedProcessingResourceCost">
       <ownedComment xmi:id="_XaoPIPhuEd23O5YGd3Oe8g" annotatedElement="_-Y5QAPhtEd23O5YGd3Oe8g">
         <body>need additional repository of available resource &quot;subtypes&quot;. </body>
       </ownedComment>
+      <generalization xmi:id="_jQQcEPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_PK6xYfjfEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_PK6xYPjfEd23O5YGd3Oe8g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_PhYwEPhwEd23O5YGd3Oe8g" name="VariableCost" isAbstract="true">
+      <generalization xmi:id="_iiqWQPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_CFvqUPhwEd23O5YGd3Oe8g" name="fixedInitialCost" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
@@ -60,6 +64,7 @@
       <ownedComment xmi:id="_vHHSkPhuEd23O5YGd3Oe8g" annotatedElement="_g_9KoPhuEd23O5YGd3Oe8g">
         <body>TODO: make cost depend on processing rate!</body>
       </ownedComment>
+      <generalization xmi:id="_i01rYPjsEd23O5YGd3Oe8g" general="_PhYwEPhwEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_9_x6gPhvEd23O5YGd3Oe8g" name="bandwithInitialFactor" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
@@ -72,6 +77,7 @@
       <ownedComment xmi:id="_fTUpsPhuEd23O5YGd3Oe8g" annotatedElement="_6gpMEPhtEd23O5YGd3Oe8g">
         <body>TODO: make cost depend on processing rate!</body>
       </ownedComment>
+      <generalization xmi:id="_h2_jEPjsEd23O5YGd3Oe8g" general="_PhYwEPhwEd23O5YGd3Oe8g"/>
       <ownedAttribute xmi:id="_vc5f4PhvEd23O5YGd3Oe8g" name="processingRateInitialFactor" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
@@ -81,6 +87,15 @@
       <ownedAttribute xmi:id="_LDFDoPhuEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_LC7SoPhuEd23O5YGd3Oe8g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_USwpYPjpEd23O5YGd3Oe8g" name="AnnotatedThing"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vCZ0cPjsEd23O5YGd3Oe8g" name="CostRepository">
+      <ownedAttribute xmi:id="_wzzgofjsEd23O5YGd3Oe8g" name="cost" visibility="private" type="_2_wUsPhsEd23O5YGd3Oe8g" aggregation="composite" association="_wzzgoPjsEd23O5YGd3Oe8g">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wzzgo_jsEd23O5YGd3Oe8g" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wzzgovjsEd23O5YGd3Oe8g"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_wzzgoPjsEd23O5YGd3Oe8g" memberEnd="_wzzgofjsEd23O5YGd3Oe8g _wzzgpPjsEd23O5YGd3Oe8g">
+      <ownedEnd xmi:id="_wzzgpPjsEd23O5YGd3Oe8g" name="" visibility="private" type="_vCZ0cPjsEd23O5YGd3Oe8g" association="_wzzgoPjsEd23O5YGd3Oe8g"/>
+    </packagedElement>
     <profileApplication xmi:id="_p4CtBfhrEd23O5YGd3Oe8g">
       <eAnnotations xmi:id="_p4CtBvhrEd23O5YGd3Oe8g" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
