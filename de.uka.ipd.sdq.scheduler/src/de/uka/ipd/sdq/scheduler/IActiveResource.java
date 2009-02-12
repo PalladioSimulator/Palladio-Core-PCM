@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler;
 
-
 /**
  * An active resource can execute demands of schedulable processes. Active
  * resources are shared by multiple processes so that they need to use
@@ -39,5 +38,7 @@ public interface IActiveResource {
 	public abstract void stop();
 
 	public abstract void registerProcess(IRunningProcess runningProcess);
+
+	public abstract void notifyTerminated(ISchedulableProcess simProcess);
 
 }
