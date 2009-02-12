@@ -30,7 +30,9 @@
       <ownedAttribute xmi:id="_SDFiQPjoEd23O5YGd3Oe8g" name="componentInitialCost" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_J93HkfjoEd23O5YGd3Oe8g" name="repositoryComponent" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_J93HkPjoEd23O5YGd3Oe8g"/>
+      <ownedAttribute xmi:id="_J93HkfjoEd23O5YGd3Oe8g" name="repositoryComponent" visibility="private" association="_J93HkPjoEd23O5YGd3Oe8g">
+        <type xmi:type="uml:Class" href="pcm.uml#_rGa6kKBZEd24Bv0x9CNKpg"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost" isAbstract="true">
       <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isDerived="true">
@@ -42,14 +44,18 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Ul-E0PjfEd23O5YGd3Oe8g" name="FixedLinkingResourceCost">
       <generalization xmi:id="_j6RpcPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
-      <ownedAttribute xmi:id="_aCNrEfjfEd23O5YGd3Oe8g" name="linkingresource" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_aCNrEPjfEd23O5YGd3Oe8g"/>
+      <ownedAttribute xmi:id="_aCNrEfjfEd23O5YGd3Oe8g" name="linkingresource" visibility="private" association="_aCNrEPjfEd23O5YGd3Oe8g">
+        <type xmi:type="uml:Class" href="pcm.uml#_X5vv8OMeEdqaQsPH3rPnBQ"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_-Y5QAPhtEd23O5YGd3Oe8g" name="FixedProcessingResourceCost">
       <ownedComment xmi:id="_XaoPIPhuEd23O5YGd3Oe8g" annotatedElement="_-Y5QAPhtEd23O5YGd3Oe8g">
         <body>need additional repository of available resource &quot;subtypes&quot;. </body>
       </ownedComment>
       <generalization xmi:id="_jQQcEPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
-      <ownedAttribute xmi:id="_PK6xYfjfEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_PK6xYPjfEd23O5YGd3Oe8g"/>
+      <ownedAttribute xmi:id="_PK6xYfjfEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" association="_PK6xYPjfEd23O5YGd3Oe8g">
+        <type xmi:type="uml:Class" href="pcm.uml#_wru2gODnEdq8ysXH3gTiEg"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_PhYwEPhwEd23O5YGd3Oe8g" name="VariableCost" isAbstract="true">
       <generalization xmi:id="_iiqWQPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
@@ -71,7 +77,9 @@
       <ownedAttribute xmi:id="_KREtAPhwEd23O5YGd3Oe8g" name="bandwidthOperatingFactor" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_jXpawfhuEd23O5YGd3Oe8g" name="linkingresource" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_jXpawPhuEd23O5YGd3Oe8g"/>
+      <ownedAttribute xmi:id="_jXpawfhuEd23O5YGd3Oe8g" name="linkingresource" visibility="private" association="_jXpawPhuEd23O5YGd3Oe8g">
+        <type xmi:type="uml:Class" href="pcm.uml#_X5vv8OMeEdqaQsPH3rPnBQ"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6gpMEPhtEd23O5YGd3Oe8g" name="VariableProcessingResourceCost">
       <ownedComment xmi:id="_fTUpsPhuEd23O5YGd3Oe8g" annotatedElement="_6gpMEPhtEd23O5YGd3Oe8g">
@@ -84,9 +92,10 @@
       <ownedAttribute xmi:id="_XMYs4PhwEd23O5YGd3Oe8g" name="processingRateOperatingFactor" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_LDFDoPhuEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" type="_USwpYPjpEd23O5YGd3Oe8g" association="_LC7SoPhuEd23O5YGd3Oe8g"/>
+      <ownedAttribute xmi:id="_LDFDoPhuEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" association="_LC7SoPhuEd23O5YGd3Oe8g">
+        <type xmi:type="uml:Class" href="pcm.uml#_wru2gODnEdq8ysXH3gTiEg"/>
+      </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_USwpYPjpEd23O5YGd3Oe8g" name="AnnotatedThing"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_vCZ0cPjsEd23O5YGd3Oe8g" name="CostRepository">
       <ownedAttribute xmi:id="_wzzgofjsEd23O5YGd3Oe8g" name="cost" visibility="private" type="_2_wUsPhsEd23O5YGd3Oe8g" aggregation="composite" association="_wzzgoPjsEd23O5YGd3Oe8g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wzzgo_jsEd23O5YGd3Oe8g" value="*"/>
