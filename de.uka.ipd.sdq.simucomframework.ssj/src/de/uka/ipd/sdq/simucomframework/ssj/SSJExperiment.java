@@ -92,6 +92,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 			this.model.getResourceRegistry().deactivateAllActiveResources();
 			this.model.getResourceRegistry().deactivateAllPassiveResources();
 			logger.info("Scheduled Simulation Stop Event now");
+			logger.warn("Simulation took " + this.model.getSimulationControl().getCurrentSimulationTime()+" simulation seconds");
 		}
 	}
 
