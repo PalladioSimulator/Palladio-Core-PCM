@@ -39,5 +39,8 @@ public interface IActiveResource {
 	public abstract void stop();
 
 	public abstract void registerProcess(IRunningProcess runningProcess);
+	
+	public abstract void notifyTerminated(ISchedulableProcess simProcess);
+
 
 }

@@ -45,4 +45,8 @@ public interface ISchedulableProcess {
 	 * @return true if the process has finished its execution
 	 */
 	public abstract boolean isFinished();
+	
+	public abstract void fireTerminated();
+	public abstract void addTerminatedObserver(IActiveResource o);
+	public abstract void removeTerminatedObserver(IActiveResource o);
 }

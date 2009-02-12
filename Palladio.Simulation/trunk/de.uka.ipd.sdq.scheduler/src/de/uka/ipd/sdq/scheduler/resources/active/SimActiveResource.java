@@ -144,6 +144,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		processRegistry.registerProcess(p);
 		IResourceInstance instance = getInstanceFor(p);
 		scheduler.registerProcess(p, instance);
+		
 	}
 
 	public void unregisterProcess(IActiveProcess process) {
@@ -160,6 +161,9 @@ public class SimActiveResource extends AbstractActiveResource {
 	public IActiveProcess findProcess(String processName) {
 		return processRegistry.findProcess(processName);
 	}
-
-
+	
+	@Override
+	public void notifyTerminated(ISchedulableProcess simProcess) {
+		//TODO
+	}
 }
