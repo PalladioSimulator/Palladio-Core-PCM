@@ -28,7 +28,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Text lqnsConfig2;
 	private Text lqnsConfig3;
 	private Text lqnsConfig4;
-	private Combo comboLqnsOutput;
+	protected Combo comboLqnsOutput;
 		
 	private Text lqsimConfig1;
 	private Text lqsimConfig2;
@@ -40,7 +40,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 
 	private StackLayout stackLayout;
 	
-	private Combo comboSolver;
+	protected Combo comboSolver;
 	
 	private class MainConfigTabListener extends SelectionAdapter implements ModifyListener {
 		public void modifyText(ModifyEvent e) {
