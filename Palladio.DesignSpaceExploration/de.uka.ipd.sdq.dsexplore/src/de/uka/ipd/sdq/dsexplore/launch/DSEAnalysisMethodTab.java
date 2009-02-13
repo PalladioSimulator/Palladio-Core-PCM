@@ -245,18 +245,6 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		}
 	}
 
-	@Override
-	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
-		// TODO Auto-generated method stub
-		super.activated(workingCopy);
-	}
-
-	@Override
-	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {
-		// TODO Auto-generated method stub
-		super.deactivated(workingCopy);
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */
