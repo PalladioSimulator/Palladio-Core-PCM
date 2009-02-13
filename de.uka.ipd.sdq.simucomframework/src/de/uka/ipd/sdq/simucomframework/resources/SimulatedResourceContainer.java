@@ -38,15 +38,17 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 	}
 
 	public void addActiveResource(String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfReplicas) {
-		if (true || typeID.equals("CPU") && strategy == SchedulingStrategy.PROCESSOR_SHARING) { // TODO!! Change to a new Enum Entry
-			// Use Jens Simulator to simulate exact CPUs
-			// TODO: Ask Jens whether his simulator can be combined with my simulator for the other resource types!
-			activeResources.put(typeID, 
-					new ScheduledResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
-		} else {
-			activeResources.put(typeID, 
-					new SimulatedActiveResource(myModel, typeID, description, processingRate, units, strategy));
-		}
+		activeResources.put(typeID, 
+				new ScheduledResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
+//		if (true || typeID.equals("CPU") && strategy == SchedulingStrategy.PROCESSOR_SHARING) { // TODO!! Change to a new Enum Entry
+//			// Use Jens Simulator to simulate exact CPUs
+//			// TODO: Ask Jens whether his simulator can be combined with my simulator for the other resource types!
+//			activeResources.put(typeID, 
+//					new ScheduledResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
+//		} else {
+//			activeResources.put(typeID, 
+//					new SimulatedActiveResource(myModel, typeID, description, processingRate, units, strategy));
+//		}
 	}
 	
 }

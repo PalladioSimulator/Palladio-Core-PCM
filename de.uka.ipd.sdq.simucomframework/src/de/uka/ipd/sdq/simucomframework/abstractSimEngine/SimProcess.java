@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observer;
 
 import org.apache.log4j.Logger;
@@ -128,9 +129,13 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	}
 	
 	private ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
+	private List<IActiveResource> removedObservers = new ArrayList<IActiveResource>();;
+	
 	public void fireTerminated() {
 		for (IActiveResource o : terminatedObservers)
 			o.notifyTerminated(this);
+		terminatedObservers.removeAll(removedObservers);
+		removedObservers.clear();
 	}
 	
 	public void addTerminatedObserver(IActiveResource r) {
@@ -138,7 +143,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	}
 
 	public void removeTerminatedObserver(IActiveResource r) {
-		terminatedObservers.remove(r);
+		removedObservers.add(r);
 	}
 
 }
