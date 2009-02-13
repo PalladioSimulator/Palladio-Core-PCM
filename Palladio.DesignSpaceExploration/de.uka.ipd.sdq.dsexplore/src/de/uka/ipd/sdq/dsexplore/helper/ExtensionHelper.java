@@ -6,6 +6,7 @@ import java.util.Vector;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.Platform;
 
 public class ExtensionHelper {
@@ -40,5 +41,65 @@ public class ExtensionHelper {
 		}
 		return result;
 	}
+	
+	/**
+	 * Loads all extensions which extends the
+	 * "de.uka.ipd.sdq.dsexplore.analysis" extension point.
+	 * 
+	 * @return all analysis method extensions
+	 */
+	public static IExtension[] loadAnalysisExtensions() {
+		return Platform.getExtensionRegistry().getExtensionPoint(
+				"de.uka.ipd.sdq.dsexplore.analysis").getExtensions();
+	}
+
+	/**
+	 * Given an {@link IExtension}, this methods returns the content of the
+	 * specified String attribute.
+	 * 
+	 * @param extension
+	 * @param configurationElement
+	 * @param attributeName
+	 * @return the attribute content; null if the specified attribute does not
+	 *         exist.
+	 */
+	public static String loadStringAttribute(IExtension extension,
+			String configurationElement, String attributeName) {
+		IConfigurationElement[] elements = extension.getConfigurationElements();
+		for (IConfigurationElement element : elements) {
+			if (element.getName().equals(configurationElement)) {
+				String attribute = element.getAttribute(attributeName);
+				return attribute;
+			}
+		}
+
+		return null;
+	}
+	
+	/**
+	 * Given an {@link IExtension}, this method returns an instance of the
+	 * executable extension identified by the specified attribute.
+	 * 
+	 * @param extension
+	 * @param configurationElement
+	 * @param attributeName
+	 * @return a class instance; null if the passed attribute does not exist.
+	 * @throws CoreException
+	 */
+	public static Object loadExecutableAttribute(IExtension extension,
+			String configurationElement, String attributeName)
+			throws CoreException {
+		IConfigurationElement[] elements = extension.getConfigurationElements();
+		for (IConfigurationElement element : elements) {
+			if (element.getName().equals(configurationElement)) {
+				Object attribute = element
+						.createExecutableExtension(attributeName);
+				return attribute;
+			}
+		}
+
+		return null;
+	}
+	
 
 }

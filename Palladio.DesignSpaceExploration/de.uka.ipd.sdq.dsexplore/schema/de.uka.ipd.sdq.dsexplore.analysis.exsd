@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="de.uka.ipd.sdq.dsexplore">
+<schema targetNamespace="de.uka.ipd.sdq.dsexplore" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
-      <appInfo>
+      <appinfo>
          <meta.schema plugin="de.uka.ipd.sdq.dsexplore" id="de.uka.ipd.sdq.dsexplore.analysis" name="de.uka.ipd.sdq.dsexplore.analysis"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          This extension point is used to connect quality attribute analyses (e.g. SimuCom simulation) to the DSE process.
       </documentation>
    </annotation>
 
    <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
       <complexType>
          <sequence>
             <element ref="analysis" minOccurs="1" maxOccurs="unbounded"/>
@@ -34,9 +39,9 @@
                <documentation>
                   
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute translatable="true"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
@@ -44,6 +49,13 @@
 
    <element name="analysis">
       <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Determines the name for the provided analysis method. It is mainly used to represent this Plug-In in GUI elements.
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="qualityAttribute" type="string" use="required">
             <annotation>
                <documentation>
@@ -56,57 +68,59 @@
                <documentation>
                   
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java" basedOn=":de.uka.ipd.sdq.dsexplore.analysis.IAnalysis"/>
-               </appInfo>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="launchConfigContribution" type="string">
+            <annotation>
+               <documentation>
+                  Use this attribute to contribute GUI elements to the LaunchConfigurationTab &quot;Analysis Method&quot;. The specified TabGroup will be shown as children of the &quot;Analysis Method&quot; tab as soon as the corresponding analysis method is selected.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.debug.ui.ILaunchConfigurationTabGroup"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="since"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          1.1.0
       </documentation>
    </annotation>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="examples"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          [Enter extension point usage example here.]
       </documentation>
    </annotation>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="apiInfo"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          [Enter API information here.]
       </documentation>
    </annotation>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="implementation"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          [Enter information about supplied implementation of this extension point.]
       </documentation>
    </annotation>
 
-   <annotation>
-      <appInfo>
-         <meta.section type="copyright"/>
-      </appInfo>
-      <documentation>
-         
-      </documentation>
-   </annotation>
 
 </schema>

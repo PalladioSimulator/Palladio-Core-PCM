@@ -7,4 +7,6 @@ public class DSEConstantsContainer {
 	public static final String THRESHOLD = "strengthenResource_threshold";
 	public static final String INCR_FACTOR = "strengthenResource_increaseFactor";
 
+	public static final String ANALYSIS_METHOD = "analysisMethod";
+	
 }
