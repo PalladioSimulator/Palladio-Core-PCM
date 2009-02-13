@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
  org.rosuda.JRI,
  de.uka.ipd.sdq.sensorframework.adapter,
- de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes
+ de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes,
+ org.eclipse.debug.ui
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore.analysis.simucom
