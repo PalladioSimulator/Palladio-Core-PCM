@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.scheduler.events;
 
-import javax.print.attribute.standard.Finishings;
-
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
