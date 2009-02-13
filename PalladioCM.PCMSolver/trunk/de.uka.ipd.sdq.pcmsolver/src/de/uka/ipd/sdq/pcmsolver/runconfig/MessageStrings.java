@@ -6,10 +6,10 @@ public class MessageStrings {
 	public static final String LQNS_SOLVER = "LQNS (Layered Queueing Network Solver)";
 	public static final String LQSIM_SOLVER = "LQSIM (Layered Queueing Simulation)";
 	
-	public static final String LQNS_OUTPUT_HUMAN = "Human Readable";
-	public static final String LQNS_OUTPUT_XML = "XML";
+	public static final String LQNS_OUTPUT_HUMAN = "lqnsOutputHuman";
+	public static final String LQNS_OUTPUT_XML = "lqnsOutputXml";
 	
-	public static final String VERBOSE_LOGGING = "verboseLogging";
+	public static final String VERBOSE_LOGGING = "pcmsVerboseLogging";
 	
 	public static final String SOLVER = "solver";
 	public static final String SAMPLING_DIST = "samplingDist";
