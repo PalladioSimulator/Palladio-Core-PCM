@@ -225,12 +225,36 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		Iterator<ILaunchConfigurationTabGroup> it = tabGroups.iterator(); 
-		while(it.hasNext()) {
-			it.next().setDefaults(configuration);
+		// Set the first discovered analysis extension as default analysis method
+		IExtension[] extensions = ExtensionHelper.loadAnalysisExtensions();
+		if (extensions.length > 0) {
+			configuration.setAttribute(DSEConstantsContainer.ANALYSIS_METHOD,
+					loadAnalysisMethodName(extensions[0]));
 		}
+		
+		// TODO: this method can be called before createControl(), so tabGroups has to be already available.
+//		Iterator<ILaunchConfigurationTabGroup> it = tabGroups.iterator(); 
+//		while(it.hasNext()) {
+//			it.next().setDefaults(configuration);
+//		}
 	}
 	
+	@Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		// Check whether an available analysis method is selected
+		String methodStr = methodCombo.getText();
+		IExtension methodExt = nameExtensionMap.get(methodStr);
+		if (methodExt == null) {
+			setErrorMessage("Choose an analysis method.");
+			return false;
+		}
+		
+		// TODO: delegate isValid to subtabs
+		
+		setErrorMessage(null);
+		return true;
+	}
+
 	private class AnalysisMethodListener extends SelectionAdapter {
 
 		@Override
