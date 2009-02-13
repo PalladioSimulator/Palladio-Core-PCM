@@ -85,8 +85,7 @@
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
 		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
 		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		1 /*TODO: Get number of cores from model*/);
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
