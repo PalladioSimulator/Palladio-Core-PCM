@@ -6,23 +6,12 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import scheduler.SchedulerLibrary;
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.ConfigurationFactory;
-import scheduler.configuration.PreemptionConfiguration;
 import scheduler.configuration.PriorityClass;
-import scheduler.configuration.PriorityConfiguration;
-import scheduler.configuration.PriorityRange;
 import scheduler.configuration.ProcessConfiguration;
-import scheduler.configuration.ProcessSelection;
-import scheduler.configuration.ResourceInstanceSelection;
-import scheduler.configuration.RunQueueType;
 import scheduler.configuration.SchedulerConfiguration;
-import scheduler.configuration.SingleQueueConfiguration;
-import scheduler.configuration.TimeSliceConfiguration;
-import scheduler.configuration.TimeValue;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.tools.SchedulerTools;
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -38,7 +27,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 	private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "pathmap://PCM_MODELS/Library.scheduler";
 	private static long resourceId = 1;
 	private String processingRate = "0";
-	private String units = null;
 	IActiveResource aResource = null;
 	ActiveResourceConfiguration resourceConf = null;
 
@@ -87,7 +75,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 			scheduledResource = ISchedulingFactory.eINSTANCE.
 				createSimDelayResource(SchedulingStrategy.DELAY.toString(), getNextResourceId());
 			break;
-			
 		// active resources scheduled by improved scheduler
 		case LINUX_2_6:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.20", numberOfCores);
@@ -125,9 +112,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 	{
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
-		this.units = units;
 		
-		aResource = getScheduledResource(strategy, numberOfCores);
+		aResource = getScheduledResource(strategy.WINDOWS_SERVER_2003, numberOfCores);
 	}
 	
 
