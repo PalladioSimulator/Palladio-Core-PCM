@@ -108,12 +108,19 @@ public class ScheduledResource extends AbstractScheduledResource {
 		}
 	}
 	
-	public ScheduledResource(SimuComModel myModel, String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfCores)
+	public ScheduledResource(SimuComModel myModel, 
+			String typeID, 
+			String description, 
+			String processingRate, 
+			String units, 
+			SchedulingStrategy strategy,
+			int numberOfCores)
 	{
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
 		
-		aResource = getScheduledResource(strategy.WINDOWS_SERVER_2003, numberOfCores);
+		logger.debug("Creating scheduled resource with strategy "+strategy.name()+" and "+numberOfCores+" replicas!");
+		aResource = getScheduledResource(strategy, numberOfCores);	
 	}
 	
 
