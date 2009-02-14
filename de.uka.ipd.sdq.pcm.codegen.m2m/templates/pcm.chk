@@ -90,3 +90,15 @@ context RandomVariable ERROR 'Random variable without specification is invalid':
 	
 context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
 	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
+
+context ProcessingResourceSpecification ERROR 'Exact scheduling only available if container scheduler is not abstract':
+	!(this.schedulingPolicy.toString() == "EXACT" && ((ResourceContainer)this.eContainer).scheduler.toString() == "ABSTRACT");
+
+context ProcessingResourceSpecification ERROR 'Abstract scheduling (FCFS, PS, or DELAY) only available if container scheduler is set to ABSTRACT':
+	if this.schedulingPolicy.toString() != "EXACT" then ((ResourceContainer)this.eContainer).scheduler.toString() == "ABSTRACT" else true;
+
+context ProcessingResourceSpecification ERROR 'Number of cores > 1 only allowed for exact scheduling':
+	if this.schedulingPolicy.toString() != "EXACT" then this.noOfReplicas == 1 else this.noOfReplicas > 0;	
+
+context ResourceContainer ERROR 'Only a single resource type CPU allowed for non abstract schedulers. Use No of Replicas instead':
+	if this.scheduler.toString() != "ABSTRACT" then this.activeResourceSpecifications_ResourceContainer.select(e|e.activeResourceType_ActiveResourceSpecification.entityName == "CPU").size == 1 else true;
