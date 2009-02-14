@@ -72,6 +72,7 @@ public class SchedulerConfigurationItemProvider
 
 			addNamePropertyDescriptor(object);
 			addInFrontAfterWaitingPropertyDescriptor(object);
+			addWindowsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class SchedulerConfigurationItemProvider
 				 getString("_UI_SchedulerConfiguration_inFrontAfterWaiting_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulerConfiguration_inFrontAfterWaiting_feature", "_UI_SchedulerConfiguration_type"),
 				 ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Windows feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWindowsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulerConfiguration_Windows_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulerConfiguration_Windows_feature", "_UI_SchedulerConfiguration_type"),
+				 ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__WINDOWS,
 				 true,
 				 false,
 				 false,
@@ -192,6 +215,7 @@ public class SchedulerConfigurationItemProvider
 		switch (notification.getFeatureID(SchedulerConfiguration.class)) {
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__NAME:
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__PRIORITY_CONFIGURATION:

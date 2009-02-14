@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import scheduler.configuration.ConfigurationFactory;
@@ -67,8 +69,31 @@ public class MultipleQueueConfigurationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInFrontWhenBalancingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the In Front When Balancing feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInFrontWhenBalancingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultipleQueueConfiguration_InFrontWhenBalancing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultipleQueueConfiguration_InFrontWhenBalancing_feature", "_UI_MultipleQueueConfiguration_type"),
+				 ConfigurationPackage.Literals.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -139,6 +164,9 @@ public class MultipleQueueConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MultipleQueueConfiguration.class)) {
+			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
