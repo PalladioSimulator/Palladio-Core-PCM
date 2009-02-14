@@ -74,6 +74,7 @@ public class ProcessingResourceSpecificationItemProvider
 
 			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
+			addNoOfReplicasPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,6 +119,28 @@ public class ProcessingResourceSpecificationItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the No Of Replicas feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNoOfReplicasPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_noOfReplicas_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_noOfReplicas_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -192,6 +215,7 @@ public class ProcessingResourceSpecificationItemProvider
 		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:

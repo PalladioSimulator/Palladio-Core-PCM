@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,5 +117,32 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable value);
+
+	/**
+	 * Returns the value of the '<em><b>No Of Replicas</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>No Of Replicas</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>No Of Replicas</em>' attribute.
+	 * @see #setNoOfReplicas(int)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_NoOfReplicas()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getNoOfReplicas();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>No Of Replicas</em>' attribute.
+	 * @see #getNoOfReplicas()
+	 * @generated
+	 */
+	void setNoOfReplicas(int value);
 
 } // ProcessingResourceSpecification

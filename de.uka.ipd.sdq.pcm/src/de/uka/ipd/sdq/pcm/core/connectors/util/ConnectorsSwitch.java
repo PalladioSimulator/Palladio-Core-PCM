@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.connectors.*;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;

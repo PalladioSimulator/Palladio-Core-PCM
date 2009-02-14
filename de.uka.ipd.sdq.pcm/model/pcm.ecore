@@ -975,16 +975,27 @@
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="noOfReplicas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
       <eLiterals name="DELAY"/>
       <eLiterals name="PROCESSOR_SHARING" value="1"/>
       <eLiterals name="FCFS" value="2"/>
+      <eLiterals name="EXACT" value="3"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduler" eType="#//resourceenvironment/ContainerCPUScheduler"
+          defaultValueLiteral="ABSTRACT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ContainerCPUScheduler">
+      <eLiterals name="ABSTRACT"/>
+      <eLiterals name="WINDOWS2003" value="1"/>
+      <eLiterals name="LINUX26" value="2"/>
+      <eLiterals name="WINXP" value="3"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -92,6 +93,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.SCHEDULING_POLICY:
 				return createSchedulingPolicyFromString(eDataType, initialValue);
+			case ResourceenvironmentPackage.CONTAINER_CPU_SCHEDULER:
+				return createContainerCPUSchedulerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +110,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.SCHEDULING_POLICY:
 				return convertSchedulingPolicyToString(eDataType, instanceValue);
+			case ResourceenvironmentPackage.CONTAINER_CPU_SCHEDULER:
+				return convertContainerCPUSchedulerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +184,26 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * @generated
 	 */
 	public String convertSchedulingPolicyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContainerCPUScheduler createContainerCPUSchedulerFromString(EDataType eDataType, String initialValue) {
+		ContainerCPUScheduler result = ContainerCPUScheduler.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContainerCPUSchedulerToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

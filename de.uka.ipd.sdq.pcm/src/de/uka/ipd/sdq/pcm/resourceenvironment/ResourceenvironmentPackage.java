@@ -253,13 +253,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>No Of Replicas</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -299,13 +308,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__SCHEDULER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Resource Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
@@ -316,6 +334,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int SCHEDULING_POLICY = 5;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerCPUScheduler()
+	 * @generated
+	 */
+	int CONTAINER_CPU_SCHEDULER = 6;
 
 
 	/**
@@ -480,6 +509,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>No Of Replicas</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas()
+	 * @see #getProcessingResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getProcessingResourceSpecification_NoOfReplicas();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -501,6 +541,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scheduler</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EAttribute getResourceContainer_Scheduler();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,6 +560,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSchedulingPolicy();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Container CPU Scheduler</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+	 * @generated
+	 */
+	EEnum getContainerCPUScheduler();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -661,6 +722,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 		/**
+		 * The meta object literal for the '<em><b>No Of Replicas</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS = eINSTANCE.getProcessingResourceSpecification_NoOfReplicas();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -679,6 +748,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Scheduler</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_CONTAINER__SCHEDULER = eINSTANCE.getResourceContainer_Scheduler();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -687,6 +764,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerCPUScheduler()
+		 * @generated
+		 */
+		EEnum CONTAINER_CPU_SCHEDULER = eINSTANCE.getContainerCPUScheduler();
 
 	}
 
