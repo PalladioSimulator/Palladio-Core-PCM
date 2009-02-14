@@ -72,7 +72,10 @@ public class SSJSimProcess implements ISimProcessDelegate {
 			public void run() {
 				SSJSimProcess.this.actions();
 				SSJSimProcess.this.myThread = null;
-				myAbstractProcess.fireTerminated();
+				// Jens: fireTerminated has to be called before 
+				// the process is removed from the simulation. 
+				// Otherwise, the race condition remains 
+				// --> now called in method "lifeCycle". 
 				waitingForSuspendSemaphore.release();
 			}
 			
