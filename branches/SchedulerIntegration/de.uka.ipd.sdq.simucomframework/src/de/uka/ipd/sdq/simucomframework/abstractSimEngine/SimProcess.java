@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
@@ -41,6 +42,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		addProcessToSimStatus();
 		try {
 			this.internalLifeCycle();
+			this.fireTerminated();
 		} catch (Exception e) {
 			logger.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComResult.ERROR,
@@ -132,6 +134,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	private List<IActiveResource> removedObservers = new ArrayList<IActiveResource>();;
 	
 	public void fireTerminated() {
+		LoggingWrapper.log("Process " + this.getId() + " terminated.");
 		for (IActiveResource o : terminatedObservers)
 			o.notifyTerminated(this);
 		terminatedObservers.removeAll(removedObservers);

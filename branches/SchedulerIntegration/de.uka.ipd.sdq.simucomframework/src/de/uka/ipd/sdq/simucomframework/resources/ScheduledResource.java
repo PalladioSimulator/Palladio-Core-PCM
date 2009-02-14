@@ -24,7 +24,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class ScheduledResource extends AbstractScheduledResource {
 
-	private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "pathmap://PCM_MODELS/Library.scheduler";
+	//private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "pathmap://PCM_MODELS/Library.scheduler";
+	private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "C:/data/scheduler/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Library.scheduler";
 	private static long resourceId = 1;
 	private String processingRate = "0";
 	IActiveResource aResource = null;
@@ -77,7 +78,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 			break;
 		// active resources scheduled by improved scheduler
 		case LINUX_2_6:
-			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.20", numberOfCores);
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.22", numberOfCores);
 			break;
 		case WINDOWS_SERVER_2003:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows 2003", numberOfCores);
