@@ -36,6 +36,7 @@ import scheduler.configuration.TimeValue;
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getQueueingConfiguration <em>Queueing Configuration</em>}</li>
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#isInFrontAfterWaiting <em>In Front After Waiting</em>}</li>
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getInterval <em>Interval</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#isWindows <em>Windows</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +122,26 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	 * @ordered
 	 */
 	protected TimeValue interval;
+
+	/**
+	 * The default value of the '{@link #isWindows() <em>Windows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWindows()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WINDOWS_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isWindows() <em>Windows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWindows()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean windows = WINDOWS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -360,6 +381,27 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isWindows() {
+		return windows;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWindows(boolean newWindows) {
+		boolean oldWindows = windows;
+		windows = newWindows;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS, oldWindows, windows));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -395,6 +437,8 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				return isInFrontAfterWaiting() ? Boolean.TRUE : Boolean.FALSE;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				return getInterval();
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+				return isWindows() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -424,6 +468,9 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				setInterval((TimeValue)newValue);
+				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+				setWindows(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,6 +502,9 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				setInterval((TimeValue)null);
 				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+				setWindows(WINDOWS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -479,6 +529,8 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				return inFrontAfterWaiting != IN_FRONT_AFTER_WAITING_EDEFAULT;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				return interval != null;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+				return windows != WINDOWS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -497,6 +549,8 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 		result.append(name);
 		result.append(", inFrontAfterWaiting: ");
 		result.append(inFrontAfterWaiting);
+		result.append(", Windows: ");
+		result.append(windows);
 		result.append(')');
 		return result.toString();
 	}

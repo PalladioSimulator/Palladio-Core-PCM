@@ -82,6 +82,7 @@
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration/loadBalancing"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration/InFrontWhenBalancing"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SchedulerConfiguration.ecore#//configuration/QueueingConfiguration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/QueueingConfiguration/initialInstanceSelection"/>
@@ -150,6 +151,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/queueingConfiguration"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/inFrontAfterWaiting"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/interval"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/Windows"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

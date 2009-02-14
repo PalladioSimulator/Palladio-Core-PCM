@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#getQueueingConfiguration <em>Queueing Configuration</em>}</li>
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#isInFrontAfterWaiting <em>In Front After Waiting</em>}</li>
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}</li>
+ *   <li>{@link scheduler.configuration.SchedulerConfiguration#isWindows <em>Windows</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,5 +186,32 @@ public interface SchedulerConfiguration extends Identifier {
 	 * @generated
 	 */
 	void setInterval(TimeValue value);
+
+	/**
+	 * Returns the value of the '<em><b>Windows</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Windows</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Windows</em>' attribute.
+	 * @see #setWindows(boolean)
+	 * @see scheduler.configuration.ConfigurationPackage#getSchedulerConfiguration_Windows()
+	 * @model default="true" unique="false" required="true"
+	 * @generated
+	 */
+	boolean isWindows();
+
+	/**
+	 * Sets the value of the '{@link scheduler.configuration.SchedulerConfiguration#isWindows <em>Windows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Windows</em>' attribute.
+	 * @see #isWindows()
+	 * @generated
+	 */
+	void setWindows(boolean value);
 
 } // SchedulerConfiguration

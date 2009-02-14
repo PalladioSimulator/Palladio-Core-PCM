@@ -70,6 +70,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="MultipleQueueConfiguration" eSuperTypes="#//configuration/QueueingConfiguration">
       <eStructuralFeatures xsi:type="ecore:EReference" name="loadBalancing" ordered="false"
           lowerBound="1" eType="#//configuration/LoadBalancing" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InFrontWhenBalancing"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QueueingConfiguration" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialInstanceSelection"
@@ -211,6 +214,9 @@
           ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interval" ordered="false"
           lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Windows" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
