@@ -7,14 +7,17 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -27,6 +30,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +53,26 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @ordered
 	 */
 	protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
+
+	/**
+	 * The default value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScheduler()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ContainerCPUScheduler SCHEDULER_EDEFAULT = ContainerCPUScheduler.ABSTRACT;
+
+	/**
+	 * The cached value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScheduler()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContainerCPUScheduler scheduler = SCHEDULER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,6 +110,27 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ContainerCPUScheduler getScheduler() {
+		return scheduler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScheduler(ContainerCPUScheduler newScheduler) {
+		ContainerCPUScheduler oldScheduler = scheduler;
+		scheduler = newScheduler == null ? SCHEDULER_EDEFAULT : newScheduler;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.RESOURCE_CONTAINER__SCHEDULER, oldScheduler, scheduler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -105,6 +150,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return getActiveResourceSpecifications_ResourceContainer();
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__SCHEDULER:
+				return getScheduler();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,6 +169,9 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				getActiveResourceSpecifications_ResourceContainer().addAll((Collection<? extends ProcessingResourceSpecification>)newValue);
 				return;
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__SCHEDULER:
+				setScheduler((ContainerCPUScheduler)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -137,6 +187,9 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				return;
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__SCHEDULER:
+				setScheduler(SCHEDULER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -151,8 +204,26 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return activeResourceSpecifications_ResourceContainer != null && !activeResourceSpecifications_ResourceContainer.isEmpty();
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__SCHEDULER:
+				return scheduler != SCHEDULER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (scheduler: ");
+		result.append(scheduler);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ResourceContainerImpl
