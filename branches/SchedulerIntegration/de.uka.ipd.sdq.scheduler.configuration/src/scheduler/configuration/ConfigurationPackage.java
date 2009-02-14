@@ -81,7 +81,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_VALUE__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT;
+	int TIME_VALUE__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
@@ -332,13 +332,22 @@ public interface ConfigurationPackage extends EPackage {
 	int MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING = QUEUEING_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>In Front When Balancing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING = QUEUEING_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Multiple Queue Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_QUEUE_CONFIGURATION_FEATURE_COUNT = QUEUEING_CONFIGURATION_FEATURE_COUNT + 1;
+	int MULTIPLE_QUEUE_CONFIGURATION_FEATURE_COUNT = QUEUEING_CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.TimeSliceConfigurationImpl <em>Time Slice Configuration</em>}' class.
@@ -1002,13 +1011,22 @@ public interface ConfigurationPackage extends EPackage {
 	int SCHEDULER_CONFIGURATION__INTERVAL = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Windows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER_CONFIGURATION__WINDOWS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Scheduler Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+	int SCHEDULER_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}' enum.
@@ -1292,6 +1310,17 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMultipleQueueConfiguration_LoadBalancing();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.MultipleQueueConfiguration#isInFrontWhenBalancing <em>In Front When Balancing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>In Front When Balancing</em>'.
+	 * @see scheduler.configuration.MultipleQueueConfiguration#isInFrontWhenBalancing()
+	 * @see #getMultipleQueueConfiguration()
+	 * @generated
+	 */
+	EAttribute getMultipleQueueConfiguration_InFrontWhenBalancing();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.QueueingConfiguration <em>Queueing Configuration</em>}'.
@@ -1863,6 +1892,17 @@ public interface ConfigurationPackage extends EPackage {
 	EReference getSchedulerConfiguration_Interval();
 
 	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.SchedulerConfiguration#isWindows <em>Windows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Windows</em>'.
+	 * @see scheduler.configuration.SchedulerConfiguration#isWindows()
+	 * @see #getSchedulerConfiguration()
+	 * @generated
+	 */
+	EAttribute getSchedulerConfiguration_Windows();
+
+	/**
 	 * Returns the meta object for enum '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2129,6 +2169,14 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING = eINSTANCE.getMultipleQueueConfiguration_LoadBalancing();
+
+		/**
+		 * The meta object literal for the '<em><b>In Front When Balancing</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING = eINSTANCE.getMultipleQueueConfiguration_InFrontWhenBalancing();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.QueueingConfigurationImpl <em>Queueing Configuration</em>}' class.
@@ -2581,6 +2629,14 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULER_CONFIGURATION__INTERVAL = eINSTANCE.getSchedulerConfiguration_Interval();
+
+		/**
+		 * The meta object literal for the '<em><b>Windows</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULER_CONFIGURATION__WINDOWS = eINSTANCE.getSchedulerConfiguration_Windows();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}' enum.

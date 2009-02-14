@@ -26,6 +26,7 @@ import scheduler.configuration.MultipleQueueConfiguration;
  * The following features are implemented:
  * <ul>
  *   <li>{@link scheduler.configuration.impl.MultipleQueueConfigurationImpl#getLoadBalancing <em>Load Balancing</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.MultipleQueueConfigurationImpl#isInFrontWhenBalancing <em>In Front When Balancing</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +42,25 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 	 * @ordered
 	 */
 	protected LoadBalancing loadBalancing;
+
+	/**
+	 * The default value of the '{@link #isInFrontWhenBalancing() <em>In Front When Balancing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInFrontWhenBalancing()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IN_FRONT_WHEN_BALANCING_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isInFrontWhenBalancing() <em>In Front When Balancing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInFrontWhenBalancing()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean inFrontWhenBalancing = IN_FRONT_WHEN_BALANCING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,6 +129,27 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isInFrontWhenBalancing() {
+		return inFrontWhenBalancing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInFrontWhenBalancing(boolean newInFrontWhenBalancing) {
+		boolean oldInFrontWhenBalancing = inFrontWhenBalancing;
+		inFrontWhenBalancing = newInFrontWhenBalancing;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING, oldInFrontWhenBalancing, inFrontWhenBalancing));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -128,6 +169,8 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 		switch (featureID) {
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				return getLoadBalancing();
+			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
+				return isInFrontWhenBalancing() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,6 +185,9 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 		switch (featureID) {
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				setLoadBalancing((LoadBalancing)newValue);
+				return;
+			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
+				setInFrontWhenBalancing(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,6 +204,9 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				setLoadBalancing((LoadBalancing)null);
 				return;
+			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
+				setInFrontWhenBalancing(IN_FRONT_WHEN_BALANCING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -172,8 +221,26 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 		switch (featureID) {
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				return loadBalancing != null;
+			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
+				return inFrontWhenBalancing != IN_FRONT_WHEN_BALANCING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (InFrontWhenBalancing: ");
+		result.append(inFrontWhenBalancing);
+		result.append(')');
+		return result.toString();
 	}
 
 } //MultipleQueueConfigurationImpl
