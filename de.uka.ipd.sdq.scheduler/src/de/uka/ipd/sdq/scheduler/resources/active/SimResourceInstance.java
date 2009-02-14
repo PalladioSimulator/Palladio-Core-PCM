@@ -147,6 +147,7 @@ public class SimResourceInstance implements IResourceInstance {
 	}
 
 	public void stop() {
+		scheduling_event.cancel();
 	}
 
 	public void setIsScheduling(boolean b) {

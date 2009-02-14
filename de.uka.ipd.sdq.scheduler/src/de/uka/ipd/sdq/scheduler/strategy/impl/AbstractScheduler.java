@@ -12,8 +12,8 @@ import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public abstract class AbstractScheduler implements IScheduler {
-	public static final boolean IS_WINDOWS = true;
-	protected static final double WINDOWS_STARVATION_LIMIT = 3000.0;
+	public boolean IS_WINDOWS = true;
+	protected static final double WINDOWS_STARVATION_LIMIT = 4000.0;
 
 	protected SimActiveResource resource;
 
@@ -24,11 +24,12 @@ public abstract class AbstractScheduler implements IScheduler {
 	protected double scheduling_interval;
 
 	public AbstractScheduler(SimActiveResource resource,
-			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting) {
+			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting, boolean isWindows) {
 		super();
 		this.resource = resource;
 		this.queueing_strategy = queueingStrategy;
 		this.in_front_after_waiting = in_front_after_waiting;
+		IS_WINDOWS = isWindows;
 	}
 
 	

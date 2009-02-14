@@ -95,13 +95,10 @@ public class SchedulingFactory implements ISchedulingFactory {
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		IActiveResource resource = (IActiveResource) active_resource_map
-				.get(configuration.getId());
+		IActiveResource resource = (IActiveResource) active_resource_map.get(configuration.getId());
 		if (resource == null) {
-				resource = new SimActiveResource(configuration.getReplicas(),
-						configuration.getName(), configuration.getId());
-				IScheduler scheduler = createScheduler(configuration
-						.getSchedulerConfiguration(), resource);
+				resource = new SimActiveResource(configuration.getReplicas(),configuration.getName(), configuration.getId());
+				IScheduler scheduler = createScheduler(configuration.getSchedulerConfiguration(), resource);
 				((SimActiveResource) resource).setScheduler(scheduler);
 			active_resource_map.put(configuration.getId(), resource);
 		}
@@ -134,11 +131,6 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return resource;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createPassiveResource(scheduler.configuration.PassiveResourceConfiguration)
-	 */
 	public IPassiveResource createPassiveResource(
 			PassiveResourceConfiguration configuration) {
 		IPassiveResource resource = passive_resource_map.get(configuration
@@ -312,26 +304,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 
 	private IScheduler createScheduler(SchedulerConfiguration configuration,
 			IActiveResource scheduled_resource) {
-		IScheduler scheduler = scheduler_map.get(configuration.getId());
-
-		if (scheduler == null) {
-			if (configuration.getPreemptionConfiguration() != null) {
-				scheduler = createPreemptiveScheduler(configuration,
-						scheduled_resource);
-			} else {
-				scheduler = createFCFSScheduler(configuration,
-						scheduled_resource);
-			}
-			scheduler_map.put(configuration.getId(), scheduler);
-		}
-		return scheduler;
-	}
-
-	private IScheduler createFCFSScheduler(
-			SchedulerConfiguration configuration,
-			IActiveResource scheduled_resource) {
-		// TODO Auto-generated method stub
-		return null;
+		return createPreemptiveScheduler(configuration,scheduled_resource);
 	}
 
 	private IScheduler createPreemptiveScheduler(
@@ -345,7 +318,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		boolean in_front_after_waiting = configuration.isInFrontAfterWaiting();
 		double scheduling_interval = configuration.getInterval().getValue();
 		return new PreemptiveScheduler((SimActiveResource) scheduled_resource,
-				queueing_strategy, in_front_after_waiting, scheduling_interval);
+				queueing_strategy, in_front_after_waiting, scheduling_interval, configuration.isWindows());
 	}
 
 	private IProcessQueue createProcessQueue(PriorityConfiguration configuration) {

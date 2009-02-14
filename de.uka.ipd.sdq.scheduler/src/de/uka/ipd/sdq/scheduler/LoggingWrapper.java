@@ -19,7 +19,7 @@ public class LoggingWrapper {
 	}
 	
 	public static void log(String string) {
-		 logger.fatal(MathTools.round(SchedulingFactory.getUsedSimulator().time(), 0.01) + " " + string);
+		 logger.info(MathTools.round(SchedulingFactory.getUsedSimulator().time(), 0.01) + " " + string);
 	}
 
 }
