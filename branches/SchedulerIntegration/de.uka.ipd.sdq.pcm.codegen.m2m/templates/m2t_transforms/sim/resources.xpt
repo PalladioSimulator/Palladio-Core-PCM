@@ -94,8 +94,24 @@
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
 		"TODO: unit!",
-		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»,
-		1 /*TODO: Get number of cores from model*/);
+		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»,
+		«this.noOfReplicas»);
+«ENDDEFINE»
+
+«DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»
+	«IF this.schedulingPolicy.toString() == "EXACT"»
+		«IF container.scheduler.toString() == "LINUX26"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6
+		«ENDIF»
+		«IF container.scheduler.toString() == "WINXP"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_XP
+		«ENDIF»
+		«IF container.scheduler.toString() == "WINDOWS2003"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_SERVER_2003
+		«ENDIF»
+	«ELSE»
+		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»
+	«ENDIF»
 «ENDDEFINE»
 
 «REM»TODO: Refactor
