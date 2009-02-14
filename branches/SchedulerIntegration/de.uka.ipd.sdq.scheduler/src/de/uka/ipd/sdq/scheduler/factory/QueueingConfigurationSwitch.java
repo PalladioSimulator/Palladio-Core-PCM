@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.SingleQueueStrategy;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.strategy.impl.AbstractScheduler;
 
 public class QueueingConfigurationSwitch extends ConfigurationSwitch<IQueueingStrategy> {
 	
@@ -31,7 +32,7 @@ public class QueueingConfigurationSwitch extends ConfigurationSwitch<IQueueingSt
 	public IQueueingStrategy caseMultipleQueueConfiguration(
 			MultipleQueueConfiguration configuration) {
 		AbstractLoadBalancer load_balancer = (AbstractLoadBalancer)factory.createLoadBalancer(configuration.getLoadBalancing());
-		MultipleQueuesStrategy strategy = new MultipleQueuesStrategy(resource.getInstanceList(), runqueue_prototype, instance_selector, load_balancer);
+		MultipleQueuesStrategy strategy = new MultipleQueuesStrategy(resource.getInstanceList(), runqueue_prototype, instance_selector, load_balancer, configuration.isInFrontWhenBalancing());
 		load_balancer.setQueueHolder(strategy);
 		return strategy;
 	}
