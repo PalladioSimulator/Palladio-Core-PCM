@@ -95,6 +95,7 @@ implements
 		getStatus().setCurrentSimulationTime(0);
 		ExperimentRunner.run(model, SIM_STOP_TIME);
 		model.getDAOFactory().store();
+		model.getConfig().getRandomGenerator().dispose();
 		return model.getErrorStatus();
 	}
 	
