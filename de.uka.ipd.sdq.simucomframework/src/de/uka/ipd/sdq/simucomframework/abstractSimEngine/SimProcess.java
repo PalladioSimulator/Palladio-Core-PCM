@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.log4j.Logger;
 
@@ -30,9 +31,10 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	
 	protected SimProcess(SimuComModel model, String name) {
 		super(model, name);
-		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
-		isDebug = model.getConfig().isDebug();
 		id = getNextID();
+		isDebug = model.getConfig().isDebug();
+		logger.debug("Create SimProcess with id "+id);
+		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
 	}
 
 	/* (non-Javadoc)
@@ -44,6 +46,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 			this.internalLifeCycle();
 			this.fireTerminated();
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComResult.ERROR,
 					e);
@@ -124,10 +127,10 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return this.processStatus;
 	}
 	
-	private static long processID = 0;
+	private static AtomicLong processID = new AtomicLong(0);
 	
 	protected static long getNextID(){
-		return processID++;
+		return processID.incrementAndGet();
 	}
 	
 	private ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
