@@ -15,4 +15,6 @@ public class DefaultRandomGenerator implements IRandomGenerator {
 		return Math.random();
 	}
 
+	public void dispose() {	}
+
 }
