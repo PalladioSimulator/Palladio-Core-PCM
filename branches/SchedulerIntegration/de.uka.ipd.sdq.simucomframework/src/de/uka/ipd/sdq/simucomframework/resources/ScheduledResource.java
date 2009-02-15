@@ -138,10 +138,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 	}
 
 	@Override
-	public void addJob(JobAndDemandStruct demand) {
-	}
-
-	@Override
 	public void consumeResource(SimProcess thread, double demand) {
 		registerProcessWindows(thread, aResource, 8);
 		aResource.process(thread, demand);
@@ -150,41 +146,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 	@Override
 	public void deactivateResource() {
 		// Nothing to do here
-	}
-
-	@Override
-	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
-		return super.getStrategy(strategy);
-	}
-
-	@Override
-	public double getTimeWhenNextJobIsDone() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public int getTotalJobCount() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public boolean hasMoreJobs() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void processPassedTime() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public JobAndDemandStruct removeFinishedJob() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public void setIdle(boolean b) {
-		throw new UnsupportedOperationException();
 	}
 
 	public static String getNextResourceId() {
