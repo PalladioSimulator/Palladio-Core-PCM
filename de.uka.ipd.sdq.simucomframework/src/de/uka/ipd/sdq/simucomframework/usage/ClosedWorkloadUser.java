@@ -14,8 +14,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class ClosedWorkloadUser extends SimProcess implements IUser {
 
-	private static Logger logger = 
-		Logger.getLogger(ClosedWorkloadUser.class.getName());
+	//private static Logger logger = 
+	//	Logger.getLogger(ClosedWorkloadUser.class.getName());
 	
 	private IScenarioRunner scenarioRunner;
 	private String thinkTime;
