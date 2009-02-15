@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.rng.MRG32k3a;
@@ -21,6 +22,9 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator {
 		if (randomSeed != null) {
 			if (randomSeed.length == 6) {
 				logger.debug("Setting fixed seed for random number generator! [Stream ID = "+myID+"]");
+				for (int i=0; i<6; i++) {
+					logger.debug("Seed "+i+" = "+randomSeed[i]);
+				}
 				rndNumberGenerator.setSeed(randomSeed);
 			}
 			else {
