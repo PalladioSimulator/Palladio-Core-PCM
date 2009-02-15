@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.simucomframework.ssj;
 
-import java.util.concurrent.Semaphore;
-
 import umontreal.iro.lecuyer.simevents.Event;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import umontreal.iro.lecuyer.simevents.Simulator;
@@ -55,16 +53,15 @@ enum ProcessState {
 public class SSJSimProcess implements ISimProcessDelegate {
 
 	de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess myAbstractProcess = null;
-//	Semaphore waitingSemaphore = new Semaphore(0,true);
-//	Semaphore waitingForSuspendSemaphore = new Semaphore(0,true);
+
 	Lock waitingSemaphore = new Lock(false);
 	Lock waitingForSuspendSemaphore = new Lock(false);
+
 	private ProcessState myProcessState = ProcessState.READY;
 	private Simulator sim;
 	private Thread myThread;
 	
 	public SSJSimProcess(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess myProcess, String name) {
-		// super(((SSJExperiment)myProcess.getModel().getSimulationControl()).getSimulator());		
 		this.sim = ((SSJExperiment)myProcess.getModel().getSimulationControl()).getSimulator();
 		this.myAbstractProcess = myProcess;
 		this.myThread = new Thread(new Runnable(){
@@ -76,13 +73,11 @@ public class SSJSimProcess implements ISimProcessDelegate {
 				// the process is removed from the simulation. 
 				// Otherwise, the race condition remains 
 				// --> now called in method "lifeCycle". 
-				waitingForSuspendSemaphore.release();
 			}
 			
 		});
 		this.myThread.start();
 		waitingForSuspendSemaphore.takeUninteruppted();
-		//this.waitingForSuspendSemaphore.acquireUninterruptibly();
 	}
 
 	/* (non-Javadoc)
@@ -150,24 +145,17 @@ public class SSJSimProcess implements ISimProcessDelegate {
 			throw new IllegalStateException("Tried to suspend non-running process");
 		this.myProcessState = ProcessState.SUSPENDED;
 		waitingForSuspendSemaphore.release();
-		// SSJSimProcess.this.waitingForSuspendSemaphore.release();
 		waitingSemaphore.takeUninteruppted();
-		// SSJSimProcess.this.waitingSemaphore.acquireUninterruptibly();
 		this.myProcessState = ProcessState.RUNNING;
 	}
 
 	private void resume() {
 		if (this.myProcessState != ProcessState.SUSPENDED)
 			throw new IllegalStateException("Tried to resume thread which was not suspended");
+
 		this.myProcessState = ProcessState.RUNNING;
-		//SSJSimProcess.this.waitingSemaphore.release();
-		//SSJSimProcess.this.waitingForSuspendSemaphore.acquireUninterruptibly();
-
 		waitingSemaphore.release();
-		// SSJSimProcess.this.waitingSemaphore.acquireUninterruptibly();
-
 		waitingForSuspendSemaphore.takeUninteruppted();
-		// SSJSimProcess.this.waitingForSuspendSemaphore.release();
 
 		// In case of in-between termination, do not set the state back to suspended
 		if (this.myProcessState == ProcessState.RUNNING) {
