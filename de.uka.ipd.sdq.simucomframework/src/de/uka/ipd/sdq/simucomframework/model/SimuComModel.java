@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
 /**
  * Central simulation class needed by desmoj. Keeps the simulation state
@@ -51,6 +52,8 @@ public class SimuComModel {
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
 	private SimuComStatus simulationStatus = null;
+
+	private StoExCache stoExCache;
 	
 	public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
@@ -238,5 +241,12 @@ public class SimuComModel {
 
 	public SimuComStatus getSimulationStatus() {
 		return simulationStatus;
+	}
+
+	public StoExCache getStoExCache() {
+		if (this.stoExCache == null) {
+			this.stoExCache = new StoExCache(this.getConfig().getRandomGenerator());
+		}
+		return this.stoExCache;
 	}
 }

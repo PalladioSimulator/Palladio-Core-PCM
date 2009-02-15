@@ -51,8 +51,8 @@ public class StackContext implements Serializable {
 	 * exception is thrown
 	 * @return The value of the StoEx evaluation
 	 */
-	public Object evaluate(String string, Class<?> expectedType) {
-		return StackContext.evaluateStatic(string,expectedType,stack.currentStackFrame(),mode);
+	public Object evaluate(StoExCache cache, String string, Class<?> expectedType) {
+		return StackContext.evaluateStatic(cache, string,expectedType,stack.currentStackFrame(),mode);
 	}
 
 	/**
@@ -61,8 +61,8 @@ public class StackContext implements Serializable {
 	 * @param string Stoex to evaluate
 	 * @return The value of the StoEx evaluation
 	 */
-	public Object evaluate(String string) {
-		return evaluateStatic(string,stack.currentStackFrame(),mode);
+	public Object evaluate(StoExCache cache, String string) {
+		return evaluateStatic(cache, string,stack.currentStackFrame(),mode);
 	}
 
 	/**
@@ -71,11 +71,11 @@ public class StackContext implements Serializable {
 	 * @param currentFrame The Stackframe under which the evaluation is performed
 	 * @return The value of the StoEx evaluation
 	 */
-	public Object evaluate(String stoex, SimulatedStackframe<Object> currentFrame) {
-		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+	public Object evaluate(StoExCache cache, String stoex, SimulatedStackframe<Object> currentFrame) {
+		StoExCacheEntry cacheEntry = cache.getEntry(stoex);
 		Object result = null;
 		try {
-			 result = new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+			 result = new PCMStoExEvaluationVisitor(cache, stoex,currentFrame,mode)
 						.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
@@ -88,8 +88,8 @@ public class StackContext implements Serializable {
 	 * @param string Stoex to evaluate
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String stoex) {
-		return evaluateStatic(stoex, new SimulatedStackframe<Object>());
+	public static Object evaluateStatic(StoExCache cache, String stoex) {
+		return evaluateStatic(cache, stoex, new SimulatedStackframe<Object>());
 	}
 
 	/**
@@ -98,11 +98,11 @@ public class StackContext implements Serializable {
 	 * @param currentFrame The Stackframe under which the evaluation is performed
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame) {
-		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+	public static Object evaluateStatic(StoExCache cache, String stoex, SimulatedStackframe<Object> currentFrame) {
+		StoExCacheEntry cacheEntry = cache.getEntry(stoex);
 		Object result = null;
 		try {
-			result = new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
+			result = new PCMStoExEvaluationVisitor(cache, stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
 					.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
@@ -117,11 +117,11 @@ public class StackContext implements Serializable {
 	 * @param mode Evaluation mode to use
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame, VariableMode mode) {
-		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+	public static Object evaluateStatic(StoExCache cache, String stoex, SimulatedStackframe<Object> currentFrame, VariableMode mode) {
+		StoExCacheEntry cacheEntry = cache.getEntry(stoex);
 		Object result = null;
 		try {
-			result = new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+			result = new PCMStoExEvaluationVisitor(cache, stoex,currentFrame,mode)
 					.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
@@ -137,8 +137,8 @@ public class StackContext implements Serializable {
 	 * exception is thrown
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String string, Class<?> expectedType) {
-		return evaluateStatic(string,expectedType,new SimulatedStackframe<Object>(),VariableMode.EXCEPTION_ON_NOT_FOUND);
+	public static Object evaluateStatic(StoExCache cache, String string, Class<?> expectedType) {
+		return evaluateStatic(cache, string,expectedType,new SimulatedStackframe<Object>(),VariableMode.EXCEPTION_ON_NOT_FOUND);
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class StackContext implements Serializable {
 	 * @param frame Stackframe to be used in the evaluation
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String string, Class<?> expectedType, SimulatedStackframe<Object> frame) {
-		return evaluateStatic(string,expectedType,frame,VariableMode.EXCEPTION_ON_NOT_FOUND);
+	public static Object evaluateStatic(StoExCache cache, String string, Class<?> expectedType, SimulatedStackframe<Object> frame) {
+		return evaluateStatic(cache, string,expectedType,frame,VariableMode.EXCEPTION_ON_NOT_FOUND);
 	}
 	
 	/**
@@ -164,9 +164,9 @@ public class StackContext implements Serializable {
 	 * @param mode Evaluation mode to use
 	 * @return The value of the StoEx evaluation
 	 */
-	public static Object evaluateStatic(String string, Class<?> expectedType, SimulatedStackframe<Object> frame,VariableMode mode) {
+	public static Object evaluateStatic(StoExCache cache, String string, Class<?> expectedType, SimulatedStackframe<Object> frame,VariableMode mode) {
 		logger.debug("About to evaluate "+string);
-		Object result = evaluateStatic(string,frame,mode);
+		Object result = evaluateStatic(cache, string,frame,mode);
 		logger.debug("Result "+result);
 		if (expectedType.isInstance(result))
 			return result;
@@ -184,13 +184,13 @@ public class StackContext implements Serializable {
 	 * @param frame The frame which stores the evaluated proxy results
 	 * @param variablename
 	 */
-	public void evaluateInner(SimulatedStackframe<Object> frame, String variablename) {
+	public void evaluateInner(StoExCache cache, SimulatedStackframe<Object> frame, String variablename) {
 		SimulatedStackframe<Object> topmostFrame = this.getStack().currentStackFrame();
 		for(Entry<String,Object> e : (Collection<Entry<String,Object>>)topmostFrame.getContents()) {
 			if (e.getKey().startsWith(variablename)) {
 				if (e.getValue() instanceof EvaluationProxy) {
 					EvaluationProxy proxy = (EvaluationProxy) e.getValue();
-					Object result = StackContext.evaluateStatic(proxy.getStoEx(), proxy.getStackFrame(),mode);
+					Object result = StackContext.evaluateStatic(cache, proxy.getStoEx(), proxy.getStackFrame(),mode);
 					frame.addValue(e.getKey(),result);
 				}
 			}

@@ -47,7 +47,9 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(desmoj.core.simulator.SimProcess)
 	 */
 	public void scenarioRunner(SimProcess thread) {
-		double thinkTime = (Double)Context.evaluateStatic(this.thinkTime,Double.class,null);
+		double thinkTime = (Double)Context.evaluateStatic(
+				this.getModel().getStoExCache(),
+				this.thinkTime,Double.class,null);
 		this.hold(thinkTime);
 		this.scenarioRunner.scenarioRunner(thread);
 	}

@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework;
 import java.io.Serializable;
 import java.util.Map;
 
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
 /**
  * @author roman
  * 
@@ -18,6 +20,8 @@ public class SimuComConfig implements Serializable {
 	public static final String DATASOURCE_ID = "datasourceID";
 	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
 	public static final String MAXIMUM_MEASUREMENT_COUNT = "maximumMeasurementCount";
+	private static final Object RANDOM_SEED = "randomSeed";
+	
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
 	public static String SIMULATION_TIME = "simTime";
@@ -31,6 +35,8 @@ public class SimuComConfig implements Serializable {
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
 	private boolean isDebug;
+	private long[] randomSeed = null;
+	private IRandomGenerator randomNumberGenerator = null;
 
 	/**
 	 * @param a map which maps configuation option IDs to their values
@@ -49,6 +55,7 @@ public class SimuComConfig implements Serializable {
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
+			this.randomSeed = (long[])configuration.get(RANDOM_SEED);
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -80,6 +87,13 @@ public class SimuComConfig implements Serializable {
 	
 	public String getEngine() {
 		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
+	}
+	
+	public IRandomGenerator getRandomGenerator() {
+		if (randomNumberGenerator == null) {
+			randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(randomSeed);
+		}
+		return randomNumberGenerator;
 	}
 
 }

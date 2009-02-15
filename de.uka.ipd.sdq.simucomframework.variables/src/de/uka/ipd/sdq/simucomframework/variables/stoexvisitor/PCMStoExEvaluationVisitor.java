@@ -56,12 +56,15 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	private static FunctionLib functionLib = null;
 
 	private VariableMode mode;
+
+	private StoExCache stoexCache;
 	
-	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame, VariableMode mode) {
+	public PCMStoExEvaluationVisitor(StoExCache cache, String stoex, SimulatedStackframe<Object> frame, VariableMode mode) {
 		myStackFrame = frame;
-		this.typeInferer = StoExCache.singleton().getEntry(stoex).getTypeInferer();
+		this.typeInferer = cache.getEntry(stoex).getTypeInferer();
 		this.mode = mode;
-		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
+		this.stoexCache = cache;
+		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(cache, stoex);
 		if (functionLib == null)
 			functionLib = new FunctionLib();
 	}
@@ -81,7 +84,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			Object value = this.myStackFrame.getValue(variableID); 
 			if (value instanceof EvaluationProxy) {
 				EvaluationProxy proxy = (EvaluationProxy)value;
-				return StackContext.evaluateStatic(proxy.getStoEx(), proxy.getStackFrame());
+				return StackContext.evaluateStatic(stoexCache, proxy.getStoEx(), proxy.getStackFrame());
 			} else {
 				return value;
 			}
