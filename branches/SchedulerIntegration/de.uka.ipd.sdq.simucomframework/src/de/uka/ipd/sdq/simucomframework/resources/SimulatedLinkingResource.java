@@ -24,11 +24,13 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 
 	@Override
 	protected double calculateDemand(double demand) {
-		double calculatedThroughput = NumberConverter.toDouble(StackContext.evaluateStatic(throughput));
+		double calculatedThroughput = NumberConverter.toDouble(
+				StackContext.evaluateStatic(this.getModel().getStoExCache(),throughput));
 		if (calculatedThroughput <= 0) {
 			throw new ThroughputZeroOrNegativeException("Throughput at resource "+getName()+" was less or equal zero");
 		}
-		double result = NumberConverter.toDouble(StackContext.evaluateStatic(latencySpec)) + 
+		double result = NumberConverter.toDouble(
+				StackContext.evaluateStatic(this.getModel().getStoExCache(),latencySpec)) + 
 				demand/calculatedThroughput;
 		
 		logger.debug("A network load of "+result+" has been determined.");

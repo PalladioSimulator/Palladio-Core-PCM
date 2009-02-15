@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.NonProbabilisticExpressionInferTypeVisitor;
@@ -34,7 +35,7 @@ public class StoExCacheEntry {
 	 * Parse the expression and store its AST as well as its infered types
 	 * @param spec The stoex to parse and store
 	 */
-	public StoExCacheEntry(String spec) {
+	public StoExCacheEntry(String spec, IRandomGenerator randomNumberGenerator) {
 		this.spec = spec;
 		PCMStoExLexer lexer = new PCMStoExLexer(
 				new ANTLRStringStream(spec));
@@ -53,7 +54,7 @@ public class StoExCacheEntry {
 			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
 		}
 		this.parsedExpression = formula;
-		this.probFunctionCache = new ProbFunctionCache(formula);
+		this.probFunctionCache = new ProbFunctionCache(formula,randomNumberGenerator);
 	}
 
 	/**

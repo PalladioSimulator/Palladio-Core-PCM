@@ -127,7 +127,9 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 	@Override
 	protected double calculateDemand(double demand) {
-		return demand/(Double)Context.evaluateStatic(processingRate,Double.class);
+		return demand/(Double)Context.evaluateStatic(
+				this.getModel().getStoExCache(),
+				processingRate,Double.class);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 
 /**
  * Context of each simulation thread. This context inherits a stack context
@@ -98,4 +99,17 @@ public abstract class Context extends StackContext {
 	public SimuComModel getModel() {
 		return myModel;
 	}
+	
+	public Object evaluateStoEx(String stoEx, Class<?> resultClass){
+		return this.evaluate(this.myModel.getStoExCache(), stoEx, resultClass);
+	}
+
+	public Object evaluateStoEx(String stoEx){
+		return this.evaluate(this.myModel.getStoExCache(), stoEx);
+	}	
+
+	public void evaluateInner(SimulatedStackframe<Object>stackFrame, String stoEx){
+		this.evaluateInner(this.myModel.getStoExCache(), stackFrame, stoEx);
+	}	
+	
 }

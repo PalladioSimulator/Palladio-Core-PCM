@@ -20,14 +20,16 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
 		Logger.getLogger(PCMProbfunctionEvaluationVisitor.class.getName());
 
 	private String stoex;
+	private StoExCache stoexCache;
 
-	public PCMProbfunctionEvaluationVisitor(String stoex) {
+	public PCMProbfunctionEvaluationVisitor(StoExCache cache, String stoex) {
 		this.stoex = stoex;
+		this.stoexCache = cache;
 	}
 	
 	@Override
 	public Object caseProbabilityDensityFunction(ProbabilityDensityFunction object) {
-		IProbabilityFunction pdf = StoExCache.singleton().getEntry(stoex).getProbFunction(object);
+		IProbabilityFunction pdf = stoexCache.getEntry(stoex).getProbFunction(object);
 		Object result = drawSample(pdf);
 		logger.debug("Draw Sample returned "+result);
 		return result;
@@ -35,7 +37,7 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
 
 	@Override
 	public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
-		IProbabilityFunction pdf = StoExCache.singleton().getEntry(stoex).getProbFunction(object);
+		IProbabilityFunction pdf = stoexCache.getEntry(stoex).getProbFunction(object);
 		Object result = drawSample(pdf);
 		logger.debug("Draw Sample returned "+result);
 		return result;
