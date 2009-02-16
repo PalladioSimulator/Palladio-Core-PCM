@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
-  <uml:Model xmi:id="_kAcFvPwtEd2ByapuHVVWnA" name="probfunction">
-    <eAnnotations xmi:id="_kAcFvfwtEd2ByapuHVVWnA" source="http://www.eclipse.org/emf/2002/Ecore"/>
-    <packageImport xmi:id="_kAcFvvwtEd2ByapuHVVWnA">
+  <uml:Model xmi:id="_CXSCevwxEd2ByapuHVVWnA" name="probfunction">
+    <eAnnotations xmi:id="_CXSCe_wxEd2ByapuHVVWnA" source="http://www.eclipse.org/emf/2002/Ecore"/>
+    <packageImport xmi:id="_CXSCfPwxEd2ByapuHVVWnA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcFv_wtEd2ByapuHVVWnA" name="BoxedPDF">
-      <generalization xmi:id="_kAcFwPwtEd2ByapuHVVWnA" general="_kAcFyfwtEd2ByapuHVVWnA"/>
-      <ownedAttribute xmi:id="_kAcFwfwtEd2ByapuHVVWnA" name="samples" type="_kAcFxPwtEd2ByapuHVVWnA" aggregation="composite" association="_kAcF4_wtEd2ByapuHVVWnA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcFwvwtEd2ByapuHVVWnA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcFw_wtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCffwxEd2ByapuHVVWnA" name="BoxedPDF">
+      <generalization xmi:id="_CXSCfvwxEd2ByapuHVVWnA" general="_CXSCh_wxEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_CXSCf_wxEd2ByapuHVVWnA" name="samples" type="_CXSCgvwxEd2ByapuHVVWnA" aggregation="composite" association="_CXSCofwxEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CXSCgPwxEd2ByapuHVVWnA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSCgfwxEd2ByapuHVVWnA"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcFxPwtEd2ByapuHVVWnA" name="ContinuousSample">
-      <ownedAttribute xmi:id="_kAcFxfwtEd2ByapuHVVWnA" name="value" isUnique="false">
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCgvwxEd2ByapuHVVWnA" name="ContinuousSample">
+      <ownedAttribute xmi:id="_CXSCg_wxEd2ByapuHVVWnA" name="value" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcFxvwtEd2ByapuHVVWnA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSChPwxEd2ByapuHVVWnA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_kAcFx_wtEd2ByapuHVVWnA" name="probability" isUnique="false">
+      <ownedAttribute xmi:id="_CXSChfwxEd2ByapuHVVWnA" name="probability" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcFyPwtEd2ByapuHVVWnA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSChvwxEd2ByapuHVVWnA"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcFyfwtEd2ByapuHVVWnA" name="ProbabilityDensityFunction" isAbstract="true">
-      <generalization xmi:id="_kAcFyvwtEd2ByapuHVVWnA" general="_kAcFy_wtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCh_wxEd2ByapuHVVWnA" name="ProbabilityDensityFunction" isAbstract="true">
+      <generalization xmi:id="_CXSCiPwxEd2ByapuHVVWnA" general="_CXSCifwxEd2ByapuHVVWnA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcFy_wtEd2ByapuHVVWnA" name="ProbabilityFunction" isAbstract="true">
-      <generalization xmi:id="_kAcFzPwtEd2ByapuHVVWnA">
-        <general xmi:type="uml:Class" href="Units.uml#_kAcGK_wtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCifwxEd2ByapuHVVWnA" name="ProbabilityFunction" isAbstract="true">
+      <generalization xmi:id="_CXSCivwxEd2ByapuHVVWnA">
+        <general xmi:type="uml:Class" href="Units.uml#_CXbPGvwxEd2ByapuHVVWnA"/>
       </generalization>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcFzfwtEd2ByapuHVVWnA" name="ProbabilityMassFunction">
-      <generalization xmi:id="_kAcFzvwtEd2ByapuHVVWnA" general="_kAcFy_wtEd2ByapuHVVWnA"/>
-      <ownedAttribute xmi:id="_kAcFz_wtEd2ByapuHVVWnA" name="samples" type="_kAcF0_wtEd2ByapuHVVWnA" isOrdered="true" isUnique="false" aggregation="composite" association="_kAcF4fwtEd2ByapuHVVWnA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcF0PwtEd2ByapuHVVWnA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcF0fwtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCi_wxEd2ByapuHVVWnA" name="ProbabilityMassFunction">
+      <generalization xmi:id="_CXSCjPwxEd2ByapuHVVWnA" general="_CXSCifwxEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_CXSCjfwxEd2ByapuHVVWnA" name="samples" type="_CXSCkfwxEd2ByapuHVVWnA" isOrdered="true" isUnique="false" aggregation="composite" association="_CXSCn_wxEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CXSCjvwxEd2ByapuHVVWnA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSCj_wxEd2ByapuHVVWnA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_kAcF0vwtEd2ByapuHVVWnA" name="orderedDomain">
+      <ownedAttribute xmi:id="_CXSCkPwxEd2ByapuHVVWnA" name="orderedDomain">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF0_wtEd2ByapuHVVWnA" name="Sample">
-      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_kAcF1PwtEd2ByapuHVVWnA" parameter="_kAcF1fwtEd2ByapuHVVWnA">
-        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_kAcF1fwtEd2ByapuHVVWnA" parameteredElement="_kAcF1vwtEd2ByapuHVVWnA">
-          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_kAcF1vwtEd2ByapuHVVWnA" name="T" templateParameter="_kAcF1fwtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCkfwxEd2ByapuHVVWnA" name="Sample">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_CXSCkvwxEd2ByapuHVVWnA" parameter="_CXSCk_wxEd2ByapuHVVWnA">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_CXSCk_wxEd2ByapuHVVWnA" parameteredElement="_CXSClPwxEd2ByapuHVVWnA">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_CXSClPwxEd2ByapuHVVWnA" name="T" templateParameter="_CXSCk_wxEd2ByapuHVVWnA"/>
         </ownedParameter>
       </ownedTemplateSignature>
-      <ownedAttribute xmi:id="_kAcF1_wtEd2ByapuHVVWnA" name="value" visibility="public" type="_kAcF1vwtEd2ByapuHVVWnA" isUnique="false"/>
-      <ownedAttribute xmi:id="_kAcF2PwtEd2ByapuHVVWnA" name="probability" isUnique="false">
+      <ownedAttribute xmi:id="_CXSClfwxEd2ByapuHVVWnA" name="value" visibility="public" type="_CXSClPwxEd2ByapuHVVWnA" isUnique="false"/>
+      <ownedAttribute xmi:id="_CXSClvwxEd2ByapuHVVWnA" name="probability" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcF2fwtEd2ByapuHVVWnA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSCl_wxEd2ByapuHVVWnA"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF2vwtEd2ByapuHVVWnA" name="SamplePDF">
-      <generalization xmi:id="_kAcF2_wtEd2ByapuHVVWnA" general="_kAcFyfwtEd2ByapuHVVWnA"/>
-      <ownedAttribute xmi:id="_kAcF3PwtEd2ByapuHVVWnA" name="distance" isUnique="false">
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCmPwxEd2ByapuHVVWnA" name="SamplePDF">
+      <generalization xmi:id="_CXSCmfwxEd2ByapuHVVWnA" general="_CXSCh_wxEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_CXSCmvwxEd2ByapuHVVWnA" name="distance" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcF3fwtEd2ByapuHVVWnA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSCm_wxEd2ByapuHVVWnA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_kAcF3vwtEd2ByapuHVVWnA" name="values" visibility="public" type="_kAcF7vwtEd2ByapuHVVWnA" isUnique="false" aggregation="composite" association="_kAcF8fwtEd2ByapuHVVWnA">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcF3_wtEd2ByapuHVVWnA" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcF4PwtEd2ByapuHVVWnA"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_kAcF4fwtEd2ByapuHVVWnA" memberEnd="_kAcFz_wtEd2ByapuHVVWnA _kAcF4vwtEd2ByapuHVVWnA">
-      <ownedEnd xmi:id="_kAcF4vwtEd2ByapuHVVWnA" type="_kAcFzfwtEd2ByapuHVVWnA" association="_kAcF4fwtEd2ByapuHVVWnA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_kAcF4_wtEd2ByapuHVVWnA" memberEnd="_kAcFwfwtEd2ByapuHVVWnA _kAcF5PwtEd2ByapuHVVWnA">
-      <ownedEnd xmi:id="_kAcF5PwtEd2ByapuHVVWnA" type="_kAcFv_wtEd2ByapuHVVWnA" association="_kAcF4_wtEd2ByapuHVVWnA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF5fwtEd2ByapuHVVWnA" name="ContinuousPDF" isAbstract="true">
-      <generalization xmi:id="_kAcF5vwtEd2ByapuHVVWnA" general="_kAcFyfwtEd2ByapuHVVWnA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF5_wtEd2ByapuHVVWnA" name="ExponentialDistribution">
-      <generalization xmi:id="_kAcF6PwtEd2ByapuHVVWnA" general="_kAcF5fwtEd2ByapuHVVWnA"/>
-      <ownedAttribute xmi:id="_kAcF6fwtEd2ByapuHVVWnA" name="rate" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      <ownedAttribute xmi:id="_CXSCnPwxEd2ByapuHVVWnA" name="values" visibility="public" type="_CXSCrPwxEd2ByapuHVVWnA" isUnique="false" aggregation="composite" association="_CXSCr_wxEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CXSCnfwxEd2ByapuHVVWnA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CXSCnvwxEd2ByapuHVVWnA"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF6vwtEd2ByapuHVVWnA" name="NormalDistribution">
-      <generalization xmi:id="_kAcF6_wtEd2ByapuHVVWnA" general="_kAcF5fwtEd2ByapuHVVWnA"/>
-      <ownedAttribute xmi:id="_kAcF7PwtEd2ByapuHVVWnA" name="mu" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_kAcF7fwtEd2ByapuHVVWnA" name="sigma" visibility="public">
+    <packagedElement xmi:type="uml:Association" xmi:id="_CXSCn_wxEd2ByapuHVVWnA" memberEnd="_CXSCjfwxEd2ByapuHVVWnA _CXSCoPwxEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_CXSCoPwxEd2ByapuHVVWnA" type="_CXSCi_wxEd2ByapuHVVWnA" association="_CXSCn_wxEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CXSCofwxEd2ByapuHVVWnA" memberEnd="_CXSCf_wxEd2ByapuHVVWnA _CXSCovwxEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_CXSCovwxEd2ByapuHVVWnA" type="_CXSCffwxEd2ByapuHVVWnA" association="_CXSCofwxEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCo_wxEd2ByapuHVVWnA" name="ContinuousPDF" isAbstract="true">
+      <generalization xmi:id="_CXSCpPwxEd2ByapuHVVWnA" general="_CXSCh_wxEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCpfwxEd2ByapuHVVWnA" name="ExponentialDistribution">
+      <generalization xmi:id="_CXSCpvwxEd2ByapuHVVWnA" general="_CXSCo_wxEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_CXSCp_wxEd2ByapuHVVWnA" name="rate" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_kAcF7vwtEd2ByapuHVVWnA" name="Complex">
-      <ownedAttribute xmi:id="_kAcF7_wtEd2ByapuHVVWnA" name="real" visibility="public">
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCqPwxEd2ByapuHVVWnA" name="NormalDistribution">
+      <generalization xmi:id="_CXSCqfwxEd2ByapuHVVWnA" general="_CXSCo_wxEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_CXSCqvwxEd2ByapuHVVWnA" name="mu" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_kAcF8PwtEd2ByapuHVVWnA" name="imaginary" visibility="public">
+      <ownedAttribute xmi:id="_CXSCq_wxEd2ByapuHVVWnA" name="sigma" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_kAcF8fwtEd2ByapuHVVWnA" memberEnd="_kAcF3vwtEd2ByapuHVVWnA _kAcF8vwtEd2ByapuHVVWnA">
-      <ownedEnd xmi:id="_kAcF8vwtEd2ByapuHVVWnA" name="" visibility="private" type="_kAcF2vwtEd2ByapuHVVWnA" association="_kAcF8fwtEd2ByapuHVVWnA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CXSCrPwxEd2ByapuHVVWnA" name="Complex">
+      <ownedAttribute xmi:id="_CXSCrfwxEd2ByapuHVVWnA" name="real" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_CXSCrvwxEd2ByapuHVVWnA" name="imaginary" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
     </packagedElement>
-    <profileApplication xmi:id="_kAcF8_wtEd2ByapuHVVWnA">
-      <eAnnotations xmi:id="_kAcF9PwtEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <packagedElement xmi:type="uml:Association" xmi:id="_CXSCr_wxEd2ByapuHVVWnA" memberEnd="_CXSCnPwxEd2ByapuHVVWnA _CXSCsPwxEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_CXSCsPwxEd2ByapuHVVWnA" name="" visibility="private" type="_CXSCmPwxEd2ByapuHVVWnA" association="_CXSCr_wxEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <profileApplication xmi:id="_CXSCsfwxEd2ByapuHVVWnA">
+      <eAnnotations xmi:id="_CXSCsvwxEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
-    <profileApplication xmi:id="_kAcF9fwtEd2ByapuHVVWnA">
-      <eAnnotations xmi:id="_kAcF9vwtEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_CXSCs_wxEd2ByapuHVVWnA">
+      <eAnnotations xmi:id="_CXSCtPwxEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_kAcF9_wtEd2ByapuHVVWnA" base_Package="_kAcFvPwtEd2ByapuHVVWnA" packageName="probfunction" nsPrefix="probfunction" nsURI="http://sdq.ipd.uka.de/ProbFunction/1.0" basePackage="de.uka.ipd.sdq" prefix="ProbFunction"/>
+  <Ecore:EPackage xmi:id="_CXSCtfwxEd2ByapuHVVWnA" base_Package="_CXSCevwxEd2ByapuHVVWnA" packageName="probfunction" nsPrefix="probfunction" nsURI="http://sdq.ipd.uka.de/ProbFunction/1.0" basePackage="de.uka.ipd.sdq" prefix="ProbFunction"/>
 </xmi:XMI>
