@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+  <uml:Model xmi:id="_kAcGKPwtEd2ByapuHVVWnA" name="units">
+    <eAnnotations xmi:id="_kAcGKfwtEd2ByapuHVVWnA" source="http://www.eclipse.org/emf/2002/Ecore"/>
+    <packageImport xmi:id="_kAcGKvwtEd2ByapuHVVWnA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGK_wtEd2ByapuHVVWnA" name="UnitCarryingElement" isAbstract="true">
+      <ownedAttribute xmi:id="_kAcGLPwtEd2ByapuHVVWnA" name="unit" type="_kAcGPPwtEd2ByapuHVVWnA" association="_kAcGMvwtEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcGLfwtEd2ByapuHVVWnA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcGLvwtEd2ByapuHVVWnA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kAcGL_wtEd2ByapuHVVWnA" name="unitSpecification">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGMPwtEd2ByapuHVVWnA" name="BaseUnit">
+      <ownedAttribute xmi:id="_kAcGMfwtEd2ByapuHVVWnA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kAcGMvwtEd2ByapuHVVWnA" memberEnd="_kAcGLPwtEd2ByapuHVVWnA _kAcGM_wtEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_kAcGM_wtEd2ByapuHVVWnA" visibility="private" type="_kAcGK_wtEd2ByapuHVVWnA" association="_kAcGMvwtEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcGNPwtEd2ByapuHVVWnA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcGNfwtEd2ByapuHVVWnA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGNvwtEd2ByapuHVVWnA" name="UnitRepository">
+      <ownedAttribute xmi:id="_kAcGN_wtEd2ByapuHVVWnA" name="units" type="_kAcGMPwtEd2ByapuHVVWnA" aggregation="composite" association="_kAcGOvwtEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcGOPwtEd2ByapuHVVWnA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcGOfwtEd2ByapuHVVWnA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kAcGOvwtEd2ByapuHVVWnA" memberEnd="_kAcGN_wtEd2ByapuHVVWnA _kAcGO_wtEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_kAcGO_wtEd2ByapuHVVWnA" visibility="private" type="_kAcGNvwtEd2ByapuHVVWnA" association="_kAcGOvwtEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGPPwtEd2ByapuHVVWnA" name="Unit" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGPfwtEd2ByapuHVVWnA" name="UnitMultiplication">
+      <generalization xmi:id="_kAcGPvwtEd2ByapuHVVWnA" general="_kAcGPPwtEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_kAcGP_wtEd2ByapuHVVWnA" name="units" type="_kAcGPPwtEd2ByapuHVVWnA" aggregation="composite" association="_kAcGQvwtEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcGQPwtEd2ByapuHVVWnA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcGQfwtEd2ByapuHVVWnA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kAcGQvwtEd2ByapuHVVWnA" memberEnd="_kAcGP_wtEd2ByapuHVVWnA _kAcGQ_wtEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_kAcGQ_wtEd2ByapuHVVWnA" visibility="private" type="_kAcGPfwtEd2ByapuHVVWnA" association="_kAcGQvwtEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGRPwtEd2ByapuHVVWnA" name="UnitPower">
+      <generalization xmi:id="_kAcGRfwtEd2ByapuHVVWnA" general="_kAcGPPwtEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_kAcGRvwtEd2ByapuHVVWnA" name="unit" type="_kAcGPPwtEd2ByapuHVVWnA" aggregation="composite" association="_kAcGSvwtEd2ByapuHVVWnA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kAcGR_wtEd2ByapuHVVWnA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kAcGSPwtEd2ByapuHVVWnA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kAcGSfwtEd2ByapuHVVWnA" name="exponent">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kAcGSvwtEd2ByapuHVVWnA" memberEnd="_kAcGRvwtEd2ByapuHVVWnA _kAcGS_wtEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_kAcGS_wtEd2ByapuHVVWnA" visibility="private" type="_kAcGRPwtEd2ByapuHVVWnA" association="_kAcGSvwtEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kAcGTPwtEd2ByapuHVVWnA" name="UnitLiteral">
+      <generalization xmi:id="_kAcGTfwtEd2ByapuHVVWnA" general="_kAcGPPwtEd2ByapuHVVWnA"/>
+      <ownedAttribute xmi:id="_kAcGTvwtEd2ByapuHVVWnA" name="baseUnit" type="_kAcGMPwtEd2ByapuHVVWnA" association="_kAcGT_wtEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kAcGT_wtEd2ByapuHVVWnA" memberEnd="_kAcGTvwtEd2ByapuHVVWnA _kAcGUPwtEd2ByapuHVVWnA">
+      <ownedEnd xmi:id="_kAcGUPwtEd2ByapuHVVWnA" name="unitliteral" visibility="private" type="_kAcGTPwtEd2ByapuHVVWnA" association="_kAcGT_wtEd2ByapuHVVWnA"/>
+    </packagedElement>
+    <profileApplication xmi:id="_kAcGUfwtEd2ByapuHVVWnA">
+      <eAnnotations xmi:id="_kAcGUvwtEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_kAcGU_wtEd2ByapuHVVWnA">
+      <eAnnotations xmi:id="_kAcGVPwtEd2ByapuHVVWnA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_kAcGVfwtEd2ByapuHVVWnA" base_Package="_kAcGKPwtEd2ByapuHVVWnA" packageName="units" nsPrefix="units" nsURI="http://sdq.ipd.uka.de/Units/1.0" basePackage="de.uka.ipd.sdq" prefix="units"/>
+  <Ecore:EReference xmi:id="_kAcGVvwtEd2ByapuHVVWnA" xmlName="" isTransient="true" isVolatile="true" xmlNamespace="" visibility="ReadOnly" base_Property="_kAcGLPwtEd2ByapuHVVWnA" referenceName="unit"/>
+  <Ecore:EAttribute xmi:id="_kAcGV_wtEd2ByapuHVVWnA" xmlName="" xmlNamespace="" base_Property="_kAcGMfwtEd2ByapuHVVWnA" attributeName="name" isID="true"/>
+</xmi:XMI>
