@@ -1,0 +1,277 @@
+/**
+ * 
+ */
+package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+
+/**
+ * The class defines a tab, which is responsible for the SimuCom configuration.
+ * 
+ * @author Roman Andrej
+ */
+public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
+
+	private Text nameField;
+	private Text timeField;
+	private Text maxMeasurementsField;
+	private Text dataField;
+	private Button checkLoggingButton;
+
+	protected int selectedDataSourceID;
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
+	 */
+	public void createControl(Composite parent) {
+		final ModifyListener modifyListener = new ModifyListener(){
+
+			public void modifyText(ModifyEvent e) {
+				SimuComConfigurationTab.this.setDirty(true);
+				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
+		Composite container = new Composite(parent, SWT.NONE);
+		container.setLayout(new GridLayout());
+		setControl(container);
+		
+		/** Create SimuCom section */
+		final Group simucomGroup = new Group(container, SWT.NONE);
+		simucomGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		final GridLayout gridLayout_1 = new GridLayout();
+		gridLayout_1.numColumns = 3;
+		simucomGroup.setLayout(gridLayout_1);
+		simucomGroup.setText("SimuCom");
+
+		final Label timeLabel = new Label(simucomGroup, SWT.NONE);
+		timeLabel.setText("Maximum simulation time:");
+
+		timeField = new Text(simucomGroup, SWT.BORDER);
+		timeField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		timeField.addModifyListener(modifyListener);
+
+		final Label secLabel = new Label(simucomGroup, SWT.NONE);
+		secLabel.setText("Simulated Seconds");
+
+		final Label maxLabel = new Label(simucomGroup, SWT.NONE);
+		maxLabel.setText("Maximum measurements count:");
+
+		maxMeasurementsField = new Text(simucomGroup, SWT.BORDER);
+		maxMeasurementsField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		maxMeasurementsField.addModifyListener(modifyListener);
+		
+		/** Create Experiment Run section */
+		final Group experimentrunGroup = new Group(container, SWT.NONE);
+		experimentrunGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		final GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 2;
+		experimentrunGroup.setLayout(gridLayout);
+		experimentrunGroup.setText("Experiment Run");
+		
+		Label nameLabel = new Label(experimentrunGroup, SWT.NONE);
+		nameLabel.setText("Experiment Name:");
+
+		nameField = new Text(experimentrunGroup, SWT.BORDER);
+		final GridData gd_nameField = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_nameField.widthHint = 70;
+		nameField.setLayoutData(gd_nameField);
+		nameField.addModifyListener(modifyListener);
+
+		/**DataSet group */
+		final Group dataSetGroup = new Group(container, SWT.NONE);
+		dataSetGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		final GridLayout gridLayout_2 = new GridLayout();
+		gridLayout_2.numColumns = 3;
+		dataSetGroup.setLayout(gridLayout_2);
+		dataSetGroup.setText("Data Set");
+
+		final Label dataSourceLabel = new Label(dataSetGroup, SWT.NONE);
+		dataSourceLabel.setText("Data source:");
+
+		dataField = new Text(dataSetGroup, SWT.BORDER | SWT.READ_ONLY);
+		dataField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		dataField.addModifyListener(modifyListener);
+
+		final Button browseButton = new Button(dataSetGroup, SWT.NONE);
+		browseButton.setText("Browse...");
+		browseButton.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ConfigureDatasourceDialog dialog = new ConfigureDatasourceDialog(e.display
+						.getActiveShell(),"Select Datasource...", true);
+				if (dialog.open() == Dialog.OK) {
+					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
+					selectedDataSourceID = (int) dataSet.getID();
+					dataField.setText(dataSet.getName() + " [" + dataSet.getID() + " ]");
+				}
+			}
+		});
+		
+		/** Logging group*/
+		final Group loggingGroup = new Group(container, SWT.NONE);
+		loggingGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
+		loggingGroup.setText("Logging");
+		loggingGroup.setLayout(new GridLayout());
+		checkLoggingButton = new Button(loggingGroup, SWT.CHECK);
+		checkLoggingButton.setText("Enable verbose logging");
+		checkLoggingButton.addSelectionListener(new SelectionAdapter() {
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		});
+		checkLoggingButton.setSelection(false);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
+	 */
+	public String getName() {
+		return "SimuCom";
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	public void initializeFrom(ILaunchConfiguration configuration) {
+		try {
+			nameField.setText(configuration.getAttribute(
+					SimuComConfig.EXPERIMENT_RUN, ""));
+		} catch (CoreException e) {
+			nameField.setText("MyRun");
+		}
+
+		try {
+			timeField.setText(configuration.getAttribute(
+					SimuComConfig.SIMULATION_TIME, ""));
+		} catch (CoreException e) {
+			timeField.setText("150000");
+		}
+
+		try {
+			maxMeasurementsField.setText(configuration.getAttribute(
+					SimuComConfig.MAXIMUM_MEASUREMENT_COUNT, ""));
+		} catch (CoreException e) {
+			maxMeasurementsField.setText("10000");
+		}
+		
+		try {
+			selectedDataSourceID = 
+				configuration.getAttribute(
+						SimuComConfig.DATASOURCE_ID, -1);
+			if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
+				dataField.setText("");
+			else {
+				IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
+				dataField.setText(DatasourceListLabelProvider.dataSetRepresentation(factory));
+			}
+		} catch (CoreException e) {
+			selectedDataSourceID = -1;
+			dataField.setText("");
+		}
+		
+		try {
+			checkLoggingButton.setSelection(configuration.getAttribute(
+					SimuComConfig.VERBOSE_LOGGING, false));
+		} catch (CoreException e) {
+			checkLoggingButton.setSelection(false);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
+	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
+				nameField.getText());
+		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
+				timeField.getText());		
+		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
+						maxMeasurementsField.getText());
+		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
+				selectedDataSourceID);
+		configuration.setAttribute(SimuComConfig.VERBOSE_LOGGING,
+				checkLoggingButton.getSelection());
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
+	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
+		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
+				"MyRun");
+		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
+		"150000");
+		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
+		"10000");
+		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
+				-1);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	@Override
+	public Image getImage() {
+		return SimuControllerImages.imageRegistry
+				.get(SimuControllerImages.SIMUCOM_CONF);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	@Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);
+
+		if (nameField.getText().equals("")){
+			setErrorMessage("ExperimentRun name is missing!");
+			return false;
+		}
+		if (timeField.getText().equals("")){
+			setErrorMessage("Simulation time is missing!");
+			return false;
+		}
+		if (maxMeasurementsField.getText().equals("")){
+			setErrorMessage("Maximum Measurement counter is missing!");
+			return false;
+		}		
+		if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null){
+			setErrorMessage("Data source is missing!");
+			return false;
+		}
+		return true;
+	}
+}

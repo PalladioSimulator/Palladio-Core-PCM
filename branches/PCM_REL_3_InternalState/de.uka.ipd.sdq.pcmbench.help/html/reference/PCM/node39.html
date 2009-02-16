@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sampling - Fixed intervals</TITLE>
+<META NAME="description" CONTENT="Sampling - Fixed intervals">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html907"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html901"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html895"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html903"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html905"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html908"
+  HREF="node40.html">Approximation by boxes -</A>
+<B> Up:</B> <A NAME="tex2html902"
+  HREF="node38.html">PDF discretisation</A>
+<B> Previous:</B> <A NAME="tex2html896"
+  HREF="node38.html">PDF discretisation</A>
+ &nbsp; <B>  <A NAME="tex2html904"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html906"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00363100000000000000">
+Sampling - Fixed intervals</A>
+</H3>
+To create an approximation of a PDF by a set of fixed intervals, the domain of the PDF is devided into <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img60.png"
+ ALT="$ N$"> intervals denoted by the set <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img61.png"
+ ALT="$ I$">, each of which has the same width specified by the value <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ d$">. The <IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ i$">th interval is then defined by <!-- MATH
+ $[(i-1/2)d, (i + 1/2)d[$
+ -->
+<IMG
+ WIDTH="174" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ [(i-1/2)d, (i + 1/2)d[$">. For our purposes, we can assume that the domain of a PDF is always greater or equal to zero. Thus, we set the first interval (<IMG
+ WIDTH="42" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$ i=0$">) to <!-- MATH
+ $[0, 1/2 d[$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$ [0, 1/2 d[$">. To minimize computational errors, we associate the probability of the <IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ i$">th interval <!-- MATH
+ $[(i-1/2)d, (i + 1/2)d[$
+ -->
+<IMG
+ WIDTH="174" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$ [(i-1/2)d, (i + 1/2)d[$"> to its middle value <IMG
+ WIDTH="36" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img67.png"
+ ALT="$ i * d$">. So, we get a set of <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img60.png"
+ ALT="$ N$"> probabilities, where the probability of interval <IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="$ i$">, <IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$ p_i$"> is given by the integral:
+<!-- MATH
+ \begin{displaymath}
+p_i = \int_{(i-1/2)d}^b f(x) dx, \qquad  lim_{b \rightarrow (i + 1/2)d}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="303" HEIGHT="65" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$\displaystyle p_i = \int_{(i-1/2)d}^b f(x) dx, \qquad lim_{b \rightarrow (i + 1/2)d}
+$">
+</DIV><P></P>
+for <IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.png"
+ ALT="$ i&gt;0$"> and
+<!-- MATH
+ \begin{displaymath}
+p_i = \int_{0}^b f(x) dx, \qquad  lim_{b \rightarrow 1/2 d}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="238" HEIGHT="65" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.png"
+ ALT="$\displaystyle p_i = \int_{0}^b f(x) dx, \qquad lim_{b \rightarrow 1/2 d}
+$">
+</DIV><P></P>
+for <IMG
+ WIDTH="42" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$ i=0$">.
+The approximation of a PDF is completely described by the interval width <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ d$"> and the probabilities <IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$ p_i$"> for all intervals <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img61.png"
+ ALT="$ I$">.
+
+<P>
+<P>
+<DIV><I>Example  2.1</I> &nbsp; 
+
+<DIV ALIGN="CENTER"><A NAME="fig:SamplePDF"></A><A NAME="957"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.12:</STRONG>
+The probability of the interval <!-- MATH
+ $[2.5d, 3.5d[$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ [2.5d, 3.5d[$"> is the striped area under the graph.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+		<IMG
+  WIDTH="647" HEIGHT="386" ALIGN="BOTTOM" BORDER="0"
+ SRC="./SamplePDF.png"
+ ALT="Image SamplePDF"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig:SamplePDF">2.12</A> illustrates how a pdf <IMG
+ WIDTH="38" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$ f(x)$"> is approximated by deviding its domain into a set of intervals. The X-axis shows the multiples of the interval width <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$ d$"> (<IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="$ 1d$">, <IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ 2d$">, <IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.png"
+ ALT="$ 3d$">...). These values represent the mean values of the intervals to which the probabilities will be associated. The figure shows how the probability of the third interval is computed. The interval borders are given by <!-- MATH
+ $[2.5d, 3.5d[$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ [2.5d, 3.5d[$"> and its mean value is <IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.png"
+ ALT="$ 3d$">. The probability <IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$ p_3$"> is the striped area under the graph. So, all values lying in this area are associated to the value <IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.png"
+ ALT="$ 3d$">.
+
+<P>
+</DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html907"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html901"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html895"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html903"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html905"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html908"
+  HREF="node40.html">Approximation by boxes -</A>
+<B> Up:</B> <A NAME="tex2html902"
+  HREF="node38.html">PDF discretisation</A>
+<B> Previous:</B> <A NAME="tex2html896"
+  HREF="node38.html">PDF discretisation</A>
+ &nbsp; <B>  <A NAME="tex2html904"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html906"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
