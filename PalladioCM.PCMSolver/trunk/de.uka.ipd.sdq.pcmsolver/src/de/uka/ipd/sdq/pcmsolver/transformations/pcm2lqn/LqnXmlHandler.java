@@ -202,6 +202,26 @@ public class LqnXmlHandler {
 		content = content.replaceAll("service-time-distribution", "serviceTimeDistribution");
 		content = content.replaceAll("open-arrival-rate", "openArrivalRate");
 		
+		// the subsequent replacement rules are relevant only for result files
+		content = content.replaceAll("result-general", "resultGeneral");
+		content = content.replaceAll("conv-val", "convVal");
+		content = content.replaceAll("elapsed-time", "elapsedTime");
+		content = content.replaceAll("solver-info", "solverInfo");
+		content = content.replaceAll("result-task", "resultTask");
+		content = content.replaceAll("phase1-utilization", "phase1Utilization");
+		content = content.replaceAll("proc-utilization", "procUtilization");
+		content = content.replaceAll("result-entry", "resultEntry");
+		content = content.replaceAll("squared-coeff-variation", "squaredCoeffVariation");
+		content = content.replaceAll("throughput-bound", "throughputBound");
+		content = content.replaceAll("result-activity", "resultActivity");
+		content = content.replaceAll("proc-waiting", "procWaiting");
+		// As "service-time" is a prefix of "service-time-variance", a following "=" is needed
+		content = content.replaceAll("service-time=", "serviceTime=");   
+		content = content.replaceAll("service-time-variance", "serviceTimeVariance");
+		content = content.replaceAll("result-call", "resultCall");
+		content = content.replaceAll("result-processor", "resultProcessor");
+		
+		
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(filename);
