@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.launch;
 
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
@@ -49,24 +50,41 @@ public class LQNAnalysisTabGroup extends AbstractLaunchConfigurationTabGroup {
 		public void initializeFrom(ILaunchConfiguration configuration) {
 			super.initializeFrom(configuration);
 			
-			// set LQN Solver as default
-			String[] solverItems = comboSolver.getItems();
-			for (int i=0; i<solverItems.length; i++){
-				String str = solverItems[i];
-				if (str.equals(MessageStrings.LQNS_SOLVER)){
-					comboSolver.select(i);
+			// set LQN Solver as default, if not done yet
+			if (!comboSolver.getText().equals(MessageStrings.LQNS_SOLVER)) {
+				String[] solverItems = comboSolver.getItems();
+				for (int i = 0; i < solverItems.length; i++) {
+					String str = solverItems[i];
+					if (str.equals(MessageStrings.LQNS_SOLVER)) {
+						comboSolver.select(i);
+					}
 				}
 			}
 			
-			// set XML Output as default
-			String[] outputItems = comboLqnsOutput.getItems();
-			for (int i=0; i<outputItems.length; i++){
-				String str = outputItems[i];
-				if (str.equals(MessageStrings.LQNS_OUTPUT_XML)){
-					comboSolver.select(i);
+			// set XML Output as default, if not done yet
+			if (!comboLqnsOutput.getText().equals(MessageStrings.LQNS_OUTPUT_XML)) {
+				String[] outputItems = comboLqnsOutput.getItems();
+				for (int i = 0; i < outputItems.length; i++) {
+					String str = outputItems[i];
+					if (str.equals(MessageStrings.LQNS_OUTPUT_XML)) {
+						comboLqnsOutput.select(i);
+					}
 				}
 			}
-		}		
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
+			super.setDefaults(configuration);
+
+			configuration.setAttribute(MessageStrings.SOLVER,
+					MessageStrings.LQNS_SOLVER);
+			configuration.setAttribute(MessageStrings.LQNS_OUTPUT,
+					MessageStrings.LQNS_OUTPUT_XML);
+		}
 		
 	}
 
