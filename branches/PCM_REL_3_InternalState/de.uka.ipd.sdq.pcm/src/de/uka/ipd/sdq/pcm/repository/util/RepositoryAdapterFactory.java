@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -183,6 +184,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProvidedRole(ProvidedRole object) {
 				return createProvidedRoleAdapter();
+			}
+			@Override
+			public Adapter caseState(State object) {
+				return createStateAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -517,6 +522,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidedRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.State
+	 * @generated
+	 */
+	public Adapter createStateAdapter() {
 		return null;
 	}
 

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.repository.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -100,6 +101,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.COMPOSITE_DATA_TYPE: return createCompositeDataType();
 			case RepositoryPackage.INNER_DECLARATION: return createInnerDeclaration();
 			case RepositoryPackage.PROVIDED_ROLE: return createProvidedRole();
+			case RepositoryPackage.STATE: return createState();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -297,6 +299,16 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public ProvidedRole createProvidedRole() {
 		ProvidedRoleImpl providedRole = new ProvidedRoleImpl();
 		return providedRole;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State createState() {
+		StateImpl state = new StateImpl();
+		return state;
 	}
 
 	/**

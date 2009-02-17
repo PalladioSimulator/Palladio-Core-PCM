@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -314,6 +315,12 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseEntity(providedRole);
 				if (result == null) result = caseIdentifier(providedRole);
 				if (result == null) result = caseNamedElement(providedRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.STATE: {
+				State state = (State)theEObject;
+				T result = caseState(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -618,6 +625,21 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseProvidedRole(ProvidedRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>State</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseState(State object) {
 		return null;
 	}
 

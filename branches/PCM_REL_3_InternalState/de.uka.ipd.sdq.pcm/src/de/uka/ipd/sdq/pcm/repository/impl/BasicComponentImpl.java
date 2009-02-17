@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.State;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
@@ -46,6 +47,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getComponentState_BasicComponent <em>Component State Basic Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +90,16 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @ordered
 	 */
 	protected EList<PassiveResource> passiveResource_BasicComponent;
+
+	/**
+	 * The cached value of the '{@link #getComponentState_BasicComponent() <em>Component State Basic Component</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentState_BasicComponent()
+	 * @generated
+	 * @ordered
+	 */
+	protected State componentState_BasicComponent;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #NoSeffTypeUsedTwice <em>No Seff Type Used Twice</em>}' invariant constraint.
@@ -197,6 +209,49 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			passiveResource_BasicComponent = new EObjectContainmentEList<PassiveResource>(PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
 		}
 		return passiveResource_BasicComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State getComponentState_BasicComponent() {
+		return componentState_BasicComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComponentState_BasicComponent(State newComponentState_BasicComponent, NotificationChain msgs) {
+		State oldComponentState_BasicComponent = componentState_BasicComponent;
+		componentState_BasicComponent = newComponentState_BasicComponent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT, oldComponentState_BasicComponent, newComponentState_BasicComponent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponentState_BasicComponent(State newComponentState_BasicComponent) {
+		if (newComponentState_BasicComponent != componentState_BasicComponent) {
+			NotificationChain msgs = null;
+			if (componentState_BasicComponent != null)
+				msgs = ((InternalEObject)componentState_BasicComponent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT, null, msgs);
+			if (newComponentState_BasicComponent != null)
+				msgs = ((InternalEObject)newComponentState_BasicComponent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT, null, msgs);
+			msgs = basicSetComponentState_BasicComponent(newComponentState_BasicComponent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT, newComponentState_BasicComponent, newComponentState_BasicComponent));
 	}
 
 	/**
@@ -328,6 +383,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return ((InternalEList<?>)getServiceEffectSpecifications__BasicComponent()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
 				return ((InternalEList<?>)getPassiveResource_BasicComponent()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+				return basicSetComponentState_BasicComponent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -347,6 +404,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return getServiceEffectSpecifications__BasicComponent();
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
 				return getPassiveResource_BasicComponent();
+			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+				return getComponentState_BasicComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -371,6 +430,9 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				getPassiveResource_BasicComponent().clear();
 				getPassiveResource_BasicComponent().addAll((Collection<? extends PassiveResource>)newValue);
 				return;
+			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+				setComponentState_BasicComponent((State)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -392,6 +454,9 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
 				getPassiveResource_BasicComponent().clear();
 				return;
+			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+				setComponentState_BasicComponent((State)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,6 +475,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return serviceEffectSpecifications__BasicComponent != null && !serviceEffectSpecifications__BasicComponent.isEmpty();
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
 				return passiveResource_BasicComponent != null && !passiveResource_BasicComponent.isEmpty();
+			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+				return componentState_BasicComponent != null;
 		}
 		return super.eIsSet(featureID);
 	}

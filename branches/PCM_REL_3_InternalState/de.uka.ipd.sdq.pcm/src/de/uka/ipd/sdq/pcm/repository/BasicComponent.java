@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getComponentState_BasicComponent <em>Component State Basic Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +96,32 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * @generated
 	 */
 	EList<PassiveResource> getPassiveResource_BasicComponent();
+
+	/**
+	 * Returns the value of the '<em><b>Component State Basic Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Component State Basic Component</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Component State Basic Component</em>' containment reference.
+	 * @see #setComponentState_BasicComponent(State)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ComponentState_BasicComponent()
+	 * @model containment="true"
+	 * @generated
+	 */
+	State getComponentState_BasicComponent();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getComponentState_BasicComponent <em>Component State Basic Component</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Component State Basic Component</em>' containment reference.
+	 * @see #getComponentState_BasicComponent()
+	 * @generated
+	 */
+	void setComponentState_BasicComponent(State value);
 
 	/**
 	 * <!-- begin-user-doc -->

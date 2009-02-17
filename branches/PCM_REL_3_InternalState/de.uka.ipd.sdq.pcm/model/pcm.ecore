@@ -573,6 +573,8 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_BasicComponent"
           ordered="false" upperBound="-1" eType="#//repository/PassiveResource" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="componentState_BasicComponent"
+          eType="#//repository/State" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//repository/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
@@ -607,6 +609,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="providingEntity_ProvidedRole"
           ordered="false" lowerBound="1" eType="#//core/entity/InterfaceProvidingEntity"
           eOpposite="#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_State"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"

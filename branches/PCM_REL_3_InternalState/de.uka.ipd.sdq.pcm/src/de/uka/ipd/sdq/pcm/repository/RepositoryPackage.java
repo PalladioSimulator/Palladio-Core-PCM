@@ -1057,13 +1057,22 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Component State Basic Component</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Basic Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
+	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
@@ -1314,6 +1323,34 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.StateImpl <em>State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.StateImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getState()
+	 * @generated
+	 */
+	int STATE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Specification State</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__SPECIFICATION_STATE = 0;
+
+	/**
+	 * The number of structural features of the '<em>State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1321,7 +1358,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 20;
+	int PARAMETER_MODIFIER = 21;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
@@ -1331,7 +1368,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_ENUM = 21;
+	int PRIMITIVE_TYPE_ENUM = 22;
 
 
 	/**
@@ -1837,6 +1874,17 @@ public interface RepositoryPackage extends EPackage {
 	EReference getBasicComponent_PassiveResource_BasicComponent();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getComponentState_BasicComponent <em>Component State Basic Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Component State Basic Component</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getComponentState_BasicComponent()
+	 * @see #getBasicComponent()
+	 * @generated
+	 */
+	EReference getBasicComponent_ComponentState_BasicComponent();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,6 +2010,27 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidedRole_ProvidingEntity_ProvidedRole();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>State</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.State
+	 * @generated
+	 */
+	EClass getState();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.State#getSpecification_State <em>Specification State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Specification State</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.State#getSpecification_State()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_Specification_State();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}'.
@@ -2412,6 +2481,14 @@ public interface RepositoryPackage extends EPackage {
 		EReference BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT = eINSTANCE.getBasicComponent_PassiveResource_BasicComponent();
 
 		/**
+		 * The meta object literal for the '<em><b>Component State Basic Component</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT = eINSTANCE.getBasicComponent_ComponentState_BasicComponent();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2516,6 +2593,24 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidingEntity_ProvidedRole();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.StateImpl <em>State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.StateImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getState()
+		 * @generated
+		 */
+		EClass STATE = eINSTANCE.getState();
+
+		/**
+		 * The meta object literal for the '<em><b>Specification State</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__SPECIFICATION_STATE = eINSTANCE.getState_Specification_State();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -268,6 +269,8 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateInnerDeclaration((InnerDeclaration)value, diagnostics, context);
 			case RepositoryPackage.PROVIDED_ROLE:
 				return validateProvidedRole((ProvidedRole)value, diagnostics, context);
+			case RepositoryPackage.STATE:
+				return validateState((State)value, diagnostics, context);
 			case RepositoryPackage.PARAMETER_MODIFIER:
 				return validateParameterModifier((ParameterModifier)value, diagnostics, context);
 			case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
@@ -731,6 +734,15 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedRole, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateState(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(state, diagnostics, context);
 	}
 
 	/**

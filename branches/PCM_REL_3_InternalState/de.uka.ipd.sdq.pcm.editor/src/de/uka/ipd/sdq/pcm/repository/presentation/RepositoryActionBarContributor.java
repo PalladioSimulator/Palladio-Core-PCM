@@ -38,7 +38,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import de.uka.ipd.sdq.pcm.core.entity.presentation.PalladioComponentModelEditorPlugin;
+import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 
 /**
  * This is the action bar contributor for the Repository model editor.

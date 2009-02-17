@@ -56,6 +56,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.State;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
@@ -224,6 +225,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	private EClass providedRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -791,6 +799,15 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBasicComponent_ComponentState_BasicComponent() {
+		return (EReference)basicComponentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPrimitiveDataType() {
 		return primitiveDataTypeEClass;
 	}
@@ -892,6 +909,24 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 */
 	public EReference getProvidedRole_ProvidingEntity_ProvidedRole() {
 		return (EReference)providedRoleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getState() {
+		return stateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getState_Specification_State() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1001,6 +1036,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(basicComponentEClass, BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
+		createEReference(basicComponentEClass, BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT);
 
 		primitiveDataTypeEClass = createEClass(PRIMITIVE_DATA_TYPE);
 		createEAttribute(primitiveDataTypeEClass, PRIMITIVE_DATA_TYPE__TYPE);
@@ -1018,6 +1054,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		providedRoleEClass = createEClass(PROVIDED_ROLE);
 		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE);
 		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
+
+		stateEClass = createEClass(STATE);
+		createEReference(stateEClass, STATE__SPECIFICATION_STATE);
 
 		// Create enums
 		parameterModifierEEnum = createEEnum(PARAMETER_MODIFIER);
@@ -1233,6 +1272,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getBasicComponent_ImplementationComponentType(), this.getImplementationComponentType(), null, "implementationComponentType", null, 0, 1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBasicComponent_ServiceEffectSpecifications__BasicComponent(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecifications__BasicComponent", null, 0, -1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBasicComponent_PassiveResource_BasicComponent(), this.getPassiveResource(), null, "passiveResource_BasicComponent", null, 0, -1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBasicComponent_ComponentState_BasicComponent(), this.getState(), null, "componentState_BasicComponent", null, 0, 1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "NoSeffTypeUsedTwice", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1277,6 +1317,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(providedRoleEClass, ProvidedRole.class, "ProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedRole_ProvidedInterface__ProvidedRole(), this.getInterface(), null, "providedInterface__ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProvidedRole_ProvidingEntity_ProvidedRole(), theEntityPackage.getInterfaceProvidingEntity(), theEntityPackage.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(), "providingEntity_ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getState_Specification_State(), theParameterPackage.getVariableUsage(), null, "specification_State", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(parameterModifierEEnum, ParameterModifier.class, "ParameterModifier");

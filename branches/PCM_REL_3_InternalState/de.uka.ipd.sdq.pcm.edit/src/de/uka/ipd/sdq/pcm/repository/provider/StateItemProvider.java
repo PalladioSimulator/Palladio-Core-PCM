@@ -6,36 +6,40 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.State;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.BasicComponent} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.State} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BasicComponentItemProvider
-	extends ImplementationComponentTypeItemProvider
+public class StateItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -55,7 +59,7 @@ public class BasicComponentItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicComponentItemProvider(AdapterFactory adapterFactory) {
+	public StateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,31 +74,8 @@ public class BasicComponentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addImplementationComponentTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Implementation Component Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addImplementationComponentTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BasicComponent_implementationComponentType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BasicComponent_implementationComponentType_feature", "_UI_BasicComponent_type"),
-				 RepositoryPackage.Literals.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -109,9 +90,7 @@ public class BasicComponentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
-			childrenFeatures.add(RepositoryPackage.Literals.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
-			childrenFeatures.add(RepositoryPackage.Literals.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT);
+			childrenFeatures.add(RepositoryPackage.Literals.STATE__SPECIFICATION_STATE);
 		}
 		return childrenFeatures;
 	}
@@ -130,14 +109,14 @@ public class BasicComponentItemProvider
 	}
 
 	/**
-	 * This returns BasicComponent.gif.
+	 * This returns State.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BasicComponent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/State"));
 	}
 
 	/**
@@ -148,10 +127,7 @@ public class BasicComponentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BasicComponent)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BasicComponent_type") :
-			getString("_UI_BasicComponent_type") + " " + label;
+		return getString("_UI_State_type");
 	}
 
 	/**
@@ -165,10 +141,8 @@ public class BasicComponentItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BasicComponent.class)) {
-			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-			case RepositoryPackage.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT:
+		switch (notification.getFeatureID(State.class)) {
+			case RepositoryPackage.STATE__SPECIFICATION_STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -188,18 +162,8 @@ public class BasicComponentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
-				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createPassiveResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.BASIC_COMPONENT__COMPONENT_STATE_BASIC_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createState()));
+				(RepositoryPackage.Literals.STATE__SPECIFICATION_STATE,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**

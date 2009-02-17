@@ -450,6 +450,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.State} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StateItemProvider stateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.State}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStateAdapter() {
+		if (stateItemProvider == null) {
+			stateItemProvider = new StateItemProvider(this);
+		}
+
+		return stateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,6 +587,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (compositeDataTypeItemProvider != null) compositeDataTypeItemProvider.dispose();
 		if (innerDeclarationItemProvider != null) innerDeclarationItemProvider.dispose();
 		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
+		if (stateItemProvider != null) stateItemProvider.dispose();
 	}
 
 }
