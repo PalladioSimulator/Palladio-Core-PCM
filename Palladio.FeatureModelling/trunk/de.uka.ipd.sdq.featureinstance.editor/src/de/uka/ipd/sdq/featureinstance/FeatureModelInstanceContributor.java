@@ -34,7 +34,9 @@ class InstanceValidateAction extends ValidateAction {
 			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
 			case Diagnostic.ERROR: System.out.println("Validation error"); break;
 			case Diagnostic.WARNING: System.out.println("Validation warning"); break;
-			default: System.out.println("Validation cancelled");
+			case Diagnostic.OK: System.out.println("Validation OK"); break;
+			case Diagnostic.INFO: System.out.println("Validation INFO"); break;
+			default: System.out.println("Validation sth else");
 			}
 			for (Diagnostic child : d.getChildren()) {
 				System.out.println(child.getMessage());
