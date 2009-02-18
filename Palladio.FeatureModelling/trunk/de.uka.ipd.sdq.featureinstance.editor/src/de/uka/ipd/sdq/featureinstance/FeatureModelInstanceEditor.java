@@ -693,6 +693,16 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				else {
 					Object parent = editingDomain.getParent(event.getElement());					
 					
+					//automatically unchecks Feature again, if its a mandatory Feature and the parent node is selected
+					if ((event.getElement() instanceof Feature) && (checkMandatory((Feature)event.getElement()))) {
+						if (parent instanceof ChildRelation) {
+							parent = editingDomain.getParent(parent);
+						}
+						
+						if (treeViewer.getChecked(parent)) {
+							treeViewer.setChecked(event.getElement(), true);							
+						}
+					}
 					//check if node is NOT the root node
 					if (parent != null && !(parent instanceof FeatureDiagram)) {
 						if (treeViewer.getGrayed(event.getElement())) {
@@ -950,6 +960,30 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return checked;
 	}
 	
+	/**
+	 * Checks if a Feature `node` is a mandatory Feature
+	 * 
+	 * @param node The Feature which needs to be checked
+	 * @return <code>true</code>, if node is a mandatory Feature
+	 *         <code>false</code>, else
+	 */
+	public boolean checkMandatory (Feature node) {
+		Object parent = editingDomain.getParent(node);
+		
+		boolean mandatory = false;
+		
+		if (parent instanceof Simple) {
+			EList<Feature> featureList = ((Simple)parent).getMandatoryChildren();
+			
+			for (Feature current : featureList) {
+				if (current == node) {
+					mandatory = true;
+				}
+			}
+		}
+		
+		return mandatory;
+	}
 	
 	/**
 	 * Grays out the FeatureGroups in the treeViewer
