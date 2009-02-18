@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -101,6 +102,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
 			case SeffPackage.SET_VARIABLE_ACTION: return createSetVariableAction();
+			case SeffPackage.SET_STATE_ACTION: return createSetStateAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -284,6 +286,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public SetVariableAction createSetVariableAction() {
 		SetVariableActionImpl setVariableAction = new SetVariableActionImpl();
 		return setVariableAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SetStateAction createSetStateAction() {
+		SetStateActionImpl setStateAction = new SetStateActionImpl();
+		return setStateAction;
 	}
 
 	/**

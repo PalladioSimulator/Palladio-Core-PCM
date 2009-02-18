@@ -496,6 +496,29 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.SetStateAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetStateActionItemProvider setStateActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.SetStateAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetStateActionAdapter() {
+		if (setStateActionItemProvider == null) {
+			setStateActionItemProvider = new SetStateActionItemProvider(this);
+		}
+
+		return setStateActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +635,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();
 		if (setVariableActionItemProvider != null) setVariableActionItemProvider.dispose();
+		if (setStateActionItemProvider != null) setStateActionItemProvider.dispose();
 	}
 
 }

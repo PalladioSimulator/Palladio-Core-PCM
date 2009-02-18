@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
@@ -331,6 +332,17 @@ public class SeffSwitch<T> {
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION: {
 				ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification)theEObject;
 				T result = caseServiceEffectSpecification(serviceEffectSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.SET_STATE_ACTION: {
+				SetStateAction setStateAction = (SetStateAction)theEObject;
+				T result = caseSetStateAction(setStateAction);
+				if (result == null) result = caseAbstractResourceDemandingAction(setStateAction);
+				if (result == null) result = caseAbstractAction(setStateAction);
+				if (result == null) result = caseEntity(setStateAction);
+				if (result == null) result = caseIdentifier(setStateAction);
+				if (result == null) result = caseNamedElement(setStateAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -680,6 +692,21 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseServiceEffectSpecification(ServiceEffectSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set State Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set State Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetStateAction(SetStateAction object) {
 		return null;
 	}
 

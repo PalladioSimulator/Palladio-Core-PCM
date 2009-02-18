@@ -420,6 +420,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/SetStateAction">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/SetStateAction/localVariableUsages_SetVariableAction"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resourcetype" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//resourcetype">

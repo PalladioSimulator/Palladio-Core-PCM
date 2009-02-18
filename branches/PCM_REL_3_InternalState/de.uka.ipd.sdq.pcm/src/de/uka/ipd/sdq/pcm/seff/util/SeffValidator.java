@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
@@ -227,6 +228,8 @@ public class SeffValidator extends EObjectValidator {
 				return validateSetVariableAction((SetVariableAction)value, diagnostics, context);
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
 				return validateServiceEffectSpecification((ServiceEffectSpecification)value, diagnostics, context);
+			case SeffPackage.SET_STATE_ACTION:
+				return validateSetStateAction((SetStateAction)value, diagnostics, context);
 			default: 
 				return true;
 		}
@@ -678,6 +681,23 @@ public class SeffValidator extends EObjectValidator {
 	 */
 	public boolean validateServiceEffectSpecification(ServiceEffectSpecification serviceEffectSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(serviceEffectSpecification, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSetStateAction(SetStateAction setStateAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(setStateAction, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(setStateAction, diagnostics, context);
+		return result;
 	}
 
 } //SeffValidator

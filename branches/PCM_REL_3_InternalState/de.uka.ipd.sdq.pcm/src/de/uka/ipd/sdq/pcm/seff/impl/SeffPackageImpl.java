@@ -58,6 +58,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.SetStateAction;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
@@ -245,6 +246,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * @generated
 	 */
 	private EClass serviceEffectSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setStateActionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -834,6 +842,24 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSetStateAction() {
+		return setStateActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetStateAction_LocalVariableUsages_SetVariableAction() {
+		return (EReference)setStateActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SeffFactory getSeffFactory() {
 		return (SeffFactory)getEFactoryInstance();
 	}
@@ -930,6 +956,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		serviceEffectSpecificationEClass = createEClass(SERVICE_EFFECT_SPECIFICATION);
 		createEAttribute(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID);
 		createEReference(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF);
+
+		setStateActionEClass = createEClass(SET_STATE_ACTION);
+		createEReference(setStateActionEClass, SET_STATE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION);
 	}
 
 	/**
@@ -989,6 +1018,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		collectionIteratorActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
 		guardedBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 		setVariableActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		setStateActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(stopActionEClass, StopAction.class, "StopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1127,6 +1157,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEClass(serviceEffectSpecificationEClass, ServiceEffectSpecification.class, "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceEffectSpecification_SeffTypeID(), ecorePackage.getEString(), "seffTypeID", "1", 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceEffectSpecification_DescribedService__SEFF(), theRepositoryPackage.getSignature(), null, "describedService__SEFF", null, 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(setStateActionEClass, SetStateAction.class, "SetStateAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetStateAction_LocalVariableUsages_SetVariableAction(), theParameterPackage.getVariableUsage(), null, "localVariableUsages_SetVariableAction", null, 0, -1, SetStateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
@@ -192,6 +193,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
 				return createServiceEffectSpecificationAdapter();
+			}
+			@Override
+			public Adapter caseSetStateAction(SetStateAction object) {
+				return createSetStateActionAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -544,6 +549,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServiceEffectSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.SetStateAction <em>Set State Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetStateAction
+	 * @generated
+	 */
+	public Adapter createSetStateActionAdapter() {
 		return null;
 	}
 

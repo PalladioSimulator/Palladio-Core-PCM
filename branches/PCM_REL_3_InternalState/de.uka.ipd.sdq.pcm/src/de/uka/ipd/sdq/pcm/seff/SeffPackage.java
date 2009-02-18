@@ -1452,6 +1452,80 @@ public interface SeffPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetStateActionImpl <em>Set State Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SetStateActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetStateAction()
+	 * @generated
+	 */
+	int SET_STATE_ACTION = 23;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set State Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_STATE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.StopAction <em>Stop Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1990,6 +2064,27 @@ public interface SeffPackage extends EPackage {
 	EReference getServiceEffectSpecification_DescribedService__SEFF();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.SetStateAction <em>Set State Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set State Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetStateAction
+	 * @generated
+	 */
+	EClass getSetStateAction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SetStateAction#getLocalVariableUsages_SetVariableAction <em>Local Variable Usages Set Variable Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Local Variable Usages Set Variable Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetStateAction#getLocalVariableUsages_SetVariableAction()
+	 * @see #getSetStateAction()
+	 * @generated
+	 */
+	EReference getSetStateAction_LocalVariableUsages_SetVariableAction();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2464,6 +2559,24 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetStateActionImpl <em>Set State Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SetStateActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetStateAction()
+		 * @generated
+		 */
+		EClass SET_STATE_ACTION = eINSTANCE.getSetStateAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET_STATE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = eINSTANCE.getSetStateAction_LocalVariableUsages_SetVariableAction();
 
 	}
 

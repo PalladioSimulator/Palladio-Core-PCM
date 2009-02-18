@@ -194,6 +194,15 @@ public interface SeffFactory extends EFactory {
 	SetVariableAction createSetVariableAction();
 
 	/**
+	 * Returns a new object of class '<em>Set State Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set State Action</em>'.
+	 * @generated
+	 */
+	SetStateAction createSetStateAction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

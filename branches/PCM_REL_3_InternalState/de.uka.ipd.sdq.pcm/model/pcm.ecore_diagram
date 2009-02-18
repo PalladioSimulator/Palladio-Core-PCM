@@ -77,7 +77,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ZDrZxf0SEd2XRqB17mvx5w" fontName="Segoe UI"/>
     <element xmi:type="ecore:EClass" href="pcm.ecore#//repository/Parameter"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZDrZxv0SEd2XRqB17mvx5w" x="472" y="734"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZDrZxv0SEd2XRqB17mvx5w" x="432" y="720"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_ZDsn4P0SEd2XRqB17mvx5w" type="2001">
     <children xmi:type="notation:Node" xmi:id="_ZDsn4_0SEd2XRqB17mvx5w" type="5001"/>
