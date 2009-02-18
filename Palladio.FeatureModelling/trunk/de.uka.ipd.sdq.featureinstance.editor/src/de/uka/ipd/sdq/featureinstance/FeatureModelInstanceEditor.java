@@ -114,6 +114,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
 	
+	protected Composite comp;
+	
 	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListener = listener;
@@ -164,7 +166,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
-    private Composite comp;
 
 	public FeatureModelInstanceEditor() {
 		super();
@@ -224,7 +225,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @return Returns the URI of the new file or null, if dialog was cancelled
 	 */
 	protected URI startFileWizard (String fileName) {
-		ResourceWizard myWiz = new ResourceWizard(fileName);
+		FeatureConfigCreationWizard myWiz = new FeatureConfigCreationWizard(fileName);
 		myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
 		WizardDialog dialog = new WizardDialog(null, myWiz);
 		dialog.create();
@@ -408,8 +409,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 						}
 					}
 					else {
-						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
-						errord.open();
 						URI newResourceURI = startFileWizard(fileName);
 						createNewConfigResource(newResourceURI, featureDiagram, null);
 					}
@@ -425,8 +424,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				
 				if (configPath == null) {
 					//File selection Dialog has been canceled, call new file wizard
-					ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("No file has been selected! A new file wizard will be started."));
-					errord.open();
 					URI newResourceURI = startFileWizard(fileName);
 					createNewConfigResource(newResourceURI, featureDiagram, null);
 				} 
@@ -598,7 +595,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @param feature A Feature-object
 	 * @return the parent FeatureDiagram to the given Feature-object
 	 */
-	public FeatureDiagram navigateToFeatureDiagram (Feature feature) {
+	protected FeatureDiagram navigateToFeatureDiagram (Feature feature) {
 		Object parent = editingDomain.getParent(feature);
 		
 		while (parent != null && !(parent instanceof FeatureDiagram)) {
@@ -615,7 +612,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @return <code>false</code>, if existingResource doesn't include a Configuration-object or if no ConifgNode references to the opened model
 	 * 		   <code>true</code> otherwise
 	 */
-	public boolean isFeatureDiagramReferenceCorrect (Resource existingResource) {
+	protected boolean isFeatureDiagramReferenceCorrect (Resource existingResource) {
 		Configuration configuration = getConfiguration(existingResource);
 		
 		boolean correct = false;
@@ -743,7 +740,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * 
 	 * @param curRelation The ChildRelation, where the selecting should start
 	 */
-	public void selectMandatoryFeatures(ChildRelation curRelation) {
+	protected void selectMandatoryFeatures(ChildRelation curRelation) {
 		if (curRelation != null) {
 			if (curRelation instanceof FeatureGroup) {
 				EList<Feature> nodes = ((FeatureGroup)curRelation).getChildren();
@@ -778,7 +775,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @param element The changed Feature
 	 * @param state The checked/unchecked state
 	 */
-	public void uncheckInModel (Feature element, boolean state) {
+	protected void uncheckInModel (Feature element, boolean state) {
 		dirtyFlag = true;
 		firePropertyChange(IEditorPart.PROP_DIRTY);
 		int hash = element.hashCode();
@@ -818,7 +815,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	/**
 	 * Checks/unchecks the defaultConfiguration in the Viewer
 	 */
-	public void markDefaultConfig () {
+	protected void markDefaultConfig () {
 		//mark all default configNodes
 		EList<ConfigNode> defaultNodes = defaultConfig.getConfignode();
 		Iterator<ConfigNode> tempIter = defaultNodes.iterator();
@@ -842,7 +839,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	/**
 	 * Checks/unchecks the configurationOverrides in the Viewer
 	 */
-	public void markOverridesConfig () {
+	protected void markOverridesConfig () {
 		//mark all overrides configNodes
 		EList<ConfigNode> overridesNodes = overridesConfig.getConfignode();
 		Iterator<ConfigNode> tempIter = overridesNodes.iterator();
@@ -870,7 +867,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * 
 	 * @param current The unchecked Feature
 	 */
-	public void uncheckParents (Object current) {
+	protected void uncheckParents (Object current) {
 		boolean checked = getAnyChecked(current);
 
 		if (!checked) {
@@ -892,7 +889,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * 
 	 * @param current The checked Feature
 	 */
-	public void checkParents (Object current) {
+	protected void checkParents (Object current) {
 		Object parent = editingDomain.getParent(current);
 		if (parent != null) {
 			if (!(treeViewer.getChecked(parent))) {
@@ -915,7 +912,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @return <code>true</code> if there are any siblings of current checked
 	 * 		   <code>false</code> otherwise
 	 */
-	public boolean getAnyChecked (Object current) {
+	protected boolean getAnyChecked (Object current) {
 		Object parent = editingDomain.getParent(current);
 
 		boolean checked = false;
@@ -967,7 +964,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @return <code>true</code>, if node is a mandatory Feature
 	 *         <code>false</code>, else
 	 */
-	public boolean checkMandatory (Feature node) {
+	protected boolean checkMandatory (Feature node) {
 		Object parent = editingDomain.getParent(node);
 		
 		boolean mandatory = false;
@@ -990,7 +987,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * 
 	 * @param curRoot The current ChildRelation
 	 */
-	public void grayFeatureGroups (ChildRelation curRelation) {
+	protected void grayFeatureGroups (ChildRelation curRelation) {
 		if (curRelation != null) {
 			if (curRelation instanceof FeatureGroup) {
 				treeViewer.setGrayed(curRelation, true);

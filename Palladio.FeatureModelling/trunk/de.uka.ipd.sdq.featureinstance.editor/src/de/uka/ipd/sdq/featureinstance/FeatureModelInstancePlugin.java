@@ -21,12 +21,12 @@ public class FeatureModelInstancePlugin extends AbstractUIPlugin {
 		plugin = this;
 	}
 
-	/**
+	/*/**
 	 * Returns the shared instance.
-	 */
+	 
 	public static FeatureModelInstancePlugin getDefault() {
 		return plugin;
-	}
+	}*/
 
 	/**
 	 * Returns the workspace instance.
