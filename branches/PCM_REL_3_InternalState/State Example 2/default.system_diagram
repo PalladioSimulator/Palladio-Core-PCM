@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" type="CompositeModel" name="default.system_diagram" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="default.repository#_hjaqQP6TEd2Fy-fNu9EQrA"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="default.system#_ozHLIP6TEd2Fy-fNu9EQrA"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="228" y="96"/>
+      </children>
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <children type="3003">
+      <children type="5003">
+        <layoutConstraint xsi:type="notation:Location" y="5"/>
+      </children>
+      <styles xsi:type="notation:FontStyle"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="default.system#_qdWfYP6TEd2Fy-fNu9EQrA"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" width="493" height="325"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="default.system#_m1NUAP6TEd2Fy-fNu9EQrA"/>
+  <edges type="4003" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="default.system#_rQTmUP6TEd2Fy-fNu9EQrA"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -210, 47]$[233, -48, -7, -1]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.78333336,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.23333333,0.46666667)"/>
+  </edges>
+</notation:Diagram>

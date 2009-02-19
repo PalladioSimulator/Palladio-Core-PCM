@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_m1NUAP6TEd2Fy-fNu9EQrA" entityName="defaultSystem">
+  <childComponentContexts_ComposedStructure id="_ozHLIP6TEd2Fy-fNu9EQrA" entityName="Assembly_comp &lt;comp>">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_e4EeUP6TEd2Fy-fNu9EQrA"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_rQTmUP6TEd2Fy-fNu9EQrA" entityName="ProvDelegation Provided_icomp -> Provided_icomp_comp" outerProvidedRole_ProvidedDelegationConnector="_qdWfYP6TEd2Fy-fNu9EQrA" childComponentContext_ProvidedDelegationConnector="_ozHLIP6TEd2Fy-fNu9EQrA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_hjaqQP6TEd2Fy-fNu9EQrA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_qdWfYP6TEd2Fy-fNu9EQrA" entityName="Provided_icomp">
+    <providedInterface__ProvidedRole href="default.repository#_f_lgAP6TEd2Fy-fNu9EQrA"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>
