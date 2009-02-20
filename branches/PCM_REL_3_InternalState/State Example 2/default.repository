@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_eP1ZoP6TEd2Fy-fNu9EQrA" entityName="defaultRepository">
-  <components__Repository xsi:type="BasicComponent" id="_e4EeUP6TEd2Fy-fNu9EQrA" entityName="comp">
-    <providedRoles_InterfaceProvidingEntity id="_hjaqQP6TEd2Fy-fNu9EQrA" entityName="Provided_icomp_comp" providedInterface__ProvidedRole="_f_lgAP6TEd2Fy-fNu9EQrA"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_hjaqQf6TEd2Fy-fNu9EQrA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="_1:StartAction" id="_hjaqQv6TEd2Fy-fNu9EQrA" successor_AbstractAction="_jjtHAP6TEd2Fy-fNu9EQrA"/>
-      <steps_Behaviour xsi:type="_1:StopAction" id="_hjaqQ_6TEd2Fy-fNu9EQrA" predecessor_AbstractAction="_jjtHAP6TEd2Fy-fNu9EQrA"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_jjtHAP6TEd2Fy-fNu9EQrA" entityName="do" predecessor_AbstractAction="_hjaqQv6TEd2Fy-fNu9EQrA" successor_AbstractAction="_hjaqQ_6TEd2Fy-fNu9EQrA">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_6-uzUP8dEd2AaK7YTwZXLg" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_9gK1UP8dEd2AaK7YTwZXLg" entityName="com">
+    <providedRoles_InterfaceProvidingEntity id="_BAs80P8eEd2AaK7YTwZXLg" entityName="Provided_icom_com" providedInterface__ProvidedRole="_96W28P8dEd2AaK7YTwZXLg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_BA2GwP8eEd2AaK7YTwZXLg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_BBveoP8eEd2AaK7YTwZXLg" successor_AbstractAction="_COEu4P8eEd2AaK7YTwZXLg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_BB5PoP8eEd2AaK7YTwZXLg" predecessor_AbstractAction="_COEu4P8eEd2AaK7YTwZXLg"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_COEu4P8eEd2AaK7YTwZXLg" entityName="do" predecessor_AbstractAction="_BBveoP8eEd2AaK7YTwZXLg" successor_AbstractAction="_BB5PoP8eEd2AaK7YTwZXLg">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="1"/>
@@ -13,7 +13,7 @@
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <interfaces__Repository id="_f_lgAP6TEd2Fy-fNu9EQrA" entityName="icomp">
+  <interfaces__Repository id="_96W28P8dEd2AaK7YTwZXLg" entityName="icom">
     <signatures__Interface serviceName="do"/>
   </interfaces__Repository>
 </Repository>
