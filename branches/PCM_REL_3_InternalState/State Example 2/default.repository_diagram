@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation">
   <notation:Diagram xmi:id="_7FuMIP8dEd2AaK7YTwZXLg" type="PCM Repository Model" name="default.repository_diagram" measurementUnit="Pixel">
     <children xmi:type="notation:Node" xmi:id="_9gxSQP8dEd2AaK7YTwZXLg" type="2102">
       <children xmi:type="notation:Node" xmi:id="_9gxSRP8dEd2AaK7YTwZXLg" type="5102"/>
@@ -81,24 +81,21 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_COEu4v8eEd2AaK7YTwZXLg"/>
       <element xmi:type="InternalAction" href="default.repository#_COEu4P8eEd2AaK7YTwZXLg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COEu4_8eEd2AaK7YTwZXLg" x="223" y="84"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COEu4_8eEd2AaK7YTwZXLg" x="96" y="372"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_l1EagP80Ed2KYspatZp-tA" type="2008">
+      <children xmi:type="notation:Node" xmi:id="_l1XVcP80Ed2KYspatZp-tA" type="5023"/>
+      <children xmi:type="notation:Node" xmi:id="_l1XVcf80Ed2KYspatZp-tA" type="7016">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_l1XVcv80Ed2KYspatZp-tA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_l1XVc_80Ed2KYspatZp-tA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_l1XVdP80Ed2KYspatZp-tA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_l1XVdf80Ed2KYspatZp-tA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_l1Eagf80Ed2KYspatZp-tA"/>
+      <element xmi:type="SetVariableAction" href="default.repository#_G2ebav80Ed2vjZqV86S1Lg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l1Eagv80Ed2KYspatZp-tA" x="204" y="180"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_BNWRsf8eEd2AaK7YTwZXLg"/>
     <element xmi:type="ResourceDemandingSEFF" href="default.repository#_BA2GwP8eEd2AaK7YTwZXLg"/>
-    <edges xmi:type="notation:Edge" xmi:id="_Bg11cP8eEd2AaK7YTwZXLg" type="4001" source="_BfM2sP8eEd2AaK7YTwZXLg" target="_COEu4f8eEd2AaK7YTwZXLg">
-      <styles xmi:type="notation:ConnectorStyle" xmi:id="_Bg11cf8eEd2AaK7YTwZXLg"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_Bg11cv8eEd2AaK7YTwZXLg"/>
-      <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Bg11c_8eEd2AaK7YTwZXLg" points="[0, 10, 0, -75]$[0, 70, 0, -15]"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Edga4P8eEd2AaK7YTwZXLg" id="(0.43362832,0.16666667)"/>
-    </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_E2EE0P8eEd2AaK7YTwZXLg" type="4001" source="_COEu4f8eEd2AaK7YTwZXLg" target="_BfM2s_8eEd2AaK7YTwZXLg">
-      <styles xmi:type="notation:ConnectorStyle" xmi:id="_E2EE0f8eEd2AaK7YTwZXLg"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_E2EE0v8eEd2AaK7YTwZXLg"/>
-      <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E2EE0_8eEd2AaK7YTwZXLg" points="[-6, 4, 199, 0]$[-199, 7, 6, 3]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E2EE1P8eEd2AaK7YTwZXLg" id="(0.053097345,0.15277778)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E2EE1f8eEd2AaK7YTwZXLg" id="(0.8,0.6333333)"/>
-    </edges>
   </notation:Diagram>
 </xmi:XMI>

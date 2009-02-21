@@ -53,5 +53,9 @@
 «DEFINE Action FOR SetVariableAction»
 «ENDDEFINE»
 
+«DEFINE Action FOR SetStateAction»
+	«ERROR "SetStateAction is a template method and must be overridden"»
+«ENDDEFINE»
+
 «DEFINE Action FOR ForkAction»
 «ENDDEFINE»

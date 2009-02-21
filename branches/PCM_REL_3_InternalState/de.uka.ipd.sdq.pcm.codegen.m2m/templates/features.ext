@@ -7,14 +7,15 @@ Configuration getConfiguration() : GLOBALVAR Features;
 FeatureConfig getDefaultFeatureConfig() : getConfiguration().defaultConfig;
 
 FeatureConfig getFeatureConfig(Object o) : 
-	getConfiguration().configOverrides.select(conf|conf.referencedObject == o).size > 0 ?
-		getConfiguration().configOverrides.select(conf|conf.referencedObject == o).first()
+	getConfiguration().configOverrides != null && getConfiguration().configOverrides.referencedObject == o ?
+		getConfiguration().configOverrides
 	:
 		null;
 
 boolean isFeatureSetRecursive(FeatureConfig fc, String featureName) :
-	fc.confignode.exists(cn|cn.origin.name == featureName && cn.configState == ConfigState::SELECTED);
-   		 
+	null; //TODO/FIXME: temporary workaround to deal with changes in featuremodel  
+	//fc.confignode.exists(cn|cn.origin.name == featureName && cn.configState == ConfigState::SELECTED);
+	   		 
 boolean isFeatureSet(String featureName) :
 	isFeatureSetRecursive(getDefaultFeatureConfig(),featureName);
 	

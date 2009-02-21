@@ -112,15 +112,42 @@
 «DEFINE Action FOR SetVariableAction»
 	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
-			«IF pu.namedReference_VariableUsage.isInnerReference()»
+		
+			//first try whether a state variable is used
+			try {
+				java.lang.reflect.Field stateField = this.getClass().getField("«vc.specification_VariableCharacterisation.specification.specificationString()»");
+				String value = (String)stateField.get(this);
+			    //this is a variable usage where a state is used in the left side 
+				methodBodyStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
+				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy(value,methodBodyStackFrame.copyFrame()));
+			  
+			} catch (NoSuchFieldException e){
+			   //no state used, do regular stuff
+			   «IF pu.namedReference_VariableUsage.isInnerReference()»
 				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
 				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",methodBodyStackFrame.copyFrame()));
-			«ELSE»
+			   «ELSE»
 				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
 					ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»"));
+			} catch (Exception e) {
+			  // TODO Auto-generated catch block
+			  e.printStackTrace();
+			} 
+		
+
 			«ENDIF»
 		«ENDFOREACH»
 	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetStateAction»
+	//SetStateAction
+	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
+		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+			this.«pu.namedReference_VariableUsage.referenceName» = "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1, "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1);;
+		«ENDFOREACH»
+	«ENDFOREACH»
+	«ERROR "SetStateAction is never called!"»
 «ENDDEFINE»
 
 «DEFINE Action FOR ForkAction»

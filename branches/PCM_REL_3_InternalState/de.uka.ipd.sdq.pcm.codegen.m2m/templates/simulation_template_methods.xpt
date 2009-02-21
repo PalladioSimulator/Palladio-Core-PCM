@@ -105,6 +105,10 @@
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND» 
 
+«AROUND m2t_transforms::seff::Action FOR SetStateAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
 «AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND» 
