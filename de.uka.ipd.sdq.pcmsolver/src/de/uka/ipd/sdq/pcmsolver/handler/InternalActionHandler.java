@@ -128,7 +128,7 @@ public class InternalActionHandler{
 
 		// quickly incorporate processing rate
 		specification = "("+ specification+") / "+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification();
-		logger.info("Actual Resource Demand (Expression): "+specification);
+		logger.debug("Actual Resource Demand (Expression): "+specification);
 		
 		Expression solvedExpr = (Expression) ExpressionHelper
 				.getSolvedExpression(specification, visitor.getContextWrapper());
@@ -138,7 +138,7 @@ public class InternalActionHandler{
 		String solvedSpecification = ExpressionHelper
 				.getSolvedExpressionAsString(specification,
 						visitor.getContextWrapper());
-		logger.info("Computed Actual Resource Demand: "+solvedSpecification);
+		logger.debug("Computed Actual Resource Demand: "+solvedSpecification);
 		return solvedSpecification;
 	}
 

@@ -22,7 +22,7 @@ public class ProbabilisticBranchTransitionHandler extends AbstractBranchTransiti
 
 	public void handle(ProbabilisticBranchTransition bt){
 		double branchProb = bt.getBranchProbability();
-		logger.info("BranchProb:" + branchProb);
+		logger.debug("BranchProb:" + branchProb);
 		storeToUsageContext(bt, branchProb);
 		visitChildBehaviour(bt);
 	}

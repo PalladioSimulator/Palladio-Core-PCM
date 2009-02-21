@@ -34,7 +34,7 @@ public class GuardedBranchTransitionHandler extends AbstractBranchTransitionHand
 
 	public void handle(GuardedBranchTransition bt){
 		double solvedBranchProb = getBranchProbFromExpression(bt);
-		logger.info("SolvedBranchProb:" + solvedBranchProb);
+		logger.debug("SolvedBranchProb:" + solvedBranchProb);
 		
 		storeToUsageContext(bt, solvedBranchProb);
 
