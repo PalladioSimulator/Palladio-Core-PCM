@@ -12,14 +12,18 @@ import de.uka.ipd.sdq.markov.StateType;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
@@ -43,16 +47,6 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			.getName());
 
 	/**
-	 * Temporary hack to include FailureProbabilities for SystemExternalCalls.
-	 */
-	public static ArrayList<String> sysExList = new ArrayList<String>();
-
-	/**
-	 * Temporary hack to include FailureProbabilities for SystemExternalCalls.
-	 */
-	public static ArrayList<String> failProbList = new ArrayList<String>();
-
-	/**
 	 * The list of processing resources and their current states.
 	 */
 	private List<ProcessingResourceDescriptor> resourceDescriptors;
@@ -74,11 +68,11 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 * @param wrapper
 	 *            the ContextWrapper provides easy access to the decorations of
 	 *            the solved PCM instance
-	 * @param resourceDescriptors
+	 * @param descriptors
 	 *            the list of resource descriptors
 	 */
 	public MarkovSeffVisitor(final ContextWrapper wrapper,
-			List<ProcessingResourceDescriptor> descriptors) {
+			final List<ProcessingResourceDescriptor> descriptors) {
 		contextWrapper = wrapper;
 		resourceDescriptors = descriptors;
 	}
@@ -115,8 +109,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// action of the action chain:
 		ArrayList<State> states = new ArrayList<State>();
 		MarkovChain aggregateMarkovChain = markovBuilder
-				.initBehaviourMarkovChain("ResourceDemandingBehaviour",
-						actions, states);
+				.initResourceDemandingBehaviourMarkovChain(
+						"ResourceDemandingBehaviour", actions, states);
 
 		// Incorporate the specific Chains into the aggregate Chain:
 		for (int i = 0; i < actions.size(); i++) {
@@ -161,8 +155,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// action of the action chain:
 		ArrayList<State> states = new ArrayList<State>();
 		MarkovChain aggregateMarkovChain = markovBuilder
-				.initBehaviourMarkovChain(seff.getDescribedService__SEFF()
-						.getServiceName(), actions, states);
+				.initResourceDemandingBehaviourMarkovChain(seff
+						.getDescribedService__SEFF().getServiceName(), actions,
+						states);
 
 		// Incorporate the specific Chains into the aggregate Chain:
 		for (int i = 0; i < actions.size(); i++) {
@@ -215,6 +210,14 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// is currently broken down:
 		for (ParametricResourceDemand demand : internalAction
 				.getResourceDemand_Action()) {
+
+			// Special case: ignore resource demands of type
+			// "SystemExternalResource", as they have been internally introduced
+			// by the dependency solver:
+			if (demand.getRequiredResource_ParametricResourceDemand()
+					.getEntityName().equals("SystemExternalResource")) {
+				continue;
+			}
 
 			// Get the descriptor that corresponds to the demand:
 			ProcessingResourceDescriptor descriptor = getDescriptor(demand);
@@ -274,6 +277,50 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Initialize the aggregate Markov Chain representing the loop:
 		MarkovChain aggregateMarkovChain = markovBuilder.initLoopMarkovChain(
 				loopAction.getEntityName(), pmf);
+
+		// Incorporate the specific MarkovChain into the aggregate one:
+		ArrayList<State> statesToReplace = new ArrayList<State>();
+		for (int i = 0; i < aggregateMarkovChain.getStates().size(); i++) {
+			if (aggregateMarkovChain.getStates().get(i).getType().equals(
+					StateType.DEFAULT)) {
+				statesToReplace.add(aggregateMarkovChain.getStates().get(i));
+			}
+		}
+		for (int i = 0; i < statesToReplace.size(); i++) {
+			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+					specificMarkovChain, statesToReplace.get(i));
+		}
+
+		// Return the result:
+		return aggregateMarkovChain;
+	}
+
+	/**
+	 * A collection iterator action is handled the same way as an ordinary loop.
+	 * 
+	 * @param collectionIteratorAction
+	 *            the CollectionIteratoraction
+	 * @return the resulting Markov Chain
+	 */
+	@Override
+	public MarkovChain caseCollectionIteratorAction(
+			final CollectionIteratorAction collectionIteratorAction) {
+
+		// Do the logging:
+		logger.debug("Visit CollectionIteratorAction ["
+				+ collectionIteratorAction.getEntityName() + "]");
+
+		// Determine the inner Markov Chain associated with the loop behaviour:
+		MarkovChain specificMarkovChain = (MarkovChain) doSwitch(collectionIteratorAction
+				.getBodyBehaviour_Loop());
+
+		// Get the solved loop probability mass function:
+		ManagedPMF pmf = contextWrapper
+				.getLoopIterations(collectionIteratorAction);
+
+		// Initialize the aggregate Markov Chain representing the loop:
+		MarkovChain aggregateMarkovChain = markovBuilder.initLoopMarkovChain(
+				collectionIteratorAction.getEntityName(), pmf);
 
 		// Incorporate the specific MarkovChain into the aggregate one:
 		ArrayList<State> statesToReplace = new ArrayList<State>();
@@ -368,13 +415,16 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 			// Get the FailureProbability of the SystemExternalCall (this is, by
 			// now, a hack):
-			String failureProbabilityExpression = failProbList.get(sysExList
-					.indexOf(externalCallAction.getId()));
+			// String failureProbabilityExpression = failProbList.get(sysExList
+			// .indexOf(externalCallAction.getId()));
 
 			// A SystemExternalCall is treated like an InternalAction - it has
 			// just one fixed failureProbability:
-			return markovBuilder.initInternalMarkovChain(externalCallAction
-					.getEntityName(), failureProbabilityExpression);
+			// return markovBuilder.initInternalMarkovChain(externalCallAction
+			// .getEntityName(), failureProbabilityExpression);
+
+			return markovBuilder.initNewMarkovChain(externalCallAction
+					.getEntityName());
 
 		} else {
 
@@ -396,6 +446,62 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			return new MarkovSeffVisitor(newContextWrapper, resourceDescriptors)
 					.doSwitch(seff);
 		}
+	}
+
+	/**
+	 * An Acquire Action returns a trivial Markov Chain.
+	 * 
+	 * @param acquireAction
+	 *            the acquire action
+	 * @return the resulting Markov Chain.
+	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseAcquireAction(de.uka.ipd.sdq.pcm.seff.AcquireAction)
+	 */
+	@Override
+	public MarkovChain caseAcquireAction(final AcquireAction acquireAction) {
+
+		// Do the logging:
+		logger.debug("Visit AcquireAction [" + acquireAction.getEntityName()
+				+ "]");
+
+		return markovBuilder.initNewMarkovChain(acquireAction.getEntityName());
+	}
+
+	/**
+	 * A Release Action returns a trivial Markov Chain.
+	 * 
+	 * @param releaseAction
+	 *            the release action
+	 * @return the resulting Markov Chain.
+	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseAcquireAction(de.uka.ipd.sdq.pcm.seff.AcquireAction)
+	 */
+	@Override
+	public MarkovChain caseReleaseAction(final ReleaseAction releaseAction) {
+
+		// Do the logging:
+		logger.debug("Visit ReleaseAction [" + releaseAction.getEntityName()
+				+ "]");
+
+		return markovBuilder.initNewMarkovChain(releaseAction.getEntityName());
+	}
+
+	/**
+	 * A SetVariableAction returns a trivial Markov Chain.
+	 * 
+	 * @param setVariableAction
+	 *            the SetVariableAction
+	 * @return the resulting Markov Chain
+	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseSetVariableAction(de.uka.ipd.sdq.pcm.seff.SetVariableAction)
+	 */
+	@Override
+	public MarkovChain caseSetVariableAction(
+			final SetVariableAction setVariableAction) {
+
+		// Do the logging:
+		logger.debug("Visit SetVariableAction ["
+				+ setVariableAction.getEntityName() + "]");
+
+		return markovBuilder.initNewMarkovChain(setVariableAction
+				.getEntityName());
 	}
 
 	/**
@@ -423,12 +529,18 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 * @return the descriptor
 	 */
 	private ProcessingResourceDescriptor getDescriptor(
-			ParametricResourceDemand demand) {
+			final ParametricResourceDemand demand) {
+
+		// Map the resource demand to a concrete resource:
+		ProcessingResourceSpecification resource = contextWrapper
+				.getConcreteProcessingResource(demand);
+		if (resource == null) {
+			return null;
+		}
 
 		// Get the IDs of the resource type and resource container:
-		String resourceTypeId = contextWrapper.getConcreteProcessingResource(
-				demand).getActiveResourceType_ActiveResourceSpecification()
-				.getId();
+		String resourceTypeId = resource
+				.getActiveResourceType_ActiveResourceSpecification().getId();
 		String containerId = contextWrapper.getAllCtx()
 				.getResourceContainer_AllocationContext().getId();
 

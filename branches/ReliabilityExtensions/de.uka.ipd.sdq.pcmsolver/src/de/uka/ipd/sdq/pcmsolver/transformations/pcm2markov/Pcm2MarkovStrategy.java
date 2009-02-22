@@ -190,7 +190,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		try {
 			runPcm2MarkovRecursively(model, descriptors, 0, 1.0);
 		} catch (Exception e) {
-			logger.error("Usage Scenario caused Exception: " + e.getMessage());
+			logger.error("PCM 2 Markov transformation caused exception: "
+					+ e.getMessage() + " [" + e.getClass() + "]");
 			e.printStackTrace();
 		}
 
@@ -289,9 +290,19 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 			ResourceContainer container = (ResourceContainer) resourceContainers
 					.get(i);
 
+			// Special case: ignore resource containers with the name
+			// "SystemExternalResourceContainer", as they have been internally
+			// created by the dependency solver:
+			if (container.getEntityName().equals(
+					"SystemExternalResourceContainer")) {
+				continue;
+			}
+
 			// Go through the list of resources in the container:
 			for (ProcessingResourceSpecification resource : container
 					.getActiveResourceSpecifications_ResourceContainer()) {
+
+				// Special case: Ignore resource specifications
 
 				// Each resource has a type and MTTF/MTTR values:
 				Double MTTF = resource.getMTTF();

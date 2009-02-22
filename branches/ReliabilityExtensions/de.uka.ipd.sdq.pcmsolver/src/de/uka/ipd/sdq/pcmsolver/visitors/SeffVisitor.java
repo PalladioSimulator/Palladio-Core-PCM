@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
@@ -16,6 +17,7 @@ import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
@@ -173,6 +175,20 @@ public class SeffVisitor extends SeffSwitch {
 	public Object caseSetVariableAction(SetVariableAction object) {
 		logger.debug("Visit"+object.getClass().getSimpleName());
 		setVarAH.handle(object);
+		doSwitch(object.getSuccessor_AbstractAction());
+		return object;
+	}
+
+	@Override
+	public Object caseAcquireAction(AcquireAction object) {
+		logger.debug("Visit"+object.getClass().getSimpleName());
+		doSwitch(object.getSuccessor_AbstractAction());
+		return object;
+	}
+
+	@Override
+	public Object caseReleaseAction(ReleaseAction object) {
+		logger.debug("Visit"+object.getClass().getSimpleName());
 		doSwitch(object.getSuccessor_AbstractAction());
 		return object;
 	}
