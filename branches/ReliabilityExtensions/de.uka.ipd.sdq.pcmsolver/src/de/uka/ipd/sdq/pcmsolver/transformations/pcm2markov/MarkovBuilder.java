@@ -181,12 +181,14 @@ public class MarkovBuilder {
 		} catch (NumberFormatException e) {
 			logger
 					.error("Unexpected format of failure probability specification: "
-							+ failureProbabilityExpression);
+							+ failureProbabilityExpression
+							+ ". Setting success probability to 1.0");
 			successProbability = 1;
 		}
 		if ((successProbability < 0) || (successProbability > 1)) {
 			logger.error("Invalid value of failure probability specification: "
-					+ failureProbabilityExpression);
+					+ failureProbabilityExpression
+					+ ". Setting success probability to 1.0");
 			successProbability = 1;
 		}
 

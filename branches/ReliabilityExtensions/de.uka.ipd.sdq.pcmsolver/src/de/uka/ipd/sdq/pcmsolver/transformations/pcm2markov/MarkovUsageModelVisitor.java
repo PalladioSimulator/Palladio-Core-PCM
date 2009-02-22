@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
@@ -41,6 +43,11 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 	private PCMInstance pcmInstance;
 
 	/**
+	 * The list of processing resources and their current states.
+	 */
+	private List<ProcessingResourceDescriptor> resourceDescriptors;
+
+	/**
 	 * The ContextWrapper provides easy access to the decorations of the solved
 	 * PCM instance.
 	 */
@@ -50,10 +57,14 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 	 * The constructor.
 	 * 
 	 * @param inst
-	 *            the solved PCM Instance
+	 *            the PCM Instance (with solved dependencies)
+	 * @param descriptors
+	 *            the list of resource descriptors
 	 */
-	public MarkovUsageModelVisitor(final PCMInstance inst) {
+	public MarkovUsageModelVisitor(final PCMInstance inst,
+			List<ProcessingResourceDescriptor> descriptors) {
 		pcmInstance = inst;
+		resourceDescriptors = descriptors;
 	}
 
 	/**
@@ -117,7 +128,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 			return null;
 		} else {
 			MarkovSeffVisitor seffVisitor = new MarkovSeffVisitor(
-					contextWrapper);
+					contextWrapper, resourceDescriptors);
 			return seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
 		}
 	}

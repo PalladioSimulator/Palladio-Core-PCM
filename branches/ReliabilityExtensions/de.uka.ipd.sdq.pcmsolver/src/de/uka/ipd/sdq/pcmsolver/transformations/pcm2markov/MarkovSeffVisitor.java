@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -8,12 +9,14 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.markov.StateType;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -50,6 +53,11 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	public static ArrayList<String> failProbList = new ArrayList<String>();
 
 	/**
+	 * The list of processing resources and their current states.
+	 */
+	private List<ProcessingResourceDescriptor> resourceDescriptors;
+
+	/**
 	 * The ContextWrapper provides easy access to the decorations of the solved
 	 * PCM instance.
 	 */
@@ -66,9 +74,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 * @param wrapper
 	 *            the ContextWrapper provides easy access to the decorations of
 	 *            the solved PCM instance
+	 * @param resourceDescriptors
+	 *            the list of resource descriptors
 	 */
-	public MarkovSeffVisitor(final ContextWrapper wrapper) {
+	public MarkovSeffVisitor(final ContextWrapper wrapper,
+			List<ProcessingResourceDescriptor> descriptors) {
 		contextWrapper = wrapper;
+		resourceDescriptors = descriptors;
 	}
 
 	/**
@@ -194,8 +206,47 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		logger.debug("Visit InternalAction [" + internalAction.getEntityName()
 				+ "]");
 
+		// Initialize the internal action's failure probability, assuming that
+		// all processing resources used by the internal action are currently
+		// OK:
+		String failureProbability = internalAction.getFailureProbability();
+
+		// Check if any of the processing resources used by this internal action
+		// is currently broken down:
+		for (ParametricResourceDemand demand : internalAction
+				.getResourceDemand_Action()) {
+
+			// Get the descriptor that corresponds to the demand:
+			ProcessingResourceDescriptor descriptor = getDescriptor(demand);
+			if (descriptor == null) {
+				logger.error("Missing resource description for "
+						+ demand.getRequiredResource_ParametricResourceDemand()
+								.getEntityName()
+						+ " resource demand. Assume resource state = OK.");
+				continue;
+			}
+
+			// Get the state of the resource:
+			ProcessingResourceState state = descriptor.getCurrentState();
+			if (state == null) {
+				logger.error("Resource state no set for "
+						+ demand.getRequiredResource_ParametricResourceDemand()
+								.getEntityName()
+						+ " resource demand. Assume resource state = OK.");
+				continue;
+			}
+
+			// If the resource is broken down, the internal action fails with
+			// 100% probability:
+			if (state.equals(ProcessingResourceState.NA)) {
+				failureProbability = "1.0";
+				break;
+			}
+		}
+
+		// Build the corresponding Markov Chain:
 		return markovBuilder.initInternalMarkovChain(internalAction
-				.getEntityName(), internalAction.getFailureProbability());
+				.getEntityName(), failureProbability);
 	}
 
 	/**
@@ -342,7 +393,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			contextWrapper = originalContextWrapper;
 
 			// Return the Markov Chain of the executing SEFF:
-			return new MarkovSeffVisitor(newContextWrapper).doSwitch(seff);
+			return new MarkovSeffVisitor(newContextWrapper, resourceDescriptors)
+					.doSwitch(seff);
 		}
 	}
 
@@ -360,5 +412,38 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		logger.debug("Visit StopAction [" + stopAction.getEntityName() + "]");
 
 		return markovBuilder.initNewMarkovChain(stopAction.getEntityName());
+	}
+
+	/**
+	 * Retrieves a resource descriptor corresponding to the given resource
+	 * demand.
+	 * 
+	 * @param demand
+	 *            the resource demand
+	 * @return the descriptor
+	 */
+	private ProcessingResourceDescriptor getDescriptor(
+			ParametricResourceDemand demand) {
+
+		// Get the IDs of the resource type and resource container:
+		String resourceTypeId = contextWrapper.getConcreteProcessingResource(
+				demand).getActiveResourceType_ActiveResourceSpecification()
+				.getId();
+		String containerId = contextWrapper.getAllCtx()
+				.getResourceContainer_AllocationContext().getId();
+
+		// Search for the right descriptor:
+		for (ProcessingResourceDescriptor descriptor : resourceDescriptors) {
+
+			// Compare the IDs to those of the descriptor:
+			if ((descriptor.getProcessingResourceTypeId()
+					.equals(resourceTypeId))
+					&& (descriptor.getResourceContainerId().equals(containerId))) {
+				return descriptor;
+			}
+		}
+
+		// No descriptor found:
+		return null;
 	}
 }

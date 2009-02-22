@@ -1,15 +1,25 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * This class performs a transformation from a PCM instance to a Markov Chain
@@ -26,6 +36,11 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 */
 	private static Logger logger = Logger.getLogger(Pcm2MarkovStrategy.class
 			.getName());
+
+	/**
+	 * Reference to an EMF utility class.
+	 */
+	private static EMFHelper helper = new EMFHelper();
 
 	/**
 	 * The Markov Chain instance that results from the transformation of the PCM
@@ -75,8 +90,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Record the time consumed for solving the Markov Chain:
 		long startTime = System.nanoTime();
 
-		// Solve the Markov Chain:
-		solvedValue = new MarkovSolver().solve(markovChain);
+		// Solving of Markov Chain has already taken place during the
+		// transformation.
 
 		// Let the user know about the time consumed and the result:
 		long stopTime = System.nanoTime();
@@ -141,8 +156,9 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		} catch (Exception e) {
 
 			// The parametric dependencies could not be solved:
-			logger.error("Solving of parametric dependencies caused Exception!"
-					+ e.getMessage());
+			logger
+					.error("Solving of parametric dependencies caused Exception: "
+							+ e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -164,9 +180,49 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Record the time consumed for creating the Markov Chain instance:
 		long startTime = System.nanoTime();
 
-		// The Markov Chain instance is created by using a visitor:
-		MarkovUsageModelVisitor umVisit = new MarkovUsageModelVisitor(model);
+		// Build the list of resource descriptors:
+		List<ProcessingResourceDescriptor> descriptors = buildResourceDescriptors(model);
+
+		// Initialize the solved value:
+		solvedValue = 0.0;
+
+		// Try to run the transformation for all possible state combinations:
 		try {
+			runPcm2MarkovRecursively(model, descriptors, 0, 1.0);
+		} catch (Exception e) {
+			logger.error("Usage Scenario caused Exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+
+		// Let the user know about the time consumed:
+		long stopTime = System.nanoTime();
+		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
+		logger.info("Finished Markov Transform:\t" + duration + " ms");
+	}
+
+	/**
+	 * Runs the PCM 2 Markov transformation for all possible combinations of
+	 * states of resources.
+	 * 
+	 * @param model
+	 *            the PCM instance
+	 * @param descriptors
+	 *            the resource descriptors
+	 * @param index
+	 *            the current resource state manipulation level
+	 * @param currentProbability
+	 *            the probability of the current resource state combination
+	 */
+	private void runPcm2MarkovRecursively(final PCMInstance model,
+			final List<ProcessingResourceDescriptor> descriptors,
+			final int index, final double currentProbability) {
+
+		// Check for the base case:
+		if (index == descriptors.size()) {
+
+			// The Markov Chain instance is created by using a visitor:
+			MarkovUsageModelVisitor umVisit = new MarkovUsageModelVisitor(
+					model, descriptors);
 
 			// The transformation supports only solving a single
 			// usage scenario (08-2008):
@@ -177,16 +233,113 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 			markovChain = (MarkovChain) umVisit.doSwitch(us
 					.getScenarioBehaviour_UsageScenario());
 
-		} catch (Exception e) {
+			// Solve the Markov Chain, and add the result to the overall success
+			// probability, weighted by the probability of the current resource
+			// state combination:
+			double result = new MarkovSolver().solve(markovChain);
+			solvedValue += result * currentProbability;
 
-			// The transformation did not succeed:
-			logger.error("Usage Scenario caused Exception!" + e.getMessage());
-			e.printStackTrace();
+			// Base case finished:
+			return;
 		}
 
-		// Let the user know about the time consumed:
-		long stopTime = System.nanoTime();
-		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-		logger.info("Finished Markov Transform:\t" + duration + " ms");
+		// Consider all possible resource states:
+		for (ProcessingResourceState state : ProcessingResourceState.values()) {
+
+			// Get the probability of this state for the resource:
+			descriptors.get(index).setCurrentState(state);
+			Double newProbability = descriptors.get(index).getStateProbability(
+					state);
+
+			// If no MTTF/MTTR have been specified for the resource, assume that
+			// the resource never breaks down:
+			if ((newProbability == null) || (newProbability.isNaN())) {
+				newProbability = (state.equals(ProcessingResourceState.OK)) ? 1.0
+						: 0.0;
+			}
+
+			// Consider the next resource and its possible states:
+			runPcm2MarkovRecursively(model, descriptors, index + 1,
+					currentProbability * newProbability);
+		}
+	}
+
+	/**
+	 * Builds a list of resource descriptors based on a given PCM instance.
+	 * 
+	 * @param model
+	 *            the given PCM instance
+	 * @return the list of resource descriptors
+	 */
+	private List<ProcessingResourceDescriptor> buildResourceDescriptors(
+			final PCMInstance model) {
+
+		// Create the result list:
+		ArrayList<ProcessingResourceDescriptor> resultList = new ArrayList<ProcessingResourceDescriptor>();
+
+		// Search for PCM resource containers:
+		EList<EObject> resourceContainers = helper.getElements(model
+				.getResourceEnvironment(), ResourceenvironmentFactory.eINSTANCE
+				.createResourceContainer().eClass());
+
+		// Go through the resource container list:
+		for (int i = 0; i < resourceContainers.size(); i++) {
+
+			// Reference the container:
+			ResourceContainer container = (ResourceContainer) resourceContainers
+					.get(i);
+
+			// Go through the list of resources in the container:
+			for (ProcessingResourceSpecification resource : container
+					.getActiveResourceSpecifications_ResourceContainer()) {
+
+				// Each resource has a type and MTTF/MTTR values:
+				Double MTTF = resource.getMTTF();
+				Double MTTR = resource.getMTTR();
+				ProcessingResourceType type = resource
+						.getActiveResourceType_ActiveResourceSpecification();
+
+				// Check the proper MTTF/MTTR specification:
+				if (MTTF < 0.0) {
+					logger
+							.warn("Improper MTTF/MTTR specification for resource "
+									+ type.getEntityName()
+									+ " in container "
+									+ container.getEntityName()
+									+ ": negative MTTF. Assuming MTTF = 0.0");
+					MTTF = 0.0;
+				}
+				if (MTTR < 0.0) {
+					logger
+							.warn("Improper MTTF/MTTR specification for resource "
+									+ type.getEntityName()
+									+ " in container "
+									+ container.getEntityName()
+									+ ": negative MTTR. Assuming MTTR = 0.0");
+					MTTR = 0.0;
+				}
+				if ((MTTF == 0.0) && (MTTR == 0.0)) {
+					logger
+							.warn("Improper MTTF/MTTR specification for resource "
+									+ type.getEntityName()
+									+ " in container "
+									+ container.getEntityName()
+									+ ": Both values are 0. Assuming that resource is always ok");
+				}
+
+				// Generate a new descriptor:
+				ProcessingResourceDescriptor descriptor = new ProcessingResourceDescriptor();
+				descriptor.setResourceContainerId(container.getId());
+				descriptor.setProcessingResourceTypeId(type.getId());
+				descriptor.addStateProbability(ProcessingResourceState.OK, MTTF
+						/ (MTTF + MTTR));
+				descriptor.addStateProbability(ProcessingResourceState.NA, MTTR
+						/ (MTTF + MTTR));
+				resultList.add(descriptor);
+			}
+		}
+
+		// Return the result:
+		return resultList;
 	}
 }
