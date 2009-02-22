@@ -340,27 +340,27 @@ public class ContextWrapper implements Cloneable{
 		
 		linkResources = new HashMap<ExternalCallAction, CommunicationLinkResourceSpecification>();
 
-//		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
-//		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment().getLinkingresource();
-//		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
-//		for (ExternalCallInput eci : eciList){
-//			ExternalCallAction eca = eci
-//					.getExternalCallAction_ExternalCallInput();
-//
-//			AssemblyContext nextAssCtx = getNextAssemblyContext(eca);
-//			AllocationContext nextAllCtx = getNextAllocationContext(nextAssCtx);
-//			ResourceContainer rc2 = nextAllCtx
-//					.getResourceContainer_AllocationContext();
-//			
-//			for (LinkingResource lr : lrList){
-//				if (lr.getFromResourceContainer_LinkingResource().contains(rc1) 
-//				 && lr.getToResourceContainer_LinkingResource().contains(rc2)) {
-//					// TODO: TEST!! (does contains work?) 
-//					CommunicationLinkResourceSpecification clrs = lr.getCommunicationLinkResourceSpecifications_LinkingResource();
-//					linkResources.put(eca, clrs);
-//				}
-//			}
-//		}
+		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
+		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment().getLinkingresource();
+		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
+		for (ExternalCallInput eci : eciList){
+			ExternalCallAction eca = eci
+					.getExternalCallAction_ExternalCallInput();
+
+			AssemblyContext nextAssCtx = getNextAssemblyContext(eca);
+			AllocationContext nextAllCtx = getNextAllocationContext(nextAssCtx);
+			ResourceContainer rc2 = nextAllCtx
+					.getResourceContainer_AllocationContext();
+			
+			for (LinkingResource lr : lrList){
+				if (lr.getFromResourceContainer_LinkingResource().contains(rc1) 
+				 && lr.getToResourceContainer_LinkingResource().contains(rc2)) {
+					// TODO: TEST!! (does contains work?) 
+					CommunicationLinkResourceSpecification clrs = lr.getCommunicationLinkResourceSpecifications_LinkingResource();
+					linkResources.put(eca, clrs);
+				}
+			}
+		}
 	}
 	
 	private ComputedAllocationContext getNextComputedAllocationContext() {

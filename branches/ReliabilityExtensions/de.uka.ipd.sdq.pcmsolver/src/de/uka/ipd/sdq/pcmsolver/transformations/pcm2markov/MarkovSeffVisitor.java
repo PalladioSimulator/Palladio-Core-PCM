@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.markov.StateType;
+import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
@@ -423,6 +424,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			// return markovBuilder.initInternalMarkovChain(externalCallAction
 			// .getEntityName(), failureProbabilityExpression);
 
+			// At the moment, no failure probabilities for system-external calls
+			// are supported:
 			return markovBuilder.initNewMarkovChain(externalCallAction
 					.getEntityName());
 
@@ -443,8 +446,52 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			contextWrapper = originalContextWrapper;
 
 			// Return the Markov Chain of the executing SEFF:
-			return new MarkovSeffVisitor(newContextWrapper, resourceDescriptors)
-					.doSwitch(seff);
+			MarkovChain innerMarkovChain = new MarkovSeffVisitor(
+					newContextWrapper, resourceDescriptors).doSwitch(seff);
+
+			// Check if the external call crosses the border of one resource
+			// container and uses a communication link:
+			CommunicationLinkResourceSpecification commLink = contextWrapper
+					.getConcreteLinkingResource(externalCallAction);
+
+			// If a communication link is used, consider the possibility that
+			// the call fails:
+			if (commLink != null) {
+
+				// The call can be modeled as a behavior with two steps: the
+				// sending of the message, and the remote execution. Both steps
+				// can fail.
+				ArrayList<State> states = new ArrayList<State>();
+				ArrayList<String> names = new ArrayList<String>();
+				names.add("Messaging");
+				names.add("Execution");
+				MarkovChain aggregateMarkovChain = markovBuilder
+						.initBehaviourMarkovChain(externalCallAction
+								.getEntityName(), names, states);
+
+				// The first Step can be modeled like an Internal Action which
+				// either fails or succeeds:
+				MarkovChain messagingMarkovChain = markovBuilder
+						.initInternalMarkovChain("Messaging",
+								((Double) commLink.getFailureProbability())
+										.toString());
+
+				// The second step is the already computed inner Markov Chain.
+				// Incorporate both steps into the aggregate chain:
+				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+						messagingMarkovChain, states.get(0));
+				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+						innerMarkovChain, states.get(1));
+
+				// Return the result:
+				return aggregateMarkovChain;
+
+			} else {
+
+				// If no communication link is used, then the Markov Chain just
+				// has to reflect the inner SEFF behavior:
+				return innerMarkovChain;
+			}
 		}
 	}
 

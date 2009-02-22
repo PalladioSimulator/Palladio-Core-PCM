@@ -20,6 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -70,9 +71,32 @@ public class CommunicationLinkResourceSpecificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFailureProbabilityPropertyDescriptor(object);
 			addCommunicationLinkResourceType_CommunicationLinkResourceSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Failure Probability feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFailureProbabilityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommunicationLinkResourceSpecification_failureProbability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommunicationLinkResourceSpecification_failureProbability_feature", "_UI_CommunicationLinkResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -147,7 +171,8 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CommunicationLinkResourceSpecification_type");
+		CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)object;
+		return getString("_UI_CommunicationLinkResourceSpecification_type") + " " + communicationLinkResourceSpecification.getFailureProbability();
 	}
 
 	/**
@@ -162,6 +187,9 @@ public class CommunicationLinkResourceSpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CommunicationLinkResourceSpecification.class)) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

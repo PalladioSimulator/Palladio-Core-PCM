@@ -180,13 +180,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = 0;
+
+	/**
 	 * The feature id for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 0;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference.
@@ -195,7 +204,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 1;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
@@ -204,7 +213,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
@@ -213,7 +222,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -420,6 +429,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCommunicationLinkResourceSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability()
+	 * @see #getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getCommunicationLinkResourceSpecification_FailureProbability();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}'.
@@ -641,6 +661,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = eINSTANCE.getCommunicationLinkResourceSpecification_FailureProbability();
 
 		/**
 		 * The meta object literal for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference feature.
