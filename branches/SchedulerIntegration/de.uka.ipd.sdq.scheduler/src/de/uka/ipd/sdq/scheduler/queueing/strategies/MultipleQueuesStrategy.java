@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.impl.AbstractScheduler;
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {
@@ -195,6 +196,11 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		for(IRunQueue q :  this.runQueueTable.values()){
 			q.resetStarvationInfo();
 		}
+	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return getRunQueueFor(simResourceInstance).getCurrentLoad();
 	}
 
 

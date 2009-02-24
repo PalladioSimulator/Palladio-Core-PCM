@@ -7,16 +7,20 @@ import de.uka.ipd.sdq.scheduler.events.DelayEvent;
 
 public class SimDelayResource extends AbstractActiveResource {
 
+	int num_running;
+	
 	public SimDelayResource(String name, String id) {
 		super(-1, name, id);
 	}
 
 
 	public void start() {
+		this.num_running = 0;
 	}
 
 	@Override
 	protected void dequeue(ISchedulableProcess process) {
+		this.num_running--;
 	}
 
 	@Override
@@ -28,6 +32,7 @@ public class SimDelayResource extends AbstractActiveResource {
 
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
+		this.num_running++;
 	}
 
 
@@ -41,6 +46,12 @@ public class SimDelayResource extends AbstractActiveResource {
 	
 	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
+	}
+
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.num_running;
 	}
 
 

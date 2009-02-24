@@ -86,4 +86,7 @@ public interface IScheduler {
 	public abstract void registerProcess(IActiveProcess p,
 			IResourceInstance instance);
 
+	public abstract int getQueueLengthFor(
+			SimResourceInstance simResourceInstance);
+
 }
