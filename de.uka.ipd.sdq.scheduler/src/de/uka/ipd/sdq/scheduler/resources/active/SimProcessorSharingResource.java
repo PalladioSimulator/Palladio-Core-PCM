@@ -122,4 +122,10 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 	}
 
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.running_processes.size();
+	}
+
 }

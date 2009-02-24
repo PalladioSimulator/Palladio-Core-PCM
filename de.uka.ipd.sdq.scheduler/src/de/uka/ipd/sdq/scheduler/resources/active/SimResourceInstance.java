@@ -165,4 +165,9 @@ public class SimResourceInstance implements IResourceInstance {
 	public IRunningProcess getLastRunningProcess() {
 		return last_running_process;
 	}
+
+	public int getQueueLength() {
+		return containing_resource.getQueueLengthFor(this);
+	}
+	
 }

@@ -5,7 +5,6 @@ import java.util.Map;
 
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
-import scheduler.configuration.InstanceToBalance;
 import scheduler.configuration.LoadBalancing;
 import scheduler.configuration.PassiveResourceConfiguration;
 import scheduler.configuration.PredefinedTimeSliceConfiguration;
@@ -95,11 +94,11 @@ public class SchedulingFactory implements ISchedulingFactory {
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		IActiveResource resource = (IActiveResource) active_resource_map.get(configuration.getId());
+		SimActiveResource resource = (SimActiveResource) active_resource_map.get(configuration.getId());
 		if (resource == null) {
 				resource = new SimActiveResource(configuration.getReplicas(),configuration.getName(), configuration.getId());
 				IScheduler scheduler = createScheduler(configuration.getSchedulerConfiguration(), resource);
-				((SimActiveResource) resource).setScheduler(scheduler);
+				resource.setScheduler(scheduler);
 			active_resource_map.put(configuration.getId(), resource);
 		}
 		return resource;

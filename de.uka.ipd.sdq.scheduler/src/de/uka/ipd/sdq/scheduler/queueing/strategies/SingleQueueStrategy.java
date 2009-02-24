@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class SingleQueueStrategy implements IQueueingStrategy {
 
@@ -104,6 +105,11 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	
 	public void resetStarvationInfo() {
 		runQueue.resetStarvationInfo();
+	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.runQueue.getCurrentLoad();
 	}
 
 }

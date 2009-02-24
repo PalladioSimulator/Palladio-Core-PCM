@@ -169,4 +169,9 @@ public class SimActiveResource extends AbstractActiveResource {
 		getScheduler().terminateProcess(activeProcess, instance);
 		simProcess.removeTerminatedObserver(this);
 	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.scheduler.getQueueLengthFor(simResourceInstance);
+	}
 }

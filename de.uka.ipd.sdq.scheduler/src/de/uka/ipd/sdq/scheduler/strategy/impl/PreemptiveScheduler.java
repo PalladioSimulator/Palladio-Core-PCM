@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
@@ -162,6 +163,12 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				&& sProcess.getRootProcess() != sProcess){
 			this.resource.unregisterProcess(process);
 		}
+	}
+
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.queueing_strategy.getQueueLengthFor(simResourceInstance);
 	}
 
 
