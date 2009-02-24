@@ -13,10 +13,12 @@ import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.tools.SchedulerTools;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.sensors.UtilisationSensor;
 
 /**
  * @author Snowball
@@ -51,10 +53,17 @@ public class ScheduledResource extends AbstractScheduledResource {
 			resourceConf.setName(schedulerName);
 			resourceConf.setReplicas(numReplicas);
 			resourceConf.setSchedulerConfiguration(selectedConf);
-			return ISchedulingFactory.eINSTANCE
+			IActiveResource resource = ISchedulingFactory.eINSTANCE
 					.createActiveResource(resourceConf);
+			addResourceSensors(resource);
+			return resource;
 		}
 		return null;
+	}
+	
+	private void addResourceSensors(IActiveResource resource) {
+		UtilisationSensor utilisationSensor = new UtilisationSensor(this.getModel());
+		((SimActiveResource) resource).addObserver(utilisationSensor);
 	}
 
 	private IActiveResource getScheduledResource(SchedulingStrategy strategy, int numberOfCores)
