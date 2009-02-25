@@ -69,7 +69,7 @@ public interface RandomVariable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' reference.
 	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getRandomVariable_Expression()
-	 * @model unsettable="true" required="true" transient="true" volatile="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model unsettable="true" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedIsSetVisibility="true"
 	 *        extendedMetaData="name='' namespace=''"
 	 * @generated
 	 */

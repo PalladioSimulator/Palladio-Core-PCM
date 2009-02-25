@@ -123,38 +123,11 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void setExpression(Expression newExpression) {
-		// TODO: implement this method to set the 'Expression' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		//Anne: Just put this in comments because the expression is probably always null...
-		//throw new UnsupportedOperationException();
-		
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetExpression() {
-		// TODO: implement this method to unset the 'Expression' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public boolean isSetExpression() {
-		// TODO: implement this method to return whether the 'Expression' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+
+		return (this.getSpecification() != null);
 	}
 
 	/**
@@ -185,9 +158,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification((String)newValue);
 				return;
-			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
-				setExpression((Expression)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -202,9 +172,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification(SPECIFICATION_EDEFAULT);
-				return;
-			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
-				unsetExpression();
 				return;
 		}
 		super.eUnset(featureID);

@@ -23,7 +23,7 @@
     <details key="OPERATION_BODIES" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/code/rsa-export/stoex.uml</foreignModel>
+  <foreignModel>stoex.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Stoex" basePackage="de.uka.ipd.sdq"
       disposableProviderFactory="true" ecorePackage="stoex.ecore#/">
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">
