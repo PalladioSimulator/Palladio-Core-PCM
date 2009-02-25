@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework.usage;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -57,6 +58,24 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 */
 	public void startUserLife() {
 		this.scheduleAt(0);
+	}
+
+	@Override
+	public void addTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ClosedWorkloadUser.addTerminatedObserver has not been implemented yet.");
+	}
+
+	@Override
+	public void fireTerminated() {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ClosedWorkloadUser.fireTerminated has not been implemented yet.");
+	}
+
+	@Override
+	public void removeTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ClosedWorkloadUser.removeTerminatedObserver has not been implemented yet.");
 	}
 
 }

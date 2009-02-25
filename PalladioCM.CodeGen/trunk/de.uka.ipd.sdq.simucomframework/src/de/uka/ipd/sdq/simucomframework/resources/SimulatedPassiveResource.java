@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.PassiveResource;
@@ -128,5 +129,23 @@ public class SimulatedPassiveResource extends SimProcess {
 		if (!this.isTerminated()){
 			this.activate();
 		}
+	}
+	
+	@Override
+	public void addTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method SimulatedPassiveResource.addTerminatedObserver has not been implemented yet.");
+	}
+
+	@Override
+	public void fireTerminated() {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method SimulatedPassiveResource.fireTerminated has not been implemented yet.");
+	}
+
+	@Override
+	public void removeTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method SimulatedPassiveResource.removeTerminatedObserver has not been implemented yet.");
 	}
 }
