@@ -2708,7 +2708,7 @@
       <ownedAttribute xmi:id="_Hj--MPdxEdqB_7dkOscBPA" name="specification">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_evUWgThvEdy4wo8LP9zxLA" name="expression" type="_IPhNoDpQEduKtOWw2f6nDA" association="_evUWgDhvEdy4wo8LP9zxLA">
+      <ownedAttribute xmi:id="_evUWgThvEdy4wo8LP9zxLA" name="expression" type="_IPhNoDpQEduKtOWw2f6nDA" isReadOnly="true" isDerived="true" association="_evUWgDhvEdy4wo8LP9zxLA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_evUWhDhvEdy4wo8LP9zxLA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_evUWgzhvEdy4wo8LP9zxLA" value="1"/>
       </ownedAttribute>
