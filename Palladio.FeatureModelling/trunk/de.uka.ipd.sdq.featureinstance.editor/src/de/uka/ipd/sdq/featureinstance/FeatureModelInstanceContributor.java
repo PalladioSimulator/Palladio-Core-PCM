@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.featureinstance;
 
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
@@ -18,18 +17,31 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.ui.IEditorPart;
 
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 
 class InstanceValidateAction extends ValidateAction {
 	
-	ConfigNode configRoot;
+	FeatureDiagram diagram;
+	Configuration config;
 	
 	@Override
 	public void run() {
 			Diagnostician diagnostician = new Diagnostician();
-			Diagnostic d = diagnostician.validate(configRoot);
+			Diagnostic d = diagnostician.validate(config);
+			switch (d.getSeverity()) {
+			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
+			case Diagnostic.ERROR: System.out.println("Validation error"); break;
+			case Diagnostic.WARNING: System.out.println("Validation warning"); break;
+			case Diagnostic.OK: System.out.println("Validation OK"); break;
+			case Diagnostic.INFO: System.out.println("Validation INFO"); break;
+			default: System.out.println("Validation sth else");
+			}
+			for (Diagnostic child : d.getChildren()) {
+				System.out.println(child.getMessage());
+			}
+			System.out.println(d.getMessage());
+			d = diagnostician.validate(diagram);
 			switch (d.getSeverity()) {
 			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
 			case Diagnostic.ERROR: System.out.println("Validation error"); break;
@@ -44,17 +56,9 @@ class InstanceValidateAction extends ValidateAction {
 			System.out.println(d.getMessage());
 	}
 	
-	public void setConfiguration (FeatureConfig config, FeatureDiagram diagram) {
-		EList<ConfigNode> list = config.getConfignode();
-		
-		for (ConfigNode current : list) {
-			if (current.getOrigin().equals(diagram.getRootFeature())) {
-				configRoot = current;
-			}
-		}
-		
-		
-		
+	public void setConfiguration (Configuration config, FeatureDiagram diagram) {
+		this.config = config;
+		this.diagram = diagram;		
 	}
 
 }
@@ -113,7 +117,7 @@ public class FeatureModelInstanceContributor extends
 		addGlobalActions(submenuManager);
 	}
 	
-	public void setConfiguration(FeatureConfig config, FeatureDiagram diagram) {
+	public void setConfiguration(Configuration config, FeatureDiagram diagram) {
 		if (validateAction instanceof InstanceValidateAction) {
 			((InstanceValidateAction)validateAction).setConfiguration(config, diagram);
 		}
