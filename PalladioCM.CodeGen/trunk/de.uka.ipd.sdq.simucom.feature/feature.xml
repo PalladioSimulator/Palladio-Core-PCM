@@ -458,20 +458,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="ch.ethz.iks.r_osgi.service_discovery.slp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.ethz.iks.slp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.simucomframework.simulationdock"
          download-size="0"
          install-size="0"
