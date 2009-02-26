@@ -1,9 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Palladio Java2PCM Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.code2model;singleton:=true
+Bundle-Name: Palladio JVMBenchmark2PCM Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.jvmbenchmark2model;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: de.uka.ipd.sdq.code2model.Activator
 Eclipse-LazyStart: true
 Import-Package: org.apache.log4j,
  org.eclipse.core.expressions,
