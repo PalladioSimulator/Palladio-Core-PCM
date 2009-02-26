@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.dockmodel;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,6 +21,7 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.osgi.util.tracker.ServiceTracker;
 
+import ch.ethz.iks.r_osgi.RemoteOSGiException;
 import ch.ethz.iks.r_osgi.RemoteOSGiService;
 import ch.ethz.iks.r_osgi.RemoteServiceReference;
 import ch.ethz.iks.r_osgi.URI;
@@ -134,7 +136,16 @@ public class DocksModel extends Observable implements EventHandler {
 				ServiceTracker remoteService = new ServiceTracker(context,sRef,null);
 				remoteService.open();
 				RemoteOSGiService roserv = (RemoteOSGiService) remoteService.getService();
-				RemoteServiceReference[] rserv = roserv.connect(uri);
+				RemoteServiceReference[] rserv;
+				try {
+					rserv = roserv.connect(uri);
+				} catch (RemoteOSGiException e) {										
+					e.printStackTrace();
+					throw new RuntimeException("Unable to connect to remote server ",e);
+				} catch (IOException e) {
+					e.printStackTrace();
+					throw new RuntimeException("Unable to connect to remote server ",e);
+				}
 				SimulationDockService service = (SimulationDockService) roserv.getRemoteService(rserv[0]);
 				DocksModel.this.addDock(service,uri.toString());
 				remoteService.close();

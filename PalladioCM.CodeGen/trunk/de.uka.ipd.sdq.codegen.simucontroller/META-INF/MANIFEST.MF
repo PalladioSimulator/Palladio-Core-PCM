@@ -33,8 +33,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.simucomframework.simulationdock,
  org.eclipse.osgi.services,
- ch.ethz.iks.r_osgi.remote,
- de.uka.ipd.sdq.simucomframework.simucomstatus
+ de.uka.ipd.sdq.simucomframework.simucomstatus,
+ ch.ethz.iks.r_osgi.remote;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs
