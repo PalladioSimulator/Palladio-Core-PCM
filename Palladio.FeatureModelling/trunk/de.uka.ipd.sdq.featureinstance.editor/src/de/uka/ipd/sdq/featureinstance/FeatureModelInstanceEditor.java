@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.featureinstance;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -192,23 +193,33 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	/**
 	 * Loads the resource-object through the editingDomain
 	 */
-	protected void createResource() {
+	protected void createResource(URI uri) {
 		
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-
-		//Try to load the resource through the editingDomain.
-		resource = null;
-		try {
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		}
-		catch (Exception e) {
-			//TODO Exception-Handling
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
-			if (resource == null) {
-				e.printStackTrace();
+		if (uri == null) {
+		
+			URI resourceURI = EditUIUtil.getURI(getEditorInput());
+	
+			//Try to load the resource through the editingDomain.
+			resource = null;
+			try {
+				resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			}
+			catch (Exception e) {
+				resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 			}
 		}
-
+		else {
+			URI resourceURI = uri;
+			
+			//Try to load the resource through the editingDomain.
+			resource = null;
+			try {
+				resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			}
+			catch (Exception e) {
+				resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			}
+		}
 	}
 	
 	/**
@@ -301,8 +312,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				resource.save(Collections.EMPTY_MAP);
 			}
 			catch (IOException e) {
-				//TODO Exception-Handling
-				e.printStackTrace();
+				ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Could not load or save the Resource!"));
+				errord.open();
 			}
 		}
 	}
@@ -366,17 +377,17 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		if (fileExtension.equals("featuremodel")) {
 			//Check if featuremodel file is valid (FeatureDiagram object can be referenced)
 			featureDiagram = getFeatureDiagram(resource);
+			boolean valid = true;
 			if (featureDiagram == null) {
 				ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Loaded *.featuremodel file is not valid! The FeatureDiagram object cannot be accessed."));
 				errord.open();
-				
-				//TODO Null Pointer Exception needs to be prevented here (e.g. load resource dialog)
+				valid = false;
 			}
 			
 			//Check if the equivalent featureconfig-file already exists
 			File myFile = new File(path + ".featureconfig");
 			
-			if (myFile.exists()) {
+			if (valid && myFile.exists()) {
 				//ask if existing file should be used
 				boolean answer = MessageDialog.openQuestion(null, "Load FeatureConfig ?", "A file named \""+ fileName + ".featureconfig\" was found. Should it be loaded?");
 				
@@ -392,7 +403,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					catch (IOException e) {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
 						errord.open();
-						//TODO what to do after errorDialog ?
+						valid = false;
 					}
 					
 					//Check if *.featureconfig references right FeatureDiagram
@@ -404,8 +415,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.save(Collections.EMPTY_MAP);
 						}
 						catch (IOException e) {
-							//TODO Exception-Handling
-							e.printStackTrace();
+							ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be loaded or saved!"));
+							errord.open();
+							valid = false;
 						}
 					}
 					else {
@@ -419,7 +431,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					createNewConfigResource(newResourceURI, featureDiagram, null);
 				}
 			}
-			else {
+			else if (valid) {
 				URI configPath = startOpenDialog(fileName);
 				
 				if (configPath == null) {
@@ -434,9 +446,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 						existingResource.load(Collections.EMPTY_MAP);
 					}
 					catch (IOException e) {
-						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
+						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be loaded or saved!"));
 						errord.open();
-						//TODO what to do after errorDialog ?
+						valid = false;
 					}
 					
 					//Check if *.featureconfig references right FeatureDiagram
@@ -448,8 +460,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.save(Collections.EMPTY_MAP);
 						}
 						catch (IOException e) {
-							//TODO Exception-Handling
-							e.printStackTrace();
+							ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be loaded or saved!"));
+							errord.open();
+							valid = false;
 						}
 					}
 					else {
@@ -467,7 +480,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 		//no featureconfig or featuremodel file present
 		else {
-			
+			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Editor supports only *.featuremodel and *.featureconfig files!"));
+			errord.open();
+			URI newResourceURI = startFileWizard("");
+			createResource(newResourceURI);
 		}
 	}
 	
@@ -478,6 +494,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @return The resource object which stores the (prop. new) overrides config object
 	 */
 	protected Resource handleConfigCases(Resource resource) {
+		
 		//Check if featureconfig file is valid (Configuration object can be referenced)
 		Configuration configuration = getConfiguration(resource);
 		
@@ -486,19 +503,12 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		
 		//Both FeatureConfigs are null
 		if (tempOverrides == null && tempDefault == null) {
-			//TODO needs to be checked if its really necessary to ask for BOTH locations:
-			//file selection wizard asking for featuremodel and configmodel location
-			//instanciate a overrides config
+			
 		}
 		else if (tempOverrides == null && tempDefault != null) {
 			EList<ConfigNode> configList = tempDefault.getConfignode();
 			
-			if (configList.isEmpty()) {
-				//TODO needs to be checked if its really necessary to ask for BOTH locations:
-				//file selection wizard asking for featuremodel and configmodel location
-				//instanciate a overrides config
-			}
-			else {
+			if (!configList.isEmpty()) {
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 				String fileName = resource.getURI().trimFileExtension().lastSegment();
 				URI newResourceURI = startFileWizard(fileName);
@@ -508,12 +518,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		else if (tempOverrides != null && tempDefault == null) {
 			EList<ConfigNode> configList = tempOverrides.getConfignode();
 			
-			if (configList.isEmpty()) {
-				//TODO needs to be checked if its really necessary to ask for BOTH locations:
-				//file selection wizard asking for featuremodel and configmodel location
-				//instanciate a overrides config
-			}
-			else {
+			if (!configList.isEmpty()) {
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 				overridesConfig = tempOverrides;
 			}
@@ -551,8 +556,17 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	@Override
 	protected void createPages() {
 		
-		createResource();
+		createResource(null);
 		
+		boolean valid = false;
+		while (!valid) {
+			valid = createEditor();
+		}
+		
+	}
+	
+	protected boolean createEditor() {		
+		boolean valid = true;
 		//get the file extension, file name and the full path to the resource
 		String fileExtension = resource.getURI().fileExtension();
 		String fileName = resource.getURI().trimFileExtension().lastSegment();
@@ -562,30 +576,35 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		handleFileCases(fileExtension, path, fileName);
 		
 		if (featureDiagram == null || overridesConfig == null) {
-			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Something went wrong during the resource loading process. Please restart the Editor with a correct *.featureconfig or *.featuremodel file!"));
-			errord.open();
+			valid = false;
+			URI newResourceURI = startFileWizard("");
+			createResource(newResourceURI);
 		}
-
-		//Create the Viewer
-		comp = new Composite(getContainer(), SWT.NONE);
-		comp.setLayout(new FillLayout());
-
-		createViewer(featureDiagram);
-
-		int index = addPage(comp);
-		setPageText(index, "");
 		
-		EditingDomainActionBarContributor contrib = getActionBarContributor();
-		if (contrib instanceof FeatureModelInstanceContributor) {
-			((FeatureModelInstanceContributor)contrib).setConfiguration(overridesConfig, featureDiagram);
+		if (valid) {
+
+			//Create the Viewer
+			comp = new Composite(getContainer(), SWT.NONE);
+			comp.setLayout(new FillLayout());
+	
+			createViewer(featureDiagram);
+	
+			int index = addPage(comp);
+			setPageText(index, "");
+			
+			EditingDomainActionBarContributor contrib = getActionBarContributor();
+			if (contrib instanceof FeatureModelInstanceContributor) {
+				((FeatureModelInstanceContributor)contrib).setConfiguration(getConfiguration(resource), featureDiagram);
+			}
+	        
+	        //Hide editor tabs
+			if (getContainer() instanceof CTabFolder) {
+					((CTabFolder)getContainer()).setTabHeight(1);
+					Point point = getContainer().getSize();
+					getContainer().setSize(point.x, point.y + 6);
+			}
 		}
-        
-        //Hide editor tabs
-		if (getContainer() instanceof CTabFolder) {
-				((CTabFolder)getContainer()).setTabHeight(1);
-				Point point = getContainer().getSize();
-				getContainer().setSize(point.x, point.y + 6);
-		}
+		return valid;
 		
 	}
 	
@@ -1043,7 +1062,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 								resource.save(saveOptions);
 							}
 							catch (IOException exception) {
-								//TODO Exception-Handling
+								ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be loaded or saved!"));
+								errord.open();
 							}
 							first = false;
 						}
@@ -1062,8 +1082,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			dirtyFlag = false;
 			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
-		catch (Exception e) {
-			//TODO Exception-Handling
+		catch (InvocationTargetException e) {
+			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be saved!"));
+			errord.open();
+		}
+		catch (InterruptedException e) {
+			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be saved!"));
+			errord.open();
 		}
 	}
 	
@@ -1154,7 +1179,7 @@ class TreeLabelProvider implements ILabelProvider {
 
 	@Override
 	public void dispose() {		
-		//TODO Disposing TreeLabelProvider/TreeViewer
+		
 	}
 
 	@Override
