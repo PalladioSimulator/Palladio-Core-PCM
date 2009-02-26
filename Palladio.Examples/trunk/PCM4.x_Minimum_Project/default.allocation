@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_CoYboANYEd6Wg6BvkTAXCQ" entityName="defaultAllocation">
+  <allocationContexts_Allocation id="_SV0k4ANYEd6mp68xFhC3ig">
+    <resourceContainer_AllocationContext href="My.resourceenvironment#_gDttsQNXEd6Wg6BvkTAXCQ"/>
+    <assemblyContext_AllocationContext href="default.system#_0BUroANXEd6Wg6BvkTAXCQ"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="My.resourceenvironment#/"/>
+  <system_Allocation href="default.system#_ohGwwANXEd6Wg6BvkTAXCQ"/>
+</Allocation>

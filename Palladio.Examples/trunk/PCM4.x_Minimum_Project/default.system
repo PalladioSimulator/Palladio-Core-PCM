@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_ohGwwANXEd6Wg6BvkTAXCQ" entityName="defaultSystem">
+  <assemblyContexts_ComposedStructure id="_0BUroANXEd6Wg6BvkTAXCQ">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="default.repository#_4LzkgANWEd6Wg6BvkTAXCQ"/>
+  </assemblyContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_57MCAQNXEd6Wg6BvkTAXCQ" outerProvidedRole_ProvidedDelegationConnector="_31VIxANXEd6Wg6BvkTAXCQ" assemblyContext_ProvidedDelegationConnector="_0BUroANXEd6Wg6BvkTAXCQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_7fYOEANWEd6Wg6BvkTAXCQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_31VIxANXEd6Wg6BvkTAXCQ">
+    <providedInterface__ProvidedRole href="default.repository#_22un8ANWEd6Wg6BvkTAXCQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

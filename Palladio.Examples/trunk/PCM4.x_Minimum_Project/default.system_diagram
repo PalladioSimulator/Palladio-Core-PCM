@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" type="CompositeModel" name="default.system_diagram" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" width="216" height="136"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="default.system#_ohGwwANXEd6Wg6BvkTAXCQ"/>
+</notation:Diagram>
