@@ -11,7 +11,7 @@ Import-Package: org.osgi.framework;version="1.3.0",
 Export-Package: de.uka.ipd.sdq.simucomframework.simulationdock
 Require-Bundle: de.uka.ipd.sdq.simucomframework,
  org.eclipse.osgi.services,
- ch.ethz.iks.r_osgi.remote,
  org.eclipse.emf.ecore,
  org.apache.log4j,
- de.uka.ipd.sdq.simucomframework.simucomstatus
+ de.uka.ipd.sdq.simucomframework.simucomstatus,
+ ch.ethz.iks.r_osgi.remote;bundle-version="1.0.0"
