@@ -1,12 +1,18 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -14,8 +20,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 
@@ -41,6 +49,16 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	private static EMFHelper helper = new EMFHelper();
 
 	/**
+	 * Message stream for printing results in "raw" format.
+	 */
+	private MessageConsoleStream rawStream;
+
+	/**
+	 * References launch configuration parameters.
+	 */
+	private ILaunchConfiguration configuration;
+
+	/**
 	 * The Markov Chain instance that results from the transformation of the PCM
 	 * instance.
 	 */
@@ -58,11 +76,28 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 	/**
 	 * The constructor.
+	 * 
+	 * @param configuration
+	 *            launch configuration paremeters
+	 */
+	public Pcm2MarkovStrategy(final ILaunchConfiguration configuration) {
+
+		// Initialize members:
+		this.markovChain = new MarkovBuilder().initNewMarkovChain("");
+		this.configuration = configuration;
+
+		// Initialize raw message stream:
+		if (PCMSolver.getConsole() != null) {
+			this.rawStream = PCMSolver.getConsole().newMessageStream();
+		}
+	}
+
+	/**
+	 * The short constructor maintained for Markov TestCases.
+	 * 
 	 */
 	public Pcm2MarkovStrategy() {
-
-		// Initialize the Markov Chain with a default value:
-		markovChain = new MarkovBuilder().initNewMarkovChain("");
+		this(null);
 	}
 
 	/**
@@ -195,7 +230,15 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		try {
 
 			// Count the states of the Markov Chain to build:
-			countMarkovStates(model, descriptors);
+			if (getConfigurationAttribute(MessageStrings.MARKOV_STATISTICS,
+					false)) {
+				printMarkovStatistics(model, descriptors);
+			}
+
+			// Print headings for transformation run results:
+			if (getConfigurationAttribute(MessageStrings.SINGLE_RESULTS, false)) {
+				printTransformationRunHeadings(descriptors);
+			}
 
 			// Repeatedly run the transformation for all possible state
 			// combinations:
@@ -216,15 +259,15 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
-	 * Performs the Markov Transformation once, just to count the number of
-	 * states in the chain.
+	 * Performs the Markov Transformation once, just to be able to print some
+	 * Markov statistics.
 	 * 
 	 * @param model
 	 *            the model which is to be transformed
 	 * @param descriptors
 	 *            the resource descriptors
 	 */
-	private void countMarkovStates(final PCMInstance model,
+	private void printMarkovStatistics(final PCMInstance model,
 			final List<ProcessingResourceDescriptor> descriptors) {
 
 		// The Markov Chain instance is created by using a visitor:
@@ -289,6 +332,12 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 			double result = new MarkovSolver().solve(markovChain);
 			solvedValue += result * currentProbability;
 
+			// Print transformation run results:
+			if (getConfigurationAttribute(MessageStrings.SINGLE_RESULTS, false)) {
+				printTransformationRunResults(descriptors, currentProbability,
+						result);
+			}
+
 			// Base case finished:
 			return;
 		}
@@ -313,6 +362,75 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 				runPcm2MarkovRecursively(model, descriptors, index + 1,
 						currentProbability * newProbability);
 			}
+		}
+	}
+
+	/**
+	 * Prints headings for transformation run results.
+	 * 
+	 * @param descriptors
+	 *            the resource descriptors
+	 */
+	private void printTransformationRunHeadings(
+			final List<ProcessingResourceDescriptor> descriptors) {
+
+		// Build a result string:
+		String resultString = "run number;";
+
+		// Print resource state headings:
+		for (ProcessingResourceDescriptor descriptor : descriptors) {
+			resultString += descriptor.getResourceContainerName() + " - "
+					+ descriptor.getResourceTypeName() + ";";
+		}
+
+		// Print result heading:
+		resultString += "result;";
+
+		// Print probability heading:
+		resultString += "probability";
+
+		// Display information to the user. Use direct console print to omit the
+		// prefix:
+		if (rawStream != null) {
+			rawStream.println(resultString);
+		}
+	}
+
+	/**
+	 * Prints the results of a single transformation run.
+	 * 
+	 * @param descriptors
+	 *            the resource descriptors
+	 * @param currentProbability
+	 *            the probability of the current resource state combination
+	 * @param result
+	 *            the Markov result of the transformation
+	 */
+	private void printTransformationRunResults(
+			final List<ProcessingResourceDescriptor> descriptors,
+			final double currentProbability, final double result) {
+
+		// Build a result string:
+		String resultString = transformationRunCount + ";";
+
+		// Define a format for double printing:
+		DecimalFormat format = new DecimalFormat("0.000000000");
+
+		// Print resource states:
+		for (ProcessingResourceDescriptor descriptor : descriptors) {
+			resultString += descriptor.getCurrentState().toString() + ";";
+		}
+
+		// Print result:
+		resultString += format.format(result) + ";";
+
+		// Print probability:
+		resultString += format.format(currentProbability);
+
+		// Display information to the user. Use direct console print to omit the
+		// prefix:
+		if (rawStream != null) {
+			rawStream.println(resultString);
 		}
 	}
 
@@ -391,8 +509,10 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 				// Generate a new descriptor:
 				ProcessingResourceDescriptor descriptor = new ProcessingResourceDescriptor();
-				descriptor.setResourceContainerId(container.getId());
-				descriptor.setProcessingResourceTypeId(type.getId());
+				descriptor.setContainerId(container.getId());
+				descriptor.setTypeId(type.getId());
+				descriptor.setContainerName(container.getEntityName());
+				descriptor.setTypeName(type.getEntityName());
 				descriptor.setStateProbability(ProcessingResourceState.OK,
 						resourceMTTF / (resourceMTTF + resourceMTTR));
 				descriptor.setStateProbability(ProcessingResourceState.NA,
@@ -403,5 +523,31 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 		// Return the result:
 		return resultList;
+	}
+
+	/**
+	 * Retrieves an attribute from the launch configuration.
+	 * 
+	 * @param attributeName
+	 *            the name of the attribute
+	 * @param standardValue
+	 *            the value to use if the attribute cannot be retrieved
+	 * @return the value
+	 */
+	private boolean getConfigurationAttribute(final String attributeName,
+			final boolean standardValue) {
+
+		// Check the launch configuration for being existent:
+		if (configuration == null) {
+			return standardValue;
+		}
+
+		// Try to retrieve the value:
+		try {
+			return configuration.getAttribute(MessageStrings.SINGLE_RESULTS,
+					standardValue);
+		} catch (CoreException exception) {
+			return standardValue;
+		}
 	}
 }

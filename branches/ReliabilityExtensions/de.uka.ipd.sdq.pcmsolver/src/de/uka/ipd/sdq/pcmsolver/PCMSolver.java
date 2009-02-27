@@ -31,6 +31,20 @@ import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 public class PCMSolver {
 
 	/**
+	 * A console for output of PCm Solver results.
+	 */
+	private static MessageConsole messageConsole;
+
+	/**
+	 * Retrieves the PCM Solver console.
+	 * 
+	 * @return the PCM Solver console
+	 */
+	public static MessageConsole getConsole() {
+		return messageConsole;
+	}
+
+	/**
 	 * Enables log4j logging for this class.
 	 */
 	private static Logger logger = Logger.getLogger(PCMSolver.class.getName());
@@ -105,7 +119,7 @@ public class PCMSolver {
 		PDFConfiguration.setCurrentConfiguration(domainSize, distance,
 				IProbabilityFunctionFactory.eINSTANCE.createDefaultUnit());
 		if (reliability) {
-			strategy = new Pcm2MarkovStrategy();
+			strategy = new Pcm2MarkovStrategy(configuration);
 		} else if (solver.equals(MessageStrings.SRE_SOLVER)) {
 			strategy = new Pcm2RegExStrategy();
 		} else if (solver.equals(MessageStrings.LQNS_SOLVER)) {
@@ -161,18 +175,18 @@ public class PCMSolver {
 	private void configureLogging(final ILaunchConfiguration configuration) {
 
 		// Define and configure a new message console:
-		MessageConsole console = new MessageConsole(
+		messageConsole = new MessageConsole(
 				"PCM Solver Console: Analysis Tool Output", null);
-		console.activate();
+		messageConsole.activate();
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
-				new IConsole[] { console });
+				new IConsole[] { messageConsole });
 
 		// Set the layout for logging messages:
 		PatternLayout myLayout = new PatternLayout(
 				"%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
 
 		// Enable writing to the console:
-		BasicConfigurator.configure(new WriterAppender(myLayout, console
+		BasicConfigurator.configure(new WriterAppender(myLayout, messageConsole
 				.newMessageStream()));
 
 		// Adapt the logging level to the choice of the user:

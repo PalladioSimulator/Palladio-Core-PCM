@@ -7,6 +7,8 @@ public class MessageStrings {
 	public static final String LQSIM_SOLVER = "LQSIM (Layered Queueing Simulation)";
 
 	public static final String VERBOSE_LOGGING = "verboseLogging";
+	public static final String MARKOV_STATISTICS = "markovStatistics";
+	public static final String SINGLE_RESULTS = "singleResults";
 	
 	public static final String SOLVER = "solver";
 	public static final String SAMPLING_DIST = "samplingDist";

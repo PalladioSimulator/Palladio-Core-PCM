@@ -27,14 +27,34 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private Button checkVerboseLogging = null;
 
 	/**
+	 * Checks for Markov statistics.
+	 */
+	private Button checkMarkovStatistics = null;
+
+	/**
+	 * Checks for single result prints.
+	 */
+	private Button checkSingleResults = null;
+
+	/**
 	 * Default setting for verbose logging.
 	 */
 	private static final boolean VERBOSEDEFAULT = false;
 
 	/**
-	 * Height of verbose logging Group.
+	 * Default setting for Markov statistics.
 	 */
-	private static final int LOGGINGHEIGHT = 500;
+	private static final boolean STATISTICSDEFAULT = false;
+
+	/**
+	 * Default setting for single result printing.
+	 */
+	private static final boolean SINGLERESULTSDEFAULT = false;
+
+	/**
+	 * Width of verbose logging Group.
+	 */
+	private static final int LOGGINGWIDTH = 500;
 
 	/**
 	 * The central routine to create the layout of the tag page.
@@ -58,13 +78,33 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		final Group group = new Group(container, SWT.NONE);
 		group.setLayout(analysisGL);
 		group.setText("Logging");
-		group.setLayoutData(new GridData(LOGGINGHEIGHT, SWT.DEFAULT));
+		group.setLayoutData(new GridData(LOGGINGWIDTH, SWT.DEFAULT));
 
 		// Create the verbose logging check box:
 		checkVerboseLogging = new Button(group, SWT.CHECK);
 		checkVerboseLogging.setText("Enable verbose logging");
 		checkVerboseLogging.setSelection(VERBOSEDEFAULT);
 		checkVerboseLogging.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(final Event event) {
+				updateLaunchConfigurationDialog();
+			}
+		});
+
+		// Create the Markov statistics check box:
+		checkMarkovStatistics = new Button(group, SWT.CHECK);
+		checkMarkovStatistics.setText("Print Markov statistics");
+		checkMarkovStatistics.setSelection(STATISTICSDEFAULT);
+		checkMarkovStatistics.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(final Event event) {
+				updateLaunchConfigurationDialog();
+			}
+		});
+
+		// Create the Markov statistics check box:
+		checkSingleResults = new Button(group, SWT.CHECK);
+		checkSingleResults.setText("Print results of all Markov transformation runs");
+		checkSingleResults.setSelection(SINGLERESULTSDEFAULT);
+		checkSingleResults.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(final Event event) {
 				updateLaunchConfigurationDialog();
 			}
@@ -95,10 +135,16 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		try {
 			checkVerboseLogging.setSelection(configuration.getAttribute(
 					MessageStrings.VERBOSE_LOGGING, VERBOSEDEFAULT));
+			checkMarkovStatistics.setSelection(configuration.getAttribute(
+					MessageStrings.MARKOV_STATISTICS, STATISTICSDEFAULT));
+			checkSingleResults.setSelection(configuration.getAttribute(
+					MessageStrings.SINGLE_RESULTS, SINGLERESULTSDEFAULT));
 		} catch (CoreException e) {
 
 			// Defaults apply:
 			checkVerboseLogging.setSelection(VERBOSEDEFAULT);
+			checkMarkovStatistics.setSelection(STATISTICSDEFAULT);
+			checkSingleResults.setSelection(SINGLERESULTSDEFAULT);
 		}
 
 		// Update Buttons and Message:
@@ -131,6 +177,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		// Store the settings into the configuration:
 		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING,
 				checkVerboseLogging.getSelection());
+		configuration.setAttribute(MessageStrings.MARKOV_STATISTICS,
+				checkMarkovStatistics.getSelection());
+		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,
+				checkSingleResults.getSelection());
 	}
 
 	/**
@@ -145,6 +195,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		// Load default settings into the configuration:
 		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING,
 				VERBOSEDEFAULT);
+		configuration.setAttribute(MessageStrings.MARKOV_STATISTICS,
+				STATISTICSDEFAULT);
+		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,
+				SINGLERESULTSDEFAULT);
 	}
 
 }

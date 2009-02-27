@@ -12,9 +12,14 @@ import java.util.HashMap;
 public class ProcessingResourceDescriptor {
 
 	/**
+	 * The default value for members of this class that have not been specified.
+	 */
+	private static final String NOTSPECIFIED = "UNKNOWN";
+
+	/**
 	 * The id of the surrounding resource container.
 	 */
-	private String resourceContainerId;
+	private String containerId;
 
 	/**
 	 * Gets the id of the surrounding resource container.
@@ -22,7 +27,7 @@ public class ProcessingResourceDescriptor {
 	 * @return the id
 	 */
 	public String getResourceContainerId() {
-		return resourceContainerId;
+		return containerId;
 	}
 
 	/**
@@ -31,14 +36,38 @@ public class ProcessingResourceDescriptor {
 	 * @param resourceContainerId
 	 *            the id to set
 	 */
-	public void setResourceContainerId(final String resourceContainerId) {
-		this.resourceContainerId = resourceContainerId;
+	public void setContainerId(final String resourceContainerId) {
+		this.containerId = resourceContainerId;
+	}
+
+	/**
+	 * The name of the surrounding resource container.
+	 */
+	private String containerName;
+
+	/**
+	 * Gets the name of the surrounding resource container.
+	 * 
+	 * @return the name
+	 */
+	public String getResourceContainerName() {
+		return containerName;
+	}
+
+	/**
+	 * Sets the name of the surrounding resource container.
+	 * 
+	 * @param resourceContainerName
+	 *            the name to set
+	 */
+	public void setContainerName(final String resourceContainerName) {
+		this.containerName = resourceContainerName;
 	}
 
 	/**
 	 * The id of the associated resource type.
 	 */
-	private String processingResourceTypeId;
+	private String typeId;
 
 	/**
 	 * Gets the id of the associated resource type.
@@ -46,7 +75,7 @@ public class ProcessingResourceDescriptor {
 	 * @return the id
 	 */
 	public String getProcessingResourceTypeId() {
-		return processingResourceTypeId;
+		return typeId;
 	}
 
 	/**
@@ -55,9 +84,33 @@ public class ProcessingResourceDescriptor {
 	 * @param processingResourceTypeId
 	 *            the id to set
 	 */
-	public void setProcessingResourceTypeId(
+	public void setTypeId(
 			final String processingResourceTypeId) {
-		this.processingResourceTypeId = processingResourceTypeId;
+		this.typeId = processingResourceTypeId;
+	}
+
+	/**
+	 * The name of the resource type.
+	 */
+	private String typeName;
+
+	/**
+	 * Gets the name of the resource type.
+	 * 
+	 * @return the name
+	 */
+	public String getResourceTypeName() {
+		return typeName;
+	}
+
+	/**
+	 * Sets the name of the resource type.
+	 * 
+	 * @param resourceTypeName
+	 *            the name to set
+	 */
+	public void setTypeName(final String resourceTypeName) {
+		this.typeName = resourceTypeName;
 	}
 
 	/**
@@ -124,5 +177,11 @@ public class ProcessingResourceDescriptor {
 
 		// Set a default current state:
 		setCurrentState(ProcessingResourceState.OK);
+
+		// Set default names:
+		setTypeId(NOTSPECIFIED);
+		setContainerId(NOTSPECIFIED);
+		setTypeName(NOTSPECIFIED);
+		setContainerName(NOTSPECIFIED);
 	}
 }
