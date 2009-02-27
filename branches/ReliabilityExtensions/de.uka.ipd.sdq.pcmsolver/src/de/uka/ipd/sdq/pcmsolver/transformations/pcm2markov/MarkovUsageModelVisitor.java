@@ -50,9 +50,16 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 			.getLogger(MarkovUsageModelVisitor.class.getName());
 
 	/**
+	 * Indicates if the Markov Chain reduction is performed during the
+	 * transformation. If so, then the chain as a whole never exists, because
+	 * during construction, it is already reduced again.
+	 */
+	private boolean optimize;
+
+	/**
 	 * The solved PCM instance that serves as an input for the transformation.
 	 */
-	private PCMInstance pcmInstance;
+	private PCMInstance model;
 
 	/**
 	 * The list of processing resources and their current states.
@@ -73,15 +80,33 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 	/**
 	 * The constructor.
 	 * 
-	 * @param inst
+	 * @param model
+	 *            the PCM Instance (with solved dependencies)
+	 * @param descriptors
+	 *            the list of resource descriptors
+	 * @param optimize
+	 *            controls if Markov Chain reduction is performed during
+	 *            transformation
+	 */
+	public MarkovUsageModelVisitor(final PCMInstance model,
+			List<ProcessingResourceDescriptor> descriptors,
+			final boolean optimize) {
+		this.model = model;
+		this.resourceDescriptors = descriptors;
+		this.optimize = optimize;
+	}
+
+	/**
+	 * The constructor with default setting optimize = false.
+	 * 
+	 * @param model
 	 *            the PCM Instance (with solved dependencies)
 	 * @param descriptors
 	 *            the list of resource descriptors
 	 */
-	public MarkovUsageModelVisitor(final PCMInstance inst,
+	public MarkovUsageModelVisitor(final PCMInstance model,
 			List<ProcessingResourceDescriptor> descriptors) {
-		pcmInstance = inst;
-		resourceDescriptors = descriptors;
+		this(model, descriptors, true);
 	}
 
 	/**
@@ -123,7 +148,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		// Incorporate the specific Chains into the aggregate Chain:
 		for (int i = 0; i < actions.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
-					.get(i), states.get(i));
+					.get(i), states.get(i), optimize);
 		}
 
 		// Return the resulting Markov Chain:
@@ -164,8 +189,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
 		// Create a new context wrapper for this entry level system call:
 		if (contextWrapper == null) {
-			contextWrapper = new ContextWrapper(entryLevelSystemCall,
-					pcmInstance);
+			contextWrapper = new ContextWrapper(entryLevelSystemCall, model);
 		} else {
 			contextWrapper = contextWrapper
 					.getContextWrapperFor(entryLevelSystemCall);
@@ -179,7 +203,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 			return null;
 		} else {
 			MarkovSeffVisitor seffVisitor = new MarkovSeffVisitor(
-					contextWrapper, resourceDescriptors);
+					contextWrapper, resourceDescriptors, optimize);
 			return seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
 		}
 	}
@@ -227,7 +251,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		}
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChain, statesToReplace.get(i));
+					specificMarkovChain, statesToReplace.get(i), optimize);
 		}
 
 		// Return the result:
@@ -274,7 +298,8 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		}
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChains.get(i), statesToReplace.get(i));
+					specificMarkovChains.get(i), statesToReplace.get(i),
+					optimize);
 		}
 
 		// Return the result:

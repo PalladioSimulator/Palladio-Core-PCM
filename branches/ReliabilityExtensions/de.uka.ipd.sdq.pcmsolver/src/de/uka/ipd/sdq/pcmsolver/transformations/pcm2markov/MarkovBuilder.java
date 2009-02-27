@@ -705,9 +705,13 @@ public class MarkovBuilder {
 	 * @param aggregateState
 	 *            the Markov State in the aggregate Markov Chain which will be
 	 *            replaced by the specific Markov Chain
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
 	 */
 	public void incorporateMarkovChain(final MarkovChain aggregateMarkovChain,
-			final MarkovChain specificMarkovChain, final State aggregateState) {
+			final MarkovChain specificMarkovChain, final State aggregateState,
+			final boolean optimize) {
 
 		// Assure that the replaceable Markov State is contained in the
 		// aggregate Markov Chain:
@@ -798,9 +802,11 @@ public class MarkovBuilder {
 		aggregateMarkovChain.getTransitions().add(transitionFailure);
 
 		// Optimize the aggregate MarkovChain:
-		reduceState(aggregateMarkovChain, stateSpecificStart);
-		reduceState(aggregateMarkovChain, stateSpecificSuccess);
-		reduceState(aggregateMarkovChain, stateSpecificFailure);
+		if (optimize) {
+			reduceState(aggregateMarkovChain, stateSpecificStart);
+			reduceState(aggregateMarkovChain, stateSpecificSuccess);
+			reduceState(aggregateMarkovChain, stateSpecificFailure);
+		}
 	}
 
 	/**

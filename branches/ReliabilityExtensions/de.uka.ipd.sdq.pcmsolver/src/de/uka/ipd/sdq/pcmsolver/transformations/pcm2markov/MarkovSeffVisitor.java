@@ -48,6 +48,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			.getName());
 
 	/**
+	 * Indicates if the Markov Chain reduction is performed during the
+	 * transformation. If so, then the chain as a whole never exists, because
+	 * during construction, it is already reduced again.
+	 */
+	private boolean optimize;
+
+	/**
 	 * The list of processing resources and their current states.
 	 */
 	private List<ProcessingResourceDescriptor> resourceDescriptors;
@@ -71,11 +78,16 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 *            the solved PCM instance
 	 * @param descriptors
 	 *            the list of resource descriptors
+	 * @param optimize
+	 *            controls if Markov Chain reduction is performed during
+	 *            transformation
 	 */
 	public MarkovSeffVisitor(final ContextWrapper wrapper,
-			final List<ProcessingResourceDescriptor> descriptors) {
-		contextWrapper = wrapper;
-		resourceDescriptors = descriptors;
+			final List<ProcessingResourceDescriptor> descriptors,
+			final boolean optimize) {
+		this.contextWrapper = wrapper;
+		this.resourceDescriptors = descriptors;
+		this.optimize = optimize;
 	}
 
 	/**
@@ -116,7 +128,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Incorporate the specific Chains into the aggregate Chain:
 		for (int i = 0; i < actions.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
-					.get(i), states.get(i));
+					.get(i), states.get(i), optimize);
 		}
 
 		// Return the resulting Markov Chain:
@@ -163,7 +175,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Incorporate the specific Chains into the aggregate Chain:
 		for (int i = 0; i < actions.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
-					.get(i), states.get(i));
+					.get(i), states.get(i), optimize);
 		}
 
 		// Return the resulting Markov Chain:
@@ -289,7 +301,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		}
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChain, statesToReplace.get(i));
+					specificMarkovChain, statesToReplace.get(i), optimize);
 		}
 
 		// Return the result:
@@ -333,7 +345,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		}
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChain, statesToReplace.get(i));
+					specificMarkovChain, statesToReplace.get(i), optimize);
 		}
 
 		// Return the result:
@@ -384,7 +396,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		}
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChains.get(i), statesToReplace.get(i));
+					specificMarkovChains.get(i), statesToReplace.get(i),
+					optimize);
 		}
 
 		// Return the result:
@@ -447,7 +460,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 			// Return the Markov Chain of the executing SEFF:
 			MarkovChain innerMarkovChain = new MarkovSeffVisitor(
-					newContextWrapper, resourceDescriptors).doSwitch(seff);
+					newContextWrapper, resourceDescriptors, optimize)
+					.doSwitch(seff);
 
 			// Check if the external call crosses the border of one resource
 			// container and uses a communication link:
@@ -479,9 +493,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 				// The second step is the already computed inner Markov Chain.
 				// Incorporate both steps into the aggregate chain:
 				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-						messagingMarkovChain, states.get(0));
+						messagingMarkovChain, states.get(0), optimize);
 				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-						innerMarkovChain, states.get(1));
+						innerMarkovChain, states.get(1), optimize);
 
 				// Return the result:
 				return aggregateMarkovChain;

@@ -73,7 +73,7 @@ public class ProcessingResourceDescriptor {
 	 * @param probability
 	 *            the probability
 	 */
-	public void addStateProbability(final ProcessingResourceState state,
+	public void setStateProbability(final ProcessingResourceState state,
 			final Double probability) {
 		stateProbabilities.put(state, probability);
 	}
@@ -111,5 +111,18 @@ public class ProcessingResourceDescriptor {
 	 */
 	public void setCurrentState(final ProcessingResourceState state) {
 		currentState = state;
+	}
+
+	/**
+	 * The contructor.
+	 */
+	public ProcessingResourceDescriptor() {
+
+		// Provide consistent default state probabilities:
+		setStateProbability(ProcessingResourceState.OK, 1.0);
+		setStateProbability(ProcessingResourceState.NA, 0.0);
+
+		// Set a default current state:
+		setCurrentState(ProcessingResourceState.OK);
 	}
 }

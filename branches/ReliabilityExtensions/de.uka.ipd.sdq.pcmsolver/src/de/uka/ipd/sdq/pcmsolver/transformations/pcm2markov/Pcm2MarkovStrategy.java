@@ -11,15 +11,13 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * This class performs a transformation from a PCM instance to a Markov Chain
@@ -52,6 +50,11 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * The solving value of the resulting Markov Chain instance.
 	 */
 	private double solvedValue;
+
+	/**
+	 * Counts performed Markov transformation runs.
+	 */
+	private long transformationRunCount;
 
 	/**
 	 * The constructor.
@@ -96,8 +99,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Let the user know about the time consumed and the result:
 		long stopTime = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-		logger.info("Solved Markov Chain:\t\t" + duration + " ms");
-		logger.info("Probability of Success:\t\t" + solvedValue);
+		logger.info("Solved Markov Chain:\t\t\t" + duration + " ms");
+		logger.info("Probability of Success:\t\t\t" + solvedValue);
 	}
 
 	/**
@@ -165,7 +168,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Let the user know about the time consumed:
 		long stopTime = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-		logger.info("Solved parametric dependencies:\t" + duration + " ms");
+		logger.info("Solved parametric dependencies:\t\t" + duration + " ms");
 	}
 
 	/**
@@ -180,15 +183,24 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Record the time consumed for creating the Markov Chain instance:
 		long startTime = System.nanoTime();
 
+		// Record the number of performed transformation runs:
+		transformationRunCount = 0;
+
 		// Build the list of resource descriptors:
 		List<ProcessingResourceDescriptor> descriptors = buildResourceDescriptors(model);
 
 		// Initialize the solved value:
 		solvedValue = 0.0;
 
-		// Try to run the transformation for all possible state combinations:
 		try {
+
+			// Count the states of the Markov Chain to build:
+			countMarkovStates(model, descriptors);
+
+			// Repeatedly run the transformation for all possible state
+			// combinations:
 			runPcm2MarkovRecursively(model, descriptors, 0, 1.0);
+
 		} catch (Exception e) {
 			logger.error("PCM 2 Markov transformation caused exception: "
 					+ e.getMessage() + " [" + e.getClass() + "]");
@@ -198,7 +210,41 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		// Let the user know about the time consumed:
 		long stopTime = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-		logger.info("Finished Markov Transform:\t" + duration + " ms");
+		logger.info("Finished Markov transformation:\t\t" + duration + " ms");
+		logger.info("Number of performed transformation runs:\t"
+				+ transformationRunCount);
+	}
+
+	/**
+	 * Performs the Markov Transformation once, just to count the number of
+	 * states in the chain.
+	 * 
+	 * @param model
+	 *            the model which is to be transformed
+	 * @param descriptors
+	 *            the resource descriptors
+	 */
+	private void countMarkovStates(final PCMInstance model,
+			final List<ProcessingResourceDescriptor> descriptors) {
+
+		// The Markov Chain instance is created by using a visitor:
+		MarkovUsageModelVisitor umVisit = new MarkovUsageModelVisitor(model,
+				descriptors, false);
+
+		// The transformation supports only solving a single
+		// usage scenario (08-2008):
+		UsageScenario us = (UsageScenario) model.getUsageModel()
+				.getUsageScenario_UsageModel().get(0);
+
+		// Perform the Markov Chain transformation:
+		markovChain = (MarkovChain) umVisit.doSwitch(us
+				.getScenarioBehaviour_UsageScenario());
+
+		// Display information to the user:
+		logger.info("Number of states in Markov Chain:\t"
+				+ markovChain.getStates().size());
+		logger.info("Number of transitions in Markov Chain:\t"
+				+ markovChain.getTransitions().size());
 	}
 
 	/**
@@ -234,6 +280,9 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 			markovChain = (MarkovChain) umVisit.doSwitch(us
 					.getScenarioBehaviour_UsageScenario());
 
+			// Update the transformation runs counter:
+			transformationRunCount++;
+
 			// Solve the Markov Chain, and add the result to the overall success
 			// probability, weighted by the probability of the current resource
 			// state combination:
@@ -260,8 +309,10 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 			}
 
 			// Consider the next resource and its possible states:
-			runPcm2MarkovRecursively(model, descriptors, index + 1,
-					currentProbability * newProbability);
+			if (newProbability != 0.0) {
+				runPcm2MarkovRecursively(model, descriptors, index + 1,
+						currentProbability * newProbability);
+			}
 		}
 	}
 
@@ -305,31 +356,31 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 				// Special case: Ignore resource specifications
 
 				// Each resource has a type and MTTF/MTTR values:
-				Double MTTF = resource.getMTTF();
-				Double MTTR = resource.getMTTR();
+				Double resourceMTTF = resource.getMTTF();
+				Double resourceMTTR = resource.getMTTR();
 				ProcessingResourceType type = resource
 						.getActiveResourceType_ActiveResourceSpecification();
 
 				// Check the proper MTTF/MTTR specification:
-				if (MTTF < 0.0) {
+				if (resourceMTTF < 0.0) {
 					logger
 							.warn("Improper MTTF/MTTR specification for resource "
 									+ type.getEntityName()
 									+ " in container "
 									+ container.getEntityName()
 									+ ": negative MTTF. Assuming MTTF = 0.0");
-					MTTF = 0.0;
+					resourceMTTF = 0.0;
 				}
-				if (MTTR < 0.0) {
+				if (resourceMTTR < 0.0) {
 					logger
 							.warn("Improper MTTF/MTTR specification for resource "
 									+ type.getEntityName()
 									+ " in container "
 									+ container.getEntityName()
 									+ ": negative MTTR. Assuming MTTR = 0.0");
-					MTTR = 0.0;
+					resourceMTTR = 0.0;
 				}
-				if ((MTTF == 0.0) && (MTTR == 0.0)) {
+				if ((resourceMTTF == 0.0) && (resourceMTTR == 0.0)) {
 					logger
 							.warn("Improper MTTF/MTTR specification for resource "
 									+ type.getEntityName()
@@ -342,10 +393,10 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 				ProcessingResourceDescriptor descriptor = new ProcessingResourceDescriptor();
 				descriptor.setResourceContainerId(container.getId());
 				descriptor.setProcessingResourceTypeId(type.getId());
-				descriptor.addStateProbability(ProcessingResourceState.OK, MTTF
-						/ (MTTF + MTTR));
-				descriptor.addStateProbability(ProcessingResourceState.NA, MTTR
-						/ (MTTF + MTTR));
+				descriptor.setStateProbability(ProcessingResourceState.OK,
+						resourceMTTF / (resourceMTTF + resourceMTTR));
+				descriptor.setStateProbability(ProcessingResourceState.NA,
+						resourceMTTR / (resourceMTTF + resourceMTTR));
 				resultList.add(descriptor);
 			}
 		}
