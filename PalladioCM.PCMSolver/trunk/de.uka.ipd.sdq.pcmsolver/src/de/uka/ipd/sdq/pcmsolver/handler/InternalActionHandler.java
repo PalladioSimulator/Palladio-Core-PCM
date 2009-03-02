@@ -109,7 +109,11 @@ public class InternalActionHandler{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			while (demand-distance<=0) distance/=10;
+			//Ensure that demand is larger than 0 (for the included loop to terminate).
+			//Hopefully, a negative demand is caught elsewhere...
+			if (demand > 0 && distance > 0){
+				while (demand-distance<=0) distance/=10;
+			}
 			Double firstValue = new Double(demand-distance);
 			String newDemand = "DoublePDF[(" +
 					firstValue.toString()+

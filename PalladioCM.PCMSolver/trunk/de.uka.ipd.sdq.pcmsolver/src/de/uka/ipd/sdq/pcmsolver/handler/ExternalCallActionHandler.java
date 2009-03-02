@@ -62,7 +62,7 @@ public class ExternalCallActionHandler {
 		ServiceEffectSpecification seff = visitor.getContextWrapper().getNextSEFF(call);
 		
 		if (seff == null){
-			logger.info("Found System External Call");
+			logger.info("I found no SEFF for service "+serviceToBeCalled.getServiceName() + " called by External Call "+ call.getId() + " thus I assume a System External Call");
 			String timeSpecification = getTimeSpecification(serviceToBeCalled);
 			createInternalAction(timeSpecification, call);
 		} else {
@@ -153,6 +153,7 @@ public class ExternalCallActionHandler {
 				
 			}
 		}
+		logger.error("No time specification was found for external call "+serviceToBeCalled.getServiceName()+". I'm assuming a demand of 0.");
 		return "0";
 		
 	}

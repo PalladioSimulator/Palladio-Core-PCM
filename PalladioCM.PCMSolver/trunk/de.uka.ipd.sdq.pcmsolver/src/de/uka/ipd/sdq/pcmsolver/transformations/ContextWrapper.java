@@ -621,6 +621,7 @@ public class ContextWrapper implements Cloneable{
 					.getRequiredInterface__RequiredRole().getId()
 					.equals(requiredInterface.getId())) {
 				matchingAssConn = assConn;
+				break;
 			}
 		}
 
