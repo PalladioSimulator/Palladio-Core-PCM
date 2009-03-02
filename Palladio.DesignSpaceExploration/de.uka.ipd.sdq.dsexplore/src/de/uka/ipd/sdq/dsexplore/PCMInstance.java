@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
@@ -447,6 +448,36 @@ public boolean equals(Object o) {
 				this.usageModelFileName, this.systemFileName,
 				this.resEnvFileName, this.name);
 		return pcm;
+	}
+	
+	/**
+	 * This tries to do a deep copy of the main models, but it is not tested yet. 
+	 * The Repository, the system, the allocation and the resource environment are copied.  
+	 * 
+	 * //TODO: Probably I need to fix the references better (e.g. from system to new 
+	 * repository instead of old repository, as the filenames change.)
+	 * 
+	 * The varied filenames are extended by "-c" (for copy) so that the old ones are not deleted. 
+	 * 
+	 * Be careful: The ResourceType, the ResourceRepository, the middlewareRepository, and the UsageModel are not copied. 
+	 * @return
+	 */
+	public PCMInstance deepCopy(){
+		Repository r = (Repository)EcoreUtil.copy(this.repository);
+		System s = (System)EcoreUtil.copy(this.system);
+		
+		ResourceEnvironment re = (ResourceEnvironment)EcoreUtil.copy(this.resourceenvironment);
+		Allocation a = (Allocation)EcoreUtil.copy(this.allocation);
+		a.setTargetResourceEnvironment_Allocation(re);
+			
+		PCMInstance pcm = new PCMInstance(r, s, a, re, this.resourcetype, this.mwRepository,
+				this.storagePath, this.resourceRepository,
+				this.usageModel, this.allocationFileName+"-c",
+				this.repositoryFileName+"-c", this.resourceRepositoryFileName,
+				this.usageModelFileName, this.systemFileName+"-c",
+				this.resEnvFileName+"-c", this.name+"-c");
+		return pcm;
+
 	}
 
 	private String appendToFilename(String fileNameSuffix, String fileName) {

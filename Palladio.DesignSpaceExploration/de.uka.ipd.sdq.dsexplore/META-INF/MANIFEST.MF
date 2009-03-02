@@ -18,6 +18,9 @@ Require-Bundle: org.eclipse.ui,
  org.apache.log4j,
  org.eclipse.emf.common,
  de.uka.ipd.sdq.simucomframework,
+ org.opt4j_wrapper;bundle-version="1.0.0",
+ de.uka.ipd.sdq.pcm.designdecision;bundle-version="1.0.0",
+ de.uka.ipd.sdq.pcm.cost;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcmsolver,
  org.eclipse.pde.core;bundle-version="3.4.0"
 Eclipse-LazyStart: true
@@ -26,6 +29,10 @@ Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.helper,
  de.uka.ipd.sdq.dsexplore.launch,
  de.uka.ipd.sdq.dsexplore.newcandidates,
+ de.uka.ipd.sdq.dsexplore.opt4j.representation,
+ de.uka.ipd.sdq.dsexplore.opt4j.start,
  de.uka.ipd.sdq.dsexplore.qualityAttributes
 Bundle-ClassPath: .,
  log4j/
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-BuddyPolicy: dependent 
