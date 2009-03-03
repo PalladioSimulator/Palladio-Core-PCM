@@ -155,7 +155,7 @@
 		    		<!-- <exclude name="" /> -->
 		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
 		    		
-		    		<!-- <include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.stoex.analyser/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.branding/**/*.java" />
@@ -171,7 +171,7 @@
 		    		<include name="de.uka.ipd.sdq.sensorframework.dialogs/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.completions.edit/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.context.edit/**/*.java" />
-		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" /> -->
+		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" />
 		    		
 		    		
 				</fileset>
