@@ -180,9 +180,14 @@
 		    	author="true" 
 		    	defaultexcludes="yes" 
 		    	use="true" 
-		    	version="true" 
-		    	windowtitle="Palladio Component Model - PCM"
-		    	maxmemory="256m">
+		    	version="true"     			    	
+		    	public="true"
+		    	verbose="true"			
+		    	windowtitle="Palladio Component Model (PCM)"
+		    	linkoffline="http://www.palladio-approach.net"	    	
+		    	failonerror="false"
+		    	maxmemory="256m"		    	
+		    	>		    	
 		<!--
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
