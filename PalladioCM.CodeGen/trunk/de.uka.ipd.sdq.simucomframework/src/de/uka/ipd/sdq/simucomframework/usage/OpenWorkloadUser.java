@@ -43,19 +43,16 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		this.scheduleAt(0);
 	}
 	
-	@Override
 	public void addTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkloadUser.addTerminatedObserver has not been implemented yet.");
 	}
 
-	@Override
 	public void fireTerminated() {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkloadUser.fireTerminated has not been implemented yet.");
 	}
 
-	@Override
 	public void removeTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkloadUser.removeTerminatedObserver has not been implemented yet.");

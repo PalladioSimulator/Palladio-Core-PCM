@@ -61,19 +61,16 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 		userFactory.createUser().startUserLife();
 	}
 
-	@Override
 	public void addTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkload.addTerminatedObserver has not been implemented yet.");
 	}
 
-	@Override
 	public void fireTerminated() {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkload.fireTerminated has not been implemented yet.");
 	}
 
-	@Override
 	public void removeTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
 		throw new RuntimeException("The method OpenWorkload.removeTerminatedObserver has not been implemented yet.");
