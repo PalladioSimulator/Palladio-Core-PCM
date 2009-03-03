@@ -162,7 +162,6 @@ public class SimActiveResource extends AbstractActiveResource {
 		return processRegistry.findProcess(processName);
 	}
 	
-	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 		//TODO
 	}

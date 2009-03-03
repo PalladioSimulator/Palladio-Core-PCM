@@ -110,7 +110,6 @@ public class SimFCFSResource extends AbstractActiveResource {
 	public void registerProcess(IRunningProcess runningProcess) {
 	}
 	
-	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 	}
 }

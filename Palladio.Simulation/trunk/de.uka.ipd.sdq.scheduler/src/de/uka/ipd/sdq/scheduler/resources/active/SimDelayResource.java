@@ -39,7 +39,6 @@ public class SimDelayResource extends AbstractActiveResource {
 		
 	}
 	
-	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 	}
 
