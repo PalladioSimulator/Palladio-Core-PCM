@@ -5,6 +5,7 @@
         <antcall target="-generateUpdateSite"/>
     	
     	<!-- <antcall target="javadoc" /> --> <!-- by kelsaka -->
+    	<antcall target="javadoc-pcm" /> <!-- by kelsaka -->
     </target>
     
     <!--======================================================-->
@@ -166,4 +167,71 @@
 	</target>
 	<!-- ======================================== -->
     
+	
+	<!-- alternative javadoc code with hard coded directories -->
+	<!-- ================================================= -->
+	<!-- Added by kelsaka: Creates javadoc for the project -->
+	<!-- ================================================= -->
+	<target name="javadoc-pcm" description="Generate JavaDoc for the project">		
+			<echo>starting to create JavaDoc PCM...</echo>		
+			<mkdir dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"/>
+		    <javadoc 
+		    	destdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"
+		    	author="true" 
+		    	defaultexcludes="yes" 
+		    	use="true" 
+		    	version="true" 
+		    	windowtitle="Palladio Component Model - PCM"
+		    	maxmemory="256m">
+		<!--
+		    	source="${buildDirectory}"  
+		    	excludepackagenames="${build.src.excludes}"
+		    	excludepackagenames="com.*" 
+		    	packagenames="${build.doc.packages}"
+		    	public="true"
+		    	sourcepathref="project.source"
+		-->
+		        <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
+		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
+		        <link href="http://java.sun.com/javase/6/docs/api/"/>
+			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
+				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
+
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    		<!-- <include name="de/uka/ipd/sdq/**/*.java"/> 
+		    		<include name="de/uka/ipd/sdq/**/*.java"/>
+		    		<exclude name="com/**" />
+		    		<exclude name="org/**" />
+		    		<exclude name="net/**" /> -->
+		    		<!-- <include name="de.uka.ipd.sdq.**/*.java" /> --> 
+		    		<!-- <exclude name="" /> -->
+		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
+		    		
+		    		<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.stoex.analyser/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.branding/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.completions/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.context/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes/**/*.java" />	
+		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.simucomframework.desmoj/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.dialogs/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.dialogs/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.sensorframework.dialogs/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.completions.edit/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.context.edit/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" />
+		    		
+		    		
+				</fileset>
+		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
+	    </javadoc>
+		<echo>...finished JavaDoc PCM.</echo>	
+	</target>
+	<!-- ======================================== -->	
+	
+	
 </project>
