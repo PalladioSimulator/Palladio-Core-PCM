@@ -139,13 +139,20 @@ public class DocksModel extends Observable implements EventHandler {
 				RemoteServiceReference[] rserv;
 				try {
 					rserv = roserv.connect(uri);
-				} catch (RemoteOSGiException e) {										
-					e.printStackTrace();
-					throw new RuntimeException("Unable to connect to remote server ",e);
-				} catch (IOException e) {
+				} catch (Exception e) {										
 					e.printStackTrace();
 					throw new RuntimeException("Unable to connect to remote server ",e);
 				}
+// FIXME: Build-Eclipse and local Eclipse have a different opinion which Exceptions should be caught.
+// Thus, used general Exception.
+//				} catch (RemoteOSGiException e) {										
+//					e.printStackTrace();
+//					throw new RuntimeException("Unable to connect to remote server ",e);
+//				}
+//				catch (IOException e) {
+//					e.printStackTrace();
+//					throw new RuntimeException("Unable to connect to remote server ",e);
+//				}
 				SimulationDockService service = (SimulationDockService) roserv.getRemoteService(rserv[0]);
 				DocksModel.this.addDock(service,uri.toString());
 				remoteService.close();
