@@ -106,7 +106,7 @@
 	<!-- ================================================= -->
 	<!-- Added by kelsaka: Creates javadoc for the project -->
 	<!-- ================================================= -->
-	<target name="javadoc" description="Generate JavaDoc for the project">	
+	<target name="javadoc" description="Generate JavaDoc for the project">
 		<echo>starting to create JavaDoc...</echo>		
 		<mkdir dir="${buildDirectory}/updateSite/javadoc/" />
 	    <javadoc 
@@ -162,6 +162,7 @@
 	    	</fileset>
 	    	
 	    </javadoc>
+		<echo>...finished creating JavaDoc.</echo>
 	</target>
 	<!-- ======================================== -->
     
