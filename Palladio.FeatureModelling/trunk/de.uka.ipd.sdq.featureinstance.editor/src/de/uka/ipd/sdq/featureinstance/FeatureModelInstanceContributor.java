@@ -15,8 +15,10 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 
+import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 
@@ -24,23 +26,33 @@ class InstanceValidateAction extends ValidateAction {
 	
 	FeatureDiagram diagram;
 	Configuration config;
+	Shell shell;
 	
 	@Override
 	public void run() {
 			Diagnostician diagnostician = new Diagnostician();
 			Diagnostic d = diagnostician.validate(config);
+			ErrorDisplayDialog errord;
+			
 			switch (d.getSeverity()) {
-			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
-			case Diagnostic.ERROR: System.out.println("Validation error"); break;
-			case Diagnostic.WARNING: System.out.println("Validation warning"); break;
-			case Diagnostic.OK: System.out.println("Validation OK"); break;
-			case Diagnostic.INFO: System.out.println("Validation INFO"); break;
-			default: System.out.println("Validation sth else");
+			case Diagnostic.CANCEL: 
+				errord = new ErrorDisplayDialog(shell,new Throwable("The validation was cancelled:\n" + d.getMessage()));
+				errord.open(); break;
+			case Diagnostic.ERROR: 
+				errord = new ErrorDisplayDialog(shell,new Throwable("The validation finished with errors:\n" + d.getMessage()));
+				errord.open(); break;
+			case Diagnostic.WARNING: System.out.println("Validation warning"); 
+				errord = new ErrorDisplayDialog(shell,new Throwable("The validation finished with warnings:\n" + d.getMessage()));
+				errord.open(); break;
+			case Diagnostic.OK: /*normal dialog*/ break;
+			case Diagnostic.INFO: /*Informational dialog*/ break;
+			default: /*sth else*/
 			}
 			for (Diagnostic child : d.getChildren()) {
 				System.out.println(child.getMessage());
 			}
 			System.out.println(d.getMessage());
+			//TODO: Fuer featuremodel
 			d = diagnostician.validate(diagram);
 			switch (d.getSeverity()) {
 			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
@@ -59,6 +71,10 @@ class InstanceValidateAction extends ValidateAction {
 	public void setConfiguration (Configuration config, FeatureDiagram diagram) {
 		this.config = config;
 		this.diagram = diagram;		
+	}
+	
+	public void setShell (Shell shell) {
+		this.shell = shell;
 	}
 
 }
@@ -120,6 +136,12 @@ public class FeatureModelInstanceContributor extends
 	public void setConfiguration(Configuration config, FeatureDiagram diagram) {
 		if (validateAction instanceof InstanceValidateAction) {
 			((InstanceValidateAction)validateAction).setConfiguration(config, diagram);
+		}
+	}
+	
+	public void setShell (Shell shell) {
+		if (validateAction instanceof InstanceValidateAction) {
+			((InstanceValidateAction)validateAction).setShell(shell);
 		}
 	}
 
