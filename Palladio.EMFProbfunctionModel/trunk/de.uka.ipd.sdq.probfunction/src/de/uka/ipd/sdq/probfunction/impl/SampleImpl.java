@@ -90,12 +90,13 @@ public class SampleImpl<T> extends EObjectImpl implements Sample<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@SuppressWarnings("unchecked")
 	public T getValue() {
-		if (value != null && ((EObject)value).eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
+		/* In Samples the value is always a simple type and not an EObject, hence the cast fails! */
+		 if (value != null && value instanceof EObject && ((EObject)value).eIsProxy()) {
+		 	InternalEObject oldValue = (InternalEObject)value;
 			value = (T)eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
