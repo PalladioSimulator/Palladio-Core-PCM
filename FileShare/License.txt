@@ -1,0 +1,5 @@
+Lizenzen
+---------------+-Typ--------------+-URL---------------------------------------------
+JbcParser      | LGPL             | http://www.bestcode.com/assets/downloads/JbcParser/license.txt
+
+Lizenztext muss jeweils  mitverteilt werden.
