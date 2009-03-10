@@ -4,7 +4,7 @@
   <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
-            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateThinkTimeEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice"
@@ -64,14 +64,14 @@
 
    <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
-      <clientContext id="PCM Usage ModelClientContext">
+      <clientContext id="de.uka.ipd.sdq.pcm.gmf.usage.TypeContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="de.uka.ipd.sdq.pcm.gmf.usage.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="PCM Usage ModelClientContext">
+      <binding context="de.uka.ipd.sdq.pcm.gmf.usage.TypeContext">
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice">
          </advice>
