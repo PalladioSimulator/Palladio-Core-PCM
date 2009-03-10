@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.process.PreferIdealAn
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
+import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.impl.PriorityManagerImpl;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -162,7 +163,8 @@ public class SchedulingFactory implements ISchedulingFactory {
 		}
 		return resource;
 	}
-
+	
+	
 	public IResourceInstance createResourceInstance(int index,
 			IActiveResource containing_resource) {
 
