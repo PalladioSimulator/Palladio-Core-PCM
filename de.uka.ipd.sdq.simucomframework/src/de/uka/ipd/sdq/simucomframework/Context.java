@@ -2,10 +2,12 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 
@@ -27,6 +29,11 @@ public abstract class Context extends StackContext {
  	 */
 	private HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
 
+	/**
+	 * AssemblyContextID -> PassiveRessource
+ 	 */
+	private HashMap<String, IPassiveResource> assemblyPassiveResourceHash = new HashMap<String, IPassiveResource>();
+	
 	/**
 	 * The thread to which this context belongs 
 	 */
@@ -80,6 +87,17 @@ public abstract class Context extends StackContext {
 		assemblyLinkHash.put(assemblyContextID, container);
 	}
 
+	public IPassiveResource getPassiveRessourceInContext(
+			String assemblyContextID, String passiveResourceID, AbstractSimulatedResourceContainer resourceContainer, int capacity) {
+		IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContextID + passiveResourceID);
+		
+		if (pr == null){
+			pr = ((SimulatedResourceContainer) resourceContainer).createPassiveResource(passiveResourceID, capacity);
+			assemblyPassiveResourceHash.put(assemblyContextID + passiveResourceID, pr);
+		}
+		
+		return pr;
+	}
 
 	/**
 	 * Template method to be filled in by the generator. Calles

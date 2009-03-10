@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
@@ -327,4 +328,5 @@ public abstract class AbstractScheduledResource extends Entity {
 //				.getCurrentSimulationTime();
 //	}
 
+	public abstract IActiveResource getScheduledResource();
 }
