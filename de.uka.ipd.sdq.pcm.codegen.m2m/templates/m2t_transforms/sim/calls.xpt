@@ -56,7 +56,7 @@
 					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
 				«ELSE»
 					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
+					   	ctx.evaluateStoEx("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
 				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»
