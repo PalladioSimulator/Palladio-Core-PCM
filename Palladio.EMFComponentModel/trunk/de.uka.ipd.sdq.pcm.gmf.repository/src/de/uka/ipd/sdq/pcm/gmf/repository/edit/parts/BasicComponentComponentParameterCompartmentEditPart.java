@@ -3,9 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -21,7 +20,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
  * @generated
  */
 public class BasicComponentComponentParameterCompartmentEditPart extends
-		ListCompartmentEditPart {
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -33,13 +32,6 @@ public class BasicComponentComponentParameterCompartmentEditPart extends
 	 */
 	public BasicComponentComponentParameterCompartmentEditPart(View view) {
 		super(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
 	}
 
 	/**
