@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.views,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,
- de.uka.ipd.sdq.codegen.workflow
+ de.uka.ipd.sdq.codegen.workflow,
+ org.apache.commons.logging;bundle-version="1.0.4"
 Eclipse-LazyStart: true
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.codegen.runconfig,

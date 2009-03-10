@@ -1,7 +1,15 @@
 package de.uka.ipd.sdq.codegen.runconfig;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
+import java.net.URL;
+import java.util.Enumeration;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.impl.SimpleLog;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.DebugEvent;
@@ -16,6 +24,7 @@ import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
 
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
@@ -47,6 +56,8 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 	private static MessageConsole console = null;
 	private static PrintStream myOutStream = null;
 	private T attributes = null;
+	
+	protected Log logger = null;
 
 
 	/*(non-Javadoc)
@@ -59,13 +70,20 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 		launch.addProcess(new SimProcess(launch));
 		PrintStream outStream = System.out;
 		PrintStream errStream = System.err;
-		System.setOut(getPrintStream());
-		System.setErr(getPrintStream());
-
-		Workflow workflow = new Workflow(monitor);
+		PrintStream consoleStream = getPrintStream();
+		System.setOut(consoleStream);
+		System.setErr(consoleStream);
 		
 		/** create the instance of type T */
 		attributes = createAttributesGetMethods(configuration);
+
+		System.setProperty("org.apache.commons.logging.simplelog.defaultlog","info");
+		
+		logger = LogFactory.getLog(LaunchConfigurationDelegate.class);
+		logger.info("Creating workflow engine and starting workflow");
+		
+		Workflow workflow = new Workflow(monitor);
+		
 
 		WorkflowExceptionHandler handler = new WorkflowExceptionHandler(
 				attributes.isShouldThrowException(configuration));
@@ -78,11 +96,13 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 	
 			// execute all steps
 			workflow.run();
+			logger.info("Main workflow terminated successfully");
 		} catch (JobFailedException e) {
 			handler.handleJobFailed(e);
 		} catch (UserCanceledException e) {
 			handler.handleUserCanceled(e);
 		} finally {
+			logger.info("Cleaning up...");
 			try {
 				workflow.rollback();
 			} catch (RollbackFailedException e) {
@@ -90,6 +110,7 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 			}
 		}
 
+		logger.info("Workflow finished");
 		System.setOut(outStream);
 		System.setErr(errStream);
 		// Singnal execution terminatation 
