@@ -42,6 +42,6 @@
 «DEFINE PassiveResourceDecls FOR BasicComponent»
 	// Initialise this component's passive resources
 	«FOREACH this.passiveResource_BasicComponent AS pr»
-		de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource pr_«pr.id.javaVariableName()» = null;
+		de.uka.ipd.sdq.scheduler.IPassiveResource pr_«pr.id.javaVariableName()» = null;
 	«ENDFOREACH»
 «ENDDEFINE»

@@ -68,24 +68,18 @@
 	// Acquire «this.passiveresource_AcquireAction»
 	if (pr_«this.passiveresource_AcquireAction.id.javaVariableName()» == null) {
 		// Initialise Resource First...
-		pr_«this.passiveresource_AcquireAction.id.javaVariableName()» = new de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource(
-			ctx.getModel(),
-			"«this.passiveresource_AcquireAction.entityName» «this.passiveresource_AcquireAction.id»",
-			(Integer)ctx.evaluateStoEx("«this.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)); 
+		pr_«this.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(this.assemblyContextID, "«this.passiveresource_AcquireAction.entityName»«this.passiveresource_AcquireAction.id»", ctx.findResource(assemblyContextID), (Integer)ctx.evaluateStoEx("«this.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»",Integer.class));
 	}
-	pr_«this.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread());
+	pr_«this.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1);
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
 	// Release «this.passiveResource_ReleaseAction»
 	if (pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
 		// Initialise Resource First...
-		pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» = new de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource(
-			ctx.getModel(),
-			"«this.passiveResource_ReleaseAction.entityName» «this.passiveResource_ReleaseAction.id»",
-			(Integer)ctx.evaluateStoEx("«this.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)); 
+		pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(this.assemblyContextID, "«this.passiveResource_ReleaseAction.entityName»«this.passiveResource_ReleaseAction.id»", ctx.findResource(assemblyContextID), (Integer)ctx.evaluateStoEx("«this.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class));
 	}
-	pr_«this.passiveResource_ReleaseAction.id.javaVariableName()».release();
+	pr_«this.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
 «ENDDEFINE»
 
 «DEFINE Action FOR StartAction»
