@@ -32,6 +32,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 	private String processingRate = "0";
 	IActiveResource aResource = null;
 	ActiveResourceConfiguration resourceConf = null;
+	
 
 	
 	/* Loads scheduler configuration */
@@ -160,5 +161,10 @@ public class ScheduledResource extends AbstractScheduledResource {
 	public static String getNextResourceId() {
 		
 		return Long.toString(resourceId++);
+	}
+
+	@Override
+	public IActiveResource getScheduledResource() {
+		return aResource;
 	}
 }
