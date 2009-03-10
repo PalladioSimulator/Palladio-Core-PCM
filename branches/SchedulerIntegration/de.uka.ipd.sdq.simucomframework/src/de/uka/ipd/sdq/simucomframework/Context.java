@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 
 /**
@@ -128,6 +129,16 @@ public abstract class Context extends StackContext {
 
 	public void evaluateInner(SimulatedStackframe<Object>stackFrame, String stoEx){
 		this.evaluateInner(this.myModel.getStoExCache(), stackFrame, stoEx);
+	}
+
+	public Object evaluateStoEx(String string,
+			SimulatedStackframe<Object> currentFrame) {
+		try {
+			return currentFrame.getValue(string);
+		} catch (ValueNotInFrameException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}	
 	
 }
