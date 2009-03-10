@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.codegen.workflow.jobs;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
@@ -15,6 +17,8 @@ import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
  */
 public class GenerateOAWCodeJob implements IJob {
 
+	protected Log logger = LogFactory.getLog(GenerateOAWCodeJob.class);
+	
 	private final static String REPOSITORY_FILE = "codegen_repository.oaw";
 	private final static String SYSTEM_FILE = "codegen_system.oaw";
 	private final static String USAGE_FILE = "codegen_usage.oaw";
@@ -50,6 +54,7 @@ public class GenerateOAWCodeJob implements IJob {
 			WorkflowRunner runner = new WorkflowRunner();
 			runner.prepare(workflowFile, null, properties);
 
+			logger.info("Calling openArchitectureWare for file "+workflowFile);
 			if (!runner.executeWorkflow(slotContents, issues)) {
 				String message = "";
 				for (Issue i : issues.getErrors()) {

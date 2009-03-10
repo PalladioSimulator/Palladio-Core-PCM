@@ -3,6 +3,9 @@ package de.uka.ipd.sdq.codegen.workflow;
 import java.util.LinkedList;
 import java.util.Stack;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * Implementation of a composite job that guarantees
  * the execution of it's jobs in the order they were added.
@@ -14,6 +17,7 @@ public class OrderPreservingCompositeJob implements ICompositeJob {
 	
 	protected LinkedList<IJob> myJobs;
 	protected Stack<IJob> myExecutedJobs;
+	protected Log logger = LogFactory.getLog(OrderPreservingCompositeJob.class);
 	
 	/**
 	 * constructor
@@ -36,6 +40,7 @@ public class OrderPreservingCompositeJob implements ICompositeJob {
 	 */ 
 	public void execute() throws JobFailedException, UserCanceledException {
 		for (IJob job : myJobs) {
+			logger.info("SDQ Workflow-Engine: Running job "+job.getClass().getName());
 			myExecutedJobs.push(job);
 			job.execute();
 		}
