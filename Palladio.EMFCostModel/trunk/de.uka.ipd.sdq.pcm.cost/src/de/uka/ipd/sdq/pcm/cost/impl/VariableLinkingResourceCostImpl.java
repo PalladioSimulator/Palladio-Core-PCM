@@ -8,8 +8,10 @@ package de.uka.ipd.sdq.pcm.cost.impl;
 
 import de.uka.ipd.sdq.pcm.cost.VariableLinkingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
+import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -287,8 +289,7 @@ public class VariableLinkingResourceCostImpl extends VariableCostImpl implements
 	 */
 	@Override
 	public double getOperatingCost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getFixedOperatingCost() + this.bandwidthOperatingFactor * this.getThroughput();
 	}
 
 	/**
@@ -298,7 +299,38 @@ public class VariableLinkingResourceCostImpl extends VariableCostImpl implements
 	 */
 	@Override
 	public double getInitialCost() {
-		// TODO Auto-generated method stub
+		return this.getFixedInitialCost() + this.getBandwithInitialFactor() * this.getThroughput();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	private double getThroughput() {
+		//TODO: what about longs and shorts and stuff here? 
+		if ( this.getLinkingresource() != null 
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource() != null 
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getThroughput_CommunicationLinkResourceSpecification() != null
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getThroughput_CommunicationLinkResourceSpecification().getSpecification() != null ) {
+			return CostUtil.getDoubleFromSpecification(this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getThroughput_CommunicationLinkResourceSpecification().getSpecification());
+		} 
+		return 0;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	private double getLatency() {
+		//TODO: what about longs and shorts and stuff here? 
+		if ( this.getLinkingresource() != null 
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource() != null 
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getLatency_CommunicationLinkResourceSpecification() != null
+				&& this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getLatency_CommunicationLinkResourceSpecification().getSpecification() != null ) {
+			return CostUtil.getDoubleFromSpecification(this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getLatency_CommunicationLinkResourceSpecification().getSpecification());
+		} 
 		return 0;
 	}
 

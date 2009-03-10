@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.cost.impl;
 
 import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
+import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
@@ -311,12 +312,7 @@ public class VariableProcessingResourceCostImpl extends VariableCostImpl impleme
 		if ( this.getProcessingresourcespecification() != null 
 				&& this.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification() != null 
 				&& this.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().getSpecification() != null) {
-			Object processingRate = StackContext.evaluateStatic(this.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().getSpecification());
-			if (Double.class.isInstance(processingRate)){
-				return (Double)processingRate;
-			} else if (Integer.class.isInstance(processingRate)){
-				return ((Integer)processingRate).doubleValue();
-			}
+			return CostUtil.getDoubleFromSpecification(this.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().getSpecification());
 		} 
 		return 0;
 	}

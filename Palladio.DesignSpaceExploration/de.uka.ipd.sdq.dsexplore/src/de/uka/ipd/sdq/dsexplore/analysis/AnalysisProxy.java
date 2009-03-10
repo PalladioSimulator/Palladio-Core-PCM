@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 
+/** Singleton */
 public class AnalysisProxy implements IAnalysis {
 
 	private String mode;

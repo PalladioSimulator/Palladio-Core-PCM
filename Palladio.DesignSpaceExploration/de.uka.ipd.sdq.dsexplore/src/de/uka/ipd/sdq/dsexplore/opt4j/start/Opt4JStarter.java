@@ -11,26 +11,33 @@ import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.start.Opt4J;
 import org.opt4j.start.Opt4JTask;
 
+import com.google.inject.Module;
+
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 
 public class Opt4JStarter {
+	
+	public static IAnalysis analysisTool = null; 
 
-	public static void startOpt4J(){
+	public static void startOpt4J(IAnalysis analysisTool){
+		
+		Opt4JStarter.analysisTool = analysisTool;
 		
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule(); 
 	    //ea.setGenerations(500); 
 	    //ea.setAlpha(100); 
 	 
-	    //DSEModule dseModule = new DSEModule(); 
-	    /*DTLZModule dtlz = new DTLZModule(); 
-	    dtlz.setFunction(DTLZModule.Function.DTLZ1);*/ 
+	    DSEModule dseModule = new DSEModule(); 
+	    //DTLZModule dtlz = new DTLZModule(); 
+	    //dtlz.setFunction(DTLZModule.Function.DTLZ1);
 	 
 	    /*GUIModule gui = new GUIModule(); 
-	    gui.setCloseOnStop(true);
+	    gui.setCloseOnStop(true);*/ 
 	 
 	    Collection<Module> modules = new ArrayList<Module>(); 
 	    modules.add(ea); 
-	    //modules.add(dseModule);
+	    modules.add(dseModule);
 	    //modules.add(dtlz);
 	    //modules.add(gui); 
 	 
@@ -41,16 +48,19 @@ public class Opt4JStarter {
 	      task.execute(); 
 	      Archive archive = task.getInstance(Archive.class); 
 	 
+	      System.out.println("Printing results (number is "+archive.size()+").");
 	      for(Individual individual: archive){ 
-	        //... 
+	        System.out.println("One result is: "+individual.getObjectives().toString());
 	      } 
 	 
 	    } catch (Exception e) { 
 	      e.printStackTrace(); 
 	    } finally { 
 	      task.close(); 
-	    } */
+	    } 
 	}
+	
+	public static void sayHi(){}
 	
 	@Deprecated
 	public static void startOpt4JWithGUI(){

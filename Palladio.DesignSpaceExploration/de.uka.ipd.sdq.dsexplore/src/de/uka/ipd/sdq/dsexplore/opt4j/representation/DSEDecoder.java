@@ -28,19 +28,19 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	}
 
 	@Override
-	public PCMPhenotype decode(DoubleGenotype arg0) {
+	public PCMPhenotype decode(DoubleGenotype genotype) {
 		//copy PCM Instance
 		PCMInstance pcm = this.problem.deepCopyPCMInstance();
 		
 		int index = 0;
 		//adjust values as in genotype
-		for (Double double1 : arg0) {
-			applyChange(this.problem.getDesignDecision(index), pcm, double1);
+		for (Double doubleGene : genotype) {
+			applyChange(this.problem.getDesignDecision(index), pcm, doubleGene);
 			index++;
 		}
 		
 		//encapsulate as phenotype 
-		return null;
+		return new PCMPhenotype(pcm);
 	}
 
 	/**
@@ -50,10 +50,10 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	 * 
 	 * @param designDecision
 	 * @param pcm
-	 * @param double1 The new value the design decision should take. 
+	 * @param doubleGene The new value the design decision should take. 
 	 */
 	private void applyChange(DesignDecision designDecision, PCMInstance pcm,
-			Double double1) {
+			Double doubleGene) {
 		
 		logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		
@@ -63,12 +63,13 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	 * @see applyChange(DesignDecision, PCMInstance, Double)
 	 * @param designDecision
 	 * @param pcm
-	 * @param double1
+	 * @param doubleGene
 	 */
 	@SuppressWarnings("unused")
 	private void applyChange(ProcessingRateDecision designDecision, PCMInstance pcm,
-			Double double1) {
-		logger.debug("Handling a "+designDecision.getClass());
+			Double doubleGene) {
+		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification("\""+doubleGene.toString()+"\"");
+		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
 	}
 
 }

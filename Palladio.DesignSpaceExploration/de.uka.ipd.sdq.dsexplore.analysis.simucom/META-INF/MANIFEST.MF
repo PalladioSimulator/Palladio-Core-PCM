@@ -19,5 +19,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework.adapter,
  de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes,
  org.eclipse.debug.ui
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.dsexplore.analysis.simucom
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

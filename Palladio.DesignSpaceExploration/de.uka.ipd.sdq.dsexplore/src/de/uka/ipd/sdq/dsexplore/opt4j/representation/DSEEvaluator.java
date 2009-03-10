@@ -1,10 +1,17 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.problem.Evaluator;
+
+import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 /**
  * The Evaluator is responsible for determining the objective functions values 
@@ -18,10 +25,27 @@ import org.opt4j.core.problem.Evaluator;
  * 
  */
 public class DSEEvaluator implements Evaluator<PCMPhenotype>{
+	
+	protected final List<Objective> objectives = new ArrayList<Objective>();
+	
+	public DSEEvaluator(){
+		this.objectives.add(new Objective("response time", Objective.Sign.MIN));
+		this.objectives.add(new Objective("cost", Objective.Sign.MIN));
+	}
 
 	@Override
-	public Objectives evaluate(PCMPhenotype arg0) {
-		// TODO Auto-generated method stub
+	public Objectives evaluate(PCMPhenotype pheno) {
+		try {
+			IAnalysisResult result = Opt4JStarter.analysisTool.analyse(pheno.getPcm());
+			Objectives obj = new Objectives();
+			obj.add(this.objectives.get(0), result.getMeanValue());
+			//TODO: retrieve cost
+			obj.add(this.objectives.get(1),0);
+		} catch (AnalysisFailedException e) {
+			e.printStackTrace();
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

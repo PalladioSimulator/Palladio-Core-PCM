@@ -13,6 +13,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.opt4j.config.visualization.Configurator;
+import org.opt4j.start.Opt4J;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.algorithms.HillClimbingAlgorithm;
@@ -24,6 +26,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 /**
  * Launches multiple simulation runs. 
@@ -66,6 +69,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			logger.debug("Starting...");
 			logger.debug("Launch Configuration: "+configuration.getMemento());
 			
+						
 			String maxIterationsString = configuration.getAttribute(DSEConstantsContainer.MAX_ITERATIONS, "");
 			if (!maxIterationsString.equals("")){
 				try{
@@ -102,10 +106,13 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    instances.add(pcmInstance);
 		    
 		    //initialise the algorithm and analysis
-		    HillClimbingAlgorithm algorithm = new HillClimbingAlgorithm(mrtRequirements);
+		    //HillClimbingAlgorithm algorithm = new HillClimbingAlgorithm(mrtRequirements);
 		    //IAlgorithm algorithm = new FullSearchAlgorithm();
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
-		    algorithm.initialise(instances, analysisTool,configuration);
+		    //algorithm.initialise(instances, analysisTool,configuration);
+		    
+		    //Opt4JStarter.startOpt4J(analysisTool);
+		    
 		    
 		    //analyse the initial PCMInstance
 		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
@@ -117,18 +124,18 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    currentPopulation.add(result);
 		    allCandidates.add(result);
 		    
-		    int noOfIterations = 1;
+		    /*int noOfIterations = 1;
 		    while(!algorithm.terminated() && noOfIterations <= this.maxIterations){
 		    	currentPopulation = algorithm.iterate(currentPopulation);
 		    	allCandidates.addAll(currentPopulation);
 		    	noOfIterations++;
 		    }
 		    
-		    allResults = algorithm.getAllResults();
+		    allResults = algorithm.getAllResults();*/
 		    
 		    //logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
 		    
-
+		    
 				
 			} catch (AnalysisFailedException e) {
 				logger.error(e.getMessage());
