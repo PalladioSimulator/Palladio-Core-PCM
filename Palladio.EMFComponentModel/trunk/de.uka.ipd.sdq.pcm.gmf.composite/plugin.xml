@@ -369,7 +369,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <param name="semanticHint" value="2001"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyContext_3002"
                name="%metatype.name.AssemblyContext_3002"
@@ -419,7 +419,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <param name="semanticHint" value="3005"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4001"
                name="%metatype.name.AssemblyConnector_4001"
@@ -429,7 +429,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4002"
                name="%metatype.name.RequiredDelegationConnector_4002"
@@ -439,7 +439,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.composite.ProvidedDelegationConnector_4003"
                name="%metatype.name.ProvidedDelegationConnector_4003"
