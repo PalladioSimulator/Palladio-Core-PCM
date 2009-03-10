@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="designdecision"
+    nsURI="http://sdq.ipd.uka.de/DesignDecision/1.0" nsPrefix="de.uka.ipd.sdq.pcm">
+  <eClassifiers xsi:type="ecore:EClass" name="DesignDecision" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="All design decisions and choices are specified on the original model, from which a new phenotype can be drived. Intermediate candidate phenotypes then do not have to be kept..."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+        lowerBound="1" eType="#//Domain" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Domain" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Choice" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designdecision" ordered="false"
+        lowerBound="1" eType="#//DesignDecision"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range" abstract="true" eSuperTypes="#//Domain">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBoundIncluded" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBoundIncluded" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" abstract="true" eSuperTypes="#//Domain"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EquivalentComponents" eSuperTypes="#//Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositorycomponent" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/RepositoryComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvailableServers" eSuperTypes="#//Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourcecontainer" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentChoice" eSuperTypes="#//Choice">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: constraint: works only for AssembledComponentDecisions"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chosenrepositorycomponent"
+        ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/RepositoryComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationChoice" eSuperTypes="#//Choice">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: constraint: works only for AllocationDecisions"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chosenresourcecontainer"
+        ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessingRateChoice" eSuperTypes="#//Choice">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: constraint: works only for ProcessingRateDecisions. chosenRate must be within the defined range. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chosenRate" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessingRateDecision" eSuperTypes="#//DesignDecision">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: Constraint that only works for design decisions that have the domain equivalentComponents of which the assembled component is an element. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationDecision" eSuperTypes="#//DesignDecision">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: Constraint that only works for design decisions that have the domain availableServers of which the assembled component is an element. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationcontext" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssembledComponentDecision" eSuperTypes="#//DesignDecision">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: Constraint that only works for design decisions that have the domain equivalentComponents of which the assembled component is an element. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblycontext" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/composition/AssemblyContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerRange" eSuperTypes="#//Range">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleRange" eSuperTypes="#//Range">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerReplicationChoice"
+      eSuperTypes="#//Choice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicityOfResourceContainer"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerReplicationDecision"
+      eSuperTypes="#//DesignDecision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourcecontainer" ordered="false"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Genotype">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: constraint: One choice for each DesignDecision"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Choice"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Problem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designdecision" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//DesignDecision" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
