@@ -147,7 +147,6 @@
 			this.«pu.namedReference_VariableUsage.referenceName» = "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1, "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1);;
 		«ENDFOREACH»
 	«ENDFOREACH»
-	«ERROR "SetStateAction is never called!"»
 «ENDDEFINE»
 
 «DEFINE Action FOR ForkAction»
