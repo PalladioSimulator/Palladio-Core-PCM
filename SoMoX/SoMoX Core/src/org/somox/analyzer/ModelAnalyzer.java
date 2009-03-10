@@ -6,7 +6,9 @@ import org.eclipse.core.runtime.Preferences;
 import org.somox.configuration.ConfigurableComponent;
 import org.somox.extractor.ExtractionResult;
 
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
+import eu.qimpress.samm.staticstructure.Repository;
+
+//import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
 
 
 /**

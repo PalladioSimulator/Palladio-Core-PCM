@@ -24,8 +24,12 @@ import org.somox.core.SoMoXCoreLogger;
 import org.somox.extractor.ExtractionResult;
 import org.somox.extractor.SoftwareExtractor;
 
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.StaticStructureFactory;
+import eu.qimpress.samm.staticstructure.Repository;
+import eu.qimpress.samm.staticstructure.staticstructureFactory;
+
+//import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
+//import eu.qimpress.commonmodel.commonmodel.StaticStructure.StaticStructureFactory;
+
 
 /**
  * Standard Implementation of the SoMoX Core.
@@ -185,7 +189,7 @@ public class SoMoXCoreStandard implements SoMoXCore {
 		// an appropriate model inside
 		if(resource == null || resource.getContents().isEmpty()){
 			resource = resourceSet.createResource(uri);
-			Repository qimpressRepository = StaticStructureFactory.eINSTANCE.createRepository();
+			Repository qimpressRepository = staticstructureFactory.eINSTANCE.createRepository();
 			resource.getContents().add(qimpressRepository);
 			resource.save(null);
 		}

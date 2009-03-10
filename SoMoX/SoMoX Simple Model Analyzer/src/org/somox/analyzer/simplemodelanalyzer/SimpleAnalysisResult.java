@@ -7,7 +7,9 @@ import org.somox.analyzer.AnalysisResult;
 import org.somox.analyzer.ModelAnalyzer;
 import org.somox.common.Message;
 
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
+import eu.qimpress.samm.staticstructure.Repository;
+
+//import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
 
 public class SimpleAnalysisResult implements AnalysisResult {
 

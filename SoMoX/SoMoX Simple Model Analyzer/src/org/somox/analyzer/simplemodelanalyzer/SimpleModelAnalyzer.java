@@ -17,12 +17,11 @@ import org.somox.softwareextractor.sissy.SISSyModelElementRepositoryWrapper;
 
 import de.fzi.sissy.metamod.ModelElementList;
 import de.fzi.sissy.metamod.ModelElementRepository;
-import de.fzi.sissy.metamod.Package;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.CompositeComponent;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.PrimitiveComponent;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.StaticStructureFactory;
-import eu.qimpress.commonmodel.commonmodel.StaticStructure.SubcomponentInstance;
+import eu.qimpress.samm.staticstructure.staticstructureFactory;
+import eu.qimpress.samm.staticstructure.CompositeComponent;
+import eu.qimpress.samm.staticstructure.PrimitiveComponent;
+import eu.qimpress.samm.staticstructure.Repository;
+import eu.qimpress.samm.staticstructure.SubcomponentInstance;
 
 
 
@@ -117,29 +116,29 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 
 		//TODO: Implement the real analysis logic here
 		// each class is turned into a simple component
-		Repository qimpressRepository = StaticStructureFactory.eINSTANCE.createRepository();
+		Repository qimpressRepository = staticstructureFactory.eINSTANCE.createRepository();
 
 		ModelElementList packageList = sissyRepository.getRoot().getPackages();
 		Iterator<Object> packageIterator = packageList.iterator();
 		while(packageIterator.hasNext()){
 			de.fzi.sissy.metamod.Package packageElement = (de.fzi.sissy.metamod.Package) packageIterator.next();
-			CompositeComponent packageComponent = StaticStructureFactory.eINSTANCE.createCompositeComponent();
+			CompositeComponent packageComponent = staticstructureFactory.eINSTANCE.createCompositeComponent();
 			packageComponent.setId(packageElement.getQualifiedName());
 			packageComponent.setName(packageElement.getSimpleName());
 			ModelElementList elementList = packageElement.getClasses();
 			Iterator<Object> elementIterator = elementList.iterator();
 			while(elementIterator.hasNext()){
 				de.fzi.sissy.metamod.Class classElement = (de.fzi.sissy.metamod.Class) elementIterator.next();
-				PrimitiveComponent component = StaticStructureFactory.eINSTANCE.createPrimitiveComponent();
+				PrimitiveComponent component = staticstructureFactory.eINSTANCE.createPrimitiveComponent();
 				component.setName(classElement.getSimpleName());
 				component.setId(classElement.getQualifiedName());
-				SubcomponentInstance subComponent = StaticStructureFactory.eINSTANCE.createSubcomponentInstance();
+				SubcomponentInstance subComponent = staticstructureFactory.eINSTANCE.createSubcomponentInstance();
 				subComponent.setRealizedBy(component);
 				subComponent.setId(classElement.getQualifiedName());
 				packageComponent.getSubcomponents().add(subComponent);
-				qimpressRepository.getEntities().add(component);
+				qimpressRepository.getComponenttype().add(component);
 			}
-			qimpressRepository.getEntities().add(packageComponent);
+			qimpressRepository.getComponenttype().add(packageComponent);
 		}
 
 
