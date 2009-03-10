@@ -4,7 +4,7 @@
   <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
-            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
             <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_9001"
                name="SynchronisationPoint"
@@ -110,7 +110,7 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023">
          </adviceBinding>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000"
                name="PCMRandomVariable"
@@ -124,14 +124,14 @@
 
    <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
-      <clientContext id="PCM SEFF ModelClientContext">
+      <clientContext id="de.uka.ipd.sdq.pcm.gmf.seff.TypeContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="PCM SEFF ModelClientContext">
+      <binding context="de.uka.ipd.sdq.pcm.gmf.seff.TypeContext">
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice">
          </advice>
