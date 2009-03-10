@@ -3,7 +3,7 @@
   <childComponentContexts_ComposedStructure id="_G7rGcP8eEd2AaK7YTwZXLg" entityName="Assembly_com &lt;com>">
     <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/branches/PCM_REL_3_InternalState/State%20Example%202/default.repository#_9gK1UP8dEd2AaK7YTwZXLg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_3IHi8P9xEd2PJaknC0D4cQ" entityName="AssCtx Middleware server">
+  <childComponentContexts_ComposedStructure id="_7TAcAA2IEd6Um6d3XyL3KA" entityName="AssCtx Middleware server">
     <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/branches/PCM_REL_3_InternalState/State%20Example%202/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_I_pwYP8eEd2AaK7YTwZXLg" entityName="ProvDelegation Provided_icom -> Provided_icom_com" outerProvidedRole_ProvidedDelegationConnector="_IZ27sP8eEd2AaK7YTwZXLg" childComponentContext_ProvidedDelegationConnector="_G7rGcP8eEd2AaK7YTwZXLg">
