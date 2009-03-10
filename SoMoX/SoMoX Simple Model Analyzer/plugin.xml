@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.somox.core.modelanalyzer">
+      <modelanalyzer
+            class="org.somox.analyzer.simplemodelanalyzer.SimpleModelAnalyzer"
+            id="org.somox.analyzer.simplemodelanalyzer"
+            name="SoMoX Simple Model Analyzer">
+      </modelanalyzer>
+   </extension>
+
+</plugin>

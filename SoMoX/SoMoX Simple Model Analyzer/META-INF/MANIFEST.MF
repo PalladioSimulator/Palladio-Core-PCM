@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoMoX Simple Model Analyzer Plug-in
+Bundle-SymbolicName: org.somox.analyzer.simplemodelanalyzer;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.somox.analyzer.simplemodelanalyzer.Activator
+Bundle-Vendor: SoMoX.org
+Require-Bundle: org.eclipse.core.runtime,
+ org.somox.core;bundle-version="1.0.0",
+ org.somox.softwareextractor.sissy;bundle-version="1.0.0",
+ Q_ImpressModel;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

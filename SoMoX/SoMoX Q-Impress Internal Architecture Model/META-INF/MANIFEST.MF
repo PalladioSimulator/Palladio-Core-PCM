@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoMoX Q-Impress Internal Architecture Model Plug-in
+Bundle-SymbolicName: org.somox.internalarchitecturemodel.qimpress
+Bundle-Version: 1.0.0
+Bundle-Vendor: SoMoX.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.somox.core;bundle-version="1.0.0",
+ Q_ImpressModel;bundle-version="1.0.0"
+Export-Package: org.somox.qimpress.internalarchitecturemodel

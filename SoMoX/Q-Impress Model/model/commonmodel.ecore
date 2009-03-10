@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="commonmodel"
+    nsURI="http://q-impress.eu/CommonModel/1.0" nsPrefix="commonmodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="The package Core_model describes Common Service Architecture Metamodel used in scope of Q-ImPreSS project. This package contains more specialized sub-packages, like Allocation-, Annotation-, Behavior-, Deployment-, StaticStructure- and UsageModel-sub-packages."/>
+  </eAnnotations>
+  <eSubpackages name="ResourceEnvironment" nsURI="http:///CoreModel/ResourceEnvironment.ecore"
+      nsPrefix="CoreModel.ResourceEnvironment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ResourceEnvironment package specifies Hardware- and Software-Resources and is used as Allocation Target. Supports Modelling of CPUs, Disks, Network Links, and Main Memory."/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Node">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The Node entity defines deployment node with association to provided resources and building resource enviroment."/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Allocation" nsURI="http:///CoreModel/Allocation.ecore" nsPrefix="CoreModel.Allocation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The package Allocation encapsulates allocation concerns of components. Deployed component on a deployment Node is Service and can be called by Clients (potentially over the Network).&#xD;&#xA;"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="#//StaticStructure/CompositeStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Under the Element Service we understand service as (implicitly) deployed component, therefore Service Metaclass is part of Allocation Package. "/>
+      </eAnnotations>
+      <eOperations name="isBlackBox" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.subcomponents->size() = 0"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isBlackBox" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          volatile="true" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Each service could be BlackBox (derived attribute isBlackBox is true if subcomponents = 0) or composition that is readable and has no BlackBox property."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="node" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//ResourceEnvironment/Node">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The node property of class Service determines the hardware node on which the service is run, i.e., this is the node on which the component referenced by the component property is allocated. The allocated component uses the hardware parts (e.g., CPU, disk, or memory) of this node."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/ComponentType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Each of introduced Services has a one component type associated. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Behavior" nsURI="http:///CoreModel/Behavior.ecore" nsPrefix="CoreModel.Behavior">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The package Behavior specifies behavior models of Services. Finding a Common Behaviour Model for different types of analyses is hard if not impossible to achive, because all of the models have its certain advatages. Therefore, Q-ImPrESS Services support an extensible set of Behaviour Models, which can be mapped on the Metamodel encapsulated in this package.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Behavior" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The class Behavior is the root class definning Behavior model associated with a service interface. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" ordered="false"
+          eType="#//StaticStructure/Operation">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The operation property allows externall call of operations from service behavior model."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Annotation" nsURI="http:///CoreModel/Annotation.ecore" nsPrefix="CoreModel.Annotation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The general Annotation package includes constants, formulas, models, distribution functions to annotate the model elements with QoS information."/>
+    </eAnnotations>
+  </eSubpackages>
+  <eSubpackages name="UsageModel" nsURI="http:///CoreModel/UsageModel.ecore" nsPrefix="CoreModel.UsageModel">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The package UsageModel specifies usage information for monitoring, prediction and simulation purposes."/>
+    </eAnnotations>
+  </eSubpackages>
+  <eSubpackages name="StaticStructure" nsURI="http:///CoreModel/StaticStructure.ecore"
+      nsPrefix="CoreModel.StaticStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The package StaticStructure defines Services, their Interfaces, and their Bindings. Is the main package of core metamodel defining static structure of applications.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeStructure" abstract="true"
+        eSuperTypes="#//StaticStructure/ComponentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The abstract entity CompositeStructure is defining an architecture composed of the subcomponents."/>
+      </eAnnotations>
+      <eOperations name="InnerComponentsOfCompositeComponentsCanNotBeServicesAgain"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.subcomponents->forAll(e|not e.realizedBy.oclIsTypeOf(Allocation::Service))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponents" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/SubcomponentInstance" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The CompositeStructure is build with help ofsubcomponents, that are composed to architecture."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Connector" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The CompositeStructure is build with help of connectors, that could be of a type assembly or delegation connetor."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentType" abstract="true" eSuperTypes="#//StaticStructure/NamedEntity #//StaticStructure/FirstClassEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The abstract class ComponentType defines Components, that can be Black-Box or White-Box and Primitive or Composite."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="required" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Port" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates required service ports of component."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="provided" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Port" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates provided service ports of component."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" ordered="false"
+          upperBound="-1" eType="#//Behavior/Behavior">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines behavior model of component and information about internal control flow between actions."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedEntity" abstract="true" eSuperTypes="#//StaticStructure/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="SuperClass NamedEntity, holding the name information."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The super class Entity is holding the unique identificator information."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="id"/>
+          <details key="namespace" value="xmi"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity port could by provided or required and describes communication style."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The class Operation is describing the signatures of the methods and could be mapped to the WSDL Operation."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="variationPoint"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          eType="#//StaticStructure/Message" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines input parameters of an operation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          eType="#//StaticStructure/Message" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property specifies return or output values of an operation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="throwsExceptions" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Exception" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines the association to possible exeptions related to an operation call."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity Message specifies data in a communication, that could by mapped on the WSDL Message and could be of a type input (method parameters) or output (return value)."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//StaticStructure/Parameter" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property holds associations to parameters included in message."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity parameter specifies building parts of message. Each Message must include at least one Parameter of a specified Type."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Type">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The propety associates to each parameter its type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//StaticStructure/NamedEntity #//StaticStructure/FirstClassEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity Type specifies data type of the Message parameters."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Exception" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity exception defines thrown exception by operation. Each Operation can throw a Exceptions. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExceptionMessage" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines Error message."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubcomponentInstance" eSuperTypes="#//StaticStructure/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity SubcomponentInstance is specifying the Subcomponents of the CompositeStructure."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="realizedBy" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/ComponentType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property assigns component type to subcomponent."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//StaticStructure/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity connector specifies binding between components. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDelegation" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          changeable="false" volatile="true" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Derived attribute isDelegation of element Connector differentiates assembly and delegation connectors in our models. For example for two endpoints if they are at the same hierarchy level the flag will be set to false and if they are on adjacent hierarchy levels the flag is set to true. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/EndPoint" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines endpoints joined by one connector."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EndPoint" abstract="true" eSuperTypes="#//StaticStructure/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Encapsulates a Port and an assembly of Subcomponents to uniquely identify connection endpoints."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceArchitectureModel" eSuperTypes="#//StaticStructure/CompositeStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity specifies a service-orieted architecture model. We distinguish ServiceArchitectureModel  and  CompositeComponent to model service-oriented abstraction level and component-based abstraction level. ServiceArchitectureModel  allows to model pure service-oriented applications separately on different model levels. The service level builds higher coordination level for modelled applications. At the highest level there is a composite structure ServiceArchitectureModel build by composition of services. All subcomponents of ServiceArchitectureModel need to be of a type Service. "/>
+      </eAnnotations>
+      <eOperations name="OnlyServicesOnTopLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.subcomponents->forAll(e|e.realizedBy.oclIsTypeOf(Allocation::Service))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaredInterfaces" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Interface" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates interfaces provided and required by service architecture model."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Allocation/Service" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines the services that build the service architecture model."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//StaticStructure/NamedEntity #//StaticStructure/FirstClassEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The class Interafce provides the description of an Interface that is mapping the SOA terminology. Service Interface ist described by the Service Architecture Model. WSDL PortTypes could by mapped to the Interfaces."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Operation" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates operations with certain interface."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inheritance" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/Interface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property allows extending the interface with new operations."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubcomponentEndpoint" eSuperTypes="#//StaticStructure/EndPoint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity SubcomponentEndpoint defines Endpoint at the assembly connector level."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponent" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/SubcomponentInstance">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property specifies a subcomponent to which the endpoit belongs."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Port">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property specifies port type of subcomponent endpoint."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The Repository entity represents composition of FirstClassEntities that could be reused and composed into more complex architectures."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entities" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/FirstClassEntity" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates all the entities that are available in repository."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentEndpoint" eSuperTypes="#//StaticStructure/EndPoint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity ComponentEndpoint defines externaly visible Endpoint on the delegation connectore level."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Port">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property specifies port type of component endpoint."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//StaticStructure/Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity PrimitiveDataType specifies the basic data types."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          eType="#//StaticStructure/XSDPrimitiveDataTypes">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="XSDPrimitiveDataTypes">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="XSDPrimityveDataTypes enumeration specifies the set of basic data types, based on standard XSD data types used in service-orieted architectures."/>
+      </eAnnotations>
+      <eLiterals name="string"/>
+      <eLiterals name="int" value="1"/>
+      <eLiterals name="float" value="2"/>
+      <eLiterals name="date" value="3"/>
+      <eLiterals name="time" value="4"/>
+      <eLiterals name="boolean" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexDataType" eSuperTypes="#//StaticStructure/Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ComplexDataType entity is defining complex structures similar to structures in C language."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+          upperBound="-1" eType="#//StaticStructure/InnerElement" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property defines members of structure defined by ComplexDataType."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InnerElement" eSuperTypes="#//StaticStructure/NamedEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity InnerElementrepresents inner elements of data structures."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Type">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates to each InnerElement an appropriate type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//StaticStructure/CompositeStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity CompositeComponent allows to describe component-based abstraction level. Composite components are not allowed to be composed from services, they specify underlying component-based applications. "/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveComponent" eSuperTypes="#//StaticStructure/ComponentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity specifies basic component on the lowest level of encapsulation."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventPort" eSuperTypes="#//StaticStructure/Port">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity event port allows to model event-based communication. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSource" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Derived attribute isSource specifies type of EventPort (source or sink), is based on Port provided or required associations. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="message" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Message">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property message defines message type that fires the event."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterfacePort" eSuperTypes="#//StaticStructure/Port">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The entity defines InterfacePort type for method invocations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Interface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property associates interafce type with interface port."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionDataType" eSuperTypes="#//StaticStructure/Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The CollectionDataType defines Collections of elements with the same data type."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innertype" ordered="false"
+          lowerBound="1" eType="#//StaticStructure/Type">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The property InnerType defines type of members of collection."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FirstClassEntity" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The FirstClassEntity covers all elements that could be created in a repository and reused to build more complex systems."/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Q-Impress Model/src"
+    modelPluginID="Q_ImpressModel" modelName="Qimpress" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>../../emf-editor/model/gast.ecore</foreignModel>
+  <foreignModel>../../emf-editor/model/ImplementationDecorator.ecore</foreignModel>
+  <foreignModel>../../emf-editor/model/commonmodel.ecore</foreignModel>
+  <foreignModel>../../emf-editor/model/ExpressionsDecorator.ecore</foreignModel>
+  <genPackages prefix="Commonmodel" basePackage="eu.qimpress.commonmodel" disposableProviderFactory="true"
+      ecorePackage="commonmodel.ecore#/">
+    <nestedGenPackages prefix="ResourceEnvironment" disposableProviderFactory="true"
+        ecorePackage="commonmodel.ecore#//ResourceEnvironment">
+      <genClasses ecoreClass="commonmodel.ecore#//ResourceEnvironment/Node"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Allocation" resource="XML" disposableProviderFactory="true"
+        ecorePackage="commonmodel.ecore#//Allocation">
+      <genClasses ecoreClass="commonmodel.ecore#//Allocation/Service">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//Allocation/Service/isBlackBox.1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//Allocation/Service/node"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//Allocation/Service/component"/>
+        <genOperations ecoreOperation="commonmodel.ecore#//Allocation/Service/isBlackBox">
+          <genParameters ecoreParameter="commonmodel.ecore#//Allocation/Service/isBlackBox/diagnostics"/>
+          <genParameters ecoreParameter="commonmodel.ecore#//Allocation/Service/isBlackBox/context"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Behavior" resource="XML" disposableProviderFactory="true"
+        ecorePackage="commonmodel.ecore#//Behavior">
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//Behavior/Behavior">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//Behavior/Behavior/operation"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Annotation" disposableProviderFactory="true" ecorePackage="commonmodel.ecore#//Annotation"/>
+    <nestedGenPackages prefix="UsageModel" disposableProviderFactory="true" ecorePackage="commonmodel.ecore#//UsageModel"/>
+    <nestedGenPackages prefix="StaticStructure" resource="XML" disposableProviderFactory="true"
+        ecorePackage="commonmodel.ecore#//StaticStructure">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes">
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/string"/>
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/int"/>
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/float"/>
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/date"/>
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/time"/>
+        <genEnumLiterals ecoreEnumLiteral="commonmodel.ecore#//StaticStructure/XSDPrimitiveDataTypes/boolean"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/CompositeStructure">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/CompositeStructure/subcomponents"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/CompositeStructure/connector"/>
+        <genOperations ecoreOperation="commonmodel.ecore#//StaticStructure/CompositeStructure/InnerComponentsOfCompositeComponentsCanNotBeServicesAgain">
+          <genParameters ecoreParameter="commonmodel.ecore#//StaticStructure/CompositeStructure/InnerComponentsOfCompositeComponentsCanNotBeServicesAgain/diagnostics"/>
+          <genParameters ecoreParameter="commonmodel.ecore#//StaticStructure/CompositeStructure/InnerComponentsOfCompositeComponentsCanNotBeServicesAgain/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/ComponentType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ComponentType/required"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ComponentType/provided"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ComponentType/behaviour"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/NamedEntity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/NamedEntity/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/Entity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/Entity/id"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/Port"/>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Operation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Operation/input"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Operation/output"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Operation/throwsExceptions"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Message">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Message/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Parameter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Parameter/type"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Type"/>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Exception">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/Exception/ExceptionMessage"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/SubcomponentInstance">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/SubcomponentInstance/realizedBy"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Connector">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/Connector/isDelegation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Connector/endpoints"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/EndPoint"/>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/ServiceArchitectureModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ServiceArchitectureModel/declaredInterfaces"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ServiceArchitectureModel/service"/>
+        <genOperations ecoreOperation="commonmodel.ecore#//StaticStructure/ServiceArchitectureModel/OnlyServicesOnTopLevel">
+          <genParameters ecoreParameter="commonmodel.ecore#//StaticStructure/ServiceArchitectureModel/OnlyServicesOnTopLevel/diagnostics"/>
+          <genParameters ecoreParameter="commonmodel.ecore#//StaticStructure/ServiceArchitectureModel/OnlyServicesOnTopLevel/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Interface">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Interface/signatures"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Interface/inheritance"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/SubcomponentEndpoint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/SubcomponentEndpoint/subcomponent"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/SubcomponentEndpoint/port"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/Repository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/Repository/entities"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/ComponentEndpoint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ComponentEndpoint/port"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/PrimitiveDataType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/PrimitiveDataType/type"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/ComplexDataType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/ComplexDataType/elements"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/InnerElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/InnerElement/type"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/CompositeComponent"/>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/PrimitiveComponent"/>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/EventPort">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonmodel.ecore#//StaticStructure/EventPort/isSource"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/EventPort/message"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/InterfacePort">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/InterfacePort/type"/>
+      </genClasses>
+      <genClasses ecoreClass="commonmodel.ecore#//StaticStructure/CollectionDataType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference commonmodel.ecore#//StaticStructure/CollectionDataType/innertype"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="commonmodel.ecore#//StaticStructure/FirstClassEntity"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

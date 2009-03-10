@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///CoreModel/ResourceEnvironment.ecore"
+            class="eu.qimpress.commonmodel.commonmodel.ResourceEnvironment.ResourceEnvironmentPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///CoreModel/Allocation.ecore"
+            class="eu.qimpress.commonmodel.commonmodel.Allocation.AllocationPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="allocation"
+            class="eu.qimpress.commonmodel.commonmodel.Allocation.util.AllocationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///CoreModel/Behavior.ecore"
+            class="eu.qimpress.commonmodel.commonmodel.Behavior.BehaviorPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="behavior"
+            class="eu.qimpress.commonmodel.commonmodel.Behavior.util.BehaviorResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///CoreModel/StaticStructure.ecore"
+            class="eu.qimpress.commonmodel.commonmodel.StaticStructure.StaticStructurePackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="staticstructure"
+            class="eu.qimpress.commonmodel.commonmodel.StaticStructure.util.StaticStructureResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
