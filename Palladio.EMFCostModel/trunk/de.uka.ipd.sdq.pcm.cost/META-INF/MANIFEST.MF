@@ -26,5 +26,6 @@ Export-Package: de.uka.ipd.sdq.pcm.cost;
    org.eclipse.emf.common.notify,
    de.uka.ipd.sdq.pcm.cost"
 Require-Bundle: de.uka.ipd.sdq.pcm;visibility:=reexport,
- de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0"
+ de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.xmi
 Bundle-ActivationPolicy: lazy

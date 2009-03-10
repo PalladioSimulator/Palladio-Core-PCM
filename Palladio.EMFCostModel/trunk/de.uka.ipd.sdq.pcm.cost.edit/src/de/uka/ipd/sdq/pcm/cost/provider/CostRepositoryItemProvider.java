@@ -185,7 +185,7 @@ public class CostRepositoryItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CostModelEditPlugin.INSTANCE;
+		return CostModel3EditPlugin.INSTANCE;
 	}
 
 }

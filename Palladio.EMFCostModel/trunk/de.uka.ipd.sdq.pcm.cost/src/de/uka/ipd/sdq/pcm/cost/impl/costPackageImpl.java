@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.cost.impl;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
@@ -41,6 +42,9 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -168,6 +172,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		IdentifierPackage.eINSTANCE.eClass();
 		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
@@ -180,6 +185,9 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
 		SubsystemPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thecostPackage.createPackageContents();
