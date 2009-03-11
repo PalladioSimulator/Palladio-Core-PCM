@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.opt4j.genotype.Bounds;
 
+import com.google.inject.Inject;
+
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
@@ -35,6 +37,7 @@ public class DSEProblem {
 	/**
 	 * @param initialInstance
 	 */
+	@Inject
 	public DSEProblem(PCMInstance initialInstance){
 		this.initialInstance = initialInstance;
 		

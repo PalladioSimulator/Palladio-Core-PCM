@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.genotype.DoubleGenotype;
 
+import com.google.inject.Inject;
+
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
@@ -23,6 +25,7 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
+	@Inject
 	public DSEDecoder(DSEProblem problem){
 		this.problem = problem;
 	}

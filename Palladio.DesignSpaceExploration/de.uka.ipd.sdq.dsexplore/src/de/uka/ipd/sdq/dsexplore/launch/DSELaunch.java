@@ -111,7 +111,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
 		    //algorithm.initialise(instances, analysisTool,configuration);
 		    
-		    //Opt4JStarter.startOpt4J(analysisTool);
+		    Opt4JStarter.startOpt4J(analysisTool);
 		    
 		    
 		    //analyse the initial PCMInstance

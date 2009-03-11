@@ -5,6 +5,8 @@ import java.util.Random;
 import org.opt4j.core.problem.Creator;
 import org.opt4j.genotype.DoubleGenotype;
 
+import com.google.inject.Inject;
+
 /**
  * The {@link DSECreator} is responsible for randomly creating genotypes 
  * in the solution space. It can query the {@link DSEProblem} for the 
@@ -18,6 +20,7 @@ public class DSECreator implements Creator<DoubleGenotype> {
 	private DSEProblem problem;
 	private Random random;
 
+	@Inject
 	public DSECreator(DSEProblem problem){
 		this.problem = problem;
 		this.random = new Random();
