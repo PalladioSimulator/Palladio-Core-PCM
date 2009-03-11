@@ -148,5 +148,21 @@
             name="SoMoX UI Controller">
       </controller>
    </extension>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+           delegate="org.somox.ui.runconfig.ModelExtractionConfigurationDelegate"
+           id="org.somox.ui.runconfig.LaunchModelExtraction"
+           modes="run, debug"
+           name="Launch Model Extraction"
+           public="true">        
+	    </launchConfigurationType>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="org.somox.ui.runconfig.LaunchModelExtraction"
+	        class="org.somox.ui.runconfig.TabGroup"
+	        id="org.somox.ui.runconfig.launchConfigurationTabGroup">
+	    </launchConfigurationTabGroup>
+	</extension>
 
 </plugin>
