@@ -6,7 +6,7 @@
       <steps_Behaviour xsi:type="_1:StartAction" id="_EM70EANXEd6Wg6BvkTAXCQ" successor_AbstractAction="_EhV90ANXEd6Wg6BvkTAXCQ"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_EhV90ANXEd6Wg6BvkTAXCQ" predecessor_AbstractAction="_EM70EANXEd6Wg6BvkTAXCQ" successor_AbstractAction="_Ez0N4ANXEd6Wg6BvkTAXCQ">
         <resourceDemand_Action>
-          <specification_ParametericResourceDemand specification="1"/>
+          <specification_ParametericResourceDemand specification="IntPMF[ (1;0.5) (2;0.5) ]"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
       </steps_Behaviour>
