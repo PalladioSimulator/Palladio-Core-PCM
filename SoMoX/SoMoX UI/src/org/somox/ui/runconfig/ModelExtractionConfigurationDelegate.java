@@ -15,7 +15,7 @@ import org.somox.ui.GUISoMoXCoreController;
  * 
  * @author Michael Hauck
  */
-public abstract class ModelExtractionConfigurationDelegate implements
+public class ModelExtractionConfigurationDelegate implements
 		ILaunchConfigurationDelegate{
 
 	/*(non-Javadoc)
