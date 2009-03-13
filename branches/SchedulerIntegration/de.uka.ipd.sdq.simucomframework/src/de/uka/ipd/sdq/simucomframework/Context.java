@@ -131,14 +131,9 @@ public abstract class Context extends StackContext {
 		this.evaluateInner(this.myModel.getStoExCache(), stackFrame, stoEx);
 	}
 
-	public Object evaluateStoEx(String string,
-			SimulatedStackframe<Object> currentFrame) {
-		try {
-			return currentFrame.getValue(string);
-		} catch (ValueNotInFrameException e) {
-			e.printStackTrace();
-			return null;
-		}
+	public Object evaluateStoEx(String stoex,
+			SimulatedStackframe<Object> stackFrame) {
+		return this.evaluate(this.myModel.getStoExCache(), stoex, stackFrame);
 	}	
 	
 }
