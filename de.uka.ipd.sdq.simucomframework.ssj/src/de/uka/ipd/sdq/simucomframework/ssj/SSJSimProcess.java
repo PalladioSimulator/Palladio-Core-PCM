@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.simucomframework.ssj;
 
+import org.apache.commons.javaflow.Continuation;
+import org.apache.log4j.Logger;
+
 import umontreal.iro.lecuyer.simevents.Event;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import umontreal.iro.lecuyer.simevents.Simulator;
@@ -52,6 +55,9 @@ enum ProcessState {
  */
 public class SSJSimProcess implements ISimProcessDelegate {
 
+	private static Logger logger = 
+		Logger.getLogger(SSJSimProcess.class.getName());
+
 	de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess myAbstractProcess = null;
 
 	Lock waitingSemaphore = new Lock(false);
@@ -59,14 +65,20 @@ public class SSJSimProcess implements ISimProcessDelegate {
 
 	private ProcessState myProcessState = ProcessState.READY;
 	private Simulator sim;
-	private Thread myThread;
+	private Runnable myRunnable = null;
+	private Thread myThread = null;
+	private Continuation thisThreadsContinuation = null;
+	
+	private static final boolean IS_USING_THREADS = true;
+
 	
 	public SSJSimProcess(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess myProcess, String name) {
 		this.sim = ((SSJExperiment)myProcess.getModel().getSimulationControl()).getSimulator();
 		this.myAbstractProcess = myProcess;
-		this.myThread = new Thread(new Runnable(){
+		this.myRunnable = new Runnable(){
 
 			public void run() {
+				logger.debug("Starting sim process [ID: "+SSJSimProcess.this.myAbstractProcess.getId()+"]");
 				SSJSimProcess.this.actions();
 				SSJSimProcess.this.myThread = null;
 				// Jens: fireTerminated has to be called before 
@@ -75,9 +87,15 @@ public class SSJSimProcess implements ISimProcessDelegate {
 				// --> now called in method "lifeCycle". 
 			}
 			
-		});
-		this.myThread.start();
-		waitingForSuspendSemaphore.takeUninteruppted();
+		};
+		if (IS_USING_THREADS) {
+			this.myThread = new Thread(this.myRunnable);
+			this.myThread.start();
+			waitingForSuspendSemaphore.takeUninteruppted();
+		} else {
+			// This lets the thread run until it suspends or terminates and stores its state in thisThreadsContinuation
+			thisThreadsContinuation = Continuation.startWith(this.myRunnable);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -85,7 +103,9 @@ public class SSJSimProcess implements ISimProcessDelegate {
 	 */
 	public void hold(double d) {
 		if (this.myProcessState != ProcessState.RUNNING)
-			throw new IllegalStateException("Tried to hold non-running process");
+			throw new IllegalStateException("Tried to hold non-running process ["+this.myAbstractProcess.getId()+"]");
+		
+		logger.debug("Holding running process (ID: "+this.myAbstractProcess.getId()+") for "+d);
 		
 		new Event(sim) {
 
@@ -103,7 +123,7 @@ public class SSJSimProcess implements ISimProcessDelegate {
 	 */
 	public void scheduleAt(double d) {
 		if (this.myProcessState != ProcessState.SUSPENDED)
-			throw new IllegalStateException("Tried to schedule thread which was not suspended");
+			throw new IllegalStateException("Tried to schedule thread which was not suspended ["+this.myAbstractProcess.getId()+"]");
 		
 		new Event(sim) {
 
@@ -126,8 +146,12 @@ public class SSJSimProcess implements ISimProcessDelegate {
 		
 		// This process is done and will not suspend any more...
 		// Hence, release its wait for suspend semaphore
-		this.waitingForSuspendSemaphore.release();
 		this.myProcessState = ProcessState.TERMINATED;
+		if (IS_USING_THREADS) {
+			this.waitingForSuspendSemaphore.release();
+		} else {
+			Continuation.suspend();
+		}
 	}
 
 	public boolean isTerminated() {
@@ -136,26 +160,39 @@ public class SSJSimProcess implements ISimProcessDelegate {
 
 	public void passivate() {
 		if (this.myProcessState != ProcessState.RUNNING)
-			throw new IllegalStateException("Tried to passivate non-running process");
+			throw new IllegalStateException("Tried to passivate non-running process ["+this.myAbstractProcess.getId()+"]");
 		suspend();
 	}
 	
 	private void suspend() {
 		if (this.myProcessState != ProcessState.RUNNING)
-			throw new IllegalStateException("Tried to suspend non-running process");
+			throw new IllegalStateException("Tried to suspend non-running process ["+this.myAbstractProcess.getId()+"]");
+		
+		logger.debug("Suspending thread ["+this.myAbstractProcess.getId()+"]");
 		this.myProcessState = ProcessState.SUSPENDED;
-		waitingForSuspendSemaphore.release();
-		waitingSemaphore.takeUninteruppted();
+		if (IS_USING_THREADS){
+			waitingForSuspendSemaphore.release();
+			waitingSemaphore.takeUninteruppted();
+		} else {
+			logger.debug("Before Continuation.suspend()");
+			Continuation.suspend();
+			logger.debug("After Continuation.suspend()");
+		}
 		this.myProcessState = ProcessState.RUNNING;
 	}
 
 	private void resume() {
 		if (this.myProcessState != ProcessState.SUSPENDED)
-			throw new IllegalStateException("Tried to resume thread which was not suspended");
+			throw new IllegalStateException("Tried to resume thread which was not suspended ["+this.myAbstractProcess.getId()+"]");
 
+		logger.debug("Resuming thread ["+this.myAbstractProcess.getId()+"]");
 		this.myProcessState = ProcessState.RUNNING;
-		waitingSemaphore.release();
-		waitingForSuspendSemaphore.takeUninteruppted();
+		if (IS_USING_THREADS) {
+			waitingSemaphore.release();
+			waitingForSuspendSemaphore.takeUninteruppted();
+		} else {
+			thisThreadsContinuation = Continuation.continueWith(thisThreadsContinuation);
+		}
 
 		// In case of in-between termination, do not set the state back to suspended
 		if (this.myProcessState == ProcessState.RUNNING) {

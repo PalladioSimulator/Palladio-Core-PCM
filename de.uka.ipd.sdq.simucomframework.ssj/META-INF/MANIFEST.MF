@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SimuCom SSJ Engine Plugin
+JavaFlow-Enabled: true
 Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework.ssj;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
