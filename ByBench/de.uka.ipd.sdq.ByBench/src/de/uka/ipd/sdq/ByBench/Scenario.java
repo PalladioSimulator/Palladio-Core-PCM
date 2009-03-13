@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.ByBench;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

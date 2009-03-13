@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.ByBench.util;
 
 import org.eclipse.emf.common.util.URI;
 
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
@@ -17,7 +18,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.ByBench.util.ByBenchResourceFactoryImpl
  * @generated
  */
-public class ByBenchResourceImpl extends XMLResourceImpl {
+public class ByBenchResourceImpl extends XMIResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->

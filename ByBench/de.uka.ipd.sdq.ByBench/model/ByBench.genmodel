@@ -5,7 +5,7 @@
     modelPluginID="de.uka.ipd.sdq.ByBench" modelName="ByBench" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier">
   <foreignModel>ByBench.ecore</foreignModel>
-  <genPackages prefix="ByBench" basePackage="de.uka.ipd.sdq" resource="XML" disposableProviderFactory="true"
+  <genPackages prefix="ByBench" basePackage="de.uka.ipd.sdq" resource="XMI" disposableProviderFactory="true"
       ecorePackage="ByBench.ecore#/">
     <genClasses ecoreClass="ByBench.ecore#//Scenario">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/scenarioprecondition"/>

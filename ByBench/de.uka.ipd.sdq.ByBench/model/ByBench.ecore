@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ByBench"
-    nsURI="http://sdq.ipd.uka.de/ByBench/1.0" nsPrefix="ByBench">
+    nsURI="http://sdq.ipd.uka.de/ByBench/1.0/" nsPrefix="ByBench">
   <eClassifiers xsi:type="ecore:EClass" name="Scenario" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioprecondition" ordered="false"
         lowerBound="1" eType="#//ScenarioPrecondition" containment="true"/>

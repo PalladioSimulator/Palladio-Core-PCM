@@ -31,7 +31,7 @@ public class ByBenchFactoryImpl extends EFactoryImpl implements ByBenchFactory {
 	 */
 	public static ByBenchFactory init() {
 		try {
-			ByBenchFactory theByBenchFactory = (ByBenchFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/ByBench/1.0"); 
+			ByBenchFactory theByBenchFactory = (ByBenchFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/ByBench/1.0/"); 
 			if (theByBenchFactory != null) {
 				return theByBenchFactory;
 			}
