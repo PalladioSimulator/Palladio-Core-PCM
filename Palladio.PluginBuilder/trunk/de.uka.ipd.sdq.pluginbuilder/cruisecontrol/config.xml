@@ -6,7 +6,7 @@
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
 	  <svn RepositoryLocation="svn://141.3.52.13/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	  
     </modificationset>
-    <schedule interval="86400"> <!-- in seconds; 86400: 1 day -->
+    <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
     </schedule>
     <log>
@@ -14,7 +14,7 @@
     </log>
     <labelincrementer defaultlabel="3.0" prebuildincrementer="true"></labelincrementer>
     <publishers>
-      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/PCM" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de">
+      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/PCM" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de" skipusers="true">
         <always address="sdq-dev@ira.uka.de"></always>
         <!-- <always address="sbecker@ipd.uka.de"></always>
         <always address="krogmann@ipd.uka.de"></always> -->
