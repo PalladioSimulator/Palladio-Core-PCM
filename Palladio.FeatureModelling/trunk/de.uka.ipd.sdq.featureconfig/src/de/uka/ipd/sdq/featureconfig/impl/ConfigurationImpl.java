@@ -6,18 +6,25 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -309,6 +316,94 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public boolean mandatoryFeaturesChecked(Configuration configuration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean valid = true;
+		FeatureConfig defaultConfig = configuration.getDefaultConfig();
+		FeatureConfig configOverrides = configuration.getConfigOverrides();
+		
+		if (defaultConfig == null && configOverrides == null) {
+			valid = false;
+		}
+		
+		Feature referenceFeature = null;
+		
+		for (ConfigNode currentNode : configOverrides.getConfignode()) {
+			if (currentNode.getOrigin() != null) {
+				referenceFeature = currentNode.getOrigin();
+			}
+		}
+		
+		if (referenceFeature == null) {
+			for (ConfigNode currentNode : defaultConfig.getConfignode()) {
+				if (currentNode.getOrigin() != null) {
+					referenceFeature = currentNode.getOrigin();
+				}
+			}
+		}
+		
+		if (referenceFeature == null) {
+			valid = false;
+		} else {
+			//Navigate to root Feature
+		}
+		
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add
+				(new BasicDiagnostic
+						(Diagnostic.ERROR,
+								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
+								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
+								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"Mandatory features selected", EObjectValidator.getObjectLabel(this, context) }),
+								new Object [] { this }));
+			}
+		}
+		return valid;
+	}
+
+	@Override
+	public boolean minMaxCorrect(Configuration configuration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean valid = true;
+		FeatureConfig defaultConfig = configuration.getDefaultConfig();
+		FeatureConfig configOverrides = configuration.getConfigOverrides();
+		
+		Feature referenceFeature = null;
+		
+		for (ConfigNode currentNode : configOverrides.getConfignode()) {
+			if (currentNode.getOrigin() != null) {
+				referenceFeature = currentNode.getOrigin();
+			}
+		}
+		
+		if (referenceFeature == null) {
+			for (ConfigNode currentNode : defaultConfig.getConfignode()) {
+				if (currentNode.getOrigin() != null) {
+					referenceFeature = currentNode.getOrigin();
+				}
+			}
+		}
+		
+		if (referenceFeature != null) {
+			//Navigate to root Feature
+		}
+		
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add
+				(new BasicDiagnostic
+						(Diagnostic.ERROR,
+								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
+								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
+								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"Mandatory features selected", EObjectValidator.getObjectLabel(this, context) }),
+								new Object [] { this }));
+			}
+		}
+		return valid;
 	}
 
 } //ConfigurationImpl

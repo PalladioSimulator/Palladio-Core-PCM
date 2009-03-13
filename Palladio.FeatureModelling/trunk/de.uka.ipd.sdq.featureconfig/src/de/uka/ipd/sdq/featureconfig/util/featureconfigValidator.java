@@ -44,28 +44,20 @@ public class featureconfigValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.featureconfig";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Config Cardinality Invalid' of 'Config Node'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int CONFIG_NODE__CONFIG_CARDINALITY_INVALID = 1;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Root Is Feature Model' of 'Feature Config'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 2;
-
-	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
+	
+	public static final int CONFIG_NODE__PROHIBITS_FEATURE_SELECTED = 3;
+	
+	public static final int CONFIG_NODE__REQUIRED_FEATURE_ELIMINATED = 4;
+	
+	public static final int CONFIGURATION__MANDATORY_ELIMINATED = 5;
+	
+	public static final int CONFIGURATION__MIN_MAX_VIOLATED = 6;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -131,18 +123,20 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(configNode, diagnostics, context);
-		if (result || diagnostics != null) result &= validateConfigNode_ConfigCardinalityInvalid(configNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_RequiresFeaturesChecked(configNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_ProhibitsFeaturesUnchecked(configNode, diagnostics, context);
 		return result;
 	}
+	
 
-	/**
-	 * Validates the ConfigCardinalityInvalid constraint of '<em>Config Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateConfigNode_ConfigCardinalityInvalid(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return configNode.ConfigCardinalityInvalid(diagnostics, context);
+	private boolean validate_ProhibitsFeaturesUnchecked(ConfigNode configNode,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configNode.prohibitsFeaturesUnchecked(configNode, diagnostics, context);
+	}
+
+	private boolean validate_RequiresFeaturesChecked(ConfigNode configNode,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configNode.requiresFeaturesChecked(configNode, diagnostics, context);
 	}
 
 	/**
@@ -158,18 +152,7 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(featureConfig, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(featureConfig, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validateFeatureConfig_RootIsFeatureModel(featureConfig, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the RootIsFeatureModel constraint of '<em>Feature Config</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateFeatureConfig_RootIsFeatureModel(FeatureConfig featureConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return featureConfig.RootIsFeatureModel(diagnostics, context);
 	}
 
 	/**
@@ -178,9 +161,22 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConfiguration(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(configuration, diagnostics, context);
+		boolean result = validate_EveryDefaultConstraint(configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_MinMaxCorrect(configuration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_MandatoryFeaturesChecked(configuration, diagnostics, context);
+		return result;
 	}
 
+	private boolean validate_MinMaxCorrect(Configuration configuration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configuration.minMaxCorrect(configuration, diagnostics, context);
+	}
+
+	private boolean validate_MandatoryFeaturesChecked(Configuration configuration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configuration.mandatoryFeaturesChecked(configuration, diagnostics, context);
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

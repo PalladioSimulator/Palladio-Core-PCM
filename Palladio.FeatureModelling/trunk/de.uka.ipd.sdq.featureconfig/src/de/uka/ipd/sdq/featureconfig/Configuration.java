@@ -6,6 +6,9 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -108,5 +111,8 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+	
+	boolean mandatoryFeaturesChecked (Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean minMaxCorrect (Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Configuration

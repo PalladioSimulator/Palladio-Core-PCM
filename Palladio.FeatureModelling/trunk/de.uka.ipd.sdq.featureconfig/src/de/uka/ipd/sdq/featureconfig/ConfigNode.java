@@ -6,13 +6,12 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import de.uka.ipd.sdq.featuremodel.Feature;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featuremodel.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,24 +89,8 @@ public interface ConfigNode extends EObject {
 	 * @generated
 	 */
 	void setConfigState(ConfigState value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
-	 * in 
-	 * 	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
-	 * 	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)
-	 * 	 else
-	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
-	 * 	 endif
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context);
+	
+	boolean requiresFeaturesChecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean prohibitsFeaturesUnchecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ConfigNode

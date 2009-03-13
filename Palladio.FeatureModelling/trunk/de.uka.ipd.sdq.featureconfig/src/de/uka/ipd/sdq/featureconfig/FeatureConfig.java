@@ -6,11 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -72,18 +68,5 @@ public interface FeatureConfig extends EObject {
 	 * @generated
 	 */
 	EList<ConfigNode> getConfignode();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean RootIsFeatureModel(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // FeatureConfig
