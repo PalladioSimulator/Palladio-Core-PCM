@@ -6,9 +6,6 @@
  */
 package de.uka.ipd.sdq.featuremodel;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -60,18 +57,5 @@ public interface Simple extends ChildRelation {
 	 * @generated
 	 */
 	EList<Feature> getOptionalChildren();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.optionalChildren->size()+self.mandatoryChildren->size()>=1
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean atLeastOneChild(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Simple

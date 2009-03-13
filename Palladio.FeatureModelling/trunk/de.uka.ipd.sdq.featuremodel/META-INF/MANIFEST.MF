@@ -11,5 +11,7 @@ Export-Package: de.uka.ipd.sdq.featuremodel,
  de.uka.ipd.sdq.featuremodel.impl,
  de.uka.ipd.sdq.featuremodel.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ocl;bundle-version="1.2.3",
+ org.eclipse.ocl.ecore;bundle-version="1.2.1"
 Bundle-ActivationPolicy: lazy
