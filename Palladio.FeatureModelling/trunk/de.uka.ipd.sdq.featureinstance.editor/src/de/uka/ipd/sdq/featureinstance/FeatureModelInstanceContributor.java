@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -36,36 +37,40 @@ class InstanceValidateAction extends ValidateAction {
 			
 			switch (d.getSeverity()) {
 			case Diagnostic.CANCEL: 
-				errord = new ErrorDisplayDialog(shell,new Throwable("The validation was cancelled:\n" + d.getMessage()));
+				String errorMsg = "The validation was cancelled:\n\n";
+				for (Diagnostic currentD : d.getChildren()) {
+					errorMsg = errorMsg + currentD.getMessage() + "\n";
+				}
+				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
 				errord.open(); break;
 			case Diagnostic.ERROR: 
-				errord = new ErrorDisplayDialog(shell,new Throwable("The validation finished with errors:\n" + d.getMessage()));
+				errorMsg = "The validation finished with errors:\n\n";
+				for (Diagnostic currentD : d.getChildren()) {
+					errorMsg = errorMsg + currentD.getMessage() + "\n";
+				}
+				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
 				errord.open(); break;
-			case Diagnostic.WARNING: System.out.println("Validation warning"); 
-				errord = new ErrorDisplayDialog(shell,new Throwable("The validation finished with warnings:\n" + d.getMessage()));
+			case Diagnostic.WARNING:
+				errorMsg = "The validation finished with warnings:\n\n";
+				for (Diagnostic currentD : d.getChildren()) {
+					errorMsg = errorMsg + currentD.getMessage() + "\n";
+				}
+				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
 				errord.open(); break;
-			case Diagnostic.OK: /*normal dialog*/ break;
-			case Diagnostic.INFO: /*Informational dialog*/ break;
-			default: /*sth else*/
+			case Diagnostic.OK: 
+				MessageDialog.openInformation(shell, "Validation success", "The validation completed successfully");
+				break;
+			case Diagnostic.INFO: 
+				MessageDialog.openInformation(shell, "Validation", "The validation completed with informational messages");
+				break;
+			default:
+				errorMsg = "The validation finished with an unknown status:\n\n";
+				for (Diagnostic currentD : d.getChildren()) {
+					errorMsg = errorMsg + currentD.getMessage() + "\n";
+				}
+				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
+				errord.open(); break;
 			}
-			for (Diagnostic child : d.getChildren()) {
-				System.out.println(child.getMessage());
-			}
-			System.out.println(d.getMessage());
-			//TODO: Fuer featuremodel
-			d = diagnostician.validate(diagram);
-			switch (d.getSeverity()) {
-			case Diagnostic.CANCEL: System.out.println("Validation cancelled"); break;
-			case Diagnostic.ERROR: System.out.println("Validation error"); break;
-			case Diagnostic.WARNING: System.out.println("Validation warning"); break;
-			case Diagnostic.OK: System.out.println("Validation OK"); break;
-			case Diagnostic.INFO: System.out.println("Validation INFO"); break;
-			default: System.out.println("Validation sth else");
-			}
-			for (Diagnostic child : d.getChildren()) {
-				System.out.println(child.getMessage());
-			}
-			System.out.println(d.getMessage());
 	}
 	
 	public void setConfiguration (Configuration config, FeatureDiagram diagram) {
