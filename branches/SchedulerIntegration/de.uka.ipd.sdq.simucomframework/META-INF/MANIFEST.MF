@@ -3,6 +3,7 @@ Bundle-Name: SimuCom Framework
 Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
+JavaFlow-Enabled: true
 Export-Package: de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.abstractSimEngine,
  de.uka.ipd.sdq.simucomframework.fork,
