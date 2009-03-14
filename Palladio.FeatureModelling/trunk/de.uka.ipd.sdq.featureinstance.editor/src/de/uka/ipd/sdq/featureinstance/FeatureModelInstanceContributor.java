@@ -21,63 +21,76 @@ import org.eclipse.ui.IEditorPart;
 
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 
 class InstanceValidateAction extends ValidateAction {
 	
-	FeatureDiagram diagram;
 	Configuration config;
 	Shell shell;
 	
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
+	/* starts the validation-process and processes the results*/
 	public void run() {
-			Diagnostician diagnostician = new Diagnostician();
-			Diagnostic d = diagnostician.validate(config);
-			ErrorDisplayDialog errord;
-			
-			switch (d.getSeverity()) {
-			case Diagnostic.CANCEL: 
-				String errorMsg = "The validation was cancelled:\n\n";
-				for (Diagnostic currentD : d.getChildren()) {
-					errorMsg = errorMsg + currentD.getMessage() + "\n";
-				}
-				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
-				errord.open(); break;
-			case Diagnostic.ERROR: 
-				errorMsg = "The validation finished with errors:\n\n";
-				for (Diagnostic currentD : d.getChildren()) {
-					errorMsg = errorMsg + currentD.getMessage() + "\n";
-				}
-				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
-				errord.open(); break;
-			case Diagnostic.WARNING:
-				errorMsg = "The validation finished with warnings:\n\n";
-				for (Diagnostic currentD : d.getChildren()) {
-					errorMsg = errorMsg + currentD.getMessage() + "\n";
-				}
-				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
-				errord.open(); break;
-			case Diagnostic.OK: 
-				MessageDialog.openInformation(shell, "Validation success", "The validation completed successfully");
-				break;
-			case Diagnostic.INFO: 
-				MessageDialog.openInformation(shell, "Validation", "The validation completed with informational messages");
-				break;
-			default:
-				errorMsg = "The validation finished with an unknown status:\n\n";
-				for (Diagnostic currentD : d.getChildren()) {
-					errorMsg = errorMsg + currentD.getMessage() + "\n";
-				}
-				errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
-				errord.open(); break;
+		Diagnostician diagnostician = new Diagnostician();
+		Diagnostic d = diagnostician.validate(config);
+		ErrorDisplayDialog errord;
+
+		switch (d.getSeverity()) {
+		case Diagnostic.CANCEL: 
+			String errorMsg = "The validation was cancelled:\n\n";
+			for (Diagnostic currentD : d.getChildren()) {
+				errorMsg = errorMsg + currentD.getMessage() + "\n";
 			}
+			errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
+			errord.open(); break;
+		case Diagnostic.ERROR: 
+			errorMsg = "The validation finished with errors:\n\n";
+			for (Diagnostic currentD : d.getChildren()) {
+				errorMsg = errorMsg + currentD.getMessage() + "\n";
+			}
+			errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
+			errord.open(); break;
+		case Diagnostic.WARNING:
+			errorMsg = "The validation finished with warnings:\n\n";
+			for (Diagnostic currentD : d.getChildren()) {
+				errorMsg = errorMsg + currentD.getMessage() + "\n";
+			}
+			errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
+			errord.open(); break;
+		case Diagnostic.OK: 
+			MessageDialog.openInformation(shell, "Validation success", "The validation completed successfully");
+			break;
+		case Diagnostic.INFO: 
+			MessageDialog.openInformation(shell, "Validation", "The validation completed with informational messages");
+			break;
+		default:
+			errorMsg = "The validation finished with an unknown status:\n\n";
+		
+		for (Diagnostic currentD : d.getChildren()) {
+			errorMsg = errorMsg + currentD.getMessage() + "\n";
+		}
+		
+		errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
+		errord.open(); break;
+		}
 	}
 	
-	public void setConfiguration (Configuration config, FeatureDiagram diagram) {
-		this.config = config;
-		this.diagram = diagram;		
+	/**
+	 * Setter for the Configuration object needed in the validation
+	 * 
+	 * @param config the Configuration object
+	 */
+	public void setConfiguration (Configuration config) {
+		this.config = config;	
 	}
 	
+	/**
+	 * Setter for the Shell object needed for the validation-result dialogs
+	 * 
+	 * @param shell the Shell object
+	 */
 	public void setShell (Shell shell) {
 		this.shell = shell;
 	}
@@ -138,12 +151,22 @@ public class FeatureModelInstanceContributor extends
 		addGlobalActions(submenuManager);
 	}
 	
-	public void setConfiguration(Configuration config, FeatureDiagram diagram) {
+	/**
+	 * Setter for the Configuration object needed in the validation
+	 * 
+	 * @param config the Configuration object
+	 */
+	public void setConfiguration(Configuration config) {
 		if (validateAction instanceof InstanceValidateAction) {
-			((InstanceValidateAction)validateAction).setConfiguration(config, diagram);
+			((InstanceValidateAction)validateAction).setConfiguration(config);
 		}
 	}
 	
+	/**
+	 * Setter for the Shell object needed for the validation-result dialogs
+	 * 
+	 * @param shell the Shell object
+	 */
 	public void setShell (Shell shell) {
 		if (validateAction instanceof InstanceValidateAction) {
 			((InstanceValidateAction)validateAction).setShell(shell);
@@ -181,8 +204,11 @@ public class FeatureModelInstanceContributor extends
 		}
 	}
 
+	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public void selectionChanged(SelectionChangedEvent event) {
-		System.out.println(event.getSource().getClass());
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection) {
 			validateAction.updateSelection((IStructuredSelection)selection);

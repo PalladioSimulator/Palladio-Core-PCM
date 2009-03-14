@@ -570,6 +570,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		
 	}
 	
+	
+	/**
+	 * Creates the editor layout and content
+	 * @return
+	 * <code>true</code> if every needed object for displaying the content was found
+	 * <code>false</code> else
+	 */
 	protected boolean createEditor() {		
 		boolean valid = true;
 		//get the file extension, file name and the full path to the resource
@@ -597,9 +604,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			int index = addPage(comp);
 			setPageText(index, "");
 			
+			//set the needed attributes for the validation in the actionBarContributor
 			EditingDomainActionBarContributor contrib = getActionBarContributor();
 			if (contrib instanceof FeatureModelInstanceContributor) {
-				((FeatureModelInstanceContributor)contrib).setConfiguration(getConfiguration(resource), featureDiagram);
+				((FeatureModelInstanceContributor)contrib).setConfiguration(getConfiguration(resource));
 				((FeatureModelInstanceContributor)contrib).setShell(getContainer().getShell());
 			}
 	        
