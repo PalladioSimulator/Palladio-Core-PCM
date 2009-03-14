@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,18 +15,27 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.Simple;
 
 /**
  * <!-- begin-user-doc -->
@@ -319,8 +330,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	}
 
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean mandatoryFeaturesChecked(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// try to get any ConfigNode to any Feature, so that 
+		//navigation to the FeatureDiagram-model is possible
 		boolean valid = true;
 		FeatureConfig defaultConfig = configuration.getDefaultConfig();
 		FeatureConfig configOverrides = configuration.getConfigOverrides();
@@ -345,12 +361,25 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			}
 		}
 		
+		//Navigate from the referenceFeature to the FeatureDiagram object
 		if (referenceFeature == null) {
 			valid = false;
 		} else {
-			//Navigate to root Feature
+			EObject diagram = referenceFeature.eContainer();
+			
+			while (!(diagram instanceof FeatureDiagram) && (diagram != null)) {
+				diagram = diagram.eContainer();
+			}
+			
+			if (diagram != null) {
+				//get the ChildRelation object for the root Feature and check recursively
+				//, if every mandatory subfeature in the Diagram is selected
+				ChildRelation rootRelation = ((FeatureDiagram)diagram).getRootFeature().getChildrelation();
+				valid = checkForMandatorySelected(rootRelation);
+			}
 		}
 		
+		//Add an Error Diagnostic to the DiagnosticChain, if a validation error happened
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -365,9 +394,58 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		return valid;
 	}
 
+	/**
+	 * Checks recursively if every mandatory feature in the subtree is selected
+	 * 
+	 * Helper method for boolean:mandatoryFeaturesChecked(Configuration, DiagnosticChain, Map<Object,Object>)
+	 * @param relation the root ChildRelation object of the current subtree
+	 * @return <code>true</code> if every mandatory Feature in this subtree is selected
+	 * <code>false</code> else
+	 */
+	private boolean checkForMandatorySelected(ChildRelation relation) {
+		//Get every sub-ChildRelation object and call this method recursively with it
+		boolean valid = true;
+		if (relation == null) {
+			return valid;
+		} else if (relation instanceof Simple) {
+			//if the ChildRelation is of type Simple, check if 
+			//every mandatory child is selected; using UsageCrossReferencer
+			EList<Feature> mandatory = ((Simple)relation).getMandatoryChildren();
+			for (Feature current : mandatory) {
+				Collection<Setting> featureSettings = EcoreUtil.UsageCrossReferencer.find(current, current.eResource().getResourceSet());
+				for (Setting currentSetting : featureSettings) {
+					if (currentSetting.getEObject().eClass().getClassifierID() == de.uka.ipd.sdq.featureconfig.featureconfigPackage.Literals.CONFIG_NODE.getClassifierID()) {
+						EObject currentConfigNode = currentSetting.getEObject();
+						if (((ConfigNode)currentConfigNode).getConfigState() != ConfigState.SELECTED) {
+							valid = false;
+						}
+					}
+				}
+				valid = valid && checkForMandatorySelected(current.getChildrelation());
+			}
+			EList<Feature> optional = ((Simple)relation).getOptionalChildren();
+			for (Feature current : optional) {
+				valid = valid && checkForMandatorySelected(current.getChildrelation());
+			}	
+		} else if (relation instanceof FeatureGroup) {
+			List<Feature> children = ((FeatureGroup)relation).getChildren();
+			
+			for (Feature current : children) {
+				//check recursive for non-selected mandatory features
+				valid = valid && checkForMandatorySelected(current.getChildrelation());
+			}
+		}
+		return valid;
+	}
+
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean minMaxCorrect(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// try to get any ConfigNode to any Feature, so that 
+		//navigation to the FeatureDiagram-model is possible
 		boolean valid = true;
 		FeatureConfig defaultConfig = configuration.getDefaultConfig();
 		FeatureConfig configOverrides = configuration.getConfigOverrides();
@@ -388,10 +466,25 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			}
 		}
 		
-		if (referenceFeature != null) {
-			//Navigate to root Feature
+		//Navigate from the referenceFeature to the FeatureDiagram object
+		if (referenceFeature == null) {
+			valid = false;
+		} else {
+			EObject diagram = referenceFeature.eContainer();
+			
+			while (!(diagram instanceof FeatureDiagram) && (diagram != null)) {
+				diagram = diagram.eContainer();
+			}
+			
+			if (diagram != null) {
+				//get the ChildRelation object for the root Feature and check recursively
+				//, if every Min:Max range in the Diagram is valid
+				ChildRelation rootRelation = ((FeatureDiagram)diagram).getRootFeature().getChildrelation();
+				valid = checkForMinMaxCorrect(rootRelation);
+			}
 		}
 		
+		//Add an Error Diagnostic to the DiagnosticChain, if a validation error happened
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -399,8 +492,61 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 						(Diagnostic.ERROR,
 								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
 								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
-								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"Mandatory features selected", EObjectValidator.getObjectLabel(this, context) }),
+								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"FeatureGroup: Min:Max Correct", EObjectValidator.getObjectLabel(this, context) }),
 								new Object [] { this }));
+			}
+		}
+		return valid;
+	}
+
+	/**
+	 * Checks recursively if every FeatureGroup in this subtree has selected Features in its Min:Max range
+	 * 
+	 * Helper method for boolean:minMaxCorrect(Configuration, DiagnosticChain, Map<Object,Object>)
+	 * @param relation the root ChildRelation object of the current subtree
+	 * @return <code>true</code> if every FeatureGroup in this subtree has selected Features in its Min:Max range
+	 * <code>false</code> else
+	 */
+	private boolean checkForMinMaxCorrect(ChildRelation relation) {
+		//Get every sub-ChildRelation object and call this method recursively with it
+		boolean valid = true;
+		
+		if (relation == null) {
+			return valid;
+		} else if (relation instanceof Simple) {
+			EList<Feature> mandatory = ((Simple)relation).getMandatoryChildren();
+			for (Feature current : mandatory) {
+				valid = valid && checkForMinMaxCorrect(current.getChildrelation());
+			}
+			EList<Feature> optional = ((Simple)relation).getOptionalChildren();
+			for (Feature current : optional) {
+				valid = valid && checkForMinMaxCorrect(current.getChildrelation());
+			}	
+		} else if (relation instanceof FeatureGroup) {
+			//if the ChildRelation is of type FeatureGroup, count
+			//the selected Features and check with Min:Max
+			List<Feature> children = ((FeatureGroup)relation).getChildren();
+			
+			int min = ((FeatureGroup)relation).getMin();
+			int max = ((FeatureGroup)relation).getMax();
+			int selected = 0;
+			
+			for (Feature current : children) {
+				Collection<Setting> featureSettings = EcoreUtil.UsageCrossReferencer.find(current, current.eResource().getResourceSet());
+				for (Setting currentSetting : featureSettings) {
+					if (currentSetting.getEObject().eClass().getClassifierID() == de.uka.ipd.sdq.featureconfig.featureconfigPackage.Literals.CONFIG_NODE.getClassifierID()) {
+						EObject currentConfigNode = currentSetting.getEObject();
+						if (((ConfigNode)currentConfigNode).getConfigState() == ConfigState.SELECTED) {
+							selected++;
+						}
+					}
+				}
+			}
+			if (selected < min || selected > max) {
+				valid = false;
+			}
+			for (Feature current : children) {
+				valid = valid && checkForMinMaxCorrect(current.getChildrelation());
 			}
 		}
 		return valid;

@@ -90,7 +90,34 @@ public interface ConfigNode extends EObject {
 	 */
 	void setConfigState(ConfigState value);
 	
+	/**
+	 * Checks if the RequiresConstraints are valid
+	 * 
+	 * Checks if a RequiresConstraint object with the given ConfigNode as source exists 
+	 * and validates if every required Feature of this Constraint is selected
+	 * 
+	 * @param configNode the current ConfigNode object in the validation process
+	 * @param diagnostics the DiagnosticChain object
+	 * @param context The context map
+	 * @return 
+	 * <code>true</code> if every required Feature is selected, if no RequiredConstraint exists or if the given ConfigNode is not selected
+	 * <code>false</code> else
+	 */
 	boolean requiresFeaturesChecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
+	
+	/**
+	 * Checks if the ProhibitConstraints are valid
+	 * 
+	 * Checks if a ProhibitsConstraint object with the given ConfigNode as source exists 
+	 * and validates if every prohibited Feature of this Constraint is eliminated
+	 * 
+	 * @param configNode the current ConfigNode object in the validation process
+	 * @param diagnostics the DiagnosticChain object
+	 * @param context The context map
+	 * @return 
+	 * <code>true</code> if every prohibited Feature is eliminated, if no ProhibitsConstraint exists or if the given ConfigNode is not selected
+	 * <code>false</code> else
+	 */
 	boolean prohibitsFeaturesUnchecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ConfigNode

@@ -48,16 +48,22 @@ import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean prohibitsFeaturesUnchecked(ConfigNode configNode,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean valid = true;
 		
+		//Check first, if the fiven node is selected at all
 		if (configNode.getConfigState() != ConfigState.SELECTED) {
 			return valid;
 		}
 		
 		Feature origin = configNode.getOrigin();
 		
+		//Using the UsageCrossReferencer to check if there is a 
+		//ProhibitsConstraint object referencing the given ConfigNode as source
 		Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find(origin, origin.eResource().getResourceSet());
 
 		for (Setting setting : settings) {
@@ -67,7 +73,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 				List<Feature> targetFeatures = ((ProhibitsConstraint)constraint).getTarget();
 				//Iterate over Features to check if every prohibits Feature is eliminated
 				for (Feature currentFeature : targetFeatures) {
-					//using the usagecrossreferencer to check for existing confignodes
+					//using the usagecrossreferencer to check for existing confignodes to the required Features
 					Collection<Setting> featureSettings = EcoreUtil.UsageCrossReferencer.find(currentFeature, currentFeature.eResource().getResourceSet());
 					for (Setting currentSetting : featureSettings) {
 						if (currentSetting.getEObject().eClass().getClassifierID() == de.uka.ipd.sdq.featureconfig.featureconfigPackage.Literals.CONFIG_NODE.getClassifierID()) {
@@ -94,16 +100,22 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	}
 
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean requiresFeaturesChecked(ConfigNode configNode,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean valid = true;
 		
+		//Check first, if the fiven node is selected at all
 		if (configNode.getConfigState() != ConfigState.SELECTED) {
 			return valid;
 		}
 		
 		Feature origin = configNode.getOrigin();
 		
+		//Using the UsageCrossReferencer to check if there is a 
+		//RequiresConstraint object referencing the given ConfigNode as source
 		Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find(origin, origin.eResource().getResourceSet());
 
 		for (Setting setting : settings) {
@@ -115,7 +127,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 				for (Feature currentFeature : targetFeatures) {
 					boolean visited = false;
 					
-					//using the usagecrossreferencer to check for existing confignodes
+					//using the usagecrossreferencer to check for existing confignodes to the prohibted Features
 					Collection<Setting> featureSettings = EcoreUtil.UsageCrossReferencer.find(currentFeature, currentFeature.eResource().getResourceSet());
 					for (Setting currentSetting : featureSettings) {
 						if (currentSetting.getEObject().eClass().getClassifierID() == de.uka.ipd.sdq.featureconfig.featureconfigPackage.Literals.CONFIG_NODE.getClassifierID()) {

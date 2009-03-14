@@ -51,12 +51,25 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 	
+	
+	/**
+	 * A constant for the validation process of ConfigNodes
+	 */
 	public static final int CONFIG_NODE__PROHIBITS_FEATURE_SELECTED = 3;
 	
+	/**
+	 * A constant for the validation process of ConfigNodes
+	 */
 	public static final int CONFIG_NODE__REQUIRED_FEATURE_ELIMINATED = 4;
 	
+	/**
+	 * A constant for the validation process of Configurations
+	 */
 	public static final int CONFIGURATION__MANDATORY_ELIMINATED = 5;
 	
+	/**
+	 * A constant for the validation process of Configurations
+	 */
 	public static final int CONFIGURATION__MIN_MAX_VIOLATED = 6;
 
 	/**
@@ -112,8 +125,10 @@ public class featureconfigValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * The RequiresFeaturesChecked and ProhibitsFeaturesUnchecked 
+	 * invariants have been manually implemented, so no generation should override this Method
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateConfigNode(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(configNode, diagnostics, context);
@@ -128,12 +143,30 @@ public class featureconfigValidator extends EObjectValidator {
 		return result;
 	}
 	
-
+	
+	/**
+	 * The validation-helper-method that calls the equivalent in the ConfigNode-class
+	 * 
+	 * @param configNode the current ConfigNode object in the validation-process
+	 * @param diagnostics the DiagnosticChain
+	 * @param context the context map
+	 * @return <code>true</code> if validation was successful
+	 * <code>false</code> else
+	 */
 	private boolean validate_ProhibitsFeaturesUnchecked(ConfigNode configNode,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return configNode.prohibitsFeaturesUnchecked(configNode, diagnostics, context);
 	}
 
+	/**
+	 * The validation-helper-method that calls the equivalent in the ConfigNode-class
+	 * 
+	 * @param configNode the current ConfigNode object in the validation-process
+	 * @param diagnostics the DiagnosticChain
+	 * @param context the context map
+	 * @return <code>true</code> if validation was successful
+	 * <code>false</code> else
+	 */
 	private boolean validate_RequiresFeaturesChecked(ConfigNode configNode,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return configNode.requiresFeaturesChecked(configNode, diagnostics, context);
@@ -157,8 +190,10 @@ public class featureconfigValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * The MinMaxCorrect and MandatoryFeaturesChecked
+	 * invariants have been manually implemented, so no generation should override this Method
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateConfiguration(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryDefaultConstraint(configuration, diagnostics, context);
@@ -167,11 +202,29 @@ public class featureconfigValidator extends EObjectValidator {
 		return result;
 	}
 
+	/**
+	 * The validation-helper-method that calls the equivalent in the Configuration-class
+	 * 
+	 * @param configuration the current Configuration object in the validation-process
+	 * @param diagnostics the DiagnosticChain
+	 * @param context the context map
+	 * @return <code>true</code> if validation was successful
+	 * <code>false</code> else
+	 */
 	private boolean validate_MinMaxCorrect(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return configuration.minMaxCorrect(configuration, diagnostics, context);
 	}
 
+	/**
+	 * The validation-helper-method that calls the equivalent in the Configuration-class
+	 * 
+	 * @param configuration the current Configuration object in the validation-process
+	 * @param diagnostics the DiagnosticChain
+	 * @param context the context map
+	 * @return <code>true</code> if validation was successful
+	 * <code>false</code> else
+	 */
 	private boolean validate_MandatoryFeaturesChecked(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return configuration.mandatoryFeaturesChecked(configuration, diagnostics, context);
