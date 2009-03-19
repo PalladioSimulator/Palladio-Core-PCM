@@ -235,8 +235,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 * @param fileName The default filename
 	 * @return Returns the URI of the new file or null, if dialog was cancelled
 	 */
-	protected URI startFileWizard (String fileName) {
-		FeatureConfigCreationWizard myWiz = new FeatureConfigCreationWizard(fileName);
+	protected URI startFileWizard (String fileName, String message) {
+		FeatureConfigCreationWizard myWiz = new FeatureConfigCreationWizard(fileName, message);
 		myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
 		WizardDialog dialog = new WizardDialog(null, myWiz);
 		dialog.create();
@@ -426,13 +426,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 						}
 					}
 					else {
-						URI newResourceURI = startFileWizard(fileName);
+						URI newResourceURI = startFileWizard(fileName, "Loaded configuration file references wrong diagram. Create a new config file.");
 						createNewConfigResource(newResourceURI, featureDiagram, null);
 					}
 					
 				}
 				else {
-					URI newResourceURI = startFileWizard(fileName);
+					URI newResourceURI = startFileWizard(fileName, "Create a new config file for the loaded diagram.");
 					createNewConfigResource(newResourceURI, featureDiagram, null);
 				}
 			}
@@ -441,7 +441,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				
 				if (configPath == null) {
 					//File selection Dialog has been canceled, call new file wizard
-					URI newResourceURI = startFileWizard(fileName);
+					URI newResourceURI = startFileWizard(fileName, "File selection dialog has been cancelled. Create a new config resource.");
 					createNewConfigResource(newResourceURI, featureDiagram, null);
 				} 
 				else {
@@ -473,7 +473,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					else {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
 						errord.open();
-						URI newResourceURI = startFileWizard(fileName);
+						URI newResourceURI = startFileWizard(fileName, "Loaded configuration file references wrong diagram. Create a new config file.");
 						createNewConfigResource(newResourceURI, featureDiagram, null);
 					}
 				}
@@ -487,7 +487,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		else {
 			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Editor supports only *.featuremodel and *.featureconfig files!"));
 			errord.open();
-			URI newResourceURI = startFileWizard("");
+			URI newResourceURI = startOpenDialog("");
 			createResource(newResourceURI);
 		}
 	}
@@ -516,7 +516,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			if (!configList.isEmpty()) {
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 				String fileName = resource.getURI().trimFileExtension().lastSegment();
-				URI newResourceURI = startFileWizard(fileName);
+				URI newResourceURI = startFileWizard(fileName, "Only a default configuration was found. Create a new file with a overrides configuration!");
 				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
 			}
 		}
@@ -550,7 +550,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				else {
 					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 					String fileName = resource.getURI().trimFileExtension().lastSegment();
-					URI newResourceURI = startFileWizard(fileName);
+					URI newResourceURI = startFileWizard(fileName, "Only a default configuration was found. Create a new file with a overrides configuration!");
 					createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
 				}
 			}
@@ -560,25 +560,15 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	
 	@Override
 	protected void createPages() {
-		
 		createResource(null);
-		
-		boolean valid = false;
-		while (!valid) {
-			valid = createEditor();
-		}
-		
+		createEditor();		
 	}
 	
 	
 	/**
 	 * Creates the editor layout and content
-	 * @return
-	 * <code>true</code> if every needed object for displaying the content was found
-	 * <code>false</code> else
 	 */
-	protected boolean createEditor() {		
-		boolean valid = true;
+	protected void createEditor() {		
 		//get the file extension, file name and the full path to the resource
 		String fileExtension = resource.getURI().fileExtension();
 		String fileName = resource.getURI().trimFileExtension().lastSegment();
@@ -587,13 +577,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		//handles the different cases of opened files and model/configuration cases
 		handleFileCases(fileExtension, path, fileName);
 		
-		if (featureDiagram == null || overridesConfig == null) {
-			valid = false;
-			URI newResourceURI = startFileWizard("");
-			createResource(newResourceURI);
-		}
-		
-		if (valid) {
+		if (featureDiagram != null && overridesConfig != null) {
 
 			//Create the Viewer
 			comp = new Composite(getContainer(), SWT.NONE);
@@ -618,8 +602,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					getContainer().setSize(point.x, point.y + 6);
 			}
 		}
-		return valid;
-		
 	}
 	
 	/**

@@ -19,7 +19,7 @@ class FeatureConfigCreationWizardPage extends WizardNewFileCreationPage {
 	@Override
 	protected void createAdvancedControls(Composite parent) {
 		Label label = new Label(parent, SWT.BORDER);
-		label.setText("No *.featureconfig-file present. A new featureconfig needs to be created.");
+		label.setText(message);
 		super.createAdvancedControls(parent);
 	}
 
@@ -44,14 +44,16 @@ class FeatureConfigCreationWizardPage extends WizardNewFileCreationPage {
 	 */
 	private final String fileExtension;
 	protected String fileName;
+	protected String message;
 
 	/**
 	 * @generated
 	 */
-	public FeatureConfigCreationWizardPage(String pageName, IStructuredSelection selection, String fileExtension, String fileName) {
+	public FeatureConfigCreationWizardPage(String pageName, IStructuredSelection selection, String fileExtension, String fileName, String message) {
 		super(pageName, selection);
 		this.fileExtension = fileExtension;
 		this.fileName = fileName;
+		this.message = message;
 	}
 
 	/**
@@ -86,10 +88,11 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 	protected IStructuredSelection selection;
 	protected FeatureConfigCreationWizardPage page;
 	protected String fileName;
+	protected String message;
 
 	@Override
 	public void addPages() {
-		page = new FeatureConfigCreationWizardPage("Resource selection page", selection, "", fileName);
+		page = new FeatureConfigCreationWizardPage("Resource selection page", selection, "", fileName, message);
 		addPage(page);
 		super.addPages();
 	}
@@ -109,8 +112,9 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 		return true;
 	}
 	
-	public FeatureConfigCreationWizard (String fileName) {
+	public FeatureConfigCreationWizard (String fileName, String message) {
 		this.fileName = fileName;
+		this.message = message;
 	}
 
 	@Override
