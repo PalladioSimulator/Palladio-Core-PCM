@@ -15,7 +15,7 @@
     <confignode configState="SELECTED">
       <origin href="Example.featuremodel#//@rootFeature"/>
     </confignode>
-    <confignode configState="ELIMINATED">
+    <confignode configState="SELECTED">
       <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.0/@childrelation/@children.1"/>
     </confignode>
     <confignode configState="SELECTED">
