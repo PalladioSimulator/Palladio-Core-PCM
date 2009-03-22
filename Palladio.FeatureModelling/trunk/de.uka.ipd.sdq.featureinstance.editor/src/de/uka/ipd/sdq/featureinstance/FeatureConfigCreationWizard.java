@@ -107,7 +107,6 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 		catch (Exception e) {
 			return false;
 		}
-		System.out.println(resourceURI.toString());
 		return true;
 	}
 	
