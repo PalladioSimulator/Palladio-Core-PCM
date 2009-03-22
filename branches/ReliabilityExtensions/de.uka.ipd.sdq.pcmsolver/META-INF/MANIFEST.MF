@@ -30,7 +30,9 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.codegen.runconfig,
  de.uka.ipd.sdq.markov,
  org.eclipse.emf.query,
- org.eclipse.emf.ocl
+ org.eclipse.emf.ocl,
+ de.uka.ipd.sdq.pcm.dialogs,
+ de.uka.ipd.sdq.dialogs
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,

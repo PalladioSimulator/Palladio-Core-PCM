@@ -42,6 +42,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	
 	/** input fields */
 	private Text textResourceType;
+	private Text textResourceEnvironment;
 	private Text textRepository;
 	private Text textSystem;
 	private Text textAllocation;
@@ -136,6 +137,46 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 					 */
 					public void widgetSelected(SelectionEvent e) {
 						setOpenFileDialogResultToTextField(textResourceType, ConstantsContainer.RESOURCETYPE_EXTENSION);
+					}
+				});
+
+		/**
+		 * Create resource environment section
+		 */
+		final Group repositoryEnvironmentGroup = new Group(container, SWT.NONE);
+		final GridLayout glReposetoryEnvironmentGroup = new GridLayout();
+		glReposetoryEnvironmentGroup.numColumns = 3;
+		repositoryEnvironmentGroup.setLayout(glReposetoryEnvironmentGroup);
+		repositoryEnvironmentGroup.setText("Resource Environment File");
+		repositoryEnvironmentGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
+
+		textResourceEnvironment = new Text(repositoryEnvironmentGroup, SWT.SINGLE
+				| SWT.BORDER);
+		final GridData gd_textResourceEnvironmentRepository = new GridData(SWT.FILL,
+				SWT.CENTER, true, false);
+		gd_textResourceEnvironmentRepository.widthHint = 200;
+		textResourceEnvironment.setLayoutData(gd_textResourceEnvironmentRepository);
+		textResourceEnvironment.addModifyListener(modifyListener);
+
+		final Button workspaceButton_0 = new Button(repositoryEnvironmentGroup, SWT.NONE);
+		workspaceButton_0.setText("Workspace...");
+		workspaceButton_0
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
+						textResourceEnvironment, ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION));
+
+		final Button buttonResourceEnvironmentRepository = new Button(
+				repositoryEnvironmentGroup, SWT.NONE);
+		buttonResourceEnvironmentRepository.setLayoutData(new GridData());
+		buttonResourceEnvironmentRepository.setText("File System...");
+		buttonResourceEnvironmentRepository
+				.addSelectionListener(new SelectionAdapter() {
+					
+					/* (non-Javadoc)
+					 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+					 */
+					public void widgetSelected(SelectionEvent e) {
+						setOpenFileDialogResultToTextField(textResourceEnvironment, ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION);
 					}
 				});
 
@@ -361,6 +402,13 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
+			textResourceEnvironment.setText(configuration.getAttribute(
+					ConstantsContainer.RESOURCEENVIRONMENT_FILE, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"Resource Environment File", e.getMessage());
+		}
+
+		try {
 			textSystem.setText(configuration.getAttribute(
 					ConstantsContainer.SYSTEM_FILE, ""));
 		} catch (CoreException e) {
@@ -382,6 +430,9 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
 				textResourceType.getText());
+		configuration.setAttribute(
+				ConstantsContainer.RESOURCEENVIRONMENT_FILE,
+				textResourceEnvironment.getText());
 		configuration.setAttribute(ConstantsContainer.REPOSITORY_FILE,
 				textRepository.getText());
 		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
@@ -425,6 +476,11 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		if (!validateFilePath(textResourceType.getText(),
 				ConstantsContainer.RESOURCETYPE_EXTENSION)) {
 			setErrorMessage("ResourceTypeRepository is missing!");
+			return false;
+		}
+		if (!validateFilePath(textResourceEnvironment.getText(),
+				ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION)) {
+			setErrorMessage("ResourceEnvironment is missing!");
 			return false;
 		}
 		if (!validateFilePath(textSystem.getText(),

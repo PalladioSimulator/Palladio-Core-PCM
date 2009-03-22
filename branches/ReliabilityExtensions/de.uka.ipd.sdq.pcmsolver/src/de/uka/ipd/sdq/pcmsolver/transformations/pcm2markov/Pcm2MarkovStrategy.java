@@ -1,9 +1,13 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -14,16 +18,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
+import de.uka.ipd.sdq.pcmsolver.tests.MarkovTestHelper;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 
@@ -47,6 +54,11 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * Reference to an EMF utility class.
 	 */
 	private static EMFHelper helper = new EMFHelper();
+
+	/**
+	 * Reference to another EMF utility class.
+	 */
+	private static MarkovTestHelper markovHelper = new MarkovTestHelper();
 
 	/**
 	 * Message stream for printing results in "raw" format.
@@ -75,16 +87,27 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	private long transformationRunCount;
 
 	/**
+	 * Data for sensitivity analysis.
+	 */
+	private SensitivityController sensitivityController;
+
+	/**
+	 * Sensitivity model data.
+	 */
+	private Properties props = new Properties();
+
+	/**
 	 * The constructor.
 	 * 
 	 * @param configuration
-	 *            launch configuration paremeters
+	 *            launch configuration parameters
 	 */
 	public Pcm2MarkovStrategy(final ILaunchConfiguration configuration) {
 
 		// Initialize members:
 		this.markovChain = new MarkovBuilder().initNewMarkovChain("");
 		this.configuration = configuration;
+		this.sensitivityController = new SensitivityController(configuration);
 
 		// Initialize raw message stream:
 		if (PCMSolver.getConsole() != null) {
@@ -125,16 +148,15 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 */
 	public void solve() {
 
-		// Record the time consumed for solving the Markov Chain:
-		long startTime = System.nanoTime();
+		// If a sensitivity analysis is performed, do nothing:
+		if (sensitivityController.isSensitivityActive()) {
+			return;
+		}
 
 		// Solving of Markov Chain has already taken place during the
 		// transformation.
 
-		// Let the user know about the time consumed and the result:
-		long stopTime = System.nanoTime();
-		long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-		logger.info("Solved Markov Chain:\t\t\t" + duration + " ms");
+		// Let the user know about the result:
 		logger.info("Probability of Success:\t\t\t" + solvedValue);
 	}
 
@@ -149,6 +171,44 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
+	 * Transforms a PCM instance into a Markov Chain instance. If sensitivity
+	 * analysis is activated, the process is extended to be repeatedly executed.
+	 * 
+	 * @param model
+	 *            the input PCM instance
+	 */
+	public void transform(final PCMInstance model) {
+
+		// Without sensitivity analysis, perform the standard transformation:
+		if (!sensitivityController.isSensitivityActive()) {
+			singleTransform(model);
+			return;
+		}
+
+		// Prepare sensitivity analysis:
+		try {
+			prepareSensitivity();
+		} catch (Exception e) {
+
+			// The preparation could not be done:
+			logger
+					.error("Preparation for sensitivity analysis caused exception: "
+							+ e.getMessage());
+			return;
+		}
+
+		// Go through all steps of the sensitivity analysis:
+		for (int i = 0; i < sensitivityController.getStepCount(); i++) {
+
+			// Perform the transformation:
+			singleTransform(createAdjustedModel(i));
+
+			// Let the user know about the result:
+			logger.info("Probability of Success:\t\t\t" + solvedValue);
+		}
+	}
+
+	/**
 	 * Transforms a PCM instance into a Markov Chain instance. The
 	 * transformation is performed in two steps. In the first step, parametric
 	 * dependencies within the PCM instance are solved using the dependency
@@ -158,7 +218,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * @param model
 	 *            the input PCM instance
 	 */
-	public void transform(final PCMInstance model) {
+	private void singleTransform(final PCMInstance model) {
 
 		// As a first step, solve parametric dependencies of the PCM instance:
 		runDSolver(model);
@@ -195,7 +255,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 			// The parametric dependencies could not be solved:
 			logger
-					.error("Solving of parametric dependencies caused Exception: "
+					.error("Solving of parametric dependencies caused exception: "
 							+ e.getMessage());
 			e.printStackTrace();
 		}
@@ -526,6 +586,109 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
+	 * Prepares the sensitivity analysis.
+	 * 
+	 * Preparation includes copy of model files into the temporary models
+	 * directory and determining the properties for the PCM instances to be
+	 * created.
+	 * 
+	 * @throws CoreException
+	 *             if reading the launch configuration fails
+	 * @throws IOException
+	 *             if file copy to temporary models directory fails
+	 */
+	private void prepareSensitivity() throws IOException, CoreException {
+
+		// Create the temporary resources for this step:
+		createResource(configuration.getAttribute(
+				ConstantsContainer.REPOSITORY_FILE, ""), "Filename_Repository");
+		createResource(configuration.getAttribute(
+				ConstantsContainer.ALLOCATION_FILE, ""), "Filename_Allocation");
+		createResource(configuration.getAttribute(
+				ConstantsContainer.RESOURCEENVIRONMENT_FILE, ""),
+				"Filename_ResourceEnvironment");
+		createResource(configuration.getAttribute(
+				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""),
+				"Filename_ResourceType");
+		createResource(configuration.getAttribute(
+				ConstantsContainer.SYSTEM_FILE, ""), "Filename_System");
+		createResource(configuration.getAttribute(
+				ConstantsContainer.USAGE_FILE, ""), "Filename_UsageModel");
+
+		// Fill the properties needed for PCM instance creation:
+		props.setProperty("Storage_Path", "");
+	}
+
+	/**
+	 * Creates an adjusted PCM instance in the temporary directory during
+	 * sensitivity analysis.
+	 * 
+	 * @param step
+	 *            the current sensitivity analysis step
+	 * @return a PCM instance reflecting the current step
+	 */
+	private PCMInstance createAdjustedModel(int step) {
+
+		// Load the model from XMI files:
+		PCMInstance adjustedModel = new PCMInstance(props);
+
+		// Reference the sensitivity analysis parameter:
+		SensitivityParameter parameter = sensitivityController.getParameters()
+				.get(0);
+
+		// Adjust the model by changing the failure probability of the
+		// InternalAction chosen by sensitivity analysis:
+		InternalAction action = (InternalAction) markovHelper.getModelElement(
+				adjustedModel.getRepository(), parameter.getElementId());
+		action
+				.setFailureProbability(parameter.getValues().get(step)
+						.toString());
+
+		// It is necessary to store the changes back to the model files
+		// because EMF model element proxies won't be resolved to
+		// elements already loaded into memory, but to elements newly
+		// created out of the model files. The saving has to be done
+		// before any proxy resolving takes place:
+		adjustedModel.saveToXMIFile(adjustedModel.getRepository(), props
+				.getProperty("Filename_Repository"));
+
+		// Create the temporary PCM instance:
+		return adjustedModel;
+	}
+
+	/**
+	 * Creates a temporary resource during sensitivity analysis.
+	 * 
+	 * @param baseURI
+	 *            the base URI of the resource
+	 * @param key
+	 *            the key for the PCM instance properties
+	 * @throws IOException
+	 *             if file copy to temporary model directory fails
+	 */
+	private void createResource(String baseURI, String key) throws IOException {
+
+		// Assume the resource is a file:
+		File baseFile = new File(baseURI);
+		File tempFile = new File(sensitivityController.getTemporaryModelDir(),
+				"\\" + baseFile.getName());
+
+		// If the resource is a file, then this file has to be copied into the
+		// temporary models directory:
+		if (baseFile.isFile()) {
+			copyFile(baseFile.getAbsolutePath(), tempFile.getAbsolutePath());
+		}
+
+		// Set the target properties for the PCM instance. This also depends on
+		// the nature of the resource:
+		if (baseFile.isFile()) {
+			props.setProperty(key, tempFile.getAbsolutePath());
+		} else {
+			props.setProperty(key, baseURI);
+		}
+	}
+
+	/**
 	 * Retrieves an attribute from the launch configuration.
 	 * 
 	 * @param attributeName
@@ -549,5 +712,39 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		} catch (CoreException exception) {
 			return standardValue;
 		}
+	}
+
+	/**
+	 * Helper routine to copy a file from a source path to a target path.
+	 * 
+	 * @param sourcePath
+	 *            the source path - must be an absolute path including file name
+	 * @param targetPath
+	 *            the target path - must be an absolute path including file name
+	 * @throws IOException
+	 *             might be thrown during file access
+	 */
+	private void copyFile(final String sourcePath, final String targetPath)
+			throws IOException {
+
+		// Create file objects:
+		File inputFile = new File(sourcePath);
+		File outputFile = new File(targetPath);
+
+		// Create new directory and file, if not already existent:
+		outputFile.getParentFile().mkdir();
+		outputFile.createNewFile();
+
+		// Copy contents of original file into new file:
+		FileInputStream in = new FileInputStream(inputFile);
+		FileOutputStream out = new FileOutputStream(outputFile);
+		int c;
+		while ((c = in.read()) != -1) {
+			out.write(c);
+		}
+
+		// It's done:
+		in.close();
+		out.close();
 	}
 }

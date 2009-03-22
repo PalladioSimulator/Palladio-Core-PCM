@@ -15,6 +15,7 @@ public class ConstantsContainer {
 
 	/** Model filenames value */
 	public static final String RESOURCETYPEREPOSITORY_FILE = "resourceTypeFile";
+	public static final String RESOURCEENVIRONMENT_FILE = "resourceEnvironmentFile";
 	public static final String REPOSITORY_FILE = "repositoryFile";
 	public static final String SYSTEM_FILE = "systemFile";
 	public static final String ALLOCATION_FILE = "allocationFile";
@@ -28,6 +29,7 @@ public class ConstantsContainer {
 	 * shows to the argument.
 	 */
 	public static final String[] RESOURCETYPE_EXTENSION = new String[] { "*.resourcetype" };
+	public static final String[] RESOURCEENVIRONMENT_EXTENSION = new String[] { "*.resourceenvironment" };
 	public static final String[] REPOSITORY_EXTENSION = new String[] { "*.repository" };
 	public static final String[] SYSTEM_EXTENSION = new String[] { "*.system" };
 	public static final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
@@ -41,7 +43,10 @@ public class ConstantsContainer {
 	public static final String MINIMUM_TEXT = "minimum";
 	public static final String MAXIMUM_TEXT = "maximum";
 	public static final String STEP_WIDTH_TEXT = "stepwidth";
-	
+
+	/** Reliability Sensitivity Analysis*/
+	public static final String SENSITIVITY_ACTIVE = "sensitivityActive";
+	public static final String TEMPORARY_MODELS_PATH = "temporaryModelsPath";
 	
 	/** Feature options tab*/
 	public static final String SIMULATE_LINKING_RESOURCES = "respectLinkingResources";
