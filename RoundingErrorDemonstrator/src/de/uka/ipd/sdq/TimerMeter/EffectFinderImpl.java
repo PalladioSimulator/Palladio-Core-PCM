@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import de.uka.ipd.sdq.TimerMeter.exceptions.EffectFinderUninitialisedException;
+//import de.uka.ipd.sdq.TimerMeter.exceptions.EffectFinderUninitialisedException;
 import de.uka.ipd.sdq.TimerMeter.exceptions.WrongEffectFinderConfigurationException;
 
 public class EffectFinderImpl implements EffectFinder{
@@ -15,20 +15,28 @@ public class EffectFinderImpl implements EffectFinder{
 	@SuppressWarnings("unused")
 	private boolean abort = false;
 
-	@SuppressWarnings("unused")
 	private double accuracy;
-	@SuppressWarnings("unused")
+
 	private double epsilon;
-	@SuppressWarnings("unused")
+	
 	private int stepsToTry;
+	
 	public EffectFinderImpl() {
 		super();
 		this.accuracy = 1.99D;
 		this.epsilon = 0.01D;
 		this.stepsToTry = 2000;
+		o.println("Initialised EffectFinderImpl with " +
+				"accuracy "+accuracy+", " +
+				"epsilon "+epsilon+", " +
+				"stepsToTry "+ stepsToTry+".");
 	}
 	
-	public EffectFinderImpl(double accuracy, double epsilon, int stepsToTry) throws WrongEffectFinderConfigurationException {
+	public EffectFinderImpl(
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) 
+	throws WrongEffectFinderConfigurationException {
 		super();
 		int errorCode = this.checkParameters(accuracy, epsilon, stepsToTry);
 		if(errorCode<0){
@@ -39,29 +47,49 @@ public class EffectFinderImpl implements EffectFinder{
 		this.epsilon = epsilon;
 		this.stepsToTry = stepsToTry;
 	}
+	
 	private int checkParameters(double accuracy, double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
+		if(accuracy <= 0){
+			System.err.println("Accuracy cannot be 0 or less.");
+			return -1;
+		}
+		if(epsilon <= 0){
+			System.err.println("Epsilon cannot be 0 or less.");
+			return -2;
+		}
+		if(epsilon >= 1){
+			System.err.println("Epsilon cannot be 1 or larger.");
+			return -3;
+		}
+		if(stepsToTry < 5){
+			System.err.println("StepsToTry cannot be 4 or smaller.");
+			return -4;
+		}
 		return 0;
 	}
 
-	@Override
-	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
-	@Override
-	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding(
+	/**
+	 * @param accuracy
+	 * @param stepsToTry
+	 * @return
+	 */
+	private int[] d_findFirstOccurenceOfDistanceTriples(
 			double accuracy,
-			double epsilon, 
-			int stepsToTry) {
+			int stepsToTry,
+			boolean rounding) {
 		SortedSet<Interval> intervals = new TreeSet<Interval>();
 		boolean added;
 		int addedInstances = 0;
 		for(int i=1; i<stepsToTry; i++){
 			for(int j=i+1; j<=stepsToTry; j++){
-				added = intervals.add(new IntervalImpl(accuracy, i, j, true));
+				added = intervals.add(new IntervalImpl(accuracy, i, j, rounding));
 				if(!added){
 					o.println("Not added distance from "+i+" to "+j+"!");
 				}else{
@@ -74,17 +102,14 @@ public class EffectFinderImpl implements EffectFinder{
 		}
 		Iterator<Interval> iter = intervals.iterator();
 		int idx = 0;
-		Interval a;
-		Interval b;
-		Interval c;
+		Interval a = iter.next();
+		Interval b = iter.next();
+		Interval c = iter.next();
 		long lenA;
 		long lenB;
 		long lenC;
 		
 		do{
-			a = iter.next();
-			b = iter.next();
-			c = iter.next();
 			lenA = a.getDisplayedIntervalLength();
 			lenB = b.getDisplayedIntervalLength();
 			lenC = c.getDisplayedIntervalLength();
@@ -94,122 +119,192 @@ public class EffectFinderImpl implements EffectFinder{
 				return new int[]{idx, idx+1, idx+2};
 			}
 			idx++;
+			a = b;
+			b = c;
+			c = iter.next();
 		}while(iter.hasNext());
 		
 		return new int[]{-1, -1, -1};
 	}
 
 	@Override
-	public int[] d_findFirstOccurenceOfDistanceTriples_Truncating()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
+	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding(
+			double accuracy,
+			double epsilon, 
+			int stepsToTry) {
+		return d_findFirstOccurenceOfDistanceTriples(accuracy, stepsToTry, true);
 	}
 
 	@Override
 	public int[] d_findFirstOccurenceOfDistanceTriples_Truncating(
-			double accuracy, double epsilon, int stepsToTry) {
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) {
+		return d_findFirstOccurenceOfDistanceTriples(accuracy, stepsToTry, false);
+	}
+
+//	@Override
+//	public int[] d_findFirstOccurenceOfDistanceTriples_Truncating()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	/**
+	 * @param accuracy
+	 * @param stepsToTry
+	 * @return
+	 */
+	private int[] d_findFirstOccurenceOfDistanceTuples(
+			double accuracy,
+			int stepsToTry,
+			boolean rounding) {
+		SortedSet<Interval> intervals = new TreeSet<Interval>();
+		boolean added;
+		int addedInstances = 0;
+		for(int i=1; i<stepsToTry; i++){
+			for(int j=i+1; j<=stepsToTry; j++){
+				added = intervals.add(new IntervalImpl(accuracy, i, j, rounding));
+				if(!added){
+					o.println("Not added distance from "+i+" to "+j+"!");
+				}else{
+					addedInstances++;
+					if(addedInstances%1000==1){
+						o.println("Added "+addedInstances+" instances so far");
+					}
+				}
+			}
+		}
+		Iterator<Interval> iter = intervals.iterator();
+		int idx = 0;
+		Interval a = iter.next();
+		Interval b = iter.next();
+		long lenA;
+		long lenB;
+		
+		do{
+			lenA = a.getDisplayedIntervalLength();
+			lenB = b.getDisplayedIntervalLength();
+			o.println("Lengths: "+lenA+","+lenB);
+			if(lenA+1 == lenB){
+				o.println("The two neighbors: "+a+", "+b+".");
+				return new int[]{idx, idx+1};
+			}
+			idx++;
+			a = b;
+			b = iter.next();
+		}while(iter.hasNext());
+		
+		return new int[]{-1, -1};
+	}
+
+//	@Override
+//	public int[] d_findFirstOccurenceOfDistanceTuples_Rounding()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+	public int[] d_findFirstOccurenceOfDistanceTuples_Rounding(
+			double accuracy,
+			double epsilon,
+			int stepsToTry) {
+		return d_findFirstOccurenceOfDistanceTuples(accuracy, stepsToTry, true);
+	}
+
+//	@Override
+//	public int[] d_findFirstOccurenceOfDistanceTuples_Truncating()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+	public int[] d_findFirstOccurenceOfDistanceTuples_Truncating(
+			double accuracy,
+			double epsilon, 
+			int stepsToTry) {
+		return d_findFirstOccurenceOfDistanceTuples(accuracy, stepsToTry, false);
+	}
+
+//	@Override
+//	public int[] d_findLargestDistanceRoundingNeighbors()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.TimerMeter.EffectFinder#d_findLargestDistanceRoundingNeighbors(double, double, int)
+	 */
+	@Override
+	public int[] d_findLargestDistanceNeighbors_Rounding(
+			double accuracy,
+			double epsilon, 
+			int stepsToTry) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int[] d_findFirstOccurenceOfDistanceTuples_Rounding()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findLargestDistanceTruncatedNeighbors()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
-	public int[] d_findFirstOccurenceOfDistanceTuples_Rounding(double accuracy,
+	public int[] d_findLargestDistanceNeighbors_Truncating(double accuracy,
 			double epsilon, int stepsToTry) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int[] d_findFirstOccurenceOfDistanceTuples_Truncating()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findSmallestDistanceRoundingNeighbors()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
-	public int[] d_findFirstOccurenceOfDistanceTuples_Truncating(double accuracy,
+	public int[] d_findSmallestDistanceNeighbors_Rounding(double accuracy,
 			double epsilon, int stepsToTry) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int[] d_findLargestDistanceRoundingNeighbors()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findSmallestDistanceTruncatedNeighbors()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
-	public int[] d_findLargestDistanceRoundingNeighbors(double accuracy,
+	public int[] d_findSmallestDistanceNeighbors_Truncating(double accuracy,
 			double epsilon, int stepsToTry) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int[] d_findLargestDistanceTruncatedNeighbors()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int v_findFirstEffectlessValueRounding()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
-	public int[] d_findLargestDistanceTruncatedNeighbors(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[] d_findSmallestDistanceRoundingNeighbors()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[] d_findSmallestDistanceRoundingNeighbors(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[] d_findSmallestDistanceTruncatedNeighbors()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[] d_findSmallestDistanceTruncatedNeighbors(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int v_findFirstEffectlessValueRounding()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int v_findFirstEffectlessValueRounding(double accuracy, double epsilon, int stepsToTry) {
+	public int v_findFirstEffectlessValue_Rounding(
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) {
 		double currPreciseValue;
 		long currRoundedValue;
 		double currAbsDistance;
-		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)<=-1){
 			return -1;
 		}
 		for(int i=1; i<=stepsToTry; i++){
@@ -224,19 +319,22 @@ public class EffectFinderImpl implements EffectFinder{
 		return -1;
 	}
 
-	@Override
-	public int v_findFirstEffectlessValueTruncation()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int v_findFirstEffectlessValueTruncation()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
-	public int v_findFirstEffectlessValueTruncation(double accuracy, double epsilon, int stepsToTry) {
+	public int v_findFirstEffectlessValue_Truncating(
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) {
 		double currPreciseValue;
 		long currTruncatedValue;
 		double currAbsDistance;
-		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)<=-1){
 			return -1;
 		}
 		for(int i=1; i<=stepsToTry; i++){
@@ -251,21 +349,24 @@ public class EffectFinderImpl implements EffectFinder{
 		return -1;
 	}
 
-	@Override
-	public int v_findLargestValueRoundingDown()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int v_findLargestValueRoundingDown()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
-	public int v_findLargestValueRoundingDown(double accuracy, double epsilon, int stepsToTry) {
+	public int v_findLargestValueRoundingDown_Rounding(
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) {
 		double currPreciseValue;
 		long currRoundedValue;
 		int result = -1;
 		double currRoundingAmount;
 		double largestRoundingAmount = -1D;
-		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)<=-1){
 			return -1;
 		}
 		for(int i=1; i<=stepsToTry; i++){
@@ -283,21 +384,24 @@ public class EffectFinderImpl implements EffectFinder{
 		return result;
 	}
 
-	@Override
-	public int v_findLargestValueRoundingUp()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int v_findLargestValueRoundingUp()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
-	public int v_findLargestValueRoundingUp(double accuracy, double epsilon, int stepsToTry) {
+	public int v_findLargestValueRoundingUp_Rounding(
+			double accuracy, 
+			double epsilon, 
+			int stepsToTry) {
 		double currPreciseValue;
 		long currRoundedValue;
 		int result = -1;
 		double currRoundingAmount;
 		double largestRoundingAmount = -1D;
-		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)<=-1){
 			return -1;
 		}
 		for(int i=1; i<=stepsToTry; i++){
@@ -315,22 +419,24 @@ public class EffectFinderImpl implements EffectFinder{
 		return result;
 	}
 
-	@Override
-	public int v_findLargestValueTruncation()
-			throws EffectFinderUninitialisedException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int v_findLargestValueTruncation()
+//			throws EffectFinderUninitialisedException {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
-	public int v_findLargestValueTruncation(double accuracy, double epsilon,
+	public int v_findLargestValueTruncation_Truncating(
+			double accuracy, 
+			double epsilon,
 			int stepsToTry) {
 		double currPreciseValue;
 		long currTruncatedValue;
 		int result = -1;
 		double currTruncationAmount;
 		double largestTruncationAmount = -1D;
-		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)<=-1){
 			return -1;
 		}
 		for(int i=1; i<=stepsToTry; i++){
