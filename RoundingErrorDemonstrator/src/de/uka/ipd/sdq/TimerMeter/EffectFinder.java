@@ -20,14 +20,14 @@ public interface EffectFinder {
 	
 	public int[] d_findFirstOccurenceOfDistanceTuples_Truncating(double accuracy, double epsilon, int stepsToTry);
 	
-	public int[] d_findLargestDistanceNeighbors_Rounding(double accuracy, double epsilon, int stepsToTry);
-	
-	public int[] d_findLargestDistanceNeighbors_Truncating(double accuracy, double epsilon, int stepsToTry);
-	
-	public int[] d_findSmallestDistanceNeighbors_Rounding(double accuracy, double epsilon, int stepsToTry);
-	
-	public int[] d_findSmallestDistanceNeighbors_Truncating(double accuracy, double epsilon, int stepsToTry);
-	
+//	public int[] d_findLargestDistanceNeighbors_Rounding(double accuracy, double epsilon, int stepsToTry);
+//	
+//	public int[] d_findLargestDistanceNeighbors_Truncating(double accuracy, double epsilon, int stepsToTry);
+//	
+//	public int[] d_findSmallestDistanceNeighbors_Rounding(double accuracy, double epsilon, int stepsToTry);
+//	
+//	public int[] d_findSmallestDistanceNeighbors_Truncating(double accuracy, double epsilon, int stepsToTry);
+//	
 	public int v_findFirstEffectlessValue_Rounding(double accuracy, double epsilon, int stepsToTry);
 	
 	public int v_findFirstEffectlessValue_Truncating(double accuracy, double epsilon, int stepsToTry);
@@ -37,6 +37,7 @@ public interface EffectFinder {
 	public int v_findLargestValueRoundingUp_Rounding(double accuracy, double epsilon, int stepsToTry);
 	
 	public int v_findLargestValueTruncation_Truncating(double accuracy, double epsilon, int stepsToTry);
+
 }
 //public int[] d_findFirstOccurenceOfDistanceTriples_Rounding() throws EffectFinderUninitialisedException;
 //public int[] d_findFirstOccurenceOfDistanceTriples_Truncating() throws EffectFinderUninitialisedException;

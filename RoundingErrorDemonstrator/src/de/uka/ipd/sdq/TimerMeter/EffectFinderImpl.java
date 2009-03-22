@@ -94,7 +94,7 @@ public class EffectFinderImpl implements EffectFinder{
 					o.println("Not added distance from "+i+" to "+j+"!");
 				}else{
 					addedInstances++;
-					if(addedInstances%1000==1){
+					if(addedInstances%50000==1){
 						o.println("Added "+addedInstances+" instances so far");
 					}
 				}
@@ -113,12 +113,15 @@ public class EffectFinderImpl implements EffectFinder{
 			lenA = a.getDisplayedIntervalLength();
 			lenB = b.getDisplayedIntervalLength();
 			lenC = c.getDisplayedIntervalLength();
-			o.println("Lengths: "+lenA+","+lenB+","+lenC);
+//			o.println("Lengths: "+lenA+","+lenB+","+lenC);
 			if(lenA+1 == lenB && lenB+1==lenC){
 				o.println("The three neighbors: "+a+", "+b+", "+c+".");
 				return new int[]{idx, idx+1, idx+2};
 			}
 			idx++;
+			if(idx%50000==1){
+				o.println("Analysed "+idx+" distance triples so far");
+			}
 			a = b;
 			b = c;
 			c = iter.next();
@@ -132,6 +135,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy,
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering d_findFirstOccurenceOfDistanceTriples_Rounding");
 		return d_findFirstOccurenceOfDistanceTriples(accuracy, stepsToTry, true);
 	}
 
@@ -140,6 +144,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering d_findFirstOccurenceOfDistanceTriples_Truncating");
 		return d_findFirstOccurenceOfDistanceTriples(accuracy, stepsToTry, false);
 	}
 
@@ -150,53 +155,53 @@ public class EffectFinderImpl implements EffectFinder{
 //		return null;
 //	}
 
-	/**
-	 * @param accuracy
-	 * @param stepsToTry
-	 * @return
-	 */
-	private int[] d_findFirstOccurenceOfDistanceTuples(
-			double accuracy,
-			int stepsToTry,
-			boolean rounding) {
-		SortedSet<Interval> intervals = new TreeSet<Interval>();
-		boolean added;
-		int addedInstances = 0;
-		for(int i=1; i<stepsToTry; i++){
-			for(int j=i+1; j<=stepsToTry; j++){
-				added = intervals.add(new IntervalImpl(accuracy, i, j, rounding));
-				if(!added){
-					o.println("Not added distance from "+i+" to "+j+"!");
-				}else{
-					addedInstances++;
-					if(addedInstances%1000==1){
-						o.println("Added "+addedInstances+" instances so far");
-					}
-				}
-			}
-		}
-		Iterator<Interval> iter = intervals.iterator();
-		int idx = 0;
-		Interval a = iter.next();
-		Interval b = iter.next();
-		long lenA;
-		long lenB;
-		
-		do{
-			lenA = a.getDisplayedIntervalLength();
-			lenB = b.getDisplayedIntervalLength();
-			o.println("Lengths: "+lenA+","+lenB);
-			if(lenA+1 == lenB){
-				o.println("The two neighbors: "+a+", "+b+".");
-				return new int[]{idx, idx+1};
-			}
-			idx++;
-			a = b;
-			b = iter.next();
-		}while(iter.hasNext());
-		
-		return new int[]{-1, -1};
-	}
+//	/**
+//	 * @param accuracy
+//	 * @param stepsToTry
+//	 * @return
+//	 */
+//	private int[] d_findFirstOccurenceOfDistanceTuples(
+//			double accuracy,
+//			int stepsToTry,
+//			boolean rounding) {
+//		SortedSet<Interval> intervals = new TreeSet<Interval>();
+//		boolean added;
+//		int addedInstances = 0;
+//		for(int i=1; i<stepsToTry; i++){
+//			for(int j=i+1; j<=stepsToTry; j++){
+//				added = intervals.add(new IntervalImpl(accuracy, i, j, rounding));
+//				if(!added){
+//					o.println("Not added distance from "+i+" to "+j+"!");
+//				}else{
+//					addedInstances++;
+//					if(addedInstances%1000==1){
+//						o.println("Added "+addedInstances+" instances so far");
+//					}
+//				}
+//			}
+//		}
+//		Iterator<Interval> iter = intervals.iterator();
+//		int idx = 0;
+//		Interval a = iter.next();
+//		Interval b = iter.next();
+//		long lenA;
+//		long lenB;
+//		
+//		do{
+//			lenA = a.getDisplayedIntervalLength();
+//			lenB = b.getDisplayedIntervalLength();
+//			o.println("Lengths: "+lenA+","+lenB);
+//			if(lenA+1 == lenB){
+//				o.println("The two neighbors: "+a+", "+b+".");
+//				return new int[]{idx, idx+1};
+//			}
+//			idx++;
+//			a = b;
+//			b = iter.next();
+//		}while(iter.hasNext());
+//		
+//		return new int[]{-1, -1};
+//	}
 
 //	@Override
 //	public int[] d_findFirstOccurenceOfDistanceTuples_Rounding()
@@ -210,6 +215,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy,
 			double epsilon,
 			int stepsToTry) {
+		o.println("Entering d_findFirstOccurenceOfDistanceTuples_Rounding");
 		return d_findFirstOccurenceOfDistanceTuples(accuracy, stepsToTry, true);
 	}
 
@@ -225,6 +231,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy,
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering d_findFirstOccurenceOfDistanceTuples_Truncating");
 		return d_findFirstOccurenceOfDistanceTuples(accuracy, stepsToTry, false);
 	}
 
@@ -235,17 +242,63 @@ public class EffectFinderImpl implements EffectFinder{
 //		return null;
 //	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.TimerMeter.EffectFinder#d_findLargestDistanceRoundingNeighbors(double, double, int)
-	 */
-	@Override
-	public int[] d_findLargestDistanceNeighbors_Rounding(
+	private int[] d_findFirstOccurenceOfDistanceTuples(
 			double accuracy,
-			double epsilon, 
-			int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
+			int stepsToTry,
+			boolean rounding) {
+		SortedSet<Interval> intervals = new TreeSet<Interval>();
+		boolean added;
+		int addedInstances = 0;
+		for(int i=1; i<stepsToTry; i++){
+			for(int j=i+1; j<=stepsToTry; j++){
+				added = intervals.add(new IntervalImpl(accuracy, i, j, rounding));
+				if(!added){
+					o.println("Not added distance from "+i+" to "+j+"!");
+				}else{
+					addedInstances++;
+					if(addedInstances%50000==1){
+						o.println("Added "+addedInstances+" instances so far");
+					}
+				}
+			}
+		}
+		Iterator<Interval> iter = intervals.iterator();
+		int idx = 0;
+		Interval a = iter.next();
+		Interval b = iter.next();
+		long lenA;
+		long lenB;
+		
+		do{
+			lenA = a.getDisplayedIntervalLength();
+			lenB = b.getDisplayedIntervalLength();
+//			o.println("Lengths: "+lenA+","+lenB);
+			if(lenA+1 == lenB){
+				o.println("The two neighbors: "+a+", "+b+".");
+				return new int[]{idx, idx+1};
+			}
+			idx++;
+			if(idx%50000==1){
+				o.println("Analysed "+idx+" distance tuples so far");
+			}
+			a = b;
+			b = iter.next();
+		}while(iter.hasNext());
+		
+		return new int[]{-1, -1};
 	}
+
+//	/* (non-Javadoc)
+//	 * @see de.uka.ipd.sdq.TimerMeter.EffectFinder#d_findLargestDistanceRoundingNeighbors(double, double, int)
+//	 */
+//	@Override
+//	public int[] d_findLargestDistanceNeighbors_Rounding(
+//			double accuracy,
+//			double epsilon, 
+//			int stepsToTry) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 //	@Override
 //	public int[] d_findLargestDistanceTruncatedNeighbors()
@@ -254,12 +307,12 @@ public class EffectFinderImpl implements EffectFinder{
 //		return null;
 //	}
 
-	@Override
-	public int[] d_findLargestDistanceNeighbors_Truncating(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findLargestDistanceNeighbors_Truncating(double accuracy,
+//			double epsilon, int stepsToTry) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 //	@Override
 //	public int[] d_findSmallestDistanceRoundingNeighbors()
@@ -268,12 +321,12 @@ public class EffectFinderImpl implements EffectFinder{
 //		return null;
 //	}
 
-	@Override
-	public int[] d_findSmallestDistanceNeighbors_Rounding(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int[] d_findSmallestDistanceNeighbors_Rounding(double accuracy,
+//			double epsilon, int stepsToTry) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 //	@Override
 //	public int[] d_findSmallestDistanceTruncatedNeighbors()
@@ -281,13 +334,13 @@ public class EffectFinderImpl implements EffectFinder{
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
-
-	@Override
-	public int[] d_findSmallestDistanceNeighbors_Truncating(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//
+//	@Override
+//	public int[] d_findSmallestDistanceNeighbors_Truncating(double accuracy,
+//			double epsilon, int stepsToTry) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 //	@Override
 //	public int v_findFirstEffectlessValueRounding()
@@ -301,6 +354,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering v_findFirstEffectlessValue_Rounding");
 		double currPreciseValue;
 		long currRoundedValue;
 		double currAbsDistance;
@@ -331,6 +385,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering v_findFirstEffectlessValue_Truncating");
 		double currPreciseValue;
 		long currTruncatedValue;
 		double currAbsDistance;
@@ -361,6 +416,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering v_findLargestValueRoundingDown_Rounding");
 		double currPreciseValue;
 		long currRoundedValue;
 		int result = -1;
@@ -396,6 +452,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon, 
 			int stepsToTry) {
+		o.println("Entering v_findLargestValueRoundingUp_Rounding");
 		double currPreciseValue;
 		long currRoundedValue;
 		int result = -1;
@@ -431,6 +488,7 @@ public class EffectFinderImpl implements EffectFinder{
 			double accuracy, 
 			double epsilon,
 			int stepsToTry) {
+		o.println("Entering v_findLargestValueTruncation_Truncating");
 		double currPreciseValue;
 		long currTruncatedValue;
 		int result = -1;
