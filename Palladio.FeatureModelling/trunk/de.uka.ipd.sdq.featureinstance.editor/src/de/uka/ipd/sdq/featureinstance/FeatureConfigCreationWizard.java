@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.featureinstance;
 
-
-
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
@@ -109,9 +107,17 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 		catch (Exception e) {
 			return false;
 		}
+		System.out.println(resourceURI.toString());
 		return true;
 	}
 	
+	
+	
+	@Override
+	public boolean performCancel() {
+		return false;
+	}
+
 	public FeatureConfigCreationWizard (String fileName, String message) {
 		this.fileName = fileName;
 		this.message = message;
