@@ -1,3 +1,4 @@
+package de.uka.ipd.sdq.TimerMeter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -6,6 +7,11 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import de.uka.ipd.sdq.TimerMeter.util.ComparableDistanceTuplesKeyValuePair;
+import de.uka.ipd.sdq.TimerMeter.util.ComparableTriplesKey;
+import de.uka.ipd.sdq.TimerMeter.util.ComparableValueTriplesKeyValuePair;
+
 
 public class TripleFinding {
 	public static void main(String[] args){

@@ -1,4 +1,6 @@
+package de.uka.ipd.sdq.TimerMeter.util;
 import java.util.Arrays;
+
 
 
 public class ComparableValueTriplesKeyValuePair extends TimerMeterSomething implements Comparable<ComparableValueTriplesKeyValuePair>{
@@ -7,6 +9,7 @@ public class ComparableValueTriplesKeyValuePair extends TimerMeterSomething impl
 
 //	private boolean isFromDistancesNotFromValues;
 	private Long[] triple;
+	
 	@Override
 	public int compareTo(ComparableValueTriplesKeyValuePair o) {
 		if(accuracy!=null){

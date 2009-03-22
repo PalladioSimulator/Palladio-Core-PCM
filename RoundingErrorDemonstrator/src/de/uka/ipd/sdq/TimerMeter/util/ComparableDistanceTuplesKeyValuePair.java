@@ -1,3 +1,6 @@
+package de.uka.ipd.sdq.TimerMeter.util;
+
+
 
 
 public class ComparableDistanceTuplesKeyValuePair extends TimerMeterSomething implements Comparable<ComparableDistanceTuplesKeyValuePair>{

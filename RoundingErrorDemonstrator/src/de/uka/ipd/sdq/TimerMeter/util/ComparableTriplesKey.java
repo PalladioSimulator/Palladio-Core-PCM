@@ -1,3 +1,4 @@
+package de.uka.ipd.sdq.TimerMeter.util;
 
 public class ComparableTriplesKey implements Comparable<ComparableTriplesKey>{
 	private Double accuracy;
