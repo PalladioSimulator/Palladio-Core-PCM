@@ -14,6 +14,15 @@ public class IntervalImplFat extends IntervalImpl{
 	private double realIntervalStart;//TODO rationalise away
 	private Boolean roundedNotTruncated;
 	
+	public String toString(){ 
+		StringBuffer sb = new StringBuffer();
+		if(roundedNotTruncated) sb.append("R{"); else sb.append("T{"); 
+		sb.append(accuracy+"*["+intervalStartIndex+";"+intervalStartIndex+"]~");
+		sb.append(displayedIntervalLength);
+		sb.append("}"); 
+		return sb.toString();
+	}
+
 	public IntervalImplFat(
 			Double accuracy, 
 			int intervalStartIndex, 

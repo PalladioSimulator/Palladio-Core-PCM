@@ -1,6 +1,9 @@
 package de.uka.ipd.sdq.TimerMeter;
 
 import java.io.PrintStream;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import de.uka.ipd.sdq.TimerMeter.exceptions.EffectFinderUninitialisedException;
 import de.uka.ipd.sdq.TimerMeter.exceptions.WrongEffectFinderConfigurationException;
@@ -49,10 +52,51 @@ public class EffectFinderImpl implements EffectFinder{
 	}
 
 	@Override
-	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding(double accuracy,
-			double epsilon, int stepsToTry) {
-		// TODO Auto-generated method stub
-		return null;
+	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding(
+			double accuracy,
+			double epsilon, 
+			int stepsToTry) {
+		SortedSet<Interval> intervals = new TreeSet<Interval>();
+		boolean added;
+		int addedInstances = 0;
+		for(int i=1; i<stepsToTry; i++){
+			for(int j=i+1; j<=stepsToTry; j++){
+				added = intervals.add(new IntervalImpl(accuracy, i, j, true));
+				if(!added){
+					o.println("Not added distance from "+i+" to "+j+"!");
+				}else{
+					addedInstances++;
+					if(addedInstances%1000==1){
+						o.println("Added "+addedInstances+" instances so far");
+					}
+				}
+			}
+		}
+		Iterator<Interval> iter = intervals.iterator();
+		int idx = 0;
+		Interval a;
+		Interval b;
+		Interval c;
+		long lenA;
+		long lenB;
+		long lenC;
+		
+		do{
+			a = iter.next();
+			b = iter.next();
+			c = iter.next();
+			lenA = a.getDisplayedIntervalLength();
+			lenB = b.getDisplayedIntervalLength();
+			lenC = c.getDisplayedIntervalLength();
+			o.println("Lengths: "+lenA+","+lenB+","+lenC);
+			if(lenA+1 == lenB && lenB+1==lenC){
+				o.println("The three neighbors: "+a+", "+b+", "+c+".");
+				return new int[]{idx, idx+1, idx+2};
+			}
+			idx++;
+		}while(iter.hasNext());
+		
+		return new int[]{-1, -1, -1};
 	}
 
 	@Override

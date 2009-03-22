@@ -23,4 +23,6 @@ public interface Interval {
 	public double getRealIntervalStart();
 
 	public Boolean getRoundedNotTruncated();
+	
+	public String toString();
 }

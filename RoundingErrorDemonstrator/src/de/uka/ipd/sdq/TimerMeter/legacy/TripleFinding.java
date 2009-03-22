@@ -103,7 +103,7 @@ public class TripleFinding {
 			totalTriplesKey.setAccuracy(timerAccuracy);
 			
 			set = new TreeSet<Long>();
-			longs = this.searchForTriplesInValues(true, timerAccuracy, nrOfVielfaches, false, set).getTriple();//TODO use index!
+			longs = this.searchForTriplesInValues(set, timerAccuracy, true, nrOfVielfaches, false).getTriple();//TODO use index!
 			triples_values.add(longs);
 			accuracies_values.add(timerAccuracy);
 			if(longs==null 
@@ -114,7 +114,7 @@ public class TripleFinding {
 					|| longs[1].equals(0)
 					|| longs[2].equals(0)
 					){
-				longs = searchForTuplesInDistances(timerAccuracy,set,true).getTuple();//TODO use index!
+				longs = searchForTuplesInDistances(set,timerAccuracy,true).getTuple();//TODO use index!
 				tuples_distances.add(longs);
 				accuracies_distances.add(timerAccuracy);
 				if(longs==null 
@@ -160,8 +160,8 @@ public class TripleFinding {
 	 * @return the found triple (with metadata), or null if non found
 	 */
 	public ComparableDistanceTuplesKeyValuePair searchForTuplesInDistances(
-			Double accuracy,
 			SortedSet<Long> setOfValues,
+			Double accuracy,
 			boolean searchImmediateDistancesOnly) {
 		if(setOfValues==null || setOfValues.size()<3){
 			System.out.println("Input parameter null or too short (<3 elements)");
@@ -234,11 +234,11 @@ public class TripleFinding {
 	 * @return found triple (with metadata), or null if none found
 	 */
 	public ComparableValueTriplesKeyValuePair searchForTriplesInValues(
+			SortedSet<Long> setOfCreatedValues,
+			Double timerAccuracy, 
 			boolean roundInsteadOfTruncating,
-			double timerAccuracy, 
 			int numberOfVielfaches,
-			boolean verboseLogging,
-			SortedSet<Long> setOfCreatedValues){
+			boolean verboseLogging){
 		System.out.println("Starting with accuracy "+timerAccuracy+", " +
 				"computing "+numberOfVielfaches+" Vielfaches");
 		final double s;

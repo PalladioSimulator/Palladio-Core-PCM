@@ -67,6 +67,15 @@ public class IntervalImpl implements Interval, Comparable<Interval>{
 			}
 		}
 	}
+	
+	public String toString(){ 
+		StringBuffer sb = new StringBuffer();
+		if(roundedNotTruncated) sb.append("R{"); else sb.append("T{"); 
+		sb.append(accuracy+"*["+intervalStartIndex+";"+intervalEndIndex+"]~");
+		sb.append(displayedIntervalLength);
+		sb.append("}"); 
+		return sb.toString();
+	}
 
 	public Double getAccuracy() {
 		return accuracy;

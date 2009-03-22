@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.TimerMeter.test;
 
+import java.util.Arrays;
+
 import de.uka.ipd.sdq.TimerMeter.EffectFinder;
 import de.uka.ipd.sdq.TimerMeter.EffectFinderImpl;
 
@@ -15,5 +17,7 @@ public class EffectFinderTester {
 		System.out.println(efff.v_findLargestValueRoundingDown(1.28, 0.01D, 100));
 		System.out.println(efff.v_findLargestValueRoundingUp(1.28, 0.01D, 100));
 		System.out.println(efff.v_findLargestValueTruncation(1.28, 0.01D, 100));
+		System.out.println(Arrays.toString(efff.d_findFirstOccurenceOfDistanceTriples_Rounding(1.28, 0.01D, 1000)));
+				
 	}
 }
