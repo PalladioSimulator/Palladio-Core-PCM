@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.TimerMeter;
 
 public class IntervalTriple /*implements Comparable<IntervalTriple>*/{
+	private boolean areNeighbors;
 	private Interval firstInterval;
 	private Interval secondInterval;
-	private Interval thirdInterval;
 	
-	private boolean areNeighbors;
+	private Interval thirdInterval;
 	
 	public IntervalTriple(Interval a, Interval b, Interval c){
 		if(a.compareTo(b)<0 && a.compareTo(c)<0){

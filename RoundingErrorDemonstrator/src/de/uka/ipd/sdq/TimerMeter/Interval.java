@@ -6,21 +6,21 @@ public interface Interval {
 
 	public Double getAccuracy();
 
-	public Boolean getRoundedNotTruncated();
-
-	public int getIntervalStartIndex();
-
-	public int getIntervalEndIndex();
+	public long getDisplayedIntervalEnd();
 
 	public long getDisplayedIntervalLength();
 
 	public long getDisplayedIntervalStart();
 
-	public double getRealIntervalStart();
+	public int getIntervalEndIndex();
 
-	public long getDisplayedIntervalEnd();
+	public int getIntervalStartIndex();
 
 	public double getRealIntervalEnd();
 
 	public double getRealIntervalLength();
+
+	public double getRealIntervalStart();
+
+	public Boolean getRoundedNotTruncated();
 }

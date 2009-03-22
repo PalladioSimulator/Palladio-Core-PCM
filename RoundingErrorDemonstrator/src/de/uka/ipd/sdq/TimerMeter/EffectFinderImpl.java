@@ -9,10 +9,14 @@ public class EffectFinderImpl implements EffectFinder{
 	
 	static PrintStream o = System.out;
 
+	@SuppressWarnings("unused")
 	private boolean abort = false;
 
+	@SuppressWarnings("unused")
 	private double accuracy;
+	@SuppressWarnings("unused")
 	private double epsilon;
+	@SuppressWarnings("unused")
 	private int stepsToTry;
 	public EffectFinderImpl() {
 		super();
