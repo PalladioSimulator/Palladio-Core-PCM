@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.TimerMeter;
+package de.uka.ipd.sdq.TimerMeter.exceptions;
 
 public class EffectFinderUninitialisedException extends Exception {
 

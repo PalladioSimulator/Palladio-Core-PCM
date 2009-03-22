@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.TimerMeter;
 
+import de.uka.ipd.sdq.TimerMeter.exceptions.EffectFinderUninitialisedException;
+
 public interface EffectFinder {
 	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding() throws EffectFinderUninitialisedException;
 	public int[] d_findFirstOccurenceOfDistanceTriples_Rounding(double accuracy, double epsilon, int stepsToTry);

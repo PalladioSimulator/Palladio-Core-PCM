@@ -2,6 +2,9 @@ package de.uka.ipd.sdq.TimerMeter;
 
 import java.io.PrintStream;
 
+import de.uka.ipd.sdq.TimerMeter.exceptions.EffectFinderUninitialisedException;
+import de.uka.ipd.sdq.TimerMeter.exceptions.WrongEffectFinderConfigurationException;
+
 public class EffectFinderImpl implements EffectFinder{
 	
 	static PrintStream o = System.out;
