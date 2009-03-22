@@ -208,10 +208,28 @@ public class EffectFinderImpl implements EffectFinder{
 	}
 
 	@Override
-	public int v_findLargestValueRoundingDown(double accuracy, double epsilon,
-			int stepsToTry) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int v_findLargestValueRoundingDown(double accuracy, double epsilon, int stepsToTry) {
+		double currPreciseValue;
+		long currRoundedValue;
+		int result = -1;
+		double currRoundingAmount;
+		double largestRoundingAmount = -1D;
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+			return -1;
+		}
+		for(int i=1; i<=stepsToTry; i++){
+			currPreciseValue = i*accuracy;
+			currRoundedValue = Math.round(currPreciseValue);
+			currRoundingAmount = currPreciseValue-currRoundedValue;
+			if((new Double(currRoundingAmount)).compareTo(0.0D)>0){
+				if(currRoundingAmount>largestRoundingAmount){
+					largestRoundingAmount=currRoundingAmount;
+					result = i;
+				}
+			}
+		}
+		o.println(largestRoundingAmount);
+		return result;
 	}
 
 	@Override
@@ -222,10 +240,28 @@ public class EffectFinderImpl implements EffectFinder{
 	}
 
 	@Override
-	public int v_findLargestValueRoundingUp(double accuracy, double epsilon,
-			int stepsToTry) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int v_findLargestValueRoundingUp(double accuracy, double epsilon, int stepsToTry) {
+		double currPreciseValue;
+		long currRoundedValue;
+		int result = -1;
+		double currRoundingAmount;
+		double largestRoundingAmount = -1D;
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+			return -1;
+		}
+		for(int i=1; i<=stepsToTry; i++){
+			currPreciseValue = i*accuracy;
+			currRoundedValue = Math.round(currPreciseValue);
+			currRoundingAmount = currRoundedValue - currPreciseValue;
+			if((new Double(currRoundingAmount)).compareTo(0.0D)>0){
+				if(currRoundingAmount>largestRoundingAmount){
+					largestRoundingAmount=currRoundingAmount;
+					result = i;
+				}
+			}
+		}
+		o.println(largestRoundingAmount);
+		return result;
 	}
 
 	@Override
@@ -238,8 +274,25 @@ public class EffectFinderImpl implements EffectFinder{
 	@Override
 	public int v_findLargestValueTruncation(double accuracy, double epsilon,
 			int stepsToTry) {
-		// TODO Auto-generated method stub
-		return 0;
+		double currPreciseValue;
+		long currTruncatedValue;
+		int result = -1;
+		double currTruncationAmount;
+		double largestTruncationAmount = -1D;
+		if (this.checkParameters(accuracy,epsilon,stepsToTry)==-1){
+			return -1;
+		}
+		for(int i=1; i<=stepsToTry; i++){
+			currPreciseValue = i*accuracy;
+			currTruncatedValue = new Double(currPreciseValue).longValue();
+			currTruncationAmount = currPreciseValue - currTruncatedValue;
+			if(currTruncationAmount>largestTruncationAmount){
+				largestTruncationAmount=currTruncationAmount;
+				result = i;
+			}
+		}
+		o.println(largestTruncationAmount);
+		return result;
 	}
 
 }
