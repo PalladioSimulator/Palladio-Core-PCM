@@ -7,7 +7,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
@@ -98,7 +100,7 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 	public URI getNewResource () {
 		return resourceURI;
 	}
-
+	
 	@Override
 	public boolean performFinish() {
 		try {
@@ -108,13 +110,6 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 			return false;
 		}
 		return true;
-	}
-	
-	
-	
-	@Override
-	public boolean performCancel() {
-		return false;
 	}
 
 	public FeatureConfigCreationWizard (String fileName, String message) {
