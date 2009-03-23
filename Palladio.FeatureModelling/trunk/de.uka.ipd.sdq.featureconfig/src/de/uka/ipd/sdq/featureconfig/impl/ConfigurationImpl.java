@@ -62,6 +62,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected FeatureConfig defaultConfig;
+	
+	private DiagnosticChain currentDiagnostics;
+	private Map<Object, Object> currentContext;
 
 	/**
 	 * The cached value of the '{@link #getConfigOverrides() <em>Config Overrides</em>}' containment reference.
@@ -335,15 +338,15 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 */
 	public boolean mandatoryFeaturesChecked(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		
+		this.currentDiagnostics = diagnostics;
+		this.currentContext = context;
+		
 		// try to get any ConfigNode to any Feature, so that 
 		//navigation to the FeatureDiagram-model is possible
 		boolean valid = true;
 		FeatureConfig defaultConfig = configuration.getDefaultConfig();
 		FeatureConfig configOverrides = configuration.getConfigOverrides();
-		
-		if (defaultConfig == null && configOverrides == null) {
-			valid = false;
-		}
 		
 		Feature referenceFeature = null;
 		
@@ -362,9 +365,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		}
 		
 		//Navigate from the referenceFeature to the FeatureDiagram object
-		if (referenceFeature == null) {
-			valid = false;
-		} else {
+		if (referenceFeature != null) {
 			EObject diagram = referenceFeature.eContainer();
 			
 			while (!(diagram instanceof FeatureDiagram) && (diagram != null)) {
@@ -376,19 +377,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				//, if every mandatory subfeature in the Diagram is selected
 				ChildRelation rootRelation = ((FeatureDiagram)diagram).getRootFeature().getChildrelation();
 				valid = checkForMandatorySelected(rootRelation);
-			}
-		}
-		
-		//Add an Error Diagnostic to the DiagnosticChain, if a validation error happened
-		if (!valid) {
-			if (diagnostics != null) {
-				diagnostics.add
-				(new BasicDiagnostic
-						(Diagnostic.ERROR,
-								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
-								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
-								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"Mandatory features selected", EObjectValidator.getObjectLabel(this, context) }),
-								new Object [] { this }));
 			}
 		}
 		return valid;
@@ -418,6 +406,15 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 						EObject currentConfigNode = currentSetting.getEObject();
 						if (((ConfigNode)currentConfigNode).getConfigState() != ConfigState.SELECTED) {
 							valid = false;
+							if (currentDiagnostics != null) {
+								currentDiagnostics.add
+								(new BasicDiagnostic
+										(Diagnostic.ERROR,
+												de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
+												de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
+												EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"Mandatory features selected", EObjectValidator.getObjectLabel(current, currentContext) }),
+												new Object [] { this }));
+							}
 						}
 					}
 				}
@@ -444,6 +441,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 */
 	public boolean minMaxCorrect(Configuration configuration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		
+		this.currentDiagnostics = diagnostics;
+		this.currentContext = context;
+		
 		// try to get any ConfigNode to any Feature, so that 
 		//navigation to the FeatureDiagram-model is possible
 		boolean valid = true;
@@ -467,9 +468,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		}
 		
 		//Navigate from the referenceFeature to the FeatureDiagram object
-		if (referenceFeature == null) {
-			valid = false;
-		} else {
+		if (referenceFeature != null) {
 			EObject diagram = referenceFeature.eContainer();
 			
 			while (!(diagram instanceof FeatureDiagram) && (diagram != null)) {
@@ -481,19 +480,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				//, if every Min:Max range in the Diagram is valid
 				ChildRelation rootRelation = ((FeatureDiagram)diagram).getRootFeature().getChildrelation();
 				valid = checkForMinMaxCorrect(rootRelation);
-			}
-		}
-		
-		//Add an Error Diagnostic to the DiagnosticChain, if a validation error happened
-		if (!valid) {
-			if (diagnostics != null) {
-				diagnostics.add
-				(new BasicDiagnostic
-						(Diagnostic.ERROR,
-								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
-								de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
-								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"FeatureGroup: Min:Max Correct", EObjectValidator.getObjectLabel(this, context) }),
-								new Object [] { this }));
 			}
 		}
 		return valid;
@@ -544,6 +530,15 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			}
 			if (selected < min || selected > max) {
 				valid = false;
+				if (currentDiagnostics != null) {
+					currentDiagnostics.add
+					(new BasicDiagnostic
+							(Diagnostic.ERROR,
+									de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.DIAGNOSTIC_SOURCE,
+									de.uka.ipd.sdq.featureconfig.util.featureconfigValidator.CONFIGURATION__MANDATORY_ELIMINATED,
+									EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {"FeatureGroup: Min:Max Correct", EObjectValidator.getObjectLabel(relation, currentContext) }),
+									new Object [] { this }));
+				}
 			}
 			for (Feature current : children) {
 				valid = valid && checkForMinMaxCorrect(current.getChildrelation());
