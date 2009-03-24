@@ -1,0 +1,21 @@
+© Copyright FZI Deutschland 2009.
+
+Die Lizenzübersicht muss jeweils mitverteilt werden.
+
+Benutzte Lizenzen:
+---------------------------------------------------------------------------------------------------
+Bibliothek                    | Typ                     | URL
+---------------------------------------------------------------------------------------------------
+antlr                         | BSD                     | http://www.antlr.org/license.html
+CloneAnalyzer                 | LGPL (*)                | ...
+deadcode                      | LGPL (*)                | ...
+jargs                         | BSD                     | http://www.freebsd.org/copyright/freebsd-doc-license.html
+jtds                          | LGPL                    | http://jtds.sourceforge.net/license.html
+opparser                      | LGPL (*)                | ...
+postgresql                    | BSD-style               | http://jdbc.postgresql.org/license.html
+recoder                       | LGPL                    | http://apps.sourceforge.net/mediawiki/recoder/index.php?title=Licensing
+SISSy                         | LGPL (*)                | ...
+xmlwriter                     | BSD-style               | http://www.osjava.org/xmlwriter/license.html
+---------------------------------------------------------------------------------------------------
+
+(*) http://www.gnu.org/copyleft/lesser.html
