@@ -217,11 +217,16 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 		String text = null;
 		VariableCharacterisation vc = (VariableCharacterisation) this
 				.resolveSemanticElement();
-		text = vc.getType().getLiteral() + " = ";
-		Expression expression = vc.getSpecification_VariableCharacterisation()
-				.getExpression();
-		if (expression != null)
-			text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+		if (vc != null) {
+			text = vc.getType().getLiteral() + " = ";
+			if (vc.getSpecification_VariableCharacterisation() != null) {
+				Expression expression = vc.getSpecification_VariableCharacterisation()
+					.getExpression();
+				if (expression != null)
+					text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+			} else
+				text = null;
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
