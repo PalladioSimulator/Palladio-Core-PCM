@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceNotAvailableException;
 import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
@@ -157,6 +158,12 @@ public abstract class AbstractScheduledResource extends Entity {
 	 *            resource
 	 */
 	public void consumeResource(SimProcess thread, double demand) {
+
+		// temporary embedding of resource unavailability:
+		if (true) {
+			throw new ResourceNotAvailableException();
+		}
+
 		if (this.getModel().getSimulationControl().isRunning()) {
 			double calculatedDemand = calculateDemand(demand);
 			logger.info("Resource " + this.getName() + " loaded with "
@@ -300,11 +307,12 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * been stopped
 	 */
 	public void deactivateResource() {
-		if (!this.isStopped ){
+		if (!this.isStopped) {
 			logger.debug("Stopping Resource " + this.getName());
 			this.isStopped = true;
-			experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
-					.getSimulationControl().getCurrentSimulationTime());
+			experimentRun.addStateMeasurement(stateSensor, idleState,
+					getModel().getSimulationControl()
+							.getCurrentSimulationTime());
 			this.getModel().getSimulationStatus().getResourceStatus()
 					.getActiveResources().remove(myResourceStatus);
 		}

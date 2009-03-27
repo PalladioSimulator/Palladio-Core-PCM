@@ -9,7 +9,7 @@ package de.uka.ipd.sdq.simucomframework.exceptions;
 public class InternalActionFailedException extends RuntimeException {
 
 	/**
-	 * A UUID for serialization.
+	 * A UID for serialization.
 	 */
 	private static final long serialVersionUID = 8131673462283332230L;
 
