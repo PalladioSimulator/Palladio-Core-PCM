@@ -26,6 +26,18 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR InternalAction»
+    // Simulate a failure that occurs with a predefined probability:
+    {
+        double failureProbability;
+        try {
+		    failureProbability = Double.parseDouble("«this.failureProbability»");
+		} catch (NumberFormatException excepion) {
+		    failureProbability = 0.0;
+		}
+  		if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {
+   		   	throw new de.uka.ipd.sdq.simucomframework.exceptions.InternalActionFailedException();
+  		}
+    }
 	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
 «ENDDEFINE»
 
