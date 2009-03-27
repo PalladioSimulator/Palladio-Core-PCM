@@ -49,12 +49,12 @@ contextInterfaceName(InterfaceRequiringEntity c) :
 // ID of a member variable used in the main component implementation to store the singleton port
 // instance
 portMemberVar(ProvidedRole r) :
-   "m_port"+r.providedInterface__ProvidedRole.javaName();
+   "m_port"+r.javaName();
    
 // Name of the getter Method used to get the singleton port instances
 // of the provided ports
 portGetter(ProvidedRole r) :
-   "getPort"+r.providedInterface__ProvidedRole.javaName();
+   "getPort"+r.javaName();
 
 // Base package of a generated system   
 basePackageName(Entity s) :

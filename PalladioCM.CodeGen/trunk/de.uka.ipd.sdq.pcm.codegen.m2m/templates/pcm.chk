@@ -90,3 +90,6 @@ context RandomVariable ERROR 'Random variable without specification is invalid':
 	
 context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
 	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
+	
+context InterfaceProvidingRequiringEntity ERROR 'Component ' + this.entityName +': All provided roles of a component must have unique names':
+	this.providedRoles_InterfaceProvidingEntity.forAll(r1|this.providedRoles_InterfaceProvidingEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));	
