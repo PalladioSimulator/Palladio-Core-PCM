@@ -20,4 +20,8 @@ public abstract class SimEvent extends SimulationElement implements ISimEventDel
 			double timeWhenNextJobIsDone) {
 		delegate.schedule(((Entity)resource).delegate, timeWhenNextJobIsDone);
 	}
+	
+	public void removeEvent(){
+		delegate.removeEvent();
+	}
 }

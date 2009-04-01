@@ -15,7 +15,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
@@ -80,6 +79,11 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * The solving value of the resulting Markov Chain instance.
 	 */
 	private double solvedValue;
+
+	/**
+	 * The list of solving values in case of a sensitivity analysis.
+	 */
+	private ArrayList<Double> sensitivityResults = new ArrayList<Double>();
 
 	/**
 	 * Counts performed Markov transformation runs.
@@ -205,7 +209,13 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 			// Let the user know about the result:
 			logger.info("Probability of Success:\t\t\t" + solvedValue);
+
+			// Store the result:
+			sensitivityResults.add(solvedValue);
 		}
+
+		// Print sensitivity analysis results:
+		printSensitivityAnalysisResults();
 	}
 
 	/**
@@ -495,6 +505,43 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
+	 * Prints the result of sensitivity analysis.
+	 * 
+	 */
+	private void printSensitivityAnalysisResults() {
+
+		// Assert the stream to exist:
+		if (rawStream == null) {
+			return;
+		}
+
+		// Print result header:
+		rawStream.println("run number;failure probability;result");
+
+		// Define a format for double printing:
+		DecimalFormat format = new DecimalFormat("0.000000000");
+
+		// Print single results:
+		for (int i = 0; i < sensitivityController.getStepCount(); i++) {
+
+			// Build a result string:
+			String resultString = (i + 1) + ";";
+
+			// Add the failure probability of this step:
+			Double val = sensitivityController.getParameters().get(0)
+					.getValues().get(i);
+			resultString += format.format(val) + ";";
+
+			// Add the result of this step:
+			resultString += format.format(sensitivityResults.get(i));
+
+			// Print the result:
+			rawStream.println(resultString);
+		}
+
+	}
+
+	/**
 	 * Builds a list of resource descriptors based on a given PCM instance.
 	 * 
 	 * @param model
@@ -540,31 +587,15 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 						.getActiveResourceType_ActiveResourceSpecification();
 
 				// Check the proper MTTF/MTTR specification:
-				if (resourceMTTF < 0.0) {
+				if ((resourceMTTF <= 0.0) || (resourceMTTR <= 0.0)) {
 					logger
 							.warn("Improper MTTF/MTTR specification for resource "
 									+ type.getEntityName()
 									+ " in container "
 									+ container.getEntityName()
-									+ ": negative MTTF. Assuming MTTF = 0.0");
-					resourceMTTF = 0.0;
-				}
-				if (resourceMTTR < 0.0) {
-					logger
-							.warn("Improper MTTF/MTTR specification for resource "
-									+ type.getEntityName()
-									+ " in container "
-									+ container.getEntityName()
-									+ ": negative MTTR. Assuming MTTR = 0.0");
+									+ ": Both values should be positive. Assuming that resource is always ok");
+					resourceMTTF = 1.0;
 					resourceMTTR = 0.0;
-				}
-				if ((resourceMTTF == 0.0) && (resourceMTTR == 0.0)) {
-					logger
-							.warn("Improper MTTF/MTTR specification for resource "
-									+ type.getEntityName()
-									+ " in container "
-									+ container.getEntityName()
-									+ ": Both values are 0. Assuming that resource is always ok");
 				}
 
 				// Generate a new descriptor:
@@ -627,7 +658,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 *            the current sensitivity analysis step
 	 * @return a PCM instance reflecting the current step
 	 */
-	private PCMInstance createAdjustedModel(int step) {
+	private PCMInstance createAdjustedModel(final int step) {
 
 		// Load the model from XMI files:
 		PCMInstance adjustedModel = new PCMInstance(props);
@@ -666,7 +697,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * @throws IOException
 	 *             if file copy to temporary model directory fails
 	 */
-	private void createResource(String baseURI, String key) throws IOException {
+	private void createResource(final String baseURI, final String key)
+			throws IOException {
 
 		// Assume the resource is a file:
 		File baseFile = new File(baseURI);

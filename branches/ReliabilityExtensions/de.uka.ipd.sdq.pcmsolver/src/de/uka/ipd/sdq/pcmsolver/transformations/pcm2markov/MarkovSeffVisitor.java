@@ -366,7 +366,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 		// Do the logging:
 		logger
-				.info("Visit BranchAction [" + branchAction.getEntityName()
+				.debug("Visit BranchAction [" + branchAction.getEntityName()
 						+ "]");
 
 		// Determine the inner Markov Chains associated with the branch

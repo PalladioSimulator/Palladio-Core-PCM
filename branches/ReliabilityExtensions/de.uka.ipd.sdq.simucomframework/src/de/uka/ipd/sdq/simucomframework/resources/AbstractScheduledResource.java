@@ -43,6 +43,17 @@ public abstract class AbstractScheduledResource extends Entity {
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
 
+	protected JobDoneEvent myJobDoneEvent = null;
+	
+	// The following parts are only for resources that can fail. Currently, such
+	// a mechanism is only implemented for SimulatedActiveResources.
+	protected Double mttf = 0.0;
+	protected Double mttr = 0.0;
+	protected boolean canFail = false;
+	protected boolean isAvailable = true;
+	protected ResourceFailedEvent failedEvent;
+	protected ResourceRepairedEvent repairedEvent;
+
 	private HashMap<String, State> statesCache = new HashMap<String, State>();
 
 	private double lastTimeOfAdjustingJobs;
@@ -94,6 +105,8 @@ public abstract class AbstractScheduledResource extends Entity {
 		myResourceStatus.setId(this.getName());
 		myModel.getSimulationStatus().getResourceStatus().getActiveResources()
 				.add(myResourceStatus);
+		
+		this.myJobDoneEvent = new JobDoneEvent(getModel(), "JobDone");
 	}
 
 	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
@@ -159,11 +172,10 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public void consumeResource(SimProcess thread, double demand) {
 
-		// temporary embedding of resource unavailability:
-		if (true) {
+		// Check first if the resource is currently available:
+		if (!isAvailable) {
 			throw new ResourceNotAvailableException();
 		}
-
 		if (this.getModel().getSimulationControl().isRunning()) {
 			double calculatedDemand = calculateDemand(demand);
 			logger.info("Resource " + this.getName() + " loaded with "
@@ -300,6 +312,11 @@ public abstract class AbstractScheduledResource extends Entity {
 		logger.debug("Starting Resource " + this.getName());
 		lastTimeOfAdjustingJobs = getModel().getSimulationControl()
 				.getCurrentSimulationTime();
+		if (canFail) {
+			double t = getFailureTime();
+			failedEvent.schedule(this, t);
+			logger.debug("Resource will fail at time " + t);
+		}
 	}
 
 	/**
@@ -315,6 +332,10 @@ public abstract class AbstractScheduledResource extends Entity {
 							.getCurrentSimulationTime());
 			this.getModel().getSimulationStatus().getResourceStatus()
 					.getActiveResources().remove(myResourceStatus);
+			if (this.canFail) {
+				this.failedEvent.removeEvent();
+				this.repairedEvent.removeEvent();
+			}
 		}
 	}
 
@@ -333,4 +354,48 @@ public abstract class AbstractScheduledResource extends Entity {
 				.getCurrentSimulationTime();
 	}
 
+	/**
+	 * Marks the resource as being available or unavailable.
+	 * 
+	 * @param isAvailable
+	 *            the target state to set
+	 */
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+		logger.error("Set resource availability = " + this.isAvailable
+				+ ", time = "
+				+ getModel().getSimulationControl().getCurrentSimulationTime());
+	}
+
+	/**
+	 * Returns the failure time for this resource (or -1.0 if the resource
+	 * cannot fail).
+	 * 
+	 * @return the failure time for the resource
+	 */
+	public double getFailureTime() {
+		if (!canFail) {
+			throw new RuntimeException(
+					"getFailureTime() should not be invoked as resource cannot fail");
+		}
+		return (canFail == true) ? mttf : -1.0;
+	}
+
+	/**
+	 * Returns the repair time for this resource (or -1.0 if the resource cannot
+	 * fail).
+	 * 
+	 * @return the repair time for the resource
+	 */
+	public double getRepairTime() {
+		if (!canFail) {
+			throw new RuntimeException(
+					"getRepairTime() should not be invoked as resource cannot fail");
+		}
+		return (canFail == true) ? mttr : -1.0;
+	}
+
+	public ISimEventDelegate getJobDoneEvent() {
+		return myJobDoneEvent;
+	}
 }

@@ -93,6 +93,8 @@
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
+		«this.MTTF»,
+		«this.MTTR»,
 		"TODO: unit!",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
 «ENDDEFINE»

@@ -62,6 +62,7 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 		
 		// 6. Transfer the JAR to a free simulation dock and simulate it
 		SimuComConfig simuConfig = new SimuComConfig(attributes.getSimuComProperties(),runNo,isDebug);
+		//this.addJob(new SimulateJob(simuConfig));
 		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig,launch));
 	}
 

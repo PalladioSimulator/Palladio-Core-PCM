@@ -495,7 +495,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with two PMFs failed!");
 			e.printStackTrace();
 		}
-		//logger.info("Result: "+resultIPMF.getSamples().toString());
+		//logger.debug("Result: "+resultIPMF.getSamples().toString());
 		return createLiteralForIPMF(resultIPMF);
 	}
 
@@ -515,7 +515,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with PMF and int failed!");
 			e.printStackTrace();
 		}
-		//logger.info("Result: "+resultIPMF.getSamples().toString());
+		//logger.debug("Result: "+resultIPMF.getSamples().toString());
 		return createLiteralForIPMF(resultIPMF);
 	}
 
