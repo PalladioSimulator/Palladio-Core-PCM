@@ -739,7 +739,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 
 		// Try to retrieve the value:
 		try {
-			return configuration.getAttribute(MessageStrings.SINGLE_RESULTS,
+			return configuration.getAttribute(attributeName,
 					standardValue);
 		} catch (CoreException exception) {
 			return standardValue;
