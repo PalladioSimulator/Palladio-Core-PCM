@@ -365,9 +365,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	public MarkovChain caseBranchAction(final BranchAction branchAction) {
 
 		// Do the logging:
-		logger
-				.debug("Visit BranchAction [" + branchAction.getEntityName()
-						+ "]");
+		logger.debug("Visit BranchAction [" + branchAction.getEntityName()
+				+ "]");
 
 		// Determine the inner Markov Chains associated with the branch
 		// behaviours:
@@ -472,30 +471,37 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			// the call fails:
 			if (commLink != null) {
 
-				// The call can be modeled as a behavior with two steps: the
-				// sending of the message, and the remote execution. Both steps
-				// can fail.
+				// The call can be modeled as a behavior with three steps: the
+				// sending of the message, the remote execution, and the message
+				// return. All of these steps can fail.
 				ArrayList<State> states = new ArrayList<State>();
 				ArrayList<String> names = new ArrayList<String>();
 				names.add("Messaging");
 				names.add("Execution");
+				//names.add("Returning");
 				MarkovChain aggregateMarkovChain = markovBuilder
 						.initBehaviourMarkovChain(externalCallAction
 								.getEntityName(), names, states);
 
-				// The first Step can be modeled like an Internal Action which
-				// either fails or succeeds:
+				// The first and third Steps can be modeled like an Internal
+				// Action which either fails or succeeds:
 				MarkovChain messagingMarkovChain = markovBuilder
 						.initInternalMarkovChain("Messaging",
 								((Double) commLink.getFailureProbability())
 										.toString());
+				MarkovChain returnMarkovChain = markovBuilder
+				.initInternalMarkovChain("Returning",
+						((Double) commLink.getFailureProbability())
+								.toString());
 
 				// The second step is the already computed inner Markov Chain.
-				// Incorporate both steps into the aggregate chain:
+				// Incorporate all steps into the aggregate chain:
 				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
 						messagingMarkovChain, states.get(0), optimize);
 				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
 						innerMarkovChain, states.get(1), optimize);
+				//markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+				//		returnMarkovChain, states.get(2), optimize);
 
 				// Return the result:
 				return aggregateMarkovChain;
