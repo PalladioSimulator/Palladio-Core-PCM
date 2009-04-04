@@ -31,7 +31,7 @@
         double failureProbability;
         try {
 		    failureProbability = Double.parseDouble("«this.failureProbability»");
-		} catch (NumberFormatException excepion) {
+		} catch (NumberFormatException exception) {
 		    failureProbability = 0.0;
 		}
   		if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {

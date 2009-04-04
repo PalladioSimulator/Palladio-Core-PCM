@@ -85,7 +85,8 @@
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
 		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
 		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
+		«this.failureProbability»);
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»

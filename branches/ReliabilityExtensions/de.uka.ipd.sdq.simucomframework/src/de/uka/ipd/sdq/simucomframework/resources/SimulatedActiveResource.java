@@ -16,10 +16,10 @@ public class SimulatedActiveResource extends AbstractScheduledResource {
 		this.units = units;
 		this.mttf = mttf;
 		this.mttr = mttr;
-		this.canFail = ((this.mttf > 0.0) && (this.mttr > 0.0));
+		this.canBeUnavailable = ((this.mttf > 0.0) && (this.mttr > 0.0));
 
 		// used to let resource fail and be repaired again:
-		if (this.canFail) {
+		if (this.canBeUnavailable) {
 			this.failedEvent = new ResourceFailedEvent(myModel,
 					"ResourceFailed");
 			this.repairedEvent = new ResourceRepairedEvent(myModel,
