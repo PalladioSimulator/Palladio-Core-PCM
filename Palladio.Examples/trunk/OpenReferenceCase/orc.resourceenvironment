@@ -3,21 +3,21 @@
   <linkingresource id="_0LG40h84Edy8vbmreGRsqg" entityName="Store_1_Client-Store_1_Server" toResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_mpMBEOEgEduBSuO8WivxSA">
     <communicationLinkResourceSpecifications_LinkingResource>
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <latency_CommunicationLinkResourceSpecification specification="10.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <linkingresource id="_EhhxElceEd23wcZsd06DZg" entityName="Store_2_Client-Store_2_Server" toResourceContainer_LinkingResource="_PNgBAVcdEd23wcZsd06DZg" fromResourceContainer_LinkingResource="_me5D4VcdEd23wcZsd06DZg">
     <communicationLinkResourceSpecifications_LinkingResource>
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <latency_CommunicationLinkResourceSpecification specification="10.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <linkingresource id="_0LG41B84Edy8vbmreGRsqg" entityName="EnterpriseClient-EnterpriseServer" toResourceContainer_LinkingResource="_bTYxAOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_W6WUMOEhEduBSuO8WivxSA">
     <communicationLinkResourceSpecifications_LinkingResource>
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <latency_CommunicationLinkResourceSpecification specification="10.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
@@ -38,7 +38,7 @@
   <linkingresource id="_JS9w4KpOEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM-Database_VM" toResourceContainer_LinkingResource="_9iZF0apNEd2NxbWj7fSz6Q" fromResourceContainer_LinkingResource="_TdHB8apUEd2NxbWj7fSz6Q">
     <communicationLinkResourceSpecifications_LinkingResource>
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <latency_CommunicationLinkResourceSpecification specification="10.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
