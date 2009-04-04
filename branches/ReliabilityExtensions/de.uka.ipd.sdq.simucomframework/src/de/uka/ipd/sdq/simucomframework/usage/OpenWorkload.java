@@ -90,10 +90,10 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 		logger.warn("Resource unavailability failures: "
 				+ resourceUnavailabilityCount);
 		logger
-				.warn("Total failure rate: "
-						+ (double) (internalActionFailureCount
+				.warn("Total probability of success: "
+						+ (1 - (double) (internalActionFailureCount
 								+ communicationLinkFailureCount + resourceUnavailabilityCount)
-						/ (double) runCount);
+						/ (double) runCount));
 	}
 
 	private void waitForNextUser() {

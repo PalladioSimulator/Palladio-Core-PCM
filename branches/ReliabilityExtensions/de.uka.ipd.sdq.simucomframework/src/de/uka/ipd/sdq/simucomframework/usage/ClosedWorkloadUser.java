@@ -91,10 +91,10 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 			logger.warn("Resource unavailability failures: "
 					+ RESOURCEUNAVAILABILITYCOUNT);
 			logger
-					.warn("Total failure rate: "
-							+ (double) (INTERNALACTIONFAILURECOUNT
+					.warn("Total probability of success: "
+							+ (1 - (double) (INTERNALACTIONFAILURECOUNT
 									+ COMMUNICATIONLINKFAILURECOUNT + RESOURCEUNAVAILABILITYCOUNT)
-							/ (double) RUNCOUNT);
+									/ (double) RUNCOUNT));
 		}
 	}
 
