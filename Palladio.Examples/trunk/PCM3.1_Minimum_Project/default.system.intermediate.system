@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_84D0kCHcEd6lJo4DCALHMw" entityName="defaultSystem">
+  <assemblyContexts_ComposedStructure id="_9c3KwCHcEd6lJo4DCALHMw" entityName="Assembly_AComponent &lt;AComponent>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="file:/D:/code/Palladio.Examples/trunk/PCM3.1_Minimum_Project/default.repository#_os1t4CHbEd62GabW1zGSBw"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_5xMtSSHjEd6ZSMvOJK-6LQ" entityName="AssCtx Middleware appserver">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </assemblyContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="__VHF0CHcEd6lJo4DCALHMw" entityName="ProvDelegation Provided_AnInterface -> Provided_AnInterface_AComponent" outerProvidedRole_ProvidedDelegationConnector="_-r1fUCHcEd6lJo4DCALHMw" assemblyContext_ProvidedDelegationConnector="_9c3KwCHcEd6lJo4DCALHMw">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/D:/code/Palladio.Examples/trunk/PCM3.1_Minimum_Project/default.repository#_qZKs0CHbEd62GabW1zGSBw"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_-r1fUCHcEd6lJo4DCALHMw" entityName="Provided_AnInterface">
+    <providedInterface__ProvidedRole href="file:/D:/code/Palladio.Examples/trunk/PCM3.1_Minimum_Project/default.repository#_n7g-oCHbEd62GabW1zGSBw"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>
