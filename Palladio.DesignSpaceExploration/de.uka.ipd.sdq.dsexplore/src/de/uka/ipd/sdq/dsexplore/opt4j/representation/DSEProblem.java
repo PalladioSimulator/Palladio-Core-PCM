@@ -59,6 +59,7 @@ public class DSEProblem {
 				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
 				range.setTo(currentRate * 10.0);
 				decision.setDomain(range);
+				decision.setProcessingresourcespecification(resource);
 				this.pcmProblem.getDesigndecision().add(decision);
 			}
 		}
