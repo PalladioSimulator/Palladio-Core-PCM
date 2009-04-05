@@ -463,17 +463,18 @@ public boolean equals(Object o) {
 	 * @return
 	 */
 	public PCMInstance deepCopy(){
-		Repository r = (Repository)EcoreUtil.copy(this.repository);
+		//Do I need the repository?
+		//Repository r = (Repository)EcoreUtil.copy(this.repository);
 		System s = (System)EcoreUtil.copy(this.system);
 		
 		ResourceEnvironment re = (ResourceEnvironment)EcoreUtil.copy(this.resourceenvironment);
 		Allocation a = (Allocation)EcoreUtil.copy(this.allocation);
 		a.setTargetResourceEnvironment_Allocation(re);
 			
-		PCMInstance pcm = new PCMInstance(r, s, a, re, this.resourcetype, this.mwRepository,
+		PCMInstance pcm = new PCMInstance(this.repository, s, a, re, this.resourcetype, this.mwRepository,
 				this.storagePath, this.resourceRepository,
 				this.usageModel, this.allocationFileName+"-c",
-				this.repositoryFileName+"-c", this.resourceRepositoryFileName,
+				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, this.systemFileName+"-c",
 				this.resEnvFileName+"-c", this.name+"-c");
 		return pcm;

@@ -41,6 +41,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 			obj.add(this.objectives.get(0), result.getMeanValue());
 			//TODO: retrieve cost
 			obj.add(this.objectives.get(1),0);
+			return obj;
 		} catch (AnalysisFailedException e) {
 			e.printStackTrace();
 		} catch (CoreException e) {
@@ -51,8 +52,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 
 	@Override
 	public Collection<Objective> getObjectives() {
-		// TODO Auto-generated method stub
-		return null;
+		return objectives;
 	}
 
 }

@@ -2,7 +2,7 @@
 <Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" id="_dqFLECHbEd6tG9VclJz3cw" entityName="defaultRepository">
   <components__Repository xsi:type="BasicComponent" id="_os1t4CHbEd62GabW1zGSBw" entityName="AComponent">
     <providedRoles_InterfaceProvidingEntity id="_qZKs0CHbEd62GabW1zGSBw" entityName="Provided_AnInterface_AComponent" providedInterface__ProvidedRole="_n7g-oCHbEd62GabW1zGSBw"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0" id="12345">
       <steps_Behaviour xsi:type="_1:StartAction" id="_qZUd0CHbEd62GabW1zGSBw" successor_AbstractAction="_tfAiwCHjEd6ZSMvOJK-6LQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_qZUd0SHbEd62GabW1zGSBw" predecessor_AbstractAction="_tfAiwCHjEd6ZSMvOJK-6LQ"/>
       <steps_Behaviour xsi:type="_1:BranchAction" id="_tfAiwCHjEd6ZSMvOJK-6LQ" entityName="branch" predecessor_AbstractAction="_qZUd0CHbEd62GabW1zGSBw" successor_AbstractAction="_qZUd0SHbEd62GabW1zGSBw">

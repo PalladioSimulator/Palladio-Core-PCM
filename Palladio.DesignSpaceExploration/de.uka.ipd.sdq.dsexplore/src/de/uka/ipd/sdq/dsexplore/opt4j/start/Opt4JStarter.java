@@ -4,6 +4,8 @@ package de.uka.ipd.sdq.dsexplore.opt4j.start;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
 import org.opt4j.benchmark.dtlz.DTLZModule;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
@@ -13,24 +15,29 @@ import org.opt4j.start.Opt4JTask;
 
 import com.google.inject.Module;
 
+import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
+import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
 
 public class Opt4JStarter {
 	
 	public static IAnalysis analysisTool = null; 
+	
+	public static DSEProblem problem = null;
 
-	public static void startOpt4J(IAnalysis analysisTool){
+	public static void startOpt4J(IAnalysis analysisTool, PCMInstance pcmInstance, int maxIterations) throws CoreException{
 		
 		Opt4JStarter.analysisTool = analysisTool;
+		Opt4JStarter.problem = new DSEProblem(pcmInstance);
 		
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule(); 
-	    //ea.setGenerations(500); 
-	    //ea.setAlpha(100); 
+	    ea.setGenerations(maxIterations); 
+	    ea.setAlpha(2);
+	    ea.setLambda(2);
 	 
 	    DSEModule dseModule = new DSEModule(); 
-	    //DTLZModule dtlz = new DTLZModule(); 
-	    //dtlz.setFunction(DTLZModule.Function.DTLZ1);
 	 
 	    /*GUIModule gui = new GUIModule(); 
 	    gui.setCloseOnStop(true);*/ 

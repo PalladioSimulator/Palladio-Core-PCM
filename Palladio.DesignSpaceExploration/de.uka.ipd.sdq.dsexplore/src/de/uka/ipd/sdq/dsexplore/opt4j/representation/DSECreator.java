@@ -7,6 +7,8 @@ import org.opt4j.genotype.DoubleGenotype;
 
 import com.google.inject.Inject;
 
+import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+
 /**
  * The {@link DSECreator} is responsible for randomly creating genotypes 
  * in the solution space. It can query the {@link DSEProblem} for the 
@@ -21,8 +23,9 @@ public class DSECreator implements Creator<DoubleGenotype> {
 	private Random random;
 
 	@Inject
-	public DSECreator(DSEProblem problem){
-		this.problem = problem;
+	public DSECreator(){
+		//XXX like this you can only set the problem once. Maybe dont save the reference. 
+		this.problem = Opt4JStarter.problem;
 		this.random = new Random();
 	}
 	

@@ -7,6 +7,7 @@ import org.opt4j.genotype.DoubleGenotype;
 import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 
@@ -26,8 +27,9 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	@Inject
-	public DSEDecoder(DSEProblem problem){
-		this.problem = problem;
+	public DSEDecoder(){
+		//XXX like this you can only set the problem once. Maybe dont save the reference. 
+		this.problem = Opt4JStarter.problem;
 	}
 
 	@Override
@@ -58,8 +60,14 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	private void applyChange(DesignDecision designDecision, PCMInstance pcm,
 			Double doubleGene) {
 		
-		logger.warn("There was an unrecognised design decision "+designDecision.getClass());
-		
+		/**
+		 * TODO Make the selection of the appropriate applyChange method more implicit. Maybe move the method to DesignDecision itself.  
+		 */
+		if (ProcessingRateDecision.class.isInstance(designDecision)){
+			this.applyChange((ProcessingRateDecision)designDecision, pcm, doubleGene);
+		} else {
+			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
+		}
 	}
 	
 	/**

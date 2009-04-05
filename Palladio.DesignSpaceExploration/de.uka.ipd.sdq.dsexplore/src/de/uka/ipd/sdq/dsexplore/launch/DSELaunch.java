@@ -69,31 +69,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			logger.debug("Starting...");
 			logger.debug("Launch Configuration: "+configuration.getMemento());
 			
-						
-			String maxIterationsString = configuration.getAttribute(DSEConstantsContainer.MAX_ITERATIONS, "");
-			if (!maxIterationsString.equals("")){
-				try{
-				this.maxIterations = Integer.parseInt(maxIterationsString);
-				} catch (Exception e){
-					//ok, it was worth a try, so just keep the old value. 
-					logger.debug("Could not parse "+DSEConstantsContainer.MAX_ITERATIONS+" information: "+maxIterationsString);
-				}
-			} else {
-				maxIterations = Integer.MAX_VALUE;
-			}
-			
-			String mrtReqString = configuration.getAttribute(DSEConstantsContainer.MRT_REQUIREMENTS, "");
-			if (!mrtReqString.equals("")){
-				try{
-				this.mrtRequirements = Double.parseDouble(mrtReqString);
-				} catch (Exception e){
-					//ok, it was worth a try, so just keep the old value. 
-					logger.debug("Could not parse "+DSEConstantsContainer.MRT_REQUIREMENTS+" information: "+mrtReqString);
-				}
-			} else {
-				this.mrtRequirements = 0;
-			}
-			
+			this.maxIterations = getIntAttribute(configuration, DSEConstantsContainer.MAX_ITERATIONS, "");
+			this.mrtRequirements = getIntAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
 			
 			List<IAnalysisResult> allCandidates = null;
 			List<IAnalysisResult> allResults = null;
@@ -111,7 +88,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
 		    //algorithm.initialise(instances, analysisTool,configuration);
 		    
-		    Opt4JStarter.startOpt4J(analysisTool);
+		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations);
 		    
 		    
 		    //analyse the initial PCMInstance
@@ -173,6 +150,27 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 
 			logger.debug("DSE launch done");
 
+	}
+
+	/**
+	 * Reads an attribute from the configurations and tries to parse it as an integer. 
+	 * @param configuration The {@link ILaunchConfiguration}
+	 * @param key The key under which the attribute is stored
+	 * @param defaultValue A default value if the attribute is not found
+	 * @return An integer value for the attribute, 0 if parsing was unsuccessful
+	 * @throws CoreException thrown by {@link ILaunchConfiguration#getAttribute(String, String)}
+	 */
+	private int getIntAttribute(ILaunchConfiguration configuration, String key, String defaultValue)
+			throws CoreException {
+		String valueString = configuration.getAttribute(key, defaultValue);
+		int result = 0;
+		try{
+			result = Integer.parseInt(valueString);
+		} catch (Exception e){
+				//ok, it was worth a try, so just keep the old value. 
+				logger.debug("Could not parse "+key+" information: "+valueString);
+		} 
+		return result;
 	}
 
 	private static String resultsToString(List<IAnalysisResult> population) throws AnalysisFailedException {
