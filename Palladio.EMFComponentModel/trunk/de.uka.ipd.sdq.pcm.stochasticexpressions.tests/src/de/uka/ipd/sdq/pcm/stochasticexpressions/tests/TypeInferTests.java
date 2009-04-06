@@ -26,6 +26,13 @@ public class TypeInferTests extends TestCase {
 		infer(expression,visitor);
 		Assert.assertEquals(TypeEnum.ENUM_PMF, visitor.getType(expression));
 	}
+	
+	public void testIntPMF() throws RecognitionException{
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		Expression expression = parser("IntPMF[(1;0.2)(2;0.4)]");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.INT_PMF, visitor.getType(expression));
+	}
 
 	public void testDoubleAnyCompare() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
