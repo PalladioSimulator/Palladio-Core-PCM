@@ -40,7 +40,11 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		int index = 0;
 		//adjust values as in genotype
 		for (Double doubleGene : genotype) {
-			applyChange(this.problem.getDesignDecision(index), pcm, doubleGene);
+			if (!doubleGene.isNaN() || doubleGene.isInfinite()){
+				applyChange(this.problem.getDesignDecision(index), pcm, doubleGene);
+			}  else { // TODO Handle wrong double genes properly, this is not the best way to solve it.
+				logger.warn("A double gene was not applicable for instance "+pcm.getName()+" : "+doubleGene.toString());
+			}
 			index++;
 		}
 		
@@ -79,7 +83,7 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	@SuppressWarnings("unused")
 	private void applyChange(ProcessingRateDecision designDecision, PCMInstance pcm,
 			Double doubleGene) {
-		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification("\""+doubleGene.toString()+"\"");
+		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification(doubleGene.toString());
 		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
 	}
 
