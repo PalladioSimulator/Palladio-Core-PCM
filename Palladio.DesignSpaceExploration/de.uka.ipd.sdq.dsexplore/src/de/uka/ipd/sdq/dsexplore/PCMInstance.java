@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -116,24 +117,24 @@ public class PCMInstance {
 
 		String filename = configuration.getAttribute(
 				ConstantsContainer.ALLOCATION_FILE, "");
-		this.allocation = ((Allocation) loadFromXMIFile(filename));
+		this.allocation = ((Allocation) ConfigurationHelper.loadFromXMIFile(filename));
 		this.allocationFileName = filename;
 
 		filename = configuration.getAttribute(
 				ConstantsContainer.REPOSITORY_FILE, "");
-		this.repository = ((Repository) loadFromXMIFile(filename));
+		this.repository = ((Repository) ConfigurationHelper.loadFromXMIFile(filename));
 		this.repositoryFileName = filename;
 		this.resourceenvironment = this.allocation
 				.getTargetResourceEnvironment_Allocation();
 
 		filename = configuration.getAttribute(
 				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, "");
-		this.resourceRepository = ((ResourceRepository) loadFromXMIFile(filename));
+		this.resourceRepository = ((ResourceRepository) ConfigurationHelper.loadFromXMIFile(filename));
 		this.resourceRepositoryFileName = filename;
 
 		filename = configuration
 				.getAttribute(ConstantsContainer.USAGE_FILE, "");
-		this.usageModel = ((UsageModel) loadFromXMIFile(filename));
+		this.usageModel = ((UsageModel) ConfigurationHelper.loadFromXMIFile(filename));
 		this.usageModelFileName = filename;
 
 		this.system = this.allocation.getSystem_Allocation();
@@ -289,62 +290,7 @@ public boolean equals(Object o) {
 		return usageModelFileName;
 	}
 
-	/**
-	 * Copied From de.uka.ipd.sdq.pcmsolver.models.PCMInstance.
-	 * 
-	 * @param fileName
-	 *            the filename specifying the file to load from
-	 * @return The EObject loaded from the file
-	 */
-	public static EObject loadFromXMIFile(final String fileName) {
-		// Create a resource set to hold the resources.
-		ResourceSet resourceSet = new ResourceSetImpl();
 
-		// Register the appropriate resource factory to handle all file
-		// extensions.
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
-						new XMIResourceFactoryImpl());
-
-		// Register the package to ensure it is available during loading.
-		registerPackages(resourceSet);
-
-		// Construct the URI for the instance file.
-		// The argument is treated as a file path only if it denotes an existing
-		// file. Otherwise, it's directly treated as a URL.
-		File file = new File(fileName);
-		URI uri = file.isFile() ? URI.createFileURI(file.getAbsolutePath())
-				: URI.createURI(fileName);
-
-		Resource resource = null;
-		// Demand load resource for this file.
-		try {
-			resource = resourceSet.getResource(uri, true);
-		} catch (Exception e) {
-			Logger.getLogger("de.uka.ipd.sdq.dsexplore").error(e.getMessage());
-			return null;
-		}
-
-		// logger.debug("Loaded " + uri);
-
-		// if (!fileName.endsWith(".assembly") &&
-		// !fileName.endsWith("repository")) {
-		// // Validate the contents of the loaded resource.
-		// for (Iterator j = resource.getContents().iterator(); j.hasNext();) {
-		// EObject eObject = (EObject) j.next();
-		// Diagnostic diagnostic = Diagnostician.INSTANCE
-		// .validate(eObject);
-		// if (diagnostic.getSeverity() != Diagnostic.OK) {
-		// System.out.println();
-		// System.out.println(diagnostic.getMessage());
-		// // printDiagnostic(diagnostic, "");
-		//					
-		// }
-		// }
-		// }
-		EObject eObject = (EObject) resource.getContents().iterator().next();
-		return EcoreUtil.getRootContainer(eObject);
-	}
 
 	public void saveAllocationToFile() {
 		saveToXMIFile(allocation, allocationFileName);
@@ -511,34 +457,7 @@ public boolean equals(Object o) {
 		}
 	}
 
-	/**
-	 * Copied From de.uka.ipd.sdq.pcmsolver.models.PCMInstance.
-	 * 
-	 * @param resourceSet
-	 *            The resource set to register all contained model packages
-	 *            with.
-	 */
-	private static void registerPackages(final ResourceSet resourceSet) {
 
-		resourceSet.getPackageRegistry().put(AllocationPackage.eNS_URI,
-				AllocationPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(ParameterPackage.eNS_URI,
-				ParameterPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(
-				ResourceenvironmentPackage.eNS_URI,
-				ResourceenvironmentPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(ResourcetypePackage.eNS_URI,
-				ResourcetypePackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(RepositoryPackage.eNS_URI,
-				RepositoryPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(SeffPackage.eNS_URI,
-				SeffPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(SystemPackage.eNS_URI,
-				SystemPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(UsagemodelPackage.eNS_URI,
-				UsagemodelPackage.eINSTANCE);
-
-	}
 
 	/**
 	 * Save the given EObject to the file given by filename.

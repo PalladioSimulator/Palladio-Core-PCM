@@ -23,10 +23,12 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisProxy;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 /**
  * Launches multiple simulation runs. 
@@ -87,8 +89,10 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    //IAlgorithm algorithm = new FullSearchAlgorithm();
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
 		    //algorithm.initialise(instances, analysisTool,configuration);
+			
+			CostRepository costs = getCostModel(configuration);
 		    
-		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations);
+		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations, costs);
 		    
 		    
 		    //analyse the initial PCMInstance
@@ -150,6 +154,10 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 
 			logger.debug("DSE launch done");
 
+	}
+
+	private CostRepository getCostModel(ILaunchConfiguration configuration) throws CoreException {
+		return (CostRepository)ConfigurationHelper.loadFromXMIFile(configuration.getAttribute(DSEConstantsContainer.COST_FILE, ""));
 	}
 
 	/**

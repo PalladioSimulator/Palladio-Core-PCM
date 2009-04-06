@@ -1,12 +1,9 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.start;
 
-//import org.opt4j.Opt4JPluginActivator;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunchConfiguration;
-import org.opt4j.benchmark.dtlz.DTLZModule;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
@@ -17,19 +14,23 @@ import com.google.inject.Module;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
-import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
+import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
+import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 public class Opt4JStarter {
 	
 	public static IAnalysis analysisTool = null; 
 	
+	public static CostEvaluator costEvaluator = null;
+	
 	public static DSEProblem problem = null;
 
-	public static void startOpt4J(IAnalysis analysisTool, PCMInstance pcmInstance, int maxIterations) throws CoreException{
+	public static void startOpt4J(IAnalysis analysisTool, PCMInstance pcmInstance, int maxIterations, CostRepository costs) throws CoreException{
 		
 		Opt4JStarter.analysisTool = analysisTool;
+		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
 		Opt4JStarter.problem = new DSEProblem(pcmInstance);
 		
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule(); 

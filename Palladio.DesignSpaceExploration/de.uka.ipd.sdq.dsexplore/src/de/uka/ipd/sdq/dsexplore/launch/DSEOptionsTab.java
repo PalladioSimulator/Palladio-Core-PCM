@@ -18,9 +18,11 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;
 
-public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
+public class DSEOptionsTab extends FileNamesInputTab {
 	
 	private Text maximumIterations; 
 	
@@ -31,6 +33,8 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 	private Text threshold;
 
 	private Text increaseFactor;
+
+	private Text textCostModel;
 
 	@Override
 	public void createControl(Composite parent) {
@@ -81,6 +85,13 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		increaseFactor = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
 		increaseFactor.setEnabled(true);
 		increaseFactor.addModifyListener(modifyListener);
+		
+		/**
+		 * Add cost model input section
+		 */
+		this.textCostModel = new Text(container, SWT.SINGLE | SWT.BORDER);
+		this.createFileInputSection(container, modifyListener, "Cost Model File", DSEConstantsContainer.COST_MODEL_EXTENSION, textCostModel);
+		
 	}
 
 	@Override
@@ -124,6 +135,12 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.INCR_FACTOR, e.getMessage());
 		}
+		try {
+			this.textCostModel.setText(configuration.getAttribute(
+					DSEConstantsContainer.COST_FILE, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.COST_FILE, e.getMessage());
+		}
 
 	}
 
@@ -141,7 +158,9 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.INCR_FACTOR, 
 				increaseFactor.getText());
-
+		configuration.setAttribute(
+				DSEConstantsContainer.COST_FILE, 
+				this.textCostModel.getText());
 	}
 
 	@Override
@@ -179,19 +198,25 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 				return false;
 			}
 		}
-			try {
-				Double.parseDouble(this.threshold.getText());
-			} catch (NumberFormatException e) {
-				setErrorMessage("Threshold must be a double value.");
-				return false;
-			}
+		try {
+			Double.parseDouble(this.threshold.getText());
+		} catch (NumberFormatException e) {
+			setErrorMessage("Threshold must be a double value.");
+			return false;
+		}
+	
+		try {
+			Double.parseDouble(this.increaseFactor.getText());
+		} catch (NumberFormatException e) {
+			setErrorMessage("InreaseFactor must be a double value.");
+			return false;
+		}
 		
-			try {
-				Double.parseDouble(this.increaseFactor.getText());
-			} catch (NumberFormatException e) {
-				setErrorMessage("InreaseFactor must be a double value.");
-				return false;
-			}
+		String extension = DSEConstantsContainer.COST_MODEL_EXTENSION[0].replace("*", "");
+		if (this.textCostModel.getText().equals("") || !this.textCostModel.getText().contains(extension)){
+			setErrorMessage("Cost model is missing!");
+			return false;
+		}
 
 		return true;
 	}

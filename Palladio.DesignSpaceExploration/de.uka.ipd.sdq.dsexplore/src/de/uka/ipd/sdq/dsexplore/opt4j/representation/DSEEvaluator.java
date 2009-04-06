@@ -11,6 +11,7 @@ import org.opt4j.core.problem.Evaluator;
 
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 /**
@@ -40,7 +41,8 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 			Objectives obj = new Objectives();
 			obj.add(this.objectives.get(0), result.getMeanValue());
 			//TODO: retrieve cost
-			obj.add(this.objectives.get(1),0);
+			double cost = Opt4JStarter.costEvaluator.getTotalCost(pheno.getPcm(), 0);
+			obj.add(this.objectives.get(1),cost);
 			return obj;
 		} catch (AnalysisFailedException e) {
 			e.printStackTrace();

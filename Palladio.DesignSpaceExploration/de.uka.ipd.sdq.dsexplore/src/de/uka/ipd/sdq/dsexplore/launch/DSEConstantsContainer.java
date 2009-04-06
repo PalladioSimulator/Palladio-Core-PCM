@@ -9,4 +9,14 @@ public class DSEConstantsContainer {
 
 	public static final String ANALYSIS_METHOD = "analysisMethod";
 	
+	/** Model filenames value */
+	public static final String COST_FILE = "costFile";
+	
+	/**
+	 * Set the file extensions which the dialog can use to filter the files it
+	 * shows to the argument.
+	 */
+	public static final String[] COST_MODEL_EXTENSION = new String[] { "*.cost" };
+
+	
 }
