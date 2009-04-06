@@ -5,7 +5,7 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class Abstractness {
-	public double compute (Root root, ModelElement [] elements1, ModelElement [] elements2) {
+	public static double compute (Root root, ModelElement [] elements1, ModelElement [] elements2) {
 		double abstractness = 0.0;
 		double numberAbstract = 0.0;
 		double numberTotal = 0.0;

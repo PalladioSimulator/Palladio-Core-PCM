@@ -9,7 +9,7 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class Instability {
-	public double compute (Root root, ModelElement [] elements1, ModelElement [] elements2) {
+	public static double compute (Root root, ModelElement [] elements1, ModelElement [] elements2) {
 		double efferentCoupling = 0.0;
 		double afferentCoupling = 0.0;
 		
