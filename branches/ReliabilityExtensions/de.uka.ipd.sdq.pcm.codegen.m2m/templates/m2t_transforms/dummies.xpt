@@ -14,7 +14,9 @@
 		implements «this.requiredInterface__RequiredRole.fqn()» {
 			private static org.apache.log4j.Logger logger = 
 				org.apache.log4j.Logger.getLogger(«this.dummyComponentName()».class.getName());
-		
+			public String getComponentAssemblyContextID() {
+				return "";
+			}
 			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
 		}
 	«ENDFILE»

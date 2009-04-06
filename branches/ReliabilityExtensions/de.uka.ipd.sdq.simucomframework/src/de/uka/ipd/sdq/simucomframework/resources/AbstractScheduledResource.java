@@ -48,8 +48,8 @@ public abstract class AbstractScheduledResource extends Entity {
 	protected JobDoneEvent myJobDoneEvent = null;
 
 	// For resources that can become unavailable (SimulatedActiveResources):
-	protected Double mttf = 0.0;
-	protected Double mttr = 0.0;
+	protected double mttf = 0.0;
+	protected double mttr = 0.0;
 	protected boolean canBeUnavailable = false;
 	protected boolean isAvailable = true;
 	protected ResourceFailedEvent failedEvent;
@@ -57,7 +57,7 @@ public abstract class AbstractScheduledResource extends Entity {
 
 	// For resources that can fail (SimulatedLinkingResources):
 	protected boolean canFail = false;
-	protected Double failureProbability = 0.0;
+	protected double failureProbability = 0.0;
 
 	private HashMap<String, State> statesCache = new HashMap<String, State>();
 
@@ -184,11 +184,11 @@ public abstract class AbstractScheduledResource extends Entity {
 
 		// If the resource can fail, simulate a failure with the given
 		// probability:
-		if (canFail) {
-			if (Math.random() < failureProbability) {
-				throw new CommunicationLinkFailedException();
-			}
-		}
+		// if (canFail) {
+		//	   if (Math.random() < failureProbability) {
+		//	       throw new CommunicationLinkFailedException();
+		//	   }
+		// }
 
 		if (this.getModel().getSimulationControl().isRunning()) {
 			double calculatedDemand = calculateDemand(demand);
@@ -419,5 +419,9 @@ public abstract class AbstractScheduledResource extends Entity {
 
 	public ISimEventDelegate getJobDoneEvent() {
 		return myJobDoneEvent;
+	}
+
+	public double getFailureProbability() {
+		return (canFail)? failureProbability : 0.0;
 	}
 }

@@ -22,8 +22,7 @@
       package «this.fqnContextPackage()»;
 
       // Component context interface for «this.javaName()»
-      public interface «this.contextInterfaceName()»
-      {
+      public interface «this.contextInterfaceName()» {
          «EXPAND ContextInterfaceGetterSignature FOREACH this.requiredRoles_InterfaceRequiringEntity»
          «EXPAND ContextInterfaceSetterSignature FOREACH this.requiredRoles_InterfaceRequiringEntity»
       }

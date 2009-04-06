@@ -47,6 +47,10 @@
 	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent){
 	        this.myComponent = myComponent;
 	     }
+	     
+	     public String getComponentAssemblyContextID() {
+	     	return this.myComponent.getAssemblyContextID();
+	     }
 	     «EXPAND PortDelegator FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
 	  }
 «ENDDEFINE»
@@ -63,6 +67,11 @@
 	     public «this.portClassName()»(«this.providedInterface__ProvidedRole.fqn()» myInnerPort){
 	        this.myInnerPort = myInnerPort;
 	     }
+	 	     
+	     public String getComponentAssemblyContextID() {
+	     	return this.myInnerPort.getComponentAssemblyContextID();
+	     }
+	     
 	     «EXPAND ComposedStructurePortDelegator(cs) FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
 	  }
 «ENDDEFINE»

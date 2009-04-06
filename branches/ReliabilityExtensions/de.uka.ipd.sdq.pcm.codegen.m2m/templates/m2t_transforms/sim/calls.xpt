@@ -8,7 +8,32 @@
 «IMPORT parameter»
 «IMPORT seff»
 
-«DEFINE PreCall(Object call, List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
+	«IF ExternalCallAction.isInstance(call)»
+		// If the call goes over network, simulate the possibility of a communication link failure:
+		{
+			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
+			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
+			try {
+				fromContainer = ctx.findResource(this.assemblyContextID);
+				toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+			} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
+				// If the call is system external, no target resource container will be found.
+				// In this case, assume there is no possibility for comm link failures.
+			}
+			if ((fromContainer != null) && (toContainer != null) && (!fromContainer.getResourceContainerID().equals(toContainer.getResourceContainerID()))) {
+				String linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(fromContainer.getResourceContainerID(), toContainer.getResourceContainerID());
+				if (linkingResourceID == null) {
+					linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(toContainer.getResourceContainerID(), fromContainer.getResourceContainerID());
+				}
+				de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
+				double failureProbability = linkingContainer.getActiveResources().iterator().next().getFailureProbability();
+				if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {
+   		   			throw new de.uka.ipd.sdq.simucomframework.exceptions.CommunicationLinkFailedException();
+  				}
+  			}
+		}
+	«ENDIF»		
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
 	«IF ExternalCallAction.isInstance(call)»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call "+this.interface_Signature.entityName+"."+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»

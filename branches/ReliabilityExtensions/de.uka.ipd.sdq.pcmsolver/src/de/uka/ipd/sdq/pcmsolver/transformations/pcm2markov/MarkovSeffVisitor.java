@@ -478,7 +478,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 				ArrayList<String> names = new ArrayList<String>();
 				names.add("Messaging");
 				names.add("Execution");
-				//names.add("Returning");
+				// names.add("Returning");
 				MarkovChain aggregateMarkovChain = markovBuilder
 						.initBehaviourMarkovChain(externalCallAction
 								.getEntityName(), names, states);
@@ -489,10 +489,10 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 						.initInternalMarkovChain("Messaging",
 								((Double) commLink.getFailureProbability())
 										.toString());
-				MarkovChain returnMarkovChain = markovBuilder
-				.initInternalMarkovChain("Returning",
-						((Double) commLink.getFailureProbability())
-								.toString());
+				//MarkovChain returnMarkovChain = markovBuilder
+				//		.initInternalMarkovChain("Returning",
+				//				((Double) commLink.getFailureProbability())
+				//						.toString());
 
 				// The second step is the already computed inner Markov Chain.
 				// Incorporate all steps into the aggregate chain:
@@ -500,8 +500,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 						messagingMarkovChain, states.get(0), optimize);
 				markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
 						innerMarkovChain, states.get(1), optimize);
-				//markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-				//		returnMarkovChain, states.get(2), optimize);
+				// markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+				// returnMarkovChain, states.get(2), optimize);
 
 				// Return the result:
 				return aggregateMarkovChain;

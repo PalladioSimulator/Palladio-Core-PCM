@@ -75,6 +75,10 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 				logger.debug(this.getName()
 						+ " experienced ResourceNotAvailableException.");
 				RESOURCEUNAVAILABILITYCOUNT++;
+			} finally {
+				// Increase measurements counter manually as usage scenario run
+				// is not finished:
+				this.getModel().increaseMainMeasurementsCount();
 			}
 		}
 

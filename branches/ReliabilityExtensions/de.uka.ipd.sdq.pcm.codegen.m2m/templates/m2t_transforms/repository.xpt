@@ -20,7 +20,8 @@
       package «this.repository_Interface.basePackageName()»;
             
       public interface «this.javaName()» {
-	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+	  	public String getComponentAssemblyContextID();
+	   	«EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
       }
    «ENDFILE»
 «ENDDEFINE»

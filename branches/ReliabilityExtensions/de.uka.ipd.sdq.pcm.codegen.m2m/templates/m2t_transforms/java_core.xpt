@@ -111,8 +111,8 @@ public class «this.javaName()»
 	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
 		package «this.implementationPackage()»;
 	      
-		public interface «this.interfaceName()»
-	    {
+		public interface «this.interfaceName()» {
+	 		public String getAssemblyContextID();
 	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface SEPARATOR ";"»;
 	    }
 	«ENDFILE»
