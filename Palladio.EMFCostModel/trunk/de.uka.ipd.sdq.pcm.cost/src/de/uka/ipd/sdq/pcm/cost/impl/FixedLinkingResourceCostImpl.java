@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -178,6 +179,11 @@ public class FixedLinkingResourceCostImpl extends CostImpl implements FixedLinki
 	public double getInitialCost() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public EObject basicGetAnnotatedElement() {
+		return this.getLinkingresource();
 	}
 
 } //FixedLinkingResourceCostImpl

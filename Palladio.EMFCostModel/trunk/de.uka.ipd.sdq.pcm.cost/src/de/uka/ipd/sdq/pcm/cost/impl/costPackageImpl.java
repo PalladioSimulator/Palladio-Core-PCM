@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -172,7 +173,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
@@ -185,9 +186,6 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
 		SubsystemPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thecostPackage.createPackageContents();
@@ -251,8 +249,17 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCost_AnnotatedElement() {
+		return (EReference)costEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getCost_OperatingCost() {
-		return (EAttribute)costEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)costEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -261,7 +268,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 	 * @generated
 	 */
 	public EAttribute getCost_InitialCost() {
-		return (EAttribute)costEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)costEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -451,6 +458,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		createEReference(componentCostEClass, COMPONENT_COST__REPOSITORY_COMPONENT);
 
 		costEClass = createEClass(COST);
+		createEReference(costEClass, COST__ANNOTATED_ELEMENT);
 		createEAttribute(costEClass, COST__OPERATING_COST);
 		createEAttribute(costEClass, COST__INITIAL_COST);
 
@@ -503,6 +511,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 
 		// Obtain other dependent packages
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
 
 		// Create type parameters
@@ -524,6 +533,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		initEReference(getComponentCost_RepositoryComponent(), theRepositoryPackage.getRepositoryComponent(), null, "repositoryComponent", null, 1, 1, ComponentCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(costEClass, Cost.class, "Cost", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCost_AnnotatedElement(), theEcorePackage.getEObject(), null, "annotatedElement", null, 1, 1, Cost.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCost_OperatingCost(), ecorePackage.getEDouble(), "operatingCost", null, 1, 1, Cost.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCost_InitialCost(), ecorePackage.getEDouble(), "initialCost", null, 1, 1, Cost.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 

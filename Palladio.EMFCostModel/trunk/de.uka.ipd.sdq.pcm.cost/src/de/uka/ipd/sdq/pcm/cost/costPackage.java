@@ -70,13 +70,22 @@ public interface costPackage extends EPackage {
 	int COST = 1;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COST__ANNOTATED_ELEMENT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COST__OPERATING_COST = 0;
+	int COST__OPERATING_COST = 1;
 
 	/**
 	 * The feature id for the '<em><b>Initial Cost</b></em>' attribute.
@@ -85,7 +94,7 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COST__INITIAL_COST = 1;
+	int COST__INITIAL_COST = 2;
 
 	/**
 	 * The number of structural features of the '<em>Cost</em>' class.
@@ -94,7 +103,7 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COST_FEATURE_COUNT = 2;
+	int COST_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.cost.impl.ComponentCostImpl <em>Component Cost</em>}' class.
@@ -105,6 +114,15 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPONENT_COST = 0;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_COST__ANNOTATED_ELEMENT = COST__ANNOTATED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
@@ -171,6 +189,15 @@ public interface costPackage extends EPackage {
 	int FIXED_LINKING_RESOURCE_COST = 2;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_LINKING_RESOURCE_COST__ANNOTATED_ELEMENT = COST__ANNOTATED_ELEMENT;
+
+	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,6 +244,15 @@ public interface costPackage extends EPackage {
 	int FIXED_PROCESSING_RESOURCE_COST = 3;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_PROCESSING_RESOURCE_COST__ANNOTATED_ELEMENT = COST__ANNOTATED_ELEMENT;
+
+	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,6 +297,15 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 */
 	int VARIABLE_COST = 4;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_COST__ANNOTATED_ELEMENT = COST__ANNOTATED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
@@ -316,6 +361,15 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 */
 	int VARIABLE_LINKING_RESOURCE_COST = 5;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LINKING_RESOURCE_COST__ANNOTATED_ELEMENT = VARIABLE_COST__ANNOTATED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
@@ -398,6 +452,15 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 */
 	int VARIABLE_PROCESSING_RESOURCE_COST = 6;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_PROCESSING_RESOURCE_COST__ANNOTATED_ELEMENT = VARIABLE_COST__ANNOTATED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Operating Cost</b></em>' attribute.
@@ -552,6 +615,17 @@ public interface costPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCost();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.cost.Cost#getAnnotatedElement <em>Annotated Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Annotated Element</em>'.
+	 * @see de.uka.ipd.sdq.pcm.cost.Cost#getAnnotatedElement()
+	 * @see #getCost()
+	 * @generated
+	 */
+	EReference getCost_AnnotatedElement();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.cost.Cost#getOperatingCost <em>Operating Cost</em>}'.
@@ -821,6 +895,14 @@ public interface costPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COST = eINSTANCE.getCost();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotated Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COST__ANNOTATED_ELEMENT = eINSTANCE.getCost_AnnotatedElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Operating Cost</b></em>' attribute feature.

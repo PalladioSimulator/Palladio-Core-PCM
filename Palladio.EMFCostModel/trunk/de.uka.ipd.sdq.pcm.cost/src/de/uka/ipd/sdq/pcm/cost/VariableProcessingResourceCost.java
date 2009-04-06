@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO: make cost depend on processing rate!
+ * VariableProcessingResourceCost are attached to ProcessingResourceSpecification. They derive the operating cost and inital cost based on the ptocessingRate of the resource, multiplied by the processing rate (operating or initial) factor. Additionally, the fixed initial costs as specified in VariableCost are added to the respective cost.
  * <!-- end-model-doc -->
  *
  * <p>

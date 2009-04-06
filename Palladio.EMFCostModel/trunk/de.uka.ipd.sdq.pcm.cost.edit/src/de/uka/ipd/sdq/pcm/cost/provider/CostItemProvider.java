@@ -64,10 +64,33 @@ public class CostItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addAnnotatedElementPropertyDescriptor(object);
 			addOperatingCostPropertyDescriptor(object);
 			addInitialCostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Annotated Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotatedElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Cost_annotatedElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Cost_annotatedElement_feature", "_UI_Cost_type"),
+				 costPackage.Literals.COST__ANNOTATED_ELEMENT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -84,7 +107,7 @@ public class CostItemProvider
 				 getString("_UI_Cost_operatingCost_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Cost_operatingCost_feature", "_UI_Cost_type"),
 				 costPackage.Literals.COST__OPERATING_COST,
-				 false,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
@@ -106,12 +129,23 @@ public class CostItemProvider
 				 getString("_UI_Cost_initialCost_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Cost_initialCost_feature", "_UI_Cost_type"),
 				 costPackage.Literals.COST__INITIAL_COST,
-				 false,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This returns Cost.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Cost"));
 	}
 
 	/**
@@ -166,7 +200,7 @@ public class CostItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CostModel3EditPlugin.INSTANCE;
+		return CostModelEditPlugin.INSTANCE;
 	}
 
 }

@@ -13,6 +13,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * A representation of the model object '<em><b>Component Cost</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * For components, the componentOperatingCost and componentInitialCost are directly specified and used to derive the operatingCost and the initialCost 1:1. 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

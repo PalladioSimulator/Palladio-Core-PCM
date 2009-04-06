@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.cost.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
@@ -20,6 +19,7 @@ import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the CostModel edit plugin.
@@ -53,8 +53,9 @@ public final class CostModelEditPlugin extends EMFPlugin {
 	public CostModelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     EcoreEditPlugin.INSTANCE,
 		     IdentifierEditPlugin.INSTANCE,
-		     PcmEditPlugin.INSTANCE,
+		     PalladioComponentModelEditPlugin.INSTANCE,
 		     ProbabilityFunctionEditPlugin.INSTANCE,
 		     StoexEditPlugin.INSTANCE,
 		     UnitsEditPlugin.INSTANCE,

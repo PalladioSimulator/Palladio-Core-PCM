@@ -98,6 +98,24 @@ import org.eclipse.ui.PartInitException;
  */
 public class costModelWizard extends Wizard implements INewWizard {
 	/**
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSIONS =
+		Collections.unmodifiableList(Arrays.asList(CostModelEditorPlugin.INSTANCE.getString("_UI_costEditorFilenameExtensions").split("\\s*,\\s*")));
+
+	/**
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String FORMATTED_FILE_EXTENSIONS =
+		CostModelEditorPlugin.INSTANCE.getString("_UI_costEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+
+	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,8 +180,8 @@ public class costModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(CostModel3EditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(CostModel3EditorPlugin.INSTANCE.getImage("full/wizban/Newcost")));
+		setWindowTitle(CostModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(CostModelEditorPlugin.INSTANCE.getImage("full/wizban/Newcost")));
 	}
 
 	/**
@@ -246,7 +264,7 @@ public class costModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							CostModel3EditorPlugin.INSTANCE.log(exception);
+							CostModelEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -279,14 +297,14 @@ public class costModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), CostModel3EditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), CostModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			CostModel3EditorPlugin.INSTANCE.log(exception);
+			CostModelEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -317,21 +335,15 @@ public class costModelWizard extends Wizard implements INewWizard {
 		@Override
 		protected boolean validatePage() {
 			if (super.validatePage()) {
-				// Make sure the file ends in ".cost".
-				//
-				String requiredExt = CostModel3EditorPlugin.INSTANCE.getString("_UI_costEditorFilenameExtension");
-				String enteredExt = new Path(getFileName()).getFileExtension();
-				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(CostModel3EditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+				String extension = new Path(getFileName()).getFileExtension();
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(CostModelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
-				else {
-					return true;
-				}
+				return true;
 			}
-			else {
-				return false;
-			}
+			return false;
 		}
 
 		/**
@@ -403,7 +415,7 @@ public class costModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(CostModel3EditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(CostModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -429,7 +441,7 @@ public class costModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(CostModel3EditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(CostModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -528,10 +540,10 @@ public class costModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return CostModel3EditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return CostModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				CostModel3EditorPlugin.INSTANCE.log(mre);
+				CostModelEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -544,7 +556,7 @@ public class costModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(CostModel3EditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(CostModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -563,9 +575,9 @@ public class costModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new costModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(CostModel3EditorPlugin.INSTANCE.getString("_UI_costModelWizard_label"));
-		newFileCreationPage.setDescription(CostModel3EditorPlugin.INSTANCE.getString("_UI_costModelWizard_description"));
-		newFileCreationPage.setFileName(CostModel3EditorPlugin.INSTANCE.getString("_UI_costEditorFilenameDefaultBase") + "." + CostModel3EditorPlugin.INSTANCE.getString("_UI_costEditorFilenameExtension"));
+		newFileCreationPage.setTitle(CostModelEditorPlugin.INSTANCE.getString("_UI_costModelWizard_label"));
+		newFileCreationPage.setDescription(CostModelEditorPlugin.INSTANCE.getString("_UI_costModelWizard_description"));
+		newFileCreationPage.setFileName(CostModelEditorPlugin.INSTANCE.getString("_UI_costEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -591,8 +603,8 @@ public class costModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = CostModel3EditorPlugin.INSTANCE.getString("_UI_costEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = CostModel3EditorPlugin.INSTANCE.getString("_UI_costEditorFilenameExtension");
+					String defaultModelBaseFilename = CostModelEditorPlugin.INSTANCE.getString("_UI_costEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
@@ -602,8 +614,8 @@ public class costModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new costModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(CostModel3EditorPlugin.INSTANCE.getString("_UI_costModelWizard_label"));
-		initialObjectCreationPage.setDescription(CostModel3EditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(CostModelEditorPlugin.INSTANCE.getString("_UI_costModelWizard_label"));
+		initialObjectCreationPage.setDescription(CostModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

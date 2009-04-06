@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -298,6 +299,11 @@ public class ComponentCostImpl extends CostImpl implements ComponentCost {
 	@Override
 	public double getInitialCost() {
 		return this.getComponentInitialCost();
+	}
+
+	@Override
+	public EObject basicGetAnnotatedElement() {
+		return this.getRepositoryComponent();
 	}
 
 } //ComponentCostImpl

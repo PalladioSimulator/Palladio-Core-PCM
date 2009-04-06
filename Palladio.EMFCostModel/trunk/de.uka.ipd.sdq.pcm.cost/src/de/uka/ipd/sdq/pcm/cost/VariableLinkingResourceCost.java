@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO: make cost depend on processing rate!
+ * see VariableProcessingResourceCost, this one works analogously. 
  * <!-- end-model-doc -->
  *
  * <p>

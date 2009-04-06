@@ -15,6 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Cost Repository</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The cost repository is the root element of the cost model. It contains all costs for a PCM instance. 
+ * 
+ * At first, we assume that all costs in this repository are actually costs in the system. Later, if we have FixedProcessingResourceCost for certain types of, for example, CPUs, we have to check the model first which annotated elements are actually used. Same with alternative components. 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

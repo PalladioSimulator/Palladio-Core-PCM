@@ -11,6 +11,8 @@ import de.uka.ipd.sdq.pcm.cost.costPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
@@ -20,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.CostImpl#getAnnotatedElement <em>Annotated Element</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.CostImpl#getOperatingCost <em>Operating Cost</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.CostImpl#getInitialCost <em>Initial Cost</em>}</li>
  * </ul>
@@ -70,6 +73,27 @@ public abstract class CostImpl extends EObjectImpl implements Cost {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject getAnnotatedElement() {
+		EObject annotatedElement = basicGetAnnotatedElement();
+		return annotatedElement != null && annotatedElement.eIsProxy() ? eResolveProxy((InternalEObject)annotatedElement) : annotatedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public abstract EObject basicGetAnnotatedElement();
+		// TODO: implement this method to return the 'Annotated Element' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated not
 	 */
 	public abstract double getOperatingCost();/* {
@@ -97,6 +121,9 @@ public abstract class CostImpl extends EObjectImpl implements Cost {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case costPackage.COST__ANNOTATED_ELEMENT:
+				if (resolve) return getAnnotatedElement();
+				return basicGetAnnotatedElement();
 			case costPackage.COST__OPERATING_COST:
 				return new Double(getOperatingCost());
 			case costPackage.COST__INITIAL_COST:
@@ -113,6 +140,8 @@ public abstract class CostImpl extends EObjectImpl implements Cost {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case costPackage.COST__ANNOTATED_ELEMENT:
+				return basicGetAnnotatedElement() != null;
 			case costPackage.COST__OPERATING_COST:
 				return getOperatingCost() != OPERATING_COST_EDEFAULT;
 			case costPackage.COST__INITIAL_COST:

@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -332,6 +333,11 @@ public class VariableLinkingResourceCostImpl extends VariableCostImpl implements
 			return CostUtil.getDoubleFromSpecification(this.getLinkingresource().getCommunicationLinkResourceSpecifications_LinkingResource().getLatency_CommunicationLinkResourceSpecification().getSpecification());
 		} 
 		return 0;
+	}
+
+	@Override
+	public EObject basicGetAnnotatedElement() {
+		return this.getLinkingresource();
 	}
 
 } //VariableLinkingResourceCostImpl
