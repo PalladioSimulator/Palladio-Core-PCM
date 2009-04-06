@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sammgast"/>
+	<classpathentry kind="lib" path="/home/fish/eclipse-rcp-ganymede-SR1-linux-gtk/eclipse/plugins/org.eclipse.emf.ecore_2.4.1.v200808251517.jar"/>
+	<classpathentry kind="lib" path="/home/fish/eclipse-rcp-ganymede-SR1-linux-gtk/eclipse/plugins/org.eclipse.emf.common_2.4.0.v200808251517.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
