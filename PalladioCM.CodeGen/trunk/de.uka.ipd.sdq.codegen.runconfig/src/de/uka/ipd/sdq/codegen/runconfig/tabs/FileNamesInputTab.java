@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -47,7 +48,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	private Text textAllocation;
 	private Text textUsage;
 	private Text mwtextRepository;
-
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
@@ -70,7 +71,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	/**
-	 * Overloading of setOpenFileDialogResultToTextField because of different extension types.
+	 * Overloading of setOpenFileDialogResultToTextField because of different extensions types.
 	 * 
 	 * @param textField
 	 * @param EXTENSION
@@ -102,223 +103,75 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		/**
 		 * Create resource type section
 		 */
-		final Group repositoryTypeGroup = new Group(container, SWT.NONE);
-		final GridLayout glReposetoryTypeGroup = new GridLayout();
-		glReposetoryTypeGroup.numColumns = 3;
-		repositoryTypeGroup.setLayout(glReposetoryTypeGroup);
-		repositoryTypeGroup.setText("Resource Type File");
-		repositoryTypeGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				true, false));
-
-		textResourceType = new Text(repositoryTypeGroup, SWT.SINGLE
-				| SWT.BORDER);
-		final GridData gd_textResourceTypeRepository = new GridData(SWT.FILL,
-				SWT.CENTER, true, false);
-		gd_textResourceTypeRepository.widthHint = 200;
-		textResourceType.setLayoutData(gd_textResourceTypeRepository);
-		textResourceType.addModifyListener(modifyListener);
-
-		final Button workspaceButton = new Button(repositoryTypeGroup, SWT.NONE);
-		workspaceButton.setText("Workspace...");
-		workspaceButton
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textResourceType, ConstantsContainer.RESOURCETYPE_EXTENSION));
-
-		final Button buttonResourceTypeRepository = new Button(
-				repositoryTypeGroup, SWT.NONE);
-		buttonResourceTypeRepository.setLayoutData(new GridData());
-		buttonResourceTypeRepository.setText("File System...");
-		buttonResourceTypeRepository
-				.addSelectionListener(new SelectionAdapter() {
-					
-					/* (non-Javadoc)
-					 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-					 */
-					public void widgetSelected(SelectionEvent e) {
-						setOpenFileDialogResultToTextField(textResourceType, ConstantsContainer.RESOURCETYPE_EXTENSION);
-					}
-				});
+		textResourceType = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Resource Type File", ConstantsContainer.RESOURCETYPE_EXTENSION, textResourceType);
 
 		/**
 		 * Create repository section
 		 */
-		final Group repositoryGroup = new Group(container, SWT.NONE);
-		final GridLayout glReposetoryGroup = new GridLayout();
-		glReposetoryGroup.numColumns = 3;
-		repositoryGroup.setLayout(glReposetoryGroup);
-		repositoryGroup.setText("Repository File");
-		repositoryGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
-				false));
-
-		textRepository = new Text(repositoryGroup, SWT.SINGLE | SWT.BORDER);
-		final GridData gd_textRepository = new GridData(SWT.FILL, SWT.CENTER, true,
-				false);
-		gd_textRepository.widthHint = 200;
-		textRepository.setLayoutData(gd_textRepository);
-		textRepository.addModifyListener(modifyListener);
-
-		final Button workspaceButton_1 = new Button(repositoryGroup, SWT.NONE);
-		workspaceButton_1.setText("Workspace...");
-		workspaceButton_1
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textRepository, ConstantsContainer.REPOSITORY_EXTENSION));
-
-		final Button buttonRepository = new Button(repositoryGroup, SWT.NONE);
-		buttonRepository.setText("File System...");
-		buttonRepository.addSelectionListener(new SelectionAdapter() {
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				setOpenFileDialogResultToTextField(textRepository, ConstantsContainer.REPOSITORY_EXTENSION);
-			}
-		});
+		textRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Repository File", ConstantsContainer.REPOSITORY_EXTENSION, textRepository);
 
 		/**
 		 * Create MW repository section
 		 */
-		final Group mwrepositoryGroup = new Group(container, SWT.NONE);
-		final GridLayout mwglReposetoryGroup = new GridLayout();
-		mwglReposetoryGroup.numColumns = 3;
-		mwrepositoryGroup.setLayout(mwglReposetoryGroup);
-		mwrepositoryGroup.setText("Middleware Repository File");
-		mwrepositoryGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
-				false));
-
-		mwtextRepository = new Text(mwrepositoryGroup, SWT.SINGLE | SWT.BORDER);
-		final GridData mwgd_textRepository = new GridData(SWT.FILL, SWT.CENTER, true,
-				false);
-		mwgd_textRepository.widthHint = 200;
-		mwtextRepository.setLayoutData(mwgd_textRepository);
-		mwtextRepository.addModifyListener(modifyListener);
-
-		final Button mwworkspaceButton_1 = new Button(mwrepositoryGroup, SWT.NONE);
-		mwworkspaceButton_1.setText("Workspace...");
-		mwworkspaceButton_1
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						mwtextRepository, ConstantsContainer.REPOSITORY_EXTENSION));
-
-		final Button mwbuttonRepository = new Button(mwrepositoryGroup, SWT.NONE);
-		mwbuttonRepository.setText("File System...");
-		mwbuttonRepository.addSelectionListener(new SelectionAdapter() {
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				setOpenFileDialogResultToTextField(mwtextRepository, ConstantsContainer.REPOSITORY_EXTENSION);
-			}
-		});
+		mwtextRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Middleware Repository File", ConstantsContainer.REPOSITORY_EXTENSION, mwtextRepository);
 
 		/**
 		 * Create system Section
 		 */
-		final Group systemGroup = new Group(container, SWT.NONE);
-		final GridLayout glFileGroup = new GridLayout();
-		glFileGroup.numColumns = 3;
-		systemGroup.setLayout(glFileGroup);
-		systemGroup.setText("System File");
-		systemGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
-
-		textSystem = new Text(systemGroup, SWT.SINGLE | SWT.BORDER);
-		final GridData gd_textSystem = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_textSystem.widthHint = 200;
-		textSystem
-				.setLayoutData(gd_textSystem);
-		textSystem.addModifyListener(modifyListener);
-
-		final Button workspaceButton_2 = new Button(systemGroup, SWT.NONE);
-		workspaceButton_2.setText("Workspace...");
-		workspaceButton_2
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textSystem, ConstantsContainer.SYSTEM_EXTENSION));
-
-		final Button buttonSystem = new Button(systemGroup, SWT.NONE);
-		buttonSystem.setText("File System...");
-		buttonSystem.addSelectionListener(new SelectionAdapter() {
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				setOpenFileDialogResultToTextField(textSystem, ConstantsContainer.SYSTEM_EXTENSION);
-			}
-		});
-
+		textSystem = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "System File", ConstantsContainer.SYSTEM_EXTENSION, textSystem);
+		
 		/**
 		 * Create allocation section
 		 */
-		final Group allocationGroup = new Group(container, SWT.NONE);
-		final GridLayout dlAllocationGroup = new GridLayout();
-		dlAllocationGroup.numColumns = 3;
-		allocationGroup.setLayout(dlAllocationGroup);
-		allocationGroup.setText("Allocation File");
-		allocationGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
-
-		textAllocation = new Text(allocationGroup, SWT.SINGLE | SWT.BORDER);
-		final GridData gd_textAllocation = new GridData(SWT.FILL, SWT.CENTER, true,
-				false);
-		gd_textAllocation.widthHint = 200;
-		textAllocation.setLayoutData(gd_textAllocation);
-		textAllocation.addModifyListener(modifyListener);
-
-		final Button workspaceButton_3 = new Button(allocationGroup, SWT.NONE);
-		workspaceButton_3.setText("Workspace...");
-		workspaceButton_3
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textAllocation, ConstantsContainer.ALLOCATION_EXTENSION));
-
-		final Button buttonAllocation = new Button(allocationGroup, SWT.NONE);
-		buttonAllocation.setText("File System...");
-		buttonAllocation.addSelectionListener(new SelectionAdapter() {
-			
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				setOpenFileDialogResultToTextField(textAllocation, ConstantsContainer.ALLOCATION_EXTENSION);
-			}
-		});
-
+		textAllocation = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Allocation File", ConstantsContainer.ALLOCATION_EXTENSION, textAllocation);
+		
 		/**
 		 * Create usage section
 		 */
-		final Group usageGroup = new Group(container, SWT.NONE);
-		final GridLayout glUsageGroup = new GridLayout();
-		glUsageGroup.numColumns = 3;
-		usageGroup.setLayout(glUsageGroup);
-		usageGroup.setText("Usage File");
-		usageGroup
+		//First set the text like this, will be changed to the right parent in createFileInputSection
+		textUsage = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Usage File", ConstantsContainer.USAGEMODEL_EXTENSION, textUsage);
+	}
+	
+	/**
+	 * Creates a section in the parent container for selection files. Creates a {@link Group} with a label. Inside the group, a text field for the file with the given extension, a button to load from the workspace and a button to load from the file system are displayed. 
+	 * @param container The parent container
+	 * @param modifyListener The listener for modifications
+	 * @param modelFileLabel The label of the section around the file input text field 
+	 * @param fileExtension The extensions to load 
+	 * @param textFileNameToLoad The text field that contains the filename. Its parent will be reset to the appropriate group within this method. 
+	 */
+	public void createFileInputSection(final Composite container, final ModifyListener modifyListener, final String modelFileLabel,  final String[] fileExtension, Text textFileNameToLoad){
+
+		final Group fileInputGroup = new Group(container, SWT.NONE);
+		final GridLayout glFileInputGroup = new GridLayout();
+		glFileInputGroup.numColumns = 3;
+		fileInputGroup.setLayout(glFileInputGroup);
+		fileInputGroup.setText(modelFileLabel); //The group name
+		fileInputGroup
 				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-		textUsage = new Text(usageGroup, SWT.SINGLE | SWT.BORDER);
-		final GridData gd_textUsage = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_textUsage.widthHint = 200;
-		textUsage
-				.setLayoutData(gd_textUsage);
-		textUsage.addModifyListener(modifyListener);
+		textFileNameToLoad.setParent(fileInputGroup);
+		final GridData gd_textFileName = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_textFileName.widthHint = 200;
+		textFileNameToLoad
+				.setLayoutData(gd_textFileName);
+		textFileNameToLoad.addModifyListener(modifyListener);
 
-		final Button workspaceButton_4 = new Button(usageGroup, SWT.NONE);
+		final Button workspaceButton_4 = new Button(fileInputGroup, SWT.NONE);
 		workspaceButton_4.setText("Workspace...");
 		workspaceButton_4
 				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textUsage, ConstantsContainer.USAGEMODEL_EXTENSION));
-
-		final Button buttonUsage = new Button(usageGroup, SWT.NONE);
+						textFileNameToLoad, fileExtension));
+		
+		final Button buttonUsage = new Button(fileInputGroup, SWT.NONE);
 		buttonUsage.setText("File System...");
-		buttonUsage.addSelectionListener(new SelectionAdapter() {
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				setOpenFileDialogResultToTextField(textUsage, ConstantsContainer.USAGEMODEL_EXTENSION);
-				updateLaunchConfigurationDialog();
-			}
-		});
+		buttonUsage.addSelectionListener(new FileSystemButtonSelectionAdapter(textFileNameToLoad,fileExtension));
 	}
 
 	/* (non-Javadoc)
@@ -518,6 +371,25 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	}
 	
 
+	class FileSystemButtonSelectionAdapter extends SelectionAdapter {
+		
+		private Text field;
+		private String[] extensions;
+		
+		public FileSystemButtonSelectionAdapter(Text field, String[] fileExtension){
+			this.field = field;
+			this.extensions = fileExtension;
+		}
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+		 */
+		public void widgetSelected(SelectionEvent e) {
+			setOpenFileDialogResultToTextField(this.field, this.extensions);
+		}
+	}
+
+
 	/** Button SelectionListener - call a WorkspaceResourceDialog */
 	class WorkspaceButtonSelectionListener extends SelectionAdapter {
 
@@ -534,7 +406,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		 */
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			setOpenFileDialogResultToTextField(field, extension);
+			setOpenFileDialogResultToTextField(this.field, this.extension);
 		}
 	}
 
