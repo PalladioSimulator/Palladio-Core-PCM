@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo /etc/init.d/gdm stop
+
 ################################################################################
 # CruiseControl, a Continuous Integration Toolkit
 # Copyright (c) 2001, ThoughtWorks, Inc.
