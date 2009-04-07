@@ -106,7 +106,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcmbench.ui"/>
       <param name="project.name" value="/de.uka.ipd.sdq.pcmbench.ui"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.PCMBench/trunk"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.CoreServices/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -124,13 +124,13 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcmbench.help"/>
       <param name="project.name" value="/de.uka.ipd.sdq.pcmbench.help"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.PCMBench/trunk"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.CoreServices/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcmbench.propertytabs"/>
       <param name="project.name" value="/de.uka.ipd.sdq.pcmbench.propertytabs"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.PCMBench/trunk"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.CoreServices/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -232,13 +232,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcmbench.tabs"/>
       <param name="project.name" value="/de.uka.ipd.sdq.pcmbench.tabs"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.PCMBench/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.pcmbench"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.pcmbench"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.PCMBench/trunk"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.CoreServices/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
