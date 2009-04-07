@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 
 import java.math.BigInteger;
 
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +20,8 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
@@ -33,10 +37,18 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
+import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 
 public class UsageModel2Lqn extends UsagemodelSwitch {
 
@@ -111,8 +123,25 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 		TaskType tt = lqnBuilder.addTask(id,pt);
 
 		EntryType et = lqnBuilder.addEntry(id,tt);
-		String arrivalRate = openWorkload.getInterArrivalTime_OpenWorkload()
-				.getSpecification();
+		
+		//Arrival rate is Kehrwert of the inter arrival time
+		double interarrivaltime = 0;
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		String specification = openWorkload.getInterArrivalTime_OpenWorkload().getSpecification();
+		
+		Expression exp = ExpressionHelper.parseToExpression(specification);
+		//TOOD: Only handles IntLiterals and DoubleLiterals
+		if (IntLiteral.class.isInstance(exp)){
+			IntLiteral intExp = (IntLiteral) exp;
+			interarrivaltime = intExp.getValue();
+		} else if (DoubleLiteral.class.isInstance(exp)) {
+			DoubleLiteral doubleExp = (DoubleLiteral) exp;
+			interarrivaltime = doubleExp.getValue();
+		} else {
+			throw new RuntimeException("Only double values or integer values are supported as interarrival time. You provided something else: "+specification);
+		}
+	
+		String arrivalRate = (1.0 / interarrivaltime)+"";
 		et.setOpenArrivalRate(arrivalRate);
 
 		lqnBuilder.addTaskActivityGraph(tt);
@@ -303,4 +332,5 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 				.getActions_ScenarioBehaviour(), Start.class);
 		return startAction;
 	}
+
 }

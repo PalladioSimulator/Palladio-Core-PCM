@@ -98,7 +98,7 @@ public class InternalActionHandler{
 		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(actResDemSpecification);
 		
-		// another quick fix: (convert literals to pdfs, which need at least three samples)
+		// FIXME: another quick fix: (convert literals to pdfs, which need at least three samples). 
 		if (rv.getExpression() instanceof DoubleLiteral
 				|| rv.getExpression() instanceof IntLiteral) {
 			double demand = Double.parseDouble(actResDemSpecification);
