@@ -40,13 +40,18 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 
 	@Override
 	protected void internalLifeCycle() {
-		while(getModel().getSimulationControl().isRunning()) {
-			generateUser();
-			waitForNextUser();
-			if (Thread.activeCount() > USER_THRESHOLD) {
-				logger.error("Too many users spawned! Check your workload settings!");
-				throw new RuntimeException("Too many users spawned");
+		try {
+			while(getModel().getSimulationControl().isRunning()) {
+				generateUser();
+				waitForNextUser();
+				if (Thread.activeCount() > USER_THRESHOLD) {
+					logger.error("Too many users spawned. Check your workload settings and try a lower workload.");
+					throw new RuntimeException("Too many users spawned");
+				}
 			}
+		} catch (OutOfMemoryError e){
+			logger.error("The simulation is out of memory, probably because too many users spawned. Check your workload settings and try a lower workload.");
+			throw new RuntimeException("Too many users spawned", e);
 		}
 	}
 
