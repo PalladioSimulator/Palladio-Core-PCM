@@ -5,7 +5,7 @@
         <antcall target="-generateUpdateSite"/>
     	
     	<!-- <antcall target="javadoc" /> --> <!-- by kelsaka -->
-    	<antcall target="javadoc-pcm" />  <!-- by kelsaka -->
+    	<!-- <antcall target="javadoc-pcm" /> -->  <!-- by kelsaka -->
     </target>
     
     <!--======================================================-->
