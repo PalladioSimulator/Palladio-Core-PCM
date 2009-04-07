@@ -3,7 +3,7 @@
 
   <project name="PCM" requiremodification="true">
     <modificationset>
-      <-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
 	  <svn RepositoryLocation="svn://141.3.52.13/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	  
     </modificationset>
     <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
