@@ -332,7 +332,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		return result.toString();
 	}
 
-	@Override
 	/**
 	 * {@inheritDoc}
 	 */
@@ -435,7 +434,6 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		return valid;
 	}
 
-	@Override
 	/**
 	 * {@inheritDoc}
 	 */

@@ -47,7 +47,6 @@ import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
  */
 public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	
-	@Override
 	/**
 	 * {@inheritDoc}
 	 */
@@ -99,7 +98,6 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 		return valid;
 	}
 
-	@Override
 	/**
 	 * {@inheritDoc}
 	 */
