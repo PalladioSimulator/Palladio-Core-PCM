@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 
 
 /**
@@ -19,6 +18,8 @@ public class ConstantsContainer {
 	public static final String SYSTEM_FILE = "systemFile";
 	public static final String ALLOCATION_FILE = "allocationFile";
 	public static final String USAGE_FILE = "usageFile";
+
+	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
 	
 	/** Template method value*/
 	public static final String AOP_TEMPLATE  = "aop_templates";
@@ -41,18 +42,17 @@ public class ConstantsContainer {
 	public static final String MINIMUM_TEXT = "minimum";
 	public static final String MAXIMUM_TEXT = "maximum";
 	public static final String STEP_WIDTH_TEXT = "stepwidth";
+	public static final String RUN_NO = "runNo";
 	
-	
-	/** Feature options tab*/
-	public static final String SIMULATE_LINKING_RESOURCES = "respectLinkingResources";
-	public static final String COMPONENT_LOOKUP = "componentLookup";
+	/** Output path settings */
 	public static final String EAROUT_PATH = "earOutpath";
 	public static final String INTERFACESOUT_PATH = "interfacesOutpath";
 	public static final String CLIENTOUT_PATH = "clientOutpath";
 	public static final String EJBSOUT_PATH = "ejbsOutpath";
-	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
 	public static final String FEATURE_CONFIG = "featureConfig";
-	public static final String RUN_NO = "runNo";
-
+	public static final String FEATURE_FILE = "featureFile";
+	public static final String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
+	
+	/** Default values */
 	public static String SIMUCOM_DEFAULT_PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 }

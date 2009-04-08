@@ -30,7 +30,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab.WorkspaceButtonSelectionListener;
 
 /**
  * The class defines a tab, where the specific characteristics for the
@@ -85,24 +84,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		simulateLinkingResourcesButton.setText("Simulate Linking Resources");
 		simulateLinkingResourcesButton.addSelectionListener(selectionListener);
 
-		final Group communicationsGroup = new Group(container, SWT.NONE);
-		communicationsGroup.setText("Communication Options");
-		final GridData gd_communicationsGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		communicationsGroup.setLayoutData(gd_communicationsGroup);
-		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
-		communicationsGroup.setLayout(gridLayout);
-
-		final Label serverLookupLabel = new Label(communicationsGroup, SWT.NONE);
-		serverLookupLabel.setText("Component Lookup:");
-
-		lookupOptions = new Combo(communicationsGroup, SWT.NONE);
-		final GridData gd_lookupOptions = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		lookupOptions.setLayoutData(gd_lookupOptions);
-		lookupOptions.addModifyListener(modifyListener);
-		for (ComponentLookupEnum value : ComponentLookupEnum.values())
-			lookupOptions.add(value.name());
-		
 		/**
 		 * Create feature model section
 		 */
@@ -194,14 +175,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 			simulateLinkingResourcesButton.setSelection(true);
 		}
 		try {
-			int index = configuration.getAttribute(
-					ConstantsContainer.COMPONENT_LOOKUP,0);
-			index = index < 0 ? 0 : index;
-			lookupOptions.select(index);
-		} catch (CoreException e) {
-			lookupOptions.setText(ComponentLookupEnum.values()[0].name());
-		}
-		try {
 			textFeatureConfig.setText(configuration.getAttribute(
 					ConstantsContainer.FEATURE_CONFIG, ""));
 		} catch (CoreException e) {
@@ -215,8 +188,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				this.simulateLinkingResourcesButton.getSelection());
-		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
-				lookupOptions.getSelectionIndex());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				textFeatureConfig.getText());
 	}
@@ -227,8 +198,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				true);
-		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
-				ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				DEFAULT_CONNECTOR_FEATURE_CONFIG);
 	}

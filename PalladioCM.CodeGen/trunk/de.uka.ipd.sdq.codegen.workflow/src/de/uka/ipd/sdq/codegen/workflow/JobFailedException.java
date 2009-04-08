@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.workflow;
 
+import org.eclipse.core.runtime.CoreException;
+
 @SuppressWarnings("serial")
 public class JobFailedException extends Exception {
 
@@ -13,5 +15,9 @@ public class JobFailedException extends Exception {
 	
 	public JobFailedException(String string, Throwable e) {
 		super(string, e);
+	}
+
+	public JobFailedException(CoreException e) {
+		super(e);
 	}
 }

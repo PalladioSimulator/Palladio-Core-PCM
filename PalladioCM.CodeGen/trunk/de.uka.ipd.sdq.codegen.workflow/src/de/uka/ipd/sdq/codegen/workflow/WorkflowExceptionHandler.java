@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.codegen.workflow;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
@@ -41,7 +40,7 @@ public class WorkflowExceptionHandler  {
 	 * @param e the exception to handle
 	 * @throws CoreException
 	 */
-	private void handleCriticalException(Exception e) throws CoreException {
+	private void handleCriticalException(Exception e) {
 		logException(e);
 
 		/**
@@ -49,8 +48,7 @@ public class WorkflowExceptionHandler  {
 		 * set of false
 		 */
 		if (myShouldThrowException)
-			throw new CoreException(new Status(IStatus.ERROR,
-					WorkflowPlugin.PLUGIN_ID, "Simulation failed", e));
+			throw new WorkflowFailedException("Workflow failed", e);
 		else
 			PlatformUI.getWorkbench().getDisplay().syncExec(
 					new ErrorDisplayRunner(e));
@@ -61,7 +59,7 @@ public class WorkflowExceptionHandler  {
 	 * 
 	 * @param e the exception containing more information
 	 */
-	public void handleJobFailed(JobFailedException e) throws CoreException {
+	public void handleJobFailed(JobFailedException e) {
 		handleCriticalException(e);
 	}
 
@@ -70,7 +68,7 @@ public class WorkflowExceptionHandler  {
 	 * 
 	 * @param e the exception containing more information
 	 */
-	public void handleRollbackFailed(RollbackFailedException e) throws CoreException {
+	public void handleRollbackFailed(RollbackFailedException e) {
 		handleCriticalException(e);
 	}
 

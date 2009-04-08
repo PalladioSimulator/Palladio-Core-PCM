@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.codegen.runconfig;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +9,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ComponentLookupEnum;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 
@@ -98,10 +96,6 @@ public abstract class AttributesGetMethods {
 
 			properties.put(ConstantsContainer.SIMULATE_LINKING_RESOURCES, configuration
 					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
-			properties.put("brokerLookup", configuration
-					.getAttribute(ConstantsContainer.COMPONENT_LOOKUP,
-							ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) 
-												== ComponentLookupEnum.BROKER.ordinal() ? "true" : "false");
 		} catch (Exception e) {
 			throw new JobFailedException("Setting up properties failed", e);
 		}

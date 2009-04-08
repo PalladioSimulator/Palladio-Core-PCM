@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Run Config Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.runconfig
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -13,8 +13,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,
  de.uka.ipd.sdq.codegen.workflow,
- org.apache.commons.logging;bundle-version="1.0.4"
-Eclipse-LazyStart: true
+ org.apache.commons.logging
+Bundle-ActivationPolicy: lazy
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.codegen.runconfig,
  de.uka.ipd.sdq.codegen.runconfig.tabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

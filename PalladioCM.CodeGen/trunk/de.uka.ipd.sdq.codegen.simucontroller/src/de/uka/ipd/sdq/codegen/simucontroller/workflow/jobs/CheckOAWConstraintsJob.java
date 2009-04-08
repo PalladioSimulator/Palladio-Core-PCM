@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.workflow.jobs;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,8 +36,6 @@ import de.uka.ipd.sdq.errorhandling.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;

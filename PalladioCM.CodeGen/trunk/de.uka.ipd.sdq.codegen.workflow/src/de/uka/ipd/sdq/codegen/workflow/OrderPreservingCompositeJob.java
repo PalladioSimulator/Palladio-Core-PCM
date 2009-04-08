@@ -40,7 +40,7 @@ public class OrderPreservingCompositeJob implements ICompositeJob {
 	 */ 
 	public void execute() throws JobFailedException, UserCanceledException {
 		for (IJob job : myJobs) {
-			logger.info("SDQ Workflow-Engine: Running job "+job.getClass().getName());
+			logger.info("SDQ Workflow-Engine: Running job "+job.getName());
 			myExecutedJobs.push(job);
 			job.execute();
 		}

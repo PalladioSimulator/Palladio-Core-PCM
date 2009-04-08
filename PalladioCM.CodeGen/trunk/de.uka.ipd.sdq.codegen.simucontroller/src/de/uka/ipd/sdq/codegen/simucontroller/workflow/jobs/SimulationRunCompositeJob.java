@@ -7,11 +7,10 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IDebugTarget;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuAttributesGetMethods;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.jobs.GenerateOAWCodeJob;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -20,13 +19,12 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  * of the composite job is chosen for the implementation.
  * 
  * @author Philipp Meier
+ * 		   Steffen Becker
  */
 public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 
-	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes,
-			boolean isDebug, ILaunch launch)
-	throws JobFailedException, CoreException {
-		this(attributes,1,isDebug,launch);
+	public SimulationRunCompositeJob(SimuComWorkflowConfiguration configuration) throws CoreException {
+		this(configuration,1);
 	}
 	
 	/**
@@ -38,19 +36,17 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 	 * @throws CoreException
 	 * @throws JobFailedException
 	 */
-	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes, int runNo,
-			boolean isDebug, ILaunch launch)
-			throws JobFailedException, CoreException {
+	public SimulationRunCompositeJob(SimuComWorkflowConfiguration configuration, int runNo)
+			throws CoreException {
 
 		// 2. Create new Eclipse plugin project
 		CreatePluginProjectJob createPluginProjectJob = new CreatePluginProjectJob(
-				runNo > 1 ? attributes.getPluginId() + "." + runNo : attributes.getPluginId(),
-				attributes.isDeleteProject());
+				runNo > 1 ? configuration.getGeneratedPluginId() + "." + runNo : configuration.getGeneratedPluginId(),
+				configuration.shouldDeleteGeneratedCodeOnCleanup());
 		this.addJob(createPluginProjectJob);
 
 		// 3. Generate the plugin's code using oAW
-		Map<String, String> p = attributes.getOAWWorkflowProperties(runNo);
-		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(p);
+		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(configuration);
 		this.addJob(generatePluginCodeJob);
 
 		// 4. Compile the plugin
@@ -61,8 +57,8 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 		this.addJob(buildBundleJob);
 		
 		// 6. Transfer the JAR to a free simulation dock and simulate it
-		SimuComConfig simuConfig = new SimuComConfig(attributes.getSimuComProperties(),runNo,isDebug);
-		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig,launch));
+		SimuComConfig simuConfig = configuration.getSimuComConfiguration();
+		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig,null /*TODO: launch!!*/ ));
 	}
 
 	public String getName() {

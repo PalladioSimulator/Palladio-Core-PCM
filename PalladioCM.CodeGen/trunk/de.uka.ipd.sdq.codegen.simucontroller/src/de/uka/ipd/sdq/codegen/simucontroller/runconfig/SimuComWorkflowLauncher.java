@@ -5,56 +5,55 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.IDebugTarget;
 
-import de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate;
+import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.jobs.CheckOAWConstraintsJob;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for
  * SimuCom Framework.
  * 
- * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate
+ * @see de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedLaunchConfigurationDelegate
  * 
  * @author Roman Andrej
  */
-public class SimuLaunchConfigurationDelegate extends
-		LaunchConfigurationDelegate<SimuAttributesGetMethods> {
+public class SimuComWorkflowLauncher 
+extends	AbstractWorkflowBasedLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	@Override
-	protected SimuAttributesGetMethods createAttributesGetMethods(
-			ILaunchConfiguration configuration) {
-		return new SimuAttributesGetMethods(configuration);
+	protected SimuComWorkflowConfiguration deriveConfiguration(
+			ILaunchConfiguration configuration, String mode) throws CoreException {
+		SimuComConfigurationBuilder builder = new SimuComLaunchConfigurationBasedConfigBuilder(configuration,mode);
+		return builder.getConfiguration();
 	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#createRunCompositeJob(de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods)
 	 */
 	@Override
-	protected IJob createRunCompositeJob(SimuAttributesGetMethods attributes, boolean isDebug, ILaunch launch)
-			throws JobFailedException, CoreException {
+	protected IJob createWorkflowJob(SimuComWorkflowConfiguration config) throws CoreException {
 		OrderPreservingCompositeJob result = new OrderPreservingCompositeJob();
 		
-		CheckOAWConstraintsJob checkOAWConstraintsJob = new CheckOAWConstraintsJob(
-				attributes.getFiles(), attributes.isShouldThrowException());
-		result.addJob(checkOAWConstraintsJob);
+		result.addJob(new CheckOAWConstraintsJob(
+				config.getPCMModelFiles(), !config.isInteractive()));
 		
 		/* Check whether a sensitivity analysis is wanted (specified in attribute named 
 		 * <code>ConstantsContainer.VARIABLE_TEXT</code>), if yes, start 
 		 * multiple runs just changing this one parameter, if not, just start one run.  
 		 */
-		if (!attributes.getOAWWorkflowProperties(1).get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
-			result.addJob(new MultipleSimulationRunsCompositeJob(attributes));
+		// if (!attributes.getOAWWorkflowProperties(1).get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
+		if (config.isSensitivityAnalysisEnabled()) {
+			result.addJob(new MultipleSimulationRunsCompositeJob(config));
 		} else {
-			SimulationRunCompositeJob myJob = new SimulationRunCompositeJob(attributes,isDebug,launch);
-			result.addJob(myJob);
+			result.addJob(new SimulationRunCompositeJob(config));
 		}
 		
 		return result;

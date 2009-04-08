@@ -10,7 +10,7 @@
 	</component>
 
 	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
-		<modelFile value="${featureConfig}"/>
+		<modelFile value="${featureFile}"/>
 		<outputSlot value="featureConfig"/>
 	</component>
  		
@@ -37,7 +37,7 @@
 	</component>
 	
     <component class="de.uka.sdq.pcm.transformations.TransformationWorkflowComponent">
-    	<respectLinkingResources value="${respectLinkingResources}"/>
+    	<respectLinkingResources value="${simulateLinkingResources}"/>
 	</component>
 
 	<component class="oaw.emf.XmiWriter">
