@@ -130,8 +130,7 @@
 		    	use="true" 
 		    	version="true" 
 		    	windowtitle="Palladio Component Model - PCM"
-		    	maxmemory="256m"
-		    	failonerror="true">
+		    	maxmemory="256m">
 
 		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
