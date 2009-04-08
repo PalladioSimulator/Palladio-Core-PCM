@@ -42,28 +42,28 @@
       <alwaysbuild username="webmaster-sdq@ipd.uka.de"></alwaysbuild>
     </modificationset>
     <schedule interval="86400"> <!-- in seconds; 86400: 1 day -->
-      <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
-    </schedule>
+      <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule> 
     <log>
-      <merge dir="/home/ccontrol/pluginbuilder/pcm-javadoc/results/testresults/xml" pattern="testReport*.xml"></merge>
+      <merge dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
     </log>
     <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
     <publishers>
-      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/PCM-javadoc" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruiscontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de">
+      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/pcm-javadoc-pluginbuilder" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruiscontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de">
         <always address="krogmann@ira.uka.de"></always>
       </htmlemail>
-      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/test-builderplugin/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.7.3/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.7.3/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
       <onsuccess>
-<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/pcm-javadoc/upload.xml" uselogger="true" usedebug="false" target="upload">
+<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload">
     </antpublisher>
       </onsuccess>
       <!-- <onfailure>
-	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc" buildfile="/home/ccontrol/svn/code/pcm-javadoc/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
+	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
        </antpublisher>
       </onfailure> -->
     </publishers>
     <bootstrappers>
-      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/pcm-javadoc"></svnbootstrapper>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder"></svnbootstrapper>
     </bootstrappers>
     <listeners></listeners>
   </project>  
