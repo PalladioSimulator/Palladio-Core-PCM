@@ -58,7 +58,7 @@
     </antpublisher>
       </onsuccess>
       <!-- <onfailure>
-	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/test-builderplugin/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
+	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc" buildfile="/home/ccontrol/svn/code/pcm-javadoc/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
        </antpublisher>
       </onfailure> -->
     </publishers>
