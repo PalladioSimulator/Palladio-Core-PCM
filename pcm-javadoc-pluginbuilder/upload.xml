@@ -11,7 +11,9 @@
 			"/>
 	</target>
 
-	<target name="upload" depends="clean_remote">
+	<target name="upload"> <!-- depends="clean_remote"> -->
+		
+		<!-- 
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
@@ -39,7 +41,7 @@
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
 				<include name="*.txt" />				
 			</fileset>
-	  	</scp>
+	  	</scp> -->
 	</target>
 	
 </project>
