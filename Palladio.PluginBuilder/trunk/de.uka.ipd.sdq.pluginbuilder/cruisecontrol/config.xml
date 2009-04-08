@@ -52,15 +52,10 @@
       <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/pcm-javadoc-pluginbuilder" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruiscontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de">
         <always address="krogmann@ira.uka.de"></always>
       </htmlemail>
-      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.7.3/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
       <onsuccess>
-<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload">
+<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload">
     </antpublisher>
       </onsuccess>
-      <!-- <onfailure>
-	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
-       </antpublisher>
-      </onfailure> -->
     </publishers>
     <bootstrappers>
       <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder"></svnbootstrapper>
