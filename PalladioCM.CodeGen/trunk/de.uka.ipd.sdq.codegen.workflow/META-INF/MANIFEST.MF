@@ -5,12 +5,14 @@ Bundle-SymbolicName: de.uka.ipd.sdq.codegen.workflow
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.codegen.workflow.WorkflowPlugin
 Bundle-Vendor: de.uka.ipd.sdq
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- de.uka.ipd.sdq.dialogs,
- de.uka.ipd.sdq.errorhandling,
+Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.logging,
- org.eclipse.ui.console
+ org.eclipse.ui;resolution:=optional,
+ org.eclipse.ui.console;resolution:=optional,
+ de.uka.ipd.sdq.dialogs;resolution:=optional,
+ de.uka.ipd.sdq.errorhandling;resolution:=optional
 Bundle-ActivationPolicy: lazy
-Export-Package: de.uka.ipd.sdq.codegen.workflow
+Export-Package: de.uka.ipd.sdq.codegen.workflow,
+ de.uka.ipd.sdq.codegen.workflow.exceptions,
+ de.uka.ipd.sdq.codegen.workflow.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

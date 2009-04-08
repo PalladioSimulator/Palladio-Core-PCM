@@ -10,7 +10,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 
 /**
  * The class is abstract and defines the methods, which are responsible for the

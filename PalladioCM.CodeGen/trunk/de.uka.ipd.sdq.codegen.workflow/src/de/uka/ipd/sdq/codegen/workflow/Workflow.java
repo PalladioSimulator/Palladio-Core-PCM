@@ -5,6 +5,11 @@ import org.apache.commons.logging.LogFactory;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
+
 /**
  * Implementation of a workflow. A workflow is a special composite job which executes all other jobs while displaying the progress in a progress
  * bar to the user.

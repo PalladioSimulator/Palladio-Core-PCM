@@ -14,10 +14,10 @@ import org.eclipse.core.runtime.CoreException;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
 /**
  * A job which runs multiple simulations in sequence or parallel to perform a sensitivity analysis

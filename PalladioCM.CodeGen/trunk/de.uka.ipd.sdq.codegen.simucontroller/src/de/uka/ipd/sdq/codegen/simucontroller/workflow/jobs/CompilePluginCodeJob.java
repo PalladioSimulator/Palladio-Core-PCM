@@ -14,7 +14,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import edu.rice.cs.util.jar.JarBuilder;
 
 

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.codegen.workflow.exceptions;
 
 @SuppressWarnings("serial")
 public class UserCanceledException extends Exception {

@@ -9,8 +9,8 @@ import org.eclipse.debug.core.model.IDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**

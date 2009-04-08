@@ -6,6 +6,10 @@ import java.util.Stack;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+
 /**
  * Implementation of a composite job that guarantees
  * the execution of it's jobs in the order they were added.

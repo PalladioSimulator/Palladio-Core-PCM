@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.codegen.workflow.ui;
 
 import java.io.PrintStream;
 
@@ -6,6 +6,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
+
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.Workflow;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 
 /**
  * 

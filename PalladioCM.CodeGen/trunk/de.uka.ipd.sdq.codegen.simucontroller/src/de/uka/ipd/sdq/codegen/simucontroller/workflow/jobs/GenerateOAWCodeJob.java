@@ -13,7 +13,7 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 
 /**
  * Start the Workflow-Engine of oAW - Generator

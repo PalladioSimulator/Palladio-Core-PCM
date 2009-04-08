@@ -1,10 +1,8 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.codegen.workflow.exceptions;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.ui.PlatformUI;
-
-import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
+import de.uka.ipd.sdq.codegen.workflow.WorkflowPlugin;
 
 /**
  * Implementation of a work flow exception handler.
@@ -18,7 +16,7 @@ import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
  */
 public class WorkflowExceptionHandler  {
 	
-	private boolean myShouldThrowException;
+	protected boolean myShouldThrowException;
 	
 	public WorkflowExceptionHandler(boolean shouldThrowException) {
 		myShouldThrowException = shouldThrowException;
@@ -40,7 +38,7 @@ public class WorkflowExceptionHandler  {
 	 * @param e the exception to handle
 	 * @throws CoreException
 	 */
-	private void handleCriticalException(Exception e) {
+	protected void handleCriticalException(Exception e) {
 		logException(e);
 
 		/**
@@ -49,9 +47,6 @@ public class WorkflowExceptionHandler  {
 		 */
 		if (myShouldThrowException)
 			throw new WorkflowFailedException("Workflow failed", e);
-		else
-			PlatformUI.getWorkbench().getDisplay().syncExec(
-					new ErrorDisplayRunner(e));
 	}
 
 	/**
@@ -79,30 +74,5 @@ public class WorkflowExceptionHandler  {
 	 */
 	public void handleUserCanceled(UserCanceledException e) {
 		// do nothing
-	}
-	
-	/**
-	 * Helper class that allows an error display dialog to
-	 * appear from a non user interface thread because the
-	 * workbench shell is otherwise not accessible.
-	 * 
-	 * @author Philipp Meier
-	 */
-	private class ErrorDisplayRunner implements Runnable {
-		private Throwable e;
-
-		/**
-		 * @param e the throwable to display in the error
-		 * display dialog
-		 */
-		public ErrorDisplayRunner(Throwable e) {
-			super();
-			this.e = e;
-		}
-
-		public void run() {
-			new ErrorDisplayDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getShell(), e).open();
-		}
 	}
 }

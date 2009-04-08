@@ -9,9 +9,9 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.UIBasedWorkflow;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
-import de.uka.ipd.sdq.codegen.workflow.WorkflowExceptionHandler;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
+import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
 
 /**
  * Abstract base class of all solver runs for PCM model instances. A PCM model instance

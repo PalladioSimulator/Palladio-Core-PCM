@@ -11,8 +11,8 @@ import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJo
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for

@@ -29,8 +29,8 @@ import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;

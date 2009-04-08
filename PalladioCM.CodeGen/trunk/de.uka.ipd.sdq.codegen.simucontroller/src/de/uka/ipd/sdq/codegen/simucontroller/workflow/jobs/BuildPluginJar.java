@@ -5,9 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
 public class BuildPluginJar implements IJobWithResult<byte[]> {
 
