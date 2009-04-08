@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Responsibilities of the Deployer</TITLE>
+<META NAME="description" CONTENT="Responsibilities of the Deployer">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node139.html">
+<LINK REL="previous" HREF="node137.html">
+<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node139.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2545"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2539"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2533"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2541"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2543"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2546"
+  HREF="node139.html">Resource Types</A>
+<B> Up:</B> <A NAME="tex2html2540"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2534"
+  HREF="node137.html">Motivation</A>
+ &nbsp; <B>  <A NAME="tex2html2542"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2544"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00442000000000000000"></A>
+<A NAME="sec:System_Deployer:Tasks_of_the_System_Deployer"></A>
+<BR>
+Responsibilities of the Deployer
+</H2>
+
+<P>
+Mainly, the resource environment is in the deployer's responsibility. This includes the specification of resource environments as well as the installation of a component-based application or the setup of a new environment. Deployers are assumed to be experts in the area of component deployment (allocating software components to different hard- and software nodes) and the configuration or creation of an environment, that enables the system to fulfill its extra-functional requirements.
+Concretely, deployers are responsible for:
+
+<UL>
+<LI>Definition and description of the resource environment. This includes the specification of hard- and software resources, their properties, and their interconnections.
+</LI>
+<LI>Allocation of component assemblies to different resources.
+</LI>
+</UL>
+
+<P>
+Deployers are not only concerned with the specification of the resource environment and component allocation, but also with the realisation of the actual system setup. However, as these are two different tasks, they might not be performed by a single person only. For example, an application for the mass market might have a set of typical deployment scenarios defined by members of the development team, but the setup will be accomplished by the customers themselves. 
+
+<P>
+To specify the resource environment in the PCM, deployers use <I>resource containers</I>. A resource container represents a part of the real world that can host components, for example an application server or client computer. It holds a set of different resources, such as processors, hard disks, or thread pools. Each resource conforms to a certain <I>resource type</I> that discribes a class of resources with common properties. If a component is allocated on a resource container, it has access to all resources the container provides. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2545"
+  HREF="node139.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2539"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2533"
+  HREF="node137.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2541"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2543"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2546"
+  HREF="node139.html">Resource Types</A>
+<B> Up:</B> <A NAME="tex2html2540"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2534"
+  HREF="node137.html">Motivation</A>
+ &nbsp; <B>  <A NAME="tex2html2542"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2544"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
