@@ -6,42 +6,18 @@
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true" 
-		command="cd /var/www/eclipse/PCM_nightly/; 
+		command="cd /var/www/eclipse/javadoc/; 
 			rm -rf *; 
 			"/>
 	</target>
 
-	<target name="upload"> <!-- depends="clean_remote"> -->
-		
-		<!-- 
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+	<target name="upload" depends="clean_remote">
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/javadoc/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html"/>
-	  	</scp>	
-		<sshexec host="i43pc12.ipd.uka.de"
-				username="ccontrol"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true" 
-				command="cd /var/www/eclipse/PCM_nightly/; 
-			mv test*.html testresults.html; 
-			"/>
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite"/>
+		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc"/>
 	  	</scp>			
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
-				<include name="*.txt" />				
-			</fileset>
-	  	</scp> -->
 	</target>
 	
 </project>
