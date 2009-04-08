@@ -88,10 +88,10 @@
         <always address="krogmann@ira.uka.de"></always>
       </htmlemail>
       <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/test-builderplugin/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.7.3/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
-      <onsuccess>
+      <!-- <onsuccess>
 <antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/test-builderplugin/upload.xml" uselogger="true" usedebug="false" target="upload">
     </antpublisher>
-      </onsuccess>
+      </onsuccess> -->
       <!-- <onfailure>
 	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/test-builderplugin" buildfile="/home/ccontrol/svn/code/test-builderplugin/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload">
        </antpublisher>
