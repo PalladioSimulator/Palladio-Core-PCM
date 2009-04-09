@@ -150,7 +150,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 	@Override
 	public void consumeResource(SimProcess thread, double demand) {
 		registerProcessWindows(thread, aResource, 8);
-		aResource.process(thread, demand);
+		aResource.process(thread, calculateDemand(demand));
 	}
 
 	@Override
