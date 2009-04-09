@@ -141,10 +141,12 @@ public class SimActiveResource extends AbstractActiveResource {
 	
 	public void registerProcess(IRunningProcess runningProcess) {
 		IActiveProcess p = (IActiveProcess)runningProcess;
-		processRegistry.registerProcess(p);
-		IResourceInstance instance = getInstanceFor(p);
-		scheduler.registerProcess(p, instance);
-		p.getSchedulableProcess().addTerminatedObserver(this);
+		if (!processRegistry.isRegistered(p)){
+			processRegistry.registerProcess(p);
+			IResourceInstance instance = getInstanceFor(p);
+			scheduler.registerProcess(p, instance);
+			p.getSchedulableProcess().addTerminatedObserver(this);
+		}
 	}
 
 	public void unregisterProcess(IActiveProcess process) {
