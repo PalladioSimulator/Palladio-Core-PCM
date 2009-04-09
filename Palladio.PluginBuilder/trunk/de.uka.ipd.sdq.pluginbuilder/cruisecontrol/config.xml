@@ -42,7 +42,8 @@
       <alwaysbuild username="webmaster-sdq@ipd.uka.de"></alwaysbuild>
     </modificationset>
     <schedule interval="86400"> <!-- in seconds; 86400: 1 day -->
-      <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+      <!-- <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant> -->
+      <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build-files/postBuild.xml" target="javadoc-pcm" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="true" timeout="3600"></ant>      
     </schedule> 
     <log>
       <merge dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
