@@ -33,6 +33,7 @@ public class FunctionLib {
 		myFunctions.put("UniInt",new UniIntDistFunction());
 		myFunctions.put("Trunc",new TruncFunction());
 		myFunctions.put("Round",new RoundFunction());
+		myFunctions.put("Binom", new BinomFunction());
 	}
 
 	/**
