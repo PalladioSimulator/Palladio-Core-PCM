@@ -1,4 +1,4 @@
-#Mon Apr 06 12:29:26 CEST 2009
+#Thu Apr 09 11:39:32 CEST 2009
 eclipse.preferences.version=1
 encoding/TradingSystem.Database.beginTransaction.seff_diagram=UTF-8
 encoding/TradingSystem.Database.closePersistenceContext.seff_diagram=UTF-8
@@ -29,7 +29,5 @@ encoding/Tradingsystem.Webservices.InventoryService.changePrice.seff_diagram=UTF
 encoding/Tradingsystem.Webservices.InventoryService.getProductDetails.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.PaymentDebitService.debitCard.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.PaymentService.handlePayment.seff_diagram=UTF-8
-encoding/orc_closed.usagemodel=UTF-8
-encoding/orc_closed.usagemodel_diagram=UTF-8
 encoding/orc_distributed.allocation=UTF-8
 encoding/orc_distributed.allocation_diagram=UTF-8

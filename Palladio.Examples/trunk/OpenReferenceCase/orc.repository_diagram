@@ -756,7 +756,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_9_rPwSKTEd6EO6qHYg-W9w" fontName="Segoe UI"/>
     <element xmi:type="Interface" href="orc.repository#_96a8UCKTEd6EO6qHYg-W9w"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_rPwiKTEd6EO6qHYg-W9w" x="996" y="-1980"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_rPwiKTEd6EO6qHYg-W9w" x="888" y="-1980" width="361"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_3aOdQXlDEd2DBfjHDxUcwg"/>
   <element xmi:type="Repository" href="orc.repository#_S4rTcNCXEduC9O_qbthgAg"/>
