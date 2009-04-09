@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
   <usageScenario_UsageModel id="_oCoMsHk5Ed2DBfjHDxUcwg" entityName="UsageScenario">
     <workload_UsageScenario xsi:type="OpenWorkload">
       <interArrivalTime_OpenWorkload specification="11250 / 10"/>
     </workload_UsageScenario>
     <scenarioBehaviour_UsageScenario id="_oCoMsXk5Ed2DBfjHDxUcwg" entityName="UsageScenarioBehaviour">
-      <actions_ScenarioBehaviour xsi:type="Start" id="_oCoMsnk5Ed2DBfjHDxUcwg" entityName="UsageStart" successor="_jB-9ILYdEd2hhI_zRiLdJg"/>
-      <actions_ScenarioBehaviour xsi:type="Stop" id="_oCoMs3k5Ed2DBfjHDxUcwg" entityName="UsageStop" predecessor="_jB-9ILYdEd2hhI_zRiLdJg"/>
-      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_jB-9ILYdEd2hhI_zRiLdJg" entityName="BookSaleCall" successor="_oCoMs3k5Ed2DBfjHDxUcwg" predecessor="_oCoMsnk5Ed2DBfjHDxUcwg">
-        <inputParameterUsages_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
-            <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (8;0.1) (15;0.15) (25;0.15) (50;0.2) (75;0.1) ]"/>
-          </variableCharacterisation_VariableUsage>
-          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
-        </inputParameterUsages_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="orc.system#_g52lkHesEd2mk8dKi3ngUA"/>
-        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.8/@signatures__Interface.4"/>
+      <actions_ScenarioBehaviour xsi:type="Start" id="_oCoMsnk5Ed2DBfjHDxUcwg" entityName="UsageStart" successor="_P7Tc8CKWEd6EO6qHYg-W9w"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_oCoMs3k5Ed2DBfjHDxUcwg" entityName="UsageStop" predecessor="_P7Tc8CKWEd6EO6qHYg-W9w"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_P7Tc8CKWEd6EO6qHYg-W9w" successor="_oCoMs3k5Ed2DBfjHDxUcwg" predecessor="_oCoMsnk5Ed2DBfjHDxUcwg">
+        <providedRole_EntryLevelSystemCall href="orc.system#_a6SIcCKVEd6EO6qHYg-W9w"/>
+        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.14/@signatures__Interface.0"/>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
   </usageScenario_UsageModel>

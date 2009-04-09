@@ -242,8 +242,14 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_hEB6MB_8Edy5k9ER1TBmjg" predecessor_AbstractAction="_gzVy0B_8Edy5k9ER1TBmjg"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mAraYh_8Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
-      <steps_Behaviour xsi:type="_1:StartAction" id="_rYcwUB_8Edy5k9ER1TBmjg" successor_AbstractAction="_rg798B_8Edy5k9ER1TBmjg"/>
-      <steps_Behaviour xsi:type="_1:StopAction" id="_rg798B_8Edy5k9ER1TBmjg" predecessor_AbstractAction="_rYcwUB_8Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_rYcwUB_8Edy5k9ER1TBmjg" successor_AbstractAction="_qpOY0B37Ed6ysecrCQNjxQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_rg798B_8Edy5k9ER1TBmjg" predecessor_AbstractAction="_FRt6YB38Ed6ysecrCQNjxQ"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_qpOY0B37Ed6ysecrCQNjxQ" predecessor_AbstractAction="_rYcwUB_8Edy5k9ER1TBmjg" successor_AbstractAction="_1eggUB37Ed6ysecrCQNjxQ" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_1eggUB37Ed6ysecrCQNjxQ" predecessor_AbstractAction="_qpOY0B37Ed6ysecrCQNjxQ" successor_AbstractAction="_8h4ccB37Ed6ysecrCQNjxQ" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.2" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_8h4ccB37Ed6ysecrCQNjxQ" predecessor_AbstractAction="_1eggUB37Ed6ysecrCQNjxQ" successor_AbstractAction="_XLkQ0B38Ed6ysecrCQNjxQ" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.3" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_BGOKUB38Ed6ysecrCQNjxQ" predecessor_AbstractAction="_XLkQ0B38Ed6ysecrCQNjxQ" successor_AbstractAction="_FRt6YB38Ed6ysecrCQNjxQ" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.4" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_FRt6YB38Ed6ysecrCQNjxQ" predecessor_AbstractAction="_BGOKUB38Ed6ysecrCQNjxQ" successor_AbstractAction="_rg798B_8Edy5k9ER1TBmjg" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.1" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_XLkQ0B38Ed6ysecrCQNjxQ" predecessor_AbstractAction="_8h4ccB37Ed6ysecrCQNjxQ" successor_AbstractAction="_BGOKUB38Ed6ysecrCQNjxQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.5" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mBGuoKaQEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.10">
       <steps_Behaviour xsi:type="_1:StartAction" id="_mkz4oKaQEd2HMpb_upR7QA" successor_AbstractAction="_-sfqUKaQEd2HMpb_upR7QA"/>
@@ -405,8 +411,9 @@
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_O5cR0HRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.5">
-      <steps_Behaviour xsi:type="_1:StartAction" id="_PJguIHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_PJguIXRDEd2J8bFb9TfSEQ"/>
-      <steps_Behaviour xsi:type="_1:StopAction" id="_PJguIXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_PJguIHRDEd2J8bFb9TfSEQ"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_PJguIHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_1Qyp4B36Ed6ysecrCQNjxQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_PJguIXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_1Qyp4B36Ed6ysecrCQNjxQ"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_1Qyp4B36Ed6ysecrCQNjxQ" predecessor_AbstractAction="_PJguIHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_PJguIXRDEd2J8bFb9TfSEQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_ppoiYXQ5Ed2J8bFb9TfSEQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_Bp8S0HQQEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.ProductInformationService">
@@ -416,20 +423,29 @@
     <providedRoles_InterfaceProvidingEntity id="_E9Bs0HQTEd2J8bFb9TfSEQ" entityName="CardValidationServiceIf" providedInterface__ProvidedRole="_dtsmkHQSEd2J8bFb9TfSEQ"/>
     <requiredRoles_InterfaceRequiringEntity id="_cLcgQHetEd2mk8dKi3ngUA" entityName="BankIf" requiredInterface__RequiredRole="_Yh_GQHetEd2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_RBuM8HRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.9/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="_1:StartAction" id="_RTkx8HRDEd2J8bFb9TfSEQ" successor_AbstractAction="_RTkx8XRDEd2J8bFb9TfSEQ"/>
-      <steps_Behaviour xsi:type="_1:StopAction" id="_RTkx8XRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_RTkx8HRDEd2J8bFb9TfSEQ"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_RTkx8HRDEd2J8bFb9TfSEQ" successor_AbstractAction="_R3-vEB7zEd6ybJKAdOF7Xg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_RTkx8XRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_R3-vEB7zEd6ybJKAdOF7Xg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_R3-vEB7zEd6ybJKAdOF7Xg" predecessor_AbstractAction="_RTkx8HRDEd2J8bFb9TfSEQ" successor_AbstractAction="_RTkx8XRDEd2J8bFb9TfSEQ" calledService_ExternalService="//@interfaces__Repository.13/@signatures__Interface.0" role_ExternalService="_cLcgQHetEd2mk8dKi3ngUA"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_Ho3A8HQTEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.PaymentService">
+    <providedRoles_InterfaceProvidingEntity id="_Ir-aYCKUEd6EO6qHYg-W9w" entityName="PaymentServiceIf" providedInterface__ProvidedRole="_96a8UCKTEd6EO6qHYg-W9w"/>
     <requiredRoles_InterfaceRequiringEntity id="_L7WJ0HQTEd2J8bFb9TfSEQ" entityName="CardValidationServiceIf" requiredInterface__RequiredRole="_dtsmkHQSEd2J8bFb9TfSEQ"/>
     <requiredRoles_InterfaceRequiringEntity id="_Wv5xMHQWEd2J8bFb9TfSEQ" entityName="PaymentDebitServiceIf" requiredInterface__RequiredRole="_OcfJgHQWEd2J8bFb9TfSEQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_uYRAkCKUEd6EO6qHYg-W9w" describedService__SEFF="//@interfaces__Repository.14/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_u7fpcCKUEd6EO6qHYg-W9w" successor_AbstractAction="_2XoOYCKVEd6EO6qHYg-W9w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_u7gQgCKUEd6EO6qHYg-W9w" predecessor_AbstractAction="_3pHrcCKVEd6EO6qHYg-W9w"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_2XoOYCKVEd6EO6qHYg-W9w" predecessor_AbstractAction="_u7fpcCKUEd6EO6qHYg-W9w" successor_AbstractAction="_3pHrcCKVEd6EO6qHYg-W9w" calledService_ExternalService="//@interfaces__Repository.9/@signatures__Interface.0" role_ExternalService="_L7WJ0HQTEd2J8bFb9TfSEQ"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3pHrcCKVEd6EO6qHYg-W9w" predecessor_AbstractAction="_2XoOYCKVEd6EO6qHYg-W9w" successor_AbstractAction="_u7gQgCKUEd6EO6qHYg-W9w" calledService_ExternalService="//@interfaces__Repository.10/@signatures__Interface.0" role_ExternalService="_Wv5xMHQWEd2J8bFb9TfSEQ"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_MwxOkHQWEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.PaymentDebitService">
     <providedRoles_InterfaceProvidingEntity id="_WOIg4HQWEd2J8bFb9TfSEQ" entityName="PaymentDebitServiceIf" providedInterface__ProvidedRole="_OcfJgHQWEd2J8bFb9TfSEQ"/>
     <requiredRoles_InterfaceRequiringEntity id="_TnXJ4HeuEd2mk8dKi3ngUA" entityName="BankIf" requiredInterface__RequiredRole="_Yh_GQHetEd2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Rf7L4HRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.10/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="_1:StartAction" id="_Rzj5kHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_Rzj5kXRDEd2J8bFb9TfSEQ"/>
-      <steps_Behaviour xsi:type="_1:StopAction" id="_Rzj5kXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_Rzj5kHRDEd2J8bFb9TfSEQ"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_Rzj5kHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_9iW5wB7yEd6ybJKAdOF7Xg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_Rzj5kXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_9iW5wB7yEd6ybJKAdOF7Xg"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_9iW5wB7yEd6ybJKAdOF7Xg" predecessor_AbstractAction="_Rzj5kHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_Rzj5kXRDEd2J8bFb9TfSEQ" calledService_ExternalService="//@interfaces__Repository.13/@signatures__Interface.1" role_ExternalService="_TnXJ4HeuEd2mk8dKi3ngUA"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_quX1UHQXEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.BookingService">
@@ -719,5 +735,8 @@
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_96a8UCKTEd6EO6qHYg-W9w" entityName="PaymentServiceIf">
+    <signatures__Interface serviceName="handlePayment"/>
   </interfaces__Repository>
 </Repository>

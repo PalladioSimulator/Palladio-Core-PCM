@@ -85,7 +85,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_DNmf4qpPEd2NxbWj7fSz6Q" fontName="Segoe UI"/>
     <element xmi:type="ResourceContainer" href="orc.resourceenvironment#_9iZF0apNEd2NxbWj7fSz6Q"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DNmf46pPEd2NxbWj7fSz6Q" x="276" y="396" width="589" height="97"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DNmf46pPEd2NxbWj7fSz6Q" x="276" y="504" width="589" height="97"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_iRsQkKpUEd2NxbWj7fSz6Q" type="2002">
     <children xmi:type="notation:Node" xmi:id="_iRsQk6pUEd2NxbWj7fSz6Q" type="5003"/>
@@ -167,12 +167,19 @@
         <element xmi:type="_1:AllocationContext" href="orc_distributed.allocation#_fogyYKpVEd2NxbWj7fSz6Q"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f-FZwqpVEd2NxbWj7fSz6Q" x="391" y="309" width="181"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_vJewACTiEd6GK8wFmqcKzw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_vJ7b8CTiEd6GK8wFmqcKzw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_vJ7b8STiEd6GK8wFmqcKzw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_vJewASTiEd6GK8wFmqcKzw" fontName="Segoe UI"/>
+        <element xmi:type="_1:AllocationContext" href="orc_distributed.allocation#_tymcoCTiEd6GK8wFmqcKzw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vJewAiTiEd6GK8wFmqcKzw" x="7" y="369" width="565" height="49"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_iRsQlapUEd2NxbWj7fSz6Q"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_iRsQlqpUEd2NxbWj7fSz6Q"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_iRsQkapUEd2NxbWj7fSz6Q" fontName="Segoe UI"/>
     <element xmi:type="ResourceContainer" href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iRsQkqpUEd2NxbWj7fSz6Q" x="276" y="-36" width="589" height="397"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iRsQkqpUEd2NxbWj7fSz6Q" x="276" y="-36" width="589" height="481"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_DKLYQqpPEd2NxbWj7fSz6Q"/>
   <element xmi:type="_1:Allocation" href="orc_distributed.allocation#_DKLYQKpPEd2NxbWj7fSz6Q"/>

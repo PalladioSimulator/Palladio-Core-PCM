@@ -48,6 +48,10 @@
     <resourceContainer_AllocationContext href="orc.resourceenvironment#_f54T0XQeEd2J8bFb9TfSEQ"/>
     <assemblyContext_AllocationContext href="orc.system#_Fuol4He2Ed2mk8dKi3ngUA"/>
   </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_fEd_ACKXEd6EO6qHYg-W9w" entityName="Webservices.PaymentService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_f54T0XQeEd2J8bFb9TfSEQ"/>
+    <assemblyContext_AllocationContext href="orc.system#_JSl5ACKVEd6EO6qHYg-W9w"/>
+  </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="orc.resourceenvironment#/"/>
   <system_Allocation href="orc.system#_3Sgb8FcmEd23wcZsd06DZg"/>
 </Allocation>
