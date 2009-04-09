@@ -39,5 +39,9 @@ public class ProcessRegistry {
 		assert false : "Cannot find process: " + processName;  
 		return null;
 	}
+
+	public boolean isRegistered(IActiveProcess p) {
+		return registry.containsKey(p.getSchedulableProcess());
+	}
 	
 }
