@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_3Sgb8FcmEd23wcZsd06DZg" entityName="ServiceOrientedRetailSolution">
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0" id="_3Sgb8FcmEd23wcZsd06DZg" entityName="ServiceOrientedRetailSolution">
   <childComponentContexts_ComposedStructure id="_3AwvMFcnEd23wcZsd06DZg" entityName="Application.Store">
     <encapsulatedComponent_ChildComponentContext href="orc.repository#_6tZA5dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
@@ -148,4 +148,16 @@
   <requiredRoles_InterfaceRequiringEntity id="_tFlpAHe0Ed2mk8dKi3ngUA" entityName="BankIf">
     <requiredInterface__RequiredRole href="orc.repository#_Yh_GQHetEd2mk8dKi3ngUA"/>
   </requiredRoles_InterfaceRequiringEntity>
+  <qosAnnotations_System id="_jDJY4CT5Ed6NEpMmPLxL4g" entityName="BankIf_validateCard_Delay">
+    <specifiedExecutionTimes_QoSAnnotations xsi:type="_1:SystemSpecifiedExecutionTime" role_SpecifiedExecutionTime="_tFlpAHe0Ed2mk8dKi3ngUA">
+      <signature_SpecifiedTimeConsumption href="orc.repository#//@interfaces__Repository.13/@signatures__Interface.0"/>
+      <specification_SpecifiedExecutionTime specification="10.0"/>
+    </specifiedExecutionTimes_QoSAnnotations>
+  </qosAnnotations_System>
+  <qosAnnotations_System id="_svMK9iT6Ed68JdgTmu2_1A" entityName="BankIf_debitCard_Delay">
+    <specifiedExecutionTimes_QoSAnnotations xsi:type="_1:SystemSpecifiedExecutionTime" role_SpecifiedExecutionTime="_tFlpAHe0Ed2mk8dKi3ngUA">
+      <signature_SpecifiedTimeConsumption href="orc.repository#//@interfaces__Repository.13/@signatures__Interface.1"/>
+      <specification_SpecifiedExecutionTime specification="20.0"/>
+    </specifiedExecutionTimes_QoSAnnotations>
+  </qosAnnotations_System>
 </System>
