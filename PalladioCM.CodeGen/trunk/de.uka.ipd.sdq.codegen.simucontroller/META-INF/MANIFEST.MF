@@ -36,9 +36,10 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.simucomframework.simucomstatus,
  ch.ethz.iks.r_osgi.remote;bundle-version="1.0.0",
  org.apache.commons.logging;bundle-version="1.0.4"
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs
 Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 
 
