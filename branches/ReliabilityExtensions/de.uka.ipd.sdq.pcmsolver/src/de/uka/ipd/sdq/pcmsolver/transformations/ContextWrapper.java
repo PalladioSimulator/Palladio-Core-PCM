@@ -565,6 +565,8 @@ public class ContextWrapper implements Cloneable {
 						.equals(assCtx.getId())
 						&& cuc.getInput_ComputedUsageContext()
 								.getParameterChacterisations_Input().size() == 0) {
+					// do not forget to create the external call input to current context:
+					ExternalCallInput extCallIn = addExternalCallInputToCurrentContext(eca);
 					return cuc;
 				}
 			}
