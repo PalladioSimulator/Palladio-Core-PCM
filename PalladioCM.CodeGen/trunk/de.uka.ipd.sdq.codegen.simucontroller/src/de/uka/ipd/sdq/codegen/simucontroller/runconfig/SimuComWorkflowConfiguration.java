@@ -46,4 +46,11 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 		checkFixed();
 		this.simulateLinkingResources = simulateLinkingResources;
 	}
+
+	public void setSensitivityAnalysisConfiguration(
+			SensitivityAnalysisConfiguration sensitivityConfig) {
+		checkFixed();
+		this.sensitivityAnalysisConfiguration = sensitivityConfig;
+		
+	}
 }

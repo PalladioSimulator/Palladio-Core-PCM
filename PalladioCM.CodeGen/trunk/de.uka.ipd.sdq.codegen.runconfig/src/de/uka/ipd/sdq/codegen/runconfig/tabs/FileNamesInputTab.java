@@ -2,9 +2,10 @@ package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -24,9 +25,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.navigator.ResourcePatternFilter;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.CoreException;
 
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
 

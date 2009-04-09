@@ -11,6 +11,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
@@ -26,7 +27,7 @@ public class CompilePluginCodeJob implements IJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	public void execute() throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException {
 		assert (myCreatePluginProjectJob != null);
 
 		IProject project = myCreatePluginProjectJob.getProject();
@@ -42,7 +43,7 @@ public class CompilePluginCodeJob implements IJob {
 
 		try {
 			project.build(IncrementalProjectBuilder.FULL_BUILD,
-					new NullProgressMonitor());
+					monitor);
 		} catch (Exception e) {
 			throw new JobFailedException("Building plugin project failed", e);
 		}
@@ -100,7 +101,7 @@ public class CompilePluginCodeJob implements IJob {
 		return "Compile Plugin Code";
 	}
 
-	public void rollback() {
+	public void rollback(IProgressMonitor monitor) {
 		// do nothing
 	}
 }

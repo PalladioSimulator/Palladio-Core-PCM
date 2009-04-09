@@ -15,7 +15,6 @@ import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
 import org.eclipse.emf.common.notify.Notification;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockPerformedDebugStepEvent;

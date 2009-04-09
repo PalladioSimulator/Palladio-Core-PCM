@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
@@ -24,7 +25,7 @@ public class SimulateJob implements IJob {
 		this.config = config;
 	}
 
-	public void execute() throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException {
 		ISimuComControl control = null;
 
 		try {
@@ -58,7 +59,7 @@ public class SimulateJob implements IJob {
 		return "Simulate";
 	}
 
-	public void rollback() {
+	public void rollback(IProgressMonitor monitor) {
 		// do nothing
 	}
 }

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.workflow;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
@@ -23,7 +25,7 @@ public interface IJob {
 	 * @throws UserCanceledException the user has chosen
 	 * to abort the job
 	 */
-	public void execute() throws JobFailedException, UserCanceledException;
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException;
 	
 	/**
 	 * Return to the state before the execute() method was called.
@@ -34,7 +36,7 @@ public interface IJob {
 	 * 
 	 * @throws RollbackFailedException
 	 */
-	public void rollback() throws RollbackFailedException;
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException;
 	
 	/**
 	 * Supply a name of this job. This could be used for

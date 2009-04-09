@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -101,7 +102,7 @@ public class CheckOAWConstraintsJob implements IJob {
 		this.files.addAll(files);
 	}
 
-	public void execute() throws JobFailedException, UserCanceledException{
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException{
 		ArrayList<SeverityAndIssue> overallResult = new ArrayList<SeverityAndIssue>();
 		
 		for (String file:files) {
@@ -170,7 +171,7 @@ public class CheckOAWConstraintsJob implements IJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.workflow.ISimulationJob#rollback()
 	 */
-	public void rollback() {
+	public void rollback(IProgressMonitor monitor) {
 		// Nothing to do here
 	}
 

@@ -1,12 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
-import java.util.Map;
-
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunch;
-import org.eclipse.debug.core.model.IDebugTarget;
 
-import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;

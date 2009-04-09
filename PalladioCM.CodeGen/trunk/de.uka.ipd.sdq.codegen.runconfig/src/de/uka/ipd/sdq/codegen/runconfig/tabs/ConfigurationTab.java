@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -16,12 +15,11 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
 
@@ -159,51 +157,5 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * The function calls the DirectoryDialog and give back absolute path to the
-	 * directory as String
-	 * 
-	 * @return absolute path to directory
-	 */
-	private String openDirectoryDialog(SelectionEvent e) {
-
-		String directoryname = "";
-
-		DirectoryDialog dialog = new DirectoryDialog(
-				e.display.getActiveShell(), SWT.OPEN | SWT.SAVE);
-		dialog.setText("Select Directory");
-
-		if (dialog.open() != null)
-			directoryname = dialog.getFilterPath(); // + File.separatorChar;
-
-		return directoryname;
-	}
-
-	/**
-	 * The function calls the ContainerSelectionDialog and give back relative to
-	 * the workspace
-	 * 
-	 * @return relative path to directory
-	 */
-	private String openResourceDialog(SelectionEvent e) {
-		String message = "Choose a location relative to the workspace: "; // openResourceDialog(e);
-
-		String resourceName = "";
-
-		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
-				e.display.getActiveShell(), null, true, message);
-
-		dialog.open();
-
-		Object[] result = dialog.getResult();
-
-		if (result[0] instanceof IPath) {
-			IPath path = (IPath) result[0];
-			resourceName = path.toPortableString();
-
-		}
-		return resourceName;
 	}
 }

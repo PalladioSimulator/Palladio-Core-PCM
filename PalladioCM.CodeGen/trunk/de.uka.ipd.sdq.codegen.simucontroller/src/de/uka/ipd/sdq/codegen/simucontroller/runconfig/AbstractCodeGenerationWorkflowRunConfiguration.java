@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 
 public abstract class AbstractCodeGenerationWorkflowRunConfiguration 
 extends	AbstractPCMWorkflowRunConfiguration {

@@ -1,9 +1,4 @@
-/**
- * 
- */
-package de.uka.ipd.sdq.codegen.runconfig.tabs;
-
-
+package de.uka.ipd.sdq.codegen.runconfig;
 
 /**
  * This class is used as a constant container.

@@ -40,17 +40,17 @@ public class Workflow
 		} else {
 			myMonitor = new NullProgressMonitor();
 		}
+		logger = LogFactory.getLog(Workflow.class);
 	}
 
 	public void run() {
-		setupApacheCommonsLogging();
 		logger.info("Creating workflow engine and starting workflow");
 
 		myMonitor.beginTask("Workflow", 1);		
 		myMonitor.subTask(this.getName());	
 		
 		try {
-			this.execute();
+			this.execute(myMonitor);
 		} catch (JobFailedException e) {
 			logger.error("Workflow job failed, handling failure...");
 			logger.error("Failure reason was: ",e);
@@ -61,7 +61,7 @@ public class Workflow
 		} finally {
 			logger.info("Cleaning up...");
 			try {
-				this.rollback();
+				this.rollback(myMonitor);
 			} catch (RollbackFailedException e) {
 				logger.error("Critical failure during workflow rollback");
 				this.exceptionHandler.handleRollbackFailed(e);
@@ -72,13 +72,5 @@ public class Workflow
 		myMonitor.done();
 		
 		logger.info("Workflow engine completed task");
-	}
-	
-	protected void setupApacheCommonsLogging() {
-		/* Configure Apache Commons Logger for tools supporting this kind of logging
-		 * method
-		 */
-		System.setProperty("org.apache.commons.logging.simplelog.defaultlog","info");
-		logger = LogFactory.getLog(Workflow.class);
 	}
 }

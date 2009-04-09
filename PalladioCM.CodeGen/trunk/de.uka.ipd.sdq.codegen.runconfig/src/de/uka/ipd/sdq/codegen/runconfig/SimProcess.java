@@ -41,6 +41,7 @@ public class SimProcess extends PlatformObject implements IProcess {
 	public void setAttribute(String key, String value) {
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 		return null;
 	}

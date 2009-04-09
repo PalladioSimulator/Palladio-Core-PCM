@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.codegen.simucontroller.dockmodel;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,14 +20,12 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.osgi.util.tracker.ServiceTracker;
 
-import ch.ethz.iks.r_osgi.RemoteOSGiException;
 import ch.ethz.iks.r_osgi.RemoteOSGiService;
 import ch.ethz.iks.r_osgi.RemoteServiceReference;
 import ch.ethz.iks.r_osgi.URI;
 import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryListener;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockAddedEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockDeletedEvent;
-import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockPerformedDebugStepEvent;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 /**

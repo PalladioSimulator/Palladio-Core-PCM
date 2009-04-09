@@ -1,18 +1,14 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.model.IDebugTarget;
 
 import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for
@@ -44,12 +40,7 @@ extends	AbstractWorkflowBasedLaunchConfigurationDelegate<SimuComWorkflowConfigur
 		
 		result.addJob(new CheckOAWConstraintsJob(
 				config.getPCMModelFiles(), !config.isInteractive()));
-		
-		/* Check whether a sensitivity analysis is wanted (specified in attribute named 
-		 * <code>ConstantsContainer.VARIABLE_TEXT</code>), if yes, start 
-		 * multiple runs just changing this one parameter, if not, just start one run.  
-		 */
-		// if (!attributes.getOAWWorkflowProperties(1).get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
+
 		if (config.isSensitivityAnalysisEnabled()) {
 			result.addJob(new MultipleSimulationRunsCompositeJob(config));
 		} else {

@@ -6,11 +6,12 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
@@ -85,7 +86,7 @@ public class GenerateOAWCodeJob implements IJob {
 				.getSimulateLinkingResources() ? "true" : "false");
 	}
 
-	public void execute() throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException {
 		if (properties.isEmpty())
 			throw new JobFailedException("Setting up properties failed");
 
@@ -128,7 +129,7 @@ public class GenerateOAWCodeJob implements IJob {
 		return "Generate Plugin Code";
 	}
 
-	public void rollback() {
+	public void rollback(IProgressMonitor monitor) {
 		// do nothing
 	}
 }

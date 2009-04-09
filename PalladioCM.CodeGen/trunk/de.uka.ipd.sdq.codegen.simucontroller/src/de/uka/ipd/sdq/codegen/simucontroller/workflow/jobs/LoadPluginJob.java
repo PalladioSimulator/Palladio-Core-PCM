@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -24,7 +25,7 @@ public class LoadPluginJob implements IJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	public void execute() throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException {
 		assert (myCreatePluginProjectJob != null);
 
 		IProject project = myCreatePluginProjectJob.getProject();
@@ -64,7 +65,7 @@ public class LoadPluginJob implements IJob {
 		return "Load Plugin";
 	}
 
-	public void rollback() throws RollbackFailedException {
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
 		if (myBundle == null) {
 			return;
 		}

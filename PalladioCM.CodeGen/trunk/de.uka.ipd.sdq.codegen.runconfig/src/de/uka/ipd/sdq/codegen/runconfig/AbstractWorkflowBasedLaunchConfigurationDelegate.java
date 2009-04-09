@@ -42,12 +42,15 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
 		// Add a process to this launch, needed for Eclipse UI updates
-		launch.addProcess(new SimProcess(launch));
-		logger = LogFactory.getLog(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
+		launch.addProcess(getProcess(launch));
 
+		setupApacheCommonsLogging();
+
+		logger.info("Create workflow configuration");
 		WorkflowConfigurationType workflowConfiguration = 
 			deriveConfiguration(configuration, mode);
 		
+		logger.info("Validating configuration...");
 		workflowConfiguration.validateAndFreeze();
 	
 		
@@ -62,6 +65,22 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 		launch.getProcesses()[0].terminate();
 	}
 
+	/**
+	 * @param launch
+	 * @return
+	 */
+	protected SimProcess getProcess(ILaunch launch) {
+		return new SimProcess(launch);
+	}
+
+	protected void setupApacheCommonsLogging() {
+		/* Configure Apache Commons Logger for tools supporting this kind of logging
+		 * method
+		 */
+		System.setProperty("org.apache.commons.logging.simplelog.defaultlog","info");
+		logger = LogFactory.getLog(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
+	}
+	
 	/**
 	 * Create the job executed in the underlying workflow
 	 * 

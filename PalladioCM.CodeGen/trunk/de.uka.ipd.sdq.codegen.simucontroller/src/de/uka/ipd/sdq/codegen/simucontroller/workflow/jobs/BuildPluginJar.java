@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
@@ -24,7 +26,7 @@ public class BuildPluginJar implements IJobWithResult<byte[]> {
 		return result;
 	}
 
-	public void execute() throws JobFailedException, UserCanceledException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 		String location = null;
 		try {
 			location = new File(createPluginProject.getProject().getLocationURI()).getAbsolutePath()
@@ -39,7 +41,7 @@ public class BuildPluginJar implements IJobWithResult<byte[]> {
 		return "Building simulation plugin JAR archive";
 	}
 
-	public void rollback() throws RollbackFailedException {
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
 	}
 
 	private byte[] loadBundle(String location) throws IOException {

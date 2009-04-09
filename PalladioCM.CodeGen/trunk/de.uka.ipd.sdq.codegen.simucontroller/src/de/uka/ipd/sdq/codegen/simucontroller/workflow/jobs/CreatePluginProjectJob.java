@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
@@ -34,7 +35,7 @@ public class CreatePluginProjectJob implements IJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
 	 */
-	public void execute() throws UserCanceledException, JobFailedException{
+	public void execute(IProgressMonitor monitor) throws UserCanceledException, JobFailedException{
 		if (pluginFolderExists()) {
 			if (!userAcceptsDelete()) {
 				// abort execution
@@ -88,7 +89,7 @@ public class CreatePluginProjectJob implements IJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#rollback()
 	 */
-	public void rollback() throws RollbackFailedException {
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
 		if (myProject == null) {
 			return;
 		}

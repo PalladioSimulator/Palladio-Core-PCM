@@ -1,12 +1,9 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FeatureOptionsTab;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 
 /**
  * The main job of a tab group is to specify the tabs that will appear in the

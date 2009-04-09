@@ -21,14 +21,13 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
 
 /**
@@ -41,7 +40,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private static final String DEFAULT_CONNECTOR_FEATURE_CONFIG = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
 	private Button simulateLinkingResourcesButton;
-	private Combo lookupOptions;
 	private Text textFeatureConfig;
 
 	/* (non-Javadoc)

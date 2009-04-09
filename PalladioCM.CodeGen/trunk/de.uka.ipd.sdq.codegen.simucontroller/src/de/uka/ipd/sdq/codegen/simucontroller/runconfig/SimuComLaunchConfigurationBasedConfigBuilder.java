@@ -1,11 +1,12 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.util.Map;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 public class SimuComLaunchConfigurationBasedConfigBuilder extends
@@ -41,6 +42,15 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
 		
 		config.setSensitivityAnalysisEnabled(
 				hasStringAttribute(ConstantsContainer.VARIABLE_TEXT));
+		if (config.isSensitivityAnalysisEnabled()) {
+			SensitivityAnalysisConfiguration sensitivityConfig = 
+				new SensitivityAnalysisConfiguration(getStringAttribute(ConstantsContainer.VARIABLE_TEXT), 
+						0, 
+						getDoubleAttribute(ConstantsContainer.MINIMUM_TEXT), 
+						getDoubleAttribute(ConstantsContainer.MAXIMUM_TEXT), 
+						getDoubleAttribute(ConstantsContainer.STEP_WIDTH_TEXT));
+			config.setSensitivityAnalysisConfiguration(sensitivityConfig);
+		}
 		
 		config.setSimuComConfiguration(new SimuComConfig(properties, 0, config.isDebug()));
 		
@@ -79,6 +89,15 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
 			throw new IllegalArgumentException("Tried to read non-string value as string value");
 
 		return (String)value;
+	}
+	
+	private double getDoubleAttribute(String attribute) throws CoreException {
+		ensureAttributeExists(attribute);
+		Object value = configuration.getAttribute(attribute, "");
+		if (!(value instanceof String))
+			throw new IllegalArgumentException("Tried to read non-double value as double value");
+
+		return Double.parseDouble((String) value);
 	}
 	
 	private Boolean getBooleanAttribute(String attribute) throws CoreException {

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PartInitException;
@@ -14,7 +15,6 @@ import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 /**
@@ -47,7 +47,7 @@ public class TransferSimulationBundleToDock implements IJob {
 		this.isDebug = simuConfig.isDebug();
 	}
 
-	public void execute() throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException {
 		SimulationDebugTarget target = null;
 		assert (myCreatePluginProjectJob != null);
 
@@ -108,6 +108,6 @@ public class TransferSimulationBundleToDock implements IJob {
 		return "Transfer Plugin to Dock and Simulate";
 	}
 
-	public void rollback() throws RollbackFailedException {
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
 	}
 }
