@@ -157,7 +157,7 @@
   <qosAnnotations_System id="_svMK9iT6Ed68JdgTmu2_1A" entityName="BankIf_debitCard_Delay">
     <specifiedExecutionTimes_QoSAnnotations xsi:type="_1:SystemSpecifiedExecutionTime" role_SpecifiedExecutionTime="_tFlpAHe0Ed2mk8dKi3ngUA">
       <signature_SpecifiedTimeConsumption href="orc.repository#//@interfaces__Repository.13/@signatures__Interface.1"/>
-      <specification_SpecifiedExecutionTime specification="20.0"/>
+      <specification_SpecifiedExecutionTime specification="10.0"/>
     </specifiedExecutionTimes_QoSAnnotations>
   </qosAnnotations_System>
 </System>
