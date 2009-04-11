@@ -1,6 +1,5 @@
 package org.somox.metrics;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.query.conditions.booleans.BooleanCondition;
@@ -12,34 +11,31 @@ import org.eclipse.emf.query.statements.WHERE;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
-import de.fzi.gast.types.GASTClass;
 import de.fzi.gast.types.typesPackage;
 
 public class Abstractness {
-	public static double compute (Root root, ModelElement [] elements1, ModelElement [] elements2) {
+	public static double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double abstractness = 0.0;
-		
-		List<GASTClass> elementList = new LinkedList<GASTClass>();
-		
-		for (ModelElement current : elements1) {
-			if (current instanceof GASTClass) {
-				elementList.add((GASTClass)current);
+		double abstractClasses = 0.0;
+		double totalClasses = 0.0;
 
-			}
-		}
-		for (ModelElement current : elements2) {
-			if (current instanceof GASTClass) {
-				elementList.add((GASTClass)current);
-			}
-		}
 		EObjectAttributeValueCondition abstractCondition = new EObjectAttributeValueCondition(typesPackage.eINSTANCE.getMember_Abstract(), new BooleanCondition(true));
 		EObjectAttributeValueCondition interfaceCondition = new EObjectAttributeValueCondition(typesPackage.eINSTANCE.getGASTClass_Interface(), new BooleanCondition(true));
-		SELECT abstractnessQuery = new SELECT(new FROM(elementList), new WHERE(abstractCondition.OR(interfaceCondition)));
-		
+		SELECT abstractnessQuery = new SELECT(new FROM(elements1), new WHERE(abstractCondition.OR(interfaceCondition)));
+
 		IQueryResult result = abstractnessQuery.execute();
 		
-		abstractness = (double)result.size()/(double)elementList.size();
+		abstractClasses = result.size();
+		totalClasses = elements1.size();
+
+		abstractnessQuery = new SELECT(new FROM(elements2), new WHERE(abstractCondition.OR(interfaceCondition)));
+
+		result = abstractnessQuery.execute();
+		abstractClasses += result.size();
+		totalClasses += elements2.size();
 		
+		abstractness = abstractClasses/totalClasses;
+
 		return abstractness;
 	}
 }
