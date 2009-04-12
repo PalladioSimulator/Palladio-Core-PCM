@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_pY23oFc-Ed23wcZsd06DZg" entityName="defaultAllocation">
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_pY23oFc-Ed23wcZsd06DZg" entityName="CentralizedAllocation">
   <allocationContexts_Allocation id="_rS5ZUHjmEd2DBfjHDxUcwg" entityName="Webservices.InventoryService">
     <resourceContainer_AllocationContext href="orc.resourceenvironment#_f54T0XQeEd2J8bFb9TfSEQ"/>
     <assemblyContext_AllocationContext href="orc.system#_mt8gkHerEd2mk8dKi3ngUA"/>
