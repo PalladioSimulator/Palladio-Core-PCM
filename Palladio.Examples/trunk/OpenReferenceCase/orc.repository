@@ -178,10 +178,10 @@
           <steps_Behaviour xsi:type="_1:StopAction" id="_2ZFscNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg"/>
           <steps_Behaviour xsi:type="_1:StartAction" id="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
           <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="queryStockItemById" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.6" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
-          <steps_Behaviour xsi:type="_1:InternalAction" id="_nMUhYIlAEd2FGOkhX8TQwg" entityName="StockItem_setAmount" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw">
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_nMUhYIlAEd2FGOkhX8TQwg" entityName="bookSale_calculateStockItemAmount" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw">
             <resourceDemand_Action>
               <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-              <specification_ParametericResourceDemand specification="10.0"/>
+              <specification_ParametericResourceDemand specification="DoublePDF[(12;1.0)]"/>
             </resourceDemand_Action>
           </steps_Behaviour>
         </bodyBehaviour_Loop>
@@ -191,16 +191,16 @@
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_7oumEKaKEd2HMpb_upR7QA" predecessor_AbstractAction="_03Mn4KaKEd2HMpb_upR7QA" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.3" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_NCw0AKaLEd2HMpb_upR7QA" predecessor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw" successor_AbstractAction="_Okz1kKaLEd2HMpb_upR7QA" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.4" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_Okz1kKaLEd2HMpb_upR7QA" predecessor_AbstractAction="_NCw0AKaLEd2HMpb_upR7QA" successor_AbstractAction="_6YuaYCUIEd6RxLGW1aE2ig" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.1" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_vAeIsCUIEd6RxLGW1aE2ig" entityName="Preprocessing" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_vAeIsCUIEd6RxLGW1aE2ig" entityName="bookSale_Preprocessing" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="10.0&#xD;&#xA;"/>
+          <specification_ParametericResourceDemand specification="saleTO.NUMBER_OF_ELEMENTS * DoublePDF[(12;0.3)(18;0.7)]&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_6YuaYCUIEd6RxLGW1aE2ig" entityName="Application_Store_Postprocessing" predecessor_AbstractAction="_Okz1kKaLEd2HMpb_upR7QA" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_6YuaYCUIEd6RxLGW1aE2ig" entityName="bookSale_Postprocessing" predecessor_AbstractAction="_Okz1kKaLEd2HMpb_upR7QA" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="10.0"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(04;0.6)(23;0.3)(25;0.1)]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
@@ -474,19 +474,23 @@
       <steps_Behaviour xsi:type="_1:InternalAction" id="_LZD5cCUKEd6RxLGW1aE2ig" entityName="handlePayment_Preprocessing" predecessor_AbstractAction="_u7fpcCKUEd6EO6qHYg-W9w" successor_AbstractAction="_2XoOYCKVEd6EO6qHYg-W9w">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="10.0"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(10;0.15)(16;0.85)]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_NjQgICUKEd6RxLGW1aE2ig" entityName="handlePayment_Postprocessing" predecessor_AbstractAction="_3pHrcCKVEd6EO6qHYg-W9w" successor_AbstractAction="_u7gQgCKUEd6EO6qHYg-W9w">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="10.0"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(24;1.0)]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_dvk9wCUKEd6RxLGW1aE2ig" entityName="handlePayment_IntermediateProcessing" predecessor_AbstractAction="_2XoOYCKVEd6EO6qHYg-W9w" successor_AbstractAction="_3pHrcCKVEd6EO6qHYg-W9w">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="10.0"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(10;1.0)]"/>
+        </resourceDemand_Action>
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(12;0.7)(15;0.3)]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
@@ -531,7 +535,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="getProductWithStockItem">
       <parameters__Signature parameterName="productBarCode">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -539,7 +543,7 @@
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf">
     <signatures__Interface serviceName="queryEnterpriseById">
       <parameters__Signature parameterName="enterpriseId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -550,7 +554,7 @@
       <parameters__Signature parameterName="enterprise">
         <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      <returntype__Signature xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf">
@@ -563,55 +567,55 @@
   <interfaces__Repository id="_HSKXwNChEduC9O_qbthgAg" entityName="StoreQueryIf">
     <signatures__Interface serviceName="queryStoreById">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_tGnVBtFdEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProducts">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_4ndL5dFmEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryAllStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryOrderById">
       <parameters__Signature parameterName="orderId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_JMRpFtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItem">
       <parameters__Signature parameterName="stockId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItemById">
       <parameters__Signature parameterName="stockId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProductById">
       <parameters__Signature parameterName="productId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_6wQEZtFmEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="productIds">
         <datatype__Parameter xsi:type="CollectionDataType" href="orcTypes.repository#_bxQxxdFoEducE6dFyopUlg"/>
@@ -674,7 +678,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="getOrder">
       <parameters__Signature parameterName="orderId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
