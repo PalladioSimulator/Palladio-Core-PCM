@@ -178,7 +178,7 @@
           <steps_Behaviour xsi:type="_1:StopAction" id="_2ZFscNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg"/>
           <steps_Behaviour xsi:type="_1:StartAction" id="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
           <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="queryStockItemById" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.6" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
-          <steps_Behaviour xsi:type="_1:InternalAction" id="_nMUhYIlAEd2FGOkhX8TQwg" entityName="bookSale_calculateStockItemAmount" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw">
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_nMUhYIlAEd2FGOkhX8TQwg" entityName="bookSale_calculateStockItemAmount" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw" failureProbability="0.001">
             <resourceDemand_Action>
               <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
               <specification_ParametericResourceDemand specification="DoublePDF[(12;1.0)]"/>

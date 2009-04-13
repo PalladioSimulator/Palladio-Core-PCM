@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
   <linkingresource id="_JS9w4KpOEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM-Database_VM" toResourceContainer_LinkingResource="_9iZF0apNEd2NxbWj7fSz6Q" fromResourceContainer_LinkingResource="_TdHB8apUEd2NxbWj7fSz6Q">
-    <communicationLinkResourceSpecifications_LinkingResource>
+    <communicationLinkResourceSpecifications_LinkingResource failureProbability="0.0010">
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
       <latency_CommunicationLinkResourceSpecification specification="1.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
@@ -18,7 +18,7 @@
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_9iZF0apNEd2NxbWj7fSz6Q" entityName="Database_VM">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+    <activeResourceSpecifications_ResourceContainer MTTR="100.0" MTTF="20000.0" schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
