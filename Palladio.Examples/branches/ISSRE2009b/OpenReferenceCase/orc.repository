@@ -194,7 +194,7 @@
       <steps_Behaviour xsi:type="_1:InternalAction" id="_vAeIsCUIEd6RxLGW1aE2ig" entityName="bookSale_Preprocessing" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="saleTO.NUMBER_OF_ELEMENTS * DoublePDF[(12;0.3)(18;0.7)]&#xD;&#xA;"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(12;0.3)(18;0.7)]&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_6YuaYCUIEd6RxLGW1aE2ig" entityName="bookSale_Postprocessing" predecessor_AbstractAction="_Okz1kKaLEd2HMpb_upR7QA" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
