@@ -174,18 +174,23 @@ public class PCMSolver {
 	 */
 	private void configureLogging(final ILaunchConfiguration configuration) {
 
-		// Define and configure a new message console:
-		messageConsole = new MessageConsole(
-				"PCM Solver Console: Analysis Tool Output", null);
-		messageConsole.activate();
-		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
-				new IConsole[] { messageConsole });
-
 		// Set the layout for logging messages:
 		PatternLayout myLayout = new PatternLayout(
 				"%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
 
+		// Define and configure a new message console:
+		if (messageConsole == null) {
+			messageConsole = new MessageConsole(
+					"PCM Solver Console: Analysis Tool Output", null);
+			ConsolePlugin.getDefault().getConsoleManager().addConsoles(
+					new IConsole[] { messageConsole });
+		}
+
+		// Switch to this console if any other console is active:
+		messageConsole.activate();
+
 		// Enable writing to the console:
+		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(new WriterAppender(myLayout, messageConsole
 				.newMessageStream()));
 
