@@ -10,8 +10,8 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
+import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
 
 /**
  * Abstract base class of all solver runs for PCM model instances. A PCM model instance
@@ -57,8 +57,8 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 		Workflow workflow = new UIBasedWorkflow(
 				createWorkflowJob(workflowConfiguration), 
 				monitor, 
-				new WorkflowExceptionHandler(
-						workflowConfiguration.isInteractive()));
+				new UIBasedWorkflowExceptionHandler(
+						!workflowConfiguration.isInteractive()));
 		workflow.run();
 		
 		// Singnal execution terminatation to Eclipse to update UI 

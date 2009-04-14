@@ -165,7 +165,7 @@
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
 				<configFile value="org.eclipse.jdt.core.prefs"/>
 			</beautifier>
-			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
+			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier"/>
 		<prSrcPaths value="${ejbsOutpath}"/>
         <prExcludes value=".svn"/>		
 	</component>	
@@ -252,7 +252,7 @@
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${ejbsOutpath}" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
+			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier"/>
         <prExcludes value=".svn"/>		
 	</component>	
 

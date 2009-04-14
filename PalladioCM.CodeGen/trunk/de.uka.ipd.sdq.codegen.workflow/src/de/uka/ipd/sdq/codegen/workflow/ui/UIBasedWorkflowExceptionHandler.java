@@ -13,9 +13,8 @@ public class UIBasedWorkflowExceptionHandler extends WorkflowExceptionHandler {
 	protected void handleCriticalException(Exception e) {
 		super.handleCriticalException(e);
 		
-		if (!myShouldThrowException)
-			PlatformUI.getWorkbench().getDisplay().syncExec(
-					new ErrorDisplayRunner(e));
+		PlatformUI.getWorkbench().getDisplay().syncExec(
+				new ErrorDisplayRunner(e));
 	}
 	
 	/**
