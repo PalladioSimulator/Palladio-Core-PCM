@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.probfunction.feature"
       label="ProbFunction Feature"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -215,7 +215,7 @@ litigation.
    </license>
 
    <url>
-      <update label="Palladio Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
+      <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
    <includes
