@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_09C7MNFcEducE6dFyopUlg" entityName="ORCDataTypesRepository">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_09C7MNFcEducE6dFyopUlg" entityName="ORCDataTypesRepository">
   <datatypes_Repository xsi:type="CompositeDataType" id="_iNNiBnQWEd2J8bFb9TfSEQ" entityName="Tradingsystem.External.Debit"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_peNANnQSEd2J8bFb9TfSEQ" entityName="Tradingsystem.External.TransactionID"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_1GiHBtFfEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Reporting.EnterpriseTO"/>
@@ -28,6 +28,6 @@
   <datatypes_Repository xsi:type="CollectionDataType" id="_BeTQxdFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem[]" innerType_CollectionDataType="_AQXeBtFnEducE6dFyopUlg"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_tGnVBtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.Store"/>
   <datatypes_Repository xsi:type="CollectionDataType" id="_bxQxxdFoEducE6dFyopUlg" entityName="long[]">
-    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
   </datatypes_Repository>
 </Repository>
