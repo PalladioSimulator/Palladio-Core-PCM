@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
+<stringAttribute key="allocationFile" value="C:\Eclipse\Ganymede_SLASOI_PCM\workspace\OpenReferenceCase\orc_distributed.allocation"/>
+<booleanAttribute key="clear" value="false"/>
+<intAttribute key="datasourceID" value="0"/>
+<stringAttribute key="experimentRun" value="MyRun"/>
+<stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
+<stringAttribute key="maximum" value=""/>
+<stringAttribute key="maximumMeasurementCount" value="10000"/>
+<stringAttribute key="minimum" value=""/>
+<stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="repositoryFile" value="C:\Eclipse\Ganymede_SLASOI_PCM\workspace\OpenReferenceCase\orc.repository"/>
+<stringAttribute key="resourceTypeFile" value="pathmap://PCM_MODELS/Palladio.resourcetype"/>
+<stringAttribute key="simTime" value="150000"/>
+<booleanAttribute key="simulateLinkingResources" value="true"/>
+<stringAttribute key="stepwidth" value=""/>
+<stringAttribute key="systemFile" value="C:\Eclipse\Ganymede_SLASOI_PCM\workspace\OpenReferenceCase\orc.system"/>
+<stringAttribute key="usageFile" value="C:\Eclipse\Ganymede_SLASOI_PCM\workspace\OpenReferenceCase\orc.usagemodel"/>
+<stringAttribute key="variable" value=""/>
+<booleanAttribute key="verboseLogging" value="false"/>
+</launchConfiguration>
