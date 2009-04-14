@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
+import org.opt4j.common.archive.BasicArchive;
 import org.opt4j.config.annotations.Name;
+import org.opt4j.core.Archive;
 import org.opt4j.core.problem.Creator;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.core.problem.Evaluator;
@@ -33,6 +35,8 @@ public class DSEModule extends ProblemModule {
 		Class<? extends Evaluator<?>> evaluator = DSEEvaluator.class;
 		
 		bindProblem(creator, decoder, evaluator);
+		
+		bind(Archive.class).to(BasicArchive.class).in(SINGLETON);
 		
 	}
 

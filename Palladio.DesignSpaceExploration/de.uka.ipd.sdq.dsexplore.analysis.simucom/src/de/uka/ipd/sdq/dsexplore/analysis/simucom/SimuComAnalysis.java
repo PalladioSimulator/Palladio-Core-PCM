@@ -87,7 +87,7 @@ public class SimuComAnalysis implements IAnalysis {
 			String experimentName = pcmInstance.getName();
 			//XXX: Quick fix: Assume that there is just one experiment with the name of the current PCM instance.
 			Iterator<Experiment> it = factory.createExperimentDAO().findByExperimentName(experimentName
-					+" RunNo. "+config.getAttribute(ConstantsContainer.RUN_NO, "1")).iterator();
+					+" RunNo. "+config.getAttribute(ConstantsContainer.RUN_NO, "0")).iterator();
 			if (it.hasNext()){
 			  Experiment resultingExperiment = it.next();
 			  Collection<ExperimentRun> runs = resultingExperiment.getExperimentRuns();

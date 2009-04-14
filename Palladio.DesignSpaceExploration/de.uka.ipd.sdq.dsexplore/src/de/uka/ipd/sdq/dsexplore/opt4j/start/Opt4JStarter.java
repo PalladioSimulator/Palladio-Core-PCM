@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.CoreException;
+import org.opt4j.common.archive.ArchiveModule;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
@@ -42,13 +43,17 @@ public class Opt4JStarter {
 	 
 	    /*GUIModule gui = new GUIModule(); 
 	    gui.setCloseOnStop(true);*/ 
-	 
+	    
+	    ArchiveModule am = new ArchiveModule();
+	    am.setType(ArchiveModule.Type.BASIC);
+	    
 	    Collection<Module> modules = new ArrayList<Module>(); 
 	    modules.add(ea); 
 	    modules.add(dseModule);
+	    modules.add(am);
 	    //modules.add(dtlz);
 	    //modules.add(gui); 
-	 
+ 
 	    Opt4JTask task = new Opt4JTask(false); 
 	    task.init(modules); 
 	 

@@ -49,7 +49,8 @@ public class ArchiveModule extends Opt4JModule {
 		UNBOUNDED, @Info("Archive that keeps the non-dominated individual of the population")
 		POPULATION, @Info("Adaptive grid archive")
 		ADAPTIVE_GRID, @Info("Bounded archive based on the NSGA2 crowding distance")
-		CROWDING;
+		CROWDING,
+		BASIC;
 	}
 
 	/**
@@ -108,6 +109,9 @@ public class ArchiveModule extends Opt4JModule {
 			break;
 		case CROWDING:
 			archiveClass = CrowdingArchive.class;
+			break;
+		case BASIC:
+			archiveClass = BasicArchive.class;
 			break;
 		default: // UNBOUNDED
 			archiveClass = UnboundedArchive.class;

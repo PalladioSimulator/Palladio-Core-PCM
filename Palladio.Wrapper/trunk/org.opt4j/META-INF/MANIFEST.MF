@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Require-Bundle: org.eclipse.core.runtime,
  com.google.inject;bundle-version="1.0.1"
 Export-Package: org.opt4j.benchmark.dtlz;uses:="org.opt4j.benchmark,org.opt4j.core.problem,org.opt4j.core",
+ org.opt4j.common.archive,
  org.opt4j.config;uses:="javax.swing,org.w3c.dom,com.google.inject",
  org.opt4j.config.annotations,
  org.opt4j.config.visualization;

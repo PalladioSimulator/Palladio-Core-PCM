@@ -98,5 +98,10 @@ public class DSEProblem {
 	protected DesignDecision getDesignDecision(int index){
 		return this.pcmProblem.getDesigndecision().get(index);
 	}
+
+
+	public PCMInstance getInitialInstance() {
+		return this.initialInstance;
+	}
 	
 }

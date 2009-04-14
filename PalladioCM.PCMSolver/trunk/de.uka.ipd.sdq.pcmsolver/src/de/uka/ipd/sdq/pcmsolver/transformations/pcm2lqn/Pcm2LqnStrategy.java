@@ -55,6 +55,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 	private static final int LQNS_RETURN_SUCCESS = 0;
 	private static final int LQNS_RETURN_MODEL_FAILED_TO_CONVERGE = 1;
 	private static final int LQNS_RETURN_INVALID_INPUT = 2;
+	private static final int LQNS_RETURN_FATAL_ERROR = -1;
 	
 	
 	
@@ -80,7 +81,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		
 		long timeBeforeCalc = System.nanoTime();
 		
-		int exitVal = -1;
+		int exitVal = LQNS_RETURN_FATAL_ERROR;
 		try {
 			Process proc = null;
 			if (solverProgram.equals(FILENAME_LQNS)) {
@@ -112,7 +113,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
             outputGobbler.start();
 
             exitVal = proc.waitFor();
-            logger.warn(solverProgram+" ExitValue: "+ exitVal);
+            
 		} catch (Throwable e) {
 			logger.error("Running "+solverProgram+" failed!");
 			e.printStackTrace();
@@ -128,10 +129,14 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			logger.warn("Analysis Result has been written to: " + resultFile);
 		}
 		else if (exitVal==LQNS_RETURN_MODEL_FAILED_TO_CONVERGE) {
-			logger.error("lqns exited with " + exitVal + ": The model failed to converge.");
+			logger.error(solverProgram+" exited with " + exitVal + ": The model failed to converge.");
 		}
 		else if (exitVal==LQNS_RETURN_INVALID_INPUT) {
-			logger.error("lqns exited with " + exitVal + ": Invalid Input.");
+			logger.error(solverProgram+" exited with " + exitVal + ": Invalid Input.");
+		} else if (exitVal==LQNS_RETURN_FATAL_ERROR){
+			logger.error(solverProgram+" exited with "+exitVal+": Fatal error");
+		} else {
+			logger.warn(solverProgram +" returned an unrecognised exit value "+exitVal+". Key: 0 on success, 1 if the model failed to meet the convergence criteria, 2 if the input was invalid, 4 if a command line argument was incorrect, 8 for file read/write problems and -1 for fatal errors. If multiple input files are being processed, the exit code is the bit-wise OR of the above conditions.");
 		}
 	}
 
@@ -254,7 +259,13 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			outputGobbler.start();
 
 			int exitVal = proc.waitFor();
-			logger.warn("lqn2xml ExitValue: " + exitVal);
+			
+            if (exitVal == 0){
+            	logger.info("lqn2xml terminated sucessfully");
+            } else {
+            	logger.warn("lqn2xml terminated unsuccessfully. Exit value was "+ exitVal+".");
+            }
+            
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -282,7 +293,12 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			outputGobbler.start();
 
 			int exitVal = proc.waitFor();
-			logger.warn("lqn2xml ExitValue: " + exitVal);
+			
+            if (exitVal == 0){
+            	logger.info("lqn2xml terminated sucessfully");
+            } else {
+            	logger.warn("lqn2xml terminated unsuccessfully. Exit value was "+ exitVal+".");
+            }
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -322,7 +338,11 @@ class StreamGobbler extends Thread {
 			String line = null;
 			while ((line = br.readLine()) != null)
 				//if (type.equals("ERROR")) logger.error(line);
-				logger.error(line);
+				if (line.contains("warning")){
+					logger.debug(line);
+				} else {
+					logger.warn(line);
+				}
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}

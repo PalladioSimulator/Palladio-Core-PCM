@@ -34,8 +34,12 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 
 	@Override
 	public PCMPhenotype decode(DoubleGenotype genotype) {
+		
 		//copy PCM Instance
-		PCMInstance pcm = this.problem.deepCopyPCMInstance();
+		//PCMInstance pcm = this.problem.deepCopyPCMInstance();
+		//No copies as I could get the original back with the initial genome. This is not done at the moment.
+		//Delete the method below when going back to copies. 
+		PCMInstance pcm = this.problem.getInitialInstance();
 		
 		int index = 0;
 		//adjust values as in genotype
@@ -80,9 +84,9 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	 * @param pcm
 	 * @param doubleGene
 	 */
-	@SuppressWarnings("unused")
 	private void applyChange(ProcessingRateDecision designDecision, PCMInstance pcm,
 			Double doubleGene) {
+		//XXX The value is changed in the original model, not in a copy. 
 		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification(doubleGene.toString());
 		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
 	}
