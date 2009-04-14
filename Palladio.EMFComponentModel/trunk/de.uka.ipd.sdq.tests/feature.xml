@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.tests"
       label="PCM Tests Feature"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://www.example.com/description">
@@ -16,6 +16,10 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <url>
+      <update label="Palladio CM Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM"/>
+   </url>
 
    <requires>
       <import plugin="org.junit"/>
@@ -53,6 +57,13 @@
 
    <plugin
          id="de.uka.ipd.sdq.sensorframework.storage.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.codegen.workflow.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
