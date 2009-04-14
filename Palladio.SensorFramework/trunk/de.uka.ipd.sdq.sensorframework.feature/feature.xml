@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.sensorframework.feature"
       label="Sensor Framework Feature"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -249,7 +249,7 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-		 
+
    <plugin
          id="de.uka.ipd.sdq.sensorframework.adapter"
          download-size="0"
