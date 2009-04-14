@@ -21,6 +21,8 @@ public class DSECreator implements Creator<DoubleGenotype> {
 
 	private DSEProblem problem;
 	private Random random;
+	
+	private boolean initialGenotypeEvaluated = false;
 
 	@Inject
 	public DSECreator(){
@@ -32,6 +34,12 @@ public class DSECreator implements Creator<DoubleGenotype> {
 
 	@Override
 	public DoubleGenotype create() {
+		
+		if (!initialGenotypeEvaluated){
+			initialGenotypeEvaluated = true;
+			return this.problem.getInitialGenotype();
+		}
+		
 		DoubleGenotype genotype = new DoubleGenotype(problem.getBounds());
 		//I do not use an iterator here to avoid the creator to know too much of the problem. Just the bounds are enough. 
 		for (int index = 0; index < problem.getBounds().numberOfDimensions(); index++) {

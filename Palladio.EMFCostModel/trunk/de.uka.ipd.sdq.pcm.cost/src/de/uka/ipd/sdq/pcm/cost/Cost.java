@@ -37,7 +37,7 @@ public interface Cost extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Annotated Element</em>' reference.
 	 * @see de.uka.ipd.sdq.pcm.cost.costPackage#getCost_AnnotatedElement()
-	 * @model required="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	EObject getAnnotatedElement();

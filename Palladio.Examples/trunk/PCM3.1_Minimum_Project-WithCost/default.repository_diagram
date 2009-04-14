@@ -21,7 +21,7 @@
       <children xmi:type="notation:Node" xmi:id="_os_e5SHbEd62GabW1zGSBw" type="7102">
         <children xmi:type="notation:Node" xmi:id="_qZeO0CHbEd62GabW1zGSBw" type="3102">
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_qZeO0SHbEd62GabW1zGSBw" diagramLink="_rCTJYCHbEd62GabW1zGSBw"/>
-          <element xmi:type="_1:ResourceDemandingSEFF" href="default.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0"/>
+          <element xmi:type="_1:ResourceDemandingSEFF" href="default.repository#12345"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_qZeO0iHbEd62GabW1zGSBw"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_os_e5iHbEd62GabW1zGSBw"/>
@@ -161,7 +161,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tf56oiHjEd6ZSMvOJK-6LQ" x="315" y="80" width="441" height="386"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_rCTJYSHbEd62GabW1zGSBw"/>
-    <element xmi:type="_1:ResourceDemandingSEFF" href="default.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0"/>
+    <element xmi:type="_1:ResourceDemandingSEFF" href="default.repository#12345"/>
     <edges xmi:type="notation:Edge" xmi:id="_2Ib2sCHjEd6ZSMvOJK-6LQ" type="4001" source="_zcoXzSHjEd6ZSMvOJK-6LQ" target="_0eyYUSHjEd6ZSMvOJK-6LQ">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_2Ib2sSHjEd6ZSMvOJK-6LQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_2Ib2siHjEd6ZSMvOJK-6LQ"/>

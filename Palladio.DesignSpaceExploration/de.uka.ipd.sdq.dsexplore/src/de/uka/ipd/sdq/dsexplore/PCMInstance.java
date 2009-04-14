@@ -307,7 +307,7 @@ public boolean equals(Object o) {
 	/**
 	 * Save the contained models back to xmi Files.
 	 */
-	public void saveToFiles() {
+	/*public void saveToFiles() {
 		// fileNamePrefix = storagePath + "\\" + fileNamePrefix;
 		// java.lang.System.out.println(storagePath);
 		saveToXMIFile(allocation, allocationFileName); // fileNamePrefix+".allocation");
@@ -322,7 +322,7 @@ public boolean equals(Object o) {
 		// saveToXMIFile(usage, fileNamePrefix+".usage");
 		// saveToXMIFile(actualAllocation, fileNamePrefix+".actualallocation");
 
-	}
+	}*/
 
 	public void saveUpdatesToFile() {
 		// FIXME: Whenever more than just the system is changes, I need to save
@@ -405,8 +405,10 @@ public boolean equals(Object o) {
 	 * 
 	 * The varied filenames are extended by "-c" (for copy) so that the old ones are not deleted. 
 	 * 
-	 * Be careful: The ResourceType, the ResourceRepository, the middlewareRepository, and the UsageModel are not copied. 
-	 * @return
+	 * Be careful: The ResourceType, the ResourceRepository, the middlewareRepository, and the UsageModel are not copied.
+	 * 
+	 * Make sure to save this instance first. 
+	 * @return an yet unsaved PCM instance
 	 */
 	public PCMInstance deepCopy(){
 		//Do I need the repository?
@@ -419,10 +421,11 @@ public boolean equals(Object o) {
 			
 		PCMInstance pcm = new PCMInstance(this.repository, s, a, re, this.resourcetype, this.mwRepository,
 				this.storagePath, this.resourceRepository,
-				this.usageModel, this.allocationFileName+"-c",
+				this.usageModel, appendToFilename("c",this.allocationFileName),
 				this.repositoryFileName, this.resourceRepositoryFileName,
-				this.usageModelFileName, this.systemFileName+"-c",
-				this.resEnvFileName+"-c", this.name+"-c");
+				this.usageModelFileName, appendToFilename("c",this.systemFileName),
+				appendToFilename("c",this.resEnvFileName), this.name+"-c");
+		
 		return pcm;
 
 	}

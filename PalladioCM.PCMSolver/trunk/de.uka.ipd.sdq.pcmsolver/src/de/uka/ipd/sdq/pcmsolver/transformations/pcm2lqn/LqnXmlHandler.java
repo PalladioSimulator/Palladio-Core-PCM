@@ -137,6 +137,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("speedFactor", "speed-factor");
 		content = content.replaceAll("serviceTimeDistribution", "service-time-distribution");
 		content = content.replaceAll("openArrivalRate", "open-arrival-rate");
+		content = content.replaceAll("openWaitTime", "open-wait-time");
 		
 		FileOutputStream fos;
 		try {
@@ -220,6 +221,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("service-time-variance", "serviceTimeVariance");
 		content = content.replaceAll("result-call", "resultCall");
 		content = content.replaceAll("result-processor", "resultProcessor");
+		content = content.replaceAll("open-wait-time", "openWaitTime");
 		
 		
 		FileOutputStream fos;

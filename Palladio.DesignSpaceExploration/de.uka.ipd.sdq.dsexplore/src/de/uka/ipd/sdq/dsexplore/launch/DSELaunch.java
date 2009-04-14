@@ -43,6 +43,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	 */
 	private int maxIterations = Integer.MAX_VALUE;
 	private double mrtRequirements = 0;
+	private int individualsPerGeneration = 5;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -73,6 +74,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			
 			this.maxIterations = getIntAttribute(configuration, DSEConstantsContainer.MAX_ITERATIONS, "");
 			this.mrtRequirements = getIntAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
+			this.individualsPerGeneration  = getIntAttribute(configuration, DSEConstantsContainer.INDIVIDUALS_PER_GENERATION, "");
 			
 			List<IAnalysisResult> allCandidates = null;
 			List<IAnalysisResult> allResults = null;
@@ -92,39 +94,12 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			
 			CostRepository costs = getCostModel(configuration);
 		    
-		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations, costs);
+		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs);
 		    
-		    
-		    //analyse the initial PCMInstance
-		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
-		    IAnalysisResult result = analysisTool.analyse(pcmInstance);
-		    //IAnalysisResult result = new DummyAnalysisResult(pcmInstance);
-		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
-		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
-		    allCandidates = new ArrayList<IAnalysisResult>();
-		    currentPopulation.add(result);
-		    allCandidates.add(result);
-		    
-		    /*int noOfIterations = 1;
-		    while(!algorithm.terminated() && noOfIterations <= this.maxIterations){
-		    	currentPopulation = algorithm.iterate(currentPopulation);
-		    	allCandidates.addAll(currentPopulation);
-		    	noOfIterations++;
-		    }
-		    
-		    allResults = algorithm.getAllResults();*/
-		    
-		    //logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
-		    
-		    
-				
-			} catch (AnalysisFailedException e) {
-				logger.error(e.getMessage());
-				e.printStackTrace();
-				throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
+		  		
 			} finally {
 				//try to save the results as far as it got. 
-				if (allCandidates != null && allResults != null){
+/*				if (allCandidates != null && allResults != null){
 				    long duration = System.currentTimeMillis() - timestampMillis;
 				    Collections.sort(allCandidates);
 				    Collections.sort(allResults);
@@ -146,18 +121,26 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 						e.printStackTrace();
 						logger.error("Could not print result dialog, analysis failed.");
 					}
-				}
+				}*/
+				
+				logger.debug("DSE launch done");
 
 			}
-			
-			//IIndividual individual = null;
-
-			logger.debug("DSE launch done");
-
 	}
 
+	/**
+	 * returns a cost model or throws an exception. 
+	 * @param configuration
+	 * @return a CostRepository which is not null
+	 * @throws CoreException if the model could not be loaded.  
+	 */
 	private CostRepository getCostModel(ILaunchConfiguration configuration) throws CoreException {
-		return (CostRepository)ConfigurationHelper.loadFromXMIFile(configuration.getAttribute(DSEConstantsContainer.COST_FILE, ""));
+		String costModelFileName = configuration.getAttribute(DSEConstantsContainer.COST_FILE, "");
+		CostRepository cr =  (CostRepository)ConfigurationHelper.loadFromXMIFile(costModelFileName);
+		if (cr == null){
+			throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, "Cost model "+costModelFileName+" could not be loaded.", null));
+		}
+		return cr;
 	}
 
 	/**

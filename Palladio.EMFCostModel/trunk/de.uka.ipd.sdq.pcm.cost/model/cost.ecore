@@ -17,7 +17,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Cost" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedElement" ordered="false"
         lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
-        changeable="false" volatile="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingCost" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         changeable="false" volatile="true" transient="true" derived="true">

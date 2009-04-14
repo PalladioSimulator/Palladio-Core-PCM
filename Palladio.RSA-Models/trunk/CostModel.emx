@@ -642,6 +642,9 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost" isAbstract="true">
+      <ownedAttribute xmi:id="_EAbrwCKpEd64q9HNdQ0aqw" name="annotatedElement" visibility="public" isReadOnly="true" isDerived="true">
+        <type xmi:type="uml:Class" href="features/Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isReadOnly="true" isDerived="true">
         <ownedComment xmi:id="_oaaYgPkHEd23O5YGd3Oe8g" annotatedElement="_6_drgPhsEd23O5YGd3Oe8g">
           <body>The value of this attributes has to be derived in subclasses. </body>
@@ -754,4 +757,5 @@ At first, we assume that all costs in this repository are actually costs in the 
   <Default:Documentation xmi:id="_oaaYgfkHEd23O5YGd3Oe8g" base_Comment="_oaaYgPkHEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_HMMqsfkIEd23O5YGd3Oe8g" base_Comment="_HMMqsPkIEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_ZP7V4PkIEd23O5YGd3Oe8g" base_Comment="_ZPyL8PkIEd23O5YGd3Oe8g"/>
+  <Ecore:EAttribute xmi:id="_m_VeoCKpEd64q9HNdQ0aqw" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_EAbrwCKpEd64q9HNdQ0aqw"/>
 </xmi:XMI>

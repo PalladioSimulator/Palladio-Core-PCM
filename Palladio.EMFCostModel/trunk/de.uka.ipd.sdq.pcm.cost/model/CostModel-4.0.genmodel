@@ -24,18 +24,20 @@
   </genAnnotations>
   <foreignModel>CostModel.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="cost" basePackage="de.uka.ipd.sdq.pcm"
-      disposableProviderFactory="true" ecorePackage="cost.ecore#/">
+      resource="XML" disposableProviderFactory="true" ecorePackage="cost.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//ComponentCost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//ComponentCost/componentOperatingCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//ComponentCost/componentInitialCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//ComponentCost/repositoryComponent"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//Cost">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="cost.ecore#//Cost">
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
           createChild="false" ecoreFeature="ecore:EReference cost.ecore#//Cost/annotatedElement"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//Cost/operatingCost"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//Cost/initialCost"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute cost.ecore#//Cost/operatingCost"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute cost.ecore#//Cost/initialCost"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedLinkingResourceCost">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

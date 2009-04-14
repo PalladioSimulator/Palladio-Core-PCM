@@ -3,7 +3,11 @@
   <resourceContainer_ResourceEnvironment id="_B0aZ0CHdEd6lJo4DCALHMw" entityName="appserver">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-      <processingRate_ProcessingResourceSpecification specification="2.308899622547102"/>
+      <processingRate_ProcessingResourceSpecification specification="1"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer>
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="2"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
 </ResourceEnvironment>

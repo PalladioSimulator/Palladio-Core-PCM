@@ -138,6 +138,9 @@ public class EvolutionaryAlgorithm extends AbstractOptimizer {
 			Collection<Individual> offspring = mating.getOffspring(lambda,
 					parents);
 			population.addAll(offspring);
+			
+			//Annes line
+			archive.update(offspring);
 
 			// evaluate offspring before selecting lames
 			completer.complete(offspring);

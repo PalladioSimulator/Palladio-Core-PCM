@@ -41,7 +41,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			+ System.getProperty("file.separator") + "pcm2lqn.xml";
 	private static final String FILENAME_RESULT_HUMAN_READABLE = System.getProperty("user.dir")
 			+ System.getProperty("file.separator") + "pcm2lqn.out";
-	private static final String FILENAME_RESULT_XML = System.getProperty("user.dir")
+	public static String FILENAME_RESULT_XML = System.getProperty("user.dir")
 			+ System.getProperty("file.separator") + "pcm2lqn_result.xml";
 	private static final String FILENAME_LQN = System.getProperty("user.dir")
 			+ System.getProperty("file.separator") + "pcm2lqn.lqn";
@@ -116,7 +116,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
             
 		} catch (Throwable e) {
 			logger.error("Running "+solverProgram+" failed!");
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		
 		long timeAfterCalc = System.nanoTime();
@@ -128,15 +128,20 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		if (exitVal==LQNS_RETURN_SUCCESS) {
 			logger.warn("Analysis Result has been written to: " + resultFile);
 		}
-		else if (exitVal==LQNS_RETURN_MODEL_FAILED_TO_CONVERGE) {
-			logger.error(solverProgram+" exited with " + exitVal + ": The model failed to converge.");
+		else {
+			String message = "";
+			if (exitVal==LQNS_RETURN_MODEL_FAILED_TO_CONVERGE) {
+				message = solverProgram+" exited with " + exitVal + ": The model failed to converge.";
 		}
 		else if (exitVal==LQNS_RETURN_INVALID_INPUT) {
-			logger.error(solverProgram+" exited with " + exitVal + ": Invalid Input.");
+			message = solverProgram+" exited with " + exitVal + ": Invalid Input.";
 		} else if (exitVal==LQNS_RETURN_FATAL_ERROR){
-			logger.error(solverProgram+" exited with "+exitVal+": Fatal error");
+			message = solverProgram+" exited with "+exitVal+": Fatal error";
 		} else {
-			logger.warn(solverProgram +" returned an unrecognised exit value "+exitVal+". Key: 0 on success, 1 if the model failed to meet the convergence criteria, 2 if the input was invalid, 4 if a command line argument was incorrect, 8 for file read/write problems and -1 for fatal errors. If multiple input files are being processed, the exit code is the bit-wise OR of the above conditions.");
+			message = solverProgram +" returned an unrecognised exit value "+exitVal+". Key: 0 on success, 1 if the model failed to meet the convergence criteria, 2 if the input was invalid, 4 if a command line argument was incorrect, 8 for file read/write problems and -1 for fatal errors. If multiple input files are being processed, the exit code is the bit-wise OR of the above conditions.";
+		}
+			logger.error(message);
+			throw new RuntimeException(message);
 		}
 	}
 

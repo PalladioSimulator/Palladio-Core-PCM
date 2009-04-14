@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;
 public class DSEOptionsTab extends FileNamesInputTab {
 	
 	private Text maximumIterations; 
+
+	private Text numberOfIndividualsPerGeneration;
 	
 	private Image icon;
 
@@ -35,6 +37,7 @@ public class DSEOptionsTab extends FileNamesInputTab {
 	private Text increaseFactor;
 
 	private Text textCostModel;
+
 
 	@Override
 	public void createControl(Composite parent) {
@@ -64,6 +67,13 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		maximumIterations = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
 		maximumIterations.setEnabled(true);
 		maximumIterations.addModifyListener(modifyListener);
+		
+		final Label numberOfIndividualsPerGenerationLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		numberOfIndividualsPerGenerationLabel.setText("Number of individuals per generation:");
+		
+		numberOfIndividualsPerGeneration = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
+		numberOfIndividualsPerGeneration.setEnabled(true);
+		numberOfIndividualsPerGeneration.addModifyListener(modifyListener);
 		
 		final Label meanRespTimeLabel = new Label(maximumIterationsGroup, SWT.NONE);
 		meanRespTimeLabel.setText("Mean response time requirements:");
@@ -118,6 +128,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 			RunConfigPlugin.errorLogger(getName(),"maximum iterations", e.getMessage());
 		}
 		try {
+			numberOfIndividualsPerGeneration.setText(configuration.getAttribute(
+					DSEConstantsContainer.INDIVIDUALS_PER_GENERATION, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"numberOfIndividualsPerGeneration", e.getMessage());
+		}
+		try {
 			meanResponseTimeRequirement.setText(configuration.getAttribute(
 					DSEConstantsContainer.MRT_REQUIREMENTS, ""));
 		} catch (CoreException e) {
@@ -150,6 +166,9 @@ public class DSEOptionsTab extends FileNamesInputTab {
 				DSEConstantsContainer.MAX_ITERATIONS,
 				maximumIterations.getText());
 		configuration.setAttribute(
+				DSEConstantsContainer.INDIVIDUALS_PER_GENERATION,
+				numberOfIndividualsPerGeneration.getText());
+		configuration.setAttribute(
 				DSEConstantsContainer.MRT_REQUIREMENTS, 
 				meanResponseTimeRequirement.getText());
 		configuration.setAttribute(
@@ -171,6 +190,9 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.INCR_FACTOR, 
 				"1.1");
+		configuration.setAttribute(
+				DSEConstantsContainer.INDIVIDUALS_PER_GENERATION,
+				"3");
 	}
 	
 	/* (non-Javadoc)
@@ -186,6 +208,16 @@ public class DSEOptionsTab extends FileNamesInputTab {
 				Integer.parseInt(this.maximumIterations.getText());
 			} catch (NumberFormatException e) {
 				setErrorMessage("Maximum iterations must be an integer value or empty.");
+				return false;
+			}
+		}
+		
+		// check this.numberOfIndividualsPerGeneration
+		if (this.numberOfIndividualsPerGeneration.getText().length() != 0) {
+			try {
+				Integer.parseInt(this.numberOfIndividualsPerGeneration.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("Number of individuals per generation must be an integer value or empty.");
 				return false;
 			}
 		}

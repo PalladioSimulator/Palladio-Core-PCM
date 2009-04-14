@@ -36,20 +36,45 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 
 	@Override
 	public Objectives evaluate(PCMPhenotype pheno) {
-		try {
-			IAnalysisResult result = Opt4JStarter.analysisTool.analyse(pheno.getPcm());
+		
+		try{
 			Objectives obj = new Objectives();
-			obj.add(this.objectives.get(0), result.getMeanValue());
-			//TODO: retrieve cost
-			double cost = Opt4JStarter.costEvaluator.getTotalCost(pheno.getPcm(), 0);
-			obj.add(this.objectives.get(1),cost);
+			
+			try {
+				retrieveResponseTime(pheno, obj);
+			} catch (Exception e) {
+				e.printStackTrace();
+				//try again
+				this.wait(1000);
+				retrieveResponseTime(pheno, obj);
+			}
+			try{
+				retrieveCost(pheno, obj);
+			} catch(Exception e) {
+				e.printStackTrace();
+				this.wait(1000);
+				//try again
+				retrieveCost(pheno, obj);
+			}
 			return obj;
-		} catch (AnalysisFailedException e) {
+			
+		} catch (Exception e){
 			e.printStackTrace();
-		} catch (CoreException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		return null;
+	}
+
+	private void retrieveCost(PCMPhenotype pheno, Objectives obj) {
+		//retrieve cost
+		double cost = Opt4JStarter.costEvaluator.getTotalCost(pheno.getPcm(), 0);
+		obj.add(this.objectives.get(1),cost);
+	}
+
+	private void retrieveResponseTime(PCMPhenotype pheno, Objectives obj)
+			throws AnalysisFailedException, CoreException {
+		//retrieve response time
+		IAnalysisResult result = Opt4JStarter.analysisTool.analyse(pheno.getPcm());
+		obj.add(this.objectives.get(0), result.getMeanValue());
 	}
 
 	@Override

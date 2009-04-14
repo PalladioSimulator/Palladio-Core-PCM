@@ -107,7 +107,7 @@ public class CostItemProvider
 				 getString("_UI_Cost_operatingCost_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Cost_operatingCost_feature", "_UI_Cost_type"),
 				 costPackage.Literals.COST__OPERATING_COST,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
@@ -129,23 +129,12 @@ public class CostItemProvider
 				 getString("_UI_Cost_initialCost_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Cost_initialCost_feature", "_UI_Cost_type"),
 				 costPackage.Literals.COST__INITIAL_COST,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns Cost.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Cost"));
 	}
 
 	/**

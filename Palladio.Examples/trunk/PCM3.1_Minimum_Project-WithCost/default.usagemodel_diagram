@@ -10,7 +10,7 @@
       <children xmi:type="notation:Node" xmi:id="_LSI4gCHdEd6lJo4DCALHMw" type="3002">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_LSI4gSHdEd6lJo4DCALHMw"/>
         <element xmi:type="Stop" href="default.usagemodel#_LPwS4iHdEd6lJo4DCALHMw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LSI4giHdEd6lJo4DCALHMw" x="10" y="10"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LSI4giHdEd6lJo4DCALHMw" x="20" y="114"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_OF2WQCHdEd6lJo4DCALHMw" type="3003">
         <children xmi:type="notation:Node" xmi:id="_OF2WQyHdEd6lJo4DCALHMw" type="5004"/>
@@ -29,13 +29,13 @@
     <element xmi:type="ScenarioBehaviour" href="default.usagemodel#_LPwS4CHdEd6lJo4DCALHMw"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LR_ukiHdEd6lJo4DCALHMw" width="421" height="381"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_MhtqACHdEd6lJo4DCALHMw" type="2002">
-    <children xmi:type="notation:Node" xmi:id="_MhtqAyHdEd6lJo4DCALHMw" type="5002"/>
-    <children xmi:type="notation:Node" xmi:id="_MhtqBCHdEd6lJo4DCALHMw" type="5003"/>
-    <children xmi:type="notation:Node" xmi:id="_MhtqBSHdEd6lJo4DCALHMw" type="5009"/>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_MhtqASHdEd6lJo4DCALHMw"/>
+  <children xmi:type="notation:Node" xmi:id="_DEu00CjFEd6I1JM5glvx_A" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_DEu00yjFEd6I1JM5glvx_A" type="5002"/>
+    <children xmi:type="notation:Node" xmi:id="_DEu01CjFEd6I1JM5glvx_A" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_DEu01SjFEd6I1JM5glvx_A" type="5009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_DEu00SjFEd6I1JM5glvx_A"/>
     <element xmi:type="ClosedWorkload" href="default.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MhtqAiHdEd6lJo4DCALHMw" x="544" y="86"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DEu00ijFEd6I1JM5glvx_A" x="590" y="242"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_LP6D4SHdEd6lJo4DCALHMw"/>
   <element xmi:type="UsageScenario" href="default.usagemodel#_LPnI8CHdEd6lJo4DCALHMw"/>
@@ -43,7 +43,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ome-ISHdEd6lJo4DCALHMw"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_Ome-IiHdEd6lJo4DCALHMw"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ome-IyHdEd6lJo4DCALHMw" points="[10, 7, -181, -125]$[127, 112, -64, -20]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ome-IyHdEd6lJo4DCALHMw" points="[10, 0, -181, -132]$[70, 0, -121, -132]$[167, 106, -24, -26]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_O8r3oCHdEd6lJo4DCALHMw" type="4002" source="_OF2WQCHdEd6lJo4DCALHMw" target="_LSI4gCHdEd6lJo4DCALHMw">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_O8r3oSHdEd6lJo4DCALHMw"/>

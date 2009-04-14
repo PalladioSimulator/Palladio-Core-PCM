@@ -36,43 +36,44 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	public PCMPhenotype decode(DoubleGenotype genotype) {
 		
 		//copy PCM Instance
-		//PCMInstance pcm = this.problem.deepCopyPCMInstance();
-		//No copies as I could get the original back with the initial genome. This is not done at the moment.
-		//Delete the method below when going back to copies. 
 		PCMInstance pcm = this.problem.getInitialInstance();
+
 		
 		int index = 0;
 		//adjust values as in genotype
 		for (Double doubleGene : genotype) {
 			if (!doubleGene.isNaN() || doubleGene.isInfinite()){
-				applyChange(this.problem.getDesignDecision(index), pcm, doubleGene);
+				applyChange(this.problem.getDesignDecision(index), doubleGene);
 			}  else { // TODO Handle wrong double genes properly, this is not the best way to solve it.
 				logger.warn("A double gene was not applicable for instance "+pcm.getName()+" : "+doubleGene.toString());
+				//set gene back to initial value
+				//XXX: maybe better set back to last value or find out why NaN happens
+				genotype.set(index, this.problem.getInitialGenotype().get(index));
 			}
 			index++;
 		}
 		
 		//encapsulate as phenotype 
-		return new PCMPhenotype(pcm);
+		return new PCMPhenotype(pcm.deepCopy());
 	}
 
 	/**
-	 * This methods should never be called, as specialised methods should 
-	 * exist for all types of design decisions. 
-	 * 
+	 * Applies the given change to the initial pcm instance (as this is 
+	 * referenced by the design decisions. More precisely, this one calls 
+	 * calls specialized methods for dealing with different types of design 
+	 * decisions.  
 	 * 
 	 * @param designDecision
 	 * @param pcm
 	 * @param doubleGene The new value the design decision should take. 
 	 */
-	private void applyChange(DesignDecision designDecision, PCMInstance pcm,
-			Double doubleGene) {
+	private void applyChange(DesignDecision designDecision, Double doubleGene) {
 		
 		/**
 		 * TODO Make the selection of the appropriate applyChange method more implicit. Maybe move the method to DesignDecision itself.  
 		 */
 		if (ProcessingRateDecision.class.isInstance(designDecision)){
-			this.applyChange((ProcessingRateDecision)designDecision, pcm, doubleGene);
+			this.applyChange((ProcessingRateDecision)designDecision, doubleGene);
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
@@ -84,9 +85,9 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	 * @param pcm
 	 * @param doubleGene
 	 */
-	private void applyChange(ProcessingRateDecision designDecision, PCMInstance pcm,
-			Double doubleGene) {
+	private void applyChange(ProcessingRateDecision designDecision, Double doubleGene) {
 		//XXX The value is changed in the original model, not in a copy. 
+
 		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification(doubleGene.toString());
 		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
 	}

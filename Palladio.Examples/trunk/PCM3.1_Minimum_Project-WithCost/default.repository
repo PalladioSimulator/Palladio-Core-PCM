@@ -12,7 +12,7 @@
             <steps_Behaviour xsi:type="_1:StopAction" id="_vN34UiHjEd6ZSMvOJK-6LQ" predecessor_AbstractAction="_rl6MwCHbEd62GabW1zGSBw"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_rl6MwCHbEd62GabW1zGSBw" entityName="compute" predecessor_AbstractAction="_vN34USHjEd6ZSMvOJK-6LQ" successor_AbstractAction="_vN34UiHjEd6ZSMvOJK-6LQ">
               <resourceDemand_Action>
-                <specification_ParametericResourceDemand specification="1"/>
+                <specification_ParametericResourceDemand specification="IntPMF[(1;0.3)(2;0.7)]"/>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -24,7 +24,7 @@
             <steps_Behaviour xsi:type="_1:StopAction" id="_zcoXwiHjEd6ZSMvOJK-6LQ" predecessor_AbstractAction="_0eyYUCHjEd6ZSMvOJK-6LQ"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_0eyYUCHjEd6ZSMvOJK-6LQ" entityName="computeMore" predecessor_AbstractAction="_zcoXwSHjEd6ZSMvOJK-6LQ" successor_AbstractAction="_zcoXwiHjEd6ZSMvOJK-6LQ">
               <resourceDemand_Action>
-                <specification_ParametericResourceDemand specification="2"/>
+                <specification_ParametericResourceDemand specification="3"/>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
               </resourceDemand_Action>
             </steps_Behaviour>

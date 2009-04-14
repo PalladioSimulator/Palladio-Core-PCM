@@ -4,6 +4,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 import java.util.List;
 
 import org.opt4j.genotype.Bounds;
+import org.opt4j.genotype.DoubleGenotype;
 
 import com.google.inject.Inject;
 
@@ -29,10 +30,16 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 public class DSEProblem {
 	
 	private DimensionBounds bounds;
+	
+	/**
+	 * Is changed during the evaluation, as the decisions refer to it.
+	 */
 	private PCMInstance initialInstance;
 	
 	private Problem pcmProblem;
 	private designdecisionFactory designDecisionFactory;
+	
+	private DoubleGenotype initialGenotype = null;
 	
 	/**
 	 * @param initialInstance
@@ -49,6 +56,9 @@ public class DSEProblem {
 		//TODO: could this be possible with a M2M transformation? 
 		//First, only get design decisions for making resources faster. 
 		List<ResourceContainer> resourceContainers = this.initialInstance.getAllResourceContainers();
+		this.initialGenotype = new DoubleGenotype();
+		int genotypeIndex = 0;
+		
 		for (ResourceContainer resourceContainer : resourceContainers) {
 			List<ProcessingResourceSpecification> resources = resourceContainer.getActiveResourceSpecifications_ResourceContainer();
 			for (ProcessingResourceSpecification resource : resources) {
@@ -61,6 +71,9 @@ public class DSEProblem {
 				decision.setDomain(range);
 				decision.setProcessingresourcespecification(resource);
 				this.pcmProblem.getDesigndecision().add(decision);
+				
+				this.initialGenotype.add(currentRate);
+				genotypeIndex++;
 			}
 		}
 		
@@ -91,17 +104,18 @@ public class DSEProblem {
 	}
 
 
-	protected PCMInstance deepCopyPCMInstance() {
-		return this.initialInstance.deepCopy();
-	}
-	
 	protected DesignDecision getDesignDecision(int index){
 		return this.pcmProblem.getDesigndecision().get(index);
 	}
 
 
-	public PCMInstance getInitialInstance() {
+	protected PCMInstance getInitialInstance() {
 		return this.initialInstance;
 	}
+	
+	protected DoubleGenotype getInitialGenotype(){
+		return this.initialGenotype;
+	}
+
 	
 }
