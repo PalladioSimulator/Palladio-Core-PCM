@@ -28,6 +28,6 @@
   <datatypes_Repository xsi:type="CollectionDataType" id="_BeTQxdFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem[]" innerType_CollectionDataType="_AQXeBtFnEducE6dFyopUlg"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_tGnVBtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.Store"/>
   <datatypes_Repository xsi:type="CollectionDataType" id="_bxQxxdFoEducE6dFyopUlg" entityName="long[]">
-    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
   </datatypes_Repository>
 </Repository>
