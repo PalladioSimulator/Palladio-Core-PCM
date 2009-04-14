@@ -35,74 +35,45 @@
 	
     <!-- replace at least yourFeature, categoryName and categoryDef --> 
     <target name="-createNightlyBuildSiteXml" if="isNightlyBuild">
-        <echo file="${UpdateSiteStagingLocation}/site.xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-        	&lt;site&gt;
-        	&lt;description
-        	url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
-        	Update site for the Palladio Component Model.
-        	The plugins contained in this feature enable modelling and accessing instances
-        	of the Palladio Component Model stored in XMI using EMF.
-        	&lt;/description&gt;
-        	&lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.pcm.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.pcm.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	&lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	&lt;/feature&gt;
-        	   &lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.pcm.diagram.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.pcm.diagram.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.probfunction.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.probfunction.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.simucom.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.simucom.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;feature url=&quot;features/de.uka.ipd.sdq.sensorframework.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.sensorframework.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.pcmsolver.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.pcmsolver.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;feature
-        	url=&quot;features/de.uka.ipd.sdq.sensorframework.visualisation.feature_${version.full}.jar&quot;
-        	id=&quot;de.uka.ipd.sdq.sensorframework.visualisation.feature&quot;
-        	version=&quot;${version.full}&quot;&gt;
-        	      &lt;category name=&quot;CBSE
-        	Modelling&quot;/&gt;
-        	   &lt;/feature&gt;
-        	   &lt;category-def name=&quot;CBSE Modelling&quot;
-        	label=&quot;CBSE Modelling&quot;&gt;
-        	      &lt;description&gt;
-        	         Component Based software engineering is
-        	about building software systems from basic building blocks, so called
-        	components.
-        	&lt;/description&gt;
-        	&lt;/category-def&gt;
-        	&lt;/site&gt;
+        <echo file="${UpdateSiteStagingLocation}/site.xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;site&gt;
+	&lt;description	url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
+    	Update site for the Palladio Component Model.
+    	The plugins contained in this feature enable modelling and accessing instances
+    	of the Palladio Component Model stored in XMI using EMF.
+	&lt;/description&gt;
+	&lt;feature	url=&quot;features/de.uka.ipd.sdq.pcm.feature_${version.full}.jar&quot;	id=&quot;de.uka.ipd.sdq.pcm.feature&quot; version=&quot;${version.full}&quot;&gt; 
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature url=&quot;features/de.uka.ipd.sdq.pcm.diagram.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.pcm.diagram.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature url=&quot;features/de.uka.ipd.sdq.probfunction.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.probfunction.feature&quot;	version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature	url=&quot;features/de.uka.ipd.sdq.simucom.feature_${version.full}.jar&quot;	id=&quot;de.uka.ipd.sdq.simucom.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature url=&quot;features/de.uka.ipd.sdq.sensorframework.feature_${version.full}.jar&quot;	id=&quot;de.uka.ipd.sdq.sensorframework.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature	url=&quot;features/de.uka.ipd.sdq.pcmsolver.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.pcmsolver.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;feature	url=&quot;features/de.uka.ipd.sdq.sensorframework.visualisation.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.sensorframework.visualisation.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
+	&lt;category-def name=&quot;CBSE Modelling&quot; label=&quot;CBSE Modelling&quot;&gt;
+		&lt;description&gt;
+			Component Based software engineering is
+			about building software systems from basic building blocks, so called
+			components.
+		&lt;/description&gt;
+	&lt;/category-def&gt;
+&lt;/site&gt;
         </echo>  	
     </target>
-	
 	
 	<!-- ================================================= -->
 	<!-- Added by kelsaka: Creates javadoc for the project -->
