@@ -18,7 +18,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;
 

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;

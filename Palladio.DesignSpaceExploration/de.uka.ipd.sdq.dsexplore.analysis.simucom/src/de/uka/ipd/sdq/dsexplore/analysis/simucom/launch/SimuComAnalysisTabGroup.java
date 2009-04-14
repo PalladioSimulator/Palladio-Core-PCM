@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.analysis.simucom.launch;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
+import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
@@ -21,7 +22,8 @@ public class SimuComAnalysisTabGroup extends AbstractLaunchConfigurationTabGroup
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new SimuComConfigurationTab(), 
 				new SimuConfigurationTab(),
-				new FeatureOptionsTab()
+				new FeatureOptionsTab(),
+				new CommonTab()
 		};
 		setTabs(tabs);
 	}

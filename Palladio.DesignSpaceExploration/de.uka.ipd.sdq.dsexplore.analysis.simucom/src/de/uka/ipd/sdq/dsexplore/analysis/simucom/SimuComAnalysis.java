@@ -11,8 +11,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowLauncher;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
@@ -124,7 +124,7 @@ public class SimuComAnalysis implements IAnalysis {
 		
 		logger.debug("Starting analysis of "+pcmInstance.getName());
 		
-		SimuLaunchConfigurationDelegate simuCom = new SimuLaunchConfigurationDelegate();
+		SimuComWorkflowLauncher simuCom = new SimuComWorkflowLauncher();
 		
 		try {
 			simuCom.launch(config, mode, launch, monitor);
