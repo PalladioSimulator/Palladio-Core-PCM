@@ -37,12 +37,12 @@
     <target name="-createNightlyBuildSiteXml" if="isNightlyBuild">
         <echo file="${UpdateSiteStagingLocation}/site.xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;site&gt;
-	&lt;description	url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
+	&lt;description url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
     	Update site for the Palladio Component Model.
     	The plugins contained in this feature enable modelling and accessing instances
     	of the Palladio Component Model stored in XMI using EMF.
 	&lt;/description&gt;
-	&lt;feature	url=&quot;features/de.uka.ipd.sdq.pcm.feature_${version.full}.jar&quot;	id=&quot;de.uka.ipd.sdq.pcm.feature&quot; version=&quot;${version.full}&quot;&gt; 
+	&lt;feature url=&quot;features/de.uka.ipd.sdq.pcm.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.pcm.feature&quot; version=&quot;${version.full}&quot;&gt; 
 		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
 	&lt;/feature&gt;
 	&lt;feature url=&quot;features/de.uka.ipd.sdq.pcm.diagram.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.pcm.diagram.feature&quot; version=&quot;${version.full}&quot;&gt;
