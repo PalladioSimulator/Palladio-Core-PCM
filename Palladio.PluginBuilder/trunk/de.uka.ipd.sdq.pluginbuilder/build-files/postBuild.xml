@@ -35,8 +35,7 @@
 	
     <!-- replace at least yourFeature, categoryName and categoryDef --> 
     <target name="-createNightlyBuildSiteXml" if="isNightlyBuild">
-        <echo file="${UpdateSiteStagingLocation}/site.xml">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        <echo file="${UpdateSiteStagingLocation}/site.xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;site&gt;
 	&lt;description	url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
     	Update site for the Palladio Component Model.
