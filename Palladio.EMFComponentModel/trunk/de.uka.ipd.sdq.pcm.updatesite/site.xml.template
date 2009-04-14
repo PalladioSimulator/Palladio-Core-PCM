@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
+   <description url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
       Update site for the Palladio Component Model. The plugins contained in this feature enable modelling and accessing instances of the Palladio Component Model stored in XMI using EMF.
    </description>
    <feature url="features/de.uka.ipd.sdq.pcm.feature_@@de.uka.ipd.sdq.pcm.feature.version@@.jar" id="de.uka.ipd.sdq.pcm.feature" version="@@de.uka.ipd.sdq.pcm.feature.version@@">
