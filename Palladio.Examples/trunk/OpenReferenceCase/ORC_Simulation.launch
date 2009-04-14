@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
 <stringAttribute key="allocationFile" value="C:\Eclipse\Ganymede_SLASOI_PCM\workspace\OpenReferenceCase\orc_distributed.allocation"/>
-<booleanAttribute key="clear" value="false"/>
+<booleanAttribute key="clear" value="true"/>
 <intAttribute key="datasourceID" value="0"/>
 <stringAttribute key="experimentRun" value="MyRun"/>
 <stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
