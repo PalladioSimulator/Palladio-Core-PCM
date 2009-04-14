@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.simucom.feature"
       label="SimuCom CBSE Simulation"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -217,7 +217,7 @@ litigation.
    </license>
 
    <url>
-      <update label="Palladio Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
+      <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
    <includes
@@ -466,6 +466,13 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.simucomframework.simucomstatus"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.codegen.workflow.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"

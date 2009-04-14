@@ -1,16 +1,21 @@
 package de.uka.ipd.sdq.codegen.workflow.tests;
 
-import java.util.LinkedList;
-import org.junit.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import java.util.LinkedList;
+
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.junit.Before;
+import org.junit.Test;
+
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.codegen.workflow.mocks.CancelingJob;
 import de.uka.ipd.sdq.codegen.workflow.mocks.FailingJob;
 import de.uka.ipd.sdq.codegen.workflow.mocks.MockJob;
-import static org.junit.Assert.*;
 
 public class OrderPreservingCompositeJobTests {
 	
@@ -37,11 +42,12 @@ public class OrderPreservingCompositeJobTests {
 	public void testJobHandling() throws JobFailedException, UserCanceledException, RollbackFailedException {
 		MockJob job = new MockJob();
 		myCompJob.addJob(job);
+		NullProgressMonitor monitor = new NullProgressMonitor();
 		
-		myCompJob.execute();		
+		myCompJob.execute(monitor);		
 		assertEquals(true, job.wasExecuted());
 		
-		myCompJob.rollback();
+		myCompJob.rollback(monitor);
 		assertEquals(true, job.wasRolledBack());
 	}
 	
@@ -56,12 +62,14 @@ public class OrderPreservingCompositeJobTests {
 	@Test
 	public void testInOrderExecution() throws JobFailedException, UserCanceledException {
 		LinkedList<MockJob> jobs = new LinkedList<MockJob>();
+		NullProgressMonitor monitor = new NullProgressMonitor();
+
 		for (int i = 0; i < 20; i++) {
 			jobs.addLast(new MockJob());
 			myCompJob.addJob(jobs.peekLast());
 		}		
 		
-		myCompJob.execute();
+		myCompJob.execute(monitor);
 		
 		int executionNumber = 0;
 		while (!jobs.isEmpty()) {
@@ -79,8 +87,10 @@ public class OrderPreservingCompositeJobTests {
 	 */
 	@Test(expected = JobFailedException.class)
 	public void testFailedJob() throws JobFailedException, UserCanceledException {
+		NullProgressMonitor monitor = new NullProgressMonitor();
+		
 		myCompJob.addJob(new FailingJob());
-		myCompJob.execute();
+		myCompJob.execute(monitor);
 	}
 	
 	/**
@@ -91,7 +101,9 @@ public class OrderPreservingCompositeJobTests {
 	 */
 	@Test(expected = UserCanceledException.class)
 	public void testCanceledJob() throws JobFailedException, UserCanceledException {
+		NullProgressMonitor monitor = new NullProgressMonitor();
+		
 		myCompJob.addJob(new CancelingJob());
-		myCompJob.execute();
+		myCompJob.execute(monitor);
 	}
 }

@@ -1,13 +1,15 @@
 package de.uka.ipd.sdq.codegen.workflow.mocks;
 
 
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import org.eclipse.core.runtime.IProgressMonitor;
+
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
 public class CancelingJob extends MockJob {
 
-	public void execute() throws JobFailedException, UserCanceledException {
-		super.execute();
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+		super.execute(monitor);
 		throw new UserCanceledException();
 	}
 

@@ -1,9 +1,11 @@
 package de.uka.ipd.sdq.codegen.workflow.mocks;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
 /**
  * Mock implementation of a job with methods to help testing.
@@ -28,7 +30,7 @@ public class MockJob implements IJob {
 	private boolean myWasAskedName = false;
 	private int myExecutionNumber = 0;
 
-	public void execute() throws JobFailedException, UserCanceledException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 		myWasExecuted = true;
 		myExecutionNumber = nextExecutionNumber();
 	}
@@ -38,7 +40,7 @@ public class MockJob implements IJob {
 		return "MockJob";
 	}
 
-	public void rollback() throws RollbackFailedException {
+	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
 		myWasRolledBack = true;
 	}
 	
