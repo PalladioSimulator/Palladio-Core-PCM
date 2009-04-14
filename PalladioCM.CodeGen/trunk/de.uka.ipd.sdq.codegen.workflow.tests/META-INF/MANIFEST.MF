@@ -8,7 +8,7 @@ Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.debug.core,
  org.eclipse.core.filesystem,
- org.junit4,
- de.uka.ipd.sdq.codegen.workflow
+ de.uka.ipd.sdq.codegen.workflow,
+ org.junit;bundle-version="3.8.2"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
