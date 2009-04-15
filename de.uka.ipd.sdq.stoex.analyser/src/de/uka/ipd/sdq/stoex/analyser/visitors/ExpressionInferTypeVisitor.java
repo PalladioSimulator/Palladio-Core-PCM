@@ -349,6 +349,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else if (object.getId().equals("Round")) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
+		} else if (object.getId().equals("Binom")) {
+			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else 
 			throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
 		return object;
