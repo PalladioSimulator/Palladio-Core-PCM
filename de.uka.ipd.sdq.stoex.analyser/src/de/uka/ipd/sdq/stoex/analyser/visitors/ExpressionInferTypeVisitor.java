@@ -91,8 +91,11 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * as the power operation is only allowed on NUMBERs, not PMFs.
 	 */
 	public Object casePowerExpression(PowerExpression expr) {
-		TypeEnum baseType = getTypeOfChild((Expression)expr.getBase());
-		TypeEnum exponentType = getTypeOfChild((Expression)expr.getExponent());
+		doSwitch(expr.getBase());
+		doSwitch(expr.getExponent());
+		
+		TypeEnum baseType = getType(expr.getBase());
+		TypeEnum exponentType = getType(expr.getExponent());
 		
 		if (isNumeric(baseType) && isNumeric(exponentType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE);
