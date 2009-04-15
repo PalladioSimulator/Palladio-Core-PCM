@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.resourcetype="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0">
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="_oro4gG3fEdy4YaaT-RYrLQ" entityName="CPU"/>
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:CommunicationLinkResourceType" id="_o3sScH2AEdyH8uerKnHYug" entityName="LAN"/>
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="_BIjHoQ3KEdyouMqirZIhzQ" entityName="HDD"/>
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="_nvHX4KkREdyEA_b89s7q9w" entityName="DELAY"/>
-</pcm.resourcetype:ResourceRepository>
+<ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0">
+  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_oro4gG3fEdy4YaaT-RYrLQ" entityName="CPU" unitSpecification="work units per second"/>
+  <availableResourceTypes_ResourceRepository xsi:type="CommunicationLinkResourceType" id="_o3sScH2AEdyH8uerKnHYug" entityName="LAN" unitSpecification="byte per second"/>
+  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_BIjHoQ3KEdyouMqirZIhzQ" entityName="HDD" unitSpecification="byte per second"/>
+  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_nvHX4KkREdyEA_b89s7q9w" entityName="DELAY" unitSpecification="seconds"/>
+</ResourceRepository>
