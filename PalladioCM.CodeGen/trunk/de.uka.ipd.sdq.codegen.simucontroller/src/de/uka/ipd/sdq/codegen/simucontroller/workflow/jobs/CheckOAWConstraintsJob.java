@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -76,6 +77,7 @@ class ErrorDisplayRunner implements Runnable {
  */
 public class CheckOAWConstraintsJob implements IJob {
 
+	private Logger logger = Logger.getLogger(CheckOAWConstraintsJob.class);
 	private ExecutionContextImpl ctx;
 	private List<String> files;
 	private boolean shouldThrowException;
@@ -112,6 +114,7 @@ public class CheckOAWConstraintsJob implements IJob {
 		
 		if (overallResult.size() > 0) {
 			displayValidationErrors(overallResult);
+			logger.warn("Continuing workflow, ignoring model validation issues");
 		}
 	}
 

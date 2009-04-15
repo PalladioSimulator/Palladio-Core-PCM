@@ -18,6 +18,9 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDeleg
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SSJExperiment implements ISimulationControlDelegate {
+
+	protected static Logger logger = 
+		Logger.getLogger(SSJExperiment.class);
 	
 	private Simulator simulator;
 	private ArrayList<Condition> stopConditions = new ArrayList<Condition>();
@@ -68,16 +71,13 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		createStopEvent().schedule(simTime);
 	}
 
-	protected static Logger logger = 
-		Logger.getLogger(SSJExperiment.class.getName());
-	
 	public void start() {
 		this.isRunning = true;
 		
 		double start = System.nanoTime();
-		logger.warn("Starting simulation...");
+		logger.info("Starting simulation using SSJ Framework...");
 		simulator.start();
-		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
+		logger.info("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
 		
 		this.isRunning = false;
 	}

@@ -8,14 +8,19 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IStreamsProxy;
 
+import de.uka.ipd.sdq.codegen.runconfig.logging.Log4JBasedStreamsProxy;
+import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
+
 public class SimProcess extends PlatformObject implements IProcess {
 
 	private ILaunch myLaunch;
 	private boolean isTerminated;
+	private Log4JBasedStreamsProxy myStreamsProxy = null;
 
 	public SimProcess(ILaunch myLaunch) {
 		super();
 		this.myLaunch = myLaunch;
+		this.myStreamsProxy = new Log4JBasedStreamsProxy();
 	}
 
 	public String getAttribute(String key) {
@@ -35,7 +40,7 @@ public class SimProcess extends PlatformObject implements IProcess {
 	}
 
 	public IStreamsProxy getStreamsProxy() {
-		return null;
+		return myStreamsProxy;
 	}
 
 	public void setAttribute(String key, String value) {
@@ -56,7 +61,14 @@ public class SimProcess extends PlatformObject implements IProcess {
 
 	public void terminate() throws DebugException {
 		this.isTerminated = true;
+		
+		this.myStreamsProxy.dispose();
+
 		DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {new DebugEvent(this,DebugEvent.TERMINATE)});
+	}
+	
+	public void addAppender(StreamsProxyAppender appender) {
+		this.myStreamsProxy.addAppender(appender);
 	}
 
 }

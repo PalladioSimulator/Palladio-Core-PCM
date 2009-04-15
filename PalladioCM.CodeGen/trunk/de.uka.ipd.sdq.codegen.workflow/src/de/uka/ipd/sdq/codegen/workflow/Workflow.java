@@ -1,7 +1,10 @@
 package de.uka.ipd.sdq.codegen.workflow;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -24,8 +27,16 @@ public class Workflow
 	implements ICompositeJob {
 	
 	private IProgressMonitor myMonitor;
-	protected Log logger = null;
+	protected Logger logger = null;
 	protected WorkflowExceptionHandler exceptionHandler = null;
+
+	public Workflow(IJob job) {
+		this(job, null, new WorkflowExceptionHandler(false));
+	}
+	
+	public Workflow(IJob job, WorkflowExceptionHandler exceptionHandler) {
+		this(job, null, exceptionHandler);
+	}
 	
 	/** 
 	 * @param job 
@@ -40,7 +51,7 @@ public class Workflow
 		} else {
 			myMonitor = new NullProgressMonitor();
 		}
-		logger = LogFactory.getLog(Workflow.class);
+		logger = Logger.getLogger(Workflow.class);
 	}
 
 	public void run() {

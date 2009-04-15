@@ -4,6 +4,7 @@ import java.util.Observer;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.Priority;
@@ -73,6 +74,7 @@ implements
 	protected SimuComResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun)
 	{
 		initializeLogger(config);
+		logger.info("Starting Simulation");
 				
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
@@ -93,7 +95,9 @@ implements
 			
 		});
 		getStatus().setCurrentSimulationTime(0);
-		ExperimentRunner.run(model, SIM_STOP_TIME);
+		double simRealTime = ExperimentRunner.run(model, SIM_STOP_TIME);
+		logger.info("Simulation stopped. It took "+(simRealTime/Math.pow(10,9))+" seconds real time to terminate");
+		logger.debug("Flushing simulation data store");
 		model.getDAOFactory().store();
 		return model.getErrorStatus();
 	}
@@ -103,16 +107,15 @@ implements
 	 * @param config SimuCom config which is queried for the logging settings
 	 */
 	private void initializeLogger(SimuComConfig config) {
-		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
-		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
+		Logger simuComLogger = Logger.getLogger("de.uka.ipd.sdq.simucomframework");
 		if (config.getVerboseLogging())
-			myAppender.setThreshold(Priority.DEBUG);
+			simuComLogger.setLevel(Level.ALL);
 		else
-			myAppender.setThreshold(Priority.WARN);
-		BasicConfigurator.resetConfiguration();
-		BasicConfigurator.configure(myAppender);
-		logger.debug("Simulation Logging enabled!");
-		logger.info("Starting Simulation");
+			simuComLogger.setLevel(Level.WARN);
+		logger.debug("Extended Simulation Logging enabled!");
+
+		// Set this class' log level to info to see start and stop messages of SimuCom
+		logger.setLevel(Level.INFO);
 	}
 
 	/**

@@ -165,7 +165,9 @@
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
 				<configFile value="org.eclipse.jdt.core.prefs"/>
 			</beautifier>
-			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier"/>
+			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier">
+				<fileExtensions value=".xml" />
+			</beautifier>
 		<prSrcPaths value="${ejbsOutpath}"/>
         <prExcludes value=".svn"/>		
 	</component>	

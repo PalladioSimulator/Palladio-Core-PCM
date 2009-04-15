@@ -35,7 +35,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.osgi.services,
  de.uka.ipd.sdq.simucomframework.simucomstatus,
  ch.ethz.iks.r_osgi.remote;bundle-version="1.0.0",
- org.apache.commons.logging;bundle-version="1.0.4"
+ org.apache.log4j;bundle-version="1.2.13"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs

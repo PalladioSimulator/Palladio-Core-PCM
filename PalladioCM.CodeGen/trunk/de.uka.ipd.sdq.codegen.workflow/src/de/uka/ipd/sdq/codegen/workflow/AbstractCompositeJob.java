@@ -3,8 +3,7 @@ package de.uka.ipd.sdq.codegen.workflow;
 import java.util.LinkedList;
 import java.util.Stack;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
@@ -15,7 +14,7 @@ public abstract class AbstractCompositeJob implements ICompositeJob {
 
 	protected LinkedList<IJob> myJobs;
 	protected Stack<IJob> myExecutedJobs;
-	protected Log logger = LogFactory.getLog(OrderPreservingCompositeJob.class);
+	protected Logger logger = Logger.getLogger(OrderPreservingCompositeJob.class);
 	String myName = null;
 
 	public AbstractCompositeJob() {

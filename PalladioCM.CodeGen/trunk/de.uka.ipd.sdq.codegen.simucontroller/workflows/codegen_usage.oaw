@@ -102,7 +102,9 @@
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
 				<configFile value="org.eclipse.jdt.core.prefs"/>
 			</beautifier>
-			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier">
+				<fileExtensions value=".xml" />
+			</beautifier>
 		<!-- protected regions configuration -->
 		<prSrcPaths value="${clientOutpath}"/>
         <prExcludes value=".svn"/>	

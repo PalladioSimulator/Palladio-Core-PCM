@@ -1,13 +1,20 @@
 package de.uka.ipd.sdq.codegen.runconfig;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.net.URL;
+import java.net.URLClassLoader;
+
+import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.log4j.Appender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
+import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
@@ -31,7 +38,7 @@ import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
 public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowConfigurationType extends AbstractWorkflowBasedRunConfiguration>
 	implements ILaunchConfigurationDelegate {
 
-	protected Log logger = null;
+	protected Logger logger = null;
 
 	/*(non-Javadoc)
 	 * @see org.eclipse.debug.core.model.ILaunchConfigurationDelegate#launch(org.eclipse.debug.core.ILaunchConfiguration,
@@ -41,28 +48,78 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
+		logger = Logger.getLogger(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
+
 		// Add a process to this launch, needed for Eclipse UI updates
-		launch.addProcess(getProcess(launch));
-
-		setupApacheCommonsLogging();
-
-		logger.info("Create workflow configuration");
-		WorkflowConfigurationType workflowConfiguration = 
-			deriveConfiguration(configuration, mode);
+		SimProcess myProcess = getProcess(launch); 
+		setupLogging(myProcess);
+		launch.addProcess(myProcess);
 		
-		logger.info("Validating configuration...");
-		workflowConfiguration.validateAndFreeze();
+		// Setup a new classloader to allow reconfiguration of apache commons logging
+		ClassLoader oldClassLoader = configureNewClassloader();
+		// Reconfigure apache commons logging to use Log4J as backend logger
+		System.setProperty(LogFactoryImpl.LOG_PROPERTY, "org.apache.commons.logging.impl.Log4JLogger");
+
+		try {
+			logger.info("Create workflow configuration");
+			WorkflowConfigurationType workflowConfiguration = 
+				deriveConfiguration(configuration, mode);
+		
+			logger.info("Validating configuration...");
+			workflowConfiguration.validateAndFreeze();
 	
-		
-		Workflow workflow = new UIBasedWorkflow(
+			Workflow workflow = new UIBasedWorkflow(
 				createWorkflowJob(workflowConfiguration), 
 				monitor, 
 				new UIBasedWorkflowExceptionHandler(
 						!workflowConfiguration.isInteractive()));
-		workflow.run();
+			workflow.run();
+		} finally {
+			// Reset classloader to original value
+			Thread.currentThread().setContextClassLoader(oldClassLoader);
+		}
 		
 		// Singnal execution terminatation to Eclipse to update UI 
 		launch.getProcesses()[0].terminate();
+	}
+
+	/**
+	 * @return
+	 */
+	private ClassLoader configureNewClassloader() {
+		ClassLoader oldClassLoader = Thread.currentThread().getContextClassLoader();
+		URLClassLoader cl = new URLClassLoader(new URL[]{},oldClassLoader);
+		Thread.currentThread().setContextClassLoader(cl);
+		return oldClassLoader;
+	}
+
+	/**
+	 * @param myProcess
+	 */
+	private void setupLogging(SimProcess myProcess) {
+		/* Initialise Log4J Logging */
+		Logger sdqLogger = Logger.getLogger("de.uka.ipd.sdq");
+		StreamsProxyAppender sdqAppender = new StreamsProxyAppender();
+		setupLogger(sdqAppender,sdqLogger,"%-8r [%-10t] %-5p: %m [%c]%n");
+		myProcess.addAppender(sdqAppender);
+
+		Logger oawLogger = Logger.getLogger("org.openarchitectureware");
+		StreamsProxyAppender oawAppender = new StreamsProxyAppender();
+		setupLogger(oawAppender,oawLogger,"%-8r [%-10t] %-5p: %m%n");
+		myProcess.addAppender(oawAppender);
+	}
+
+	/**
+	 * @param appender 
+	 * @param logger
+	 */
+	private void setupLogger(Appender appender, Logger logger, String layout) {
+		logger.removeAllAppenders();
+		logger.setLevel(Level.INFO);
+		appender.setLayout(
+				new PatternLayout(layout));
+		logger.setAdditivity(false);
+		logger.addAppender(appender);
 	}
 
 	/**
@@ -73,14 +130,6 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 		return new SimProcess(launch);
 	}
 
-	protected void setupApacheCommonsLogging() {
-		/* Configure Apache Commons Logger for tools supporting this kind of logging
-		 * method
-		 */
-		System.setProperty("org.apache.commons.logging.simplelog.defaultlog","info");
-		logger = LogFactory.getLog(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
-	}
-	
 	/**
 	 * Create the job executed in the underlying workflow
 	 * 

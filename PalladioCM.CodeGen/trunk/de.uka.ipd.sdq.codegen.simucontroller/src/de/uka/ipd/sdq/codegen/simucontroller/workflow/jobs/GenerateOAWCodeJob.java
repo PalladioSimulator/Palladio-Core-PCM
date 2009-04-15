@@ -3,8 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.openarchitectureware.workflow.WorkflowRunner;
@@ -21,7 +20,7 @@ import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
  */
 public class GenerateOAWCodeJob implements IJob {
 
-	protected Log logger = LogFactory.getLog(GenerateOAWCodeJob.class);
+	protected Logger logger = Logger.getLogger(GenerateOAWCodeJob.class);
 	
 	private final static String REPOSITORY_FILE = "codegen_repository.oaw";
 	private final static String SYSTEM_FILE = "codegen_system.oaw";
