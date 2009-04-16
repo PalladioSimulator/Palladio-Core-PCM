@@ -7,7 +7,7 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class PackageMapping {
-	public static double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2, int percentage) {
+	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2, int percentage) {
 		boolean samePackage = true;
 		String packageName = null;
 		
@@ -25,7 +25,7 @@ public class PackageMapping {
 		}
 		if (samePackage) {
 			for (ModelElement current : elements2) {
-				if (current instanceof GASTClass) {
+				if (current instanceof GASTClass) {					
 					if (packageName == null) {
 						packageName = ((GASTClass)current).getSurroundingPackage().getQualifiedName();
 					} else {

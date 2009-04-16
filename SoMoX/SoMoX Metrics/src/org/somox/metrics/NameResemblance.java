@@ -1,5 +1,6 @@
 package org.somox.metrics;
 
+import java.util.HashMap;
 import java.util.List;
 
 import de.fzi.gast.core.ModelElement;
@@ -7,67 +8,71 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class NameResemblance {
-	public static double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2, int percentage) {
-		double nameResemblance = 0.0;
+	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2, int percentage) {
+		HashMap<String, Boolean> resemblanceMap = new HashMap<String, Boolean>();
+		
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
-				boolean resemblance = false;
-				for (ModelElement currentCheck : elements1) {
-					if (currentCheck instanceof GASTClass) {
-						if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
-							resemblance = true;
-							break;
-						}
-					}
+				if (!resemblanceMap.containsKey(((GASTClass) current).getSimpleName())) {
+					resemblanceMap.put(((GASTClass)current).getSimpleName(), false);
 				}
-				
-				if (resemblance == false) {
-					for (ModelElement currentCheck : elements2) {
+				for (ModelElement currentCheck : elements1) {
+					if (!((GASTClass)current).getSimpleName().equals(((GASTClass)currentCheck).getSimpleName())) {
 						if (currentCheck instanceof GASTClass) {
+							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
+								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
+							}
 							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
-								resemblance = true;
-								break;
+								resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
 							}
 						}
 					}
 				}
-				
-				if (resemblance) {
-					nameResemblance += 1.0;
+
+				for (ModelElement currentCheck : elements2) {
+					if (currentCheck instanceof GASTClass) {
+						if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
+							resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
+						}
+						if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+							resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+							resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
+						}
+					}
 				}
 			}
 		}
 		
 		for (ModelElement current : elements2) {
 			if (current instanceof GASTClass) {
-				boolean resemblance = false;
-				for (ModelElement currentCheck : elements1) {
-					if (currentCheck instanceof GASTClass) {
-						if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
-							resemblance = true;
-							break;
-						}
-					}
+				if (!resemblanceMap.containsKey(((GASTClass) current).getSimpleName())) {
+					resemblanceMap.put(((GASTClass)current).getSimpleName(), false);
 				}
-				
-				if (resemblance == false) {
-					for (ModelElement currentCheck : elements2) {
+				for (ModelElement currentCheck : elements2) {
+					if (!((GASTClass)current).getSimpleName().equals(((GASTClass)currentCheck).getSimpleName())) {
 						if (currentCheck instanceof GASTClass) {
+							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
+								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
+							}
 							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
-								resemblance = true;
-								break;
+								resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
 							}
 						}
 					}
 				}
-				
-				if (resemblance) {
-					nameResemblance += 1.0;
-				}
 			}
 		}
+				
+		double totalSize = resemblanceMap.size();
+		double nameResemblance = 0.0;
 		
-		double totalSize = elements1.size() + elements2.size();
+		for (Boolean current : resemblanceMap.values()) {
+			if (current) {
+				nameResemblance += 1.0;
+			}
+		}
 		
 		return nameResemblance/totalSize;
 	}
@@ -91,9 +96,9 @@ public class NameResemblance {
 		neededSubstring = (int)((double)shortString.length()/100.0*(double)percentage);
 		
 		for (int i=neededSubstring; i<=shortString.length();i++) {
-			steps = shortString.length()-i;
+			steps = shortString.length()+1-i;
 			for (int j=0;j<steps;j++) {
-				String current = shortString.substring(j, i-1);
+				String current = shortString.substring(j, i+j);
 				if (longString.contains(current)) {
 					resemblance = true;
 					i = shortString.length();
