@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
@@ -217,7 +218,7 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("The old assembly we look for: "+assemblyContext);
 		AssemblyContext changedAssemblyContext = null;
 		
-		EList<AssemblyContext> newAssemblyContexts = newSystem.getChildComponentContexts_ComposedStructure();
+		EList<AssemblyContext> newAssemblyContexts = newSystem.getAssemblyContexts_ComposedStructure();
 		for (AssemblyContext ac : newAssemblyContexts) {
 			//logger.debug("An assembly in the new system: "+ac);
 			if (checkIdentity(ac, assemblyContext)){
@@ -230,7 +231,7 @@ public class AlternativeComponent implements INewCandidates {
 				break;
 			}
 		}
-		changedAssemblyContext.setEncapsulatedComponent_ChildComponentContext(basicComponentEntry.getKey());
+		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(basicComponentEntry.getKey());
 		
 		//fix the required and provided roles
 		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getValue());
@@ -256,22 +257,22 @@ public class AlternativeComponent implements INewCandidates {
 	private void fixReferencesToAssemblyContext(System newSystem,
 			AssemblyContext changedAssemblyContext, ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping) {
 		
-		EList<AssemblyConnector> acons = newSystem.getCompositeAssemblyConnectors_ComposedStructure();
+		EList<AssemblyConnector> acons = newSystem.getAssemblyConnectors_ComposedStructure();
 		
 		//Lazy initialisation of aconsToDelete, as I don't need it in most cases.
 		List<AssemblyConnector> aconsToDelete = null;
 		
 		for (AssemblyConnector assemblyConnector : acons) {
 			//check provided
-			if ((checkIdentity(assemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector(), changedAssemblyContext))){
-				assemblyConnector.setProvidedRole_CompositeAssemblyConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(assemblyConnector.getProvidedRole_CompositeAssemblyConnector()));
+			if ((checkIdentity(assemblyConnector.getProvidingAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
+				assemblyConnector.setProvidedRole_AssemblyConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(assemblyConnector.getProvidedRole_AssemblyConnector()));
 			}
 			
 			//check required. Delete assembly connector if required role is not needed anymore.
-			if ((checkIdentity(assemblyConnector.getRequiringChildComponentContext_CompositeAssemblyConnector(), changedAssemblyContext))){
-				RequiredRole rRole = providedAndRequiredRoleMapping.getRequiredMapping().get(assemblyConnector.getRequiredRole_CompositeAssemblyConnector());
+			if ((checkIdentity(assemblyConnector.getRequiringAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
+				RequiredRole rRole = providedAndRequiredRoleMapping.getRequiredMapping().get(assemblyConnector.getRequiredRole_AssemblyConnector());
 				if (rRole != null){
-					assemblyConnector.setRequiredRole_CompositeAssemblyConnector(rRole);
+					assemblyConnector.setRequiredRole_AssemblyConnector(rRole);
 				} else {
 					//store assembly connector to be deleted. Cannot delete them right away because of concurrentModificationException.
 					if (aconsToDelete == null) {
@@ -291,7 +292,7 @@ public class AlternativeComponent implements INewCandidates {
 		//check provided delegation connectors
 		EList<ProvidedDelegationConnector> pdecons = newSystem.getProvidedDelegationConnectors_ComposedStructure();
 		for (ProvidedDelegationConnector pdecon : pdecons) {
-			if (checkIdentity(pdecon.getChildComponentContext_ProvidedDelegationConnector(), changedAssemblyContext)){
+			if (checkIdentity(pdecon.getAssemblyContext_ProvidedDelegationConnector(), changedAssemblyContext)){
 				pdecon.setInnerProvidedRole_ProvidedDelegationConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(pdecon.getInnerProvidedRole_ProvidedDelegationConnector()));
 			}
 		}
@@ -303,7 +304,7 @@ public class AlternativeComponent implements INewCandidates {
 		List<RequiredDelegationConnector> rdeconsToDelete = null;
 		
 		for (RequiredDelegationConnector rdecon : rdecons) {
-			if (checkIdentity(rdecon.getChildComponentContext_RequiredDelegationConnector(), changedAssemblyContext)){
+			if (checkIdentity(rdecon.getAssemblyContext_RequiredDelegationConnector(), changedAssemblyContext)){
 				RequiredRole reqRole = providedAndRequiredRoleMapping.getRequiredMapping().get(rdecon.getInnerRequiredRole_RequiredDelegationConnector());
 				if (reqRole != null){
 					rdecon.setInnerRequiredRole_RequiredDelegationConnector(reqRole);
@@ -326,13 +327,13 @@ public class AlternativeComponent implements INewCandidates {
 	}
 
 	private List<BasicComponent> filterBasicComponents(
-			EList<ProvidesComponentType> components__Repository) {
+			EList<RepositoryComponent> list) {
 		logger.debug("filterBasicComponent(..) called with a list of "
-				+ components__Repository.size() + " ProvidesComponentTypes.");
+				+ list.size() + " ProvidesComponentTypes.");
 		List<BasicComponent> l = new ArrayList<BasicComponent>();
-		for (ProvidesComponentType providesComponentType : components__Repository) {
-			if (BasicComponent.class.isInstance(providesComponentType)) {
-				l.add((BasicComponent) providesComponentType);
+		for (RepositoryComponent repositoryComponentType : list) {
+			if (BasicComponent.class.isInstance(repositoryComponentType)) {
+				l.add((BasicComponent) repositoryComponentType);
 			}
 		}
 		return l;
@@ -352,12 +353,11 @@ public class AlternativeComponent implements INewCandidates {
 		 */
 
 		EList<AssemblyContext> assemblyContexts = s
-				.getChildComponentContexts_ComposedStructure(); 
+				.getAssemblyContexts_ComposedStructure(); 
 
 		for (AssemblyContext ac : assemblyContexts) {
 
-			ProvidesComponentType pct = ac
-					.getEncapsulatedComponent_ChildComponentContext();
+			RepositoryComponent pct = ac.getEncapsulatedComponent_AssemblyContext();
 			if (BasicComponent.class.isInstance(pct)) {
 				result.put(ac, (BasicComponent) pct);
 			}
