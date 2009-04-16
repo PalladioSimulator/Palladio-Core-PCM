@@ -65,6 +65,7 @@ public class DSEProblem {
 				ProcessingRateDecision decision = this.designDecisionFactory.createProcessingRateDecision();
 				DoubleRange range = this.designDecisionFactory.createDoubleRange();
 				range.setFrom(0);
+				range.setLowerBoundIncluded(false);
 				double currentRate = CostUtil.getDoubleFromSpecification(resource.getProcessingRate_ProcessingResourceSpecification().getSpecification());
 				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
 				range.setTo(currentRate * 10.0);

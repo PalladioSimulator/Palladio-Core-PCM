@@ -29,38 +29,55 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	
 	protected final List<Objective> objectives = new ArrayList<Objective>();
 	
+	private List<Exception> exceptionList = new ArrayList<Exception>();
+	
+	private boolean firstRunSuccessful = false;
+	
 	public DSEEvaluator(){
 		this.objectives.add(new Objective("response time", Objective.Sign.MIN));
 		this.objectives.add(new Objective("cost", Objective.Sign.MIN));
+	}
+	
+	public void reset(){
+		this.firstRunSuccessful = false;
+		this.exceptionList = new ArrayList<Exception>();
 	}
 
 	@Override
 	public Objectives evaluate(PCMPhenotype pheno) {
 		
+		Objectives obj = new Objectives();
 		try{
-			Objectives obj = new Objectives();
 			
-			try {
-				retrieveResponseTime(pheno, obj);
-			} catch (Exception e) {
-				e.printStackTrace();
-				//try again
-				this.wait(1000);
-				retrieveResponseTime(pheno, obj);
-			}
-			try{
-				retrieveCost(pheno, obj);
-			} catch(Exception e) {
-				e.printStackTrace();
-				this.wait(1000);
-				//try again
-				retrieveCost(pheno, obj);
-			}
+			retrieveResponseTime(pheno, obj);
+
+			retrieveCost(pheno, obj);
+			
+			firstRunSuccessful = true;
+
 			return obj;
 			
 		} catch (Exception e){
-			e.printStackTrace();
-			throw new RuntimeException(e);
+			
+			//If this is the first evaluation, then something severe seems to be wrong, throw an exception 
+			if (!firstRunSuccessful){
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			} else {
+				//if this is just a failure during the course of the run, ignore it and output it later
+				this.exceptionList.add(new Exception("Evaluation of a candidate failed. Filling objectves with NaN.",e));
+				
+				//Check if response time is there
+				if (obj.size() == 0){
+					obj.add(this.objectives.get(0),Double.NaN);
+				}
+				//afterwards (now having one entry for sure) add cost if not there (i.e. if size == 1, not 2). 
+				if (obj.size() == 1){
+					obj.add(this.objectives.get(1), Double.NaN);
+				}
+				
+				return obj;
+			}
 		}
 	}
 
@@ -75,11 +92,19 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 		//retrieve response time
 		IAnalysisResult result = Opt4JStarter.analysisTool.analyse(pheno.getPcm());
 		obj.add(this.objectives.get(0), result.getMeanValue());
+		
+		//Maybe handle a demand too large exception in the simulation separately by setting the objective to infinity. 
+		
 	}
 
 	@Override
 	public Collection<Objective> getObjectives() {
 		return objectives;
+	}
+	
+	//TODO: Add an interface ExceptionTracker to unify exception handling. 
+	public List<Exception> getExceptionList(){
+		return this.exceptionList;
 	}
 
 }

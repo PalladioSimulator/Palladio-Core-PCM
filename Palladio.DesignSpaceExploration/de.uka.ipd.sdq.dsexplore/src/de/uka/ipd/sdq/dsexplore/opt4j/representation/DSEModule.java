@@ -35,8 +35,7 @@ public class DSEModule extends ProblemModule {
 		Class<? extends Evaluator<?>> evaluator = DSEEvaluator.class;
 		
 		bindProblem(creator, decoder, evaluator);
-		
-		bind(Archive.class).to(BasicArchive.class).in(SINGLETON);
+
 		
 	}
 

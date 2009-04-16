@@ -21,13 +21,13 @@ class DimensionBounds implements Bounds<Double> {
 	@Override
 	public Double getLowerBound(int index) {
 		DoubleRange range = (DoubleRange)this.problem.getDesigndecision().get(index).getDomain();
-		return range.isLowerBoundIncluded() ? range.getFrom() : range.getFrom() + 1;
+		return range.isLowerBoundIncluded() ? range.getFrom() : range.getFrom() + Double.MIN_VALUE;
 	}
 
 	@Override
 	public Double getUpperBound(int index) {
 		DoubleRange range = (DoubleRange)this.problem.getDesigndecision().get(index).getDomain();
-		return range.isUpperBoundIncluded() ? range.getTo() : range.getTo() - 1;
+		return range.isUpperBoundIncluded() ? range.getTo() : range.getTo() - Double.MIN_VALUE;
 	}
 
 	public int numberOfDimensions() {

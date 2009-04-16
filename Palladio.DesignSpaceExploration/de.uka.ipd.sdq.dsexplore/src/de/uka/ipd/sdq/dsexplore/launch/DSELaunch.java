@@ -76,8 +76,10 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			this.mrtRequirements = getIntAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
 			this.individualsPerGeneration  = getIntAttribute(configuration, DSEConstantsContainer.INDIVIDUALS_PER_GENERATION, "");
 			
-			List<IAnalysisResult> allCandidates = null;
-			List<IAnalysisResult> allResults = null;
+			logger.debug("\n Launching optimization with \n"+
+					"maximal number of iterations: "+this.maxIterations+"\n"+
+					"individuals per generation:" +this.individualsPerGeneration+"\n"+
+					"offspring per generation: individuals per generation / 2 rounded up.");
 			
 			try {
 				
@@ -124,6 +126,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				}*/
 				
 				logger.debug("DSE launch done");
+				Opt4JStarter.closeTask();
 
 			}
 	}
