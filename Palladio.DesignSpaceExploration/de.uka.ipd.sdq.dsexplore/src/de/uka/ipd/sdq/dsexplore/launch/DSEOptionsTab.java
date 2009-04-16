@@ -38,6 +38,8 @@ public class DSEOptionsTab extends FileNamesInputTab {
 
 	private Text textCostModel;
 
+	private Text maxCost;
+
 
 	@Override
 	public void createControl(Composite parent) {
@@ -76,11 +78,18 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		numberOfIndividualsPerGeneration.addModifyListener(modifyListener);
 		
 		final Label meanRespTimeLabel = new Label(maximumIterationsGroup, SWT.NONE);
-		meanRespTimeLabel.setText("Mean response time requirements:");
+		meanRespTimeLabel.setText("Maximal response time:");
 
 		meanResponseTimeRequirement = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
 		meanResponseTimeRequirement.setEnabled(true);
 		meanResponseTimeRequirement.addModifyListener(modifyListener);
+		
+		final Label maxCostLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		meanRespTimeLabel.setText("Maximal cost:");
+
+		maxCost = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
+		maxCost.setEnabled(true);
+		maxCost.addModifyListener(modifyListener);
 		
 		final Label thresholdLabel = new Label(maximumIterationsGroup, SWT.NONE);
 		thresholdLabel.setText("Threshold for strengthen resource:");
@@ -138,6 +147,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 					DSEConstantsContainer.MRT_REQUIREMENTS, ""));
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"mean response time", e.getMessage());
+		} 
+		try {
+			maxCost.setText(configuration.getAttribute(
+					DSEConstantsContainer.MAX_COST, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"max cost", e.getMessage());
 		}
 		try {
 			this.threshold.setText(configuration.getAttribute(
@@ -164,19 +179,22 @@ public class DSEOptionsTab extends FileNamesInputTab {
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(
 				DSEConstantsContainer.MAX_ITERATIONS,
-				maximumIterations.getText());
+				this.maximumIterations.getText());
 		configuration.setAttribute(
 				DSEConstantsContainer.INDIVIDUALS_PER_GENERATION,
-				numberOfIndividualsPerGeneration.getText());
+				this.numberOfIndividualsPerGeneration.getText());
 		configuration.setAttribute(
 				DSEConstantsContainer.MRT_REQUIREMENTS, 
-				meanResponseTimeRequirement.getText());
+				this.meanResponseTimeRequirement.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.MAX_COST, 
+				this.maxCost.getText());
 		configuration.setAttribute(
 				DSEConstantsContainer.THRESHOLD,
-				threshold.getText());
+				this.threshold.getText());
 		configuration.setAttribute(
 				DSEConstantsContainer.INCR_FACTOR, 
-				increaseFactor.getText());
+				this.increaseFactor.getText());
 		configuration.setAttribute(
 				DSEConstantsContainer.COST_FILE, 
 				this.textCostModel.getText());
@@ -230,6 +248,16 @@ public class DSEOptionsTab extends FileNamesInputTab {
 				return false;
 			}
 		}
+		
+		if (this.maxCost.getText().length() != 0) {
+			try {
+				Double.parseDouble(this.maxCost.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("Maximal cost must be a double value or empty.");
+				return false;
+			}
+		}
+		
 		try {
 			Double.parseDouble(this.threshold.getText());
 		} catch (NumberFormatException e) {

@@ -44,6 +44,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	private int maxIterations = Integer.MAX_VALUE;
 	private double mrtRequirements = 0;
 	private int individualsPerGeneration = 5;
+	private double maxCost = 0;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -73,7 +74,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			logger.debug("Launch Configuration: "+configuration.getMemento());
 			
 			this.maxIterations = getIntAttribute(configuration, DSEConstantsContainer.MAX_ITERATIONS, "");
-			this.mrtRequirements = getIntAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
+			this.mrtRequirements = getDoubleAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
+			this.maxCost = getDoubleAttribute(configuration, DSEConstantsContainer.MAX_COST, "");
 			this.individualsPerGeneration  = getIntAttribute(configuration, DSEConstantsContainer.INDIVIDUALS_PER_GENERATION, "");
 			
 			logger.debug("\n Launching optimization with \n"+
@@ -125,7 +127,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 					}
 				}*/
 				
-				logger.debug("DSE launch done");
+				logger.debug("DSE launch done. It took "+((System.currentTimeMillis()-timestampMillis)/1000)+" seconds.");
+				
 				Opt4JStarter.closeTask();
 
 			}
@@ -160,6 +163,27 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		int result = 0;
 		try{
 			result = Integer.parseInt(valueString);
+		} catch (Exception e){
+				//ok, it was worth a try, so just keep the old value. 
+				logger.debug("Could not parse "+key+" information: "+valueString);
+		} 
+		return result;
+	}
+	
+	/**
+	 * Reads an attribute from the configurations and tries to parse it as an integer. 
+	 * @param configuration The {@link ILaunchConfiguration}
+	 * @param key The key under which the attribute is stored
+	 * @param defaultValue A default value if the attribute is not found
+	 * @return An integer value for the attribute, 0 if parsing was unsuccessful
+	 * @throws CoreException thrown by {@link ILaunchConfiguration#getAttribute(String, String)}
+	 */
+	private double getDoubleAttribute(ILaunchConfiguration configuration, String key, String defaultValue)
+			throws CoreException {
+		String valueString = configuration.getAttribute(key, defaultValue);
+		double result = 0;
+		try{
+			result = Double.parseDouble(valueString);
 		} catch (Exception e){
 				//ok, it was worth a try, so just keep the old value. 
 				logger.debug("Could not parse "+key+" information: "+valueString);
