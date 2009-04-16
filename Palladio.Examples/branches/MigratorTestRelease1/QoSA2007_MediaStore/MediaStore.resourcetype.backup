@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="ASCII"?>
-<ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_9-JuEaYUEduWZfldHy3B1Q" entityName="CPU_AppServer"/>
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_AtY7gaYVEduWZfldHy3B1Q" entityName="CPU_AudioDB"/>
   <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_DH6dMaYVEduWZfldHy3B1Q" entityName="HD_AudioDB"/>

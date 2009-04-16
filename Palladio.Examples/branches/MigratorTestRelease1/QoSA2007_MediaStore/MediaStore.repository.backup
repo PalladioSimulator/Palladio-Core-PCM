@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="ASCII"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_PFfcwKYFEduWZfldHy3B1Q" entityName="MediaStoreRepository">
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_PFfcwKYFEduWZfldHy3B1Q" entityName="MediaStoreRepository">
   <datatypes_Repository xsi:type="CollectionDataType" id="_t-PNZaYXEduWZfldHy3B1Q" entityName="FILE" innerType_CollectionDataType="//@datatypes_Repository.2"/>
   <datatypes_Repository xsi:type="CollectionDataType" id="_sCx2BaYGEduWZfldHy3B1Q" entityName="FILELIST" innerType_CollectionDataType="_t-PNZaYXEduWZfldHy3B1Q"/>
   <datatypes_Repository xsi:type="PrimitiveDataType" type="BYTE"/>
@@ -101,7 +101,7 @@
       <steps_Behaviour xsi:type="_1:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
+          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype.backup#_9-JuEaYUEduWZfldHy3B1Q"/>
           <specification_ParametericResourceDemand specification="DoublePDF[ (0.2; 0.00000000) (0.3; 1.00000000) (0.4; 0.00000000) ]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -176,7 +176,7 @@
       <steps_Behaviour xsi:type="_1:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_XztR5LuBEdudN7w1caiLFg"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_XztR5LuBEdudN7w1caiLFg" entityName="queryDB" successor_AbstractAction="_fNuMY7uBEdudN7w1caiLFg" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype.backup#_AtY7gaYVEduWZfldHy3B1Q"/>
           <specification_ParametericResourceDemand specification="DoublePDF[ (0.3; 0.0) (0.4; 1.0) (0.5; 0.0) ]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -184,7 +184,7 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="_1:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" successor_AbstractAction="_l_CvMLuBEdudN7w1caiLFg" predecessor_AbstractAction="_lnM28buBEdudN7w1caiLFg">
             <resourceDemand_Action>
-              <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+              <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype.backup#_AtY7gaYVEduWZfldHy3B1Q"/>
               <specification_ParametericResourceDemand specification="DoublePDF[ (1.0; 0.02236000) (2.0; 0.04665000) (3.0; 0.10387000) (4.0; 0.16062000) (5.0; 0.20390000) (6.0; 0.18827000) (7.0; 0.11373000) (8.0; 0.06853000) (9.0; 0.02933000) (10.0; 0.01731000) (11.0; 0.00938000) (12.0; 0.00890000) (13.0; 0.00433000) (14.0; 0.00505000) (15.0; 0.00192000) (16.0; 0.00216000) (17.0; 0.00120000) ]"/>
             </resourceDemand_Action>
           </steps_Behaviour>
