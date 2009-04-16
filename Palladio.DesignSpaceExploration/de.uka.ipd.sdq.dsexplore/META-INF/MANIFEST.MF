@@ -19,7 +19,6 @@ Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,
  de.uka.ipd.sdq.dsexplore.helper,
  de.uka.ipd.sdq.dsexplore.launch,
- de.uka.ipd.sdq.dsexplore.newcandidates,
  de.uka.ipd.sdq.dsexplore.qualityAttributes
 Bundle-ClassPath: .,
  log4j/

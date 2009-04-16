@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
+package de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
-import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
+import de.uka.ipd.sdq.dsexplore.designdecisions.INewCandidates;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
@@ -26,7 +26,6 @@ import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;

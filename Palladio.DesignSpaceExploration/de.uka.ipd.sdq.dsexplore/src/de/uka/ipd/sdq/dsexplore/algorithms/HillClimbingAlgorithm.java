@@ -12,8 +12,8 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
-import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
-import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateFactory;
+import de.uka.ipd.sdq.dsexplore.designdecisions.INewCandidates;
+import de.uka.ipd.sdq.dsexplore.designdecisions.NewCandidateFactory;
 
 public class HillClimbingAlgorithm implements IAlgorithm {
 

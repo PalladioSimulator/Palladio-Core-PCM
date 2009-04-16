@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.newcandidates;
+package de.uka.ipd.sdq.dsexplore.designdecisions;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
+package de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
