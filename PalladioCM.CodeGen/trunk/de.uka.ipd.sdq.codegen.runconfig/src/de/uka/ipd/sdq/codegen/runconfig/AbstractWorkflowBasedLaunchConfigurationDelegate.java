@@ -15,6 +15,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
+import de.uka.ipd.sdq.codegen.workflow.Blackboard;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
@@ -35,10 +36,17 @@ import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
  * 		   Steffen Becker
  */
 
-public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowConfigurationType extends AbstractWorkflowBasedRunConfiguration>
+public abstract class 
+	AbstractWorkflowBasedLaunchConfigurationDelegate
+		<WorkflowConfigurationType extends AbstractWorkflowBasedRunConfiguration,
+		BlackboardType extends Blackboard<?>>
 	implements ILaunchConfigurationDelegate {
 
+	private static final String SHORT_LOG_PATTERN = "[%-10t] %-5p: %m%n";
+	private static final String DETAILED_LOG_PATTERN = "%-8r [%-10t] %-5p: %m [%c]%n";
+	
 	protected Logger logger = null;
+	public static String VERBOSE_LOGGING = "verboseLogging";
 
 	/*(non-Javadoc)
 	 * @see org.eclipse.debug.core.model.ILaunchConfigurationDelegate#launch(org.eclipse.debug.core.ILaunchConfiguration,
@@ -52,7 +60,7 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 
 		// Add a process to this launch, needed for Eclipse UI updates
 		SimProcess myProcess = getProcess(launch); 
-		setupLogging(myProcess);
+		setupLogging(configuration, myProcess);
 		launch.addProcess(myProcess);
 		
 		// Setup a new classloader to allow reconfiguration of apache commons logging
@@ -68,11 +76,12 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 			logger.info("Validating configuration...");
 			workflowConfiguration.validateAndFreeze();
 	
-			Workflow workflow = new UIBasedWorkflow(
+			Workflow workflow = new UIBasedWorkflow<BlackboardType>(
 				createWorkflowJob(workflowConfiguration), 
 				monitor, 
 				new UIBasedWorkflowExceptionHandler(
-						!workflowConfiguration.isInteractive()));
+						!workflowConfiguration.isInteractive()),
+				createBlackboard());
 			workflow.run();
 		} finally {
 			// Reset classloader to original value
@@ -82,6 +91,12 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 		// Singnal execution terminatation to Eclipse to update UI 
 		launch.getProcesses()[0].terminate();
 	}
+
+	/**
+	 * Factory method for the blackboard used in the workflow of this launch
+	 * @return The blackboard to be used in the workflow
+	 */
+	protected abstract BlackboardType createBlackboard();
 
 	/**
 	 * @return
@@ -94,18 +109,24 @@ public abstract class AbstractWorkflowBasedLaunchConfigurationDelegate<WorkflowC
 	}
 
 	/**
+	 * @param configuration 
 	 * @param myProcess
+	 * @throws CoreException 
 	 */
-	private void setupLogging(SimProcess myProcess) {
+	private void setupLogging(ILaunchConfiguration configuration, SimProcess myProcess) throws CoreException {
 		/* Initialise Log4J Logging */
 		Logger sdqLogger = Logger.getLogger("de.uka.ipd.sdq");
 		StreamsProxyAppender sdqAppender = new StreamsProxyAppender();
-		setupLogger(sdqAppender,sdqLogger,"%-8r [%-10t] %-5p: %m [%c]%n");
+		if (configuration.getAttribute(VERBOSE_LOGGING, false)) {
+			setupLogger(sdqAppender,sdqLogger,DETAILED_LOG_PATTERN);
+		} else {
+			setupLogger(sdqAppender,sdqLogger,SHORT_LOG_PATTERN);
+		}
 		myProcess.addAppender(sdqAppender);
 
 		Logger oawLogger = Logger.getLogger("org.openarchitectureware");
 		StreamsProxyAppender oawAppender = new StreamsProxyAppender();
-		setupLogger(oawAppender,oawLogger,"%-8r [%-10t] %-5p: %m%n");
+		setupLogger(oawAppender,oawLogger,SHORT_LOG_PATTERN);
 		myProcess.addAppender(oawAppender);
 	}
 
