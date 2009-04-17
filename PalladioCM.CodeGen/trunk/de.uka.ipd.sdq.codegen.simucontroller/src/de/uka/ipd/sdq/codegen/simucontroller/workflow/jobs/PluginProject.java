@@ -33,6 +33,7 @@ import org.eclipse.pde.internal.core.natures.PDE;
  * 
  * @author Roman Andrej
  */
+@SuppressWarnings("restriction")
 public class PluginProject {
 	
 	public static final String F_MANIFEST = "MANIFEST.MF"; //$NON-NLS-1$

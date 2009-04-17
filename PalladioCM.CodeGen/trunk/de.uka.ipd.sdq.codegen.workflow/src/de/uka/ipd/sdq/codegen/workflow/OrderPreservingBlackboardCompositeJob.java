@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 public class OrderPreservingBlackboardCompositeJob<BlackboardType extends Blackboard<?>> 
 extends OrderPreservingCompositeJob implements ICompositeJob, IBlackboardInteractingJob<BlackboardType> {
 	
-	private BlackboardType myBlackboard;
+	protected BlackboardType myBlackboard;
 
 	/**
 	 * constructor

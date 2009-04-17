@@ -349,9 +349,11 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		
 		Feature referenceFeature = null;
 		
-		for (ConfigNode currentNode : configOverrides.getConfignode()) {
-			if (currentNode.getOrigin() != null) {
-				referenceFeature = currentNode.getOrigin();
+		if (configOverrides != null) {
+			for (ConfigNode currentNode : configOverrides.getConfignode()) {
+				if (currentNode.getOrigin() != null) {
+					referenceFeature = currentNode.getOrigin();
+				}
 			}
 		}
 		
@@ -450,10 +452,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		FeatureConfig configOverrides = configuration.getConfigOverrides();
 		
 		Feature referenceFeature = null;
-		
-		for (ConfigNode currentNode : configOverrides.getConfignode()) {
-			if (currentNode.getOrigin() != null) {
-				referenceFeature = currentNode.getOrigin();
+
+		if (configOverrides != null) {
+			for (ConfigNode currentNode : configOverrides.getConfignode()) {
+				if (currentNode.getOrigin() != null) {
+					referenceFeature = currentNode.getOrigin();
+				}
 			}
 		}
 		

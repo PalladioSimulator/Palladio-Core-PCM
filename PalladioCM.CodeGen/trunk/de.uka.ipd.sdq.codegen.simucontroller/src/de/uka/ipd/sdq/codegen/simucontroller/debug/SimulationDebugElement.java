@@ -53,6 +53,7 @@ public abstract class SimulationDebugElement extends PlatformObject implements I
 	/* (non-Javadoc)
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
+	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 		if (adapter == IDebugElement.class) {
 			return this;

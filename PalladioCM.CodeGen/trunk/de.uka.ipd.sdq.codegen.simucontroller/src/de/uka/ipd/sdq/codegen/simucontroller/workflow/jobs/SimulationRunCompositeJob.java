@@ -6,8 +6,6 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfigurat
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -25,15 +23,6 @@ extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard> {
 		this(configuration,1);
 	}
 	
-	/**
-	 * @param attributes -
-	 *            defines the methods, the return SimuCom special variable from the
-	 *            LaunchConfiguration-Object.
-	 * @param i The run number in case of multiple simulation runs
-	 * 
-	 * @throws CoreException
-	 * @throws JobFailedException
-	 */
 	public SimulationRunCompositeJob(SimuComWorkflowConfiguration configuration, int runNo)
 			throws CoreException {
 
@@ -60,6 +49,6 @@ extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard> {
 	}
 
 	public String getName() {
-		return "Simulation Run";
+		return "Single Simulation Run";
 	}
 }

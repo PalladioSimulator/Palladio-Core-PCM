@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -41,8 +39,6 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 		model.addObserver(this);
 		
 		createActions();
-		initializeToolBar();
-		initializeMenu();
 	}
 	
 	@Override
@@ -56,22 +52,6 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 	 */
 	private void createActions() {
 		// Create the actions
-	}
-
-	/**
-	 * Initialize the toolbar
-	 */
-	private void initializeToolBar() {
-		IToolBarManager toolbarManager = getViewSite().getActionBars()
-				.getToolBarManager();
-	}
-
-	/**
-	 * Initialize the menu
-	 */
-	private void initializeMenu() {
-		IMenuManager menuManager = getViewSite().getActionBars()
-				.getMenuManager();
 	}
 
 	@Override

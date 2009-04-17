@@ -146,7 +146,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 	
 	protected void selectVariable() {
 		ResourceSet rs = new ResourceSetImpl();
-		ArrayList filter = new ArrayList();
+		ArrayList<Object> filter = new ArrayList<Object>();
 		filter.add(EObject.class);
 		for (String file : modelFiles) {
 			try {

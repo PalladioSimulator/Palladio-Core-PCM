@@ -254,7 +254,9 @@
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${ejbsOutpath}" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier"/>
+			<beautifier class="org.openarchitectureware.xsd.XMLBeautifier">
+				<fileExtensions value=".xml" />
+			</beautifier>
         <prExcludes value=".svn"/>		
 	</component>	
 

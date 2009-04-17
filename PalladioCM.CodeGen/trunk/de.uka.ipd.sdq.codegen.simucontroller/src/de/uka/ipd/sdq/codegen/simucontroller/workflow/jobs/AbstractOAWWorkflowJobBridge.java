@@ -11,7 +11,6 @@ import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2;
 import org.openarchitectureware.workflow.util.ProgressMonitorAdapter;
-import org.openarchitectureware.xpand2.Generator;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
@@ -72,7 +71,7 @@ implements IJob {
 	protected abstract void setupOAWJob(T oawJob2);
 
 	public String getName() {
-		return oawJob.getId();
+		return oawJob.getId() == null ? "oAW Job" : oawJob.getId();
 	}
 
 	public void rollback(IProgressMonitor monitor)

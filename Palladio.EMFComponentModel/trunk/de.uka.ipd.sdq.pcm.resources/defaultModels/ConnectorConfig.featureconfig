@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<de.uka.ipd.sdq:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureConfig/2.0">
+<de.uka.ipd.sdq:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="Connector config">
   <defaultConfig>
     <referencedObject href="Connector.featuremodel#/"/>
     <confignode configState="SELECTED">
