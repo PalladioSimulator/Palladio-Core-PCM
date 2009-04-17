@@ -3,12 +3,11 @@ package de.uka.ipd.sdq.simucomframework.simulationdock;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
-import java.util.HashMap;
 import java.util.Hashtable;
 
+import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -19,10 +18,8 @@ import org.osgi.service.event.EventAdmin;
 import org.osgi.util.tracker.ServiceTracker;
 
 import de.uka.ipd.sdq.simucomframework.ISimuComControl;
-import de.uka.ipd.sdq.simucomframework.IStatusObserver;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
-import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
@@ -47,6 +44,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		eventService.open();
 		eventAdmin = (EventAdmin)eventService.getService();
 		
+		logger.addAppender(new ConsoleAppender(new PatternLayout(),ConsoleAppender.SYSTEM_OUT));
 		logger.debug("Simulation Dock Started");
 	}
 	

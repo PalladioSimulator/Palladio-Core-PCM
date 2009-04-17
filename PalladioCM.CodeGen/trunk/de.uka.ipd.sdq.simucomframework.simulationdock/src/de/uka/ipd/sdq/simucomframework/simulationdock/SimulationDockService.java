@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.simulationdock;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 public interface SimulationDockService {
