@@ -8,7 +8,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
@@ -23,16 +22,6 @@ import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * Start the Workflow-Engine of oAW - Generator
@@ -50,13 +39,10 @@ public class GenerateOAWCodeJob implements IJob, IBlackboardInteractingJob<MDSDB
 
 	private Map<String, String> properties;
 
-	private SimuComWorkflowConfiguration configuration;
-
 	private MDSDBlackboard blackboard;
 
 	public GenerateOAWCodeJob(SimuComWorkflowConfiguration configuration) {
 		this.properties = new HashMap<String, String>();
-		this.configuration = configuration;
 		setupOAWProperties(configuration);
 	}
 
@@ -178,7 +164,6 @@ public class GenerateOAWCodeJob implements IJob, IBlackboardInteractingJob<MDSDB
 		// do nothing
 	}
 
-	@Override
 	public void setBlackbard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
