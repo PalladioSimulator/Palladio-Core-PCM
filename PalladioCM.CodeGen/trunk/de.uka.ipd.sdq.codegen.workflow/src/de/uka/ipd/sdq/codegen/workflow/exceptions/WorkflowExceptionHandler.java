@@ -75,4 +75,9 @@ public class WorkflowExceptionHandler  {
 	public void handleUserCanceled(UserCanceledException e) {
 		// do nothing
 	}
+
+	public void handleFatalFailure(Exception e) {
+		handleCriticalException(e);
+		throw new RuntimeException("Fatal failure occured at runtime",e);
+	}
 }

@@ -1,10 +1,6 @@
 package de.uka.ipd.sdq.codegen.workflow;
 
-import org.apache.log4j.Appender;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -69,6 +65,9 @@ public class Workflow
 		} catch (UserCanceledException e) {
 			logger.info("User canceled workflow");
 			this.exceptionHandler.handleUserCanceled(e);
+		} catch (Exception e) {
+			logger.fatal("Workflow terminated unexpectedly",e);
+			this.exceptionHandler.handleFatalFailure(e);
 		} finally {
 			logger.info("Cleaning up...");
 			try {

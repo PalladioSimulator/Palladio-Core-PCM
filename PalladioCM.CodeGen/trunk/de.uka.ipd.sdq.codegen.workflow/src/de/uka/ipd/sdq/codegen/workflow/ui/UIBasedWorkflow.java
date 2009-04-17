@@ -1,73 +1,27 @@
 package de.uka.ipd.sdq.codegen.workflow.ui;
 
-import java.io.PrintStream;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.ui.console.ConsolePlugin;
-import org.eclipse.ui.console.IConsole;
-import org.eclipse.ui.console.MessageConsole;
 
+import de.uka.ipd.sdq.codegen.workflow.Blackboard;
+import de.uka.ipd.sdq.codegen.workflow.BlackboardBasedWorkflow;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 
 /**
- * 
- * 
+ * A workflow which is able to interact with the Eclipse GUI, i.e., for message logging or
+ * error dialogs. Additionally the workflow supports the use of a blackboard for all its jobs to 
+ * exchange information, e.g., EMF models
  * @author Steffen
- *
+ * @param <T> The type of the blackboard to be used in this workflow
  */
-public class UIBasedWorkflow extends Workflow {
+public class UIBasedWorkflow<T extends Blackboard<?>> 
+extends BlackboardBasedWorkflow<T> {
 
-	private PrintStream outStream;
-	private PrintStream errStream;
-
-	private static MessageConsole console = null;
-	private static PrintStream myOutStream = null;
-	
-	public UIBasedWorkflow(IJob job, IProgressMonitor monitor, WorkflowExceptionHandler workflowExceptionHandler) {
-		super(job, monitor, workflowExceptionHandler);
+	public UIBasedWorkflow(
+			IJob job, 
+			IProgressMonitor monitor, 
+			WorkflowExceptionHandler workflowExceptionHandler,
+			T blackboard) {
+		super(job, monitor, workflowExceptionHandler, blackboard);
 	}
-
-	@Override
-	public void run() {
-		redirectIOStreamsForLogging();
-		super.run();
-		resetIOStreams();
-	}
-	
-	private void resetIOStreams() {
-		System.setOut(outStream);
-		System.setErr(errStream);
-	}
-
-	private void redirectIOStreamsForLogging() {
-		/* Redirect standard IO streams for tools run in the workflow which do not 
-		 * support "real" logging.
-		 */
-		outStream = System.out;
-		errStream = System.err;
-		PrintStream consoleStream = getPrintStream();
-		System.setOut(consoleStream);
-		System.setErr(consoleStream);
-	}
-	
-	private MessageConsole getConsole() {
-		if (console == null) {
-			console = new MessageConsole("SimuComController Generator Console",
-					null);
-			ConsolePlugin.getDefault().getConsoleManager().addConsoles(
-					new IConsole[] { console });
-		}
-		console.activate();
-		return console;
-	}
-	
-	private PrintStream getPrintStream() {
-		if (myOutStream == null) {
-			MessageConsole console = getConsole();
-			myOutStream = new PrintStream(console.newMessageStream());
-		}
-		return myOutStream;
-	}	
 }

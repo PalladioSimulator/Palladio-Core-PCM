@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.workflow;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
@@ -27,10 +28,17 @@ public class OrderPreservingCompositeJob extends AbstractCompositeJob implements
 	 * be executed.
 	 */ 
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+		IProgressMonitor subProgressMonitor = new SubProgressMonitor(monitor, 1);
+		subProgressMonitor.beginTask("Composite Job Execution", myJobs.size());
+		
 		for (IJob job : myJobs) {
+			if (monitor.isCanceled())
+				throw new UserCanceledException();			
 			logger.info("SDQ Workflow-Engine: Running job "+job.getName());
 			myExecutedJobs.push(job);
-			job.execute(monitor);
+			job.execute(subProgressMonitor);
+			subProgressMonitor.worked(1);
 		}
+		subProgressMonitor.done();
 	}
 }
