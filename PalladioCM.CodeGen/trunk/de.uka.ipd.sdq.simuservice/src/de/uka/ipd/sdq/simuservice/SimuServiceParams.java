@@ -68,42 +68,88 @@ public class SimuServiceParams {
 		this.resultsDirectory = resultsDirectory;
 	}
 
+	/**
+	 * Retrieves the repository model file.
+	 * 
+	 * @return the repository model file
+	 */
 	public String getRepositoryFile() {
 		return repositoryFile;
 	}
 
+	/**
+	 * Sets the repository model file.
+	 * 
+	 * @param repositoryFile the repository model file to set
+	 */
 	public void setRepositoryFile(String repositoryFile) {
 		this.repositoryFile = repositoryFile;
 	}
 
+	/**
+	 * Retrieves the system file.
+	 * 
+	 * @return the system file
+	 */
 	public String getSystemFile() {
 		return systemFile;
 	}
 
+	/**
+	 * Sets the system file
+	 * 
+	 * @param systemFile the system file to set
+	 */
 	public void setSystemFile(String systemFile) {
 		this.systemFile = systemFile;
 	}
 
+	/**
+	 * Retrieves the resource environment file.
+	 * 
+	 * @return the resource environment file
+	 */
 	public String getResourceEnvironmentFile() {
 		return resourceEnvironmentFile;
 	}
 
+	/**
+	 * Sets the resource environment file.
+	 * 
+	 * @param resourceEnvironmentFile the resource environment file to set
+	 */
 	public void setResourceEnvironmentFile(String resourceEnvironmentFile) {
 		this.resourceEnvironmentFile = resourceEnvironmentFile;
 	}
 
+	/**
+	 * Retrieves the allocation file.
+	 * 
+	 * @return the allocation file
+	 */
 	public String getAllocationFile() {
 		return allocationFile;
 	}
 
+	/**
+	 * Sets the allocation file.
+	 * 
+	 * @param allocationFile the allocation file to set
+	 */
 	public void setAllocationFile(String allocationFile) {
 		this.allocationFile = allocationFile;
 	}
 
+	/**
+	 * Retrieves the usage file.
+	 * 
+	 * @return the usage file
+	 */
 	public String getUsageFile() {
 		return usageFile;
 	}
 
+	
 	public void setUsageFile(String usageFile) {
 		this.usageFile = usageFile;
 	}

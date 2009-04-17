@@ -1,11 +1,16 @@
 package de.uka.ipd.sdq.simuservice.impl;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
 import de.uka.ipd.sdq.simuservice.SimuService;
 import de.uka.ipd.sdq.simuservice.SimuServiceParams;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.;
 
 /**
  * The SimuService provides an operation to perform a simulation, and thus
@@ -22,18 +27,30 @@ public class SimuServiceImpl implements SimuService {
 	 *            the input parameters to simulation
 	 */
 	public void simulate(SimuServiceParams params) {
-		SimuComWorkflowConfiguration workflowConfiguration =
-			new SimuComWorkflowConfiguration();
 
-		// TODO: configure simucom using the methods of the configuration object
+		// The configuration object holds all data necessary for simulation:
+		SimuComWorkflowConfiguration workflowConfiguration = new SimuComWorkflowConfiguration();
 
+		// TODO: Fill the configuration object with the params and add default
+		// values for other parameters:
+		workflowConfiguration.setAllocationFile(params.getAllocationFile());
+		// ...
+
+		// Validate the configuration and fix all values:
 		workflowConfiguration.validateAndFreeze();
-		Workflow workflow = new UIBasedWorkflow<MDSDBlackboard>(
-					new SimuComJob(config),
-					new NullProgressMonitor(),
-				        new WorkflowExceptionHandler(false),
-					new MDSDBlackboard());
+		
+		// Create a new workflow:
+		Workflow workflow = null;		
+		try {
+			workflow = new UIBasedWorkflow<MDSDBlackboard>(new SimuComJob(
+					workflowConfiguration), new NullProgressMonitor(),
+					new WorkflowExceptionHandler(false), new MDSDBlackboard());
+		} catch (CoreException e) {
+			// This should never happen...
+			e.printStackTrace();
+		}
+		
+		// Execute the workflow:
 		workflow.run();
 	}
-
 }
