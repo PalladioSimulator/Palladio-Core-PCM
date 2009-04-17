@@ -3,10 +3,42 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
 import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedRunConfiguration;
+import de.uka.ipd.sdq.completions.CompletionsPackage;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 public abstract class AbstractPCMWorkflowRunConfiguration 
 extends	AbstractWorkflowBasedRunConfiguration {
+	
+	public static final EPackage[] PCM_EPACKAGES = new EPackage[]{
+			SeffPackage.eINSTANCE,
+			RepositoryPackage.eINSTANCE,
+			ParameterPackage.eINSTANCE,
+			UsagemodelPackage.eINSTANCE,
+			SystemPackage.eINSTANCE,
+			ResourcetypePackage.eINSTANCE,
+			ResourceenvironmentPackage.eINSTANCE,
+			AllocationPackage.eINSTANCE,
+			StoexPackage.eINSTANCE,
+			CorePackage.eINSTANCE,
+			CompletionsPackage.eINSTANCE,
+		};
 	
 	private String resourceTypeFile;
 	private String repositoryFile;
@@ -15,6 +47,7 @@ extends	AbstractWorkflowBasedRunConfiguration {
 	private String allocationFile;
 	private String usageModelFile;
 	private String featureConfigFile;
+	private ResourceSet rs = new ResourceSetImpl();
 
 	public List<String> getPCMModelFiles() {
 		ArrayList<String> files = new ArrayList<String>();
@@ -89,5 +122,12 @@ extends	AbstractWorkflowBasedRunConfiguration {
 		checkFixed();
 		this.featureConfigFile = featureConfigFile;
 	}
-	
+
+	@Override
+	public void validateAndFreeze() {
+		super.validateAndFreeze();
+
+		for (String uri : getPCMModelFiles()) {
+		}
+	}
 }

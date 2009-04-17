@@ -3,11 +3,13 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPCMModelsIntoBlackboard;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
 
 /**
@@ -18,8 +20,8 @@ import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
  * 
  * @author Roman Andrej
  */
-public class SimuComWorkflowLauncher 
-extends	AbstractWorkflowBasedLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
+public class SimuComWorkflowLauncher
+extends	AbstractMDSDLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
@@ -36,8 +38,9 @@ extends	AbstractWorkflowBasedLaunchConfigurationDelegate<SimuComWorkflowConfigur
 	 */
 	@Override
 	protected IJob createWorkflowJob(SimuComWorkflowConfiguration config) throws CoreException {
-		OrderPreservingCompositeJob result = new OrderPreservingCompositeJob();
+		OrderPreservingCompositeJob result = new OrderPreservingBlackboardCompositeJob<MDSDBlackboard>();
 		
+		result.addJob(new LoadPCMModelsIntoBlackboard(config));
 		result.addJob(new CheckOAWConstraintsJob(
 				config.getPCMModelFiles(), !config.isInteractive()));
 
@@ -49,6 +52,4 @@ extends	AbstractWorkflowBasedLaunchConfigurationDelegate<SimuComWorkflowConfigur
 		
 		return result;
 	}
-
-
 }

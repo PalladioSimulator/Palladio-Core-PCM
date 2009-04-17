@@ -3,7 +3,9 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
+import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
@@ -16,7 +18,8 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  * @author Philipp Meier
  * 		   Steffen Becker
  */
-public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
+public class SimulationRunCompositeJob 
+extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard> {
 
 	public SimulationRunCompositeJob(SimuComWorkflowConfiguration configuration) throws CoreException {
 		this(configuration,1);

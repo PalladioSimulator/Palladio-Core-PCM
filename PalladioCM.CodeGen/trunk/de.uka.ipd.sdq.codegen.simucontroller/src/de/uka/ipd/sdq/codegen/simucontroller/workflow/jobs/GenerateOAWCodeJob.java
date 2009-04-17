@@ -6,19 +6,38 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
+import org.openarchitectureware.xpand2.output.Outlet;
 
 import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.PCMResourceSetPartition;
+import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * Start the Workflow-Engine of oAW - Generator
  */
-public class GenerateOAWCodeJob implements IJob {
+public class GenerateOAWCodeJob implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	protected Logger logger = Logger.getLogger(GenerateOAWCodeJob.class);
 	
@@ -26,13 +45,18 @@ public class GenerateOAWCodeJob implements IJob {
 	private final static String SYSTEM_FILE = "codegen_system.oaw";
 	private final static String USAGE_FILE = "codegen_usage.oaw";
 
-	private final String[] myWorkflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
+	private final String[] myWorkflowFiles = { SYSTEM_FILE,
 			USAGE_FILE };
 
 	private Map<String, String> properties;
 
+	private SimuComWorkflowConfiguration configuration;
+
+	private MDSDBlackboard blackboard;
+
 	public GenerateOAWCodeJob(SimuComWorkflowConfiguration configuration) {
 		this.properties = new HashMap<String, String>();
+		this.configuration = configuration;
 		setupOAWProperties(configuration);
 	}
 
@@ -85,18 +109,40 @@ public class GenerateOAWCodeJob implements IJob {
 				.getSimulateLinkingResources() ? "true" : "false");
 	}
 
-	public void execute(IProgressMonitor monitor) throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 		if (properties.isEmpty())
 			throw new JobFailedException("Setting up properties failed");
 
 		Map<String, Object> slotContents = new HashMap<String, Object>();
 
+		IProgressMonitor subProgressMonitor = new SubProgressMonitor(monitor,1);
+		subProgressMonitor.beginTask("Generate with oAW source files", myWorkflowFiles.length + 1);
+		
+		HashMap<String,EObject> sC2 = new HashMap<String, EObject>();
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboard.PCM_MODELS_PARTITION_ID);
+		sC2.put("pcmmodel",pcmPartition.getRepository());
+		Outlet defaultOutlet = new Outlet(properties.get(ConstantsContainer.EJBSOUT_PATH));
+		Outlet interfaces = new Outlet(properties.get(ConstantsContainer.INTERFACESOUT_PATH));
+		interfaces.setName("INTERFACES");
+		XpandGeneratorJob job = new XpandGeneratorJob(
+				sC2,
+				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES,
+				new Outlet[]{defaultOutlet,interfaces},
+				"m2t_transforms::repository::Root FOR pcmmodel");
+		job.execute(monitor);
+		
 		for (String workflowFile : myWorkflowFiles) {
+			if (monitor.isCanceled())
+				throw new UserCanceledException();
 			generateFile(slotContents, workflowFile);
+			subProgressMonitor.worked(1);
 		}
 		properties.put("repositoryFile", properties
 				.get("mwRepositoryFile"));
 		generateFile(slotContents, REPOSITORY_FILE);
+		
+		subProgressMonitor.worked(1);
+		subProgressMonitor.done();
 	}
 
 	private void generateFile(Map<String, Object> slotContents,
@@ -130,5 +176,10 @@ public class GenerateOAWCodeJob implements IJob {
 
 	public void rollback(IProgressMonitor monitor) {
 		// do nothing
+	}
+
+	@Override
+	public void setBlackbard(MDSDBlackboard blackboard) {
+		this.blackboard = blackboard;
 	}
 }
