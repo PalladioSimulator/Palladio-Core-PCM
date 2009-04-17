@@ -13,12 +13,14 @@
 		<outputSlot value="allocation"/>
 	</component>
 
+<!--
     <component class="de.uka.sdq.pcm.transformations.SensitivityWorkflowComponent">
     	<runNo value="${runNo}"/>
     	<min value="${minimum}"/>
     	<variable value="${variable}"/>
     	<step value="${stepwidth}"/>
 	</component>
+-->
 	
 	<component
 		class="org.openarchitectureware.check.CheckComponent">

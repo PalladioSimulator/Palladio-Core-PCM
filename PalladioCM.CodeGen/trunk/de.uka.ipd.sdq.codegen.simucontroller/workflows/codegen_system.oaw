@@ -23,14 +23,14 @@
 		<modelFile value="${systemFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
-
+<!--
     <component class="de.uka.sdq.pcm.transformations.SensitivityWorkflowComponent">
     	<runNo value="${runNo}"/>
     	<min value="${minimum}"/>
     	<variable value="${variable}"/>
     	<step value="${stepwidth}"/>
 	</component>
-
+-->
 	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>

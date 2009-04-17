@@ -3,14 +3,8 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPCMModelsIntoBlackboard;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for
@@ -38,18 +32,6 @@ extends	AbstractMDSDLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
 	 */
 	@Override
 	protected IJob createWorkflowJob(SimuComWorkflowConfiguration config) throws CoreException {
-		OrderPreservingCompositeJob result = new OrderPreservingBlackboardCompositeJob<MDSDBlackboard>();
-		
-		result.addJob(new LoadPCMModelsIntoBlackboard(config));
-		result.addJob(new CheckOAWConstraintsJob(
-				config.getPCMModelFiles(), !config.isInteractive()));
-
-		if (config.isSensitivityAnalysisEnabled()) {
-			result.addJob(new MultipleSimulationRunsCompositeJob(config));
-		} else {
-			result.addJob(new SimulationRunCompositeJob(config));
-		}
-		
-		return result;
+		return new SimuComJob(config);
 	}
 }
