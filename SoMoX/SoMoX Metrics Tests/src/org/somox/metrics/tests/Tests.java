@@ -19,7 +19,6 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.somox.metrics.Abstractness;
 import org.somox.metrics.Coupling;
@@ -28,6 +27,7 @@ import org.somox.metrics.Instability;
 import org.somox.metrics.InterfaceViolation;
 import org.somox.metrics.NameResemblance;
 import org.somox.metrics.PackageMapping;
+import org.somox.metrics.SliceLayerArchitectureQuality;
 
 import de.fzi.gast.accesses.provider.accessesItemProviderAdapterFactory;
 import de.fzi.gast.annotations.provider.annotationsItemProviderAdapterFactory;
@@ -49,6 +49,7 @@ public class Tests {
 	private InterfaceViolation iViol;
 	private NameResemblance nameRes;
 	private PackageMapping pMap;
+	private SliceLayerArchitectureQuality slaq;
 
 	private static AdapterFactoryEditingDomain editingDomain;
 
@@ -138,12 +139,8 @@ public class Tests {
 	public void ifaceViolationTest () throws Exception {
 		iViol = new InterfaceViolation();
 
-		long time1First = System.nanoTime();
-		double interfaceViolation = 0.0;
-		
-		//Not yet implemented
-		//double interfaceViolation = iViol.compute(root, elements1, elements2);
-		
+		long time1First = System.nanoTime();		
+		double interfaceViolation = iViol.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
 		System.out.println("Interface Violation");
@@ -151,6 +148,22 @@ public class Tests {
 		
 		//needs to be changed for different models / different lists
 		//assertTrue("Instability result correct", distanceFMS == 0.5);
+		System.out.println("");
+	}
+	
+	@Test
+	public void SLAQTest () throws Exception {
+		slaq = new SliceLayerArchitectureQuality();
+
+		long time1First = System.nanoTime();		
+		double sliceLayerArchitectureQuality = slaq.compute(root, elements1, elements2);
+		long time1total = System.nanoTime()-time1First;
+		
+		System.out.println("Slice Layer Architecture Quality");
+		System.out.println("Calculated without EMF-Query: " + sliceLayerArchitectureQuality + " (took: " + time1total + " ns)");
+		
+		//needs to be changed for different models / different lists
+		//assertTrue("Slice Layer Architecture Quality result correct", sliceLayerArchitectureQuality == 0.5);
 		System.out.println("");
 	}
 	
@@ -179,7 +192,8 @@ public class Tests {
 		long time1First = System.nanoTime();
 		
 		//last parameter = percentage needs to be changed manually
-		double nameResemblance = nameRes.compute(root, elements1, elements2, 50);
+		nameRes.setPercentage(50);
+		double nameResemblance = nameRes.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
 		System.out.println("Name Resemblance");
@@ -193,7 +207,7 @@ public class Tests {
 		pMap = new PackageMapping();
 
 		long time1First = System.nanoTime();
-		double packageMapping = pMap.compute(root, elements1, elements2, 50);
+		double packageMapping = pMap.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
 		System.out.println("Package Mapping");
