@@ -15,6 +15,7 @@ public interface ISimuService {
 	 * 
 	 * @param params
 	 *            the input parameters to simulation
+	 * @return status information about the simulation run
 	 */
-	public void simulate(final SimuServiceParams params);
+	public SimuServiceResultStatus simulate(final SimuServiceParams params);
 }

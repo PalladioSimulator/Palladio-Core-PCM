@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.simuservice;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -11,6 +15,7 @@ import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
 import de.uka.ipd.sdq.simuservice.types.ISimuService;
 import de.uka.ipd.sdq.simuservice.types.SimuServiceParams;
+import de.uka.ipd.sdq.simuservice.types.SimuServiceResultStatus;
 
 /**
  * The SimuService provides an operation to perform a simulation, and thus
@@ -18,6 +23,8 @@ import de.uka.ipd.sdq.simuservice.types.SimuServiceParams;
  * 
  * author: brosch, heupel
  */
+@WebService(name = "PCMSimulationService")
+@SOAPBinding(style = SOAPBinding.Style.RPC)
 public class SimuService implements ISimuService {
 
 	/**
@@ -25,8 +32,40 @@ public class SimuService implements ISimuService {
 	 * 
 	 * @param params
 	 *            the input parameters to simulation
+	 * @return status information about the simulation run
 	 */
-	public void simulate(SimuServiceParams params) {
+	@WebMethod(operationName = "simulate")
+	public SimuServiceResultStatus simulate(SimuServiceParams params) {
+
+		// Create a new status object to capture the status of the SimuService
+		// execution:
+		SimuServiceResultStatus status = new SimuServiceResultStatus();
+
+		// Perform the simulation run. Catch any exception that might occur:
+		try {
+			performSimulation(status, params);
+		} catch (Exception e) {
+			status.setException(e);
+		}
+
+		// Freeze the status object:
+		status.freeze();
+
+		// Return the result:
+		return status;
+	}
+
+	/**
+	 * Performs a simulation run.
+	 * 
+	 * @param status
+	 *            object for reporting the status of the simulation run
+	 * @param params
+	 *            the input parameters to simulation
+	 * @throws CoreException
+	 */
+	private void performSimulation(final SimuServiceResultStatus status,
+			final SimuServiceParams params) throws CoreException {
 
 		// The configuration object holds all data necessary for simulation:
 		SimuComWorkflowConfiguration workflowConfiguration = new SimuComWorkflowConfiguration();
@@ -38,19 +77,23 @@ public class SimuService implements ISimuService {
 
 		// Validate the configuration and fix all values:
 		workflowConfiguration.validateAndFreeze();
-		
+
+		// Record the success of SimuService execution:
+		status.setWorkflowParamsConfigured(true);
+
 		// Create a new workflow:
-		Workflow workflow = null;		
-		try {
-			workflow = new UIBasedWorkflow<MDSDBlackboard>(new SimuComJob(
-					workflowConfiguration), new NullProgressMonitor(),
-					new WorkflowExceptionHandler(false), new MDSDBlackboard());
-		} catch (CoreException e) {
-			// This should never happen...
-			e.printStackTrace();
-		}
-		
+		Workflow workflow = null;
+		workflow = new UIBasedWorkflow<MDSDBlackboard>(new SimuComJob(
+				workflowConfiguration), new NullProgressMonitor(),
+				new WorkflowExceptionHandler(false), new MDSDBlackboard());
+
+		// Record the success of SimuService execution:
+		status.setWorkflowCreated(true);
+
 		// Execute the workflow:
 		workflow.run();
+
+		// Record the success of SimuService execution:
+		status.setWorkflowExecuted(true);
 	}
 }
