@@ -13,16 +13,16 @@ import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
-public class LoadPCMModelsIntoBlackboard 
+public class LoadPCMModelsIntoBlackboardJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
-	private Logger logger = Logger.getLogger(LoadPCMModelsIntoBlackboard.class);
+	private Logger logger = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
 	
 	public static final String PCM_MODELS_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition";
 	private MDSDBlackboard blackboard = null;
 	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
-	public LoadPCMModelsIntoBlackboard(SimuComWorkflowConfiguration config) {
+	public LoadPCMModelsIntoBlackboardJob(SimuComWorkflowConfiguration config) {
 		super();
 		
 		this.configuration  = config;

@@ -2,8 +2,10 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class ResourceSetPartition {
 	protected ResourceSet rs = new ResourceSetImpl();
@@ -19,10 +21,12 @@ public class ResourceSetPartition {
 	}
 	
 	public void loadModel(String modelURI) {
+		Resource r;
 		if (modelURI.indexOf("://") >= 0) { 
-			rs.getResource(URI.createURI(modelURI), true);
+			r = rs.getResource(URI.createURI(modelURI), true);
 		} else {
-			rs.getResource(URI.createFileURI(modelURI), true);
+			r = rs.getResource(URI.createFileURI(modelURI), true);
 		}
+		EcoreUtil.resolveAll(r);
 	}
 }

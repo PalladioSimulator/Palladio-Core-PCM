@@ -2,53 +2,62 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 
 
-public class CreatePluginProjectJob implements IJob {
+public class CreatePluginProjectJob 
+implements IJob {
 
-	private IProject myProject;
+	private Logger logger = Logger.getLogger(CreatePluginProjectJob.class);
+		
 	private boolean deleteProject;
 	private String myProjectId;
 
-	public CreatePluginProjectJob(String projectId, boolean deleteProject) {
-		this.myProjectId = projectId;
-		this.deleteProject = deleteProject;
-	}
-
-	public IProject getProject() {
-		return myProject;
+	public CreatePluginProjectJob(AbstractCodeGenerationWorkflowRunConfiguration configuration) {
+		super();
+		
+		this.myProjectId = configuration.getPluginID();
+		this.deleteProject = configuration.shouldDeleteGeneratedCodeOnCleanup();
 	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
 	 */
 	public void execute(IProgressMonitor monitor) throws UserCanceledException, JobFailedException{
+		ensurePluginProjectNotExisting(monitor);
+		createContainerPlugin(monitor);
+	}
+
+	/**
+	 * @throws UserCanceledException
+	 * @throws JobFailedException 
+	 */
+	private void ensurePluginProjectNotExisting(IProgressMonitor monitor) throws UserCanceledException, JobFailedException {
 		if (pluginFolderExists()) {
 			if (!userAcceptsDelete()) {
 				// abort execution
 				throw new UserCanceledException("Aborted by user");
+			} else {
+				try {
+					deleteProject(monitor, getProject(this.myProjectId));
+				} catch (CoreException e) {
+					throw new JobFailedException("Removing old project failed",e);
+				}
 			}
-		}
-			
-		try {			
-			myProject = PluginProject.createInstance().createContainerPlugin(
-					myProjectId,
-					new NullProgressMonitor());
-		} catch (CoreException e) {
-			throw new JobFailedException("Creating plugin project failed", e);
 		}
 	}
 	
@@ -90,26 +99,123 @@ public class CreatePluginProjectJob implements IJob {
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#rollback()
 	 */
 	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
-		if (myProject == null) {
-			return;
-		}
-		try {
-			if (deleteProject)
-				myProject.close(new NullProgressMonitor());
-		} catch (CoreException e) {
-			throw new RollbackFailedException("Closing plugin project failed", e);
-		}
-
-		try {
-			if (deleteProject) {
-				myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
-						new NullProgressMonitor());
-				ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE,
-					new NullProgressMonitor());
+		if (deleteProject) {
+			IProject myProject = getProject(this.myProjectId);
+			if (myProject == null) {
+				return;
 			}
-		} catch (CoreException e) {
-			throw new RollbackFailedException("Deleting plugin project failed", e);
+			
+			try {
+				deleteProject(monitor, myProject);
+			} catch (CoreException e) {
+				throw new RollbackFailedException("Delete project failed",e);
+			}
 		}
+	}
+
+	/**
+	 * @param monitor
+	 * @param myProject
+	 * @throws RollbackFailedException
+	 */
+	private void deleteProject(IProgressMonitor monitor, IProject myProject)
+			throws CoreException {
+		logger.info("Deleting project "+myProject.getName());
+		
+		myProject.close(monitor);
+		myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
+					monitor);
+		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(1,
+				monitor);
+		
+		if (pluginFolderExists()) {
+			// Eclipse failed in fully cleaning the directory
+			clearPluginFolder();
+		}
+	}
+	
+	/**
+	 * deletes a folder and all of its contents recursively
+	 * 
+	 * @param folder the folder to be deleted
+	 * @return true on success, false otherwise
+	 */
+	private boolean deleteFolder(File folder) {
+		if (folder.isDirectory()) {
+			for(File child:folder.listFiles()) {
+				System.out.println(child.toString());
+				if (!deleteFolder(child)) {
+					return false;
+				}
+	        }	       
+	    }
+		
+		 // empty folders can be deleted directly
+        return folder.delete();
+	}
+	
+	/**
+	 * clears the simulation plugin folder
+	 */	
+	private void clearPluginFolder() {
+		File pluginFolder = ResourcesPlugin
+		.getWorkspace()
+		.getRoot()
+		.getRawLocation()
+		.append(this.myProjectId)
+		.toFile();
+	
+		deleteFolder(pluginFolder);
+	}	
+	
+	/**
+	 * returns a new project to be used for the simulation
+	 * 
+	 * @return a handle to the project to be used for the simulation
+	 */
+	public static IProject getProject(String projectId) {
+		return ResourcesPlugin.getWorkspace().getRoot().getProject(
+				projectId);
+	}
+	
+	/**
+	 * The function implements all steps, which are necessary for the creation of
+	 * a Plugin Project
+	 * @param projectId The ID of the new project
+	 * @param monitor The progress monitor which displays progress
+	 * @return - container project (Plug-In)
+	 */
+	public void createContainerPlugin(IProgressMonitor monitor) throws JobFailedException {
+		try {
+			IProject project = getProject(this.myProjectId);
+	
+			IFolder srcFolder = project.getFolder("src");
+			IFolder manifestFolder = project.getFolder("META-INF");
+	
+			// create resources
+			createProject(project, monitor);
+			createFolder(project, srcFolder);
+			createFolder(project, manifestFolder);		
+		} catch (CoreException e) {
+			throw new JobFailedException("Generation of the Eclipse project failed",e);
+		}
+	}
+
+	private void createFolder(IProject project, IFolder folder)
+			throws CoreException {
+		if (project.isOpen() && !folder.exists()) {
+			logger.debug("Creating folder " + folder.getName());
+			folder.create(false, true, null);
+		}
+	}
+
+	private void createProject(IProject project, IProgressMonitor monitor)
+			throws CoreException {
+		if (!project.exists()) {
+			logger.debug("Creating Eclipse workspace project " + project.getName());
+			project.create(monitor);
+		}
+		project.open(monitor);
 	}
 	
 	/**

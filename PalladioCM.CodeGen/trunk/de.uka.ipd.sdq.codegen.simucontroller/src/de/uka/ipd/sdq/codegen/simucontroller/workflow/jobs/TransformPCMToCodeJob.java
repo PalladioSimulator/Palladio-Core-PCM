@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 /**
  * Start the Workflow-Engine of oAW - Generator
  */
-public class GenerateOAWCodeJob 
+public class TransformPCMToCodeJob 
 extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
@@ -50,7 +50,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	private SimuComWorkflowConfiguration configuration = null;
 
-	public GenerateOAWCodeJob(SimuComWorkflowConfiguration configuration) {
+	public TransformPCMToCodeJob(SimuComWorkflowConfiguration configuration) {
 		super();
 		
 		this.configuration  = configuration;
@@ -189,7 +189,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	 */
 	private HashMap<String, EObject> getSystemTransformationSlots() {
 		HashMap<String,EObject> sC2 = new HashMap<String, EObject>();
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboard.PCM_MODELS_PARTITION_ID);
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		
 		sC2.put("middleware",pcmPartition.getMiddlewareRepository());
 		sC2.put("featureConfig",pcmPartition.getFeatureConfig());
@@ -204,7 +204,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	 */
 	private HashMap<String, EObject> getRepositoryTransformationSlots() {
 		HashMap<String,EObject> sC2 = new HashMap<String, EObject>();
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboard.PCM_MODELS_PARTITION_ID);
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		sC2.put("pcmmodel",pcmPartition.getRepository());
 		return sC2;
 	}
@@ -238,8 +238,8 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		String basePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString() 
 		+ "/" +
 		(this.configuration.isSensitivityAnalysisEnabled() 
-				? this.configuration.getGeneratedPluginId()+"."+this.configuration.getSensitivityAnalysisConfiguration().getRunNo() 
-				: this.configuration.getGeneratedPluginId()) 
+				? this.configuration.getPluginID()+"."+this.configuration.getSensitivityAnalysisConfiguration().getRunNo() 
+				: this.configuration.getPluginID()) 
 		+ "/" + "src";
 		
 		return basePath;

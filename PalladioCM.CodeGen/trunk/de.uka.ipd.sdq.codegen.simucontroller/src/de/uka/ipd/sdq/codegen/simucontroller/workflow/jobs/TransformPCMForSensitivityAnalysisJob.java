@@ -50,7 +50,7 @@ public class TransformPCMForSensitivityAnalysisJob implements
 	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboard.PCM_MODELS_PARTITION_ID);
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		
 		EObject o = null;
 		for(Resource r : pcmPartition.getResourceSet().getResources()) {

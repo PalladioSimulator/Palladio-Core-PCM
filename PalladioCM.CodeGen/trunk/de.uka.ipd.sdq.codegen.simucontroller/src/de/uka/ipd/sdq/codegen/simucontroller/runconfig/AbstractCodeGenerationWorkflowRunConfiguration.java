@@ -11,10 +11,6 @@ extends	AbstractPCMWorkflowRunConfiguration {
 	public boolean shouldDeleteGeneratedCodeOnCleanup() {
 		return cleanupCode;
 	}
-	
-	public String getGeneratedPluginId() {
-		return pluginID;
-	}
 
 	public void setCleanupCode(boolean cleanupCode) {
 		checkFixed();

@@ -70,8 +70,8 @@ context CommunicationLinkResourceSpecification ERROR 'No latency specified for c
 context ProcessingResourceSpecification ERROR 'Processing Rate must be set for ProcessingResourceSpecification':
 	this.processingRate_ProcessingResourceSpecification != null && this.processingRate_ProcessingResourceSpecification.specification != '';
 	
-context Repository ERROR 'Repository should contain at least one component':
-	this.components__Repository.size > 0;
+context Repository ERROR 'Repository should contain at least one element':
+	this.components__Repository.size > 0 || this.datatypes_Repository.size > 0 || this.interfaces__Repository.size > 0;
 	
 context LinkingResource ERROR 'No specification for Linking Resource '+this.entityName+' given':
 	this.communicationLinkResourceSpecifications_LinkingResource != null;

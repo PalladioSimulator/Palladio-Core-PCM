@@ -13,12 +13,9 @@ import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
@@ -30,36 +27,31 @@ import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.ResourceSetPartition;
+import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 
 class ErrorDisplayRunner implements Runnable {
 	
-	private ArrayList<SeverityAndIssue> issues;
+	private List<SeverityAndIssue> issues;
 	private boolean shouldProceed;
 
 	public boolean shouldProceedAfterErrorDialog() {
 		return shouldProceed;
 	}
 
-	public ErrorDisplayRunner(ArrayList<SeverityAndIssue> issues) {
+	public ErrorDisplayRunner(List<SeverityAndIssue> overallResult) {
 		super();
-		this.issues = issues;
+		this.issues = overallResult;
 	}
 
 	public void run() {
@@ -75,51 +67,34 @@ class ErrorDisplayRunner implements Runnable {
  * @author Snowball
  *
  */
-public class CheckOAWConstraintsJob implements IJob {
+public class ValidateModelJob 
+implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
-	private Logger logger = Logger.getLogger(CheckOAWConstraintsJob.class);
+	private Logger logger = Logger.getLogger(ValidateModelJob.class);
+	private MDSDBlackboard blackboard = null;
+	private SimuComWorkflowConfiguration configuration;
 	private ExecutionContextImpl ctx;
-	private List<String> files;
-	private boolean shouldThrowException;
-
-	private EPackage[] ePackages = new EPackage[]{
-		SeffPackage.eINSTANCE,
-		RepositoryPackage.eINSTANCE,
-		ParameterPackage.eINSTANCE,
-		UsagemodelPackage.eINSTANCE,
-		SystemPackage.eINSTANCE,
-		ResourcetypePackage.eINSTANCE,
-		ResourceenvironmentPackage.eINSTANCE,
-		AllocationPackage.eINSTANCE,
-		StoexPackage.eINSTANCE,
-		CorePackage.eINSTANCE
-	};
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.workflow.ISimulationJob#execute()
 	 */
-	public CheckOAWConstraintsJob(List<String> files, boolean shouldThrowException) {
-		this.shouldThrowException = shouldThrowException;
-		this.files = new ArrayList<String>();
-		this.files.addAll(files);
+	public ValidateModelJob(SimuComWorkflowConfiguration configuration) {
+		super();
+		this.configuration = configuration;
 	}
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException{
-		ArrayList<SeverityAndIssue> overallResult = new ArrayList<SeverityAndIssue>();
+		List<SeverityAndIssue> result = checkModel();
 		
-		for (String file:files) {
-			ArrayList<SeverityAndIssue> result = checkElements(file);
-			overallResult.addAll(result);
-		}
-		
-		if (overallResult.size() > 0) {
-			displayValidationErrors(overallResult);
+		if (result.size() > 0) {
+			logger.warn("Found validation problems in the models");
+			displayValidationErrors(result);
 			logger.warn("Continuing workflow, ignoring model validation issues");
 		}
 	}
 
 	private void displayValidationErrors(
-			ArrayList<SeverityAndIssue> overallResult)
+			List<SeverityAndIssue> overallResult)
 			throws UserCanceledException {
 		ErrorDisplayRunner runner = new ErrorDisplayRunner(overallResult);
 
@@ -127,7 +102,7 @@ public class CheckOAWConstraintsJob implements IJob {
 		 * Disable the IssuesDialog, if SimuComConfig.SHOULD_THROW_EXCEPTION set
 		 * of false
 		 */
-		if (!shouldThrowException) {
+		if (configuration.isInteractive()) {
 			PlatformUI.getWorkbench().getDisplay().syncExec(runner);
 			if (!runner.shouldProceedAfterErrorDialog())
 				throw new UserCanceledException();
@@ -178,27 +153,30 @@ public class CheckOAWConstraintsJob implements IJob {
 		// Nothing to do here
 	}
 
-	private ArrayList<SeverityAndIssue> checkElements(String file) {
-		Resource r = getResource(file);
+	private ArrayList<SeverityAndIssue> checkModel() {
 		Issues issues = new IssuesImpl();
+		ArrayList<SeverityAndIssue> result = new ArrayList<SeverityAndIssue>();
+		ResourceSetPartition pcmPartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
-		CheckFacade.checkAll(getCheckFileName(), getElementsInResource(r),
-				getExecutionContext(), issues);
+		for (Resource r : pcmPartition.getResourceSet().getResources()) {
+			// Check resource with oAW's check language
+			CheckFacade.checkAll(getCheckFileName(), getElementsInResource(r),
+					getExecutionContext(), issues);
+			result.addAll(getSeverityAndIssues(issues));
 
-		ArrayList<SeverityAndIssue> result = getSeverityAndIssues(issues);
-
-	    Diagnostician diagnostician = new Diagnostician();
-    	Diagnostic d = diagnostician.validate(r.getContents().get(0));
-    	appendSeverityAndIssueFromDiagnostic(result,d);
-		// TODO: Temporary workaround...
-    	if (r.getContents().get(0) instanceof Allocation){
-			Allocation a = (Allocation) r.getContents().get(0);
-			if (a.getTargetResourceEnvironment_Allocation() != null){
-		    	d = diagnostician.validate(a.getTargetResourceEnvironment_Allocation());
-		    	appendSeverityAndIssueFromDiagnostic(result,d);
+			// Check PCM internal OCL constraints
+			Diagnostician diagnostician = new Diagnostician();
+			Diagnostic d = diagnostician.validate(r.getContents().get(0));
+			appendSeverityAndIssueFromDiagnostic(result,d);
+			// TODO: Temporary workaround...
+			if (r.getContents().get(0) instanceof Allocation){
+				Allocation a = (Allocation) r.getContents().get(0);
+				if (a.getTargetResourceEnvironment_Allocation() != null){
+					d = diagnostician.validate(a.getTargetResourceEnvironment_Allocation());
+					appendSeverityAndIssueFromDiagnostic(result,d);
+				}
 			}
 		}
-
 		return result;
 	}
 
@@ -214,17 +192,6 @@ public class CheckOAWConstraintsJob implements IJob {
 			appendSeverityAndIssueFromDiagnostic(result, child);
 	}
 
-	private Resource getResource(String file) {
-		ResourceSet rs = new ResourceSetImpl();
-		try {
-			Resource resource = rs.getResource(URI.createFileURI(file), true);
-			return resource;
-		} catch(IllegalArgumentException ex) {
-			Resource resource = rs.getResource(URI.createURI(file), true);
-			return resource;
-		}
-	}
-
 	private ExecutionContext getExecutionContext() {
 		if (ctx == null) {
 			ctx = new ExecutionContextImpl();
@@ -238,10 +205,17 @@ public class CheckOAWConstraintsJob implements IJob {
 	}
 
 	private List<EPackage> getMetamodelPackages() {
-		return Arrays.asList(ePackages);
+		return Arrays.asList(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 	}
 
 	private String getCheckFileName() {
 		return "pcm";
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob#setBlackbard(de.uka.ipd.sdq.codegen.workflow.Blackboard)
+	 */
+	public void setBlackbard(MDSDBlackboard blackboard) {
+		this.blackboard = blackboard;
 	}
 }
