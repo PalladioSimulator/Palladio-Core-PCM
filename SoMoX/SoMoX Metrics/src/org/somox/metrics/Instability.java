@@ -14,7 +14,8 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.functions.Method;
 import de.fzi.gast.types.GASTClass;
 
-public class Instability {
+public class Instability implements Metric {
+	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double efferentCoupling = 0.0;
 		double afferentCoupling = 0.0;

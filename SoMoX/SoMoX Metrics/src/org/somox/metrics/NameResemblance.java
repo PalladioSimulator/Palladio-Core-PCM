@@ -7,8 +7,19 @@ import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
-public class NameResemblance {
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2, int percentage) {
+public class NameResemblance implements Metric {
+	private int percentage = 80;
+	
+	public void setPercentage (int percentage) {
+		if (percentage < 0 || percentage > 100) {
+			this.percentage = 100;
+		} else {
+			this.percentage = percentage;
+		}
+	}
+	
+	@Override
+	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		HashMap<String, Boolean> resemblanceMap = new HashMap<String, Boolean>();
 		
 		for (ModelElement current : elements1) {

@@ -5,7 +5,8 @@ import java.util.List;
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 
-public class DMS {
+public class DMS implements Metric {
+	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		Abstractness abstractness = new Abstractness();
 		Instability instability = new Instability();

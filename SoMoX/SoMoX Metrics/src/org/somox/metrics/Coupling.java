@@ -13,7 +13,8 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.functions.Method;
 import de.fzi.gast.types.GASTClass;
 
-public class Coupling {
+public class Coupling implements Metric {
+	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToOtherElements = 0.0;
 		double referencesElse = 0.0;
