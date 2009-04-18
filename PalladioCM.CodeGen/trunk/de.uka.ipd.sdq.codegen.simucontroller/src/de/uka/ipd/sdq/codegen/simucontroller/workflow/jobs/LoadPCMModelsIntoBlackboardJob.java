@@ -5,8 +5,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.PCMResourceSetPartition;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;

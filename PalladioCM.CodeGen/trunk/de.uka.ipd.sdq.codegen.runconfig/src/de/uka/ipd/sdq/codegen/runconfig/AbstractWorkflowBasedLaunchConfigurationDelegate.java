@@ -77,7 +77,7 @@ public abstract class
 			workflowConfiguration.validateAndFreeze();
 	
 			Workflow workflow = new UIBasedWorkflow<BlackboardType>(
-				createWorkflowJob(workflowConfiguration), 
+				createWorkflowJob(workflowConfiguration, launch), 
 				monitor, 
 				new UIBasedWorkflowExceptionHandler(
 						!workflowConfiguration.isInteractive()),
@@ -156,7 +156,8 @@ public abstract class
 	 * 
 	 */
 	protected abstract IJob createWorkflowJob(
-			WorkflowConfigurationType config) throws CoreException;
+			WorkflowConfigurationType config,
+			ILaunch launch) throws CoreException;
 	
 	/**
 	 * The method create the instance of generic type. The type defines that

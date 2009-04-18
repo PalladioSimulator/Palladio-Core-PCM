@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
 import swing2swt.layout.BorderLayout;
@@ -146,6 +148,7 @@ public class DockStatusViewer extends Composite implements Observer {
 			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
 	
 				public void run() {
+					showSimuDockView();
 					if (!dockIdLabel.isDisposed())
 						dockIdLabel.setText(model.getID());
 					if (!remoteLocationLabel.isDisposed())
@@ -158,10 +161,30 @@ public class DockStatusViewer extends Composite implements Observer {
 						progressBar.setSelection(model.getPercentDone());
 					if (!iconCanvas.isDisposed())
 						iconCanvas.redraw();
+					
 				}
 				
 			});
 		}
 		lastUIUpdate = model.getPercentDone();
 	}
+	
+	private void showSimuDockView() {
+		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable(){
+
+			public void run() {
+				IViewPart viewer;
+				try {
+					viewer = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(DockStatusViewPart.ID);
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().bringToTop(viewer);
+					viewer.setFocus();
+				} catch (PartInitException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		});
+	}
+	
 }

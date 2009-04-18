@@ -2,12 +2,12 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.CoreException;
 
+import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation
@@ -17,8 +17,18 @@ public class SimuComJob
 extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
 implements IBlackboardInteractingJob<MDSDBlackboard> {
 
+	private IDebugListener debugListener = null;
+
 	public SimuComJob(SimuComWorkflowConfiguration configuration) throws CoreException {
+		this(configuration,null);
+	}
+	
+	public SimuComJob(SimuComWorkflowConfiguration configuration, IDebugListener listener) throws CoreException {
 		super();
+		
+		if (listener == null && configuration.isDebug())
+			throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");
+		this.debugListener = listener;
 		
 		// 1. Load PCM Models into memory
 		this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
@@ -41,7 +51,6 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		this.addJob(buildBundleJob);
 		
 		// 7. Transfer the JAR to a free simulation dock and simulate it
-		SimuComConfig simuConfig = configuration.getSimuComConfiguration();
-		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig,null /*TODO: launch!!*/ ));
+		this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
 	}
 }

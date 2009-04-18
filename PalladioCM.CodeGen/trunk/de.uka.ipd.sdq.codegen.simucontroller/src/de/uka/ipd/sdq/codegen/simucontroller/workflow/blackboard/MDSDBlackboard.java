@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard;
 
 import de.uka.ipd.sdq.codegen.workflow.Blackboard;
 
