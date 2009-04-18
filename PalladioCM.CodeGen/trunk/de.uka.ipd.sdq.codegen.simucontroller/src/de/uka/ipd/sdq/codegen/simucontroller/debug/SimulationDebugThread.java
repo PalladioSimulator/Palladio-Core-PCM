@@ -37,6 +37,10 @@ public class SimulationDebugThread extends SimulationDebugElement implements
 
 	public SimulationDebugThread(IDebugTarget myDebugTarget, ILaunch launch, DockModel dock) {
 		super(myDebugTarget, launch);
+
+		if (this.myDebugTarget == null)
+			throw new IllegalArgumentException("Debug target has to be set");
+
 		this.myDock = dock;
 		this.myDock.addObserver(this);
 	}
@@ -129,7 +133,7 @@ public class SimulationDebugThread extends SimulationDebugElement implements
 	 * @see org.eclipse.debug.core.model.IStep#canStepOver()
 	 */
 	public boolean canStepOver() {
-		return myDebugTarget.isSuspended();
+		return myDebugTarget == null ? false : myDebugTarget.isSuspended();
 	}
 
 	/* (non-Javadoc)

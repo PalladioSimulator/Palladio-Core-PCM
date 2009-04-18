@@ -47,7 +47,7 @@ implements IJob {
 	 * @throws JobFailedException 
 	 */
 	private void ensurePluginProjectNotExisting(IProgressMonitor monitor) throws UserCanceledException, JobFailedException {
-		if (pluginFolderExists()) {
+		if (pluginFolderExists() || getProject(this.myProjectId).exists()) {
 			if (!userAcceptsDelete()) {
 				// abort execution
 				throw new UserCanceledException("Aborted by user");
@@ -210,11 +210,12 @@ implements IJob {
 	}
 
 	private void createProject(IProject project, IProgressMonitor monitor)
-			throws CoreException {
-		if (!project.exists()) {
-			logger.debug("Creating Eclipse workspace project " + project.getName());
-			project.create(monitor);
-		}
+			throws CoreException, JobFailedException {
+		if (project.exists())
+			throw new JobFailedException("Tried to create an existing project. Preceeding cleanup failed");
+
+		logger.debug("Creating Eclipse workspace project " + project.getName());
+		project.create(monitor);
 		project.open(monitor);
 	}
 	

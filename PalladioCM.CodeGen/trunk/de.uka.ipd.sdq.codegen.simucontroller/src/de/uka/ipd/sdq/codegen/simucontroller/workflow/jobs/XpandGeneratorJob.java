@@ -12,6 +12,7 @@ import org.openarchitectureware.xpand2.output.Outlet;
 import org.openarchitectureware.xpand2.output.PostProcessor;
 import org.openarchitectureware.xpand2.output.XmlBeautifier;
 
+@SuppressWarnings("deprecation")
 public class XpandGeneratorJob
 extends AbstractOAWWorkflowJobBridge<Generator> {
 

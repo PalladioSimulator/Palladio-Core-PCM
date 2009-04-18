@@ -1,19 +1,12 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.util.HashMap;
-import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.openarchitectureware.workflow.WorkflowRunner;
-import org.openarchitectureware.workflow.issues.Issue;
-import org.openarchitectureware.workflow.issues.IssuesImpl;
 import org.openarchitectureware.xpand2.output.Outlet;
 
-import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;

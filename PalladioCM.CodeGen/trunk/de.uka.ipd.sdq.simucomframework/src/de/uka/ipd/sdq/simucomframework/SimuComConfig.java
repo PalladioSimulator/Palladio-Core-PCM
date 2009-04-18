@@ -67,7 +67,7 @@ public class SimuComConfig implements Serializable {
 	}
 	
 	public boolean getVerboseLogging() {
-		return verboseLogging;
+		return verboseLogging || isDebug;
 	}
 
 	public long getDatasourceID() {

@@ -25,6 +25,7 @@ public abstract class SimulationDebugElement extends PlatformObject implements I
 
 	public SimulationDebugElement(IDebugTarget myDebugTarget, ILaunch launch) {
 		super();
+
 		this.myDebugTarget = myDebugTarget;
 		this.launch = launch;
 	}

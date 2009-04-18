@@ -64,8 +64,8 @@ public class SimuComWorkflowLauncher extends
 							} catch (InterruptedException e) {
 							}
 						}
-						target.dispose();
 						launch.removeDebugTarget(target);
+						target.dispose();
 					}
 				}
 
