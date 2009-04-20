@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simuservice.types;
 
+import java.io.File;
+
 /**
  * Encapsulates input parameters for the prediction service.
  * 
@@ -168,9 +170,16 @@ public class SimuServiceParams {
 	 * @return TRUE, if the parameters are valid; FALSE otherwise
 	 */
 	public boolean isValid() {
-
-		// TODO: check that all file parameters are set != null and point to
+		// check that all file parameters are set != null and point to
 		// existing files:
+		if (repositoryFile == null || !new File(repositoryFile).exists()) return false;
+		if (systemFile == null || !new File(systemFile).exists()) return false;
+		if (resourceEnvironmentFile == null || !new File(resourceEnvironmentFile).exists()) return false;
+		if (allocationFile == null || !new File(allocationFile).exists()) return false;
+		if (usageFile == null || !new File(usageFile).exists()) return false;
+		// does the directorie have to exist?
+		if (resultsDirectory == null || !new File(resultsDirectory).exists()) return false; 
+		
 		return true;
 	}
 }
