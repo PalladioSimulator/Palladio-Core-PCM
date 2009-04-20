@@ -177,7 +177,7 @@ public class SimuServiceParams {
 		if (resourceEnvironmentFile == null || !new File(resourceEnvironmentFile).exists()) return false;
 		if (allocationFile == null || !new File(allocationFile).exists()) return false;
 		if (usageFile == null || !new File(usageFile).exists()) return false;
-		// does the directorie have to exist?
+		// does the directory have to exist?
 		if (resultsDirectory == null || !new File(resultsDirectory).exists()) return false; 
 		
 		return true;
