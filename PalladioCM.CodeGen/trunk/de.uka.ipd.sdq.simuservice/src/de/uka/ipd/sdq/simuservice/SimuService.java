@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.MDSDBlackboard;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
@@ -72,7 +72,17 @@ public class SimuService implements ISimuService {
 
 		// TODO: Fill the configuration object with the params and add default
 		// values for other parameters:
+		
+		//set configuration values received from params object
 		workflowConfiguration.setAllocationFile(params.getAllocationFile());
+		workflowConfiguration.setRepositoryFile(params.getRepositoryFile());
+		workflowConfiguration.setUsageModelFile(params.getUsageFile());
+		workflowConfiguration.setResourceTypeFile(params.getResourceEnvironmentFile());
+		workflowConfiguration.setSystemFile(params.getSystemFile());
+		
+		//set default configuration values
+		workflowConfiguration.setMiddlewareFile("pathmap://PCM_MODELS/Glassfish.repository");
+		workflowConfiguration.setFeatureConfigFile("pathmap://PCM_MODELS/ConnectorConfig.featureconfig");
 		// ...
 
 		// Validate the configuration and fix all values:
