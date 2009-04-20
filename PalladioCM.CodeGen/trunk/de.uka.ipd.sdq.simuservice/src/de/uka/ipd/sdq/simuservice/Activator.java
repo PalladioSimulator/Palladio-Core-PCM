@@ -26,6 +26,10 @@ public class Activator extends Plugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		
+		//Create and start a new Web Server 
+		Thread webserviceServer = new SimulationProvidingWebServer();
+		webserviceServer.start();
 		plugin = this;
 	}
 
