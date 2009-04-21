@@ -17,10 +17,10 @@ import org.eclipse.emf.edit.provider.IItemProviderDecorator;
  */
 public class FilteredItemsAdapterFactory extends DecoratorAdapterFactory {
 
-	private Collection filterList;
+	private Collection<?> filterList;
 	private Collection<EReference> additionalChildReferences;
 
-	public FilteredItemsAdapterFactory(AdapterFactory decoratedAdapterFactory, Collection filterList, Collection childReferences) {
+	public FilteredItemsAdapterFactory(AdapterFactory decoratedAdapterFactory, Collection<?> filterList, Collection<EReference> childReferences) {
 		super(decoratedAdapterFactory);
 		this.filterList = filterList;
 		this.additionalChildReferences = childReferences;

@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -24,10 +25,8 @@ import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.system.provider.SystemItemProvider;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
@@ -43,7 +42,7 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 
 	public PalladioSelectEObjectDialog(Shell parent,
 			Collection<Object> filterList,
-			Collection<Object> additionalChildReferences, Object input) {
+			Collection<EReference> additionalChildReferences, Object input) {
 		super(parent);
 		this.input = input;
 		create();
@@ -86,7 +85,7 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 
 	public PalladioSelectEObjectDialog(Shell parent,
 			Collection<Object> filterList, Object input) {
-		this(parent,filterList,new ArrayList<Object>(),input);
+		this(parent,filterList,new ArrayList<EReference>(),input);
 	}
 	
 	/* (non-Javadoc)

@@ -6,15 +6,17 @@
  */
 package de.uka.ipd.sdq.completions.impl;
 
-import de.uka.ipd.sdq.completions.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.completions.Completion;
+import de.uka.ipd.sdq.completions.CompletionRepository;
+import de.uka.ipd.sdq.completions.CompletionsFactory;
+import de.uka.ipd.sdq.completions.CompletionsPackage;
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
 
 /**
  * <!-- begin-user-doc -->

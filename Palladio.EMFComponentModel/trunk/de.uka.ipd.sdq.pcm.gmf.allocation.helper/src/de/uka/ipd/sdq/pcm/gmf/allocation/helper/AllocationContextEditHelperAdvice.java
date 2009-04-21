@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.helper;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
@@ -26,7 +27,7 @@ public class AllocationContextEditHelperAdvice
 		filterList.add(de.uka.ipd.sdq.pcm.system.System.class);
 		filterList.add(AssemblyContext.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 

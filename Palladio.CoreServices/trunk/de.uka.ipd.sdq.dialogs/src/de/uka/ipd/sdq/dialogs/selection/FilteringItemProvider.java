@@ -22,14 +22,14 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
  */
 public class FilteringItemProvider extends ItemProviderDecorator implements ITreeItemContentProvider {
 
-	private Collection filterList;
+	private Collection<?> filterList;
 	private Collection<EReference> additionalChildReferences;
 
 	/**
 	 * @param adapterFactory
 	 * @param additionalChildReferences 
 	 */
-	public FilteringItemProvider(AdapterFactory adapterFactory, Collection filterList, Collection<EReference> additionalChildReferences) {
+	public FilteringItemProvider(AdapterFactory adapterFactory, Collection<?> filterList, Collection<EReference> additionalChildReferences) {
 		super(adapterFactory);
 		this.filterList = filterList;
 		this.additionalChildReferences = additionalChildReferences;
@@ -38,8 +38,9 @@ public class FilteringItemProvider extends ItemProviderDecorator implements ITre
 	/* (non-Javadoc)
 	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getChildren(java.lang.Object)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public Collection getChildren(Object object) {
+	public Collection<?> getChildren(Object object) {
 		Collection unfilteredResult = null;
 		if (object instanceof ResourceSet)
 		{
@@ -89,7 +90,7 @@ public class FilteringItemProvider extends ItemProviderDecorator implements ITre
 	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getElements(java.lang.Object)
 	 */
 	@Override
-	public Collection getElements(Object object) {
+	public Collection<?> getElements(Object object) {
 		return getChildren(object);
 	}
 

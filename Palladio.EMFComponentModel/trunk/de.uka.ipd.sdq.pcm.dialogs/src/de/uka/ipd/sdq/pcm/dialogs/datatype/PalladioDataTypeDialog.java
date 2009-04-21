@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -227,7 +228,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		filterList.add(Repository.class);
 
 		CallDataTypeDialog dialog = new CallDataTypeDialog(e.display
-				.getActiveShell(), filterList, new ArrayList<Object>(),
+				.getActiveShell(), filterList, new ArrayList<EReference>(),
 				editingDomain.getResourceSet());
 		dialog.setProvidedService(DataType.class);
 		dialog.open();

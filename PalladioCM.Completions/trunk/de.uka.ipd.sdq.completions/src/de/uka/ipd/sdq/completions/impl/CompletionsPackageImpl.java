@@ -16,7 +16,6 @@ import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -30,9 +29,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->

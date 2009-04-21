@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.usage.helper;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -54,7 +55,7 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		filterList.add(Repository.class);
 		filterList.add(Signature.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 

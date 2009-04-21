@@ -6,6 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
@@ -65,7 +66,7 @@ public class ParametricResourceDemandConfigureCommand extends
 		filterList.add(ResourceRepository.class);
 		filterList.add(ProcessingResourceType.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, additionalReferences, request.getEditingDomain()

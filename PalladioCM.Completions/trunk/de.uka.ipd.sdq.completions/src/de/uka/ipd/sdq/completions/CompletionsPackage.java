@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.completions;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * <!-- begin-user-doc -->

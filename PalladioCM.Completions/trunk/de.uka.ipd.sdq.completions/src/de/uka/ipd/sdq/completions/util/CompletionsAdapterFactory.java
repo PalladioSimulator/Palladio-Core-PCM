@@ -6,33 +6,28 @@
  */
 package de.uka.ipd.sdq.completions.util;
 
-import de.uka.ipd.sdq.completions.*;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.completions.Completion;
+import de.uka.ipd.sdq.completions.CompletionRepository;
+import de.uka.ipd.sdq.completions.CompletionsPackage;
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
 import de.uka.ipd.sdq.identifier.Identifier;
-
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

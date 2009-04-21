@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
@@ -37,7 +38,7 @@ public class AssemblyContextEditHelper extends
 		//filterList.add(ProvidesComponentType.class);
 		filterList.add(RepositoryComponent.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 

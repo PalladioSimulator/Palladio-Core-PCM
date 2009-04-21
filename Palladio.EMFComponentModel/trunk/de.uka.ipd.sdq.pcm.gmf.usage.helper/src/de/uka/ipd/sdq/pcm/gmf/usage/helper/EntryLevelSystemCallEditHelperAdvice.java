@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
@@ -43,7 +44,7 @@ public class EntryLevelSystemCallEditHelperAdvice extends
 		filterList.add(Interface.class);
 		filterList.add(Signature.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE
 				.getProvidedRole_ProvidedInterface__ProvidedRole());
 

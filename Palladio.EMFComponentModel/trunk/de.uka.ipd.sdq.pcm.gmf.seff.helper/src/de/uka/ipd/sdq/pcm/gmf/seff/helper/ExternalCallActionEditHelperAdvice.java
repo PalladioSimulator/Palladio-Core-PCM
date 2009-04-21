@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
@@ -41,7 +42,7 @@ public class ExternalCallActionEditHelperAdvice extends
 		filterList.add(Signature.class);
 		
 		// define the additional references
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE
 				.getRequiredRole_RequiredInterface__RequiredRole());
 		

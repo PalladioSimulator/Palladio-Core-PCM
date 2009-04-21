@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.dialogs.parameters;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -76,7 +77,7 @@ public class ParametersDialog extends TitleAreaDialog {
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Parameter.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 
 		adapterFactory = new ComposedAdapterFactory();
 		adapterFactory

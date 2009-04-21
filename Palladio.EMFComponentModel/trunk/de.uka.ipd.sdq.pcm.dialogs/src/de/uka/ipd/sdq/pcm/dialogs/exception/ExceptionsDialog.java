@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.dialogs.exception;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -20,12 +21,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
@@ -187,7 +185,7 @@ public class ExceptionsDialog extends TitleAreaDialog {
 		
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(ExceptionType.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 
 		viewer = new TableViewer(table);
 		viewer.setColumnProperties(columnNames);
@@ -238,7 +236,7 @@ public class ExceptionsDialog extends TitleAreaDialog {
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
-		Button button = createButton(parent, IDialogConstants.OK_ID,
+		createButton(parent, IDialogConstants.OK_ID,
 				IDialogConstants.OK_LABEL, true);
 	}
 

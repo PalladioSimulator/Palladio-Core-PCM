@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -43,7 +44,7 @@ public class ParameterCollectionIteratorActionEditHelperAdvice extends
 		filterList.add(Signature.class);
 		filterList.add(Parameter.class);
 		filterList.add(DataType.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE
 				.getParameter_Datatype__Parameter());
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(

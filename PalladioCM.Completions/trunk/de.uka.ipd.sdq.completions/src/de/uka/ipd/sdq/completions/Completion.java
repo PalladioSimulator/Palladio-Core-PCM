@@ -7,7 +7,6 @@
 package de.uka.ipd.sdq.completions;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 
 /**

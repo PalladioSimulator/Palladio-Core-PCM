@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.completions.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
-
 import de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

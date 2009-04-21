@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
@@ -39,7 +40,7 @@ public class AcquireActionEditHelperAdvice extends AbstractEditHelperAdvice
 		filterList.add(BasicComponent.class);
 		filterList.add(PassiveResource.class);
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 

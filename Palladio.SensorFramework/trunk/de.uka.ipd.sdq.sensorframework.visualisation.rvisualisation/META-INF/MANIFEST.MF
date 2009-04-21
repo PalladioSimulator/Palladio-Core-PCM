@@ -12,10 +12,11 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework,
  org.apache.log4j,
  org.rosuda.JRI
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Export-Package: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

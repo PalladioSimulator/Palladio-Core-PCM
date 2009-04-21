@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.dialogs.parameters;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.widgets.Composite;
@@ -46,7 +47,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Repository.class);
 		filterList.add(DataType.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 
 		CallDataTypeDialog dialog = new CallDataTypeDialog(cellEditorWindow
 				.getShell(), filterList, additionalReferences, editingDomain
