@@ -39,11 +39,17 @@ Require-Bundle: org.eclipse.ui,
  org.openarchitectureware.workflow;bundle-version="4.3.1",
  org.openarchitectureware.core.xpand2;bundle-version="4.3.1",
  de.uka.ipd.sdq.featureconfig;bundle-version="1.0.0",
- de.uka.ipd.sdq.featuremodel;bundle-version="1.0.0"
+ de.uka.ipd.sdq.featuremodel;bundle-version="1.0.0",
+ org.eclipse.emf.query;bundle-version="1.2.0",
+ org.eclipse.emf.ocl;bundle-version="1.1.101",
+ org.junit4;bundle-version="4.3.1",
+ org.eclipse.emf.query.ocl;bundle-version="1.2.0",
+ org.eclipse.ocl.ecore;bundle-version="1.2.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard,
- de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs
+ de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs,
+ de.uka.ipd.sdq.pcm.transformations
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 

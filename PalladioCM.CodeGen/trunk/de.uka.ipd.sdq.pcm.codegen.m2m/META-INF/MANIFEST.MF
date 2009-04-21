@@ -28,9 +28,9 @@ Require-Bundle: org.openarchitectureware.base,
  org.junit4,
  de.uka.ipd.sdq.featureconfig,
  de.uka.ipd.sdq.featuremodel,
- org.openarchitectureware.util.stdlib
-Export-Package: de.uka.sdq.pcm.transformations,
- m2t_transforms,
+ org.openarchitectureware.util.stdlib,
+ de.uka.ipd.sdq.codegen.workflow;bundle-version="1.1.0"
+Export-Package: m2t_transforms,
  m2t_transforms.ejb3,
  m2t_transforms.pojo,
  m2t_transforms.prototype,

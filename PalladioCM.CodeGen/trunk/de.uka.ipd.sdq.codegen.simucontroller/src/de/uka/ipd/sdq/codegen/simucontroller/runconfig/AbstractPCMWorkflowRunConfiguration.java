@@ -47,7 +47,6 @@ extends	AbstractWorkflowBasedRunConfiguration {
 		ArrayList<String> files = new ArrayList<String>();
 		files.add(this.resourceTypeFile);
 		files.add(this.repositoryFile);
-		files.add(middlewareFile);
 		files.add(systemFile);
 		files.add(allocationFile);
 		files.add(usageModelFile);

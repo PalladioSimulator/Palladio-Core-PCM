@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
@@ -40,6 +42,10 @@ public class PCMResourceSetPartition extends ResourceSetPartition {
 	public UsageModel getUsageModel() {
 		return (UsageModel) getElement(UsagemodelPackage.eINSTANCE.getUsageModel());
 	}
+
+	public ResourceRepository getResourceTypeRepository() {
+		return (ResourceRepository) getElement(ResourcetypePackage.eINSTANCE.getResourceRepository());
+	}
 	
 	/**
 	 * Helper to find root object of specified class
@@ -53,4 +59,5 @@ public class PCMResourceSetPartition extends ResourceSetPartition {
 		}
 		throw new RuntimeException("Failed to retrieve PCM model element");
 	}
+
 }

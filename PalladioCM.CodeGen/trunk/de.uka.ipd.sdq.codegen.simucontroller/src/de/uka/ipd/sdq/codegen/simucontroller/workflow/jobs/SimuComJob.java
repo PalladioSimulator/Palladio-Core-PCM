@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
+import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation
@@ -36,6 +37,11 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		// 2. Validate PCM Models
 		this.addJob(new ValidateModelJob(configuration));
 
+		// 3. Apply connector completion transformation
+		if (configuration.getSimulateLinkingResources()) {
+			this.addJob(new ApplyConnectorCompletionsJob(configuration));
+		}
+		
 		// 3. Create new Eclipse plugin project
 		this.addJob(new CreatePluginProjectJob(configuration));
 

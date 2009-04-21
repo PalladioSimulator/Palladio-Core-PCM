@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunCon
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
@@ -19,6 +20,8 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	private Logger logger = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
 	
 	public static final String PCM_MODELS_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition";
+	public static final String MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.middleware";
+
 	private MDSDBlackboard blackboard = null;
 	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
@@ -34,13 +37,18 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		PCMResourceSetPartition myPartion = new PCMResourceSetPartition();
 		this.blackboard.addPartition(PCM_MODELS_PARTITION_ID, myPartion);
 		
+		ResourceSetPartition middlewareRepositoryPartition = new ResourceSetPartition();
+		this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
+		
 		logger.debug("Initialising PCM EPackages");
 		myPartion.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
+		middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		
 		logger.info("Loading PCM Model Files");
 		for (String modelFile : configuration.getPCMModelFiles()) {
 			myPartion.loadModel(modelFile);
 		}
+		middlewareRepositoryPartition.loadModel(configuration.getMiddlewareFile());
 	}
 
 	public String getName() {
