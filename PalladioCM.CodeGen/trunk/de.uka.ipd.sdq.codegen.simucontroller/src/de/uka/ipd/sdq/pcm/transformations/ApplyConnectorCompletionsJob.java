@@ -120,12 +120,10 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		this.blackboard = blackboard;
 	}
 
-	@Override
 	public String getName() {
 		return "Add connector completions job";
 	}
 
-	@Override
 	public void rollback(IProgressMonitor monitor)
 			throws RollbackFailedException {
 		// Nothing to do here
