@@ -11,19 +11,25 @@ import org.eclipse.emf.ecore.EReference;
 
 public class ParameterUtil extends Copier {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3504940555318719080L;
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.eclipse.emf.ecore.util.EcoreUtil.Copier#copyReference(org.eclipse.emf.ecore.EReference,
 	 *      org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void copyReference(EReference eReference, EObject eObject,
 			EObject copyEObject) {
 		if (eObject.eIsSet(eReference)) {
 			if (eReference.isMany()) {
 				List source = (List) eObject.eGet(eReference);
-				InternalEList target = (InternalEList) copyEObject
+				InternalEList<Object> target = (InternalEList<Object>) copyEObject
 						.eGet(getTarget(eReference));
 				if (source.isEmpty()) {
 					target.clear();

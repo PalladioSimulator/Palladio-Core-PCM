@@ -98,7 +98,7 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 		Assert.isTrue(input instanceof EObject);
 		// set input for 'TableViewer'
 		propertySection.setViewerInput(input);
-		Table table = propertySection.getViewer().getTable();
+		propertySection.getViewer().getTable();
 		// set in the diagram selected object to the TableViever cell modifier.
 		propertySection.getCellModifier().setContext((AssemblyContext) input);
 		

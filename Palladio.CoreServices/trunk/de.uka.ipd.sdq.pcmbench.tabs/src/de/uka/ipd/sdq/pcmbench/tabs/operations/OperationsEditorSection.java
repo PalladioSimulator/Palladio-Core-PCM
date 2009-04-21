@@ -4,6 +4,7 @@ package de.uka.ipd.sdq.pcmbench.tabs.operations;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
@@ -81,7 +82,7 @@ public class OperationsEditorSection extends EditorSection{
 				ArrayList<Object> filterList = new ArrayList<Object>();
 				filterList.add(DataType.class);
 				filterList.add(Repository.class);
-				ArrayList<Object> additionalReferences = new ArrayList<Object>();
+				ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 
 				CallDataTypeDialog dialog = new CallDataTypeDialog(
 						cellEditorWindow.getShell(), filterList,
