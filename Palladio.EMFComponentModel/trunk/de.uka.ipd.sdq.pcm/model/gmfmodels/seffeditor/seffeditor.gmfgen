@@ -99,6 +99,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -186,6 +190,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -1040,6 +1048,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -1727,8 +1739,7 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1747,8 +1758,7 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1896,8 +1906,7 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@childNodes.13"
-        listLayout="false">
+        node="//@diagram/@childNodes.13">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1916,8 +1925,7 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@childNodes.13"
-        listLayout="false">
+        node="//@diagram/@childNodes.13">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

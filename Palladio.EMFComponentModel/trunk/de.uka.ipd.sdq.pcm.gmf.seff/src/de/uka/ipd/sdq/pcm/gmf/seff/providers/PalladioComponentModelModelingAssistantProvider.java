@@ -28,6 +28,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionInputVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionInputVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionOutputVariableUsage2EditPart;
@@ -66,6 +68,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
+		if (editPart instanceof ExternalCallActionEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
+			return types;
+		}
 		if (editPart instanceof LoopActionEditPart) {
 			List types = new ArrayList();
 			types
@@ -114,6 +122,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
 			return types;
 		}
+		if (editPart instanceof ExternalCallAction2EditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
+			return types;
+		}
 		if (editPart instanceof CollectionIteratorActionEditPart) {
 			List types = new ArrayList();
 			types
@@ -130,16 +144,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
-			return types;
-		}
-		if (editPart instanceof ExternalCallActionInputVariableUsageEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
-			return types;
-		}
-		if (editPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartmentEditPart) {
@@ -184,16 +188,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
-			return types;
-		}
-		if (editPart instanceof ExternalCallActionInputVariableUsage2EditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
-			return types;
-		}
-		if (editPart instanceof ExternalCallActionOutputVariableUsage2EditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehavioursEditPart) {

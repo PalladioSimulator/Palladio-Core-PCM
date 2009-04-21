@@ -89,13 +89,13 @@
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableUsageEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsageAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3028">
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3032">
          </adviceBinding>
           <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableCharacterisationEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisationAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002">
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3033">
          </adviceBinding>
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ResourceDemandingBehaviourEditHelperAdvice"
