@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
  * @generated
  */
 public class EntryLevelSystemCallParameterUsageEditPart extends
-		ShapeCompartmentEditPart {
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -36,6 +36,13 @@ public class EntryLevelSystemCallParameterUsageEditPart extends
 	 */
 	public EntryLevelSystemCallParameterUsageEditPart(View view) {
 		super(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
 	}
 
 	/**

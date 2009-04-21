@@ -121,6 +121,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenVariableCharacterisationDialog());
 	}
 
 	/**

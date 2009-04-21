@@ -216,6 +216,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenVariableCharacterisationDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -649,8 +653,7 @@
         title="SystemCallVariableUsageCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.2"
-        listLayout="false">
+        node="//@diagram/@childNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
