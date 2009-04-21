@@ -13,6 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Choice</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * todo von entities erben
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

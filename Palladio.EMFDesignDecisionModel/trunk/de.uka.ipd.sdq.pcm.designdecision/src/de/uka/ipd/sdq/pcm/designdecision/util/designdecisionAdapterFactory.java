@@ -148,6 +148,10 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createProblemAdapter();
 			}
 			@Override
+			public Adapter caseDiscreteDomain(DiscreteDomain object) {
+				return createDiscreteDomainAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -430,6 +434,20 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProblemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+	 * @generated
+	 */
+	public Adapter createDiscreteDomainAdapter() {
 		return null;
 	}
 

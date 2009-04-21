@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="designdecision"
-    nsURI="http://sdq.ipd.uka.de/DesignDecision/1.0" nsPrefix="de.uka.ipd.sdq.pcm">
+    nsURI="http://sdq.ipd.uka.de/DesignDecision/1.0" nsPrefix="designdecision">
   <eClassifiers xsi:type="ecore:EClass" name="DesignDecision" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All design decisions and choices are specified on the original model, from which a new phenotype can be drived. Intermediate candidate phenotypes then do not have to be kept..."/>
@@ -12,6 +12,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Domain" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Choice" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="todo von entities erben"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="designdecision" ordered="false"
         lowerBound="1" eType="#//DesignDecision"/>
   </eClassifiers>
@@ -59,6 +62,8 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
         ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourcecontainer" ordered="false"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AllocationDecision" eSuperTypes="#//DesignDecision">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -98,7 +103,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Genotype">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="TODO: constraint: One choice for each DesignDecision"/>
+      <details key="documentation" value="TODO: constraint: One choice for each DesignDecision. &#xD;&#xA;TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from the Opt4J genotype. "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choice" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Choice"/>
@@ -107,4 +112,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="designdecision" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//DesignDecision" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiscreteDomain" abstract="true" interface="true"/>
 </ecore:EPackage>

@@ -85,7 +85,7 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		meanResponseTimeRequirement.addModifyListener(modifyListener);
 		
 		final Label maxCostLabel = new Label(maximumIterationsGroup, SWT.NONE);
-		meanRespTimeLabel.setText("Maximal cost:");
+		maxCostLabel.setText("Maximal cost:");
 
 		maxCost = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
 		maxCost.setEnabled(true);

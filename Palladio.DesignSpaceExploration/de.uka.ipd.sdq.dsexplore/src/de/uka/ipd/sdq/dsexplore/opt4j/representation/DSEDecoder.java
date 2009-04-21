@@ -7,9 +7,15 @@ import org.opt4j.genotype.DoubleGenotype;
 import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
+import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.system.System;
 
 /**
  * The {@link DSEDecoder} is responsible for converting the genotypes into 
@@ -74,6 +80,8 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		 */
 		if (ProcessingRateDecision.class.isInstance(designDecision)){
 			this.applyChange((ProcessingRateDecision)designDecision, doubleGene);
+		} else if (AssembledComponentDecision.class.isInstance(designDecision)){
+			this.applyChange((AssembledComponentDecision)designDecision, doubleGene);
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
@@ -90,6 +98,23 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 
 		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification(doubleGene.toString());
 		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
+	}
+	
+	private void applyChange(AssembledComponentDecision designDecision, Double doubleGene) {
+		//get component by rounding down
+		int gene = doubleGene.intValue();
+		
+		//use the order of the enumeration of EquivalentComponents in the Domain
+		RepositoryComponent componentToBeAssembled = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent().get(gene);
+		
+		//nicht: AlternativeComponent.createPCMInstance();
+		AssemblyContext changedAssemblyContext = designDecision.getAssemblycontext();
+		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(componentToBeAssembled);
+		System system = this.problem.getInitialInstance().getSystem();
+		AlternativeComponent.getInstance().fixReferencesToAssemblyContext(system, changedAssemblyContext, componentToBeAssembled);
+		
+		
+		logger.debug("Handling a "+designDecision.getClass()+", using component "+componentToBeAssembled.getEntityName());
 	}
 
 }

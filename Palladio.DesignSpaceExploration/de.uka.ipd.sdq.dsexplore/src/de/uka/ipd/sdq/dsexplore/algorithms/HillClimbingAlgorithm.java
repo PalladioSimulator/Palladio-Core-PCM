@@ -48,7 +48,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 			for (Iterator<INewCandidates> iterator2 = newCands.iterator(); iterator2
 					.hasNext();) {
 				INewCandidates newCandGenerator = iterator2.next();
-				result.addAll(newCandGenerator.generateNewCandidates(instance));
+				//result.addAll(newCandGenerator.generateNewCandidates(instance));
 			}
 			
 		}

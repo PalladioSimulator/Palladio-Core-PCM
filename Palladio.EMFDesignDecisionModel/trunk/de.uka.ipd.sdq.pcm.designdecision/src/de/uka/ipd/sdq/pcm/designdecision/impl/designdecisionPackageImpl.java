@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.ComponentChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain;
 import de.uka.ipd.sdq.pcm.designdecision.Domain;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
 import de.uka.ipd.sdq.pcm.designdecision.Enumeration;
@@ -200,6 +201,13 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * @generated
 	 */
 	private EClass problemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass discreteDomainEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -477,6 +485,15 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProcessingRateDecision_Resourcecontainer() {
+		return (EReference)processingRateDecisionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAllocationDecision() {
 		return allocationDecisionEClass;
 	}
@@ -639,6 +656,15 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDiscreteDomain() {
+		return discreteDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public designdecisionFactory getdesigndecisionFactory() {
 		return (designdecisionFactory)getEFactoryInstance();
 	}
@@ -693,6 +719,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 
 		processingRateDecisionEClass = createEClass(PROCESSING_RATE_DECISION);
 		createEReference(processingRateDecisionEClass, PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION);
+		createEReference(processingRateDecisionEClass, PROCESSING_RATE_DECISION__RESOURCECONTAINER);
 
 		allocationDecisionEClass = createEClass(ALLOCATION_DECISION);
 		createEReference(allocationDecisionEClass, ALLOCATION_DECISION__ALLOCATIONCONTEXT);
@@ -719,6 +746,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 
 		problemEClass = createEClass(PROBLEM);
 		createEReference(problemEClass, PROBLEM__DESIGNDECISION);
+
+		discreteDomainEClass = createEClass(DISCRETE_DOMAIN);
 	}
 
 	/**
@@ -802,6 +831,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 
 		initEClass(processingRateDecisionEClass, ProcessingRateDecision.class, "ProcessingRateDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProcessingRateDecision_Processingresourcespecification(), theResourceenvironmentPackage.getProcessingResourceSpecification(), null, "processingresourcespecification", null, 1, 1, ProcessingRateDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProcessingRateDecision_Resourcecontainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourcecontainer", null, 0, 1, ProcessingRateDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(allocationDecisionEClass, AllocationDecision.class, "AllocationDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAllocationDecision_Allocationcontext(), theAllocationPackage.getAllocationContext(), null, "allocationcontext", null, 1, 1, AllocationDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -828,6 +858,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 
 		initEClass(problemEClass, Problem.class, "Problem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProblem_Designdecision(), this.getDesignDecision(), null, "designdecision", null, 1, -1, Problem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(discreteDomainEClass, DiscreteDomain.class, "DiscreteDomain", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

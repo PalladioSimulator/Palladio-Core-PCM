@@ -7,6 +7,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 
 public interface INewCandidates {
 
@@ -16,8 +17,9 @@ public interface INewCandidates {
 	 * @return
 	 * @throws CoreException 
 	 */
-	public abstract List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) throws CoreException;
+	public abstract List<DesignDecision> generateDesignDecisions(PCMInstance currentSolution) throws CoreException;
 	
 	public abstract void setConfiguration(ILaunchConfiguration conf);
+
 
 }

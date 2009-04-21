@@ -2,28 +2,23 @@ package de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
-import de.uka.ipd.sdq.dsexplore.designdecisions.INewCandidates;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
+import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
+import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -31,33 +26,36 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
-public class AlternativeComponent implements INewCandidates {
+//Singleton
+public class AlternativeComponent  {
 
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
 
 	/** Model files will get the suffix here plus the generation number**/
-	private static String modelFilesSuffix = "-AC";
+	//private static String modelFilesSuffix = "-AC";
 	
-	Repository lastRepository = null;
+	//Repository lastRepository = null;
+	
 	Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = null;
 	
-	EvolutionGraphNode rootNode = null;
+	//EvolutionGraphNode rootNode = null;
+	
+	private static AlternativeComponent instance = new AlternativeComponent();
 
-	public AlternativeComponent() {
+	private AlternativeComponent() {
 		
+	}
+	
+	public static AlternativeComponent getInstance(){
+		return AlternativeComponent.instance;
 	}
 
 	/**
-	 * XXX: as implemented here, the search cannot go back to previous component selection, for example after the resource environment has changed.
-	 * {@inheritDoc}
 	 * @see de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates#generateNewCandidates(de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult)
 	 */
-	@Override
-	public List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) {
+	public List<AssembledComponentDecision> generateDesignDecisions(PCMInstance currentPCMInstance) {
 		
-		PCMInstance currentPCMInstance = currentSolution.getPCMInstance();
-
 		Repository r = currentPCMInstance.getRepository();
 		
 		//only if this is called for the first time on a given repository, find alternatives again. 
@@ -90,7 +88,7 @@ public class AlternativeComponent implements INewCandidates {
 		//Generate alternatives with one component different each
 		//List<PCMInstance> l = rootNode.getChildrenOf(currentPCMInstance);
 		
-		return createAlternativePCMInstances(currentSolution.getPCMInstance(), alternativeMap);
+		return createAlternativePCMInstances(currentPCMInstance, alternativeMap);
 	}
 
 	/**
@@ -107,7 +105,7 @@ public class AlternativeComponent implements INewCandidates {
 	 * @param alternativeMap2
 	 * @return
 	 */
-	private EvolutionGraphNode createEvolutionGraph(
+	/*private EvolutionGraphNode createEvolutionGraph(
 			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
 		
 		EvolutionGraphNode root = new EvolutionGraphNode(currentSolution);
@@ -130,7 +128,7 @@ public class AlternativeComponent implements INewCandidates {
 			 * Assembly Context A has alternatives B and C. Then, replacing B
 			 * with C in a second step is not a new alternative, but already
 			 * covered by the node that replaced A with C directly.
-			 */ 
+			 *
 			Vector<EvolutionGraphNode> newCommonAlternativeNodes = new Vector<EvolutionGraphNode>();
 			
 			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
@@ -155,57 +153,70 @@ public class AlternativeComponent implements INewCandidates {
 		}
 		
 		return root;
-	}
+	}*/
 
 	/**
 	 * Creates a new PCM instance object for each alternative found. 
 	 * Each instance is different in one component to the original. 
 	 * Calls createNewPCMInstance for each alternative to be generated. 
 	 * @param currentSolution The current solution the new ones will base on
-	 * @param alternativeMap The Map containing all replacement options
+	 * @param alternativeMap2 The Map containing all replacement options
 	 * @param root 
 	 * @return A list of new PCM instances
 	 */
-	private List<PCMInstance> createAlternativePCMInstances(
+	private List<AssembledComponentDecision> createAlternativePCMInstances(
 			PCMInstance currentSolution,
-			Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap) {
+			Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
 		
-		List<PCMInstance> l = new ArrayList<PCMInstance>();
+		List<AssembledComponentDecision> l = new ArrayList<AssembledComponentDecision>();
 		
-		//to name the files differently, count. 
-		int counter = 0;
-		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e : alternativeMap
+
+		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> mapping : alternativeMap2
 				.entrySet()) {
-			logger.debug("Assembly context " + e.getKey().getEntityName()
-					+ " has " + e.getValue().size() + " alternatives:");
+			logger.debug("Assembly context " + mapping.getKey().getEntityName()
+					+ " has " + mapping.getValue().size() + " alternatives:");
 			
-			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
-				logger.debug("    Alternative: "+ basicComponentEntry.getKey().getEntityName());
-				PCMInstance inst = createNewPCMInstance(currentSolution, e.getKey(), basicComponentEntry, counter); 
-				l.add(inst);
-				counter++;
-			}
+			AssembledComponentDecision inst = createDesignDecision(currentSolution, mapping); 
+			l.add(inst);
+			
 		}
 		return l;
 	}
 	
 	
+	private AssembledComponentDecision createDesignDecision(
+			PCMInstance currentSolution,
+			Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e) {
+		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
+		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
+		
+		for (Entry<BasicComponent, ProvidedAndRequiredRoleMapping> alternative : e.getValue().entrySet()) {
+			ec.getRepositorycomponent().add(alternative.getKey());
+		}
+		
+		decision.setAssemblycontext(e.getKey());
+		decision.setDomain(ec);
+		
+		
+		return decision;
+	}
+
 	/**
 	 * 
 	 * @param currentSolution
 	 * @param assemblyContext
 	 * @param basicComponentEntry
-	 * @param counter
+	 * @param counter to name the files differently, count. 
 	 * @return
 	 */
-	private PCMInstance createNewPCMInstance(PCMInstance currentSolution,
+	/*public PCMInstance createNewPCMInstance(PCMInstance currentSolution,
 			AssemblyContext assemblyContext, Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry, int counter) {
 
 		PCMInstance newSolution = currentSolution.shallowCopy();
 		
-		/*Used the ecore copy. For this, I needed to fix de.uka.ipd.sdq.stoex.impl.RandomVariableImpl,
+		*Used the ecore copy. For this, I needed to fix de.uka.ipd.sdq.stoex.impl.RandomVariableImpl,
 		 * as setExpression threw a UnsupportedOperationException when trying to copy. Now 
-		 * setExpression just does nothing*/ 
+		 * setExpression just does nothing*
 		System newSystem = (System)EcoreUtil.copy(newSolution.getSystem());
 		logger.debug("The new system: "+newSystem);
 		
@@ -233,14 +244,14 @@ public class AlternativeComponent implements INewCandidates {
 		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(basicComponentEntry.getKey());
 		
 		//fix the required and provided roles
-		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getValue());
+		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getKey());
 		
 		//I do not have to fix the allocation because I updated the assembly 
 		//context, which is just referenced by the allocation. 
 		//fixAllocation(changedAssemblyContext);
 		
 		return newSolution;
-	}
+	}*/
 
 	/**
 	 * Fix assembly connectors and delegation connectors that point to the 
@@ -249,16 +260,21 @@ public class AlternativeComponent implements INewCandidates {
 	 * If an alternative does not require a required interface of the original 
 	 * anymore, delete the AssemblyConnector.   
 	 *   
-	 * @param newSystem
 	 * @param changedAssemblyContext
 	 * @param providedAndRequiredRoleMapping 
 	 */
-	private void fixReferencesToAssemblyContext(System newSystem,
-			AssemblyContext changedAssemblyContext, ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping) {
+	public void fixReferencesToAssemblyContext(System system, AssemblyContext changedAssemblyContext, RepositoryComponent rc) {
 		
-		EList<AssemblyConnector> acons = newSystem.getAssemblyConnectors_ComposedStructure();
+		//call AlternativeComponent.generateDesigndecisions first to initialize.
+		if (this.alternativeMap == null){
+			throw new RuntimeException("The AlternativeComponent operator has not properly been initialized. Check previous Exceptions or contact the developers.");
+		}
 		
-		//Lazy initialisation of aconsToDelete, as I don't need it in most cases.
+		ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(rc);
+		
+		EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
+		
+		//Lazy initialization of aconsToDelete, as I don't need it in most cases.
 		List<AssemblyConnector> aconsToDelete = null;
 		
 		for (AssemblyConnector assemblyConnector : acons) {
@@ -289,7 +305,7 @@ public class AlternativeComponent implements INewCandidates {
 		}
 		
 		//check provided delegation connectors
-		EList<ProvidedDelegationConnector> pdecons = newSystem.getProvidedDelegationConnectors_ComposedStructure();
+		EList<ProvidedDelegationConnector> pdecons = system.getProvidedDelegationConnectors_ComposedStructure();
 		for (ProvidedDelegationConnector pdecon : pdecons) {
 			if (checkIdentity(pdecon.getAssemblyContext_ProvidedDelegationConnector(), changedAssemblyContext)){
 				pdecon.setInnerProvidedRole_ProvidedDelegationConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(pdecon.getInnerProvidedRole_ProvidedDelegationConnector()));
@@ -297,9 +313,9 @@ public class AlternativeComponent implements INewCandidates {
 		}
 		
 		//check required delegation connectors. Delete the Connector if the new component does not need the role anymore.
-		EList<RequiredDelegationConnector> rdecons = newSystem.getRequiredDelegationConnectors_ComposedStructure();
+		EList<RequiredDelegationConnector> rdecons = system.getRequiredDelegationConnectors_ComposedStructure();
 		
-		//Lazy initialisation of rdeconsToDelete, as I don't need it in most cases.
+		//Lazy initialization of rdeconsToDelete, as I don't need it in most cases.
 		List<RequiredDelegationConnector> rdeconsToDelete = null;
 		
 		for (RequiredDelegationConnector rdecon : rdecons) {
@@ -392,11 +408,11 @@ public class AlternativeComponent implements INewCandidates {
 	 * @param repoComponents
 	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
 	 */
-	private Map<BasicComponent,ProvidedAndRequiredRoleMapping> getAlternatives(
+	private Map<BasicComponent, ProvidedAndRequiredRoleMapping> getAlternatives(
 			BasicComponent assembledComponent,
 			List<BasicComponent> repoComponents) {
 		//logger.debug("getAlternatives(..) called");
-		Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
+		Map<BasicComponent, ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
 		for (BasicComponent repoComponent : repoComponents) {
 			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assembledComponent, repoComponent);
 			if (p != null) {
@@ -439,8 +455,9 @@ public class AlternativeComponent implements INewCandidates {
 
 		// first check whether the two parameters are the same component, if
 		// yes, return false.
-		if (checkIdentity(assembledComponent, alternativeComponent))
-			return null;
+		//if (checkIdentity(assembledComponent, alternativeComponent))
+		//	return null;
+		//TODO: in the case above, we could save te whole calculation. But for now, leave it like this. 
 
 		// check whether they have compatible interfaces
 		/*
@@ -547,7 +564,7 @@ public class AlternativeComponent implements INewCandidates {
 	 *            Another Identifier
 	 * @return true if i1.getId().equals(i2.getId()), false otherwise
 	 */
-	private boolean checkIdentity(Identifier i1, Identifier i2) {
+	public static boolean checkIdentity(Identifier i1, Identifier i2) {
 		if (i1.getId().equals(i2.getId())){
 			//logger.debug("Two model elements match with Id: "+i1.getId());
 			return true;
@@ -556,11 +573,7 @@ public class AlternativeComponent implements INewCandidates {
 		}
 	}
 
-	@Override
-	public void setConfiguration(ILaunchConfiguration conf) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 
 }

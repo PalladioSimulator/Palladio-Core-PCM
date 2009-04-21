@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO: constraint: One choice for each DesignDecision
+ * TODO: constraint: One choice for each DesignDecision. 
+ * TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from the Opt4J genotype. 
  * <!-- end-model-doc -->
  *
  * <p>

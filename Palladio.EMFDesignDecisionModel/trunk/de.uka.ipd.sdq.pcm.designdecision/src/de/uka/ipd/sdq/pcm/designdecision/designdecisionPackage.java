@@ -49,7 +49,7 @@ public interface designdecisionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.uka.ipd.sdq.pcm";
+	String eNS_PREFIX = "designdecision";
 
 	/**
 	 * The singleton instance of the package.
@@ -386,13 +386,22 @@ public interface designdecisionPackage extends EPackage {
 	int PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION = DESIGN_DECISION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Resourcecontainer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RATE_DECISION__RESOURCECONTAINER = DESIGN_DECISION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Processing Rate Decision</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RATE_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 1;
+	int PROCESSING_RATE_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl <em>Allocation Decision</em>}' class.
@@ -710,6 +719,26 @@ public interface designdecisionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDomain()
+	 * @generated
+	 */
+	int DISCRETE_DOMAIN = 19;
+
+	/**
+	 * The number of structural features of the '<em>Discrete Domain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_DOMAIN_FEATURE_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision <em>Design Decision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -930,6 +959,17 @@ public interface designdecisionPackage extends EPackage {
 	EReference getProcessingRateDecision_Processingresourcespecification();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getResourcecontainer <em>Resourcecontainer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resourcecontainer</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getResourcecontainer()
+	 * @see #getProcessingRateDecision()
+	 * @generated
+	 */
+	EReference getProcessingRateDecision_Resourcecontainer();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision <em>Allocation Decision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1118,6 +1158,16 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProblem_Designdecision();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Discrete Domain</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+	 * @generated
+	 */
+	EClass getDiscreteDomain();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1332,6 +1382,14 @@ public interface designdecisionPackage extends EPackage {
 		EReference PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION = eINSTANCE.getProcessingRateDecision_Processingresourcespecification();
 
 		/**
+		 * The meta object literal for the '<em><b>Resourcecontainer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESSING_RATE_DECISION__RESOURCECONTAINER = eINSTANCE.getProcessingRateDecision_Resourcecontainer();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl <em>Allocation Decision</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1490,6 +1548,16 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROBLEM__DESIGNDECISION = eINSTANCE.getProblem_Designdecision();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDomain()
+		 * @generated
+		 */
+		EClass DISCRETE_DOMAIN = eINSTANCE.getDiscreteDomain();
 
 	}
 

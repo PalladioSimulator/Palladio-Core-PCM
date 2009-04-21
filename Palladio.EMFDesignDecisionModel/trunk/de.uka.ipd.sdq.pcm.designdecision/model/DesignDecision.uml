@@ -18,6 +18,9 @@
       <ownedEnd xmi:id="_n1wgFPzoEd2sBa2PoI_LqA" name="" visibility="private" type="_khi9UPzoEd2sBa2PoI_LqA" association="_n1wgEPzoEd2sBa2PoI_LqA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_BHSOsPzpEd2sBa2PoI_LqA" name="Choice" isAbstract="true">
+      <ownedComment xmi:id="_wpHxIPz-Ed2sBa2PoI_LqA" annotatedElement="_BHSOsPzpEd2sBa2PoI_LqA">
+        <body>todo von entities erben</body>
+      </ownedComment>
       <ownedAttribute xmi:id="_Cr1KofzpEd2sBa2PoI_LqA" name="designdecision" visibility="private" type="_khi9UPzoEd2sBa2PoI_LqA" association="_Cr1KoPzpEd2sBa2PoI_LqA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Cr1KoPzpEd2sBa2PoI_LqA" memberEnd="_Cr1KofzpEd2sBa2PoI_LqA _Cr1KovzpEd2sBa2PoI_LqA">
@@ -38,12 +41,12 @@
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3H9M4PzqEd2sBa2PoI_LqA" name="Enumeration" isAbstract="true">
+    <packagedElement xmi:type="uml:Class" xmi:id="_3H9M4PzqEd2sBa2PoI_LqA" name="Enumeration" clientDependency="_xuQUIC5JEd67XayFxriNGA" isAbstract="true">
       <generalization xmi:id="_4agZ4PzqEd2sBa2PoI_LqA" general="_mM66APzoEd2sBa2PoI_LqA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_-oEIUPzqEd2sBa2PoI_LqA" name="EquivalentComponents">
       <generalization xmi:id="_Fj88YPzrEd2sBa2PoI_LqA" general="_3H9M4PzqEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_LvR2MfzrEd2sBa2PoI_LqA" name="repositorycomponent" visibility="private" association="_LvR2MPzrEd2sBa2PoI_LqA">
+      <ownedAttribute xmi:id="_LvR2MfzrEd2sBa2PoI_LqA" name="repositorycomponent" visibility="public" association="_LvR2MPzrEd2sBa2PoI_LqA">
         <type xmi:type="uml:Class" href="pcm.uml#_rGa6kKBZEd24Bv0x9CNKpg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LvR2M_zrEd2sBa2PoI_LqA" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LvR2MvzrEd2sBa2PoI_LqA" value="1"/>
@@ -128,6 +131,11 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vTYOk_zwEd2sBa2PoI_LqA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vTYOkvzwEd2sBa2PoI_LqA" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_iVjHYA4hEd6vos-fK_qqEQ" name="resourcecontainer" visibility="private" association="_iVZ9cA4hEd6vos-fK_qqEQ">
+        <type xmi:type="uml:Class" href="pcm.uml#_qdz5sOD9Edq8ysXH3gTiEg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iVs4YQ4hEd6vos-fK_qqEQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iVs4YA4hEd6vos-fK_qqEQ"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_DVkKgPzxEd2sBa2PoI_LqA" name="AllocationDecision">
       <ownedComment xmi:id="_97IQMPzyEd2sBa2PoI_LqA" annotatedElement="_DVkKgPzxEd2sBa2PoI_LqA">
@@ -163,7 +171,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4jG4FfzxEd2sBa2PoI_LqA"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_BBEi4PzyEd2sBa2PoI_LqA" name="IntegerRange">
+    <packagedElement xmi:type="uml:Class" xmi:id="_BBEi4PzyEd2sBa2PoI_LqA" name="IntegerRange" clientDependency="_yHAyYC5JEd67XayFxriNGA">
       <generalization xmi:id="_C3WIAPzyEd2sBa2PoI_LqA" general="_2oEy8PzqEd2sBa2PoI_LqA"/>
       <ownedAttribute xmi:id="_XBoQAPzyEd2sBa2PoI_LqA" name="to" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
@@ -203,7 +211,8 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_3r-w4PzzEd2sBa2PoI_LqA" name="Genotype">
       <ownedComment xmi:id="_1a30cPz0Ed2sBa2PoI_LqA" annotatedElement="_3r-w4PzzEd2sBa2PoI_LqA">
-        <body>TODO: constraint: One choice for each DesignDecision</body>
+        <body>TODO: constraint: One choice for each DesignDecision. &#xD;
+TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from the Opt4J genotype. </body>
       </ownedComment>
       <ownedAttribute xmi:id="_951aQfzzEd2sBa2PoI_LqA" name="choice" visibility="private" type="_BHSOsPzpEd2sBa2PoI_LqA" aggregation="shared" association="_951aQPzzEd2sBa2PoI_LqA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MnIVIfz0Ed2sBa2PoI_LqA" value="*"/>
@@ -225,6 +234,15 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LPWp4Pz0Ed2sBa2PoI_LqA" value="1"/>
       </ownedEnd>
     </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_iVZ9cA4hEd6vos-fK_qqEQ" memberEnd="_iVjHYA4hEd6vos-fK_qqEQ _iVs4Yg4hEd6vos-fK_qqEQ">
+      <ownedEnd xmi:id="_iVs4Yg4hEd6vos-fK_qqEQ" name="" visibility="private" type="_6AUSYPzwEd2sBa2PoI_LqA" association="_iVZ9cA4hEd6vos-fK_qqEQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iVs4ZA4hEd6vos-fK_qqEQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iVs4Yw4hEd6vos-fK_qqEQ"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_uKOzwC5JEd67XayFxriNGA" name="DiscreteDomain"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_xuQUIC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_3H9M4PzqEd2sBa2PoI_LqA"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_yHAyYC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_BBEi4PzyEd2sBa2PoI_LqA"/>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -259,4 +277,5 @@
   <Default:Documentation xmi:id="_EV5UMfzzEd2sBa2PoI_LqA" base_Comment="_EV5UMPzzEd2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_qjX74fzzEd2sBa2PoI_LqA" base_Comment="_qjX74PzzEd2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_1a30cfz0Ed2sBa2PoI_LqA" base_Comment="_1a30cPz0Ed2sBa2PoI_LqA"/>
+  <Default:Documentation xmi:id="_wpHxIfz-Ed2sBa2PoI_LqA" base_Comment="_wpHxIPz-Ed2sBa2PoI_LqA"/>
 </xmi:XMI>

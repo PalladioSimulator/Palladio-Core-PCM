@@ -43,10 +43,28 @@ public class DSECreator implements Creator<DoubleGenotype> {
 		DoubleGenotype genotype = new DoubleGenotype(problem.getBounds());
 		//I do not use an iterator here to avoid the creator to know too much of the problem. Just the bounds are enough. 
 		for (int index = 0; index < problem.getBounds().numberOfDimensions(); index++) {
-			double factor = genotype.getUpperBound(index) - genotype.getLowerBound(index);
-			genotype.add(genotype.getLowerBound(index) + this.random.nextDouble()*factor);
+			if (problem.getBounds().isInteger(index)){
+				createIntegerValue(genotype, index);
+			} else {
+				createDoubleValue(genotype, index);
+			}
 		}
 		return genotype;
+	}
+
+
+	private void createIntegerValue(DoubleGenotype genotype, int index) {
+		int range = (int)genotype.getUpperBound(index) - (int)genotype.getLowerBound(index);
+		//random.nextInt creates a random value between 0 <= x < param. I want one 0 <= x <= range. Thus, I add  1  
+		int value = (int)genotype.getLowerBound(index) + this.random.nextInt(range+1);
+		genotype.add(new Double(value));
+		
+	}
+
+
+	private void createDoubleValue(DoubleGenotype genotype, int index) {
+		double factor = genotype.getUpperBound(index) - genotype.getLowerBound(index);
+		genotype.add(genotype.getLowerBound(index) + this.random.nextDouble()*factor);
 	}
 
 }

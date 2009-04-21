@@ -61,6 +61,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ProcessingRateDecision">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ProcessingRateDecision/processingresourcespecification"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ProcessingRateDecision/resourcecontainer"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AllocationDecision">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -93,5 +95,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//Problem/designdecision"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DiscreteDomain"/>
   </genPackages>
 </genmodel:GenModel>

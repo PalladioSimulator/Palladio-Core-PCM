@@ -3,19 +3,24 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.opt4j.genotype.Bounds;
 import org.opt4j.genotype.DoubleGenotype;
 
 import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
+import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
@@ -55,28 +60,14 @@ public class DSEProblem {
 		//analyse PCM Instance and create design decisions
 		//TODO: could this be possible with a M2M transformation? 
 		//First, only get design decisions for making resources faster. 
-		List<ResourceContainer> resourceContainers = this.initialInstance.getAllResourceContainers();
+
 		this.initialGenotype = new DoubleGenotype();
-		int genotypeIndex = 0;
 		
-		for (ResourceContainer resourceContainer : resourceContainers) {
-			List<ProcessingResourceSpecification> resources = resourceContainer.getActiveResourceSpecifications_ResourceContainer();
-			for (ProcessingResourceSpecification resource : resources) {
-				ProcessingRateDecision decision = this.designDecisionFactory.createProcessingRateDecision();
-				DoubleRange range = this.designDecisionFactory.createDoubleRange();
-				range.setFrom(0);
-				range.setLowerBoundIncluded(false);
-				double currentRate = CostUtil.getDoubleFromSpecification(resource.getProcessingRate_ProcessingResourceSpecification().getSpecification());
-				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
-				range.setTo(currentRate * 10.0);
-				decision.setDomain(range);
-				decision.setProcessingresourcespecification(resource);
-				this.pcmProblem.getDesigndecision().add(decision);
-				
-				this.initialGenotype.add(currentRate);
-				genotypeIndex++;
-			}
-		}
+		determineProcessingRateDecisions();
+		
+		//find equivalent components
+		determineAssembledComponentsDecisions();
+		
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
 
@@ -94,6 +85,61 @@ public class DSEProblem {
 		 * Also meta-model the genotype as a choice within the range.
 		 */		
 	}
+
+
+	/**
+	 * Be sure to add one design decision and one gene in the initial genotype at once. The index is important.
+	 * @param genotypeIndex
+	 */
+	private void determineAssembledComponentsDecisions() {
+		AlternativeComponent ac = AlternativeComponent.getInstance();
+		List<AssembledComponentDecision> decisions = ac.generateDesignDecisions(this.initialInstance);
+		
+		for (AssembledComponentDecision designDecision : decisions) {
+			this.pcmProblem.getDesigndecision().add(designDecision);
+			EList<RepositoryComponent> ec = ((EquivalentComponents) designDecision.getDomain()).getRepositorycomponent();
+			RepositoryComponent currentlyAssembledComponent = designDecision.getAssemblycontext().getEncapsulatedComponent_AssemblyContext();
+			
+			//determine where the original component is in the map
+			boolean foundInitialRepoComponent = false;
+			for (RepositoryComponent repositoryComponent : ec) {
+				if (AlternativeComponent.checkIdentity(repositoryComponent, currentlyAssembledComponent)){
+					this.initialGenotype.add(new Double(ec.indexOf(repositoryComponent)));
+					foundInitialRepoComponent = true;
+					break;
+				}
+			}
+			if (!foundInitialRepoComponent){
+				this.initialGenotype.add(0.0);
+			}
+			
+		}
+
+	}
+
+	/**
+	 * Be sure to add one design decision and one gene in the initial genotype at once. The index is important.
+	 */
+	private void determineProcessingRateDecisions() {
+		List<ResourceContainer> resourceContainers = this.initialInstance.getAllResourceContainers();
+		for (ResourceContainer resourceContainer : resourceContainers) {
+			List<ProcessingResourceSpecification> resources = resourceContainer.getActiveResourceSpecifications_ResourceContainer();
+			for (ProcessingResourceSpecification resource : resources) {
+				ProcessingRateDecision decision = this.designDecisionFactory.createProcessingRateDecision();
+				DoubleRange range = this.designDecisionFactory.createDoubleRange();
+				range.setFrom(0);
+				range.setLowerBoundIncluded(false);
+				double currentRate = CostUtil.getDoubleFromSpecification(resource.getProcessingRate_ProcessingResourceSpecification().getSpecification());
+				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
+				range.setTo(currentRate * 10.0);
+				decision.setDomain(range);
+				decision.setProcessingresourcespecification(resource);
+				this.pcmProblem.getDesigndecision().add(decision);
+				this.initialGenotype.add(currentRate);
+				;
+			}
+		}
+}
 
 
 	public int getNumberOfDimensions(){
