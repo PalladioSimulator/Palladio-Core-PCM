@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics;
-import de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -101,9 +101,9 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RawYSeries getRawYSeries() {
+	public DataSeries getRawYSeries() {
 		if (eContainerFeatureID != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES) return null;
-		return (RawYSeries)eContainer();
+		return (DataSeries)eContainer();
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRawYSeries(RawYSeries newRawYSeries, NotificationChain msgs) {
+	public NotificationChain basicSetRawYSeries(DataSeries newRawYSeries, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRawYSeries, EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES, msgs);
 		return msgs;
 	}
@@ -121,7 +121,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRawYSeries(RawYSeries newRawYSeries) {
+	public void setRawYSeries(DataSeries newRawYSeries) {
 		if (newRawYSeries != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES && newRawYSeries != null)) {
 			if (EcoreUtil.isAncestor(this, newRawYSeries))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -129,7 +129,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRawYSeries != null)
-				msgs = ((InternalEObject)newRawYSeries).eInverseAdd(this, EmfmodelPackage.RAW_YSERIES__STATISTICS, RawYSeries.class, msgs);
+				msgs = ((InternalEObject)newRawYSeries).eInverseAdd(this, EmfmodelPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
 			msgs = basicSetRawYSeries(newRawYSeries, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -148,7 +148,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRawYSeries((RawYSeries)otherEnd, msgs);
+				return basicSetRawYSeries((DataSeries)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -176,7 +176,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.RAW_YSERIES__STATISTICS, RawYSeries.class, msgs);
+				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -209,7 +209,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 				setCount(((Long)newValue).longValue());
 				return;
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
-				setRawYSeries((RawYSeries)newValue);
+				setRawYSeries((DataSeries)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,7 +227,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 				setCount(COUNT_EDEFAULT);
 				return;
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
-				setRawYSeries((RawYSeries)null);
+				setRawYSeries((DataSeries)null);
 				return;
 		}
 		super.eUnset(featureID);

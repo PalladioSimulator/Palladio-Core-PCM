@@ -149,12 +149,12 @@ public interface Measure extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metric</em>' reference.
-	 * @see #setMetric(BaseMetricDescription)
+	 * @see #setMetric(MetricDescription)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_Metric()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	BaseMetricDescription getMetric();
+	MetricDescription getMetric();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getMetric <em>Metric</em>}' reference.
@@ -164,6 +164,6 @@ public interface Measure extends EObject {
 	 * @see #getMetric()
 	 * @generated
 	 */
-	void setMetric(BaseMetricDescription value);
+	void setMetric(MetricDescription value);
 
 } // Measure

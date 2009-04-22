@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DoubleBinaryMeasurementsImpl extends RawYSeriesImpl implements DoubleBinaryMeasurements {
+public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements DoubleBinaryMeasurements {
 	/**
 	 * The default value of the '{@link #getStorageUnit() <em>Storage Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->

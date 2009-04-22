@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.edp2.remote;
 
+import javax.measure.Measure;
+import javax.measure.unit.SI;
+import javax.measure.unit.Unit;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -14,7 +18,10 @@ import de.uka.ipd.sdq.edp2.remote.client.TransferDoubleBinaryMeasurementsRequest
  * 
  * @author groenda
  */
-public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
+public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest {
+	/** Unit used for measurements. */
+	@SuppressWarnings("unchecked")
+	protected Unit unit = SI.SECOND;
 
 	@Test
 	public void testTransferDoubleBinaryMeasurementsWithWrongUuid()
@@ -30,15 +37,18 @@ public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
 				.getDaoRegistry().isRegistered(requestedUuid));
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testTransferDoubleBinaryMeasurementsWithClientOverwrite() throws Exception {
 		String uuid = "ClientOverwriteTest";
-		BinaryMeasurementsDao<Double> bmd = serverDaoFactory.createDoubleMeasurementsDao(uuid);
+		BinaryMeasurementsDao<Measure> bmd = serverDaoFactory.createDoubleMeasurementsDao(uuid);
+		bmd.setUnit(unit);
 		bmd.open();
 		double testValue = 1.02;
-		bmd.getBinaryMeasurements().add(new Double(testValue));
+		bmd.getBinaryMeasurements().add(Measure.valueOf(testValue, unit));
 		bmd.close();
 		bmd = clientDaoFactory.createDoubleMeasurementsDao(uuid);
+		bmd.setUnit(unit);
 		bmd.open();
 		bmd.close();
 		TransferDoubleBinaryMeasurementsRequest transfer = new TransferDoubleBinaryMeasurementsRequest(
@@ -49,7 +59,8 @@ public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
 				.getDaoRegistry().isRegistered(uuid));
 		bmd.open();
 		Assert.assertEquals("Size of transferred data set mismatches.", 1, bmd.getBinaryMeasurements().size());
-		Assert.assertEquals("Value in data set must remain the same.", testValue, bmd.getBinaryMeasurements().get(0));
+		Assert.assertEquals("Value in data set must remain the same.", testValue, bmd.getBinaryMeasurements().get(0).doubleValue(unit));
+		Assert.assertEquals("Units must be equal after transfer.", unit.toString(), bmd.getUnit().toString());
 	}
 	
 	@Test
@@ -91,7 +102,8 @@ public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
 	@SuppressWarnings("unchecked")
 	private void testTransferDoubleBinaryMeasurementsSizeX(int sizeX) throws Exception {
 		String uuid = "0815test_size" + sizeX;
-		BinaryMeasurementsDao<Double> bmd = serverDaoFactory.createDoubleMeasurementsDao(uuid);
+		BinaryMeasurementsDao<Measure> bmd = serverDaoFactory.createDoubleMeasurementsDao(uuid);
+		bmd.setUnit(unit);
 		bmd.open();
 		Double[] expected = createMeasurements(bmd.getBinaryMeasurements(), sizeX);
 		bmd.close();
@@ -101,11 +113,11 @@ public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
 		Assert.assertTrue("Transfer must be successful.", transferSuccess);
 		Assert.assertTrue("Uuid must be registered on client.", clientDaoFactory
 				.getDaoRegistry().isRegistered(uuid));
-		bmd = (BinaryMeasurementsDao<Double>) clientDaoFactory.getDaoRegistry().getEdp2Dao(uuid);
+		bmd = (BinaryMeasurementsDao<Measure>) clientDaoFactory.getDaoRegistry().getEdp2Dao(uuid);
 		bmd.open();
 		Assert.assertEquals("Size of transferred data set mismatches.", sizeX, bmd.getBinaryMeasurements().size());
 		for (int i = 0; i < sizeX; i++) {
-			Assert.assertEquals("Value in data set must remain the same.", expected[i], bmd.getBinaryMeasurements().get(i));
+			Assert.assertEquals("Value in data set must remain the same.", expected[i], bmd.getBinaryMeasurements().get(i).doubleValue(unit));
 		}
 	}
 
@@ -114,12 +126,13 @@ public class TransferDoubleBinaryMeasurementsTest extends GenericTransferTest{
 	 * @param numberOfMeasurements  Specifies how many measurements are created.
 	 * @return The created measurements themselves.
 	 */
+	@SuppressWarnings("unchecked")
 	private Double[] createMeasurements(
-			BinaryMeasurements<Double> binaryMeasurements, int numberOfMeasurements) {
+			BinaryMeasurements<Measure> binaryMeasurements, int numberOfMeasurements) {
 		Double[] result = new Double[numberOfMeasurements];
 		for (int i = 0; i < numberOfMeasurements; i++) {
 			result[i] = i+1.0;
-			binaryMeasurements.add(result[i]);
+			binaryMeasurements.add(Measure.valueOf(result[i], unit));
 		}
 		return result;
 	}

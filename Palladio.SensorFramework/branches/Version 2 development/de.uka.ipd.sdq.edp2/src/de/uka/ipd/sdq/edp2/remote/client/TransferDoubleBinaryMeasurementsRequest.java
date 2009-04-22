@@ -21,14 +21,14 @@ public class TransferDoubleBinaryMeasurementsRequest extends
 	protected static final Logger logger = Logger
 			.getLogger(TransferDoubleBinaryMeasurementsRequest.class
 					.getCanonicalName());
-
+	
 	public TransferDoubleBinaryMeasurementsRequest(IChannel channel, String uuid, DaoFactory factory) {
 		super (channel, uuid, factory);
 	}
 
 	@Override
 	protected short getSignalID() {
-		return Edp2TransferProtocol.TRANSFER_LONG_BINARY_MEASUREMENTS_SIGNAL;
+		return Edp2TransferProtocol.TRANSFER_DOUBLE_BINARY_MEASUREMENTS_SIGNAL;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class TransferDoubleBinaryMeasurementsRequest extends
 
 	@Override
 	protected String getHandledDaoName() {
-		return "LongBinaryMeasurementsDao";
+		return "DoubleBinaryMeasurementsDao";
 	}
 
 	@Override

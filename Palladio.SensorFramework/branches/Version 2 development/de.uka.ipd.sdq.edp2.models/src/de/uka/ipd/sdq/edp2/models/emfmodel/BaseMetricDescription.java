@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel;
 
+import javax.measure.unit.Unit;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +20,8 @@ package de.uka.ipd.sdq.edp2.models.emfmodel;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getCaptureType <em>Capture Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getDataType <em>Data Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getScale <em>Scale</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getMonotonic <em>Monotonic</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getDefaultUnit <em>Default Unit</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,5 +116,59 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * @generated
 	 */
 	void setScale(Scale value);
+
+	/**
+	 * Returns the value of the '<em><b>Monotonic</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Monotonic</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Monotonic</em>' attribute.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic
+	 * @see #setMonotonic(Monotonic)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getBaseMetricDescription_Monotonic()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	Monotonic getMonotonic();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getMonotonic <em>Monotonic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Monotonic</em>' attribute.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic
+	 * @see #getMonotonic()
+	 * @generated
+	 */
+	void setMonotonic(Monotonic value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * There is no unit for NominalMeasurements.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Default Unit</em>' attribute.
+	 * @see #setDefaultUnit(Unit)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getBaseMetricDescription_DefaultUnit()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSUnit" ordered="false"
+	 * @generated
+	 */
+	Unit getDefaultUnit();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getDefaultUnit <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Unit</em>' attribute.
+	 * @see #getDefaultUnit()
+	 * @generated
+	 */
+	void setDefaultUnit(Unit value);
 
 } // BaseMetricDescription

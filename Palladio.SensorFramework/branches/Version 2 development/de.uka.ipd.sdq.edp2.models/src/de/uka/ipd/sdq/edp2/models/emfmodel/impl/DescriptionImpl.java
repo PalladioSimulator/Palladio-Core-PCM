@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getUuid <em>Uuid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getTextualDescription <em>Textual Description</em>}</li>
  * </ul>
@@ -31,27 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class DescriptionImpl extends EObjectImpl implements Description {
-	/**
-	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUuid()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String UUID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUuid()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uuid = UUID_EDEFAULT;
-
+public abstract class DescriptionImpl extends IdentifiableImpl implements Description {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -116,27 +95,6 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUuid() {
-		return uuid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUuid(String newUuid) {
-		String oldUuid = uuid;
-		uuid = newUuid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__UUID, oldUuid, uuid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -182,8 +140,6 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__UUID:
-				return getUuid();
 			case EmfmodelPackage.DESCRIPTION__NAME:
 				return getName();
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
@@ -200,9 +156,6 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__UUID:
-				setUuid((String)newValue);
-				return;
 			case EmfmodelPackage.DESCRIPTION__NAME:
 				setName((String)newValue);
 				return;
@@ -221,9 +174,6 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__UUID:
-				setUuid(UUID_EDEFAULT);
-				return;
 			case EmfmodelPackage.DESCRIPTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -242,8 +192,6 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__UUID:
-				return UUID_EDEFAULT == null ? uuid != null : !UUID_EDEFAULT.equals(uuid);
 			case EmfmodelPackage.DESCRIPTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
@@ -262,9 +210,7 @@ public abstract class DescriptionImpl extends EObjectImpl implements Description
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (uuid: ");
-		result.append(uuid);
-		result.append(", name: ");
+		result.append(" (name: ");
 		result.append(name);
 		result.append(", textualDescription: ");
 		result.append(textualDescription);

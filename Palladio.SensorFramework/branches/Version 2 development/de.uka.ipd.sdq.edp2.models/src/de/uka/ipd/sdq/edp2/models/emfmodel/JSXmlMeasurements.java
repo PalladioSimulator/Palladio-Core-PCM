@@ -21,5 +21,5 @@ package de.uka.ipd.sdq.edp2.models.emfmodel;
  * @model
  * @generated
  */
-public interface JSXmlMeasurements extends RawYSeries {
+public interface JSXmlMeasurements extends DataSeries {
 } // JSXmlMeasurements

@@ -3,9 +3,14 @@
  */
 package de.uka.ipd.sdq.edp2;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import javax.measure.Measure;
+import javax.measure.unit.SI;
+import javax.measure.unit.Unit;
 
 import org.junit.Test;
 
@@ -18,7 +23,8 @@ import de.uka.ipd.sdq.edp2.models.binary.BinaryMeasurements;
 @SuppressWarnings("unchecked")
 public abstract class DoubleBinaryMeasurementsDaoTest extends Edp2DaoTest {
 	/** Binary measurement DAO to test. */
-	protected BinaryMeasurementsDao<Double> bmDao = (BinaryMeasurementsDao<Double>) dao;
+	protected BinaryMeasurementsDao<Measure> bmDao = (BinaryMeasurementsDao<Measure>) dao;
+	protected Unit unit = SI.SECOND;
 
 	@Test (expected = IllegalStateException.class)
 	public void testGetBinaryMeasurmentsOnlyIfOpen() {
@@ -47,12 +53,13 @@ public abstract class DoubleBinaryMeasurementsDaoTest extends Edp2DaoTest {
 	@Test
 	public void testDataRetainedIfReopened() throws DataNotAccessibleException {
 		bmDao.open();
-		BinaryMeasurements<Double> bmd = bmDao.getBinaryMeasurements();
+		BinaryMeasurements<Measure> bmd = bmDao.getBinaryMeasurements();
 		double testValue = 5.0132;
-		bmd.add(testValue);
+		bmd.add(Measure.valueOf(testValue, unit));
 		bmd = null;
 		bmDao.close();
 		bmDao.open();
 		bmd = bmDao.getBinaryMeasurements();
+		assertEquals("Test data must be retained if DAO is reopened.", testValue, bmd.get(0).doubleValue(unit));
 	}
 }

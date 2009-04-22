@@ -6,11 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries;
-import de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries;
 
 import java.util.Collection;
 
@@ -35,34 +34,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawMeasurementsImpl#getRawXSeries <em>Raw XSeries</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawMeasurementsImpl#getRawYSeries <em>Raw YSeries</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawMeasurementsImpl#getDataSeries <em>Data Series</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawMeasurementsImpl#getMeasurementRange <em>Measurement Range</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurements {
+public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurements {
 	/**
-	 * The cached value of the '{@link #getRawXSeries() <em>Raw XSeries</em>}' containment reference.
+	 * The cached value of the '{@link #getDataSeries() <em>Data Series</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRawXSeries()
+	 * @see #getDataSeries()
 	 * @generated
 	 * @ordered
 	 */
-	protected RawXSeries rawXSeries;
-
-	/**
-	 * The cached value of the '{@link #getRawYSeries() <em>Raw YSeries</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRawYSeries()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RawYSeries> rawYSeries;
+	protected EList<DataSeries> dataSeries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,54 +76,11 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RawXSeries getRawXSeries() {
-		return rawXSeries;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRawXSeries(RawXSeries newRawXSeries, NotificationChain msgs) {
-		RawXSeries oldRawXSeries = rawXSeries;
-		rawXSeries = newRawXSeries;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES, oldRawXSeries, newRawXSeries);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<DataSeries> getDataSeries() {
+		if (dataSeries == null) {
+			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRawXSeries(RawXSeries newRawXSeries) {
-		if (newRawXSeries != rawXSeries) {
-			NotificationChain msgs = null;
-			if (rawXSeries != null)
-				msgs = ((InternalEObject)rawXSeries).eInverseRemove(this, EmfmodelPackage.RAW_XSERIES__RAW_MEASUREMENTS, RawXSeries.class, msgs);
-			if (newRawXSeries != null)
-				msgs = ((InternalEObject)newRawXSeries).eInverseAdd(this, EmfmodelPackage.RAW_XSERIES__RAW_MEASUREMENTS, RawXSeries.class, msgs);
-			msgs = basicSetRawXSeries(newRawXSeries, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES, newRawXSeries, newRawXSeries));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RawYSeries> getRawYSeries() {
-		if (rawYSeries == null) {
-			rawYSeries = new EObjectContainmentWithInverseEList<RawYSeries>(RawYSeries.class, this, EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES, EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS);
-		}
-		return rawYSeries;
+		return dataSeries;
 	}
 
 	/**
@@ -188,12 +133,8 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				if (rawXSeries != null)
-					msgs = ((InternalEObject)rawXSeries).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES, null, msgs);
-				return basicSetRawXSeries((RawXSeries)otherEnd, msgs);
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRawYSeries()).basicAdd(otherEnd, msgs);
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -210,10 +151,8 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				return basicSetRawXSeries(null, msgs);
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				return ((InternalEList<?>)getRawYSeries()).basicRemove(otherEnd, msgs);
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return basicSetMeasurementRange(null, msgs);
 		}
@@ -242,10 +181,8 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				return getRawXSeries();
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				return getRawYSeries();
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				return getDataSeries();
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange();
 		}
@@ -261,12 +198,9 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				setRawXSeries((RawXSeries)newValue);
-				return;
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				getRawYSeries().clear();
-				getRawYSeries().addAll((Collection<? extends RawYSeries>)newValue);
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				getDataSeries().clear();
+				getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
 				return;
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)newValue);
@@ -283,11 +217,8 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				setRawXSeries((RawXSeries)null);
-				return;
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				getRawYSeries().clear();
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				getDataSeries().clear();
 				return;
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)null);
@@ -304,10 +235,8 @@ public abstract class RawMeasurementsImpl extends IdentifiableImpl implements Ra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_XSERIES:
-				return rawXSeries != null;
-			case EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES:
-				return rawYSeries != null && !rawYSeries.isEmpty();
+			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+				return dataSeries != null && !dataSeries.isEmpty();
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange() != null;
 		}

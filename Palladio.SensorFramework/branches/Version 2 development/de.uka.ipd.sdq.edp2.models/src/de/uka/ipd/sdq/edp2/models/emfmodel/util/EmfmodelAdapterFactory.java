@@ -89,40 +89,48 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createMeasurementRangeAdapter();
 			}
 			@Override
-			public Adapter caseRawMeasurements(RawMeasurements object) {
-				return createRawMeasurementsAdapter();
-			}
-			@Override
-			public Adapter caseRawXSeries(RawXSeries object) {
-				return createRawXSeriesAdapter();
-			}
-			@Override
-			public Adapter caseRawYSeries(RawYSeries object) {
-				return createRawYSeriesAdapter();
-			}
-			@Override
-			public Adapter caseNominalStatistics(NominalStatistics object) {
-				return createNominalStatisticsAdapter();
-			}
-			@Override
-			public Adapter caseFixedWidthAggregation(FixedWidthAggregation object) {
-				return createFixedWidthAggregationAdapter();
-			}
-			@Override
-			public Adapter caseIntervals(Intervals object) {
-				return createIntervalsAdapter();
-			}
-			@Override
-			public Adapter caseMeasurement(Measurement object) {
-				return createMeasurementAdapter();
-			}
-			@Override
 			public Adapter casePropertyable(Propertyable object) {
 				return createPropertyableAdapter();
 			}
 			@Override
 			public Adapter caseEStringtoEObjectMapEntry(Map.Entry<String, Object> object) {
 				return createEStringtoEObjectMapEntryAdapter();
+			}
+			@Override
+			public Adapter caseRawMeasurements(RawMeasurements object) {
+				return createRawMeasurementsAdapter();
+			}
+			@Override
+			public Adapter caseDataSeries(DataSeries object) {
+				return createDataSeriesAdapter();
+			}
+			@Override
+			public Adapter caseNominalStatistics(NominalStatistics object) {
+				return createNominalStatisticsAdapter();
+			}
+			@Override
+			public Adapter caseFixedWidthAggregatedMeasurements(FixedWidthAggregatedMeasurements object) {
+				return createFixedWidthAggregatedMeasurementsAdapter();
+			}
+			@Override
+			public Adapter caseFixedIntervals(FixedIntervals object) {
+				return createFixedIntervalsAdapter();
+			}
+			@Override
+			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
+				return createBaseMetricDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseMetricDescription(MetricDescription object) {
+				return createMetricDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseDescription(Description object) {
+				return createDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseMeasurement(Measurement object) {
+				return createMeasurementAdapter();
 			}
 			@Override
 			public Adapter caseMeasure(Measure object) {
@@ -141,24 +149,12 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createExperimentRunAdapter();
 			}
 			@Override
-			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
-				return createBaseMetricDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseMetricDescription(MetricDescription object) {
-				return createMetricDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseDescription(Description object) {
-				return createDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseAggregationCharacterization(AggregationCharacterization object) {
-				return createAggregationCharacterizationAdapter();
-			}
-			@Override
 			public Adapter caseAggregationFunctionDescription(AggregationFunctionDescription object) {
 				return createAggregationFunctionDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseAggregationStatistics(AggregationStatistics object) {
+				return createAggregationStatisticsAdapter();
 			}
 			@Override
 			public Adapter caseLongBinaryMeasurements(LongBinaryMeasurements object) {
@@ -181,28 +177,12 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createDoubleBinaryMeasurementsAdapter();
 			}
 			@Override
-			public Adapter caseOrdinalScalarMeasure(OrdinalScalarMeasure object) {
-				return createOrdinalScalarMeasureAdapter();
+			public Adapter caseOrdinalMeasure(OrdinalMeasure object) {
+				return createOrdinalMeasureAdapter();
 			}
 			@Override
 			public Adapter caseJSXmlMeasurements(JSXmlMeasurements object) {
 				return createJSXmlMeasurementsAdapter();
-			}
-			@Override
-			public Adapter caseEventTimeAggregation(EventTimeAggregation object) {
-				return createEventTimeAggregationAdapter();
-			}
-			@Override
-			public Adapter caseValueAggregation(ValueAggregation object) {
-				return createValueAggregationAdapter();
-			}
-			@Override
-			public Adapter caseStrongMonotonicScalarMeasure(StrongMonotonicScalarMeasure object) {
-				return createStrongMonotonicScalarMeasureAdapter();
-			}
-			@Override
-			public Adapter caseDoubleBinaryEventTimes(DoubleBinaryEventTimes object) {
-				return createDoubleBinaryEventTimesAdapter();
 			}
 			@Override
 			public Adapter caseIJSDuration(Duration object) {
@@ -321,30 +301,16 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries <em>Raw XSeries</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries
 	 * @generated
 	 */
-	public Adapter createRawXSeriesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries <em>Raw YSeries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries
-	 * @generated
-	 */
-	public Adapter createRawYSeriesAdapter() {
+	public Adapter createDataSeriesAdapter() {
 		return null;
 	}
 
@@ -363,30 +329,30 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation <em>Fixed Width Aggregation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements <em>Fixed Width Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements
 	 * @generated
 	 */
-	public Adapter createFixedWidthAggregationAdapter() {
+	public Adapter createFixedWidthAggregatedMeasurementsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals <em>Intervals</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals <em>Fixed Intervals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals
 	 * @generated
 	 */
-	public Adapter createIntervalsAdapter() {
+	public Adapter createFixedIntervalsAdapter() {
 		return null;
 	}
 
@@ -531,20 +497,6 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization <em>Aggregation Characterization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization
-	 * @generated
-	 */
-	public Adapter createAggregationCharacterizationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription <em>Aggregation Function Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -555,6 +507,20 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregationFunctionDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics <em>Aggregation Statistics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics
+	 * @generated
+	 */
+	public Adapter createAggregationStatisticsAdapter() {
 		return null;
 	}
 
@@ -629,16 +595,16 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure <em>Ordinal Scalar Measure</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalMeasure <em>Ordinal Measure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalMeasure
 	 * @generated
 	 */
-	public Adapter createOrdinalScalarMeasureAdapter() {
+	public Adapter createOrdinalMeasureAdapter() {
 		return null;
 	}
 
@@ -653,62 +619,6 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJSXmlMeasurementsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.EventTimeAggregation <em>Event Time Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EventTimeAggregation
-	 * @generated
-	 */
-	public Adapter createEventTimeAggregationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ValueAggregation <em>Value Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ValueAggregation
-	 * @generated
-	 */
-	public Adapter createValueAggregationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.StrongMonotonicScalarMeasure <em>Strong Monotonic Scalar Measure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.StrongMonotonicScalarMeasure
-	 * @generated
-	 */
-	public Adapter createStrongMonotonicScalarMeasureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryEventTimes <em>Double Binary Event Times</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryEventTimes
-	 * @generated
-	 */
-	public Adapter createDoubleBinaryEventTimesAdapter() {
 		return null;
 	}
 

@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
+import de.uka.ipd.sdq.edp2.models.emfmodel.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.PersistenceKindOptions;
 
 import java.util.Collection;
@@ -66,7 +67,7 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PersistenceKindOptions PERSISTENCY_KIND_EDEFAULT = PersistenceKindOptions.BINARY_LONG;
+	protected static final PersistenceKindOptions PERSISTENCY_KIND_EDEFAULT = PersistenceKindOptions.BINARY_PREFERRED;
 
 	/**
 	 * The cached value of the '{@link #getPersistencyKind() <em>Persistency Kind</em>}' attribute.
@@ -106,7 +107,7 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected BaseMetricDescription metric;
+	protected MetricDescription metric;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,10 +228,10 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseMetricDescription getMetric() {
+	public MetricDescription getMetric() {
 		if (metric != null && metric.eIsProxy()) {
 			InternalEObject oldMetric = (InternalEObject)metric;
-			metric = (BaseMetricDescription)eResolveProxy(oldMetric);
+			metric = (MetricDescription)eResolveProxy(oldMetric);
 			if (metric != oldMetric) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.MEASURE__METRIC, oldMetric, metric));
@@ -244,7 +245,7 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseMetricDescription basicGetMetric() {
+	public MetricDescription basicGetMetric() {
 		return metric;
 	}
 
@@ -253,8 +254,8 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetric(BaseMetricDescription newMetric) {
-		BaseMetricDescription oldMetric = metric;
+	public void setMetric(MetricDescription newMetric) {
+		MetricDescription oldMetric = metric;
 		metric = newMetric;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASURE__METRIC, oldMetric, metric));
@@ -355,7 +356,7 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 				setMeasuredObject((String)newValue);
 				return;
 			case EmfmodelPackage.MEASURE__METRIC:
-				setMetric((BaseMetricDescription)newValue);
+				setMetric((MetricDescription)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -382,7 +383,7 @@ public abstract class MeasureImpl extends EObjectImpl implements Measure {
 				setMeasuredObject(MEASURED_OBJECT_EDEFAULT);
 				return;
 			case EmfmodelPackage.MEASURE__METRIC:
-				setMetric((BaseMetricDescription)null);
+				setMetric((MetricDescription)null);
 				return;
 		}
 		super.eUnset(featureID);

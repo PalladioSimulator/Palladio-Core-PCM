@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements;
+import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription;
+import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
@@ -29,66 +31,15 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getMeasurementRange <em>Measurement Range</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getDistinctValuesBeforeAggregation <em>Distinct Values Before Aggregation</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getDistinctValuesAfterAggregation <em>Distinct Values After Aggregation</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getAggregationCharacterization <em>Aggregation Characterization</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getFunction <em>Function</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getAggregationStatistics <em>Aggregation Statistics</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implements AggregatedMeasurements {
-	/**
-	 * The default value of the '{@link #getDistinctValuesBeforeAggregation() <em>Distinct Values Before Aggregation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistinctValuesBeforeAggregation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final long DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getDistinctValuesBeforeAggregation() <em>Distinct Values Before Aggregation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistinctValuesBeforeAggregation()
-	 * @generated
-	 * @ordered
-	 */
-	protected long distinctValuesBeforeAggregation = DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDistinctValuesAfterAggregation() <em>Distinct Values After Aggregation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistinctValuesAfterAggregation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final long DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getDistinctValuesAfterAggregation() <em>Distinct Values After Aggregation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistinctValuesAfterAggregation()
-	 * @generated
-	 * @ordered
-	 */
-	protected long distinctValuesAfterAggregation = DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getAggregationCharacterization() <em>Aggregation Characterization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAggregationCharacterization()
-	 * @generated
-	 * @ordered
-	 */
-	protected AggregationCharacterization aggregationCharacterization;
-
 	/**
 	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,6 +59,26 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @ordered
 	 */
 	protected boolean valid = VALID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFunction() <em>Function</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected AggregationFunctionDescription function;
+
+	/**
+	 * The cached value of the '{@link #getAggregationStatistics() <em>Aggregation Statistics</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationStatistics()
+	 * @generated
+	 * @ordered
+	 */
+	protected AggregationStatistics aggregationStatistics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,91 +145,6 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getDistinctValuesBeforeAggregation() {
-		return distinctValuesBeforeAggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDistinctValuesBeforeAggregation(long newDistinctValuesBeforeAggregation) {
-		long oldDistinctValuesBeforeAggregation = distinctValuesBeforeAggregation;
-		distinctValuesBeforeAggregation = newDistinctValuesBeforeAggregation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION, oldDistinctValuesBeforeAggregation, distinctValuesBeforeAggregation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public long getDistinctValuesAfterAggregation() {
-		return distinctValuesAfterAggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDistinctValuesAfterAggregation(long newDistinctValuesAfterAggregation) {
-		long oldDistinctValuesAfterAggregation = distinctValuesAfterAggregation;
-		distinctValuesAfterAggregation = newDistinctValuesAfterAggregation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION, oldDistinctValuesAfterAggregation, distinctValuesAfterAggregation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AggregationCharacterization getAggregationCharacterization() {
-		return aggregationCharacterization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAggregationCharacterization(AggregationCharacterization newAggregationCharacterization, NotificationChain msgs) {
-		AggregationCharacterization oldAggregationCharacterization = aggregationCharacterization;
-		aggregationCharacterization = newAggregationCharacterization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION, oldAggregationCharacterization, newAggregationCharacterization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAggregationCharacterization(AggregationCharacterization newAggregationCharacterization) {
-		if (newAggregationCharacterization != aggregationCharacterization) {
-			NotificationChain msgs = null;
-			if (aggregationCharacterization != null)
-				msgs = ((InternalEObject)aggregationCharacterization).eInverseRemove(this, EmfmodelPackage.AGGREGATION_CHARACTERIZATION__AGGREGATED_MEASUREMENTS, AggregationCharacterization.class, msgs);
-			if (newAggregationCharacterization != null)
-				msgs = ((InternalEObject)newAggregationCharacterization).eInverseAdd(this, EmfmodelPackage.AGGREGATION_CHARACTERIZATION__AGGREGATED_MEASUREMENTS, AggregationCharacterization.class, msgs);
-			msgs = basicSetAggregationCharacterization(newAggregationCharacterization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION, newAggregationCharacterization, newAggregationCharacterization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isValid() {
 		return valid;
 	}
@@ -280,6 +166,87 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AggregationFunctionDescription getFunction() {
+		if (function != null && function.eIsProxy()) {
+			InternalEObject oldFunction = (InternalEObject)function;
+			function = (AggregationFunctionDescription)eResolveProxy(oldFunction);
+			if (function != oldFunction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
+			}
+		}
+		return function;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregationFunctionDescription basicGetFunction() {
+		return function;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFunction(AggregationFunctionDescription newFunction) {
+		AggregationFunctionDescription oldFunction = function;
+		function = newFunction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregationStatistics getAggregationStatistics() {
+		return aggregationStatistics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAggregationStatistics(AggregationStatistics newAggregationStatistics, NotificationChain msgs) {
+		AggregationStatistics oldAggregationStatistics = aggregationStatistics;
+		aggregationStatistics = newAggregationStatistics;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, oldAggregationStatistics, newAggregationStatistics);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAggregationStatistics(AggregationStatistics newAggregationStatistics) {
+		if (newAggregationStatistics != aggregationStatistics) {
+			NotificationChain msgs = null;
+			if (aggregationStatistics != null)
+				msgs = ((InternalEObject)aggregationStatistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
+			if (newAggregationStatistics != null)
+				msgs = ((InternalEObject)newAggregationStatistics).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
+			msgs = basicSetAggregationStatistics(newAggregationStatistics, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, newAggregationStatistics, newAggregationStatistics));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -287,10 +254,6 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetMeasurementRange((MeasurementRange)otherEnd, msgs);
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				if (aggregationCharacterization != null)
-					msgs = ((InternalEObject)aggregationCharacterization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION, null, msgs);
-				return basicSetAggregationCharacterization((AggregationCharacterization)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -305,8 +268,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		switch (featureID) {
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return basicSetMeasurementRange(null, msgs);
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				return basicSetAggregationCharacterization(null, msgs);
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+				return basicSetAggregationStatistics(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -335,14 +298,13 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		switch (featureID) {
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				return new Long(getDistinctValuesBeforeAggregation());
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				return new Long(getDistinctValuesAfterAggregation());
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				return getAggregationCharacterization();
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return isValid() ? Boolean.TRUE : Boolean.FALSE;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+				if (resolve) return getFunction();
+				return basicGetFunction();
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+				return getAggregationStatistics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,17 +320,14 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				setDistinctValuesBeforeAggregation(((Long)newValue).longValue());
-				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				setDistinctValuesAfterAggregation(((Long)newValue).longValue());
-				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				setAggregationCharacterization((AggregationCharacterization)newValue);
-				return;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid(((Boolean)newValue).booleanValue());
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+				setFunction((AggregationFunctionDescription)newValue);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+				setAggregationStatistics((AggregationStatistics)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -385,17 +344,14 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)null);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				setDistinctValuesBeforeAggregation(DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT);
-				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				setDistinctValuesAfterAggregation(DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT);
-				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				setAggregationCharacterization((AggregationCharacterization)null);
-				return;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid(VALID_EDEFAULT);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+				setFunction((AggregationFunctionDescription)null);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+				setAggregationStatistics((AggregationStatistics)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -411,14 +367,12 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		switch (featureID) {
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange() != null;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				return distinctValuesBeforeAggregation != DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				return distinctValuesAfterAggregation != DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION:
-				return aggregationCharacterization != null;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return valid != VALID_EDEFAULT;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+				return function != null;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+				return aggregationStatistics != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -433,11 +387,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (distinctValuesBeforeAggregation: ");
-		result.append(distinctValuesBeforeAggregation);
-		result.append(", distinctValuesAfterAggregation: ");
-		result.append(distinctValuesAfterAggregation);
-		result.append(", valid: ");
+		result.append(" (valid: ");
 		result.append(valid);
 		result.append(')');
 		return result.toString();

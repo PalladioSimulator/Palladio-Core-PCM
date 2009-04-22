@@ -59,7 +59,7 @@ public interface Measurement extends Propertyable {
 
 	/**
 	 * Returns the value of the '<em><b>Experiment Run</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getCollectedData <em>Collected Data</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getMeasurement <em>Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Experiment Run</em>' container reference isn't clear,
@@ -69,8 +69,8 @@ public interface Measurement extends Propertyable {
 	 * @return the value of the '<em>Experiment Run</em>' container reference.
 	 * @see #setExperimentRun(ExperimentRun)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasurement_ExperimentRun()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getCollectedData
-	 * @model opposite="collectedData" required="true" transient="false" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getMeasurement
+	 * @model opposite="measurement" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ExperimentRun getExperimentRun();
@@ -88,7 +88,7 @@ public interface Measurement extends Propertyable {
 	/**
 	 * Returns the value of the '<em><b>Measurement Range</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData <em>Collected Data</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement <em>Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measurement Range</em>' containment reference list isn't clear,
@@ -97,8 +97,8 @@ public interface Measurement extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement Range</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasurement_MeasurementRange()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData
-	 * @model opposite="collectedData" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement
+	 * @model opposite="measurement" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<MeasurementRange> getMeasurementRange();

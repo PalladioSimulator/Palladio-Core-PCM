@@ -41,14 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getRawMeasurements <em>Raw Measurements</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getEndTime <em>End Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getStartTime <em>Start Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getCollectedData <em>Collected Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getMeasurement <em>Measurement</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRange {
+public class MeasurementRangeImpl extends PropertyableImpl implements MeasurementRange {
 	/**
 	 * The cached value of the '{@link #getRawMeasurements() <em>Raw Measurements</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -218,8 +218,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measurement getCollectedData() {
-		if (eContainerFeatureID != EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA) return null;
+	public Measurement getMeasurement() {
+		if (eContainerFeatureID != EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT) return null;
 		return (Measurement)eContainer();
 	}
 
@@ -228,8 +228,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCollectedData(Measurement newCollectedData, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCollectedData, EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA, msgs);
+	public NotificationChain basicSetMeasurement(Measurement newMeasurement, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newMeasurement, EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT, msgs);
 		return msgs;
 	}
 
@@ -238,20 +238,20 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCollectedData(Measurement newCollectedData) {
-		if (newCollectedData != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA && newCollectedData != null)) {
-			if (EcoreUtil.isAncestor(this, newCollectedData))
+	public void setMeasurement(Measurement newMeasurement) {
+		if (newMeasurement != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT && newMeasurement != null)) {
+			if (EcoreUtil.isAncestor(this, newMeasurement))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCollectedData != null)
-				msgs = ((InternalEObject)newCollectedData).eInverseAdd(this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
-			msgs = basicSetCollectedData(newCollectedData, msgs);
+			if (newMeasurement != null)
+				msgs = ((InternalEObject)newMeasurement).eInverseAdd(this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
+			msgs = basicSetMeasurement(newMeasurement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA, newCollectedData, newCollectedData));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT, newMeasurement, newMeasurement));
 	}
 
 	/**
@@ -279,10 +279,10 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 				if (rawMeasurements != null)
 					msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, null, msgs);
 				return basicSetRawMeasurements((RawMeasurements)otherEnd, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCollectedData((Measurement)otherEnd, msgs);
+				return basicSetMeasurement((Measurement)otherEnd, msgs);
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAggregatedMeasurements()).basicAdd(otherEnd, msgs);
 		}
@@ -299,8 +299,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 		switch (featureID) {
 			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				return basicSetRawMeasurements(null, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
-				return basicSetCollectedData(null, msgs);
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				return basicSetMeasurement(null, msgs);
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<?>)getAggregatedMeasurements()).basicRemove(otherEnd, msgs);
 		}
@@ -315,7 +315,7 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -335,8 +335,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 				return getEndTime();
 			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
 				return getStartTime();
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
-				return getCollectedData();
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				return getMeasurement();
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
 		}
@@ -361,8 +361,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
 				setStartTime((Measure)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
-				setCollectedData((Measurement)newValue);
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				setMeasurement((Measurement)newValue);
 				return;
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
@@ -389,8 +389,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
-				setCollectedData((Measurement)null);
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				setMeasurement((Measurement)null);
 				return;
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
@@ -413,8 +413,8 @@ public class MeasurementRangeImpl extends EObjectImpl implements MeasurementRang
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
 			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
-			case EmfmodelPackage.MEASUREMENT_RANGE__COLLECTED_DATA:
-				return getCollectedData() != null;
+			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				return getMeasurement() != null;
 			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return aggregatedMeasurements != null && !aggregatedMeasurements.isEmpty();
 		}

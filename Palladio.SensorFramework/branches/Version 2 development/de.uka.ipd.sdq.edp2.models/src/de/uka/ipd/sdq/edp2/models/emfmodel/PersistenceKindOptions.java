@@ -23,104 +23,52 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PersistenceKindOptions implements Enumerator {
 	/**
-	 * The '<em><b>Binary Long</b></em>' literal object.
+	 * The '<em><b>Binary Preferred</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BINARY_LONG_VALUE
+	 * @see #BINARY_PREFERRED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BINARY_LONG(0, "BinaryLong", "BinaryLong"),
-
-	/**
-	 * The '<em><b>Binary Double</b></em>' literal object.
+	BINARY_PREFERRED(0, "BinaryPreferred", "BinaryPreferred"), /**
+	 * The '<em><b>JS Xml Preferred</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BINARY_DOUBLE_VALUE
+	 * @see #JS_XML_PREFERRED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BINARY_DOUBLE(1, "BinaryDouble", "BinaryDouble"),
+	JS_XML_PREFERRED(1, "JSXmlPreferred", "JSXmlPreferred");
 
 	/**
-	 * The '<em><b>Xml JScience</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #XML_JSCIENCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	XML_JSCIENCE(2, "XmlJScience", "XmlJScience"),
-
-	/**
-	 * The '<em><b>Emf</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EMF_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EMF(3, "Emf", "Emf");
-
-	/**
-	 * The '<em><b>Binary Long</b></em>' literal value.
+	 * The '<em><b>Binary Preferred</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Binary Long</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Binary Preferred</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BINARY_LONG
-	 * @model name="BinaryLong"
+	 * @see #BINARY_PREFERRED
+	 * @model name="BinaryPreferred"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BINARY_LONG_VALUE = 0;
+	public static final int BINARY_PREFERRED_VALUE = 0;
 
 	/**
-	 * The '<em><b>Binary Double</b></em>' literal value.
+	 * The '<em><b>JS Xml Preferred</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Binary Double</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>JS Xml Preferred</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BINARY_DOUBLE
-	 * @model name="BinaryDouble"
+	 * @see #JS_XML_PREFERRED
+	 * @model name="JSXmlPreferred"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BINARY_DOUBLE_VALUE = 1;
-
-	/**
-	 * The '<em><b>Xml JScience</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Xml JScience</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #XML_JSCIENCE
-	 * @model name="XmlJScience"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int XML_JSCIENCE_VALUE = 2;
-
-	/**
-	 * The '<em><b>Emf</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Emf</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #EMF
-	 * @model name="Emf"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int EMF_VALUE = 3;
+	public static final int JS_XML_PREFERRED_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Persistence Kind Options</b></em>' enumerators.
@@ -130,10 +78,8 @@ public enum PersistenceKindOptions implements Enumerator {
 	 */
 	private static final PersistenceKindOptions[] VALUES_ARRAY =
 		new PersistenceKindOptions[] {
-			BINARY_LONG,
-			BINARY_DOUBLE,
-			XML_JSCIENCE,
-			EMF,
+			BINARY_PREFERRED,
+			JS_XML_PREFERRED,
 		};
 
 	/**
@@ -184,10 +130,8 @@ public enum PersistenceKindOptions implements Enumerator {
 	 */
 	public static PersistenceKindOptions get(int value) {
 		switch (value) {
-			case BINARY_LONG_VALUE: return BINARY_LONG;
-			case BINARY_DOUBLE_VALUE: return BINARY_DOUBLE;
-			case XML_JSCIENCE_VALUE: return XML_JSCIENCE;
-			case EMF_VALUE: return EMF;
+			case BINARY_PREFERRED_VALUE: return BINARY_PREFERRED;
+			case JS_XML_PREFERRED_VALUE: return JS_XML_PREFERRED;
 		}
 		return null;
 	}

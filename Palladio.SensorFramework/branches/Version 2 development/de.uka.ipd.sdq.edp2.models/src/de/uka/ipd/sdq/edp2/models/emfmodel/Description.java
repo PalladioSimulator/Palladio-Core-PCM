@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getUuid <em>Uuid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getTextualDescription <em>Textual Description</em>}</li>
  * </ul>
@@ -26,33 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Description extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Uuid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uuid</em>' attribute.
-	 * @see #setUuid(String)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDescription_Uuid()
-	 * @model id="true" required="true" ordered="false"
-	 * @generated
-	 */
-	String getUuid();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getUuid <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uuid</em>' attribute.
-	 * @see #getUuid()
-	 * @generated
-	 */
-	void setUuid(String value);
-
+public interface Description extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getAdditionalInformation <em>Additional Information</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getCollectedData <em>Collected Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getMeasurement <em>Measurement</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl#getExperimentSetting <em>Experiment Setting</em>}</li>
@@ -72,14 +72,14 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	protected EMap<String, Object> additionalInformation;
 
 	/**
-	 * The cached value of the '{@link #getCollectedData() <em>Collected Data</em>}' containment reference list.
+	 * The cached value of the '{@link #getMeasurement() <em>Measurement</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCollectedData()
+	 * @see #getMeasurement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Measurement> collectedData;
+	protected EList<Measurement> measurement;
 
 	/**
 	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -157,11 +157,11 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Measurement> getCollectedData() {
-		if (collectedData == null) {
-			collectedData = new EObjectContainmentWithInverseEList<Measurement>(Measurement.class, this, EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA, EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN);
+	public EList<Measurement> getMeasurement() {
+		if (measurement == null) {
+			measurement = new EObjectContainmentWithInverseEList<Measurement>(Measurement.class, this, EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT, EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN);
 		}
-		return collectedData;
+		return measurement;
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCollectedData()).basicAdd(otherEnd, msgs);
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasurement()).basicAdd(otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -301,8 +301,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		switch (featureID) {
 			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				return ((InternalEList<?>)getCollectedData()).basicRemove(otherEnd, msgs);
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				return ((InternalEList<?>)getMeasurement()).basicRemove(otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return basicSetExperimentSetting(null, msgs);
 		}
@@ -334,8 +334,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				if (coreType) return getAdditionalInformation();
 				else return getAdditionalInformation().map();
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				return getCollectedData();
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				return getMeasurement();
 			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
 				return getStartTime();
 			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:
@@ -358,9 +358,9 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				((EStructuralFeature.Setting)getAdditionalInformation()).set(newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				getCollectedData().clear();
-				getCollectedData().addAll((Collection<? extends Measurement>)newValue);
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				getMeasurement().clear();
+				getMeasurement().addAll((Collection<? extends Measurement>)newValue);
 				return;
 			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime((Date)newValue);
@@ -386,8 +386,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				getCollectedData().clear();
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				getMeasurement().clear();
 				return;
 			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
@@ -412,8 +412,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		switch (featureID) {
 			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_RUN__COLLECTED_DATA:
-				return collectedData != null && !collectedData.isEmpty();
+			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+				return measurement != null && !measurement.isEmpty();
 			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:

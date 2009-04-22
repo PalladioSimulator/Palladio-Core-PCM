@@ -101,6 +101,7 @@ public class ChunkedFile<T> {
 	/**Sets the requested element in the chznk.
 	 * @param indexInChunk Index of the element in the current chunk.
 	 * @param value The new element.
+	 * @return The old element
 	 */
 	public T set(int indexInChunk, T value) {
 		if (value == null) {

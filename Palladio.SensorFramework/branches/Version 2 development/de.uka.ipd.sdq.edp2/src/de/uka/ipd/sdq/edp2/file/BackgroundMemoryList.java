@@ -2,9 +2,12 @@ package de.uka.ipd.sdq.edp2.file;
 
 import java.io.IOException;
 
+import javax.measure.Measure;
+
 import de.uka.ipd.sdq.edp2.models.binary.BinaryMeasurements;
 
-public interface BackgroundMemoryList<T> extends BinaryMeasurements<T> {
+@SuppressWarnings("unchecked")
+public interface BackgroundMemoryList<T extends Measure> extends BinaryMeasurements<T> {
 	/**Opens the link to the file on background storage. Only allowed if there is no open link.
 	 * @throws IOException Thrown if file IO fails.
 	 */

@@ -54,7 +54,7 @@ public interface NominalStatistics extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Raw YSeries</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics <em>Statistics</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics <em>Statistics</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Raw YSeries</em>' container reference isn't clear,
@@ -62,13 +62,13 @@ public interface NominalStatistics extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw YSeries</em>' container reference.
-	 * @see #setRawYSeries(RawYSeries)
+	 * @see #setRawYSeries(DataSeries)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getNominalStatistics_RawYSeries()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics
 	 * @model opposite="statistics" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	RawYSeries getRawYSeries();
+	DataSeries getRawYSeries();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics#getRawYSeries <em>Raw YSeries</em>}' container reference.
@@ -78,6 +78,6 @@ public interface NominalStatistics extends EObject {
 	 * @see #getRawYSeries()
 	 * @generated
 	 */
-	void setRawYSeries(RawYSeries value);
+	void setRawYSeries(DataSeries value);
 
 } // NominalStatistics

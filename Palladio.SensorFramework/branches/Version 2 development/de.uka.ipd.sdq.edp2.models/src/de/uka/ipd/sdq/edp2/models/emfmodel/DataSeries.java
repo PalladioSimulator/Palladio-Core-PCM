@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Raw YSeries</b></em>'.
+ * A representation of the model object '<em><b>Data Series</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics <em>Statistics</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getValuesUuid <em>Values Uuid</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements <em>Raw Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics <em>Statistics</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getValuesUuid <em>Values Uuid</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements <em>Raw Measurements</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawYSeries()
+ * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDataSeries()
  * @model abstract="true"
  * @generated
  */
-public interface RawYSeries extends EObject {
+public interface DataSeries extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Statistics</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics#getRawYSeries <em>Raw YSeries</em>}'.
@@ -43,7 +43,7 @@ public interface RawYSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Statistics</em>' containment reference.
 	 * @see #setStatistics(NominalStatistics)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawYSeries_Statistics()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDataSeries_Statistics()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics#getRawYSeries
 	 * @model opposite="rawYSeries" containment="true" ordered="false"
 	 * @generated
@@ -51,7 +51,7 @@ public interface RawYSeries extends EObject {
 	NominalStatistics getStatistics();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics <em>Statistics</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics <em>Statistics</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Statistics</em>' containment reference.
@@ -62,7 +62,7 @@ public interface RawYSeries extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Aggregated Measurements</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawYSeries <em>Raw YSeries</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getDataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregated Measurements</em>' container reference isn't clear,
@@ -70,23 +70,23 @@ public interface RawYSeries extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregated Measurements</em>' container reference.
-	 * @see #setAggregatedMeasurements(FixedWidthAggregation)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawYSeries_AggregatedMeasurements()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawYSeries
-	 * @model opposite="rawYSeries" required="true" transient="false" ordered="false"
+	 * @see #setAggregatedMeasurements(FixedWidthAggregatedMeasurements)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDataSeries_AggregatedMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getDataSeries
+	 * @model opposite="dataSeries" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	FixedWidthAggregation getAggregatedMeasurements();
+	FixedWidthAggregatedMeasurements getAggregatedMeasurements();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Aggregated Measurements</em>' container reference.
 	 * @see #getAggregatedMeasurements()
 	 * @generated
 	 */
-	void setAggregatedMeasurements(FixedWidthAggregation value);
+	void setAggregatedMeasurements(FixedWidthAggregatedMeasurements value);
 
 	/**
 	 * Returns the value of the '<em><b>Values Uuid</b></em>' attribute.
@@ -98,14 +98,14 @@ public interface RawYSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values Uuid</em>' attribute.
 	 * @see #setValuesUuid(String)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawYSeries_ValuesUuid()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDataSeries_ValuesUuid()
 	 * @model id="true" required="true" ordered="false"
 	 * @generated
 	 */
 	String getValuesUuid();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getValuesUuid <em>Values Uuid</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getValuesUuid <em>Values Uuid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Values Uuid</em>' attribute.
@@ -116,7 +116,7 @@ public interface RawYSeries extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Raw Measurements</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawYSeries <em>Raw YSeries</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getDataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Raw Measurements</em>' container reference isn't clear,
@@ -125,15 +125,15 @@ public interface RawYSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw Measurements</em>' container reference.
 	 * @see #setRawMeasurements(RawMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawYSeries_RawMeasurements()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawYSeries
-	 * @model opposite="rawYSeries" required="true" transient="false" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDataSeries_RawMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getDataSeries
+	 * @model opposite="dataSeries" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	RawMeasurements getRawMeasurements();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements <em>Raw Measurements</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements <em>Raw Measurements</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Raw Measurements</em>' container reference.
@@ -153,4 +153,4 @@ public interface RawYSeries extends EObject {
 	 */
 	boolean Statisticsonlyformeasurablevalues(DiagnosticChain diagnostics, Map context);
 
-} // RawYSeries
+} // DataSeries

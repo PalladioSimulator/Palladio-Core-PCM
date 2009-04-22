@@ -13,7 +13,8 @@ import de.uka.ipd.sdq.edp2.impl.Edp2DaoRegistryImpl;
 public class StorageFactory {
 	/** Singleton to provide one central factory. */
 	public static final StorageFactory INSTANCE = new StorageFactory();
-	/** Registry for all DAOs created by this factory. */
+	
+	/** Registry for all DAOs created by factories which this factory created. */
 	private DaoRegistry daoRegistry;
 
 	/**Initialized a new EDP2 factory.
@@ -58,14 +59,14 @@ public class StorageFactory {
 		return daoFactory;
 	}
 
-	/**
+	/**Returns a registry which contains all DAOs which were created by factories created by this class.
 	 * @return the daoRegistry
 	 */
 	public DaoRegistry getDaoRegistry() {
 		return daoRegistry;
 	}
 
-	/**
+	/**Sets the registry which contains all DAOs which are accessible.
 	 * @param daoRegistry the daoRegistry to set
 	 */
 	public void setDaoRegistry(DaoRegistry daoRegistry) {

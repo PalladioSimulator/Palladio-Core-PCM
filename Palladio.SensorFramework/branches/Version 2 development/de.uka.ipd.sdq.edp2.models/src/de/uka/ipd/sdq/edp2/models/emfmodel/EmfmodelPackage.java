@@ -121,40 +121,31 @@ public interface EmfmodelPackage extends EPackage {
 	int AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION = IDENTIFIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Aggregation Characterization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION = IDENTIFIABLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATED_MEASUREMENTS__VALID = IDENTIFIABLE_FEATURE_COUNT + 4;
+	int AGGREGATED_MEASUREMENTS__VALID = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Function</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATED_MEASUREMENTS__FUNCTION = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Statistics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS = IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Aggregated Measurements</em>' class.
@@ -163,7 +154,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATED_MEASUREMENTS_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 5;
+	int AGGREGATED_MEASUREMENTS_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementRangeImpl <em>Measurement Range</em>}' class.
@@ -176,60 +167,6 @@ public interface EmfmodelPackage extends EPackage {
 	int MEASUREMENT_RANGE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Raw Measurements</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE__RAW_MEASUREMENTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>End Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE__END_TIME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE__START_TIME = 2;
-
-	/**
-	 * The feature id for the '<em><b>Collected Data</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE__COLLECTED_DATA = 3;
-
-	/**
-	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS = 4;
-
-	/**
-	 * The number of structural features of the '<em>Measurement Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_RANGE_FEATURE_COUNT = 5;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawMeasurementsImpl <em>Raw Measurements</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,135 +174,17 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRawMeasurements()
 	 * @generated
 	 */
-	int RAW_MEASUREMENTS = 3;
+	int RAW_MEASUREMENTS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl <em>Data Series</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_MEASUREMENTS__UUID = IDENTIFIABLE__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Raw XSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_MEASUREMENTS__RAW_XSERIES = IDENTIFIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Raw YSeries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_MEASUREMENTS__RAW_YSERIES = IDENTIFIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_MEASUREMENTS__MEASUREMENT_RANGE = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Raw Measurements</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_MEASUREMENTS_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawXSeriesImpl <em>Raw XSeries</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawXSeriesImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRawXSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDataSeries()
 	 * @generated
 	 */
-	int RAW_XSERIES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_XSERIES__RAW_MEASUREMENTS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Raw XSeries</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_XSERIES_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl <em>Raw YSeries</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRawYSeries()
-	 * @generated
-	 */
-	int RAW_YSERIES = 5;
-
-	/**
-	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_YSERIES__STATISTICS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_YSERIES__AGGREGATED_MEASUREMENTS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_YSERIES__VALUES_UUID = 2;
-
-	/**
-	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_YSERIES__RAW_MEASUREMENTS = 3;
-
-	/**
-	 * The number of structural features of the '<em>Raw YSeries</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAW_YSERIES_FEATURE_COUNT = 4;
+	int DATA_SERIES = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.NominalStatisticsImpl <em>Nominal Statistics</em>}' class.
@@ -375,189 +194,17 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getNominalStatistics()
 	 * @generated
 	 */
-	int NOMINAL_STATISTICS = 6;
+	int NOMINAL_STATISTICS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Count</b></em>' attribute.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedIntervalsImpl <em>Fixed Intervals</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOMINAL_STATISTICS__COUNT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Raw YSeries</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOMINAL_STATISTICS__RAW_YSERIES = 1;
-
-	/**
-	 * The number of structural features of the '<em>Nominal Statistics</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOMINAL_STATISTICS_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregationImpl <em>Fixed Width Aggregation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregationImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedWidthAggregation()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedIntervalsImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedIntervals()
 	 * @generated
 	 */
-	int FIXED_WIDTH_AGGREGATION = 7;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__UUID = AGGREGATED_MEASUREMENTS__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__MEASUREMENT_RANGE = AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_BEFORE_AGGREGATION = AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_AFTER_AGGREGATION = AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Aggregation Characterization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__AGGREGATION_CHARACTERIZATION = AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION;
-
-	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__VALID = AGGREGATED_MEASUREMENTS__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Raw XSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__RAW_XSERIES = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Raw YSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION__RAW_YSERIES = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Fixed Width Aggregation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIXED_WIDTH_AGGREGATION_FEATURE_COUNT = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.IntervalsImpl <em>Intervals</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.IntervalsImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getIntervals()
-	 * @generated
-	 */
-	int INTERVALS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS__RAW_MEASUREMENTS = RAW_XSERIES__RAW_MEASUREMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS__LOWER_BOUND = RAW_XSERIES_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS__WIDTH = RAW_XSERIES_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Number Of Intervals</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS__NUMBER_OF_INTERVALS = RAW_XSERIES_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS__AGGREGATED_MEASUREMENTS = RAW_XSERIES_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Intervals</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALS_FEATURE_COUNT = RAW_XSERIES_FEATURE_COUNT + 4;
+	int FIXED_INTERVALS = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.PropertyableImpl <em>Propertyable</em>}' class.
@@ -567,7 +214,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getPropertyable()
 	 * @generated
 	 */
-	int PROPERTYABLE = 10;
+	int PROPERTYABLE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Additional Information</b></em>' map.
@@ -588,6 +235,69 @@ public interface EmfmodelPackage extends EPackage {
 	int PROPERTYABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Raw Measurements</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__RAW_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__END_TIME = PROPERTYABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__START_TIME = PROPERTYABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Measurement</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__MEASUREMENT = PROPERTYABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Measurement Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_RANGE_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementImpl <em>Measurement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -595,52 +305,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMeasurement()
 	 * @generated
 	 */
-	int MEASUREMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Additional Information</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
-
-	/**
-	 * The feature id for the '<em><b>Measure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__MEASURE = PROPERTYABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Run</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__EXPERIMENT_RUN = PROPERTYABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__MEASUREMENT_RANGE = PROPERTYABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Measurement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
+	int MEASUREMENT = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.EStringtoEObjectMapEntryImpl <em>EStringto EObject Map Entry</em>}' class.
@@ -650,7 +315,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEStringtoEObjectMapEntry()
 	 * @generated
 	 */
-	int ESTRINGTO_EOBJECT_MAP_ENTRY = 11;
+	int ESTRINGTO_EOBJECT_MAP_ENTRY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -680,6 +345,250 @@ public interface EmfmodelPackage extends EPackage {
 	int ESTRINGTO_EOBJECT_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RAW_MEASUREMENTS__UUID = IDENTIFIABLE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Data Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RAW_MEASUREMENTS__DATA_SERIES = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RAW_MEASUREMENTS__MEASUREMENT_RANGE = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Raw Measurements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RAW_MEASUREMENTS_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERIES__STATISTICS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERIES__AGGREGATED_MEASUREMENTS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERIES__VALUES_UUID = 2;
+
+	/**
+	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERIES__RAW_MEASUREMENTS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Data Series</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERIES_FEATURE_COUNT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOMINAL_STATISTICS__COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Raw YSeries</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOMINAL_STATISTICS__RAW_YSERIES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Nominal Statistics</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOMINAL_STATISTICS_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl <em>Fixed Width Aggregated Measurements</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedWidthAggregatedMeasurements()
+	 * @generated
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__UUID = AGGREGATED_MEASUREMENTS__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__VALID = AGGREGATED_MEASUREMENTS__VALID;
+
+	/**
+	 * The feature id for the '<em><b>Function</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__FUNCTION = AGGREGATED_MEASUREMENTS__FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Statistics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS = AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS;
+
+	/**
+	 * The feature id for the '<em><b>Intervals</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation On</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Data Series</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Fixed Width Aggregated Measurements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS_FEATURE_COUNT = AGGREGATED_MEASUREMENTS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_INTERVALS__LOWER_BOUND = 0;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_INTERVALS__WIDTH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Intervals</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_INTERVALS__NUMBER_OF_INTERVALS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_INTERVALS__AGGREGATED_MEASUREMENTS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Fixed Intervals</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_INTERVALS_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasureImpl <em>Measure</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,61 +596,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMeasure()
 	 * @generated
 	 */
-	int MEASURE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE__EXPERIMENT_SETTING = 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE__EXPERIMENT_SETTINGS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Persistency Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE__PERSISTENCY_KIND = 2;
-
-	/**
-	 * The feature id for the '<em><b>Measured Object</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE__MEASURED_OBJECT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Metric</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE__METRIC = 4;
-
-	/**
-	 * The number of structural features of the '<em>Measure</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASURE_FEATURE_COUNT = 5;
+	int MEASURE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl <em>Experiment Group</em>}' class.
@@ -751,52 +606,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getExperimentGroup()
 	 * @generated
 	 */
-	int EXPERIMENT_GROUP = 13;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_GROUP__UUID = IDENTIFIABLE__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Additional Information</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_GROUP__ADDITIONAL_INFORMATION = IDENTIFIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Settings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_GROUP__EXPERIMENT_SETTINGS = IDENTIFIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Measure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_GROUP__MEASURE = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Experiment Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_GROUP_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
+	int EXPERIMENT_GROUP = 15;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentSettingImpl <em>Experiment Setting</em>}' class.
@@ -806,52 +616,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getExperimentSetting()
 	 * @generated
 	 */
-	int EXPERIMENT_SETTING = 14;
-
-	/**
-	 * The feature id for the '<em><b>Additional Information</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_SETTING__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_SETTING__EXPERIMENT_NAME = PROPERTYABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Runs</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_SETTING__EXPERIMENT_RUNS = PROPERTYABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Measure</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_SETTING__MEASURE = PROPERTYABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Experiment Setting</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_SETTING_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
+	int EXPERIMENT_SETTING = 16;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentRunImpl <em>Experiment Run</em>}' class.
@@ -861,70 +626,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getExperimentRun()
 	 * @generated
 	 */
-	int EXPERIMENT_RUN = 15;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__UUID = IDENTIFIABLE__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Additional Information</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__ADDITIONAL_INFORMATION = IDENTIFIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Collected Data</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__COLLECTED_DATA = IDENTIFIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__START_TIME = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__DURATION = IDENTIFIABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN__EXPERIMENT_SETTING = IDENTIFIABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Experiment Run</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT_RUN_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 5;
+	int EXPERIMENT_RUN = 17;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl <em>Description</em>}' class.
@@ -934,7 +636,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDescription()
 	 * @generated
 	 */
-	int DESCRIPTION = 18;
+	int DESCRIPTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -943,7 +645,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION__UUID = 0;
+	int DESCRIPTION__UUID = IDENTIFIABLE__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -952,7 +654,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION__NAME = 1;
+	int DESCRIPTION__NAME = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Textual Description</b></em>' attribute.
@@ -961,7 +663,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION__TEXTUAL_DESCRIPTION = 2;
+	int DESCRIPTION__TEXTUAL_DESCRIPTION = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Description</em>' class.
@@ -970,7 +672,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION_FEATURE_COUNT = 3;
+	int DESCRIPTION_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MetricDescriptionImpl <em>Metric Description</em>}' class.
@@ -980,7 +682,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMetricDescription()
 	 * @generated
 	 */
-	int METRIC_DESCRIPTION = 17;
+	int METRIC_DESCRIPTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1026,7 +728,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getBaseMetricDescription()
 	 * @generated
 	 */
-	int BASE_METRIC_DESCRIPTION = 16;
+	int BASE_METRIC_DESCRIPTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1083,50 +785,283 @@ public interface EmfmodelPackage extends EPackage {
 	int BASE_METRIC_DESCRIPTION__SCALE = METRIC_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Monotonic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_METRIC_DESCRIPTION__MONOTONIC = METRIC_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Default Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_METRIC_DESCRIPTION__DEFAULT_UNIT = METRIC_DESCRIPTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Base Metric Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_METRIC_DESCRIPTION_FEATURE_COUNT = METRIC_DESCRIPTION_FEATURE_COUNT + 3;
+	int BASE_METRIC_DESCRIPTION_FEATURE_COUNT = METRIC_DESCRIPTION_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationCharacterizationImpl <em>Aggregation Characterization</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationCharacterizationImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationCharacterization()
-	 * @generated
-	 */
-	int AGGREGATION_CHARACTERIZATION = 19;
-
-	/**
-	 * The feature id for the '<em><b>Function</b></em>' reference.
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_CHARACTERIZATION__FUNCTION = 0;
+	int MEASUREMENT__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
+	 * The feature id for the '<em><b>Measure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_CHARACTERIZATION__AGGREGATED_MEASUREMENTS = 1;
+	int MEASUREMENT__MEASURE = PROPERTYABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Aggregation Characterization</em>' class.
+	 * The feature id for the '<em><b>Experiment Run</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_CHARACTERIZATION_FEATURE_COUNT = 2;
+	int MEASUREMENT__EXPERIMENT_RUN = PROPERTYABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Measurement Range</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT__MEASUREMENT_RANGE = PROPERTYABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Measurement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE__EXPERIMENT_SETTING = 0;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE__EXPERIMENT_SETTINGS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Persistency Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE__PERSISTENCY_KIND = 2;
+
+	/**
+	 * The feature id for the '<em><b>Measured Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE__MEASURED_OBJECT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Metric</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE__METRIC = 4;
+
+	/**
+	 * The number of structural features of the '<em>Measure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASURE_FEATURE_COUNT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_GROUP__UUID = IDENTIFIABLE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_GROUP__ADDITIONAL_INFORMATION = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Settings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_GROUP__EXPERIMENT_SETTINGS = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Measure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_GROUP__MEASURE = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_GROUP_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SETTING__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SETTING__EXPERIMENT_NAME = PROPERTYABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Runs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SETTING__EXPERIMENT_RUNS = PROPERTYABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Measure</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SETTING__MEASURE = PROPERTYABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Setting</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SETTING_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__UUID = IDENTIFIABLE__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__ADDITIONAL_INFORMATION = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Measurement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__MEASUREMENT = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__START_TIME = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__DURATION = IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN__EXPERIMENT_SETTING = IDENTIFIABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Run</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_RUN_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationFunctionDescriptionImpl <em>Aggregation Function Description</em>}' class.
@@ -1136,7 +1071,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationFunctionDescription()
 	 * @generated
 	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION = 20;
+	int AGGREGATION_FUNCTION_DESCRIPTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1175,6 +1110,43 @@ public interface EmfmodelPackage extends EPackage {
 	int AGGREGATION_FUNCTION_DESCRIPTION_FEATURE_COUNT = DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationStatisticsImpl <em>Aggregation Statistics</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationStatisticsImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationStatistics()
+	 * @generated
+	 */
+	int AGGREGATION_STATISTICS = 19;
+
+	/**
+	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Aggregation Statistics</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.LongBinaryMeasurementsImpl <em>Long Binary Measurements</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1182,7 +1154,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getLongBinaryMeasurements()
 	 * @generated
 	 */
-	int LONG_BINARY_MEASUREMENTS = 21;
+	int LONG_BINARY_MEASUREMENTS = 20;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1191,7 +1163,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS__STATISTICS = RAW_YSERIES__STATISTICS;
+	int LONG_BINARY_MEASUREMENTS__STATISTICS = DATA_SERIES__STATISTICS;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
@@ -1200,7 +1172,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS__AGGREGATED_MEASUREMENTS = RAW_YSERIES__AGGREGATED_MEASUREMENTS;
+	int LONG_BINARY_MEASUREMENTS__AGGREGATED_MEASUREMENTS = DATA_SERIES__AGGREGATED_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
@@ -1209,7 +1181,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS__VALUES_UUID = RAW_YSERIES__VALUES_UUID;
+	int LONG_BINARY_MEASUREMENTS__VALUES_UUID = DATA_SERIES__VALUES_UUID;
 
 	/**
 	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
@@ -1218,7 +1190,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS__RAW_MEASUREMENTS = RAW_YSERIES__RAW_MEASUREMENTS;
+	int LONG_BINARY_MEASUREMENTS__RAW_MEASUREMENTS = DATA_SERIES__RAW_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Storage Unit</b></em>' attribute.
@@ -1227,7 +1199,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS__STORAGE_UNIT = RAW_YSERIES_FEATURE_COUNT + 0;
+	int LONG_BINARY_MEASUREMENTS__STORAGE_UNIT = DATA_SERIES_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Long Binary Measurements</em>' class.
@@ -1236,7 +1208,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LONG_BINARY_MEASUREMENTS_FEATURE_COUNT = RAW_YSERIES_FEATURE_COUNT + 1;
+	int LONG_BINARY_MEASUREMENTS_FEATURE_COUNT = DATA_SERIES_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.CategoryIdentifierImpl <em>Category Identifier</em>}' class.
@@ -1246,7 +1218,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getCategoryIdentifier()
 	 * @generated
 	 */
-	int CATEGORY_IDENTIFIER = 22;
+	int CATEGORY_IDENTIFIER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1283,7 +1255,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getNominalMeasurements()
 	 * @generated
 	 */
-	int NOMINAL_MEASUREMENTS = 23;
+	int NOMINAL_MEASUREMENTS = 22;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1292,7 +1264,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASUREMENTS__STATISTICS = RAW_YSERIES__STATISTICS;
+	int NOMINAL_MEASUREMENTS__STATISTICS = DATA_SERIES__STATISTICS;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
@@ -1301,7 +1273,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASUREMENTS__AGGREGATED_MEASUREMENTS = RAW_YSERIES__AGGREGATED_MEASUREMENTS;
+	int NOMINAL_MEASUREMENTS__AGGREGATED_MEASUREMENTS = DATA_SERIES__AGGREGATED_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
@@ -1310,7 +1282,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASUREMENTS__VALUES_UUID = RAW_YSERIES__VALUES_UUID;
+	int NOMINAL_MEASUREMENTS__VALUES_UUID = DATA_SERIES__VALUES_UUID;
 
 	/**
 	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
@@ -1319,7 +1291,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASUREMENTS__RAW_MEASUREMENTS = RAW_YSERIES__RAW_MEASUREMENTS;
+	int NOMINAL_MEASUREMENTS__RAW_MEASUREMENTS = DATA_SERIES__RAW_MEASUREMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Nominal Measurements</em>' class.
@@ -1328,7 +1300,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASUREMENTS_FEATURE_COUNT = RAW_YSERIES_FEATURE_COUNT + 0;
+	int NOMINAL_MEASUREMENTS_FEATURE_COUNT = DATA_SERIES_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.NominalMeasureImpl <em>Nominal Measure</em>}' class.
@@ -1338,7 +1310,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getNominalMeasure()
 	 * @generated
 	 */
-	int NOMINAL_MEASURE = 24;
+	int NOMINAL_MEASURE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
@@ -1429,7 +1401,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDoubleBinaryMeasurements()
 	 * @generated
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS = 25;
+	int DOUBLE_BINARY_MEASUREMENTS = 24;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1438,7 +1410,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS__STATISTICS = RAW_YSERIES__STATISTICS;
+	int DOUBLE_BINARY_MEASUREMENTS__STATISTICS = DATA_SERIES__STATISTICS;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
@@ -1447,7 +1419,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS__AGGREGATED_MEASUREMENTS = RAW_YSERIES__AGGREGATED_MEASUREMENTS;
+	int DOUBLE_BINARY_MEASUREMENTS__AGGREGATED_MEASUREMENTS = DATA_SERIES__AGGREGATED_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
@@ -1456,7 +1428,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS__VALUES_UUID = RAW_YSERIES__VALUES_UUID;
+	int DOUBLE_BINARY_MEASUREMENTS__VALUES_UUID = DATA_SERIES__VALUES_UUID;
 
 	/**
 	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
@@ -1465,7 +1437,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS__RAW_MEASUREMENTS = RAW_YSERIES__RAW_MEASUREMENTS;
+	int DOUBLE_BINARY_MEASUREMENTS__RAW_MEASUREMENTS = DATA_SERIES__RAW_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Storage Unit</b></em>' attribute.
@@ -1474,7 +1446,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT = RAW_YSERIES_FEATURE_COUNT + 0;
+	int DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT = DATA_SERIES_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Double Binary Measurements</em>' class.
@@ -1483,17 +1455,17 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_BINARY_MEASUREMENTS_FEATURE_COUNT = RAW_YSERIES_FEATURE_COUNT + 1;
+	int DOUBLE_BINARY_MEASUREMENTS_FEATURE_COUNT = DATA_SERIES_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalScalarMeasureImpl <em>Ordinal Scalar Measure</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalMeasureImpl <em>Ordinal Measure</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalScalarMeasureImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getOrdinalScalarMeasure()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalMeasureImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getOrdinalMeasure()
 	 * @generated
 	 */
-	int ORDINAL_SCALAR_MEASURE = 26;
+	int ORDINAL_MEASURE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
@@ -1502,7 +1474,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__EXPERIMENT_SETTING = MEASURE__EXPERIMENT_SETTING;
+	int ORDINAL_MEASURE__EXPERIMENT_SETTING = MEASURE__EXPERIMENT_SETTING;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
@@ -1511,7 +1483,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__EXPERIMENT_SETTINGS = MEASURE__EXPERIMENT_SETTINGS;
+	int ORDINAL_MEASURE__EXPERIMENT_SETTINGS = MEASURE__EXPERIMENT_SETTINGS;
 
 	/**
 	 * The feature id for the '<em><b>Persistency Kind</b></em>' attribute.
@@ -1520,7 +1492,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__PERSISTENCY_KIND = MEASURE__PERSISTENCY_KIND;
+	int ORDINAL_MEASURE__PERSISTENCY_KIND = MEASURE__PERSISTENCY_KIND;
 
 	/**
 	 * The feature id for the '<em><b>Measured Object</b></em>' attribute.
@@ -1529,7 +1501,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__MEASURED_OBJECT = MEASURE__MEASURED_OBJECT;
+	int ORDINAL_MEASURE__MEASURED_OBJECT = MEASURE__MEASURED_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Metric</b></em>' reference.
@@ -1538,25 +1510,16 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__METRIC = MEASURE__METRIC;
+	int ORDINAL_MEASURE__METRIC = MEASURE__METRIC;
 
 	/**
-	 * The feature id for the '<em><b>Default Unit Of Measurements</b></em>' attribute.
+	 * The number of structural features of the '<em>Ordinal Measure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_SCALAR_MEASURE__DEFAULT_UNIT_OF_MEASUREMENTS = MEASURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Ordinal Scalar Measure</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORDINAL_SCALAR_MEASURE_FEATURE_COUNT = MEASURE_FEATURE_COUNT + 1;
+	int ORDINAL_MEASURE_FEATURE_COUNT = MEASURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.JSXmlMeasurementsImpl <em>JS Xml Measurements</em>}' class.
@@ -1566,7 +1529,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getJSXmlMeasurements()
 	 * @generated
 	 */
-	int JS_XML_MEASUREMENTS = 27;
+	int JS_XML_MEASUREMENTS = 26;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1575,7 +1538,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JS_XML_MEASUREMENTS__STATISTICS = RAW_YSERIES__STATISTICS;
+	int JS_XML_MEASUREMENTS__STATISTICS = DATA_SERIES__STATISTICS;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' container reference.
@@ -1584,7 +1547,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JS_XML_MEASUREMENTS__AGGREGATED_MEASUREMENTS = RAW_YSERIES__AGGREGATED_MEASUREMENTS;
+	int JS_XML_MEASUREMENTS__AGGREGATED_MEASUREMENTS = DATA_SERIES__AGGREGATED_MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Values Uuid</b></em>' attribute.
@@ -1593,7 +1556,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JS_XML_MEASUREMENTS__VALUES_UUID = RAW_YSERIES__VALUES_UUID;
+	int JS_XML_MEASUREMENTS__VALUES_UUID = DATA_SERIES__VALUES_UUID;
 
 	/**
 	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
@@ -1602,7 +1565,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JS_XML_MEASUREMENTS__RAW_MEASUREMENTS = RAW_YSERIES__RAW_MEASUREMENTS;
+	int JS_XML_MEASUREMENTS__RAW_MEASUREMENTS = DATA_SERIES__RAW_MEASUREMENTS;
 
 	/**
 	 * The number of structural features of the '<em>JS Xml Measurements</em>' class.
@@ -1611,290 +1574,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JS_XML_MEASUREMENTS_FEATURE_COUNT = RAW_YSERIES_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.EventTimeAggregationImpl <em>Event Time Aggregation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EventTimeAggregationImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEventTimeAggregation()
-	 * @generated
-	 */
-	int EVENT_TIME_AGGREGATION = 28;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__UUID = FIXED_WIDTH_AGGREGATION__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__MEASUREMENT_RANGE = FIXED_WIDTH_AGGREGATION__MEASUREMENT_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__DISTINCT_VALUES_BEFORE_AGGREGATION = FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_BEFORE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__DISTINCT_VALUES_AFTER_AGGREGATION = FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_AFTER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Aggregation Characterization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__AGGREGATION_CHARACTERIZATION = FIXED_WIDTH_AGGREGATION__AGGREGATION_CHARACTERIZATION;
-
-	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__VALID = FIXED_WIDTH_AGGREGATION__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Raw XSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__RAW_XSERIES = FIXED_WIDTH_AGGREGATION__RAW_XSERIES;
-
-	/**
-	 * The feature id for the '<em><b>Raw YSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION__RAW_YSERIES = FIXED_WIDTH_AGGREGATION__RAW_YSERIES;
-
-	/**
-	 * The number of structural features of the '<em>Event Time Aggregation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TIME_AGGREGATION_FEATURE_COUNT = FIXED_WIDTH_AGGREGATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ValueAggregationImpl <em>Value Aggregation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.ValueAggregationImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getValueAggregation()
-	 * @generated
-	 */
-	int VALUE_AGGREGATION = 29;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__UUID = FIXED_WIDTH_AGGREGATION__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__MEASUREMENT_RANGE = FIXED_WIDTH_AGGREGATION__MEASUREMENT_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__DISTINCT_VALUES_BEFORE_AGGREGATION = FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_BEFORE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__DISTINCT_VALUES_AFTER_AGGREGATION = FIXED_WIDTH_AGGREGATION__DISTINCT_VALUES_AFTER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Aggregation Characterization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__AGGREGATION_CHARACTERIZATION = FIXED_WIDTH_AGGREGATION__AGGREGATION_CHARACTERIZATION;
-
-	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__VALID = FIXED_WIDTH_AGGREGATION__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Raw XSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__RAW_XSERIES = FIXED_WIDTH_AGGREGATION__RAW_XSERIES;
-
-	/**
-	 * The feature id for the '<em><b>Raw YSeries</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION__RAW_YSERIES = FIXED_WIDTH_AGGREGATION__RAW_YSERIES;
-
-	/**
-	 * The number of structural features of the '<em>Value Aggregation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_AGGREGATION_FEATURE_COUNT = FIXED_WIDTH_AGGREGATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.StrongMonotonicScalarMeasureImpl <em>Strong Monotonic Scalar Measure</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.StrongMonotonicScalarMeasureImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getStrongMonotonicScalarMeasure()
-	 * @generated
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE = 30;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__EXPERIMENT_SETTING = ORDINAL_SCALAR_MEASURE__EXPERIMENT_SETTING;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__EXPERIMENT_SETTINGS = ORDINAL_SCALAR_MEASURE__EXPERIMENT_SETTINGS;
-
-	/**
-	 * The feature id for the '<em><b>Persistency Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__PERSISTENCY_KIND = ORDINAL_SCALAR_MEASURE__PERSISTENCY_KIND;
-
-	/**
-	 * The feature id for the '<em><b>Measured Object</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__MEASURED_OBJECT = ORDINAL_SCALAR_MEASURE__MEASURED_OBJECT;
-
-	/**
-	 * The feature id for the '<em><b>Metric</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__METRIC = ORDINAL_SCALAR_MEASURE__METRIC;
-
-	/**
-	 * The feature id for the '<em><b>Default Unit Of Measurements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE__DEFAULT_UNIT_OF_MEASUREMENTS = ORDINAL_SCALAR_MEASURE__DEFAULT_UNIT_OF_MEASUREMENTS;
-
-	/**
-	 * The number of structural features of the '<em>Strong Monotonic Scalar Measure</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_MONOTONIC_SCALAR_MEASURE_FEATURE_COUNT = ORDINAL_SCALAR_MEASURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DoubleBinaryEventTimesImpl <em>Double Binary Event Times</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.DoubleBinaryEventTimesImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDoubleBinaryEventTimes()
-	 * @generated
-	 */
-	int DOUBLE_BINARY_EVENT_TIMES = 31;
-
-	/**
-	 * The feature id for the '<em><b>Raw Measurements</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOUBLE_BINARY_EVENT_TIMES__RAW_MEASUREMENTS = RAW_XSERIES__RAW_MEASUREMENTS;
-
-	/**
-	 * The number of structural features of the '<em>Double Binary Event Times</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOUBLE_BINARY_EVENT_TIMES_FEATURE_COUNT = RAW_XSERIES_FEATURE_COUNT + 0;
+	int JS_XML_MEASUREMENTS_FEATURE_COUNT = DATA_SERIES_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javax.measure.quantity.Duration <em>IJS Duration</em>}' class.
@@ -1904,7 +1584,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getIJSDuration()
 	 * @generated
 	 */
-	int IJS_DURATION = 32;
+	int IJS_DURATION = 27;
 
 	/**
 	 * The number of structural features of the '<em>IJS Duration</em>' class.
@@ -1923,7 +1603,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getIJSQuantity()
 	 * @generated
 	 */
-	int IJS_QUANTITY = 33;
+	int IJS_QUANTITY = 28;
 
 	/**
 	 * The number of structural features of the '<em>IJS Quantity</em>' class.
@@ -1942,7 +1622,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDescriptions()
 	 * @generated
 	 */
-	int DESCRIPTIONS = 34;
+	int DESCRIPTIONS = 29;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference list.
@@ -1970,7 +1650,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMetricSetDescription()
 	 * @generated
 	 */
-	int METRIC_SET_DESCRIPTION = 35;
+	int METRIC_SET_DESCRIPTION = 30;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -2025,7 +1705,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getOrdinalStatistics()
 	 * @generated
 	 */
-	int ORDINAL_STATISTICS = 36;
+	int ORDINAL_STATISTICS = 31;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -2098,7 +1778,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getPercentile()
 	 * @generated
 	 */
-	int PERCENTILE = 37;
+	int PERCENTILE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Percentile</b></em>' attribute.
@@ -2135,7 +1815,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getIntervalStatistics()
 	 * @generated
 	 */
-	int INTERVAL_STATISTICS = 38;
+	int INTERVAL_STATISTICS = 33;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -2244,7 +1924,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRatioStatistics()
 	 * @generated
 	 */
-	int RATIO_STATISTICS = 39;
+	int RATIO_STATISTICS = 34;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -2380,7 +2060,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getObservedNominalMeasurements()
 	 * @generated
 	 */
-	int OBSERVED_NOMINAL_MEASUREMENTS = 40;
+	int OBSERVED_NOMINAL_MEASUREMENTS = 35;
 
 	/**
 	 * The feature id for the '<em><b>Observed Categories</b></em>' containment reference list.
@@ -2417,7 +2097,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getObservedCategory()
 	 * @generated
 	 */
-	int OBSERVED_CATEGORY = 41;
+	int OBSERVED_CATEGORY = 36;
 
 	/**
 	 * The feature id for the '<em><b>Category Identifier</b></em>' reference.
@@ -2445,7 +2125,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getPersistenceKindOptions()
 	 * @generated
 	 */
-	int PERSISTENCE_KIND_OPTIONS = 42;
+	int PERSISTENCE_KIND_OPTIONS = 41;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.CaptureType <em>Capture Type</em>}' enum.
@@ -2455,7 +2135,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getCaptureType()
 	 * @generated
 	 */
-	int CAPTURE_TYPE = 43;
+	int CAPTURE_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataType <em>Data Type</em>}' enum.
@@ -2465,7 +2145,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 44;
+	int DATA_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Scale <em>Scale</em>}' enum.
@@ -2475,7 +2155,17 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getScale()
 	 * @generated
 	 */
-	int SCALE = 45;
+	int SCALE = 39;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic <em>Monotonic</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMonotonic()
+	 * @generated
+	 */
+	int MONOTONIC = 40;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Enumeration1 <em>Enumeration1</em>}' enum.
@@ -2485,7 +2175,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEnumeration1()
 	 * @generated
 	 */
-	int ENUMERATION1 = 46;
+	int ENUMERATION1 = 42;
 
 	/**
 	 * The meta object id for the '<em>EJS Measure</em>' data type.
@@ -2495,7 +2185,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEJSMeasure()
 	 * @generated
 	 */
-	int EJS_MEASURE = 47;
+	int EJS_MEASURE = 43;
 
 	/**
 	 * The meta object id for the '<em>EJS Duration Measure</em>' data type.
@@ -2505,7 +2195,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEJSDurationMeasure()
 	 * @generated
 	 */
-	int EJS_DURATION_MEASURE = 48;
+	int EJS_DURATION_MEASURE = 45;
 
 	/**
 	 * The meta object id for the '<em>EJS Unit</em>' data type.
@@ -2515,7 +2205,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEJSUnit()
 	 * @generated
 	 */
-	int EJS_UNIT = 49;
+	int EJS_UNIT = 44;
 
 
 	/**
@@ -2540,39 +2230,6 @@ public interface EmfmodelPackage extends EPackage {
 	EReference getAggregatedMeasurements_MeasurementRange();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getDistinctValuesBeforeAggregation <em>Distinct Values Before Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Distinct Values Before Aggregation</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getDistinctValuesBeforeAggregation()
-	 * @see #getAggregatedMeasurements()
-	 * @generated
-	 */
-	EAttribute getAggregatedMeasurements_DistinctValuesBeforeAggregation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getDistinctValuesAfterAggregation <em>Distinct Values After Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Distinct Values After Aggregation</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getDistinctValuesAfterAggregation()
-	 * @see #getAggregatedMeasurements()
-	 * @generated
-	 */
-	EAttribute getAggregatedMeasurements_DistinctValuesAfterAggregation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationCharacterization <em>Aggregation Characterization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Aggregation Characterization</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationCharacterization()
-	 * @see #getAggregatedMeasurements()
-	 * @generated
-	 */
-	EReference getAggregatedMeasurements_AggregationCharacterization();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#isValid <em>Valid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2582,6 +2239,28 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregatedMeasurements_Valid();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getFunction <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Function</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getFunction()
+	 * @see #getAggregatedMeasurements()
+	 * @generated
+	 */
+	EReference getAggregatedMeasurements_Function();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationStatistics <em>Aggregation Statistics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Aggregation Statistics</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationStatistics()
+	 * @see #getAggregatedMeasurements()
+	 * @generated
+	 */
+	EReference getAggregatedMeasurements_AggregationStatistics();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Identifiable <em>Identifiable</em>}'.
@@ -2648,15 +2327,15 @@ public interface EmfmodelPackage extends EPackage {
 	EAttribute getMeasurementRange_StartTime();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData <em>Collected Data</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement <em>Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Collected Data</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData()
+	 * @return the meta object for the container reference '<em>Measurement</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement()
 	 * @see #getMeasurementRange()
 	 * @generated
 	 */
-	EReference getMeasurementRange_CollectedData();
+	EReference getMeasurementRange_Measurement();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
@@ -2680,26 +2359,15 @@ public interface EmfmodelPackage extends EPackage {
 	EClass getRawMeasurements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawXSeries <em>Raw XSeries</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getDataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Raw XSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawXSeries()
+	 * @return the meta object for the containment reference list '<em>Data Series</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getDataSeries()
 	 * @see #getRawMeasurements()
 	 * @generated
 	 */
-	EReference getRawMeasurements_RawXSeries();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawYSeries <em>Raw YSeries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Raw YSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawYSeries()
-	 * @see #getRawMeasurements()
-	 * @generated
-	 */
-	EReference getRawMeasurements_RawYSeries();
+	EReference getRawMeasurements_DataSeries();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}'.
@@ -2713,79 +2381,58 @@ public interface EmfmodelPackage extends EPackage {
 	EReference getRawMeasurements_MeasurementRange();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries <em>Raw XSeries</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Raw XSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries
+	 * @return the meta object for class '<em>Data Series</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries
 	 * @generated
 	 */
-	EClass getRawXSeries();
+	EClass getDataSeries();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries#getRawMeasurements <em>Raw Measurements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Raw Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries#getRawMeasurements()
-	 * @see #getRawXSeries()
-	 * @generated
-	 */
-	EReference getRawXSeries_RawMeasurements();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries <em>Raw YSeries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Raw YSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries
-	 * @generated
-	 */
-	EClass getRawYSeries();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics <em>Statistics</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics <em>Statistics</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Statistics</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getStatistics()
-	 * @see #getRawYSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getStatistics()
+	 * @see #getDataSeries()
 	 * @generated
 	 */
-	EReference getRawYSeries_Statistics();
+	EReference getDataSeries_Statistics();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Aggregated Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getAggregatedMeasurements()
-	 * @see #getRawYSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getAggregatedMeasurements()
+	 * @see #getDataSeries()
 	 * @generated
 	 */
-	EReference getRawYSeries_AggregatedMeasurements();
+	EReference getDataSeries_AggregatedMeasurements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getValuesUuid <em>Values Uuid</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getValuesUuid <em>Values Uuid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Values Uuid</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getValuesUuid()
-	 * @see #getRawYSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getValuesUuid()
+	 * @see #getDataSeries()
 	 * @generated
 	 */
-	EAttribute getRawYSeries_ValuesUuid();
+	EAttribute getDataSeries_ValuesUuid();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements <em>Raw Measurements</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements <em>Raw Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Raw Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements()
-	 * @see #getRawYSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements()
+	 * @see #getDataSeries()
 	 * @generated
 	 */
-	EReference getRawYSeries_RawMeasurements();
+	EReference getDataSeries_RawMeasurements();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics <em>Nominal Statistics</em>}'.
@@ -2820,90 +2467,101 @@ public interface EmfmodelPackage extends EPackage {
 	EReference getNominalStatistics_RawYSeries();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation <em>Fixed Width Aggregation</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements <em>Fixed Width Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Fixed Width Aggregation</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation
+	 * @return the meta object for class '<em>Fixed Width Aggregated Measurements</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements
 	 * @generated
 	 */
-	EClass getFixedWidthAggregation();
+	EClass getFixedWidthAggregatedMeasurements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawXSeries <em>Raw XSeries</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getIntervals <em>Intervals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Raw XSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawXSeries()
-	 * @see #getFixedWidthAggregation()
+	 * @return the meta object for the containment reference '<em>Intervals</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getIntervals()
+	 * @see #getFixedWidthAggregatedMeasurements()
 	 * @generated
 	 */
-	EReference getFixedWidthAggregation_RawXSeries();
+	EReference getFixedWidthAggregatedMeasurements_Intervals();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawYSeries <em>Raw YSeries</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getAggregationOn <em>Aggregation On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Raw YSeries</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation#getRawYSeries()
-	 * @see #getFixedWidthAggregation()
+	 * @return the meta object for the reference '<em>Aggregation On</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getAggregationOn()
+	 * @see #getFixedWidthAggregatedMeasurements()
 	 * @generated
 	 */
-	EReference getFixedWidthAggregation_RawYSeries();
+	EReference getFixedWidthAggregatedMeasurements_AggregationOn();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals <em>Intervals</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getDataSeries <em>Data Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Intervals</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals
+	 * @return the meta object for the containment reference list '<em>Data Series</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getDataSeries()
+	 * @see #getFixedWidthAggregatedMeasurements()
 	 * @generated
 	 */
-	EClass getIntervals();
+	EReference getFixedWidthAggregatedMeasurements_DataSeries();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getLowerBound <em>Lower Bound</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals <em>Fixed Intervals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Fixed Intervals</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals
+	 * @generated
+	 */
+	EClass getFixedIntervals();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getLowerBound <em>Lower Bound</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Lower Bound</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getLowerBound()
-	 * @see #getIntervals()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getLowerBound()
+	 * @see #getFixedIntervals()
 	 * @generated
 	 */
-	EAttribute getIntervals_LowerBound();
+	EAttribute getFixedIntervals_LowerBound();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getWidth <em>Width</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getWidth <em>Width</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Width</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getWidth()
-	 * @see #getIntervals()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getWidth()
+	 * @see #getFixedIntervals()
 	 * @generated
 	 */
-	EAttribute getIntervals_Width();
+	EAttribute getFixedIntervals_Width();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getNumberOfIntervals <em>Number Of Intervals</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getNumberOfIntervals <em>Number Of Intervals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Number Of Intervals</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getNumberOfIntervals()
-	 * @see #getIntervals()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getNumberOfIntervals()
+	 * @see #getFixedIntervals()
 	 * @generated
 	 */
-	EAttribute getIntervals_NumberOfIntervals();
+	EAttribute getFixedIntervals_NumberOfIntervals();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Aggregated Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Intervals#getAggregatedMeasurements()
-	 * @see #getIntervals()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals#getAggregatedMeasurements()
+	 * @see #getFixedIntervals()
 	 * @generated
 	 */
-	EReference getIntervals_AggregatedMeasurements();
+	EReference getFixedIntervals_AggregatedMeasurements();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measurement <em>Measurement</em>}'.
@@ -3154,15 +2812,15 @@ public interface EmfmodelPackage extends EPackage {
 	EClass getExperimentRun();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getCollectedData <em>Collected Data</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getMeasurement <em>Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Collected Data</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getCollectedData()
+	 * @return the meta object for the containment reference list '<em>Measurement</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getMeasurement()
 	 * @see #getExperimentRun()
 	 * @generated
 	 */
-	EReference getExperimentRun_CollectedData();
+	EReference getExperimentRun_Measurement();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getStartTime <em>Start Time</em>}'.
@@ -3241,6 +2899,28 @@ public interface EmfmodelPackage extends EPackage {
 	EAttribute getBaseMetricDescription_Scale();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getMonotonic <em>Monotonic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Monotonic</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getMonotonic()
+	 * @see #getBaseMetricDescription()
+	 * @generated
+	 */
+	EAttribute getBaseMetricDescription_Monotonic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getDefaultUnit <em>Default Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Unit</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription#getDefaultUnit()
+	 * @see #getBaseMetricDescription()
+	 * @generated
+	 */
+	EAttribute getBaseMetricDescription_DefaultUnit();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MetricDescription <em>Metric Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3259,17 +2939,6 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDescription();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getUuid <em>Uuid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uuid</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Description#getUuid()
-	 * @see #getDescription()
-	 * @generated
-	 */
-	EAttribute getDescription_Uuid();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getName <em>Name</em>}'.
@@ -3294,38 +2963,6 @@ public interface EmfmodelPackage extends EPackage {
 	EAttribute getDescription_TextualDescription();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization <em>Aggregation Characterization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Aggregation Characterization</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization
-	 * @generated
-	 */
-	EClass getAggregationCharacterization();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization#getFunction <em>Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Function</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization#getFunction()
-	 * @see #getAggregationCharacterization()
-	 * @generated
-	 */
-	EReference getAggregationCharacterization_Function();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Aggregated Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization#getAggregatedMeasurements()
-	 * @see #getAggregationCharacterization()
-	 * @generated
-	 */
-	EReference getAggregationCharacterization_AggregatedMeasurements();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription <em>Aggregation Function Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3334,6 +2971,38 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAggregationFunctionDescription();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics <em>Aggregation Statistics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Aggregation Statistics</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics
+	 * @generated
+	 */
+	EClass getAggregationStatistics();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics#getDistinctValuesBeforeAggregation <em>Distinct Values Before Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distinct Values Before Aggregation</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics#getDistinctValuesBeforeAggregation()
+	 * @see #getAggregationStatistics()
+	 * @generated
+	 */
+	EAttribute getAggregationStatistics_DistinctValuesBeforeAggregation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics#getDistinctValuesAfterAggregation <em>Distinct Values After Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distinct Values After Aggregation</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics#getDistinctValuesAfterAggregation()
+	 * @see #getAggregationStatistics()
+	 * @generated
+	 */
+	EAttribute getAggregationStatistics_DistinctValuesAfterAggregation();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.LongBinaryMeasurements <em>Long Binary Measurements</em>}'.
@@ -3441,25 +3110,14 @@ public interface EmfmodelPackage extends EPackage {
 	EAttribute getDoubleBinaryMeasurements_StorageUnit();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure <em>Ordinal Scalar Measure</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalMeasure <em>Ordinal Measure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ordinal Scalar Measure</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure
+	 * @return the meta object for class '<em>Ordinal Measure</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalMeasure
 	 * @generated
 	 */
-	EClass getOrdinalScalarMeasure();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure#getDefaultUnitOfMeasurements <em>Default Unit Of Measurements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default Unit Of Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalScalarMeasure#getDefaultUnitOfMeasurements()
-	 * @see #getOrdinalScalarMeasure()
-	 * @generated
-	 */
-	EAttribute getOrdinalScalarMeasure_DefaultUnitOfMeasurements();
+	EClass getOrdinalMeasure();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.JSXmlMeasurements <em>JS Xml Measurements</em>}'.
@@ -3470,46 +3128,6 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJSXmlMeasurements();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.EventTimeAggregation <em>Event Time Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Event Time Aggregation</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EventTimeAggregation
-	 * @generated
-	 */
-	EClass getEventTimeAggregation();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ValueAggregation <em>Value Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value Aggregation</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ValueAggregation
-	 * @generated
-	 */
-	EClass getValueAggregation();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.StrongMonotonicScalarMeasure <em>Strong Monotonic Scalar Measure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Strong Monotonic Scalar Measure</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.StrongMonotonicScalarMeasure
-	 * @generated
-	 */
-	EClass getStrongMonotonicScalarMeasure();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryEventTimes <em>Double Binary Event Times</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Double Binary Event Times</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryEventTimes
-	 * @generated
-	 */
-	EClass getDoubleBinaryEventTimes();
 
 	/**
 	 * Returns the meta object for class '{@link javax.measure.quantity.Duration <em>IJS Duration</em>}'.
@@ -3852,6 +3470,16 @@ public interface EmfmodelPackage extends EPackage {
 	EEnum getScale();
 
 	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic <em>Monotonic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Monotonic</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic
+	 * @generated
+	 */
+	EEnum getMonotonic();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Enumeration1 <em>Enumeration1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3935,36 +3563,28 @@ public interface EmfmodelPackage extends EPackage {
 		EReference AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = eINSTANCE.getAggregatedMeasurements_MeasurementRange();
 
 		/**
-		 * The meta object literal for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_BEFORE_AGGREGATION = eINSTANCE.getAggregatedMeasurements_DistinctValuesBeforeAggregation();
-
-		/**
-		 * The meta object literal for the '<em><b>Distinct Values After Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AGGREGATED_MEASUREMENTS__DISTINCT_VALUES_AFTER_AGGREGATION = eINSTANCE.getAggregatedMeasurements_DistinctValuesAfterAggregation();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregation Characterization</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AGGREGATED_MEASUREMENTS__AGGREGATION_CHARACTERIZATION = eINSTANCE.getAggregatedMeasurements_AggregationCharacterization();
-
-		/**
 		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute AGGREGATED_MEASUREMENTS__VALID = eINSTANCE.getAggregatedMeasurements_Valid();
+
+		/**
+		 * The meta object literal for the '<em><b>Function</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AGGREGATED_MEASUREMENTS__FUNCTION = eINSTANCE.getAggregatedMeasurements_Function();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregation Statistics</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS = eINSTANCE.getAggregatedMeasurements_AggregationStatistics();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.IdentifiableImpl <em>Identifiable</em>}' class.
@@ -4019,12 +3639,12 @@ public interface EmfmodelPackage extends EPackage {
 		EAttribute MEASUREMENT_RANGE__START_TIME = eINSTANCE.getMeasurementRange_StartTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Collected Data</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Measurement</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT_RANGE__COLLECTED_DATA = eINSTANCE.getMeasurementRange_CollectedData();
+		EReference MEASUREMENT_RANGE__MEASUREMENT = eINSTANCE.getMeasurementRange_Measurement();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregated Measurements</b></em>' containment reference list feature.
@@ -4045,20 +3665,12 @@ public interface EmfmodelPackage extends EPackage {
 		EClass RAW_MEASUREMENTS = eINSTANCE.getRawMeasurements();
 
 		/**
-		 * The meta object literal for the '<em><b>Raw XSeries</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Data Series</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RAW_MEASUREMENTS__RAW_XSERIES = eINSTANCE.getRawMeasurements_RawXSeries();
-
-		/**
-		 * The meta object literal for the '<em><b>Raw YSeries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RAW_MEASUREMENTS__RAW_YSERIES = eINSTANCE.getRawMeasurements_RawYSeries();
+		EReference RAW_MEASUREMENTS__DATA_SERIES = eINSTANCE.getRawMeasurements_DataSeries();
 
 		/**
 		 * The meta object literal for the '<em><b>Measurement Range</b></em>' container reference feature.
@@ -4069,32 +3681,14 @@ public interface EmfmodelPackage extends EPackage {
 		EReference RAW_MEASUREMENTS__MEASUREMENT_RANGE = eINSTANCE.getRawMeasurements_MeasurementRange();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawXSeriesImpl <em>Raw XSeries</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl <em>Data Series</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawXSeriesImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRawXSeries()
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDataSeries()
 		 * @generated
 		 */
-		EClass RAW_XSERIES = eINSTANCE.getRawXSeries();
-
-		/**
-		 * The meta object literal for the '<em><b>Raw Measurements</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RAW_XSERIES__RAW_MEASUREMENTS = eINSTANCE.getRawXSeries_RawMeasurements();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl <em>Raw YSeries</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getRawYSeries()
-		 * @generated
-		 */
-		EClass RAW_YSERIES = eINSTANCE.getRawYSeries();
+		EClass DATA_SERIES = eINSTANCE.getDataSeries();
 
 		/**
 		 * The meta object literal for the '<em><b>Statistics</b></em>' containment reference feature.
@@ -4102,7 +3696,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RAW_YSERIES__STATISTICS = eINSTANCE.getRawYSeries_Statistics();
+		EReference DATA_SERIES__STATISTICS = eINSTANCE.getDataSeries_Statistics();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregated Measurements</b></em>' container reference feature.
@@ -4110,7 +3704,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RAW_YSERIES__AGGREGATED_MEASUREMENTS = eINSTANCE.getRawYSeries_AggregatedMeasurements();
+		EReference DATA_SERIES__AGGREGATED_MEASUREMENTS = eINSTANCE.getDataSeries_AggregatedMeasurements();
 
 		/**
 		 * The meta object literal for the '<em><b>Values Uuid</b></em>' attribute feature.
@@ -4118,7 +3712,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RAW_YSERIES__VALUES_UUID = eINSTANCE.getRawYSeries_ValuesUuid();
+		EAttribute DATA_SERIES__VALUES_UUID = eINSTANCE.getDataSeries_ValuesUuid();
 
 		/**
 		 * The meta object literal for the '<em><b>Raw Measurements</b></em>' container reference feature.
@@ -4126,7 +3720,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RAW_YSERIES__RAW_MEASUREMENTS = eINSTANCE.getRawYSeries_RawMeasurements();
+		EReference DATA_SERIES__RAW_MEASUREMENTS = eINSTANCE.getDataSeries_RawMeasurements();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.NominalStatisticsImpl <em>Nominal Statistics</em>}' class.
@@ -4155,40 +3749,48 @@ public interface EmfmodelPackage extends EPackage {
 		EReference NOMINAL_STATISTICS__RAW_YSERIES = eINSTANCE.getNominalStatistics_RawYSeries();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregationImpl <em>Fixed Width Aggregation</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl <em>Fixed Width Aggregated Measurements</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregationImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedWidthAggregation()
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedWidthAggregatedMeasurements()
 		 * @generated
 		 */
-		EClass FIXED_WIDTH_AGGREGATION = eINSTANCE.getFixedWidthAggregation();
+		EClass FIXED_WIDTH_AGGREGATED_MEASUREMENTS = eINSTANCE.getFixedWidthAggregatedMeasurements();
 
 		/**
-		 * The meta object literal for the '<em><b>Raw XSeries</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Intervals</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIXED_WIDTH_AGGREGATION__RAW_XSERIES = eINSTANCE.getFixedWidthAggregation_RawXSeries();
+		EReference FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS = eINSTANCE.getFixedWidthAggregatedMeasurements_Intervals();
 
 		/**
-		 * The meta object literal for the '<em><b>Raw YSeries</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Aggregation On</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIXED_WIDTH_AGGREGATION__RAW_YSERIES = eINSTANCE.getFixedWidthAggregation_RawYSeries();
+		EReference FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON = eINSTANCE.getFixedWidthAggregatedMeasurements_AggregationOn();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.IntervalsImpl <em>Intervals</em>}' class.
+		 * The meta object literal for the '<em><b>Data Series</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.IntervalsImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getIntervals()
 		 * @generated
 		 */
-		EClass INTERVALS = eINSTANCE.getIntervals();
+		EReference FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES = eINSTANCE.getFixedWidthAggregatedMeasurements_DataSeries();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedIntervalsImpl <em>Fixed Intervals</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedIntervalsImpl
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getFixedIntervals()
+		 * @generated
+		 */
+		EClass FIXED_INTERVALS = eINSTANCE.getFixedIntervals();
 
 		/**
 		 * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
@@ -4196,7 +3798,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVALS__LOWER_BOUND = eINSTANCE.getIntervals_LowerBound();
+		EAttribute FIXED_INTERVALS__LOWER_BOUND = eINSTANCE.getFixedIntervals_LowerBound();
 
 		/**
 		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -4204,7 +3806,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVALS__WIDTH = eINSTANCE.getIntervals_Width();
+		EAttribute FIXED_INTERVALS__WIDTH = eINSTANCE.getFixedIntervals_Width();
 
 		/**
 		 * The meta object literal for the '<em><b>Number Of Intervals</b></em>' attribute feature.
@@ -4212,7 +3814,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVALS__NUMBER_OF_INTERVALS = eINSTANCE.getIntervals_NumberOfIntervals();
+		EAttribute FIXED_INTERVALS__NUMBER_OF_INTERVALS = eINSTANCE.getFixedIntervals_NumberOfIntervals();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregated Measurements</b></em>' container reference feature.
@@ -4220,7 +3822,7 @@ public interface EmfmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERVALS__AGGREGATED_MEASUREMENTS = eINSTANCE.getIntervals_AggregatedMeasurements();
+		EReference FIXED_INTERVALS__AGGREGATED_MEASUREMENTS = eINSTANCE.getFixedIntervals_AggregatedMeasurements();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MeasurementImpl <em>Measurement</em>}' class.
@@ -4421,12 +4023,12 @@ public interface EmfmodelPackage extends EPackage {
 		EClass EXPERIMENT_RUN = eINSTANCE.getExperimentRun();
 
 		/**
-		 * The meta object literal for the '<em><b>Collected Data</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Measurement</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPERIMENT_RUN__COLLECTED_DATA = eINSTANCE.getExperimentRun_CollectedData();
+		EReference EXPERIMENT_RUN__MEASUREMENT = eINSTANCE.getExperimentRun_Measurement();
 
 		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
@@ -4487,6 +4089,22 @@ public interface EmfmodelPackage extends EPackage {
 		EAttribute BASE_METRIC_DESCRIPTION__SCALE = eINSTANCE.getBaseMetricDescription_Scale();
 
 		/**
+		 * The meta object literal for the '<em><b>Monotonic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_METRIC_DESCRIPTION__MONOTONIC = eINSTANCE.getBaseMetricDescription_Monotonic();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_METRIC_DESCRIPTION__DEFAULT_UNIT = eINSTANCE.getBaseMetricDescription_DefaultUnit();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MetricDescriptionImpl <em>Metric Description</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4507,14 +4125,6 @@ public interface EmfmodelPackage extends EPackage {
 		EClass DESCRIPTION = eINSTANCE.getDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Uuid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DESCRIPTION__UUID = eINSTANCE.getDescription_Uuid();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4531,32 +4141,6 @@ public interface EmfmodelPackage extends EPackage {
 		EAttribute DESCRIPTION__TEXTUAL_DESCRIPTION = eINSTANCE.getDescription_TextualDescription();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationCharacterizationImpl <em>Aggregation Characterization</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationCharacterizationImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationCharacterization()
-		 * @generated
-		 */
-		EClass AGGREGATION_CHARACTERIZATION = eINSTANCE.getAggregationCharacterization();
-
-		/**
-		 * The meta object literal for the '<em><b>Function</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AGGREGATION_CHARACTERIZATION__FUNCTION = eINSTANCE.getAggregationCharacterization_Function();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregated Measurements</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AGGREGATION_CHARACTERIZATION__AGGREGATED_MEASUREMENTS = eINSTANCE.getAggregationCharacterization_AggregatedMeasurements();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationFunctionDescriptionImpl <em>Aggregation Function Description</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4565,6 +4149,32 @@ public interface EmfmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AGGREGATION_FUNCTION_DESCRIPTION = eINSTANCE.getAggregationFunctionDescription();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationStatisticsImpl <em>Aggregation Statistics</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationStatisticsImpl
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationStatistics()
+		 * @generated
+		 */
+		EClass AGGREGATION_STATISTICS = eINSTANCE.getAggregationStatistics();
+
+		/**
+		 * The meta object literal for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION = eINSTANCE.getAggregationStatistics_DistinctValuesBeforeAggregation();
+
+		/**
+		 * The meta object literal for the '<em><b>Distinct Values After Aggregation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION = eINSTANCE.getAggregationStatistics_DistinctValuesAfterAggregation();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.LongBinaryMeasurementsImpl <em>Long Binary Measurements</em>}' class.
@@ -4657,22 +4267,14 @@ public interface EmfmodelPackage extends EPackage {
 		EAttribute DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT = eINSTANCE.getDoubleBinaryMeasurements_StorageUnit();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalScalarMeasureImpl <em>Ordinal Scalar Measure</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalMeasureImpl <em>Ordinal Measure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalScalarMeasureImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getOrdinalScalarMeasure()
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.OrdinalMeasureImpl
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getOrdinalMeasure()
 		 * @generated
 		 */
-		EClass ORDINAL_SCALAR_MEASURE = eINSTANCE.getOrdinalScalarMeasure();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Unit Of Measurements</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORDINAL_SCALAR_MEASURE__DEFAULT_UNIT_OF_MEASUREMENTS = eINSTANCE.getOrdinalScalarMeasure_DefaultUnitOfMeasurements();
+		EClass ORDINAL_MEASURE = eINSTANCE.getOrdinalMeasure();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.JSXmlMeasurementsImpl <em>JS Xml Measurements</em>}' class.
@@ -4683,46 +4285,6 @@ public interface EmfmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JS_XML_MEASUREMENTS = eINSTANCE.getJSXmlMeasurements();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.EventTimeAggregationImpl <em>Event Time Aggregation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EventTimeAggregationImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getEventTimeAggregation()
-		 * @generated
-		 */
-		EClass EVENT_TIME_AGGREGATION = eINSTANCE.getEventTimeAggregation();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ValueAggregationImpl <em>Value Aggregation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.ValueAggregationImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getValueAggregation()
-		 * @generated
-		 */
-		EClass VALUE_AGGREGATION = eINSTANCE.getValueAggregation();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.StrongMonotonicScalarMeasureImpl <em>Strong Monotonic Scalar Measure</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.StrongMonotonicScalarMeasureImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getStrongMonotonicScalarMeasure()
-		 * @generated
-		 */
-		EClass STRONG_MONOTONIC_SCALAR_MEASURE = eINSTANCE.getStrongMonotonicScalarMeasure();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DoubleBinaryEventTimesImpl <em>Double Binary Event Times</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.DoubleBinaryEventTimesImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDoubleBinaryEventTimes()
-		 * @generated
-		 */
-		EClass DOUBLE_BINARY_EVENT_TIMES = eINSTANCE.getDoubleBinaryEventTimes();
 
 		/**
 		 * The meta object literal for the '{@link javax.measure.quantity.Duration <em>IJS Duration</em>}' class.
@@ -5007,6 +4569,16 @@ public interface EmfmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SCALE = eINSTANCE.getScale();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic <em>Monotonic</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic
+		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMonotonic()
+		 * @generated
+		 */
+		EEnum MONOTONIC = eINSTANCE.getMonotonic();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Enumeration1 <em>Enumeration1</em>}' enum.

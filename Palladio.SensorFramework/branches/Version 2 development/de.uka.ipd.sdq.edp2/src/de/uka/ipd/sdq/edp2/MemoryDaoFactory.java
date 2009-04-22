@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.measure.Measure;
+
 public class MemoryDaoFactory implements DaoFactory {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(MemoryDaoFactory.class.getCanonicalName());
@@ -29,12 +31,6 @@ public class MemoryDaoFactory implements DaoFactory {
 	}
 	
 	@Override
-	public BinaryMeasurementsDao<Double> createDoubleMeasurementsDao(String uuid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ExperimentGroupDao createExperimentGroupDao(String uuid) {
 		// TODO Auto-generated method stub
 		return null;
@@ -43,12 +39,6 @@ public class MemoryDaoFactory implements DaoFactory {
 	@Override
 	public JScienceXmlMeasurementsDao createJScienceXmlMeasurementsDao(
 			String uuid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BinaryMeasurementsDao<Long> createLongMeasurementsDao(String uuid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -67,6 +57,20 @@ public class MemoryDaoFactory implements DaoFactory {
 
 	@Override
 	public DescriptionsDao createDescriptionsDao(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(
+			String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(
+			String uuid) {
 		// TODO Auto-generated method stub
 		return null;
 	}

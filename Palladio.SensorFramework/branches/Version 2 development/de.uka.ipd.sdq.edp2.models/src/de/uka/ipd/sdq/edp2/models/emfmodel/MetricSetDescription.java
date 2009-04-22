@@ -36,7 +36,7 @@ public interface MetricSetDescription extends MetricDescription {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subsumed Metrics</em>' reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMetricSetDescription_SubsumedMetrics()
-	 * @model required="true" ordered="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<MetricDescription> getSubsumedMetrics();

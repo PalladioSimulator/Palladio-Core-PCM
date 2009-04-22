@@ -20,62 +20,33 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawXSeries <em>Raw XSeries</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawYSeries <em>Raw YSeries</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getDataSeries <em>Data Series</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawMeasurements()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface RawMeasurements extends Identifiable {
 	/**
-	 * Returns the value of the '<em><b>Raw XSeries</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries#getRawMeasurements <em>Raw Measurements</em>}'.
+	 * Returns the value of the '<em><b>Data Series</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements <em>Raw Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Raw XSeries</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Data Series</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Raw XSeries</em>' containment reference.
-	 * @see #setRawXSeries(RawXSeries)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawMeasurements_RawXSeries()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawXSeries#getRawMeasurements
+	 * @return the value of the '<em>Data Series</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawMeasurements_DataSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries#getRawMeasurements
 	 * @model opposite="rawMeasurements" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	RawXSeries getRawXSeries();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getRawXSeries <em>Raw XSeries</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Raw XSeries</em>' containment reference.
-	 * @see #getRawXSeries()
-	 * @generated
-	 */
-	void setRawXSeries(RawXSeries value);
-
-	/**
-	 * Returns the value of the '<em><b>Raw YSeries</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements <em>Raw Measurements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Raw YSeries</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Raw YSeries</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getRawMeasurements_RawYSeries()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries#getRawMeasurements
-	 * @model opposite="rawMeasurements" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	EList<RawYSeries> getRawYSeries();
+	EList<DataSeries> getDataSeries();
 
 	/**
 	 * Returns the value of the '<em><b>Measurement Range</b></em>' container reference.

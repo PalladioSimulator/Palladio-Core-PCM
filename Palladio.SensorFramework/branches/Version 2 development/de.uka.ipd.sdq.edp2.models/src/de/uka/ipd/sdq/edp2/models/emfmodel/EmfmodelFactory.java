@@ -35,6 +35,15 @@ public interface EmfmodelFactory extends EFactory {
 	MeasurementRange createMeasurementRange();
 
 	/**
+	 * Returns a new object of class '<em>Raw Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Raw Measurements</em>'.
+	 * @generated
+	 */
+	RawMeasurements createRawMeasurements();
+
+	/**
 	 * Returns a new object of class '<em>Nominal Statistics</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,13 +53,22 @@ public interface EmfmodelFactory extends EFactory {
 	NominalStatistics createNominalStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Intervals</em>'.
+	 * Returns a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Intervals</em>'.
+	 * @return a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
 	 * @generated
 	 */
-	Intervals createIntervals();
+	FixedWidthAggregatedMeasurements createFixedWidthAggregatedMeasurements();
+
+	/**
+	 * Returns a new object of class '<em>Fixed Intervals</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Fixed Intervals</em>'.
+	 * @generated
+	 */
+	FixedIntervals createFixedIntervals();
 
 	/**
 	 * Returns a new object of class '<em>Measurement</em>'.
@@ -98,24 +116,6 @@ public interface EmfmodelFactory extends EFactory {
 	BaseMetricDescription createBaseMetricDescription();
 
 	/**
-	 * Returns a new object of class '<em>Metric Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metric Description</em>'.
-	 * @generated
-	 */
-	MetricDescription createMetricDescription();
-
-	/**
-	 * Returns a new object of class '<em>Aggregation Characterization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aggregation Characterization</em>'.
-	 * @generated
-	 */
-	AggregationCharacterization createAggregationCharacterization();
-
-	/**
 	 * Returns a new object of class '<em>Aggregation Function Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +123,15 @@ public interface EmfmodelFactory extends EFactory {
 	 * @generated
 	 */
 	AggregationFunctionDescription createAggregationFunctionDescription();
+
+	/**
+	 * Returns a new object of class '<em>Aggregation Statistics</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Aggregation Statistics</em>'.
+	 * @generated
+	 */
+	AggregationStatistics createAggregationStatistics();
 
 	/**
 	 * Returns a new object of class '<em>Long Binary Measurements</em>'.
@@ -170,13 +179,13 @@ public interface EmfmodelFactory extends EFactory {
 	DoubleBinaryMeasurements createDoubleBinaryMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Ordinal Scalar Measure</em>'.
+	 * Returns a new object of class '<em>Ordinal Measure</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ordinal Scalar Measure</em>'.
+	 * @return a new object of class '<em>Ordinal Measure</em>'.
 	 * @generated
 	 */
-	OrdinalScalarMeasure createOrdinalScalarMeasure();
+	OrdinalMeasure createOrdinalMeasure();
 
 	/**
 	 * Returns a new object of class '<em>JS Xml Measurements</em>'.
@@ -186,42 +195,6 @@ public interface EmfmodelFactory extends EFactory {
 	 * @generated
 	 */
 	JSXmlMeasurements createJSXmlMeasurements();
-
-	/**
-	 * Returns a new object of class '<em>Event Time Aggregation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event Time Aggregation</em>'.
-	 * @generated
-	 */
-	EventTimeAggregation createEventTimeAggregation();
-
-	/**
-	 * Returns a new object of class '<em>Value Aggregation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value Aggregation</em>'.
-	 * @generated
-	 */
-	ValueAggregation createValueAggregation();
-
-	/**
-	 * Returns a new object of class '<em>Strong Monotonic Scalar Measure</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Strong Monotonic Scalar Measure</em>'.
-	 * @generated
-	 */
-	StrongMonotonicScalarMeasure createStrongMonotonicScalarMeasure();
-
-	/**
-	 * Returns a new object of class '<em>Double Binary Event Times</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Double Binary Event Times</em>'.
-	 * @generated
-	 */
-	DoubleBinaryEventTimes createDoubleBinaryEventTimes();
 
 	/**
 	 * Returns a new object of class '<em>Descriptions</em>'.

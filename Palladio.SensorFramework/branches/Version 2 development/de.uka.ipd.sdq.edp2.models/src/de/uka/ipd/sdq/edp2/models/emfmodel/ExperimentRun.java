@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getCollectedData <em>Collected Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getMeasurement <em>Measurement</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getDuration <em>Duration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun#getExperimentSetting <em>Experiment Setting</em>}</li>
@@ -41,22 +41,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExperimentRun extends Identifiable, Propertyable {
 	/**
-	 * Returns the value of the '<em><b>Collected Data</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Measurement</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Measurement}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measurement#getExperimentRun <em>Experiment Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Collected Data</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Measurement</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Collected Data</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentRun_CollectedData()
+	 * @return the value of the '<em>Measurement</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentRun_Measurement()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Measurement#getExperimentRun
 	 * @model opposite="experimentRun" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Measurement> getCollectedData();
+	EList<Measurement> getMeasurement();
 
 	/**
 	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.

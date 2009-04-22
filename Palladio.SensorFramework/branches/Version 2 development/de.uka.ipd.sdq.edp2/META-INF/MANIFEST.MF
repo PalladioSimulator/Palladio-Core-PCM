@@ -15,4 +15,5 @@ Export-Package: de.uka.ipd.sdq.edp2,
  de.uka.ipd.sdq.edp2.impl,
  de.uka.ipd.sdq.edp2.remote,
  de.uka.ipd.sdq.edp2.remote.client,
- de.uka.ipd.sdq.edp2.remote.server
+ de.uka.ipd.sdq.edp2.remote.server,
+ de.uka.ipd.sdq.edp2.util

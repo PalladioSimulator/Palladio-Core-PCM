@@ -28,7 +28,7 @@ import javax.measure.unit.Unit;
  * @model
  * @generated
  */
-public interface LongBinaryMeasurements extends RawYSeries {
+public interface LongBinaryMeasurements extends DataSeries {
 	/**
 	 * Returns the value of the '<em><b>Storage Unit</b></em>' attribute.
 	 * <!-- begin-user-doc -->

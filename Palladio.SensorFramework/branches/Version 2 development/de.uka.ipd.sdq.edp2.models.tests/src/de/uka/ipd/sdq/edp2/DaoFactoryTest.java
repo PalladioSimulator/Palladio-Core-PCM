@@ -27,9 +27,10 @@ public abstract class DaoFactoryTest {
 	/**
 	 * Test method for {@link de.uka.ipd.sdq.edp2.file.impl.FileDaoFactoryImpl#createDoubleMeasurementsDao(java.lang.String)}.
 	 */
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreateDoubleMeasurementsDao() {
-		BinaryMeasurementsDao<Double> bmd = daoFactory.createDoubleMeasurementsDao(uuid);
+		BinaryMeasurementsDao<javax.measure.Measure> bmd = daoFactory.createDoubleMeasurementsDao(uuid);
 		assertNotNull("CreateDoubleMeasurementsDao returned null object.", bmd);
 	}
 
@@ -54,9 +55,10 @@ public abstract class DaoFactoryTest {
 	/**
 	 * Test method for {@link de.uka.ipd.sdq.edp2.file.impl.FileDaoFactoryImpl#createLongMeasurementsDao(java.lang.String)}.
 	 */
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreateLongMeasurementsDao() {
-		BinaryMeasurementsDao<Long> bmd = daoFactory.createLongMeasurementsDao(uuid);
+		BinaryMeasurementsDao<javax.measure.Measure> bmd = daoFactory.createLongMeasurementsDao(uuid);
 		assertNotNull("CreateLongMeasurementsDao returned null object.", bmd);
 	}
 

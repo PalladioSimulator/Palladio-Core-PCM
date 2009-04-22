@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class JSXmlMeasurementsImpl extends RawYSeriesImpl implements JSXmlMeasurements {
+public class JSXmlMeasurementsImpl extends DataSeriesImpl implements JSXmlMeasurements {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -10,8 +10,10 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.CaptureType;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DataType;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Scale;
 
+import javax.measure.unit.Unit;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.BaseMetricDescriptionImpl#getCaptureType <em>Capture Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.BaseMetricDescriptionImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.BaseMetricDescriptionImpl#getScale <em>Scale</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.BaseMetricDescriptionImpl#getMonotonic <em>Monotonic</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.BaseMetricDescriptionImpl#getDefaultUnit <em>Default Unit</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +97,46 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	 * @ordered
 	 */
 	protected Scale scale = SCALE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMonotonic() <em>Monotonic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMonotonic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Monotonic MONOTONIC_EDEFAULT = Monotonic.NO;
+
+	/**
+	 * The cached value of the '{@link #getMonotonic() <em>Monotonic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMonotonic()
+	 * @generated
+	 * @ordered
+	 */
+	protected Monotonic monotonic = MONOTONIC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDefaultUnit() <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultUnit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Unit DEFAULT_UNIT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDefaultUnit() <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultUnit()
+	 * @generated
+	 * @ordered
+	 */
+	protected Unit defaultUnit = DEFAULT_UNIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,6 +225,48 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Monotonic getMonotonic() {
+		return monotonic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMonotonic(Monotonic newMonotonic) {
+		Monotonic oldMonotonic = monotonic;
+		monotonic = newMonotonic == null ? MONOTONIC_EDEFAULT : newMonotonic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC, oldMonotonic, monotonic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Unit getDefaultUnit() {
+		return defaultUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultUnit(Unit newDefaultUnit) {
+		Unit oldDefaultUnit = defaultUnit;
+		defaultUnit = newDefaultUnit;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT, oldDefaultUnit, defaultUnit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -190,6 +276,10 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 				return getDataType();
 			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				return getScale();
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+				return getMonotonic();
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+				return getDefaultUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +300,12 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 				return;
 			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				setScale((Scale)newValue);
+				return;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+				setMonotonic((Monotonic)newValue);
+				return;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+				setDefaultUnit((Unit)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +328,12 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				setScale(SCALE_EDEFAULT);
 				return;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+				setMonotonic(MONOTONIC_EDEFAULT);
+				return;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+				setDefaultUnit(DEFAULT_UNIT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +352,10 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 				return dataType != DATA_TYPE_EDEFAULT;
 			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				return scale != SCALE_EDEFAULT;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+				return monotonic != MONOTONIC_EDEFAULT;
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+				return DEFAULT_UNIT_EDEFAULT == null ? defaultUnit != null : !DEFAULT_UNIT_EDEFAULT.equals(defaultUnit);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,6 +376,10 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		result.append(dataType);
 		result.append(", scale: ");
 		result.append(scale);
+		result.append(", monotonic: ");
+		result.append(monotonic);
+		result.append(", defaultUnit: ");
+		result.append(defaultUnit);
 		result.append(')');
 		return result.toString();
 	}

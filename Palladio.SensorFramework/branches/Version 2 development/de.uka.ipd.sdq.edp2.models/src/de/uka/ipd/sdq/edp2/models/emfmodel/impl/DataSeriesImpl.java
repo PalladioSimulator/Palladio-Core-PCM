@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
-import de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregation;
+import de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.NominalStatistics;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.RawYSeries;
 
 import de.uka.ipd.sdq.edp2.models.emfmodel.util.EmfmodelValidator;
 
@@ -36,21 +36,21 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Raw YSeries</b></em>'.
+ * An implementation of the model object '<em><b>Data Series</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl#getStatistics <em>Statistics</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl#getValuesUuid <em>Values Uuid</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.RawYSeriesImpl#getRawMeasurements <em>Raw Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl#getStatistics <em>Statistics</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl#getValuesUuid <em>Values Uuid</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DataSeriesImpl#getRawMeasurements <em>Raw Measurements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
+public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	/**
 	 * The cached value of the '{@link #getStatistics() <em>Statistics</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RawYSeriesImpl() {
+	protected DataSeriesImpl() {
 		super();
 	}
 
@@ -97,7 +97,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.RAW_YSERIES;
+		return EmfmodelPackage.Literals.DATA_SERIES;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 		NominalStatistics oldStatistics = statistics;
 		statistics = newStatistics;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_YSERIES__STATISTICS, oldStatistics, newStatistics);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__STATISTICS, oldStatistics, newStatistics);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -140,7 +140,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_YSERIES__STATISTICS, newStatistics, newStatistics));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__STATISTICS, newStatistics, newStatistics));
 	}
 
 	/**
@@ -148,9 +148,9 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FixedWidthAggregation getAggregatedMeasurements() {
-		if (eContainerFeatureID != EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS) return null;
-		return (FixedWidthAggregation)eContainer();
+	public FixedWidthAggregatedMeasurements getAggregatedMeasurements() {
+		if (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS) return null;
+		return (FixedWidthAggregatedMeasurements)eContainer();
 	}
 
 	/**
@@ -158,8 +158,8 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAggregatedMeasurements(FixedWidthAggregation newAggregatedMeasurements, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newAggregatedMeasurements, EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS, msgs);
+	public NotificationChain basicSetAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newAggregatedMeasurements, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, msgs);
 		return msgs;
 	}
 
@@ -168,20 +168,20 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAggregatedMeasurements(FixedWidthAggregation newAggregatedMeasurements) {
-		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
+	public void setAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements) {
+		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newAggregatedMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newAggregatedMeasurements != null)
-				msgs = ((InternalEObject)newAggregatedMeasurements).eInverseAdd(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATION__RAW_YSERIES, FixedWidthAggregation.class, msgs);
+				msgs = ((InternalEObject)newAggregatedMeasurements).eInverseAdd(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
 			msgs = basicSetAggregatedMeasurements(newAggregatedMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS, newAggregatedMeasurements, newAggregatedMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, newAggregatedMeasurements, newAggregatedMeasurements));
 	}
 
 	/**
@@ -202,7 +202,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 		String oldValuesUuid = valuesUuid;
 		valuesUuid = newValuesUuid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_YSERIES__VALUES_UUID, oldValuesUuid, valuesUuid));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__VALUES_UUID, oldValuesUuid, valuesUuid));
 	}
 
 	/**
@@ -211,7 +211,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * @generated
 	 */
 	public RawMeasurements getRawMeasurements() {
-		if (eContainerFeatureID != EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS) return null;
+		if (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS) return null;
 		return (RawMeasurements)eContainer();
 	}
 
@@ -221,7 +221,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * @generated
 	 */
 	public NotificationChain basicSetRawMeasurements(RawMeasurements newRawMeasurements, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRawMeasurements, EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRawMeasurements, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS, msgs);
 		return msgs;
 	}
 
@@ -231,19 +231,19 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	 * @generated
 	 */
 	public void setRawMeasurements(RawMeasurements newRawMeasurements) {
-		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
+		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newRawMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRawMeasurements != null)
-				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
 			msgs = basicSetRawMeasurements(newRawMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
 	}
 
 	/**
@@ -262,7 +262,7 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 EmfmodelValidator.DIAGNOSTIC_SOURCE,
-						 EmfmodelValidator.RAW_YSERIES__STATISTICSONLYFORMEASURABLEVALUES,
+						 EmfmodelValidator.DATA_SERIES__STATISTICSONLYFORMEASURABLEVALUES,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Statisticsonlyformeasurablevalues", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
@@ -279,15 +279,15 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				if (statistics != null)
-					msgs = ((InternalEObject)statistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.RAW_YSERIES__STATISTICS, null, msgs);
+					msgs = ((InternalEObject)statistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.DATA_SERIES__STATISTICS, null, msgs);
 				return basicSetStatistics((NominalStatistics)otherEnd, msgs);
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetAggregatedMeasurements((FixedWidthAggregation)otherEnd, msgs);
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+				return basicSetAggregatedMeasurements((FixedWidthAggregatedMeasurements)otherEnd, msgs);
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRawMeasurements((RawMeasurements)otherEnd, msgs);
@@ -303,11 +303,11 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				return basicSetStatistics(null, msgs);
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return basicSetAggregatedMeasurements(null, msgs);
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return basicSetRawMeasurements(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -321,10 +321,10 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATION__RAW_YSERIES, FixedWidthAggregation.class, msgs);
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.RAW_MEASUREMENTS__RAW_YSERIES, RawMeasurements.class, msgs);
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -337,13 +337,13 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				return getStatistics();
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
-			case EmfmodelPackage.RAW_YSERIES__VALUES_UUID:
+			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
 				return getValuesUuid();
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return getRawMeasurements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -357,16 +357,16 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				setStatistics((NominalStatistics)newValue);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
-				setAggregatedMeasurements((FixedWidthAggregation)newValue);
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+				setAggregatedMeasurements((FixedWidthAggregatedMeasurements)newValue);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__VALUES_UUID:
+			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
 				setValuesUuid((String)newValue);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)newValue);
 				return;
 		}
@@ -381,16 +381,16 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				setStatistics((NominalStatistics)null);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
-				setAggregatedMeasurements((FixedWidthAggregation)null);
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+				setAggregatedMeasurements((FixedWidthAggregatedMeasurements)null);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__VALUES_UUID:
+			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
 				setValuesUuid(VALUES_UUID_EDEFAULT);
 				return;
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)null);
 				return;
 		}
@@ -405,13 +405,13 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_YSERIES__STATISTICS:
+			case EmfmodelPackage.DATA_SERIES__STATISTICS:
 				return statistics != null;
-			case EmfmodelPackage.RAW_YSERIES__AGGREGATED_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements() != null;
-			case EmfmodelPackage.RAW_YSERIES__VALUES_UUID:
+			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
 				return VALUES_UUID_EDEFAULT == null ? valuesUuid != null : !VALUES_UUID_EDEFAULT.equals(valuesUuid);
-			case EmfmodelPackage.RAW_YSERIES__RAW_MEASUREMENTS:
+			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return getRawMeasurements() != null;
 		}
 		return super.eIsSet(featureID);
@@ -433,4 +433,4 @@ public abstract class RawYSeriesImpl extends EObjectImpl implements RawYSeries {
 		return result.toString();
 	}
 
-} //RawYSeriesImpl
+} //DataSeriesImpl

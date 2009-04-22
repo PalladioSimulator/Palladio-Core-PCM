@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class MetricDescriptionImpl extends DescriptionImpl implements MetricDescription {
+public abstract class MetricDescriptionImpl extends DescriptionImpl implements MetricDescription {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

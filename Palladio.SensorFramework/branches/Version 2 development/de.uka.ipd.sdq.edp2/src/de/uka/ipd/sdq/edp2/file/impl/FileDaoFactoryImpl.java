@@ -10,6 +10,8 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.measure.Measure;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
@@ -20,6 +22,7 @@ import de.uka.ipd.sdq.edp2.DaoRegistry;
 import de.uka.ipd.sdq.edp2.ExperimentGroupDao;
 import de.uka.ipd.sdq.edp2.JScienceXmlMeasurementsDao;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.file.impl.BackgroundMemoryListImpl.BinaryRepresentation;
 
 /**This {@link DaoFactory} implementation stores data in file on background storage.
  * 
@@ -29,8 +32,10 @@ public class FileDaoFactoryImpl implements DaoFactory {
 	/** Logger for this class. */
 	private static final Logger logger = Logger
 			.getLogger(FileDaoFactoryImpl.class.getCanonicalName());
+	
 	/** File suffix for uuid-referenced data files. */
-	private static final String FILE_SUFFIX = ".bin";
+	private static final String FILE_SUFFIX = "edp2bin";
+	
 	/**
 	 * Resource set for all handled EMF models. Must be the same to allow
 	 * correct linking.
@@ -122,8 +127,9 @@ public class FileDaoFactoryImpl implements DaoFactory {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Double> createDoubleMeasurementsDao(String uuid) {
-		FileBinaryMeasurementsDaoImpl<Double> fbmDao = new FileBinaryMeasurementsDaoImpl<Double>();
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid) {
+		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
+		fbmDao.setBinaryRepresentation(BinaryRepresentation.DOUBLE);
 		fbmDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
 				FILE_SUFFIX)));
 		fbmDao.setSerializer(new DoubleSerializer());
@@ -133,8 +139,9 @@ public class FileDaoFactoryImpl implements DaoFactory {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Long> createLongMeasurementsDao(String uuid) {
-		FileBinaryMeasurementsDaoImpl<Long> fbmDao = new FileBinaryMeasurementsDaoImpl<Long>();
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid) {
+		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
+		fbmDao.setBinaryRepresentation(BinaryRepresentation.LONG);
 		fbmDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
 				FILE_SUFFIX)));
 		fbmDao.setSerializer(new LongSerializer());

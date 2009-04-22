@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.edp2.models.emfmodel;
  * @model
  * @generated
  */
-public interface NominalMeasurements extends RawYSeries {
+public interface NominalMeasurements extends DataSeries {
 } // NominalMeasurements

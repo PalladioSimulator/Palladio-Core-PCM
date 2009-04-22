@@ -99,7 +99,7 @@ public enum Scale implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Supports the same as the ordinal scale but the magnitude of the difference between two values is comparable. Values can be negative. Supported mathematical operations: =/? ; </> ; +/? . The Mathematically, it is considered an affine space or line.
+	 * Supports the same as the ordinal scale but the magnitude of the difference between two values is comparable. Values can be negative. Supported mathematical operations: =/? ; </> ; +/? . Mathematically, it is considered an affine space or line.
 	 * 
 	 * For example, the temperature in degress Celcius is an interval measure. If you have two temperatures you can quantify the difference.
 	 * <!-- end-model-doc -->

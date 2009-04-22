@@ -14,7 +14,7 @@ package de.uka.ipd.sdq.edp2.models.emfmodel;
  *
  *
  * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMetricDescription()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface MetricDescription extends Description {

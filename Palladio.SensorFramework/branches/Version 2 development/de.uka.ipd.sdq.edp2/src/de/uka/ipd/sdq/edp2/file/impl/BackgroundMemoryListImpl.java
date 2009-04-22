@@ -6,6 +6,10 @@ import java.io.RandomAccessFile;
 import java.util.AbstractList;
 import java.util.logging.Logger;
 
+import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
+import javax.measure.unit.Unit;
+
 import de.uka.ipd.sdq.edp2.file.BackgroundMemoryList;
 import de.uka.ipd.sdq.edp2.file.Serializer;
 
@@ -22,7 +26,8 @@ import de.uka.ipd.sdq.edp2.file.Serializer;
  * @author Henning Groenda
  * @author Steffen Becker
  */
-public class BackgroundMemoryListImpl<T> 
+@SuppressWarnings("unchecked")
+public class BackgroundMemoryListImpl<T extends Measure> 
 	extends AbstractList<T>
 	implements BackgroundMemoryList<T> {
 
@@ -35,8 +40,18 @@ public class BackgroundMemoryListImpl<T>
 	/** Number of data elements per chunk. */
 	static final public int DEFAULT_CHUNK_SIZE = 10000;
 	
+	/**Describes the representation and storage of the values in binary format.
+	 * @author groenda
+	 */
+	public enum BinaryRepresentation {
+		/** Binary representation of type long. */
+		LONG,
+		/** Binary representation of type double. */
+		DOUBLE
+	};
+	
 	/** Access to chunks. */
-	transient private ChunkedFile<T> chunks = null;
+	transient private ChunkedFile chunks = null;
 	/** Name of the file which is used to store the chunks. Absolute path to the file. */
 	private String absoluteFilename = null;
 	/** The link to the attached background storage in which all chunks are persisted. */
@@ -44,11 +59,15 @@ public class BackgroundMemoryListImpl<T>
 	/** Status of the link to the attached file on background storage. Operations are only allowed in open state. */
 	transient boolean closed = true;
 	/** The serializer for the elements of the list on the background storage. */
-	private Serializer<T> serialiser;
+	private Serializer<?> serialiser;
 	/** Total number of elements in the list. */
 	private int listSize;
 	/** The size of the chunk in elements */
 	private int chunkSize;
+	/** Binary format of values stored in this list. */
+	private BinaryRepresentation binaryRepresentation;
+	/** Unit of the measurements stored in this list. */
+	private Unit unit; 
 	
 	/**
 	 * Constructor for background memory lists.
@@ -56,8 +75,8 @@ public class BackgroundMemoryListImpl<T>
 	 * @param serialiser The (de-)serializer to use upon serialization of data to the background storage.
 	 * @throws IOException Thrown if file IO fails.
 	 */
-	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<T> serialiser) throws IOException {
-		this(absoluteFilename, serialiser, DEFAULT_CHUNK_SIZE);
+	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<?> serialiser, BinaryRepresentation binaryRepresentation, Unit unit) throws IOException {
+		this(absoluteFilename, serialiser, DEFAULT_CHUNK_SIZE, binaryRepresentation, unit);
 	}
 
 	/**
@@ -67,10 +86,12 @@ public class BackgroundMemoryListImpl<T>
 	 * @param chunkSize The size of the chunk in elements which should be used.
 	 * @throws IOException Thrown if file IO fails.
 	 */
-	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<T> serialiser, int chunkSize) throws IOException {
+	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<?> serialiser, int chunkSize, BinaryRepresentation binaryRepresentation, Unit unit) throws IOException {
 		this.absoluteFilename = absoluteFilename;
 		this.serialiser = serialiser;
 		this.chunkSize = chunkSize;
+		this.binaryRepresentation = binaryRepresentation;
+		this.unit = unit;
 		open();
 		listSize = (int) chunks.getElementsInFile();
 	}
@@ -82,7 +103,12 @@ public class BackgroundMemoryListImpl<T>
 			throw new IllegalStateException(msg);
 		}
 		raf = new RandomAccessFile(absoluteFilename, ACCESS_MODIFIER_READ_WRITE);
-		chunks = new ChunkedFile<T>(raf, serialiser, chunkSize);
+		if (binaryRepresentation == BinaryRepresentation.LONG) {
+			chunks = new ChunkedFile<Long>(raf, (Serializer<Long>) serialiser, chunkSize);
+		}
+		if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
+			chunks = new ChunkedFile<Double>(raf, (Serializer<Double>) serialiser, chunkSize);
+		}
 		closed = false;
 		// list size is calculated in open() and readObject() to allow error detection.
 	}
@@ -106,9 +132,19 @@ public class BackgroundMemoryListImpl<T>
 			logger.info(msg);
 			throw new IllegalArgumentException(msg);
 		}
+		if (element == null) {
+			String msg = "Null values must not be added to the list.";
+			logger.severe(msg);
+			throw new IllegalArgumentException(msg);
+		}
 		try {
 			ensureCorrectChunkLoaded(index);
-			chunks.add(element);
+			if (binaryRepresentation == BinaryRepresentation.LONG) {
+				chunks.add(element.longValue(unit));
+			}
+			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
+				chunks.add((Double) element.doubleValue(unit));
+			}
 			this.listSize++;
 			if (chunks.isFull()) {
 				chunks.saveChunk();
@@ -142,7 +178,15 @@ public class BackgroundMemoryListImpl<T>
 		}
 		try {
 			ensureCorrectChunkLoaded(index);
-			return chunks.get((int)(index - chunks.indexStartingElementForChunk()));
+			Measure<?, Quantity> measure = null;
+			//Measure measure;
+			if (binaryRepresentation == BinaryRepresentation.LONG) {
+				measure = Measure.valueOf((Long) chunks.get((int)(index - chunks.indexStartingElementForChunk())), unit);
+			}
+			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
+				measure = Measure.valueOf((Double)chunks.get((int)(index - chunks.indexStartingElementForChunk())), unit);
+			}
+			return (T) measure;
 		} catch(IOException ex) {
 			String msg = "Error during IO of background list for file \"" + absoluteFilename +"\"";
 			logger.severe(msg);
@@ -168,7 +212,17 @@ public class BackgroundMemoryListImpl<T>
 		}
 		try {
 			ensureCorrectChunkLoaded(index);
-			return chunks.set((int)(index - chunks.indexStartingElementForChunk()), element);
+			if (binaryRepresentation == BinaryRepresentation.LONG) {
+				long newValue = element.longValue(unit);
+				long oldValue = (Long) chunks.set((int)(index - chunks.indexStartingElementForChunk()), newValue);
+				return (T) Measure.valueOf(oldValue, unit);
+			}
+			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
+				double newValue = element.doubleValue(unit);
+				double oldValue = (Double) chunks.set((int)(index - chunks.indexStartingElementForChunk()), newValue);
+				return (T) Measure.valueOf(oldValue , unit);
+			}
+			return null;
 		} catch(IOException ex) {
 			String msg = "Error during IO of background list for file \"" + absoluteFilename +"\"";
 			logger.severe(msg);

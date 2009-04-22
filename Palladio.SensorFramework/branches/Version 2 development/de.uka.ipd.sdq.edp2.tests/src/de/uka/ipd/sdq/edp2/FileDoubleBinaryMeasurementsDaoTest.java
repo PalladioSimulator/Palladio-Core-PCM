@@ -15,6 +15,7 @@ import org.junit.Before;
  */
 public class FileDoubleBinaryMeasurementsDaoTest extends
 		DoubleBinaryMeasurementsDaoTest {
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUpBefore() throws Exception {
 		File tempFile = File.createTempFile("delete", "me");
@@ -25,6 +26,7 @@ public class FileDoubleBinaryMeasurementsDaoTest extends
 			df = factory.createFileDaoFactory(tempFile.getAbsoluteFile());
 			assertNotNull("DaoFactory must not be null.", df);
 			dao = bmDao = df.createDoubleMeasurementsDao(uuid);
+			bmDao.setUnit(unit);
 			assertNotNull("DoubleBinaryMeasurementsDao must not be null.", bmDao);
 		}
 	}

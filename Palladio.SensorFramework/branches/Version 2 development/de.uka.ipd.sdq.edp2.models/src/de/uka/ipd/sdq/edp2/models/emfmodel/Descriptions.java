@@ -38,7 +38,7 @@ public interface Descriptions extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDescriptions_Description()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Description> getDescription();

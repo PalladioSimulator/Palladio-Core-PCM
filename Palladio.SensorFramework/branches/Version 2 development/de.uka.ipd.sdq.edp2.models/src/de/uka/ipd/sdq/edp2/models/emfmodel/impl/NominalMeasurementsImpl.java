@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class NominalMeasurementsImpl extends RawYSeriesImpl implements NominalMeasurements {
+public class NominalMeasurementsImpl extends DataSeriesImpl implements NominalMeasurements {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

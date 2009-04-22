@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getRawMeasurements <em>Raw Measurements</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getEndTime <em>End Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getStartTime <em>Start Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData <em>Collected Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement <em>Measurement</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
  * </ul>
  * </p>
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MeasurementRange extends EObject {
+public interface MeasurementRange extends Propertyable {
 	/**
 	 * Returns the value of the '<em><b>Raw Measurements</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}'.
@@ -120,32 +120,32 @@ public interface MeasurementRange extends EObject {
 	void setStartTime(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Collected Data</b></em>' container reference.
+	 * Returns the value of the '<em><b>Measurement</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measurement#getMeasurementRange <em>Measurement Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Collected Data</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Measurement</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Collected Data</em>' container reference.
-	 * @see #setCollectedData(Measurement)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasurementRange_CollectedData()
+	 * @return the value of the '<em>Measurement</em>' container reference.
+	 * @see #setMeasurement(Measurement)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasurementRange_Measurement()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Measurement#getMeasurementRange
 	 * @model opposite="measurementRange" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	Measurement getCollectedData();
+	Measurement getMeasurement();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getCollectedData <em>Collected Data</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange#getMeasurement <em>Measurement</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Collected Data</em>' container reference.
-	 * @see #getCollectedData()
+	 * @param value the new value of the '<em>Measurement</em>' container reference.
+	 * @see #getMeasurement()
 	 * @generated
 	 */
-	void setCollectedData(Measurement value);
+	void setMeasurement(Measurement value);
 
 	/**
 	 * Returns the value of the '<em><b>Aggregated Measurements</b></em>' containment reference list.

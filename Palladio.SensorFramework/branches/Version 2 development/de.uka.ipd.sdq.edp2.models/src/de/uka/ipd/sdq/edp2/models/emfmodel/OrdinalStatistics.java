@@ -119,7 +119,7 @@ public interface OrdinalStatistics extends NominalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Percentiles</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getOrdinalStatistics_Percentiles()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Percentile> getPercentiles();

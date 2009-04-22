@@ -50,12 +50,12 @@ public class EmfmodelValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.edp2.models.emfmodel";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Statisticsonlyformeasurablevalues' of 'Raw YSeries'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Statisticsonlyformeasurablevalues' of 'Data Series'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RAW_YSERIES__STATISTICSONLYFORMEASURABLEVALUES = 1;
+	public static final int DATA_SERIES__STATISTICSONLYFORMEASURABLEVALUES = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Exactly One Data Collection Per Sensor' of 'Experiment Run'.
@@ -74,12 +74,12 @@ public class EmfmodelValidator extends EObjectValidator {
 	public static final int NOMINAL_MEASURE__PERSISTENCE_KIND_ONLY_EMF_ALLOWED = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Persistency Kind Not Emf' of 'Ordinal Scalar Measure'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Persistency Kind Not Emf' of 'Ordinal Measure'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int ORDINAL_SCALAR_MEASURE__PERSISTENCY_KIND_NOT_EMF = 4;
+	public static final int ORDINAL_MEASURE__PERSISTENCY_KIND_NOT_EMF = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -133,24 +133,28 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateIdentifiable((Identifiable)value, diagnostics, context);
 			case EmfmodelPackage.MEASUREMENT_RANGE:
 				return validateMeasurementRange((MeasurementRange)value, diagnostics, context);
-			case EmfmodelPackage.RAW_MEASUREMENTS:
-				return validateRawMeasurements((RawMeasurements)value, diagnostics, context);
-			case EmfmodelPackage.RAW_XSERIES:
-				return validateRawXSeries((RawXSeries)value, diagnostics, context);
-			case EmfmodelPackage.RAW_YSERIES:
-				return validateRawYSeries((RawYSeries)value, diagnostics, context);
-			case EmfmodelPackage.NOMINAL_STATISTICS:
-				return validateNominalStatistics((NominalStatistics)value, diagnostics, context);
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATION:
-				return validateFixedWidthAggregation((FixedWidthAggregation)value, diagnostics, context);
-			case EmfmodelPackage.INTERVALS:
-				return validateIntervals((Intervals)value, diagnostics, context);
-			case EmfmodelPackage.MEASUREMENT:
-				return validateMeasurement((Measurement)value, diagnostics, context);
 			case EmfmodelPackage.PROPERTYABLE:
 				return validatePropertyable((Propertyable)value, diagnostics, context);
 			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY:
 				return validateEStringtoEObjectMapEntry((Map.Entry<?, ?>)value, diagnostics, context);
+			case EmfmodelPackage.RAW_MEASUREMENTS:
+				return validateRawMeasurements((RawMeasurements)value, diagnostics, context);
+			case EmfmodelPackage.DATA_SERIES:
+				return validateDataSeries((DataSeries)value, diagnostics, context);
+			case EmfmodelPackage.NOMINAL_STATISTICS:
+				return validateNominalStatistics((NominalStatistics)value, diagnostics, context);
+			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS:
+				return validateFixedWidthAggregatedMeasurements((FixedWidthAggregatedMeasurements)value, diagnostics, context);
+			case EmfmodelPackage.FIXED_INTERVALS:
+				return validateFixedIntervals((FixedIntervals)value, diagnostics, context);
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
+				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
+			case EmfmodelPackage.METRIC_DESCRIPTION:
+				return validateMetricDescription((MetricDescription)value, diagnostics, context);
+			case EmfmodelPackage.DESCRIPTION:
+				return validateDescription((Description)value, diagnostics, context);
+			case EmfmodelPackage.MEASUREMENT:
+				return validateMeasurement((Measurement)value, diagnostics, context);
 			case EmfmodelPackage.MEASURE:
 				return validateMeasure((Measure)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_GROUP:
@@ -159,16 +163,10 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateExperimentSetting((ExperimentSetting)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_RUN:
 				return validateExperimentRun((ExperimentRun)value, diagnostics, context);
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
-				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
-			case EmfmodelPackage.METRIC_DESCRIPTION:
-				return validateMetricDescription((MetricDescription)value, diagnostics, context);
-			case EmfmodelPackage.DESCRIPTION:
-				return validateDescription((Description)value, diagnostics, context);
-			case EmfmodelPackage.AGGREGATION_CHARACTERIZATION:
-				return validateAggregationCharacterization((AggregationCharacterization)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION:
 				return validateAggregationFunctionDescription((AggregationFunctionDescription)value, diagnostics, context);
+			case EmfmodelPackage.AGGREGATION_STATISTICS:
+				return validateAggregationStatistics((AggregationStatistics)value, diagnostics, context);
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS:
 				return validateLongBinaryMeasurements((LongBinaryMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.CATEGORY_IDENTIFIER:
@@ -179,18 +177,10 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateNominalMeasure((NominalMeasure)value, diagnostics, context);
 			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS:
 				return validateDoubleBinaryMeasurements((DoubleBinaryMeasurements)value, diagnostics, context);
-			case EmfmodelPackage.ORDINAL_SCALAR_MEASURE:
-				return validateOrdinalScalarMeasure((OrdinalScalarMeasure)value, diagnostics, context);
+			case EmfmodelPackage.ORDINAL_MEASURE:
+				return validateOrdinalMeasure((OrdinalMeasure)value, diagnostics, context);
 			case EmfmodelPackage.JS_XML_MEASUREMENTS:
 				return validateJSXmlMeasurements((JSXmlMeasurements)value, diagnostics, context);
-			case EmfmodelPackage.EVENT_TIME_AGGREGATION:
-				return validateEventTimeAggregation((EventTimeAggregation)value, diagnostics, context);
-			case EmfmodelPackage.VALUE_AGGREGATION:
-				return validateValueAggregation((ValueAggregation)value, diagnostics, context);
-			case EmfmodelPackage.STRONG_MONOTONIC_SCALAR_MEASURE:
-				return validateStrongMonotonicScalarMeasure((StrongMonotonicScalarMeasure)value, diagnostics, context);
-			case EmfmodelPackage.DOUBLE_BINARY_EVENT_TIMES:
-				return validateDoubleBinaryEventTimes((DoubleBinaryEventTimes)value, diagnostics, context);
 			case EmfmodelPackage.IJS_DURATION:
 				return validateIJSDuration((Duration)value, diagnostics, context);
 			case EmfmodelPackage.IJS_QUANTITY:
@@ -211,22 +201,22 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateObservedNominalMeasurements((ObservedNominalMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.OBSERVED_CATEGORY:
 				return validateObservedCategory((ObservedCategory)value, diagnostics, context);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return validateCaptureType((CaptureType)value, diagnostics, context);
 			case EmfmodelPackage.DATA_TYPE:
 				return validateDataType((DataType)value, diagnostics, context);
 			case EmfmodelPackage.SCALE:
 				return validateScale((Scale)value, diagnostics, context);
-			case EmfmodelPackage.ENUMERATION1:
-				return validateEnumeration1((Enumeration1)value, diagnostics, context);
+			case EmfmodelPackage.MONOTONIC:
+				return validateMonotonic((Monotonic)value, diagnostics, context);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.EJS_MEASURE:
 				return validateEJSMeasure((javax.measure.Measure)value, diagnostics, context);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
-				return validateEJSDurationMeasure((javax.measure.Measure)value, diagnostics, context);
 			case EmfmodelPackage.EJS_UNIT:
 				return validateEJSUnit((Unit)value, diagnostics, context);
+			case EmfmodelPackage.EJS_DURATION_MEASURE:
+				return validateEJSDurationMeasure((javax.measure.Measure)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -273,35 +263,26 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRawXSeries(RawXSeries rawXSeries, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(rawXSeries, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRawYSeries(RawYSeries rawYSeries, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(rawYSeries, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRawYSeries_Statisticsonlyformeasurablevalues(rawYSeries, diagnostics, context);
+	public boolean validateDataSeries(DataSeries dataSeries, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dataSeries, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(dataSeries, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the Statisticsonlyformeasurablevalues constraint of '<em>Raw YSeries</em>'.
+	 * Validates the Statisticsonlyformeasurablevalues constraint of '<em>Data Series</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRawYSeries_Statisticsonlyformeasurablevalues(RawYSeries rawYSeries, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return rawYSeries.Statisticsonlyformeasurablevalues(diagnostics, context);
+	public boolean validateDataSeries_Statisticsonlyformeasurablevalues(DataSeries dataSeries, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return dataSeries.Statisticsonlyformeasurablevalues(diagnostics, context);
 	}
 
 	/**
@@ -318,8 +299,8 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateFixedWidthAggregation(FixedWidthAggregation fixedWidthAggregation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(fixedWidthAggregation, diagnostics, context);
+	public boolean validateFixedWidthAggregatedMeasurements(FixedWidthAggregatedMeasurements fixedWidthAggregatedMeasurements, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fixedWidthAggregatedMeasurements, diagnostics, context);
 	}
 
 	/**
@@ -327,8 +308,8 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIntervals(Intervals intervals, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(intervals, diagnostics, context);
+	public boolean validateFixedIntervals(FixedIntervals fixedIntervals, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(fixedIntervals, diagnostics, context);
 	}
 
 	/**
@@ -444,8 +425,8 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAggregationCharacterization(AggregationCharacterization aggregationCharacterization, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(aggregationCharacterization, diagnostics, context);
+	public boolean validateAggregationFunctionDescription(AggregationFunctionDescription aggregationFunctionDescription, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(aggregationFunctionDescription, diagnostics, context);
 	}
 
 	/**
@@ -453,8 +434,8 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAggregationFunctionDescription(AggregationFunctionDescription aggregationFunctionDescription, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(aggregationFunctionDescription, diagnostics, context);
+	public boolean validateAggregationStatistics(AggregationStatistics aggregationStatistics, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(aggregationStatistics, diagnostics, context);
 	}
 
 	/**
@@ -470,7 +451,7 @@ public class EmfmodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(longBinaryMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(longBinaryMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(longBinaryMeasurements, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRawYSeries_Statisticsonlyformeasurablevalues(longBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(longBinaryMeasurements, diagnostics, context);
 		return result;
 	}
 
@@ -496,7 +477,7 @@ public class EmfmodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(nominalMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(nominalMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(nominalMeasurements, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRawYSeries_Statisticsonlyformeasurablevalues(nominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(nominalMeasurements, diagnostics, context);
 		return result;
 	}
 
@@ -540,7 +521,7 @@ public class EmfmodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(doubleBinaryMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(doubleBinaryMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(doubleBinaryMeasurements, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRawYSeries_Statisticsonlyformeasurablevalues(doubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(doubleBinaryMeasurements, diagnostics, context);
 		return result;
 	}
 
@@ -549,26 +530,26 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateOrdinalScalarMeasure(OrdinalScalarMeasure ordinalScalarMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(ordinalScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOrdinalScalarMeasure_PersistencyKindNotEmf(ordinalScalarMeasure, diagnostics, context);
+	public boolean validateOrdinalMeasure(OrdinalMeasure ordinalMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(ordinalMeasure, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOrdinalMeasure_PersistencyKindNotEmf(ordinalMeasure, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the PersistencyKindNotEmf constraint of '<em>Ordinal Scalar Measure</em>'.
+	 * Validates the PersistencyKindNotEmf constraint of '<em>Ordinal Measure</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateOrdinalScalarMeasure_PersistencyKindNotEmf(OrdinalScalarMeasure ordinalScalarMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return ordinalScalarMeasure.PersistencyKindNotEmf(diagnostics, context);
+	public boolean validateOrdinalMeasure_PersistencyKindNotEmf(OrdinalMeasure ordinalMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return ordinalMeasure.PersistencyKindNotEmf(diagnostics, context);
 	}
 
 	/**
@@ -584,52 +565,8 @@ public class EmfmodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(jsXmlMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(jsXmlMeasurements, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(jsXmlMeasurements, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRawYSeries_Statisticsonlyformeasurablevalues(jsXmlMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(jsXmlMeasurements, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEventTimeAggregation(EventTimeAggregation eventTimeAggregation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(eventTimeAggregation, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateValueAggregation(ValueAggregation valueAggregation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(valueAggregation, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateStrongMonotonicScalarMeasure(StrongMonotonicScalarMeasure strongMonotonicScalarMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(strongMonotonicScalarMeasure, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOrdinalScalarMeasure_PersistencyKindNotEmf(strongMonotonicScalarMeasure, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDoubleBinaryEventTimes(DoubleBinaryEventTimes doubleBinaryEventTimes, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(doubleBinaryEventTimes, diagnostics, context);
 	}
 
 	/**
@@ -763,7 +700,7 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEnumeration1(Enumeration1 enumeration1, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateMonotonic(Monotonic monotonic, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

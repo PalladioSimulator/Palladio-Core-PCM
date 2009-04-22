@@ -107,53 +107,7 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.MEASUREMENT_RANGE: {
 				MeasurementRange measurementRange = (MeasurementRange)theEObject;
 				T result = caseMeasurementRange(measurementRange);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.RAW_MEASUREMENTS: {
-				RawMeasurements rawMeasurements = (RawMeasurements)theEObject;
-				T result = caseRawMeasurements(rawMeasurements);
-				if (result == null) result = caseIdentifiable(rawMeasurements);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.RAW_XSERIES: {
-				RawXSeries rawXSeries = (RawXSeries)theEObject;
-				T result = caseRawXSeries(rawXSeries);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.RAW_YSERIES: {
-				RawYSeries rawYSeries = (RawYSeries)theEObject;
-				T result = caseRawYSeries(rawYSeries);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.NOMINAL_STATISTICS: {
-				NominalStatistics nominalStatistics = (NominalStatistics)theEObject;
-				T result = caseNominalStatistics(nominalStatistics);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATION: {
-				FixedWidthAggregation fixedWidthAggregation = (FixedWidthAggregation)theEObject;
-				T result = caseFixedWidthAggregation(fixedWidthAggregation);
-				if (result == null) result = caseAggregatedMeasurements(fixedWidthAggregation);
-				if (result == null) result = caseIdentifiable(fixedWidthAggregation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.INTERVALS: {
-				Intervals intervals = (Intervals)theEObject;
-				T result = caseIntervals(intervals);
-				if (result == null) result = caseRawXSeries(intervals);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.MEASUREMENT: {
-				Measurement measurement = (Measurement)theEObject;
-				T result = caseMeasurement(measurement);
-				if (result == null) result = casePropertyable(measurement);
+				if (result == null) result = casePropertyable(measurementRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +120,70 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Object> eStringtoEObjectMapEntry = (Map.Entry<String, Object>)theEObject;
 				T result = caseEStringtoEObjectMapEntry(eStringtoEObjectMapEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.RAW_MEASUREMENTS: {
+				RawMeasurements rawMeasurements = (RawMeasurements)theEObject;
+				T result = caseRawMeasurements(rawMeasurements);
+				if (result == null) result = caseIdentifiable(rawMeasurements);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.DATA_SERIES: {
+				DataSeries dataSeries = (DataSeries)theEObject;
+				T result = caseDataSeries(dataSeries);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.NOMINAL_STATISTICS: {
+				NominalStatistics nominalStatistics = (NominalStatistics)theEObject;
+				T result = caseNominalStatistics(nominalStatistics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: {
+				FixedWidthAggregatedMeasurements fixedWidthAggregatedMeasurements = (FixedWidthAggregatedMeasurements)theEObject;
+				T result = caseFixedWidthAggregatedMeasurements(fixedWidthAggregatedMeasurements);
+				if (result == null) result = caseAggregatedMeasurements(fixedWidthAggregatedMeasurements);
+				if (result == null) result = caseIdentifiable(fixedWidthAggregatedMeasurements);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.FIXED_INTERVALS: {
+				FixedIntervals fixedIntervals = (FixedIntervals)theEObject;
+				T result = caseFixedIntervals(fixedIntervals);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
+				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
+				T result = caseBaseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseDescription(baseMetricDescription);
+				if (result == null) result = caseIdentifiable(baseMetricDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.METRIC_DESCRIPTION: {
+				MetricDescription metricDescription = (MetricDescription)theEObject;
+				T result = caseMetricDescription(metricDescription);
+				if (result == null) result = caseDescription(metricDescription);
+				if (result == null) result = caseIdentifiable(metricDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.DESCRIPTION: {
+				Description description = (Description)theEObject;
+				T result = caseDescription(description);
+				if (result == null) result = caseIdentifiable(description);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.MEASUREMENT: {
+				Measurement measurement = (Measurement)theEObject;
+				T result = caseMeasurement(measurement);
+				if (result == null) result = casePropertyable(measurement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,44 +216,24 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
-				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
-				T result = caseBaseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseDescription(baseMetricDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.METRIC_DESCRIPTION: {
-				MetricDescription metricDescription = (MetricDescription)theEObject;
-				T result = caseMetricDescription(metricDescription);
-				if (result == null) result = caseDescription(metricDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.DESCRIPTION: {
-				Description description = (Description)theEObject;
-				T result = caseDescription(description);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.AGGREGATION_CHARACTERIZATION: {
-				AggregationCharacterization aggregationCharacterization = (AggregationCharacterization)theEObject;
-				T result = caseAggregationCharacterization(aggregationCharacterization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: {
 				AggregationFunctionDescription aggregationFunctionDescription = (AggregationFunctionDescription)theEObject;
 				T result = caseAggregationFunctionDescription(aggregationFunctionDescription);
 				if (result == null) result = caseDescription(aggregationFunctionDescription);
+				if (result == null) result = caseIdentifiable(aggregationFunctionDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.AGGREGATION_STATISTICS: {
+				AggregationStatistics aggregationStatistics = (AggregationStatistics)theEObject;
+				T result = caseAggregationStatistics(aggregationStatistics);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS: {
 				LongBinaryMeasurements longBinaryMeasurements = (LongBinaryMeasurements)theEObject;
 				T result = caseLongBinaryMeasurements(longBinaryMeasurements);
-				if (result == null) result = caseRawYSeries(longBinaryMeasurements);
+				if (result == null) result = caseDataSeries(longBinaryMeasurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,7 +247,7 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.NOMINAL_MEASUREMENTS: {
 				NominalMeasurements nominalMeasurements = (NominalMeasurements)theEObject;
 				T result = caseNominalMeasurements(nominalMeasurements);
-				if (result == null) result = caseRawYSeries(nominalMeasurements);
+				if (result == null) result = caseDataSeries(nominalMeasurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,54 +262,21 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS: {
 				DoubleBinaryMeasurements doubleBinaryMeasurements = (DoubleBinaryMeasurements)theEObject;
 				T result = caseDoubleBinaryMeasurements(doubleBinaryMeasurements);
-				if (result == null) result = caseRawYSeries(doubleBinaryMeasurements);
+				if (result == null) result = caseDataSeries(doubleBinaryMeasurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmfmodelPackage.ORDINAL_SCALAR_MEASURE: {
-				OrdinalScalarMeasure ordinalScalarMeasure = (OrdinalScalarMeasure)theEObject;
-				T result = caseOrdinalScalarMeasure(ordinalScalarMeasure);
-				if (result == null) result = caseMeasure(ordinalScalarMeasure);
+			case EmfmodelPackage.ORDINAL_MEASURE: {
+				OrdinalMeasure ordinalMeasure = (OrdinalMeasure)theEObject;
+				T result = caseOrdinalMeasure(ordinalMeasure);
+				if (result == null) result = caseMeasure(ordinalMeasure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EmfmodelPackage.JS_XML_MEASUREMENTS: {
 				JSXmlMeasurements jsXmlMeasurements = (JSXmlMeasurements)theEObject;
 				T result = caseJSXmlMeasurements(jsXmlMeasurements);
-				if (result == null) result = caseRawYSeries(jsXmlMeasurements);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.EVENT_TIME_AGGREGATION: {
-				EventTimeAggregation eventTimeAggregation = (EventTimeAggregation)theEObject;
-				T result = caseEventTimeAggregation(eventTimeAggregation);
-				if (result == null) result = caseFixedWidthAggregation(eventTimeAggregation);
-				if (result == null) result = caseAggregatedMeasurements(eventTimeAggregation);
-				if (result == null) result = caseIdentifiable(eventTimeAggregation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.VALUE_AGGREGATION: {
-				ValueAggregation valueAggregation = (ValueAggregation)theEObject;
-				T result = caseValueAggregation(valueAggregation);
-				if (result == null) result = caseFixedWidthAggregation(valueAggregation);
-				if (result == null) result = caseAggregatedMeasurements(valueAggregation);
-				if (result == null) result = caseIdentifiable(valueAggregation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.STRONG_MONOTONIC_SCALAR_MEASURE: {
-				StrongMonotonicScalarMeasure strongMonotonicScalarMeasure = (StrongMonotonicScalarMeasure)theEObject;
-				T result = caseStrongMonotonicScalarMeasure(strongMonotonicScalarMeasure);
-				if (result == null) result = caseOrdinalScalarMeasure(strongMonotonicScalarMeasure);
-				if (result == null) result = caseMeasure(strongMonotonicScalarMeasure);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.DOUBLE_BINARY_EVENT_TIMES: {
-				DoubleBinaryEventTimes doubleBinaryEventTimes = (DoubleBinaryEventTimes)theEObject;
-				T result = caseDoubleBinaryEventTimes(doubleBinaryEventTimes);
-				if (result == null) result = caseRawXSeries(doubleBinaryEventTimes);
+				if (result == null) result = caseDataSeries(jsXmlMeasurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -326,6 +291,7 @@ public class EmfmodelSwitch<T> {
 				T result = caseMetricSetDescription(metricSetDescription);
 				if (result == null) result = caseMetricDescription(metricSetDescription);
 				if (result == null) result = caseDescription(metricSetDescription);
+				if (result == null) result = caseIdentifiable(metricSetDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -436,32 +402,17 @@ public class EmfmodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Raw XSeries</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Series</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Raw XSeries</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Series</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRawXSeries(RawXSeries object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Raw YSeries</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Raw YSeries</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRawYSeries(RawYSeries object) {
+	public T caseDataSeries(DataSeries object) {
 		return null;
 	}
 
@@ -481,32 +432,32 @@ public class EmfmodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Fixed Width Aggregation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Fixed Width Aggregated Measurements</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Fixed Width Aggregation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Fixed Width Aggregated Measurements</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFixedWidthAggregation(FixedWidthAggregation object) {
+	public T caseFixedWidthAggregatedMeasurements(FixedWidthAggregatedMeasurements object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Intervals</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Fixed Intervals</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Intervals</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Fixed Intervals</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntervals(Intervals object) {
+	public T caseFixedIntervals(FixedIntervals object) {
 		return null;
 	}
 
@@ -661,21 +612,6 @@ public class EmfmodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregation Characterization</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregation Characterization</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAggregationCharacterization(AggregationCharacterization object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Aggregation Function Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -687,6 +623,21 @@ public class EmfmodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseAggregationFunctionDescription(AggregationFunctionDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregation Statistics</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregation Statistics</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAggregationStatistics(AggregationStatistics object) {
 		return null;
 	}
 
@@ -766,17 +717,17 @@ public class EmfmodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ordinal Scalar Measure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ordinal Measure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ordinal Scalar Measure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ordinal Measure</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOrdinalScalarMeasure(OrdinalScalarMeasure object) {
+	public T caseOrdinalMeasure(OrdinalMeasure object) {
 		return null;
 	}
 
@@ -792,66 +743,6 @@ public class EmfmodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseJSXmlMeasurements(JSXmlMeasurements object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event Time Aggregation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event Time Aggregation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventTimeAggregation(EventTimeAggregation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value Aggregation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value Aggregation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseValueAggregation(ValueAggregation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Strong Monotonic Scalar Measure</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Strong Monotonic Scalar Measure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStrongMonotonicScalarMeasure(StrongMonotonicScalarMeasure object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Double Binary Event Times</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Double Binary Event Times</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDoubleBinaryEventTimes(DoubleBinaryEventTimes object) {
 		return null;
 	}
 

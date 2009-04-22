@@ -8,6 +8,14 @@ package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
 import de.uka.ipd.sdq.edp2.models.emfmodel.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StringBufferInputStream;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 import javax.measure.Measure;
@@ -68,28 +76,25 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EmfmodelPackage.MEASUREMENT_RANGE: return createMeasurementRange();
-			case EmfmodelPackage.NOMINAL_STATISTICS: return createNominalStatistics();
-			case EmfmodelPackage.INTERVALS: return createIntervals();
-			case EmfmodelPackage.MEASUREMENT: return createMeasurement();
 			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
+			case EmfmodelPackage.RAW_MEASUREMENTS: return createRawMeasurements();
+			case EmfmodelPackage.NOMINAL_STATISTICS: return createNominalStatistics();
+			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
+			case EmfmodelPackage.FIXED_INTERVALS: return createFixedIntervals();
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
+			case EmfmodelPackage.MEASUREMENT: return createMeasurement();
 			case EmfmodelPackage.EXPERIMENT_GROUP: return createExperimentGroup();
 			case EmfmodelPackage.EXPERIMENT_SETTING: return createExperimentSetting();
 			case EmfmodelPackage.EXPERIMENT_RUN: return createExperimentRun();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
-			case EmfmodelPackage.METRIC_DESCRIPTION: return createMetricDescription();
-			case EmfmodelPackage.AGGREGATION_CHARACTERIZATION: return createAggregationCharacterization();
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
+			case EmfmodelPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
 			case EmfmodelPackage.CATEGORY_IDENTIFIER: return createCategoryIdentifier();
 			case EmfmodelPackage.NOMINAL_MEASUREMENTS: return createNominalMeasurements();
 			case EmfmodelPackage.NOMINAL_MEASURE: return createNominalMeasure();
 			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS: return createDoubleBinaryMeasurements();
-			case EmfmodelPackage.ORDINAL_SCALAR_MEASURE: return createOrdinalScalarMeasure();
+			case EmfmodelPackage.ORDINAL_MEASURE: return createOrdinalMeasure();
 			case EmfmodelPackage.JS_XML_MEASUREMENTS: return createJSXmlMeasurements();
-			case EmfmodelPackage.EVENT_TIME_AGGREGATION: return createEventTimeAggregation();
-			case EmfmodelPackage.VALUE_AGGREGATION: return createValueAggregation();
-			case EmfmodelPackage.STRONG_MONOTONIC_SCALAR_MEASURE: return createStrongMonotonicScalarMeasure();
-			case EmfmodelPackage.DOUBLE_BINARY_EVENT_TIMES: return createDoubleBinaryEventTimes();
 			case EmfmodelPackage.DESCRIPTIONS: return createDescriptions();
 			case EmfmodelPackage.METRIC_SET_DESCRIPTION: return createMetricSetDescription();
 			case EmfmodelPackage.ORDINAL_STATISTICS: return createOrdinalStatistics();
@@ -111,22 +116,22 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return createCaptureTypeFromString(eDataType, initialValue);
 			case EmfmodelPackage.DATA_TYPE:
 				return createDataTypeFromString(eDataType, initialValue);
 			case EmfmodelPackage.SCALE:
 				return createScaleFromString(eDataType, initialValue);
-			case EmfmodelPackage.ENUMERATION1:
-				return createEnumeration1FromString(eDataType, initialValue);
+			case EmfmodelPackage.MONOTONIC:
+				return createMonotonicFromString(eDataType, initialValue);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return createEJSMeasureFromString(eDataType, initialValue);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
-				return createEJSDurationMeasureFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_UNIT:
 				return createEJSUnitFromString(eDataType, initialValue);
+			case EmfmodelPackage.EJS_DURATION_MEASURE:
+				return createEJSDurationMeasureFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -140,22 +145,24 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return convertCaptureTypeToString(eDataType, instanceValue);
 			case EmfmodelPackage.DATA_TYPE:
 				return convertDataTypeToString(eDataType, instanceValue);
 			case EmfmodelPackage.SCALE:
 				return convertScaleToString(eDataType, instanceValue);
+			case EmfmodelPackage.MONOTONIC:
+				return convertMonotonicToString(eDataType, instanceValue);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
 			case EmfmodelPackage.ENUMERATION1:
 				return convertEnumeration1ToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return convertEJSMeasureToString(eDataType, instanceValue);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
-				return convertEJSDurationMeasureToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_UNIT:
 				return convertEJSUnitToString(eDataType, instanceValue);
+			case EmfmodelPackage.EJS_DURATION_MEASURE:
+				return convertEJSDurationMeasureToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -186,9 +193,19 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Intervals createIntervals() {
-		IntervalsImpl intervals = new IntervalsImpl();
-		return intervals;
+	public FixedWidthAggregatedMeasurements createFixedWidthAggregatedMeasurements() {
+		FixedWidthAggregatedMeasurementsImpl fixedWidthAggregatedMeasurements = new FixedWidthAggregatedMeasurementsImpl();
+		return fixedWidthAggregatedMeasurements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FixedIntervals createFixedIntervals() {
+		FixedIntervalsImpl fixedIntervals = new FixedIntervalsImpl();
+		return fixedIntervals;
 	}
 
 	/**
@@ -209,6 +226,16 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	public Map.Entry<String, Object> createEStringtoEObjectMapEntry() {
 		EStringtoEObjectMapEntryImpl eStringtoEObjectMapEntry = new EStringtoEObjectMapEntryImpl();
 		return eStringtoEObjectMapEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RawMeasurements createRawMeasurements() {
+		RawMeasurementsImpl rawMeasurements = new RawMeasurementsImpl();
+		return rawMeasurements;
 	}
 
 	/**
@@ -256,29 +283,19 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MetricDescription createMetricDescription() {
-		MetricDescriptionImpl metricDescription = new MetricDescriptionImpl();
-		return metricDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AggregationCharacterization createAggregationCharacterization() {
-		AggregationCharacterizationImpl aggregationCharacterization = new AggregationCharacterizationImpl();
-		return aggregationCharacterization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AggregationFunctionDescription createAggregationFunctionDescription() {
 		AggregationFunctionDescriptionImpl aggregationFunctionDescription = new AggregationFunctionDescriptionImpl();
 		return aggregationFunctionDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregationStatistics createAggregationStatistics() {
+		AggregationStatisticsImpl aggregationStatistics = new AggregationStatisticsImpl();
+		return aggregationStatistics;
 	}
 
 	/**
@@ -336,9 +353,9 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrdinalScalarMeasure createOrdinalScalarMeasure() {
-		OrdinalScalarMeasureImpl ordinalScalarMeasure = new OrdinalScalarMeasureImpl();
-		return ordinalScalarMeasure;
+	public OrdinalMeasure createOrdinalMeasure() {
+		OrdinalMeasureImpl ordinalMeasure = new OrdinalMeasureImpl();
+		return ordinalMeasure;
 	}
 
 	/**
@@ -349,46 +366,6 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	public JSXmlMeasurements createJSXmlMeasurements() {
 		JSXmlMeasurementsImpl jsXmlMeasurements = new JSXmlMeasurementsImpl();
 		return jsXmlMeasurements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventTimeAggregation createEventTimeAggregation() {
-		EventTimeAggregationImpl eventTimeAggregation = new EventTimeAggregationImpl();
-		return eventTimeAggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValueAggregation createValueAggregation() {
-		ValueAggregationImpl valueAggregation = new ValueAggregationImpl();
-		return valueAggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StrongMonotonicScalarMeasure createStrongMonotonicScalarMeasure() {
-		StrongMonotonicScalarMeasureImpl strongMonotonicScalarMeasure = new StrongMonotonicScalarMeasureImpl();
-		return strongMonotonicScalarMeasure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DoubleBinaryEventTimes createDoubleBinaryEventTimes() {
-		DoubleBinaryEventTimesImpl doubleBinaryEventTimes = new DoubleBinaryEventTimesImpl();
-		return doubleBinaryEventTimes;
 	}
 
 	/**
@@ -556,10 +533,19 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Enumeration1 createEnumeration1FromString(EDataType eDataType, String initialValue) {
-		Enumeration1 result = Enumeration1.get(initialValue);
+	public Monotonic createMonotonicFromString(EDataType eDataType, String initialValue) {
+		Monotonic result = Monotonic.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMonotonicToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -610,10 +596,15 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@SuppressWarnings("unchecked")
 	public Unit createEJSUnitFromString(EDataType eDataType, String initialValue) {
-		return (Unit)super.createFromString(eDataType, initialValue);
+		//return (Unit)super.createFromString(eDataType, initialValue);
+		if (initialValue == null) {
+			return null;
+		}
+		return Unit.valueOf(initialValue);
 	}
 
 	/**
@@ -621,8 +612,13 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public String convertEJSUnitToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		if (instanceValue == null) {
+			return null;
+		}
+		return ((Unit) instanceValue).toString();
+		
 	}
 
 	/**

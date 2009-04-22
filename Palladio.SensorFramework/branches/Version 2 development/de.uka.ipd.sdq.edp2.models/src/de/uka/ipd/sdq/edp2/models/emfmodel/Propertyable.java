@@ -39,7 +39,7 @@ public interface Propertyable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additional Information</em>' map.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getPropertyable_AdditionalInformation()
-	 * @model mapType="de.uka.ipd.sdq.edp2.models.emfmodel.EStringtoEObjectMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EJavaObject>" ordered="false"
+	 * @model mapType="de.uka.ipd.sdq.edp2.models.emfmodel.EStringtoEObjectMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EJavaObject>"
 	 * @generated
 	 */
 	EMap<String, Object> getAdditionalInformation();

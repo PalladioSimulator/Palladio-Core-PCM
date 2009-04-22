@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.edp2;
 
+import javax.measure.Measure;
+
 /**Factory for creating DataAccessObjects (DAO) of edp2.
  * This allows to access measured data as well as metadata.
  * @author groenda
@@ -20,13 +22,15 @@ public interface DaoFactory {
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	public BinaryMeasurementsDao<Double> createDoubleMeasurementsDao(String uuid);
+	@SuppressWarnings("unchecked")
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type long.
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	public BinaryMeasurementsDao<Long> createLongMeasurementsDao(String uuid);
+	@SuppressWarnings("unchecked")
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type nominal measurement.
 	 * @param uuid UUID of the Measurement.
