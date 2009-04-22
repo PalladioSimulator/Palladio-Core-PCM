@@ -31,10 +31,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.markov,
  org.eclipse.emf.query,
  org.eclipse.emf.ocl
-Eclipse-LazyStart: true
-Bundle-ClassPath: .,
- lib/jcommon-1.0.8.jar,
- lib/jfreechart-1.0.4.jar
+Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.exprsolver,
  de.uka.ipd.sdq.pcmsolver.handler,
@@ -45,3 +42,4 @@ Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex,
  de.uka.ipd.sdq.pcmsolver.visitors,
  de.uka.ipd.sdq.pcmsolver.visualisation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
