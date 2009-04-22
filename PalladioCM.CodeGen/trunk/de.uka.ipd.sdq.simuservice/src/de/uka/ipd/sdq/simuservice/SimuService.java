@@ -40,7 +40,7 @@ public class SimuService implements ISimuService {
 	 */
 	@WebMethod(operationName = "simulate")
 	public SimuServiceResultStatus simulate(SimuServiceParams params) {
-
+/*
 		// Create a new status object to capture the status of the SimuService
 		// execution:
 		SimuServiceResultStatus status = new SimuServiceResultStatus();
@@ -56,7 +56,8 @@ public class SimuService implements ISimuService {
 		status.freeze();
 
 		// Return the result:
-		return status;
+		return status;*/
+		return null;
 	}
 
 	/**
@@ -91,9 +92,9 @@ public class SimuService implements ISimuService {
 		// HashMap will contain further configuration information
 		Map<String, Object> simulationConfiguration = new HashMap<String, Object>();
 		
-		simulationConfiguration.put("datasourceID", 23);
-		simulationConfiguration.put("maximumMeasurementCount", "10000");
-		simulationConfiguration.put("experimentRun", "MyRun");
+		simulationConfiguration.put("datasourceID", 1);
+		simulationConfiguration.put("maximumMeasurementCount", "10000000");
+		simulationConfiguration.put("experimentRun", "ServiceTestRun");
 		simulationConfiguration.put("simTime", "120");
 		simulationConfiguration.put("verboseLogging", false);
 		
