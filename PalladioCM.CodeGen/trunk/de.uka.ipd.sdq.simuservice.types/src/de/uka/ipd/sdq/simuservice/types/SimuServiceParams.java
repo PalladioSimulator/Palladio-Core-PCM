@@ -39,6 +39,19 @@ public class SimuServiceParams {
 	 */
 	private String resultsDirectory;
 
+	
+	/**
+	 * Standard constructor sets all values to 'null' 
+	 */
+	public SimuServiceParams() {
+		this.repositoryFile = null;
+		this.systemFile = null;
+		this.resourceEnvironmentFile = null;
+		this.allocationFile = null;
+		this.usageFile = null;
+		this.resultsDirectory = null;;
+	}
+
 	/**
 	 * The constructor.
 	 * 
@@ -69,7 +82,7 @@ public class SimuServiceParams {
 		this.usageFile = usageFile;
 		this.resultsDirectory = resultsDirectory;
 	}
-
+	
 	/**
 	 * Retrieves the repository model file.
 	 * 

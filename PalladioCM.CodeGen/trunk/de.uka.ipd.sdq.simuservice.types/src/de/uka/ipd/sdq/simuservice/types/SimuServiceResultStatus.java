@@ -15,6 +15,13 @@ public class SimuServiceResultStatus {
 	private boolean frozen = false;
 
 	/**
+	 * Standard constructor - might be needed  
+	 */
+	public SimuServiceResultStatus(){
+	
+	}
+	
+	/**
 	 * Freezes the properties of the object.
 	 */
 	public void freeze() {
