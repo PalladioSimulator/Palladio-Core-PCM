@@ -40,7 +40,7 @@ public class SimuService implements ISimuService {
 	 */
 	@WebMethod(operationName = "simulate")
 	public SimuServiceResultStatus simulate(SimuServiceParams params) {
-/*
+
 		// Create a new status object to capture the status of the SimuService
 		// execution:
 		SimuServiceResultStatus status = new SimuServiceResultStatus();
@@ -49,15 +49,14 @@ public class SimuService implements ISimuService {
 		try {
 			performSimulation(status, params);
 		} catch (Exception e) {
-			status.setException(e);
+			//status.setException(e);
 		}
 
 		// Freeze the status object:
 		status.freeze();
 
 		// Return the result:
-		return status;*/
-		return null;
+		return status;
 	}
 
 	/**
