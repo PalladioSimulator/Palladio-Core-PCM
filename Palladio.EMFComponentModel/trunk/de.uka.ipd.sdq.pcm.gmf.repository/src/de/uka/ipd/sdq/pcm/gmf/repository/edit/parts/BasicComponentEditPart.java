@@ -4,7 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -155,6 +158,32 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 							.getFigureBasicComponent_Name_LabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof BasicComponentSEFFCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((BasicComponentSEFFCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof BasicComponentPassiveResourceCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((BasicComponentPassiveResourceCompartmentEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((BasicComponentComponentParameterCompartmentEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -163,6 +192,32 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof BasicComponentSEFFCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((BasicComponentSEFFCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof BasicComponentPassiveResourceCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((BasicComponentPassiveResourceCompartmentEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBasicComponentCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((BasicComponentComponentParameterCompartmentEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -191,6 +246,15 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof BasicComponentSEFFCompartmentEditPart) {
+			return getPrimaryShape().getFigureBasicComponentCompartment();
+		}
+		if (editPart instanceof BasicComponentPassiveResourceCompartmentEditPart) {
+			return getPrimaryShape().getFigureBasicComponentCompartment();
+		}
+		if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
+			return getPrimaryShape().getFigureBasicComponentCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -265,7 +329,22 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureBasicComponentCompartment;
+
+		/**
+		 * @generated
+		 */
 		public BasicComponentFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -276,8 +355,35 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 
 			fFigureBasicComponent_Name_LabelFigure = new WrappingLabel();
 			fFigureBasicComponent_Name_LabelFigure.setText("<...>");
+			fFigureBasicComponent_Name_LabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureBasicComponent_Name_LabelFigure);
+			GridData constraintFFigureBasicComponent_Name_LabelFigure = new GridData();
+			constraintFFigureBasicComponent_Name_LabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureBasicComponent_Name_LabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureBasicComponent_Name_LabelFigure.horizontalIndent = 0;
+			constraintFFigureBasicComponent_Name_LabelFigure.horizontalSpan = 1;
+			constraintFFigureBasicComponent_Name_LabelFigure.verticalSpan = 1;
+			constraintFFigureBasicComponent_Name_LabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureBasicComponent_Name_LabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureBasicComponent_Name_LabelFigure,
+					constraintFFigureBasicComponent_Name_LabelFigure);
+
+			fFigureBasicComponentCompartment = new RectangleFigure();
+			fFigureBasicComponentCompartment.setFill(false);
+			fFigureBasicComponentCompartment.setOutline(false);
+
+			GridData constraintFFigureBasicComponentCompartment = new GridData();
+			constraintFFigureBasicComponentCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureBasicComponentCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureBasicComponentCompartment.horizontalIndent = 0;
+			constraintFFigureBasicComponentCompartment.horizontalSpan = 1;
+			constraintFFigureBasicComponentCompartment.verticalSpan = 1;
+			constraintFFigureBasicComponentCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureBasicComponentCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureBasicComponentCompartment,
+					constraintFFigureBasicComponentCompartment);
 
 		}
 
@@ -286,6 +392,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureBasicComponent_Name_LabelFigure() {
 			return fFigureBasicComponent_Name_LabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureBasicComponentCompartment() {
+			return fFigureBasicComponentCompartment;
 		}
 
 		/**

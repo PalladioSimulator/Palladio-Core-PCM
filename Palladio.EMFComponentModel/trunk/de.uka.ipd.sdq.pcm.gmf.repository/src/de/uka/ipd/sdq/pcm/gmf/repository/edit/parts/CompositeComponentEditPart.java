@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -227,6 +230,16 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public CompositeComponentFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -237,8 +250,21 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 
 			fFigureCompositeComponent_Name_LabelFigure = new WrappingLabel();
 			fFigureCompositeComponent_Name_LabelFigure.setText("<...>");
+			fFigureCompositeComponent_Name_LabelFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0)));
 
-			this.add(fFigureCompositeComponent_Name_LabelFigure);
+			GridData constraintFFigureCompositeComponent_Name_LabelFigure = new GridData();
+			constraintFFigureCompositeComponent_Name_LabelFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureCompositeComponent_Name_LabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureCompositeComponent_Name_LabelFigure.horizontalIndent = 0;
+			constraintFFigureCompositeComponent_Name_LabelFigure.horizontalSpan = 1;
+			constraintFFigureCompositeComponent_Name_LabelFigure.verticalSpan = 1;
+			constraintFFigureCompositeComponent_Name_LabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureCompositeComponent_Name_LabelFigure.grabExcessVerticalSpace = true;
+			this.add(fFigureCompositeComponent_Name_LabelFigure,
+					constraintFFigureCompositeComponent_Name_LabelFigure);
 
 		}
 

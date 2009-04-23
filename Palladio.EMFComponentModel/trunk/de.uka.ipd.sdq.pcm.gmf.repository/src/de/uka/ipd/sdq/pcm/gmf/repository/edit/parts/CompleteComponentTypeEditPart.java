@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -227,6 +230,16 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public CompleteComponentTypeFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -237,8 +250,20 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 
 			fFigureCompleteComponentTypeLabelFigure = new WrappingLabel();
 			fFigureCompleteComponentTypeLabelFigure.setText("<...>");
+			fFigureCompleteComponentTypeLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureCompleteComponentTypeLabelFigure);
+			GridData constraintFFigureCompleteComponentTypeLabelFigure = new GridData();
+			constraintFFigureCompleteComponentTypeLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureCompleteComponentTypeLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureCompleteComponentTypeLabelFigure.horizontalIndent = 0;
+			constraintFFigureCompleteComponentTypeLabelFigure.horizontalSpan = 1;
+			constraintFFigureCompleteComponentTypeLabelFigure.verticalSpan = 1;
+			constraintFFigureCompleteComponentTypeLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureCompleteComponentTypeLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureCompleteComponentTypeLabelFigure,
+					constraintFFigureCompleteComponentTypeLabelFigure);
 
 		}
 

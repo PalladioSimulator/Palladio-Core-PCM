@@ -4,7 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -259,7 +262,22 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
+
+		/**
+		 * @generated
+		 */
 		public ParametricParameterUsageFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setBackgroundColor(ColorConstants.cyan);
 			createContents();
 		}
@@ -307,6 +325,13 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
 			return fFigureVariableUsageReferenceLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
+			return fFigureParametricParameterUsageRectangleCompartment;
 		}
 
 	}

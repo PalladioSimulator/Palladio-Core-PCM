@@ -38,13 +38,41 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="InterfaceFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="Interface_Name_LabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="InterfaceCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InterfaceParentInterface__InterfaceFigure">
@@ -111,10 +139,24 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="CompleteComponentTypeFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="CompleteComponentTypeLabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
@@ -124,10 +166,27 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="CompositeComponentFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="CompositeComponent_Name_LabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
@@ -150,23 +209,65 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="BasicComponentFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="BasicComponent_Name_LabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="BasicComponentCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ProvidesComponentTypeFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="ProvidesComponentTypeFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="ProvidesComponentTypeLabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
@@ -225,10 +326,27 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="SubSystemFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="SubSystem_Name_LabelFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
@@ -287,19 +405,23 @@
   <compartments
       name="SignatureList"
       figure="InterfaceFigure"
-      collapsible="true"/>
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
   <compartments
       name="SEFFCompartment"
-      figure="BasicComponentFigure"/>
+      figure="BasicComponentFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments
       name="PassiveResourceCompartment"
       figure="BasicComponentFigure"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments
       name="ComponentParameterCompartment"
       figure="BasicComponentFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments
       name="ComponentParameterVariableCharacterisationCompartment">
     <figure

@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -228,6 +231,16 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public SubSystemFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -238,8 +251,20 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
 
 			fFigureSubSystem_Name_LabelFigure = new WrappingLabel();
 			fFigureSubSystem_Name_LabelFigure.setText("<...>");
+			fFigureSubSystem_Name_LabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureSubSystem_Name_LabelFigure);
+			GridData constraintFFigureSubSystem_Name_LabelFigure = new GridData();
+			constraintFFigureSubSystem_Name_LabelFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureSubSystem_Name_LabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureSubSystem_Name_LabelFigure.horizontalIndent = 0;
+			constraintFFigureSubSystem_Name_LabelFigure.horizontalSpan = 1;
+			constraintFFigureSubSystem_Name_LabelFigure.verticalSpan = 1;
+			constraintFFigureSubSystem_Name_LabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureSubSystem_Name_LabelFigure.grabExcessVerticalSpace = true;
+			this.add(fFigureSubSystem_Name_LabelFigure,
+					constraintFFigureSubSystem_Name_LabelFigure);
 
 		}
 

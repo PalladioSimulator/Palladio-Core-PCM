@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -148,6 +151,13 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 							.getFigureInterface_Name_LabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof InterfaceSignatureListEditPart) {
+			IFigure pane = getPrimaryShape().getFigureInterfaceCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((InterfaceSignatureListEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -156,6 +166,13 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof InterfaceSignatureListEditPart) {
+			IFigure pane = getPrimaryShape().getFigureInterfaceCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((InterfaceSignatureListEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -184,6 +201,9 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof InterfaceSignatureListEditPart) {
+			return getPrimaryShape().getFigureInterfaceCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -258,7 +278,22 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureInterfaceCompartment;
+
+		/**
+		 * @generated
+		 */
 		public InterfaceFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -269,8 +304,35 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 
 			fFigureInterface_Name_LabelFigure = new WrappingLabel();
 			fFigureInterface_Name_LabelFigure.setText("<...>");
+			fFigureInterface_Name_LabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureInterface_Name_LabelFigure);
+			GridData constraintFFigureInterface_Name_LabelFigure = new GridData();
+			constraintFFigureInterface_Name_LabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureInterface_Name_LabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureInterface_Name_LabelFigure.horizontalIndent = 0;
+			constraintFFigureInterface_Name_LabelFigure.horizontalSpan = 1;
+			constraintFFigureInterface_Name_LabelFigure.verticalSpan = 1;
+			constraintFFigureInterface_Name_LabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureInterface_Name_LabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureInterface_Name_LabelFigure,
+					constraintFFigureInterface_Name_LabelFigure);
+
+			fFigureInterfaceCompartment = new RectangleFigure();
+			fFigureInterfaceCompartment.setFill(false);
+			fFigureInterfaceCompartment.setOutline(false);
+
+			GridData constraintFFigureInterfaceCompartment = new GridData();
+			constraintFFigureInterfaceCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureInterfaceCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureInterfaceCompartment.horizontalIndent = 0;
+			constraintFFigureInterfaceCompartment.horizontalSpan = 1;
+			constraintFFigureInterfaceCompartment.verticalSpan = 1;
+			constraintFFigureInterfaceCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureInterfaceCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureInterfaceCompartment,
+					constraintFFigureInterfaceCompartment);
 
 		}
 
@@ -279,6 +341,13 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureInterface_Name_LabelFigure() {
 			return fFigureInterface_Name_LabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureInterfaceCompartment() {
+			return fFigureInterfaceCompartment;
 		}
 
 		/**
