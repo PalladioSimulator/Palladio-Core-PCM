@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -115,6 +118,13 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 							.getFigureForkFigureNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof ForkActionForkedBehaviours2EditPart) {
+			IFigure pane = getPrimaryShape().getFigureForkCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((ForkActionForkedBehaviours2EditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -123,6 +133,13 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof ForkActionForkedBehaviours2EditPart) {
+			IFigure pane = getPrimaryShape().getFigureForkCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((ForkActionForkedBehaviours2EditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -151,6 +168,9 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof ForkActionForkedBehaviours2EditPart) {
+			return getPrimaryShape().getFigureForkCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -225,7 +245,22 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureForkCompartment;
+
+		/**
+		 * @generated
+		 */
 		public ForkFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			createContents();
 		}
 
@@ -236,13 +271,50 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 
 			WrappingLabel stereotypeLabelFigure0 = new WrappingLabel();
 			stereotypeLabelFigure0.setText("<<Fork>>");
+			stereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode()
+					.DPtoLP(2), getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 
-			this.add(stereotypeLabelFigure0);
+			GridData constraintStereotypeLabelFigure0 = new GridData();
+			constraintStereotypeLabelFigure0.verticalAlignment = GridData.CENTER;
+			constraintStereotypeLabelFigure0.horizontalAlignment = GridData.CENTER;
+			constraintStereotypeLabelFigure0.horizontalIndent = 0;
+			constraintStereotypeLabelFigure0.horizontalSpan = 1;
+			constraintStereotypeLabelFigure0.verticalSpan = 1;
+			constraintStereotypeLabelFigure0.grabExcessHorizontalSpace = false;
+			constraintStereotypeLabelFigure0.grabExcessVerticalSpace = false;
+			this.add(stereotypeLabelFigure0, constraintStereotypeLabelFigure0);
 
 			fFigureForkFigureNameLabelFigure = new WrappingLabel();
 			fFigureForkFigureNameLabelFigure.setText("");
+			fFigureForkFigureNameLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureForkFigureNameLabelFigure);
+			GridData constraintFFigureForkFigureNameLabelFigure = new GridData();
+			constraintFFigureForkFigureNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureForkFigureNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureForkFigureNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureForkFigureNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureForkFigureNameLabelFigure.verticalSpan = 1;
+			constraintFFigureForkFigureNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureForkFigureNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureForkFigureNameLabelFigure,
+					constraintFFigureForkFigureNameLabelFigure);
+
+			fFigureForkCompartment = new RectangleFigure();
+			fFigureForkCompartment.setFill(false);
+			fFigureForkCompartment.setOutline(false);
+
+			GridData constraintFFigureForkCompartment = new GridData();
+			constraintFFigureForkCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureForkCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureForkCompartment.horizontalIndent = 0;
+			constraintFFigureForkCompartment.horizontalSpan = 1;
+			constraintFFigureForkCompartment.verticalSpan = 1;
+			constraintFFigureForkCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureForkCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureForkCompartment, constraintFFigureForkCompartment);
 
 		}
 
@@ -251,6 +323,13 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureForkFigureNameLabelFigure() {
 			return fFigureForkFigureNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureForkCompartment() {
+			return fFigureForkCompartment;
 		}
 
 		/**

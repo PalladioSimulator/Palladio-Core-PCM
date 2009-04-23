@@ -21,16 +21,44 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="ParametricParameterUsageFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="cyan"/>
         <children
             xsi:type="gmfgraph:Label"
             name="VariableUsageReferenceLabelFigure"
-            text="&lt;?>"/>
+            text="&lt;?>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ParametricParameterUsageRectangleCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ParametricResourceDemandFigure">
@@ -72,17 +100,54 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="ForkFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="StereotypeLabelFigure"
-            text="&lt;&lt;Fork>>"/>
+            text="&lt;&lt;Fork>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="ForkFigureNameLabelFigure"
-            text=""/>
+            text="">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ForkCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="AquireFigure">
@@ -153,17 +218,54 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="InternalActionFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="InternalActionStereotypeLabelFigure"
-            text="&lt;&lt;InternalAction>>"/>
+            text="&lt;&lt;InternalAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="InternalActionFigureNameLabel"
-            text="&lt;myName>"/>
+            text="&lt;myName>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="InternalActionCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="CallParameterUsage_ActionFigure">
@@ -185,40 +287,111 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="ExternalCallActionFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="StereotypeLabel"
-            text="&lt;&lt;ExternalCallAction>>"/>
+            text="&lt;&lt;ExternalCallAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="ComponentExternalCallName"
-            text="myCall"/>
+            text="myCall">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ExternalCallActionCompartmentRectangle"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="BehaviourFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="BehaviourFigure"/>
+          name="BehaviourFigure"
+          outline="false"
+          fill="false"/>
     </descriptors>
     <descriptors
         name="LoopFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="LoopFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="LoopStereotype"
-            text="&lt;&lt;LoopAction>>"/>
+            text="&lt;&lt;LoopAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="LoopNameLabelFigure"
-            text="myLoop"/>
+            text="myLoop">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="LoopIterationsLabelFigure"/>
+            name="LoopIterationsLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.1"/>
@@ -230,17 +403,54 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="BranchFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="BranchStereotype"
-            text="&lt;&lt;BranchAction>>"/>
+            text="&lt;&lt;BranchAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="BranchNameLabelFigure"
-            text="myBranch"/>
+            text="myBranch">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="BranchTransitionCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.14/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="BranchTransitionFigure">
@@ -249,10 +459,24 @@
           name="BranchTransitionFigure"
           lineWidth="2"
           lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="BranchTransitionProbabilityLabel"
-            text="0.0"/>
+            text="0.0">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
@@ -275,17 +499,49 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="CollectionIteratorFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="CollectionIteratorStereotype"
-            text="&lt;&lt;CollectionIteratorAction>>"/>
+            text="&lt;&lt;CollectionIteratorAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="CollectionIteratorNameLabelFigure"
-            text="myLoop"/>
+            text="myLoop">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="CollectionIteratorParameterLabelFigure"/>
+            name="CollectionIteratorParameterLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.18/@actualFigure/@children.1"/>
@@ -297,16 +553,53 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="SetVariableActionFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="SetVariableActionStereotypeLabelFigure"
-            text="&lt;&lt;SetVariableAction>>"/>
+            text="&lt;&lt;SetVariableAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="SetVariableNameLabelFigure"/>
+            name="SetVariableNameLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="SetVariableActionCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.19/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.19/@actualFigure/@children.2"/>
     </descriptors>
   </figures>
   <nodes
@@ -381,37 +674,43 @@
       figure="BranchFigure"/>
   <compartments
       name="BranchTransitionCompartment"
-      figure="BranchTransitionFigure"/>
+      figure="BranchTransitionFigure"
+      accessor="//@figures.0/@descriptors.14/@accessors.1"/>
   <compartments
       name="ResourceDemand"
       figure="InternalActionFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
   <compartments
       name="InputVariableUsage"
       figure="ExternalCallActionFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
   <compartments
       name="VariableCharacterisation"
       figure="ParametricParameterUsageFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
   <compartments
       name="VariableSetter"
       figure="SetVariableActionFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.19/@accessors.1"/>
   <compartments
       name="ForkedBehaviours"
       figure="ForkFigure"
-      collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
   <compartments
       name="OutputVariableUsage"
       figure="ExternalCallActionFigure"
       collapsible="true"
-      needsTitle="true"/>
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
   <labels
       name="ForkNameLabel"
       figure="ForkFigure"

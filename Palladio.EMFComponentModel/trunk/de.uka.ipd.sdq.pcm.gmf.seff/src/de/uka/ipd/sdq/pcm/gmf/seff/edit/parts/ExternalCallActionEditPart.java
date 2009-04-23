@@ -3,7 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -151,6 +155,24 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 							.getFigureComponentExternalCallName());
 			return true;
 		}
+		if (childEditPart instanceof ExternalCallActionInputVariableUsageEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((ExternalCallActionInputVariableUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((ExternalCallActionOutputVariableUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -159,6 +181,24 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof ExternalCallActionInputVariableUsageEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((ExternalCallActionInputVariableUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((ExternalCallActionOutputVariableUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -187,6 +227,14 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof ExternalCallActionInputVariableUsageEditPart) {
+			return getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+		}
+		if (editPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
+			return getPrimaryShape()
+					.getFigureExternalCallActionCompartmentRectangle();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -261,7 +309,22 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureExternalCallActionCompartmentRectangle;
+
+		/**
+		 * @generated
+		 */
 		public ExternalCallActionFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -274,13 +337,51 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 
 			WrappingLabel stereotypeLabel0 = new WrappingLabel();
 			stereotypeLabel0.setText("<<ExternalCallAction>>");
+			stereotypeLabel0.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 
-			this.add(stereotypeLabel0);
+			GridData constraintStereotypeLabel0 = new GridData();
+			constraintStereotypeLabel0.verticalAlignment = GridData.CENTER;
+			constraintStereotypeLabel0.horizontalAlignment = GridData.CENTER;
+			constraintStereotypeLabel0.horizontalIndent = 0;
+			constraintStereotypeLabel0.horizontalSpan = 1;
+			constraintStereotypeLabel0.verticalSpan = 1;
+			constraintStereotypeLabel0.grabExcessHorizontalSpace = false;
+			constraintStereotypeLabel0.grabExcessVerticalSpace = false;
+			this.add(stereotypeLabel0, constraintStereotypeLabel0);
 
 			fFigureComponentExternalCallName = new WrappingLabel();
 			fFigureComponentExternalCallName.setText("myCall");
+			fFigureComponentExternalCallName.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureComponentExternalCallName);
+			GridData constraintFFigureComponentExternalCallName = new GridData();
+			constraintFFigureComponentExternalCallName.verticalAlignment = GridData.CENTER;
+			constraintFFigureComponentExternalCallName.horizontalAlignment = GridData.CENTER;
+			constraintFFigureComponentExternalCallName.horizontalIndent = 0;
+			constraintFFigureComponentExternalCallName.horizontalSpan = 1;
+			constraintFFigureComponentExternalCallName.verticalSpan = 1;
+			constraintFFigureComponentExternalCallName.grabExcessHorizontalSpace = false;
+			constraintFFigureComponentExternalCallName.grabExcessVerticalSpace = false;
+			this.add(fFigureComponentExternalCallName,
+					constraintFFigureComponentExternalCallName);
+
+			fFigureExternalCallActionCompartmentRectangle = new RectangleFigure();
+			fFigureExternalCallActionCompartmentRectangle.setFill(false);
+			fFigureExternalCallActionCompartmentRectangle.setOutline(false);
+
+			GridData constraintFFigureExternalCallActionCompartmentRectangle = new GridData();
+			constraintFFigureExternalCallActionCompartmentRectangle.verticalAlignment = GridData.FILL;
+			constraintFFigureExternalCallActionCompartmentRectangle.horizontalAlignment = GridData.FILL;
+			constraintFFigureExternalCallActionCompartmentRectangle.horizontalIndent = 0;
+			constraintFFigureExternalCallActionCompartmentRectangle.horizontalSpan = 1;
+			constraintFFigureExternalCallActionCompartmentRectangle.verticalSpan = 1;
+			constraintFFigureExternalCallActionCompartmentRectangle.grabExcessHorizontalSpace = true;
+			constraintFFigureExternalCallActionCompartmentRectangle.grabExcessVerticalSpace = true;
+			this.add(fFigureExternalCallActionCompartmentRectangle,
+					constraintFFigureExternalCallActionCompartmentRectangle);
 
 		}
 
@@ -289,6 +390,13 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureComponentExternalCallName() {
 			return fFigureComponentExternalCallName;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureExternalCallActionCompartmentRectangle() {
+			return fFigureExternalCallActionCompartmentRectangle;
 		}
 
 		/**

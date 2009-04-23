@@ -3,7 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -116,6 +120,14 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 							.getFigureSetVariableNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureSetVariableActionCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((SetVariableActionVariableSetterEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -124,6 +136,15 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureSetVariableActionCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((SetVariableActionVariableSetterEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -152,6 +173,9 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
+			return getPrimaryShape().getFigureSetVariableActionCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -226,7 +250,22 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureSetVariableActionCompartment;
+
+		/**
+		 * @generated
+		 */
 		public SetVariableActionFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -240,13 +279,52 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 			WrappingLabel setVariableActionStereotypeLabelFigure0 = new WrappingLabel();
 			setVariableActionStereotypeLabelFigure0
 					.setText("<<SetVariableAction>>");
+			setVariableActionStereotypeLabelFigure0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(setVariableActionStereotypeLabelFigure0);
+			GridData constraintSetVariableActionStereotypeLabelFigure0 = new GridData();
+			constraintSetVariableActionStereotypeLabelFigure0.verticalAlignment = GridData.CENTER;
+			constraintSetVariableActionStereotypeLabelFigure0.horizontalAlignment = GridData.CENTER;
+			constraintSetVariableActionStereotypeLabelFigure0.horizontalIndent = 0;
+			constraintSetVariableActionStereotypeLabelFigure0.horizontalSpan = 1;
+			constraintSetVariableActionStereotypeLabelFigure0.verticalSpan = 1;
+			constraintSetVariableActionStereotypeLabelFigure0.grabExcessHorizontalSpace = false;
+			constraintSetVariableActionStereotypeLabelFigure0.grabExcessVerticalSpace = false;
+			this.add(setVariableActionStereotypeLabelFigure0,
+					constraintSetVariableActionStereotypeLabelFigure0);
 
 			fFigureSetVariableNameLabelFigure = new WrappingLabel();
 			fFigureSetVariableNameLabelFigure.setText("");
+			fFigureSetVariableNameLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureSetVariableNameLabelFigure);
+			GridData constraintFFigureSetVariableNameLabelFigure = new GridData();
+			constraintFFigureSetVariableNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureSetVariableNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureSetVariableNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureSetVariableNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureSetVariableNameLabelFigure.verticalSpan = 1;
+			constraintFFigureSetVariableNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureSetVariableNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureSetVariableNameLabelFigure,
+					constraintFFigureSetVariableNameLabelFigure);
+
+			fFigureSetVariableActionCompartment = new RectangleFigure();
+			fFigureSetVariableActionCompartment.setFill(false);
+			fFigureSetVariableActionCompartment.setOutline(false);
+
+			GridData constraintFFigureSetVariableActionCompartment = new GridData();
+			constraintFFigureSetVariableActionCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureSetVariableActionCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureSetVariableActionCompartment.horizontalIndent = 0;
+			constraintFFigureSetVariableActionCompartment.horizontalSpan = 1;
+			constraintFFigureSetVariableActionCompartment.verticalSpan = 1;
+			constraintFFigureSetVariableActionCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureSetVariableActionCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureSetVariableActionCompartment,
+					constraintFFigureSetVariableActionCompartment);
 
 		}
 
@@ -255,6 +333,13 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureSetVariableNameLabelFigure() {
 			return fFigureSetVariableNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureSetVariableActionCompartment() {
+			return fFigureSetVariableActionCompartment;
 		}
 
 		/**

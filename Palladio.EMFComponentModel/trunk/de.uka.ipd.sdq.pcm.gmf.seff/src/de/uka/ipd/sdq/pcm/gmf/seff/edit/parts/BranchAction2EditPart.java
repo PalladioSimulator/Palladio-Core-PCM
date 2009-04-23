@@ -3,7 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -116,6 +120,15 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 							.getFigureBranchNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBranchTransitionCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((BranchActionBranchTransitionCompartment2EditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -124,6 +137,15 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureBranchTransitionCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((BranchActionBranchTransitionCompartment2EditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -152,6 +174,9 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+			return getPrimaryShape().getFigureBranchTransitionCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -226,7 +251,22 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureBranchTransitionCompartment;
+
+		/**
+		 * @generated
+		 */
 		public BranchFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -239,13 +279,51 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 
 			WrappingLabel branchStereotype0 = new WrappingLabel();
 			branchStereotype0.setText("<<BranchAction>>");
+			branchStereotype0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(branchStereotype0);
+			GridData constraintBranchStereotype0 = new GridData();
+			constraintBranchStereotype0.verticalAlignment = GridData.CENTER;
+			constraintBranchStereotype0.horizontalAlignment = GridData.CENTER;
+			constraintBranchStereotype0.horizontalIndent = 0;
+			constraintBranchStereotype0.horizontalSpan = 1;
+			constraintBranchStereotype0.verticalSpan = 1;
+			constraintBranchStereotype0.grabExcessHorizontalSpace = false;
+			constraintBranchStereotype0.grabExcessVerticalSpace = false;
+			this.add(branchStereotype0, constraintBranchStereotype0);
 
 			fFigureBranchNameLabelFigure = new WrappingLabel();
 			fFigureBranchNameLabelFigure.setText("myBranch");
+			fFigureBranchNameLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureBranchNameLabelFigure);
+			GridData constraintFFigureBranchNameLabelFigure = new GridData();
+			constraintFFigureBranchNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureBranchNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureBranchNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureBranchNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureBranchNameLabelFigure.verticalSpan = 1;
+			constraintFFigureBranchNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureBranchNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureBranchNameLabelFigure,
+					constraintFFigureBranchNameLabelFigure);
+
+			fFigureBranchTransitionCompartment = new RectangleFigure();
+			fFigureBranchTransitionCompartment.setFill(false);
+			fFigureBranchTransitionCompartment.setOutline(false);
+
+			GridData constraintFFigureBranchTransitionCompartment = new GridData();
+			constraintFFigureBranchTransitionCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureBranchTransitionCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureBranchTransitionCompartment.horizontalIndent = 0;
+			constraintFFigureBranchTransitionCompartment.horizontalSpan = 1;
+			constraintFFigureBranchTransitionCompartment.verticalSpan = 1;
+			constraintFFigureBranchTransitionCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureBranchTransitionCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureBranchTransitionCompartment,
+					constraintFFigureBranchTransitionCompartment);
 
 		}
 
@@ -254,6 +332,13 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureBranchNameLabelFigure() {
 			return fFigureBranchNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureBranchTransitionCompartment() {
+			return fFigureBranchTransitionCompartment;
 		}
 
 		/**

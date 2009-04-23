@@ -127,13 +127,13 @@ public class PalladioComponentModelDiagramUpdater {
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			return getVariableUsageVariableCharacterisation_7031SemanticChildren(view);
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
-			return getResourceDemandingBehaviourLoopCompartment_7004SemanticChildren(view);
+			return getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(view);
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			return getInternalActionResourceDemand_7006SemanticChildren(view);
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return getBranchActionBranchTransitionCompartment_7007SemanticChildren(view);
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
-			return getResourceDemandingBehaviourBranchCompartment_7009SemanticChildren(view);
+			return getResourceDemandingBehaviourBehaviourCompartment_7009SemanticChildren(view);
 		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
 			return getExternalCallActionInputVariableUsage_7010SemanticChildren(view);
 		case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
@@ -143,13 +143,13 @@ public class PalladioComponentModelDiagramUpdater {
 		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			return getForkedBehaviourBehaviourCompartment_7026SemanticChildren(view);
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
-			return getResourceDemandingBehaviourLoopCompartment_7014SemanticChildren(view);
+			return getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(view);
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			return getSetVariableActionVariableSetter_7025SemanticChildren(view);
 		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 			return getVariableUsageVariableCharacterisation_7032SemanticChildren(view);
 		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
-			return getResourceDemandingBehaviourBranchCompartment_7018SemanticChildren(view);
+			return getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(view);
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			return getBranchActionBranchTransitionCompartment_7011SemanticChildren(view);
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:
@@ -426,7 +426,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviourLoopCompartment_7004SemanticChildren(
+	public static List getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -569,7 +569,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviourBranchCompartment_7009SemanticChildren(
+	public static List getResourceDemandingBehaviourBehaviourCompartment_7009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -811,7 +811,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviourLoopCompartment_7014SemanticChildren(
+	public static List getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -945,7 +945,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviourBranchCompartment_7018SemanticChildren(
+	public static List getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;

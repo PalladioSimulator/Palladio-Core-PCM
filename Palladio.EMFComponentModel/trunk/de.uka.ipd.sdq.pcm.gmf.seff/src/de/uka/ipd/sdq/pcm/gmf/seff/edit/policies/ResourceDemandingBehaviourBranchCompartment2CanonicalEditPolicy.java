@@ -47,7 +47,7 @@ public class ResourceDemandingBehaviourBranchCompartment2CanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getResourceDemandingBehaviourBranchCompartment_7018SemanticChildren(
+				.getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());

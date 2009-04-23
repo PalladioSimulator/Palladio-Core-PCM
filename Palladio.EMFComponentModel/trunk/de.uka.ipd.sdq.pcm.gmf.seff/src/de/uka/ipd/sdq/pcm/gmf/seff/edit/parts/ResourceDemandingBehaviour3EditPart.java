@@ -152,4 +152,7 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
 		return super.getContentPane();
 	}
 
+	@Override
+	protected void refreshBounds() {
+	}
 }

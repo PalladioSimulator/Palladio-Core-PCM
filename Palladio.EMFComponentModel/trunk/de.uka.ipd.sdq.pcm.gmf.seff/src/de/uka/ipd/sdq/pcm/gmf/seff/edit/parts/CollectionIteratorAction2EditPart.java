@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -24,6 +27,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.CollectionIteratorAction2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.CollectionIteratorAction2ItemSemanticEditPolicy;
@@ -246,6 +250,16 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public CollectionIteratorFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -259,18 +273,56 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			WrappingLabel collectionIteratorStereotype0 = new WrappingLabel();
 			collectionIteratorStereotype0
 					.setText("<<CollectionIteratorAction>>");
+			collectionIteratorStereotype0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(collectionIteratorStereotype0);
+			GridData constraintCollectionIteratorStereotype0 = new GridData();
+			constraintCollectionIteratorStereotype0.verticalAlignment = GridData.CENTER;
+			constraintCollectionIteratorStereotype0.horizontalAlignment = GridData.CENTER;
+			constraintCollectionIteratorStereotype0.horizontalIndent = 0;
+			constraintCollectionIteratorStereotype0.horizontalSpan = 1;
+			constraintCollectionIteratorStereotype0.verticalSpan = 1;
+			constraintCollectionIteratorStereotype0.grabExcessHorizontalSpace = false;
+			constraintCollectionIteratorStereotype0.grabExcessVerticalSpace = false;
+			this.add(collectionIteratorStereotype0,
+					constraintCollectionIteratorStereotype0);
 
 			fFigureCollectionIteratorNameLabelFigure = new WrappingLabel();
 			fFigureCollectionIteratorNameLabelFigure.setText("myLoop");
+			fFigureCollectionIteratorNameLabelFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0)));
 
-			this.add(fFigureCollectionIteratorNameLabelFigure);
+			GridData constraintFFigureCollectionIteratorNameLabelFigure = new GridData();
+			constraintFFigureCollectionIteratorNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureCollectionIteratorNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureCollectionIteratorNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureCollectionIteratorNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureCollectionIteratorNameLabelFigure.verticalSpan = 1;
+			constraintFFigureCollectionIteratorNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureCollectionIteratorNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureCollectionIteratorNameLabelFigure,
+					constraintFFigureCollectionIteratorNameLabelFigure);
 
 			fFigureCollectionIteratorParameterLabelFigure = new WrappingLabel();
 			fFigureCollectionIteratorParameterLabelFigure.setText("");
+			fFigureCollectionIteratorParameterLabelFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0)));
 
-			this.add(fFigureCollectionIteratorParameterLabelFigure);
+			GridData constraintFFigureCollectionIteratorParameterLabelFigure = new GridData();
+			constraintFFigureCollectionIteratorParameterLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureCollectionIteratorParameterLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureCollectionIteratorParameterLabelFigure.horizontalIndent = 0;
+			constraintFFigureCollectionIteratorParameterLabelFigure.horizontalSpan = 1;
+			constraintFFigureCollectionIteratorParameterLabelFigure.verticalSpan = 1;
+			constraintFFigureCollectionIteratorParameterLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureCollectionIteratorParameterLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureCollectionIteratorParameterLabelFigure,
+					constraintFFigureCollectionIteratorParameterLabelFigure);
 
 		}
 
@@ -307,6 +359,22 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+		@Override
+		public void add(IFigure figure, Object constraint, int index) {
+			Object newConstraint = constraint;
+			if (newConstraint == null) {
+				GridData layout = new GridData();
+				layout.grabExcessHorizontalSpace = true;
+				layout.grabExcessVerticalSpace = true;
+				layout.horizontalAlignment = SWT.FILL;
+				layout.verticalAlignment = SWT.FILL;
+				layout.horizontalSpan = 1;
+				layout.verticalSpan = 1;
+
+				newConstraint = layout;
+			}
+			super.add(figure, newConstraint, index);
+		}
 	}
 
 }

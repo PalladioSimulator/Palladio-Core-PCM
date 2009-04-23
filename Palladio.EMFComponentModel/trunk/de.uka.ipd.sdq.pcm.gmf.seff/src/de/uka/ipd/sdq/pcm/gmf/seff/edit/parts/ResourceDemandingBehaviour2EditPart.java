@@ -13,6 +13,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -91,14 +92,15 @@ public class ResourceDemandingBehaviour2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		BehaviourFigure figure = new BehaviourFigure();
+		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+	public BehaviourFigure getPrimaryShape() {
+		return (BehaviourFigure) primaryShape;
 	}
 
 	/**
@@ -152,4 +154,41 @@ public class ResourceDemandingBehaviour2EditPart extends ShapeNodeEditPart {
 		return super.getContentPane();
 	}
 
+	/**
+	 * @generated
+	 */
+	public class BehaviourFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public BehaviourFigure() {
+			this.setFill(false);
+			this.setOutline(false);
+		}
+
+		/**
+		 * @generated
+		 */
+		private boolean myUseLocalCoordinates = false;
+
+		/**
+		 * @generated
+		 */
+		protected boolean useLocalCoordinates() {
+			return myUseLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
+			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+	}
+
+	@Override
+	protected void refreshBounds() {
+	}
 }

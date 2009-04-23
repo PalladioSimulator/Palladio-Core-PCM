@@ -304,7 +304,7 @@
           <compartments
               children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.10">
             <compartment
-                href="seffeditor.gmfgraph#LoopCompartment"/>
+                href="seffeditor.gmfgraph#BehaviourCompartment"/>
           </compartments>
         </ownedChild>
       </children>
@@ -456,7 +456,7 @@
               <compartments
                   children="//@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.10">
                 <compartment
-                    href="seffeditor.gmfgraph#BranchCompartment"/>
+                    href="seffeditor.gmfgraph#BehaviourCompartment"/>
               </compartments>
             </ownedChild>
           </children>
@@ -589,7 +589,7 @@
               <compartments
                   children="//@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.10">
                 <compartment
-                    href="seffeditor.gmfgraph#BranchCompartment"/>
+                    href="seffeditor.gmfgraph#BehaviourCompartment"/>
               </compartments>
             </ownedChild>
           </children>
@@ -773,7 +773,7 @@
           <compartments
               children="//@nodes.6/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.9">
             <compartment
-                href="seffeditor.gmfgraph#LoopCompartment"/>
+                href="seffeditor.gmfgraph#BehaviourCompartment"/>
           </compartments>
         </ownedChild>
       </children>

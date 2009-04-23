@@ -4,7 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -24,6 +27,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.GuardedBranchTransitionCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.GuardedBranchTransitionItemSemanticEditPolicy;
@@ -239,6 +243,16 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public BranchTransitionFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setLineWidth(2);
 			this.setLineStyle(Graphics.LINE_DASH);
 			createContents();
@@ -251,8 +265,20 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 
 			fFigureBranchTransitionProbabilityLabel = new WrappingLabel();
 			fFigureBranchTransitionProbabilityLabel.setText("0.0");
+			fFigureBranchTransitionProbabilityLabel.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureBranchTransitionProbabilityLabel);
+			GridData constraintFFigureBranchTransitionProbabilityLabel = new GridData();
+			constraintFFigureBranchTransitionProbabilityLabel.verticalAlignment = GridData.CENTER;
+			constraintFFigureBranchTransitionProbabilityLabel.horizontalAlignment = GridData.CENTER;
+			constraintFFigureBranchTransitionProbabilityLabel.horizontalIndent = 0;
+			constraintFFigureBranchTransitionProbabilityLabel.horizontalSpan = 1;
+			constraintFFigureBranchTransitionProbabilityLabel.verticalSpan = 1;
+			constraintFFigureBranchTransitionProbabilityLabel.grabExcessHorizontalSpace = false;
+			constraintFFigureBranchTransitionProbabilityLabel.grabExcessVerticalSpace = false;
+			this.add(fFigureBranchTransitionProbabilityLabel,
+					constraintFFigureBranchTransitionProbabilityLabel);
 
 		}
 
@@ -282,6 +308,22 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+		@Override
+		public void add(IFigure figure, Object constraint, int index) {
+			Object newConstraint = constraint;
+			if (newConstraint == null) {
+				GridData layout = new GridData();
+				layout.grabExcessHorizontalSpace = true;
+				layout.grabExcessVerticalSpace = true;
+				layout.horizontalAlignment = SWT.FILL;
+				layout.verticalAlignment = SWT.FILL;
+				layout.horizontalSpan = 1;
+				layout.verticalSpan = 1;
+
+				newConstraint = layout;
+			}
+			super.add(figure, newConstraint, index);
+		}
 	}
 
 }

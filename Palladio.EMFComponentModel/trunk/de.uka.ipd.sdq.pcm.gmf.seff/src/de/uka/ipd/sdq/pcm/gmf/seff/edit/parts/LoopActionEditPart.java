@@ -3,12 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -24,6 +28,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopActionCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopActionItemSemanticEditPolicy;
@@ -248,6 +253,16 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public LoopFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -260,18 +275,53 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 
 			WrappingLabel loopStereotype0 = new WrappingLabel();
 			loopStereotype0.setText("<<LoopAction>>");
+			loopStereotype0.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 
-			this.add(loopStereotype0);
+			GridData constraintLoopStereotype0 = new GridData();
+			constraintLoopStereotype0.verticalAlignment = GridData.CENTER;
+			constraintLoopStereotype0.horizontalAlignment = GridData.CENTER;
+			constraintLoopStereotype0.horizontalIndent = 0;
+			constraintLoopStereotype0.horizontalSpan = 1;
+			constraintLoopStereotype0.verticalSpan = 1;
+			constraintLoopStereotype0.grabExcessHorizontalSpace = false;
+			constraintLoopStereotype0.grabExcessVerticalSpace = false;
+			this.add(loopStereotype0, constraintLoopStereotype0);
 
 			fFigureLoopNameLabelFigure = new WrappingLabel();
 			fFigureLoopNameLabelFigure.setText("myLoop");
+			fFigureLoopNameLabelFigure.setBorder(new MarginBorder(getMapMode()
+					.DPtoLP(2), getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(0)));
 
-			this.add(fFigureLoopNameLabelFigure);
+			GridData constraintFFigureLoopNameLabelFigure = new GridData();
+			constraintFFigureLoopNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureLoopNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureLoopNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureLoopNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureLoopNameLabelFigure.verticalSpan = 1;
+			constraintFFigureLoopNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureLoopNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureLoopNameLabelFigure,
+					constraintFFigureLoopNameLabelFigure);
 
 			fFigureLoopIterationsLabelFigure = new WrappingLabel();
 			fFigureLoopIterationsLabelFigure.setText("");
+			fFigureLoopIterationsLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureLoopIterationsLabelFigure);
+			GridData constraintFFigureLoopIterationsLabelFigure = new GridData();
+			constraintFFigureLoopIterationsLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureLoopIterationsLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureLoopIterationsLabelFigure.horizontalIndent = 0;
+			constraintFFigureLoopIterationsLabelFigure.horizontalSpan = 1;
+			constraintFFigureLoopIterationsLabelFigure.verticalSpan = 1;
+			constraintFFigureLoopIterationsLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureLoopIterationsLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureLoopIterationsLabelFigure,
+					constraintFFigureLoopIterationsLabelFigure);
 
 		}
 
@@ -308,6 +358,22 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+		@Override
+		public void add(IFigure figure, Object constraint, int index) {
+			Object newConstraint = constraint;
+			if (newConstraint == null) {
+				GridData layout = new GridData();
+				layout.grabExcessHorizontalSpace = true;
+				layout.grabExcessVerticalSpace = true;
+				layout.horizontalAlignment = SWT.FILL;
+				layout.verticalAlignment = SWT.FILL;
+				layout.horizontalSpan = 1;
+				layout.verticalSpan = 1;
+
+				newConstraint = layout;
+			}
+			super.add(figure, newConstraint, index);
+		}
 	}
 
 }
