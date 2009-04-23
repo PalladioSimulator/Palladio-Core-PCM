@@ -115,38 +115,38 @@ public class SimuServiceResultStatus {
 		return (workflowParamsConfigured && workflowCreated && workflowExecuted);
 	}
 
-	/**
-	 * Stores any exception that has occurred during SimuService execution.
-	 */
-	private Exception exception = null;
-
-	/**
-	 * Stores an exception that has occurred during SimuService execution.
-	 * 
-	 * @param exception
-	 *            the exception to set
-	 */
-	public void setException(Exception exception) {
-		if (!frozen) {
-			this.exception = exception;
-		}
-	}
-
-	/**
-	 * Gets any occurred exception.
-	 * 
-	 * @return the property value
-	 */
-	public Exception getException() {
-		return exception;
-	}
-
-	/**
-	 * Indicates if an exception has occurred during SimuService execution.
-	 * 
-	 * @return
-	 */
-	public boolean hasExceptionOccurred() {
-		return exception != null;
-	}
+//	/**
+//	 * Stores any exception that has occurred during SimuService execution.
+//	 */
+//	private Exception exception = null;
+//
+//	/**
+//	 * Stores an exception that has occurred during SimuService execution.
+//	 * 
+//	 * @param exception
+//	 *            the exception to set
+//	 */
+//	public void setException(Exception exception) {
+//		if (!frozen) {
+//			this.exception = exception;
+//		}
+//	}
+//
+//	/**
+//	 * Gets any occurred exception.
+//	 * 
+//	 * @return the property value
+//	 */
+//	public Exception getException() {
+//		return exception;
+//	}
+//
+//	/**
+//	 * Indicates if an exception has occurred during SimuService execution.
+//	 * 
+//	 * @return
+//	 */
+//	public boolean hasExceptionOccurred() {
+//		return exception != null;
+//	}
 }
