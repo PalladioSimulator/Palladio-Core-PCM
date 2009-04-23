@@ -1,0 +1,90 @@
+%% Einleitung.tex
+
+
+\chapter{Einleitung}  \label{ch: Einleitung}
+
+Dieser Proposal beschreibt die Planungen zur Umsetzung der Diplomarbeit "`Modellbasierte Analyse von Sicherheitsschwachstellen in objektorientierten Modulen"'. Diese \textit{Einleitung} befasst sich mit der Motivation und die Ziele der Diplomarbeit. Der nächsten Kapitel \textit{Konzeption} 
+
+Um die Lesbarkeit zu fördern, wird des weiter der Begriff "`objektorientiert"' als "`OO"' gekennzeichnet. 
+
+\section{Hintergrund und Motivation} \label{ch: Einleitung: sec: Hintergrund und Motivation}
+
+Enge Interaktionen in kritischen Anwendungen zwischen Dienste und Bibliotheken von verschiedener Herkunft finden immer häufiger statt, entweder in großen statischen Systemen in den viele Komponente wiederverwendet werden, oder kleine, dynamischen Umgebungen wie der OSGi-Platform.  Desweiteren erfordern steigende Produktivitätsbedürfnisse, dass Testen und Analyse kostengünstiger werden, und deswegen automatisiert werden sollen. 
+
+\section{Ziele}
+
+Ein Teil der Diplomarbeit besteht aus der Definition und Klassifikation der Sicherheitsschwachstellen in OO-Modulen in Java. Dieses erfordert eine vorgehende Modellbildung, damit die Sicherheitskriterien in kompatible Formalismen ausgedruckt werden können. Eine Sicherheitsschwachstelle wird durch die Problemmuster identifizierbar, die sie verursacht. Die Definition einer Sicherheitsschwachstelle wird durch vorhandene Modelle dargestellt. Unter verschiedene Möglichkeiten der Analyse und Darstellung,  wird PQL (Programm Query Language) \ und SISSy( Structural Inprovement of Software System) in Betracht gezogen. 
+ 
+PQL ist eine Anfragespache, die dem Programmierrer
+
+
+Ein weiteres Teil der Diplomarbeit beschäftigt sich mit der Erstellung eines Tools, das die Erkenntnisse und des ersten Teils implementiert. Dieses Tool soll Programmierern das Auffinden und Verstehen der Vulnerabilitäten aus eigenem Code erleichtern, indem es Vulnerabilitäten in Code entdeckt, dem Programmierer darstellt und Informationen dazu aufblendet. 
+
+  
+ Aufgabenstellung:
+-	Definieren von Sicherheitsschwachstellen in OO-Komponenten, 
+o	Schwachstellen sollen Problemmuster verursachen, die identifizierbar sind 
+o	Erfordert eine vorgehende Modelbildung, damit die Sicherheitskriterien in kompatiblen Formalismen ausgedruckt werden können. 
+Mögliche Aufgaben
+-	Definition und Formalisierung der Sicherheitsschwächen in OO-Modulen
+-	Identifizierung notwendiger Elemente zu Quellcode Analyse
+-	Entwicklung einer prototypischen Analyse
+-	Validierung der Analyse anhand von OO-Modulen und Bibliotheken
+Das Hauptziel der Diplomarbeit ist, Sicherheitsschwachstellen in 
+
+Das praktische Teil der Diplomarbeit ist, ein Tool für Statische Analyse zu entwickeln, die dem Programmierer unterstützen soll, ein sicheren Quellcode in Java zu erstellen. 
+-	Sicht des Benutzter 
+o	Was macht das Tool
+"	Statische Analyse des Quellcodes 
+"	Abblenden von Informationen und Hinweise während der Programmierung 
+"	Info basierend auf dem Catalog von PP (Siehe Diss)
+o	Welche Eingenschaften soll er haben?
+"	Bediehnbarkeit
+"	Einfach zu verstehen
+"	Einfach zu bedienen
+-	Sicht der Programmierer
+o	Eigenschaften
+"	Einfach zu erweitern (Modularisierung+Dokumentation)
+"	Einfügen von weiteren Begriffen
+o	Basierend auf 
+"	SISSy?
+"	
+1.3	Artefakte
+Während der sechs monatigen Zeit der Durchführung sollen folgende Artefakte entstehen
+"	Literaturüberblick über bereits vorhandene ähnliche Forschungsthemen, Tools, Verfahren und Konzepte.
+"	Softwareprogram, die erforschte Konzepte implementiert
+"	Ausarbeitung des Forschungsthemas.
+Desweiteren sind wissenschaftlichen Arbeiten und Veröffentlichungen erwünscht. 
+2.	Grundlagen
+
+3.	Konzeption 
+-	Formale Beschreibung der Vulnerabilität
+-	Katalogen 
+-	Analyse erwähnen (Statische und 
+3.1	Erwartete Qualitätsmerkmale 
+-Vertraulichkeit
+-Verfügbarkeit
+-korrekte Zugangskontrolle
+3.2	Architektur
+4.	Durchführung
+4.1	Forschung und Analyse
+4.2	Entwicklungsumgebung 
+Für die Erstellung der Implementierung wird Eclipse als Entwiklungsplattform verwendet. Als Programmiersprache wird Java verwendet.
+Es werden weitere Eclipse-Plugins und 
+4.3	Organisatorisches
+Erstgutachter: Prof. Dr. Ralf H. Reussner
+Zweitgutacher: 
+Betreuer: Dr. Pierre Parrend
+Die Diplomarbeit findet am Institut für  Programmstrukturen und Datenorganisation (IPD), Lehrstuhl für Software Design und Qualität (SDQ), in Kollaboration mit Forschungszentrum Informatik (FZI).  
+4.4	Zeitplan
+-	Meilensteine
+Gemäß der Prüfungsordnung der Universität Karlsruhe (TH) für 
+den Diplomstudiengang Informatik vom  beträgt die Bearbeitungszeit einer Diplomarbeit an der Uni Karlsruhe von der Anmeldung bis zum Abschluss sechs Monate. Ein grober Zeitplan mit einigen Meilensteinen und bis dahin erstellten Artefakten ist in der folgenden Gantt-Abbildung dargestellt. Das Diagramm stellt nur den Rahmen der Diplomarbeit dar, im Laufe der Zeit soll der Ablauf verfeinert werden.
+Während der Bearbeitung finden regelmäßige Treffen zwischen Prüfling und Betreuer statt, mindestens einmal in der Woche. Desweiteren besucht der Prüfling die regelmäßigen Treffen der Diplomanten am SDQ und FZI. 
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "diplarb"
+%%% End: 

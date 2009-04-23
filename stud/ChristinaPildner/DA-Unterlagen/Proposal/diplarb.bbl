@@ -1,0 +1,49 @@
+\begin{thebibliography}{GoOA05}
+
+\bibitem[Crew97]{Crew97}
+Roger~F. Crew.
+\newblock ASTLOG: A Language for Examining Abstrakt Sysntax Trees.
+\newblock In {\em Proceedings of the Conference on Domain-Specific Languages},
+  Santa Barbara, Oktober 1997.
+
+\bibitem[GoOA05]{Gold05}
+Simon~F. Goldsmith, Robert O'Callahan und Alex Aiken.
+\newblock Relational queries over program traces.
+\newblock In {\em OOPSLA '05: Proceedings of the 20th annual ACM SIGPLAN
+  conference on Object-oriented programming, systems, languages, and
+  applications}, New York, NY, USA, 2005. ACM, S.~385--402.
+
+\bibitem[MaLL05]{Mart05}
+Michael Martin, Benjamin Livshits und Monica Lam.
+\newblock Finding Application Errors and Security Flaws Using PQL: a Program
+  Query Language.
+\newblock In {\em Object-Oriented Programming, Systems, Languages and
+  Applications (OOPSLA)}, October 2005.
+
+\bibitem[PaFr07]{PF07a}
+Pierre Parrend und St\'{e}phane Fr\'{e}not.
+\newblock Java components vulnerabilities - an experimental classification
+  targeted at the OSGi platform.
+\newblock Research Report RR-6231, INRIA, 06 2007.
+
+\bibitem[PaFr08]{Parr08}
+Pierre Parrend und St\'{e}phane Fr\'{e}not.
+\newblock Classification of Component Vulnerabilities in Java Service Oriented
+  Programming ({SOP}) Platforms.
+\newblock In {\em Conference on Component-based Software Engineering
+  (CBSE'2008)}, Band 5282/2008 der {\em LNCS}, Karlsruhe, Germany, October
+  2008. Springer Berlin / Heidelberg.
+
+\bibitem[Parr09]{Parr09}
+Pierre Parrend.
+\newblock Enhancing Automated Detection of Vulnerabilities in Java Components.
+\newblock In {\em Forth International Conference on Availability, Reliability
+  and Security (AReS 2009)}, Fukuoka, Japan, March 2009.
+
+\bibitem[RuAF04]{Ruta04}
+Nick Rutar, Christian~B. Almazan und Jeffrey~S. Foster.
+\newblock A Comparison of Bug Finding Tools for Java.
+\newblock {\em Software Reliability Engineering, International Symposium on},
+  Band~0, 2004, S.~245--256.
+
+\end{thebibliography}
