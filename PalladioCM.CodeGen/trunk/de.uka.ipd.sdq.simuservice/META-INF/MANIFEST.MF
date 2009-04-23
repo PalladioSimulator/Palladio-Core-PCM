@@ -6,8 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.simuservice.Activator
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.codegen.simucontroller;bundle-version="1.0.0",
- de.uka.ipd.sdq.codegen.workflow;bundle-version="1.1.0",
  de.uka.ipd.sdq.simuservice.types;bundle-version="1.0.0",
+ de.uka.ipd.sdq.codegen.workflow;bundle-version="1.1.0",
  de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
