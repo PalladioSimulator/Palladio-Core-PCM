@@ -2,6 +2,7 @@ package org.somox.metrics;
 
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.query.conditions.booleans.BooleanCondition;
 import org.eclipse.emf.query.conditions.eobjects.structuralfeatures.EObjectAttributeValueCondition;
 import org.eclipse.emf.query.statements.FROM;
@@ -66,5 +67,11 @@ public class Abstractness implements Metric {
 		abstractness = abstractClasses/totalClasses;
 
 		return abstractness;
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -3,6 +3,8 @@ package org.somox.metrics;
 import java.util.HashMap;
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
+
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
@@ -120,5 +122,11 @@ public class NameResemblance implements Metric {
 		
 		
 		return resemblance;
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

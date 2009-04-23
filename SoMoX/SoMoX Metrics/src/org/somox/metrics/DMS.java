@@ -2,6 +2,8 @@ package org.somox.metrics;
 
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
+
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 
@@ -16,5 +18,11 @@ public class DMS implements Metric {
 		double dms = Math.abs(abs + ins - 1.0);
 		
 		return dms;
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

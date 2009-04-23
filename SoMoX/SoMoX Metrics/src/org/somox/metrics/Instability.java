@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -135,5 +136,11 @@ public class Instability implements Metric {
 		System.out.println("Afferent coupling: " + afferentCoupling);
 
 		return efferentCoupling/(afferentCoupling + efferentCoupling);
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

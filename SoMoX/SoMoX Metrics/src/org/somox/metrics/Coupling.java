@@ -4,6 +4,7 @@ package org.somox.metrics;
 import java.util.HashSet;
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
 
 import de.fzi.gast.accesses.Access;
@@ -88,5 +89,11 @@ public class Coupling implements Metric {
 		}
 
 		return coupling;
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

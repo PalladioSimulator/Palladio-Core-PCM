@@ -2,6 +2,8 @@ package org.somox.metrics;
 
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
+
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
@@ -43,5 +45,11 @@ public class PackageMapping implements Metric {
 		} else {
 			return 0.0;
 		}
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -2,6 +2,7 @@ package org.somox.metrics;
 
 import java.util.List;
 
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
 
 import de.fzi.gast.core.ModelElement;
@@ -124,6 +125,12 @@ public class SliceLayerArchitectureQuality implements Metric {
 			}
 		}
 		return currentPackage;
+	}
+	
+	@Override
+	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
