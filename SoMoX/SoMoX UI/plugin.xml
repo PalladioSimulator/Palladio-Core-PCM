@@ -22,7 +22,7 @@
             file="contexts.xml">
       </contexts>
    </extension>
-   <extension
+   <!--<extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
@@ -76,8 +76,29 @@
                class="org.somox.ui.nature.SoMoXBuilder">
          </run>
       </builder>
+   </extension>-->
+   
+	<extension point="org.eclipse.ui.newWizards">
+		<category 
+        	id="org.somox.ui.SomoxProject" 
+        	name="SoMoX"> 
+      	</category>
+      <wizard 
+          id="org.somox.ui.SomoxProject" 
+          name="SoMoX Project"
+          icon="icons/somox_16x16.gif" 
+          category="org.somox.ui.SomoxProject" 
+          class="org.somox.ui.wizards.SomoxProjectWizard"> 
+          <description> 
+              Create a new SoMoX Project 
+          </description> 
+           <selection class="org.eclipse.core.resources.IResource"/>          
+      </wizard> 
+       
+   
    </extension>
-   <extension
+   
+   <!--<extension
          id="somoxNature"
          name="SoMoX Project Nature"
          point="org.eclipse.core.resources.natures">
@@ -105,7 +126,7 @@
                menubarPath="additions">
          </action>
       </objectContribution>
-   </extension>
+   </extension>-->
    <extension
          id="xmlProblem"
          name="XML Problem"
@@ -117,14 +138,14 @@
             value="true">
       </persistent>
    </extension>
-   <extension
+   <!--<extension
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
             icon="icons/somox_16x16.gif"
             id="org.somox.ui.somoxNatureImage"
             natureId="org.somox.ui.somoxNature">
       </image>
-   </extension>
+   </extension>-->
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
@@ -132,9 +153,8 @@
       </initializer>
    </extension>
    <extension
-         point="org.eclipse.ui.preferencePages">
+      point="org.eclipse.ui.preferencePages">
       <page
-            category="SoMoX"
             class="org.somox.ui.preferences.SoMoXPreferencePage"
             id="org.somox.ui.preferences.SoMoXPreferencePage"
             name="SoMoX">
@@ -148,7 +168,7 @@
             name="SoMoX UI Controller">
       </controller>
    </extension>
-   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+   	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
 	    <launchConfigurationType
            delegate="org.somox.ui.runconfig.ModelExtractionConfigurationDelegate"
            id="org.somox.ui.runconfig.LaunchModelExtraction"
@@ -156,13 +176,38 @@
            name="Launch Model Extraction"
            public="true">        
 	    </launchConfigurationType>
-   </extension>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<launchConfigurationTypeImage
+	        icon="icons/somox_16x16.gif"
+	        configTypeID="org.somox.ui.runconfig.LaunchModelExtraction"
+	        id="org.somox.ui.runconfig.LaunchModelExtractionImage">
+	    </launchConfigurationTypeImage>
+	</extension>
+  <!-- <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+           delegate="org.somox.ui.runconfig.ModelAnalyzerConfigurationDelegate"
+           id="org.somox.ui.runconfig.LaunchModelAnalyzer"
+           modes="run, debug"
+           name="Launch Model Analyzer"
+           public="true">        
+	    </launchConfigurationType>
+   </extension>-->
    <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
 	    <launchConfigurationTabGroup
 	        type="org.somox.ui.runconfig.LaunchModelExtraction"
-	        class="org.somox.ui.runconfig.TabGroup"
+	        class="org.somox.ui.runconfig.ModelExtractionTabGroup"
 	        id="org.somox.ui.runconfig.launchConfigurationTabGroup">
 	    </launchConfigurationTabGroup>
 	</extension>
+	
+	<!--<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="org.somox.ui.runconfig.LaunchModelAnalyzer"
+	        class="org.somox.ui.runconfig.ModelAnalyzerTabGroup"
+	        id="org.somox.ui.runconfig.launchConfigurationTabGroupAnalyzer">
+	    </launchConfigurationTabGroup>
+	</extension>-->
+
 
 </plugin>

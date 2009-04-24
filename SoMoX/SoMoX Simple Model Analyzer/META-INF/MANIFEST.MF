@@ -8,6 +8,11 @@ Bundle-Vendor: SoMoX.org
 Require-Bundle: org.eclipse.core.runtime,
  org.somox.core;bundle-version="1.0.0",
  org.somox.softwareextractor.sissy;bundle-version="1.0.0",
- eu.qimpress.sammcore;bundle-version="1.0.0"
+ eu.qimpress.sammcore;bundle-version="1.0.0",
+ de.uka.ipd.sdq.identifier;bundle-version="2.0.0",
+ org.eclipse.debug.ui;bundle-version="3.4.1",
+ org.somox.ui;bundle-version="1.0.0",
+ org.eclipse.jface;bundle-version="3.4.1",
+ org.eclipse.ui;bundle-version="3.4.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

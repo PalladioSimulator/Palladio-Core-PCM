@@ -55,9 +55,8 @@ public class GUISoMoXCoreController implements SoMoXCoreController {
 	 *
 	 * @param progressMonitor The progress monitor to hand over
 	 */
-	public void startExtraction(IProgressMonitor progressMonitor){
+	public void startExtraction(IProgressMonitor progressMonitor, Preferences preferences){
 		Iterator<SoMoXCoreControllerListener> iterator = soMoXCoreControllerListenerList.iterator();
-		Preferences preferences = Activator.getDefault().getPluginPreferences();
 		StartExtractorEvent event = new StartExtractorEvent(progressMonitor,preferences);
 		while(iterator.hasNext()){
 			SoMoXCoreControllerListener listener = iterator.next();
@@ -70,10 +69,9 @@ public class GUISoMoXCoreController implements SoMoXCoreController {
 	 *
 	 * @param progressMonitor
 	 */
-	public void startAnalyze(IProgressMonitor progressMonitor) {
+	public void startAnalyze(String analyzerID, IProgressMonitor progressMonitor, Preferences preferences) {
 		Iterator<SoMoXCoreControllerListener> iterator = soMoXCoreControllerListenerList.iterator();
-		Preferences preferences = Activator.getDefault().getPluginPreferences();
-		StartAnalyzerEvent event = new StartAnalyzerEvent(progressMonitor,preferences);
+		StartAnalyzerEvent event = new StartAnalyzerEvent(analyzerID, progressMonitor,preferences);
 		while(iterator.hasNext()){
 			SoMoXCoreControllerListener listener = iterator.next();
 			listener.handle(event);
@@ -105,5 +103,9 @@ public class GUISoMoXCoreController implements SoMoXCoreController {
 
 	public LinkedList<ConfigurationDefinition> getConfigurationDefinitions(){
 		return soMoXCore.getConfigurationDefinitions();
+	}
+	
+	public LinkedList<ConfigurationDefinition> getGlobalConfigurationDefinitions(){
+		return soMoXCore.getGlobalConfigurationDefinitions();
 	}
 }

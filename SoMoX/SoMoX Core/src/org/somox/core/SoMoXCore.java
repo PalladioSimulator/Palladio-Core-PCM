@@ -30,12 +30,22 @@ public interface SoMoXCore {
 	public void removeSoftwareExtractor(String id);
 
 	/**
-	 * Add a Model Anazyler to the stack that should be executed
+	 * Add a Model Analyzer to the stack that should be executed
 	 * Already existing Analyzer instances with the same id will be overridden
 	 *
-	 * @param analyzer	The model analyzer to be executed.
+	 * @param id		The identifier for the analyzer instance
+	 * @param analyzer	The Model Analyzer to be executed.
+	 * 					If null is handed over nothing is added to the stack
 	 */
-	public void setModelAnalyzer(ModelAnalyzer analyzer);
+	public void addModelAnalyzer(String id, ModelAnalyzer analyzer);
+	
+	/**
+	 * Remove the Model Analyzer instance with the given identifier
+	 * from the process stack
+	 *
+	 * @param id The internal id of the analyzer
+	 */
+	public void removeModelAnalyzer(String id);
 
 	/**
 	 * Execute all software extractors
@@ -49,7 +59,7 @@ public interface SoMoXCore {
 	 * @param	progressMonitor	A listener object for the process status
 	 * @param	preferences		Preferences for the analysis
 	 */
-	public void runAnalyzer(IProgressMonitor progressMonitor,Preferences preferences);
+	public void runAnalyzer(String analyzerID, IProgressMonitor progressMonitor,Preferences preferences);
 
 	/**
 	 * Execute the configured export
@@ -67,4 +77,10 @@ public interface SoMoXCore {
 	 * @return
 	 */
 	public LinkedList<ConfigurationDefinition> getConfigurationDefinitions();
+	
+	/**
+	 * Get the list of configuration definitions
+	 * @return
+	 */
+	public LinkedList<ConfigurationDefinition> getGlobalConfigurationDefinitions();
 }

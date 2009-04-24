@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.somox.analyzer.AnalysisResult;
 import org.somox.analyzer.ModelAnalyzer;
+import org.somox.common.SoMoXProjectPreferences;
 import org.somox.configuration.ConfigurationDefinition;
 import org.somox.core.SoMoXCore;
 import org.somox.core.SoMoXCoreLogger;
@@ -46,8 +47,6 @@ public class SoMoXCoreStandard implements SoMoXCore {
 	/** The path inside the project to store the internal architecture model */
 	private static final String PATH_INTERNAL_ARCHITECTUREMODEL = "/model/internal_architecture_model.staticstructure";
 
-	/** The identifier for the project id configuration field */
-	private static String CONFIGURATION_ID_PROJECT = "somox.core.project";
 
 	// ---------------------------------
 	// Data fields
@@ -55,13 +54,16 @@ public class SoMoXCoreStandard implements SoMoXCore {
 
 	/** The map of all configured Software Extractors	 */
 	private HashMap<String, SoftwareExtractor> softwareExtractorMap = new HashMap<String, SoftwareExtractor>();
+	
+	/** The map of all configured Model Analyzers	 */
+	private HashMap<String, ModelAnalyzer> modelAnalyzerMap = new HashMap<String, ModelAnalyzer>();
 
 	/** The map of all existing extraction results [etxractorID,resultObject]	 */
 	private HashMap<String, ExtractionResult> extractionResultMap = new HashMap<String, ExtractionResult>();
 
 
 	/** The model analyzer to be executed */
-	private ModelAnalyzer modelAnalyzer= null;
+	//private ModelAnalyzer modelAnalyzer= null;
 
 	/** The list of executed software extractors */
 	private List<SoftwareExtractor> executedList = new LinkedList<SoftwareExtractor>();
@@ -103,14 +105,14 @@ public class SoMoXCoreStandard implements SoMoXCore {
 	}
 
 	@Override
-	public void runAnalyzer(IProgressMonitor progressMonitor,Preferences preferences) {
+	public void runAnalyzer(String analyzerID, IProgressMonitor progressMonitor,Preferences preferences) {
 		SoMoXCoreLogger.logInfo("analysis started");
 		SoMoXCoreLogger.logInfo("analysis of results: "+this.extractionResultMap);
 
 		// TODO Handle not installed model analyzer
 
 		// load the current internal architecture model
-		String projectIdentifier = preferences.getString(CONFIGURATION_ID_PROJECT);
+		String projectIdentifier = preferences.getString(SoMoXProjectPreferences.SOMOX_PROJECT_NAME);
 		Repository internalArchitectureModel = null;
 		try {
 			getInternalArchitectureModel(projectIdentifier);
@@ -120,8 +122,13 @@ public class SoMoXCoreStandard implements SoMoXCore {
 		}
 
 		// perform the analysis
-		SoMoXCoreLogger.logInfo("Start model analyzer ("+modelAnalyzer+")");
-		AnalysisResult result = modelAnalyzer.analyze(preferences,internalArchitectureModel,extractionResultMap);
+		SoMoXCoreLogger.logInfo("Start model analyzer ("+analyzerID+")");
+		ModelAnalyzer analyzer = modelAnalyzerMap.get(analyzerID);
+		if (analyzer == null) {
+			SoMoXCoreLogger.logError("Model Analyzer " + analyzerID + " not available.", null);
+			return;
+		}
+		AnalysisResult result = analyzer.analyze(preferences,internalArchitectureModel,extractionResultMap);
 		SoMoXCoreLogger.logInfo("Analysis finished with result: "+result.getResultStatus());
 
 		// save the new internal architecture model
@@ -215,11 +222,17 @@ public class SoMoXCoreStandard implements SoMoXCore {
 	public void removeSoftwareExtractor(String id) {
 		this.softwareExtractorMap.remove(id);
 	}
+	
+	@Override
+	public void addModelAnalyzer(String id, ModelAnalyzer analyzer) {
+		this.modelAnalyzerMap.put(id,analyzer);
+	}
 
 	@Override
-	public void setModelAnalyzer(ModelAnalyzer analyzer) {
-		this.modelAnalyzer = analyzer;
+	public void removeModelAnalyzer(String id) {
+		this.modelAnalyzerMap.remove(id);
 	}
+
 
 	// ---------------------------------
 	// Getters / Setters
@@ -244,7 +257,14 @@ public class SoMoXCoreStandard implements SoMoXCore {
 		}
 
 		// add analyzer configurations
-		definitions.addAll(modelAnalyzer.getConfigurationDefinitions());
+		//definitions.addAll(modelAnalyzer.getConfigurationDefinitions());
+
+		return definitions;
+	}
+	
+	@Override
+	public LinkedList<ConfigurationDefinition> getGlobalConfigurationDefinitions() {
+		LinkedList<ConfigurationDefinition> definitions = new LinkedList<ConfigurationDefinition>();
 
 		return definitions;
 	}
@@ -256,8 +276,6 @@ public class SoMoXCoreStandard implements SoMoXCore {
 	 */
 	private Collection<ConfigurationDefinition> getCoreConfigurationDefinitions() {
 		LinkedList<ConfigurationDefinition> configs = new LinkedList<ConfigurationDefinition>();
-		ConfigurationDefinition projectID = new ConfigurationDefinition(CONFIGURATION_ID_PROJECT,"Project",ConfigurationDefinition.Type.STRING);
-		configs.add(projectID);
 		return configs;
 	}
 }

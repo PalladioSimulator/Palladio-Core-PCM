@@ -36,7 +36,7 @@ public class AnalyzeStartHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		Shell shell = HandlerUtil.getActiveWorkbenchWindow(event).getShell();
+		/*Shell shell = HandlerUtil.getActiveWorkbenchWindow(event).getShell();
 
 		// check that the controller is available
 		GUISoMoXCoreController controller = Activator.getDefault().getGuiSoMoXCoreController();
@@ -62,7 +62,7 @@ public class AnalyzeStartHandler extends AbstractHandler implements IHandler {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+*/
 		return null;
 	}
 

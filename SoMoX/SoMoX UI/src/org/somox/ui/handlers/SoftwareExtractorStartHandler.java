@@ -25,7 +25,7 @@ public class SoftwareExtractorStartHandler extends AbstractHandler implements IH
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		Shell shell = HandlerUtil.getActiveWorkbenchWindow(event).getShell();
+	/*	Shell shell = HandlerUtil.getActiveWorkbenchWindow(event).getShell();
 
 		// check that the controller is available
 		GUISoMoXCoreController controller = Activator.getDefault().getGuiSoMoXCoreController();
@@ -51,7 +51,7 @@ public class SoftwareExtractorStartHandler extends AbstractHandler implements IH
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+*/
 		return null;
 	}
 

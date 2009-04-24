@@ -1,30 +1,29 @@
-package org.somox.ui.runconfig;
+package org.somox.analyzer.simplemodelanalyzer.ui;
 
-import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
+import java.util.ArrayList;
+
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
-import org.somox.ui.runconfig.tabs.ModelExtractionInputTab;
+import org.somox.ui.runconfig.ModelAnalyzerTabGroup;
 
 /**
  * The main job of a tab group is to specify the tabs that will appear in the
  * LaunchConfigurationDelegate and set their order. These tabs may have been
  * specially written for the particular config type in question, or they may be
- * general purpose tabs that appear for multiple config types. The tab group for
- * our applet launcher creates 3 tabs:
- * 
- * FileNamesInputTab - is responsible for the input of an instance Palladio
- * 							Component Model. 
+ * general purpose tabs that appear for multiple config types.
  * 
  * @author Michael Hauck
  */
-public class TabGroup extends AbstractLaunchConfigurationTabGroup {
+public class SimpleModelAnalyzerTabGroup extends ModelAnalyzerTabGroup {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new ModelExtractionInputTab()};
-		setTabs(tabs);
+		ArrayList<ILaunchConfigurationTab> tabList = getCoreAnalyzerTabs();
+		tabList.addAll(getMetricTabs());
+		setTabs(tabList.toArray(new ILaunchConfigurationTab[0]));
 	}
+	
+	
 }

@@ -30,6 +30,9 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 	// ---------------------------------
 	// Static Data Fields
 	// ---------------------------------
+	
+	/** The output directory for the analyzer results*/
+	private static String OUTPUT_DIRECTORY = "org.somox.analyzer.simplemodelanalyzer.outputdirectory";
 
 	// ---------------------------------
 	// Data fields
@@ -100,6 +103,11 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 	@Override
 	public LinkedList<ConfigurationDefinition> getConfigurationDefinitions() {
 		LinkedList<ConfigurationDefinition> configs = new LinkedList<ConfigurationDefinition>();
+		ConfigurationDefinition directory = new ConfigurationDefinition(	OUTPUT_DIRECTORY,
+				"The output directory",
+				ConfigurationDefinition.Type.DIRECTORY,
+				"");
+		configs.add(directory);
 		return configs;
 	}
 

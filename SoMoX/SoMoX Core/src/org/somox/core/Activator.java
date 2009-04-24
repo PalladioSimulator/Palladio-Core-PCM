@@ -50,7 +50,6 @@ public class Activator extends Plugin {
 
 
 	public Activator() {
-		System.out.println("core contstructor called");
 	}
 
 	// ---------------------------------
@@ -115,34 +114,27 @@ public class Activator extends Plugin {
 	 * Check the installed Model Analyzer plug-ins
 	 * and register them in the SoMoX Core
 	 *
-	 * Note: Currently it is hard coded to use the first analyzer plug-in
-	 * 			returned by the registry. It might be a better way to load all present plug-ins
-	 * 			and let the user decide which one to use.
-	 *
-	 * @return	Flag whether a model analyzer could be loaded or not
+	 * @return	The number of checked plugins
 	 */
-	private boolean loadModelAnalyzers() {
-
-		boolean analyzerLoaded = false;
+	private int loadModelAnalyzers() {
 
 		// get the extensions from the registry
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IExtensionPoint point = registry.getExtensionPoint(PLUGIN_ID,EXTENSION_POINT_ID_MODELANALYZER);
-		if (point == null) return false;
-
-		// try to load the first analyzer
+		if (point == null) return 0;
+		
 		IExtension[] extensions = point.getExtensions();
-		SoMoXCoreLogger.logInfo("Available model analyzer plug-ins: "+extensions.length);
-		if(extensions.length > 0){
-			ModelAnalyzer analyzer = buildModelAnalyzer(extensions[0].getConfigurationElements());
+		int i = 0;
+		for (; i < extensions.length; i++){
+			ModelAnalyzer analyzer = buildModelAnalyzer(extensions[i].getConfigurationElements());
 			if(analyzer != null){
-				this.somoxCore.setModelAnalyzer(analyzer);
-				SoMoXCoreLogger.logInfo("analyzer loaded");
-				analyzerLoaded = true;
+				// TODO: Do not set the model analyzer list directly in the core.
+				// 		 	Better store a list of the available analyzers and define in
+				//			the configuration which one to use and their specific configurations
+				this.somoxCore.addModelAnalyzer(analyzer.getClass().getName(), analyzer);
 			}
 		}
-
-		return analyzerLoaded;
+		return i;
 	}
 
 	/**

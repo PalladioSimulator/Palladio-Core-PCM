@@ -42,7 +42,7 @@ public class SoMoXPreferencePage
 	 */
 	public void createFieldEditors() {
 
-		LinkedList<ConfigurationDefinition> configs = Activator.getDefault().getGuiSoMoXCoreController().getConfigurationDefinitions();
+		LinkedList<ConfigurationDefinition> configs = Activator.getDefault().getGuiSoMoXCoreController().getGlobalConfigurationDefinitions();
 
 		SoMoXUILogger.logInfo("Number of configs to be build: "+configs.size());
 
@@ -50,10 +50,10 @@ public class SoMoXPreferencePage
 		while(configIterator.hasNext()){
 			ConfigurationDefinition config = configIterator.next();
 
-			if(ConfigurationDefinition.Type.DIRECTORY.equals(config.getType())){
+			if(ConfigurationDefinition.Type.DIRECTORY.equals(config.getType())) {
 				addField(new DirectoryFieldEditor(config.getId(),config.getName(), getFieldEditorParent()));
 
-			} else if(ConfigurationDefinition.Type.STRING.equals(config.getType())){
+			} else if(ConfigurationDefinition.Type.STRING.equals(config.getType())) {
 				StringFieldEditor editor = new StringFieldEditor(config.getId(),config.getName(), getFieldEditorParent());
 				if(config.getDefaultValue() != null){
 					getPreferenceStore().setDefault(config.getId(), config.getDefaultValue());

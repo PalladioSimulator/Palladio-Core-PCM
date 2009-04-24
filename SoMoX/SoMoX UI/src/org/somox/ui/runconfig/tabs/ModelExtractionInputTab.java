@@ -1,18 +1,17 @@
 package org.somox.ui.runconfig.tabs;
 
 import java.io.File;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
-import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -26,22 +25,60 @@ import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.somox.common.SoMoXProjectPreferences;
 import org.somox.configuration.ConfigurationDefinition;
 import org.somox.ui.Activator;
 import org.somox.ui.SoMoXUILogger;
 
 /**
  * The class defines a tab, which is responsible for the input for a model
- * extraction
+ * extraction.
+ * This class builds the tab dynamically dependent on the specified configuration
+ * elements for the extractor. However, this is not really needed. Can be 
+ * refactored in future to build a static tab.
  * 
  * @author Michael Hauck
  */
 public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
-
+	
+	Text projectName = null;
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		//configuration.setAttribute("test1", (String) testTextField.getText());
+		Iterator<Map.Entry<String, Text>> strintIt = stringAttributes
+				.entrySet().iterator();
+		while (strintIt.hasNext()) {
+			Map.Entry<String, Text> tmpEntry = strintIt.next();
+			SoMoXUILogger.logInfo("Extraction Setting: " + tmpEntry.getKey());
+			configuration.setAttribute(tmpEntry.getKey(), tmpEntry.getValue()
+					.getText());
+		}
+		Iterator<Map.Entry<String, Button>> booleanIt = booleanAttributes
+				.entrySet().iterator();
+		while (booleanIt.hasNext()) {
+			Map.Entry<String, Button> tmpEntry = booleanIt.next();
+			SoMoXUILogger.logInfo("Extraction Setting: " + tmpEntry.getKey());
+			configuration.setAttribute(tmpEntry.getKey(), tmpEntry.getValue()
+					.getSelection());
+		}
 
+	}
+
+	private HashMap<String, Text> stringAttributes = new HashMap<String, Text>();
+	private HashMap<String, Button> booleanAttributes = new HashMap<String, Button>();
+	
+	// The configuration definitions
+	private HashMap<String, ConfigurationDefinition> getConfigurationDefinitions() {
+		HashMap<String, ConfigurationDefinition> configurationDefinitions = null;
+		if (configurationDefinitions == null) {
+			configurationDefinitions = new HashMap<String, ConfigurationDefinition>();
+			LinkedList<ConfigurationDefinition> configs = Activator.getDefault().getGuiSoMoXCoreController().getConfigurationDefinitions();
+			Iterator<ConfigurationDefinition> configIterator = configs.iterator();
+			while (configIterator.hasNext()) {
+				ConfigurationDefinition config = configIterator.next();
+				configurationDefinitions.put(config.getId(), config);
+			}
+		}
+		return configurationDefinitions;
 	}
 
 	/*
@@ -53,26 +90,47 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void createControl(Composite parent) {
 		final ModifyListener modifyListener = new ModifyListener() {
-
 			public void modifyText(ModifyEvent e) {
 				ModelExtractionInputTab.this.setDirty(true);
 				ModelExtractionInputTab.this.updateLaunchConfigurationDialog();
 			}
 		};
-
+		
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
+				
+		Group projectDirectoryTypeGroup = new Group(container, SWT.NONE);
+		GridLayout glProjectDirectoryTypeGroup = new GridLayout();
+		glProjectDirectoryTypeGroup.numColumns = 2;
+		projectDirectoryTypeGroup.setLayout(glProjectDirectoryTypeGroup);
+		projectDirectoryTypeGroup.setText("Project:");
+		projectDirectoryTypeGroup.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, true, false));
 
-		LinkedList<ConfigurationDefinition> configs = Activator.getDefault()
-				.getGuiSoMoXCoreController().getConfigurationDefinitions();
+		projectName = new Text(projectDirectoryTypeGroup,
+				SWT.SINGLE | SWT.BORDER);
+		final GridData gd_projectDirectory = new GridData(
+				SWT.FILL, SWT.CENTER, true, false);
+		gd_projectDirectory.widthHint = 200;
+		projectName.setLayoutData(gd_projectDirectory);
+		projectName.addModifyListener(modifyListener);
 
-		SoMoXUILogger.logInfo("Number of configs to be build: "
-				+ configs.size());
+		Button projectworkspaceButton = new Button(projectDirectoryTypeGroup,
+				SWT.NONE);
+		projectworkspaceButton.setText("Workspace...");
+		projectworkspaceButton
+		.addSelectionListener(new WorkspaceButtonSelectionListener(
+				projectName, true, true, true));
+		stringAttributes.put(SoMoXProjectPreferences.SOMOX_PROJECT_NAME, projectName);
 
-		Iterator<ConfigurationDefinition> configIterator = configs.iterator();
+		LinkedList<ConfigurationDefinition> configs = Activator.getDefault().getGuiSoMoXCoreController().getConfigurationDefinitions();
+		SoMoXUILogger.logInfo("Number of configs to be build: " + configs.size());
+		Set<String> configurationDefinitionKeys = getConfigurationDefinitions().keySet();
+		Iterator<String> configIterator = configurationDefinitionKeys.iterator();
 		while (configIterator.hasNext()) {
-			ConfigurationDefinition config = configIterator.next();
+			String key = configIterator.next();
+			ConfigurationDefinition config = getConfigurationDefinitions().get(key);
 
 			if (ConfigurationDefinition.Type.DIRECTORY.equals(config.getType())) {
 
@@ -97,7 +155,7 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 				workspaceButton.setText("Workspace...");
 				workspaceButton
 						.addSelectionListener(new WorkspaceButtonSelectionListener(
-								textDirectory));
+								textDirectory, true, false, false));
 
 				final Button buttonResourceTypeRepository = new Button(
 						directoryTypeGroup, SWT.NONE);
@@ -115,105 +173,127 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 							 */
 							public void widgetSelected(SelectionEvent e) {
 								String resultOpenFileDialog = "";
-								
-								DirectoryDialog dialog = new DirectoryDialog(getShell(), SWT.OPEN);
+
+								DirectoryDialog dialog = new DirectoryDialog(
+										getShell(), SWT.OPEN);
 								dialog.setText("Select a folder.");
-								
+
 								if (dialog.open() != null) {
-									resultOpenFileDialog = dialog.getFilterPath();	
-								}	
-								
-								if (!resultOpenFileDialog.equals(new String(""))) {
-									textDirectory.setText(resultOpenFileDialog);			
+									resultOpenFileDialog = dialog
+											.getFilterPath();
+								}
+
+								if (!resultOpenFileDialog
+										.equals(new String(""))) {
+									textDirectory.setText(resultOpenFileDialog);
 								}
 							}
 						});
+				textDirectory.setText(config.getDefaultValue());
+				stringAttributes.put(config.getId(), textDirectory);
 
 			} else if (ConfigurationDefinition.Type.STRING.equals(config
 					.getType())) {
-				
 				final Group stringTypeGroup = new Group(container, SWT.NONE);
-				final GridData gd_stringTypeGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+				final GridData gd_stringTypeGroup = new GridData(SWT.FILL,
+						SWT.CENTER, true, false);
 				stringTypeGroup.setLayoutData(gd_stringTypeGroup);
 				final GridLayout gridLayout = new GridLayout();
 				gridLayout.numColumns = 2;
 				stringTypeGroup.setLayout(gridLayout);
-				
+
 				final Label stringLabel = new Label(stringTypeGroup, SWT.NONE);
 				stringLabel.setText(config.getName());
 				final Text stringField = new Text(stringTypeGroup, SWT.BORDER);
-				stringField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-				
+				stringField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+						true, false));
+				stringField.addModifyListener(modifyListener);
+				stringField.setText(config.getDefaultValue());
+				stringAttributes.put(config.getId(), stringField);
+
 			} else if (ConfigurationDefinition.Type.BOOLEAN.equals(config
 					.getType())) {
-				
+
 				final Group booleanTypeGroup = new Group(container, SWT.NONE);
-				booleanTypeGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
+				booleanTypeGroup.setLayoutData(new GridData(SWT.FILL,
+						SWT.CENTER, false, false));
 				booleanTypeGroup.setLayout(new GridLayout());
-				final Button booleanButton = new Button(booleanTypeGroup, SWT.CHECK);
+				final Button booleanButton = new Button(booleanTypeGroup,
+						SWT.CHECK);
 				booleanButton.setText(config.getName());
-			}
-		}
-
-	}
-
-	/** Button SelectionListener - call a WorkspaceResourceDialog */
-	class WorkspaceButtonSelectionListener extends SelectionAdapter {
-
-		private Text field;
-
-		public WorkspaceButtonSelectionListener(Text field) {
-			this.field = field;
-
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see
-		 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse
-		 * .swt.events.SelectionEvent)
-		 */
-		@Override
-		public void widgetSelected(SelectionEvent e) {
-			String resultOpenFileDialog = "";
-			/** create the dialog message */
-			String msg = "Select a folder.";
-
-			IResource dir = null;
-			List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
-			IContainer[] dirs = WorkspaceResourceDialog.openFolderSelection(
-					getShell(), null, msg, false, null, filters);
-			try {
-				if (dirs.length != 0) {
-					dir = dirs[0];
+				if ((config.getDefaultValue() != null) && (config.getDefaultValue().equals("true"))) {
+					booleanButton.setEnabled(true);
 				}
-				if (dir != null) {
-					resultOpenFileDialog = dir.getLocation().toOSString();
-				}
-			} catch (Exception ce) {
-				ce.printStackTrace();
-			}
-			if (!resultOpenFileDialog.equals(new String(""))) {
-				field.setText(resultOpenFileDialog);
+				booleanAttributes.put(config.getId(), booleanButton);
 			}
 		}
 	}
+	
 
-	public void initializeFrom(ILaunchConfiguration config) {
-
-	}
-
-	/*public boolean isValid(ILaunchConfiguration launchConfig) {
-		setErrorMessage(null);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse
+	 * .debug.core.ILaunchConfiguration)
+	 */
+	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			Integer.parseInt(testTextField.getText().trim());
-		} catch (NumberFormatException nfe) {
-			setErrorMessage("testTextField is not an integer");
+			Map attributes = configuration.getAttributes();
+			Set<String> keys = attributes.keySet();
+			Iterator<String> it = keys.iterator();
+			while (it.hasNext()) {
+				String key = it.next();
+				if (stringAttributes.containsKey(key)) {
+					stringAttributes.get(key).setText(
+							attributes.get(key).toString());
+					continue;
+				}
+				if (booleanAttributes.containsKey(key)) {
+					//booleanAttributes.get(key).setEnabled(true);
+					continue;
+				}
+
+			}
+		} catch (CoreException e) {
+			SoMoXUILogger.logError(getName(), e);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	@Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);
+
+		if (projectName.getText().equals("")){
+			setErrorMessage("Project not specified");
 			return false;
 		}
+		File projectDir = new File( Platform.getInstanceLocation().getURL().getFile() + projectName.getText());
+		if (!projectDir.exists()){
+			setErrorMessage("Project " + projectName.getText() + " does not exist");
+			return false;
+		}
+		
+		// Check all dynamic configurations that are required
+		Set<String> keys = getConfigurationDefinitions().keySet();
+		Iterator<String> it = keys.iterator();
+		while (it.hasNext()) {
+			String key = it.next();
+			ConfigurationDefinition config = getConfigurationDefinitions().get(key);
+			if ((config.isRequired()) && ((config.getType().equals(ConfigurationDefinition.Type.DIRECTORY)) || (config.getType().equals(ConfigurationDefinition.Type.STRING)))) {
+				if (stringAttributes.get(key).getText().equals("")) {
+					setErrorMessage("Field " + config.getName() + " must not be empty");
+					return false;
+				}	
+			}
+			
+		}
+		
 		return true;
-	}*/
+	}
 
 	@Override
 	public String getName() {
@@ -222,8 +302,26 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		//configuration.setAttribute("test1", "200");
+		
+		// Set defaults for all dynamic configurations
+		Set<String> keys = getConfigurationDefinitions().keySet();
+		Iterator<String> it = keys.iterator();
+		while (it.hasNext()) {
+			String key = it.next();
+			ConfigurationDefinition config = getConfigurationDefinitions().get(key);
+			if ((config.getType().equals(ConfigurationDefinition.Type.DIRECTORY)) || (config.getType().equals(ConfigurationDefinition.Type.STRING))) {
+				configuration.setAttribute(config.getId(), config.getDefaultValue());
+			} else if (config.getType().equals(ConfigurationDefinition.Type.BOOLEAN)) {
+				configuration.setAttribute(config.getId(), config.getDefaultValue());
+			}
+			
+		}
 
+	}
+
+	@Override
+	public boolean canSave() {
+		return true;
 	}
 
 }

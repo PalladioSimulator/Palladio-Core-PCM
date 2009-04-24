@@ -21,14 +21,18 @@ public class StartAnalyzerEvent extends CoreControllerEvent {
 
 	/** The preferences connected to this events */
 	private Preferences preferences = null;
+	
+	/** The id of the analyzer which should be started */
+	private String analyzerID= null;
 
 	// ---------------------------------
 	// Constructor
 	// ---------------------------------
 
-	public StartAnalyzerEvent(IProgressMonitor progressMonitor, Preferences preferences) {
+	public StartAnalyzerEvent(String analyzerID, IProgressMonitor progressMonitor, Preferences preferences) {
 		super(progressMonitor);
 		this.setPreferences(preferences);
+		this.analyzerID = analyzerID;
 	}
 
 	// ---------------------------------
@@ -55,6 +59,10 @@ public class StartAnalyzerEvent extends CoreControllerEvent {
 	 */
 	public Preferences getPreferences() {
 		return preferences;
+	}
+	
+	public String getAnalyzerID() {
+		return analyzerID;
 	}
 
 }

@@ -39,7 +39,7 @@ public class SoMoXCoreListenerImpl implements SoMoXCoreControllerListener {
 	 * @param event The event object
 	 */
 	public void handle(StartAnalyzerEvent event) {
-		this.somoxCore.runAnalyzer(event.getProgressMonitor(),event.getPreferences());
+		this.somoxCore.runAnalyzer(event.getAnalyzerID(), event.getProgressMonitor(),event.getPreferences());
 	}
 
 	/**
