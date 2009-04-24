@@ -10,8 +10,19 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class NameResemblance implements Metric {
-	private int percentage = 80;
+
+	/**
+	 * The percentage is used to determine how much percent of 2 Strings 
+	 * need to be equal so that these Strings are treated to have a name resemblance 
+	 */
+	protected int percentage = 80;
 	
+	
+	/**
+	 * Setter-method for the percentage paramter
+	 * 
+	 * @param percentage a given percentage
+	 */
 	public void setPercentage (int percentage) {
 		if (percentage < 0 || percentage > 100) {
 			this.percentage = 100;
@@ -90,6 +101,18 @@ public class NameResemblance implements Metric {
 		return nameResemblance/totalSize;
 	}
 	
+	/**
+	 * Helper method to check if 2 Strings have a nameResemblance
+	 * 
+	 * 2 Strings have a resemblance if they both have a substring with 
+	 * length = (length of shorter String)/100*percentage
+	 * 
+	 * @param a first String
+	 * @param b second String
+	 * @param percentage the given percentage for a resemblance
+	 * @return <code>true</code> if the Strings have a resemblance
+	 * <code>false</code> else
+	 */
 	private static boolean checkResemblance (String a, String b, int percentage) {
 		boolean resemblance = false;
 		int lengthA = a.length();

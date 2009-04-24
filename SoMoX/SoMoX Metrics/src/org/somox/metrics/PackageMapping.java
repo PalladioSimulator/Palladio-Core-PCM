@@ -9,6 +9,7 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class PackageMapping implements Metric {
+
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		boolean samePackage = true;
 		String packageName = null;

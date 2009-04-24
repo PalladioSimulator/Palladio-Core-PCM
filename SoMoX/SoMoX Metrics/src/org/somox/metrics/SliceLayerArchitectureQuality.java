@@ -53,6 +53,13 @@ public class SliceLayerArchitectureQuality implements Metric {
 		}
 	}
 	
+	/**
+	 * Computes the longest prefix for the given elements
+	 * 
+	 * @param elements1 first list of elements
+	 * @param elements2 second list of elements
+	 * @return the last package in the package-hierarchy in which all elements are included
+	 */
 	private de.fzi.gast.core.Package computePrefix(List<ModelElement> elements1, List<ModelElement> elements2) {
 		String prefix = "";
 		boolean prefixFound = false;
