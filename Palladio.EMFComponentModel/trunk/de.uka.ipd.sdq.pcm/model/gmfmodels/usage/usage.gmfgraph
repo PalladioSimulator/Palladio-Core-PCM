@@ -16,17 +16,38 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="OpenWorkloadFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="yellow"/>
         <children
             xsi:type="gmfgraph:Label"
             name="OpenWorkloadStereotypeLabelFigure"
-            text="&lt;&lt;Open Workload>>"/>
+            text="&lt;&lt;Open Workload>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="OpenWorkloadSpecLabelFigure"
-            text="&lt;spec>"/>
+            text="&lt;spec>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="END"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
@@ -36,21 +57,59 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="ClosedWorkloadFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="yellow"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ClosedWorkloadTitleLabelFigure"
-            text="&lt;&lt;ClosedWorkload>>"/>
+            text="&lt;&lt;ClosedWorkload>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="ClosedWorkloadPopulationFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="ClosedWorkloadThinkTimeLabelFigure"
-            text=""/>
+            text="">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
@@ -64,13 +123,38 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="UsageLoopFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="UsageLoopStereotypeLabelFigure"
-            text="&lt;&lt;Loop>>"/>
+            text="&lt;&lt;Loop>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="UsageLoopIterationsLabelFigure"/>
+            name="UsageLoopIterationsLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
@@ -80,30 +164,97 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="UsageBranchFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="UsageBranchStereotypeLabelFigure"
-            text="&lt;&lt;Branch>>"/>
+            text="&lt;&lt;Branch>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="BranchCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SystemCallFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="SystemCallFigure">
+        <layout
+            xsi:type="gmfgraph:GridLayout">
+          <margins/>
+          <spacing/>
+        </layout>
         <children
             xsi:type="gmfgraph:Label"
             name="SystemCallStereotypeLabelFigure"
-            text="&lt;&lt;SystemCallAction>>"/>
+            text="&lt;&lt;SystemCallAction>>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="SystemCallNameLabelFigure"
-            text=""/>
+            text="">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                bottom="2"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="SystemCallCompartment"
+            outline="false"
+            fill="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
     </descriptors>
   </figures>
   <nodes
@@ -129,10 +280,12 @@
       figure="ScenarioBehaviourFigure"/>
   <compartments
       name="UsageBranchTransitionsCompartment"
-      figure="UsageBranchFigure"/>
+      figure="UsageBranchFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
   <compartments
       name="SystemCallVariableUsageCompartment"
-      figure="SystemCallFigure"/>
+      figure="SystemCallFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
   <labels
       name="ClosedWorkloadPopulation"
       figure="ClosedWorkloadFigure"
@@ -146,10 +299,6 @@
       name="UsageLoopIterationsLabel"
       figure="UsageLoopFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
-  <labels
-      name="UsageBranchStereotypeLabel"
-      figure="UsageBranchFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="ClosedWorkloadThinkTimeLabel"
       figure="ClosedWorkloadFigure"

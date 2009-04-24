@@ -3,24 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-
-import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EcoreFactory;
-
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
-import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
-
-import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated

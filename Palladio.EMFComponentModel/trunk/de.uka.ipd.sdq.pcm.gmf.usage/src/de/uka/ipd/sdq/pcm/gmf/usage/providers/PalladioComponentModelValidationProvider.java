@@ -3,66 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.providers;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
+import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
+import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.action.IAction;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.ValidateAction;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.eclipse.core.resources.IFile;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-
-import org.eclipse.emf.common.util.Diagnostic;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.util.Diagnostician;
-
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-
-import org.eclipse.emf.transaction.util.TransactionUtil;
-
-import org.eclipse.emf.validation.model.EvaluationMode;
-import org.eclipse.emf.validation.model.IConstraintStatus;
-
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ITraversalStrategy;
-import org.eclipse.emf.validation.service.ModelValidationService;
-
-import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
-
-import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
-
-import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
-
-import org.eclipse.gmf.runtime.diagram.ui.OffscreenEditPartFactory;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
-
-import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
-
-import org.eclipse.gmf.runtime.notation.View;
-
-import org.eclipse.jface.action.Action;
-import org.eclipse.jface.action.IAction;
-
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * @generated

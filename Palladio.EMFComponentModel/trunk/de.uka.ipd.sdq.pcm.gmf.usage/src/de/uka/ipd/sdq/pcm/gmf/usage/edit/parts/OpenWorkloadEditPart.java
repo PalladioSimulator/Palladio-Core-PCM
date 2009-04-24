@@ -4,8 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -19,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -229,6 +230,16 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public OpenWorkloadFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setBackgroundColor(ColorConstants.yellow);
 			createContents();
 		}
@@ -240,13 +251,34 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 
 			WrappingLabel openWorkloadStereotypeLabelFigure0 = new WrappingLabel();
 			openWorkloadStereotypeLabelFigure0.setText("<<Open Workload>>");
+			openWorkloadStereotypeLabelFigure0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(openWorkloadStereotypeLabelFigure0);
+			GridData constraintOpenWorkloadStereotypeLabelFigure0 = new GridData();
+			constraintOpenWorkloadStereotypeLabelFigure0.verticalAlignment = GridData.BEGINNING;
+			constraintOpenWorkloadStereotypeLabelFigure0.horizontalAlignment = GridData.CENTER;
+			constraintOpenWorkloadStereotypeLabelFigure0.horizontalIndent = 0;
+			constraintOpenWorkloadStereotypeLabelFigure0.horizontalSpan = 1;
+			constraintOpenWorkloadStereotypeLabelFigure0.verticalSpan = 1;
+			constraintOpenWorkloadStereotypeLabelFigure0.grabExcessHorizontalSpace = true;
+			constraintOpenWorkloadStereotypeLabelFigure0.grabExcessVerticalSpace = false;
+			this.add(openWorkloadStereotypeLabelFigure0,
+					constraintOpenWorkloadStereotypeLabelFigure0);
 
 			fFigureOpenWorkloadSpecLabelFigure = new WrappingLabel();
 			fFigureOpenWorkloadSpecLabelFigure.setText("<spec>");
 
-			this.add(fFigureOpenWorkloadSpecLabelFigure);
+			GridData constraintFFigureOpenWorkloadSpecLabelFigure = new GridData();
+			constraintFFigureOpenWorkloadSpecLabelFigure.verticalAlignment = GridData.END;
+			constraintFFigureOpenWorkloadSpecLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureOpenWorkloadSpecLabelFigure.horizontalIndent = 0;
+			constraintFFigureOpenWorkloadSpecLabelFigure.horizontalSpan = 1;
+			constraintFFigureOpenWorkloadSpecLabelFigure.verticalSpan = 1;
+			constraintFFigureOpenWorkloadSpecLabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureOpenWorkloadSpecLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureOpenWorkloadSpecLabelFigure,
+					constraintFFigureOpenWorkloadSpecLabelFigure);
 
 		}
 

@@ -164,12 +164,6 @@
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//usagemodel/Branch"/>
-          <labelMappings
-              xsi:type="gmfmap:DesignLabelMapping"
-              readOnly="true">
-            <diagramLabel
-                href="usage.gmfgraph#UsageBranchStereotypeLabel"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="usage.gmftool#//@palette/@tools.0/@tools.4"/>

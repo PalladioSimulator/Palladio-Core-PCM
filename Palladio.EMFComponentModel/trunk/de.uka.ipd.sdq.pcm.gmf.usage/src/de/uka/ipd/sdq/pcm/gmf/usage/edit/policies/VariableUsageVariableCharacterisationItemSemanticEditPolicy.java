@@ -3,15 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.VariableCharacterisationCreateCommand;
-
-import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.VariableCharacterisationCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
  * @generated

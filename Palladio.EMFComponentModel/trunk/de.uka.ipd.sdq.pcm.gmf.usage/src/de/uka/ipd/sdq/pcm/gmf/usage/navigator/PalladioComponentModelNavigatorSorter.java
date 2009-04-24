@@ -3,9 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.navigator;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-
 import org.eclipse.jface.viewers.ViewerSorter;
+
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated

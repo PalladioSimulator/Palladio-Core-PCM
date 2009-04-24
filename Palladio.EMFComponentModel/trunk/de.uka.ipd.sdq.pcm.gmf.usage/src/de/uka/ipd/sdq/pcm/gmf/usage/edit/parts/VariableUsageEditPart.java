@@ -4,8 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -22,7 +24,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -147,6 +148,15 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 					.getFigureVariableUsageReferenceLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof VariableUsageVariableCharacterisationEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureParametricParameterUsageRectangleCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((VariableUsageVariableCharacterisationEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -155,6 +165,15 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof VariableUsageVariableCharacterisationEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureParametricParameterUsageRectangleCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((VariableUsageVariableCharacterisationEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -183,6 +202,10 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof VariableUsageVariableCharacterisationEditPart) {
+			return getPrimaryShape()
+					.getFigureParametricParameterUsageRectangleCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -257,7 +280,22 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
+
+		/**
+		 * @generated
+		 */
 		public ParametricParameterUsageFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setBackgroundColor(ColorConstants.cyan);
 			createContents();
 		}
@@ -267,13 +305,43 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
+			fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
 			fFigureVariableUsageReferenceLabelFigure
 					.setText(new PCMStoExPrettyPrintVisitor()
 							.prettyPrint(((VariableUsage) resolveSemanticElement())
 									.getNamedReference_VariableUsage()));
+			fFigureVariableUsageReferenceLabelFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0)));
 
-			this.add(fFigureVariableUsageReferenceLabelFigure);
+			GridData constraintFFigureVariableUsageReferenceLabelFigure = new GridData();
+			constraintFFigureVariableUsageReferenceLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureVariableUsageReferenceLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureVariableUsageReferenceLabelFigure.horizontalIndent = 0;
+			constraintFFigureVariableUsageReferenceLabelFigure.horizontalSpan = 1;
+			constraintFFigureVariableUsageReferenceLabelFigure.verticalSpan = 1;
+			constraintFFigureVariableUsageReferenceLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureVariableUsageReferenceLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureVariableUsageReferenceLabelFigure,
+					constraintFFigureVariableUsageReferenceLabelFigure);
+
+			fFigureParametricParameterUsageRectangleCompartment = new RectangleFigure();
+			fFigureParametricParameterUsageRectangleCompartment.setFill(false);
+			fFigureParametricParameterUsageRectangleCompartment
+					.setOutline(false);
+
+			GridData constraintFFigureParametricParameterUsageRectangleCompartment = new GridData();
+			constraintFFigureParametricParameterUsageRectangleCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalIndent = 0;
+			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalSpan = 1;
+			constraintFFigureParametricParameterUsageRectangleCompartment.verticalSpan = 1;
+			constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessVerticalSpace = true;
+			this
+					.add(fFigureParametricParameterUsageRectangleCompartment,
+							constraintFFigureParametricParameterUsageRectangleCompartment);
 
 		}
 
@@ -282,6 +350,13 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
 			return fFigureVariableUsageReferenceLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
+			return fFigureParametricParameterUsageRectangleCompartment;
 		}
 
 		/**

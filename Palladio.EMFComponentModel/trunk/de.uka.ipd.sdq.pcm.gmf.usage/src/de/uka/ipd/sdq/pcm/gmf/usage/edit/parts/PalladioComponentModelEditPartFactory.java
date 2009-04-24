@@ -11,7 +11,6 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
 import org.eclipse.gef.tools.CellEditorLocator;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
@@ -89,9 +88,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case BranchEditPart.VISUAL_ID:
 				return new BranchEditPart(view);
-
-			case UsageBranchStereotypeLabelEditPart.VISUAL_ID:
-				return new UsageBranchStereotypeLabelEditPart(view);
 
 			case BranchTransitionEditPart.VISUAL_ID:
 				return new BranchTransitionEditPart(view);

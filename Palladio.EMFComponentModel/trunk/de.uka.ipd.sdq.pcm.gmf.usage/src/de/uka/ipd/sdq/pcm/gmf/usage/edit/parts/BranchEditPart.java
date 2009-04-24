@@ -3,8 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -17,19 +20,14 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -115,10 +113,12 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof UsageBranchStereotypeLabelEditPart) {
-			((UsageBranchStereotypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureUsageBranchStereotypeLabelFigure());
+		if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getFigureBranchCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -129,6 +129,14 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getFigureBranchCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -157,6 +165,9 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+			return getPrimaryShape().getFigureBranchCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -214,14 +225,6 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(UsageBranchStereotypeLabelEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
 	public class UsageBranchFigure extends RoundedRectangle {
 		/**
 		 * @generated
@@ -231,7 +234,22 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureBranchCompartment;
+
+		/**
+		 * @generated
+		 */
 		public UsageBranchFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -244,8 +262,35 @@ public class BranchEditPart extends ShapeNodeEditPart {
 
 			fFigureUsageBranchStereotypeLabelFigure = new WrappingLabel();
 			fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
+			fFigureUsageBranchStereotypeLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureUsageBranchStereotypeLabelFigure);
+			GridData constraintFFigureUsageBranchStereotypeLabelFigure = new GridData();
+			constraintFFigureUsageBranchStereotypeLabelFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalIndent = 0;
+			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalSpan = 1;
+			constraintFFigureUsageBranchStereotypeLabelFigure.verticalSpan = 1;
+			constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureUsageBranchStereotypeLabelFigure,
+					constraintFFigureUsageBranchStereotypeLabelFigure);
+
+			fFigureBranchCompartment = new RectangleFigure();
+			fFigureBranchCompartment.setFill(false);
+			fFigureBranchCompartment.setOutline(false);
+
+			GridData constraintFFigureBranchCompartment = new GridData();
+			constraintFFigureBranchCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureBranchCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureBranchCompartment.horizontalIndent = 0;
+			constraintFFigureBranchCompartment.horizontalSpan = 1;
+			constraintFFigureBranchCompartment.verticalSpan = 1;
+			constraintFFigureBranchCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureBranchCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureBranchCompartment,
+					constraintFFigureBranchCompartment);
 
 		}
 
@@ -254,6 +299,13 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureUsageBranchStereotypeLabelFigure() {
 			return fFigureUsageBranchStereotypeLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureBranchCompartment() {
+			return fFigureBranchCompartment;
 		}
 
 		/**

@@ -3,8 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -22,7 +25,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -146,6 +148,14 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 							.getFigureSystemCallNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof EntryLevelSystemCallParameterUsageEditPart) {
+			IFigure pane = getPrimaryShape().getFigureSystemCallCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.add(((EntryLevelSystemCallParameterUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -154,6 +164,14 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof EntryLevelSystemCallParameterUsageEditPart) {
+			IFigure pane = getPrimaryShape().getFigureSystemCallCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane
+					.remove(((EntryLevelSystemCallParameterUsageEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -182,6 +200,9 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
+		if (editPart instanceof EntryLevelSystemCallParameterUsageEditPart) {
+			return getPrimaryShape().getFigureSystemCallCompartment();
+		}
 		return super.getContentPaneFor(editPart);
 	}
 
@@ -256,7 +277,22 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureSystemCallCompartment;
+
+		/**
+		 * @generated
+		 */
 		public SystemCallFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -269,13 +305,52 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 
 			WrappingLabel systemCallStereotypeLabelFigure0 = new WrappingLabel();
 			systemCallStereotypeLabelFigure0.setText("<<SystemCallAction>>");
+			systemCallStereotypeLabelFigure0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(systemCallStereotypeLabelFigure0);
+			GridData constraintSystemCallStereotypeLabelFigure0 = new GridData();
+			constraintSystemCallStereotypeLabelFigure0.verticalAlignment = GridData.CENTER;
+			constraintSystemCallStereotypeLabelFigure0.horizontalAlignment = GridData.CENTER;
+			constraintSystemCallStereotypeLabelFigure0.horizontalIndent = 0;
+			constraintSystemCallStereotypeLabelFigure0.horizontalSpan = 1;
+			constraintSystemCallStereotypeLabelFigure0.verticalSpan = 1;
+			constraintSystemCallStereotypeLabelFigure0.grabExcessHorizontalSpace = false;
+			constraintSystemCallStereotypeLabelFigure0.grabExcessVerticalSpace = false;
+			this.add(systemCallStereotypeLabelFigure0,
+					constraintSystemCallStereotypeLabelFigure0);
 
 			fFigureSystemCallNameLabelFigure = new WrappingLabel();
 			fFigureSystemCallNameLabelFigure.setText("");
+			fFigureSystemCallNameLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureSystemCallNameLabelFigure);
+			GridData constraintFFigureSystemCallNameLabelFigure = new GridData();
+			constraintFFigureSystemCallNameLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureSystemCallNameLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureSystemCallNameLabelFigure.horizontalIndent = 0;
+			constraintFFigureSystemCallNameLabelFigure.horizontalSpan = 1;
+			constraintFFigureSystemCallNameLabelFigure.verticalSpan = 1;
+			constraintFFigureSystemCallNameLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureSystemCallNameLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureSystemCallNameLabelFigure,
+					constraintFFigureSystemCallNameLabelFigure);
+
+			fFigureSystemCallCompartment = new RectangleFigure();
+			fFigureSystemCallCompartment.setFill(false);
+			fFigureSystemCallCompartment.setOutline(false);
+
+			GridData constraintFFigureSystemCallCompartment = new GridData();
+			constraintFFigureSystemCallCompartment.verticalAlignment = GridData.FILL;
+			constraintFFigureSystemCallCompartment.horizontalAlignment = GridData.FILL;
+			constraintFFigureSystemCallCompartment.horizontalIndent = 0;
+			constraintFFigureSystemCallCompartment.horizontalSpan = 1;
+			constraintFFigureSystemCallCompartment.verticalSpan = 1;
+			constraintFFigureSystemCallCompartment.grabExcessHorizontalSpace = true;
+			constraintFFigureSystemCallCompartment.grabExcessVerticalSpace = true;
+			this.add(fFigureSystemCallCompartment,
+					constraintFFigureSystemCallCompartment);
 
 		}
 
@@ -284,6 +359,13 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureSystemCallNameLabelFigure() {
 			return fFigureSystemCallNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureSystemCallCompartment() {
+			return fFigureSystemCallCompartment;
 		}
 
 		/**

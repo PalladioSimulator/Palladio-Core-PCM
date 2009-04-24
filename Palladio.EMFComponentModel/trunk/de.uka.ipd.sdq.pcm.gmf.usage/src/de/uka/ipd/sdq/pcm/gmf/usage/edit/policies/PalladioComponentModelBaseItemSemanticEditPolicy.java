@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.usage.edit.policies;
 
 import java.util.Collections;
 import java.util.Iterator;
-import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
@@ -45,7 +45,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 
 /**
  * @generated

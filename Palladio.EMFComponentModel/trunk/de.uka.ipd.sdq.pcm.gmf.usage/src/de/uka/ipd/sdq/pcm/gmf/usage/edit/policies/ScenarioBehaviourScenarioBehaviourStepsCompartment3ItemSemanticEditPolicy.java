@@ -3,19 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.policies;
 
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.BranchCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.EntryLevelSystemCallCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.LoopCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.StartCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.StopCreateCommand;
-
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 /**
  * @generated

@@ -5,23 +5,19 @@ package de.uka.ipd.sdq.pcm.gmf.usage.edit.policies;
 
 import java.util.Collection;
 import java.util.HashSet;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramUpdater;
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelNodeDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
-import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramUpdater;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelNodeDescriptor;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
  * @generated

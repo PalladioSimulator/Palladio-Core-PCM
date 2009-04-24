@@ -4,8 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -19,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -249,6 +250,16 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ClosedWorkloadFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setBackgroundColor(ColorConstants.yellow);
 			createContents();
 		}
@@ -260,18 +271,55 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 
 			fFigureClosedWorkloadTitleLabelFigure = new WrappingLabel();
 			fFigureClosedWorkloadTitleLabelFigure.setText("<<ClosedWorkload>>");
+			fFigureClosedWorkloadTitleLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureClosedWorkloadTitleLabelFigure);
+			GridData constraintFFigureClosedWorkloadTitleLabelFigure = new GridData();
+			constraintFFigureClosedWorkloadTitleLabelFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureClosedWorkloadTitleLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureClosedWorkloadTitleLabelFigure.horizontalIndent = 0;
+			constraintFFigureClosedWorkloadTitleLabelFigure.horizontalSpan = 1;
+			constraintFFigureClosedWorkloadTitleLabelFigure.verticalSpan = 1;
+			constraintFFigureClosedWorkloadTitleLabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureClosedWorkloadTitleLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureClosedWorkloadTitleLabelFigure,
+					constraintFFigureClosedWorkloadTitleLabelFigure);
 
 			fFigureClosedWorkloadPopulationFigure = new WrappingLabel();
 			fFigureClosedWorkloadPopulationFigure.setText("<...>");
+			fFigureClosedWorkloadPopulationFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureClosedWorkloadPopulationFigure);
+			GridData constraintFFigureClosedWorkloadPopulationFigure = new GridData();
+			constraintFFigureClosedWorkloadPopulationFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureClosedWorkloadPopulationFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureClosedWorkloadPopulationFigure.horizontalIndent = 0;
+			constraintFFigureClosedWorkloadPopulationFigure.horizontalSpan = 1;
+			constraintFFigureClosedWorkloadPopulationFigure.verticalSpan = 1;
+			constraintFFigureClosedWorkloadPopulationFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureClosedWorkloadPopulationFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureClosedWorkloadPopulationFigure,
+					constraintFFigureClosedWorkloadPopulationFigure);
 
 			fFigureClosedWorkloadThinkTimeLabelFigure = new WrappingLabel();
 			fFigureClosedWorkloadThinkTimeLabelFigure.setText("");
+			fFigureClosedWorkloadThinkTimeLabelFigure
+					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
+							getMapMode().DPtoLP(0)));
 
-			this.add(fFigureClosedWorkloadThinkTimeLabelFigure);
+			GridData constraintFFigureClosedWorkloadThinkTimeLabelFigure = new GridData();
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.horizontalIndent = 0;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.horizontalSpan = 1;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.verticalSpan = 1;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureClosedWorkloadThinkTimeLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureClosedWorkloadThinkTimeLabelFigure,
+					constraintFFigureClosedWorkloadThinkTimeLabelFigure);
 
 		}
 

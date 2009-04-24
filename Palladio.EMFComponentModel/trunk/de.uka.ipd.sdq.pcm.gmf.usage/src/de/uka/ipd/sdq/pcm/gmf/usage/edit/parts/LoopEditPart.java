@@ -3,8 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -21,11 +23,11 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.LoopCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.LoopItemSemanticEditPolicy;
@@ -238,6 +240,16 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public UsageLoopFigure() {
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginWidth = 0;
+			layoutThis.marginHeight = 0;
+			this.setLayoutManager(layoutThis);
+
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			createContents();
@@ -250,13 +262,37 @@ public class LoopEditPart extends ShapeNodeEditPart {
 
 			WrappingLabel usageLoopStereotypeLabelFigure0 = new WrappingLabel();
 			usageLoopStereotypeLabelFigure0.setText("<<Loop>>");
+			usageLoopStereotypeLabelFigure0.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(usageLoopStereotypeLabelFigure0);
+			GridData constraintUsageLoopStereotypeLabelFigure0 = new GridData();
+			constraintUsageLoopStereotypeLabelFigure0.verticalAlignment = GridData.BEGINNING;
+			constraintUsageLoopStereotypeLabelFigure0.horizontalAlignment = GridData.CENTER;
+			constraintUsageLoopStereotypeLabelFigure0.horizontalIndent = 0;
+			constraintUsageLoopStereotypeLabelFigure0.horizontalSpan = 1;
+			constraintUsageLoopStereotypeLabelFigure0.verticalSpan = 1;
+			constraintUsageLoopStereotypeLabelFigure0.grabExcessHorizontalSpace = true;
+			constraintUsageLoopStereotypeLabelFigure0.grabExcessVerticalSpace = false;
+			this.add(usageLoopStereotypeLabelFigure0,
+					constraintUsageLoopStereotypeLabelFigure0);
 
 			fFigureUsageLoopIterationsLabelFigure = new WrappingLabel();
 			fFigureUsageLoopIterationsLabelFigure.setText("");
+			fFigureUsageLoopIterationsLabelFigure.setBorder(new MarginBorder(
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			this.add(fFigureUsageLoopIterationsLabelFigure);
+			GridData constraintFFigureUsageLoopIterationsLabelFigure = new GridData();
+			constraintFFigureUsageLoopIterationsLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureUsageLoopIterationsLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureUsageLoopIterationsLabelFigure.horizontalIndent = 0;
+			constraintFFigureUsageLoopIterationsLabelFigure.horizontalSpan = 1;
+			constraintFFigureUsageLoopIterationsLabelFigure.verticalSpan = 1;
+			constraintFFigureUsageLoopIterationsLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureUsageLoopIterationsLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureUsageLoopIterationsLabelFigure,
+					constraintFFigureUsageLoopIterationsLabelFigure);
 
 		}
 
@@ -284,6 +320,23 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		@Override
+		public void add(IFigure figure, Object constraint, int index) {
+			Object newConstraint = constraint;
+			if (newConstraint == null) {
+				GridData layout = new GridData();
+				layout.grabExcessHorizontalSpace = true;
+				layout.grabExcessVerticalSpace = true;
+				layout.horizontalAlignment = SWT.FILL;
+				layout.verticalAlignment = SWT.FILL;
+				layout.horizontalSpan = 1;
+				layout.verticalSpan = 1;
+
+				newConstraint = layout;
+			}
+			super.add(figure, newConstraint, index);
 		}
 
 	}

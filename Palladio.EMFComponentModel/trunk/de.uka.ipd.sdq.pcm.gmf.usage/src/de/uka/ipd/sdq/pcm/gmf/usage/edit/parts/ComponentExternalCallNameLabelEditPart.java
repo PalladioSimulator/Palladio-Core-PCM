@@ -35,12 +35,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -218,7 +215,7 @@ public class ComponentExternalCallNameLabelEditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = null;
 		EntryLevelSystemCall call = (EntryLevelSystemCall) resolveSemanticElement();
-		if (call.getProvidedRole_EntryLevelSystemCall() != null
+		if (call != null && call.getProvidedRole_EntryLevelSystemCall() != null
 				&& call.getSignature_EntryLevelSystemCall() != null) {
 			text = call.getProvidedRole_EntryLevelSystemCall()
 					.getProvidedInterface__ProvidedRole().getEntityName()

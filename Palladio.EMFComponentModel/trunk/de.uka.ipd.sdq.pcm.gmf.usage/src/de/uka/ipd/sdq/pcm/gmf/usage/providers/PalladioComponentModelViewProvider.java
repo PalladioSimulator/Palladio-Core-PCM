@@ -4,13 +4,12 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionEditPart;
+import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionSuccessorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
@@ -29,27 +28,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StartEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StopEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageBranchStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.AbstractUserActionSuccessorViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.AbstractUserActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchTransitionBranchProbabilityViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchUsageBranchTransitionsCompartmentViewFactory;
@@ -66,23 +57,17 @@ import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.OpenWorkloadSpecLabelViewFact
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.OpenWorkloadViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviour3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourId2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourId3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourIdViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourScenarioBehaviourStepsCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourScenarioBehaviourStepsCompartment3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourScenarioBehaviourStepsCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviourViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.StartViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.StopViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.UsageBranchStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.UsageLoopIterationsLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.UsageScenarioViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableCharacterisationViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageReferenceLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageVariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.WrapLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.WrappingLabelViewFactory;
 
 /**
@@ -231,7 +216,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case UsageBranchStereotypeLabelEditPart.VISUAL_ID:
 				case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
 					if (BranchEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -307,8 +291,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ScenarioBehaviour2ViewFactory.class;
 		case BranchEditPart.VISUAL_ID:
 			return BranchViewFactory.class;
-		case UsageBranchStereotypeLabelEditPart.VISUAL_ID:
-			return UsageBranchStereotypeLabelViewFactory.class;
 		case BranchTransitionEditPart.VISUAL_ID:
 			return BranchTransitionViewFactory.class;
 		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
