@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import org.somox.metrics.InterfaceViolation;
 import org.somox.metrics.NameResemblance;
 import org.somox.metrics.PackageMapping;
 import org.somox.metrics.SliceLayerArchitectureQuality;
+import org.somox.metrics.SubsystemComponent;
 
 import de.fzi.gast.accesses.provider.accessesItemProviderAdapterFactory;
 import de.fzi.gast.annotations.provider.annotationsItemProviderAdapterFactory;
@@ -40,6 +42,16 @@ import de.fzi.gast.types.GASTClass;
 import de.fzi.gast.types.provider.typesItemProviderAdapterFactory;
 import de.fzi.gast.variables.provider.variablesItemProviderAdapterFactory;
 
+/**
+ * @author Grischa Liebel
+ * 
+ * Tests all 9 Metrics from the org.somox.metrics package
+ * 
+ * Currently there are no assertions made in the Tests,
+ * because it is not yet possible to determine which results would be correct
+ * There are only some prints on the console screen which help to identify the results and possible errors
+ *
+ */
 public class Tests {
 	
 	private Abstractness abs;
@@ -50,6 +62,7 @@ public class Tests {
 	private NameResemblance nameRes;
 	private PackageMapping pMap;
 	private SliceLayerArchitectureQuality slaq;
+	private SubsystemComponent sC;
 
 	private static AdapterFactoryEditingDomain editingDomain;
 
@@ -62,6 +75,11 @@ public class Tests {
 	private static List<ModelElement> elements2;
 	
 
+	/**
+	 * Basic initialization of the model, resource and editingDomain
+	 * 
+	 * @throws Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		initializeEditingDomain();
@@ -78,6 +96,14 @@ public class Tests {
 		assertTrue("List2 contains elements", elements2.size()>0);
 	}
 	
+	/**
+	 * Test of the abstractness metric
+	 * 
+	 * Computes the abstractness metric with and without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void abstractnessTest () throws Exception {
 		abs = new Abstractness();
@@ -103,9 +129,23 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the coupling metric
+	 * 
+	 * Computes the coupling metric without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * Please be aware that a blacklist needs to be set for this metric to work correct
+	 * (currently the java.* Package is blacklisted)
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void couplingTest () throws Exception {
 		cou = new Coupling();
+		
+		HashSet<String> blacklist = new HashSet<String>();
+		blacklist.add("java.*");
+		cou.setBlacklist(blacklist);
 
 		long time1First = System.nanoTime();
 		double coupling = cou.compute(root, elements1, elements2);
@@ -119,9 +159,23 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the instability metric
+	 * 
+	 * Computes the instability metric without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * Please be aware that a blacklist needs to be set for this metric to work correct
+	 * (currently the java.* Package is blacklisted)
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void instabilityTest () throws Exception {
 		ins = new Instability();
+		
+		HashSet<String> blacklist = new HashSet<String>();
+		blacklist.add("java.*");
+		ins.setBlacklist(blacklist);
 
 		long time1First = System.nanoTime();
 		double instability = ins.compute(root, elements1, elements2);
@@ -135,6 +189,14 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the interface violation metric
+	 * 
+	 * Computes the interface violation metric with and without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void ifaceViolationTest () throws Exception {
 		iViol = new InterfaceViolation();
@@ -151,6 +213,14 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the slaq metric
+	 * 
+	 * Computes the slaq metric with and without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void SLAQTest () throws Exception {
 		slaq = new SliceLayerArchitectureQuality();
@@ -167,11 +237,58 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the subsystemComponent metric
+	 * 
+	 * Computes the subsystemComponent metric without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * Please be aware that a blacklist needs to be set for this metric to work correct
+	 * (currently the java.* Package is blacklisted)
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void SubsystemComponentTest () throws Exception {
+		sC = new SubsystemComponent();
+		
+		HashSet<String> blacklist = new HashSet<String>();
+		blacklist.add("java.*");
+		sC.setBlacklist(blacklist);
+
+		long time1First = System.nanoTime();		
+		double subsystemComponent = sC.compute(root, elements1, elements2);
+		long time1total = System.nanoTime()-time1First;
+		
+		System.out.println("Subsystem Component");
+		System.out.println("Calculated without EMF-Query: " + subsystemComponent + " (took: " + time1total + " ns)");
+		
+		//needs to be changed for different models / different lists
+		//assertTrue("Subsystem Component result correct", subsystemComponent == 0.5);
+		System.out.println("");
+	}
+	
+	/**
+	 * Test of the DMS metric
+	 * 
+	 * Computes the DMS metric without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * Please be aware that a blacklist needs to be set for the Instability-metric used in the DMS
+	 * (currently the java.* Package is blacklisted)
+	 * Also, the DMS metric has a setter for the Instability and Abstractness, so that the blacklist
+	 * in "Instability" can be used. Without using the Setter, an empty blacklist will be used in the DMS
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void dmsTest () throws Exception {
-		abs = new Abstractness();
 		ins = new Instability();
 		dms = new DMS();
+		
+		HashSet<String> blacklist = new HashSet<String>();
+		blacklist.add("java.*");
+		ins.setBlacklist(blacklist);
+		
+		dms.setInstability(ins);
 
 		long time1First = System.nanoTime();
 		double distanceFMS = dms.compute(root, elements1, elements2);
@@ -185,6 +302,16 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the NameResemblance metric
+	 * 
+	 * Computes the NameResemblance metric with and without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * Be aware that the metric has a setter for the percentage. The percentage is used to determine
+	 * how much percent of 2 Strings need to be equal so that these Strings are treated to have a name resemblance 
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void nameResemblanceTest () throws Exception {
 		nameRes = new NameResemblance();
@@ -202,6 +329,14 @@ public class Tests {
 		System.out.println("");
 	}
 	
+	/**
+	 * Test of the packageMapping metric
+	 * 
+	 * Computes the packageMapping metric with and without EMF-Query and prints the results to the Screen,
+	 * including the accurate time of the calculations
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void packageMappingTest () throws Exception {
 		pMap = new PackageMapping();
