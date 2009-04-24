@@ -16,6 +16,7 @@ import de.fzi.gast.types.GASTClass;
 import de.fzi.gast.types.typesPackage;
 
 public class Abstractness implements Metric {
+
 	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double abstractness = 0.0;
