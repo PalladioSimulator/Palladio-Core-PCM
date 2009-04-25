@@ -11,8 +11,12 @@ import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
+import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
+import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
@@ -66,7 +70,10 @@ public class DSEProblem {
 		determineProcessingRateDecisions();
 		
 		//find equivalent components
-		determineAssembledComponentsDecisions();
+		//determineAssembledComponentsDecisions();
+		
+		determineAllocationDecisions();
+		
 		
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
@@ -87,6 +94,28 @@ public class DSEProblem {
 	}
 
 
+	private void determineAllocationDecisions() {
+		List<AllocationContext> acs = this.initialInstance.getAllocation().getAllocationContexts_Allocation();
+		List<ResourceContainer> rcs = this.initialInstance.getResourceenvironment().getResourceContainer_ResourceEnvironment();
+		
+		
+		
+		//each allocation context could be allocated on each container.
+		for (AllocationContext ac : acs) {
+			AllocationDecision ad = this.designDecisionFactory.createAllocationDecision();
+			ad.setAllocationcontext(ac);
+			AvailableServers servers = this.designDecisionFactory.createAvailableServers();
+			servers.getResourcecontainer().addAll(rcs);
+			ad.setDomain(servers);
+			this.pcmProblem.getDesigndecision().add(ad);
+			this.initialGenotype.add(new Double(servers.getResourcecontainer().indexOf(ac.getResourceContainer_AllocationContext())));
+		}
+		
+		
+		
+	}
+
+
 	/**
 	 * Be sure to add one design decision and one gene in the initial genotype at once. The index is important.
 	 * @param genotypeIndex
@@ -103,7 +132,7 @@ public class DSEProblem {
 			//determine where the original component is in the map
 			boolean foundInitialRepoComponent = false;
 			for (RepositoryComponent repositoryComponent : ec) {
-				if (AlternativeComponent.checkIdentity(repositoryComponent, currentlyAssembledComponent)){
+				if (EMFHelper.checkIdentity(repositoryComponent, currentlyAssembledComponent)){
 					this.initialGenotype.add(new Double(ec.indexOf(repositoryComponent)));
 					foundInitialRepoComponent = true;
 					break;
@@ -127,11 +156,11 @@ public class DSEProblem {
 			for (ProcessingResourceSpecification resource : resources) {
 				ProcessingRateDecision decision = this.designDecisionFactory.createProcessingRateDecision();
 				DoubleRange range = this.designDecisionFactory.createDoubleRange();
-				range.setFrom(0);
 				range.setLowerBoundIncluded(false);
 				double currentRate = CostUtil.getDoubleFromSpecification(resource.getProcessingRate_ProcessingResourceSpecification().getSpecification());
 				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
-				range.setTo(currentRate * 10.0);
+				range.setTo(currentRate * 2.0);
+				range.setFrom(currentRate * 0.5);
 				decision.setDomain(range);
 				decision.setProcessingresourcespecification(resource);
 				this.pcmProblem.getDesigndecision().add(decision);

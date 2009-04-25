@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
@@ -72,10 +73,10 @@ public class AlternativeComponent  {
 			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
 					s, r);
 			logger.debug("I found " + assemblyContextToBasicComponentMap.size()
-					+ " AssemblyContexts in the system");
+					+ " AssemblyContexts with basic components in the system");
 
 			alternativeMap = findAlternatives(repoComponents,
-					assemblyContextToBasicComponentMap);
+					assemblyContextToBasicComponentMap, s);
 			logger.debug("I have a mapping for " + alternativeMap.size()
 					+ " AssemblyContexts with the following alternatives:");
 			
@@ -258,19 +259,22 @@ public class AlternativeComponent  {
 	 * changed assembly so that they point to the new required and provided roles.
 	 * 
 	 * If an alternative does not require a required interface of the original 
-	 * anymore, delete the AssemblyConnector.   
+	 * anymore, delete the AssemblyConnector.  
+	 * 
+	 *  TODO: Does not work with the initially assembled component. 
 	 *   
 	 * @param changedAssemblyContext
+	 * @param currentComponent 
 	 * @param providedAndRequiredRoleMapping 
 	 */
-	public void fixReferencesToAssemblyContext(System system, AssemblyContext changedAssemblyContext, RepositoryComponent rc) {
+	public void fixReferencesToAssemblyContext(System system, AssemblyContext changedAssemblyContext, RepositoryComponent newComponent, RepositoryComponent currentComponent) {
 		
 		//call AlternativeComponent.generateDesigndecisions first to initialize.
 		if (this.alternativeMap == null){
 			throw new RuntimeException("The AlternativeComponent operator has not properly been initialized. Check previous Exceptions or contact the developers.");
 		}
 		
-		ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(rc);
+		ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
 		
 		EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
 		
@@ -279,12 +283,12 @@ public class AlternativeComponent  {
 		
 		for (AssemblyConnector assemblyConnector : acons) {
 			//check provided
-			if ((checkIdentity(assemblyConnector.getProvidingAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
+			if ((EMFHelper.checkIdentity(assemblyConnector.getProvidingAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
 				assemblyConnector.setProvidedRole_AssemblyConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(assemblyConnector.getProvidedRole_AssemblyConnector()));
 			}
 			
 			//check required. Delete assembly connector if required role is not needed anymore.
-			if ((checkIdentity(assemblyConnector.getRequiringAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
+			if ((EMFHelper.checkIdentity(assemblyConnector.getRequiringAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
 				RequiredRole rRole = providedAndRequiredRoleMapping.getRequiredMapping().get(assemblyConnector.getRequiredRole_AssemblyConnector());
 				if (rRole != null){
 					assemblyConnector.setRequiredRole_AssemblyConnector(rRole);
@@ -307,7 +311,8 @@ public class AlternativeComponent  {
 		//check provided delegation connectors
 		EList<ProvidedDelegationConnector> pdecons = system.getProvidedDelegationConnectors_ComposedStructure();
 		for (ProvidedDelegationConnector pdecon : pdecons) {
-			if (checkIdentity(pdecon.getAssemblyContext_ProvidedDelegationConnector(), changedAssemblyContext)){
+			if (EMFHelper.checkIdentity(pdecon.getAssemblyContext_ProvidedDelegationConnector(), changedAssemblyContext)){
+				//sets to null in the second iteration.  
 				pdecon.setInnerProvidedRole_ProvidedDelegationConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(pdecon.getInnerProvidedRole_ProvidedDelegationConnector()));
 			}
 		}
@@ -319,7 +324,7 @@ public class AlternativeComponent  {
 		List<RequiredDelegationConnector> rdeconsToDelete = null;
 		
 		for (RequiredDelegationConnector rdecon : rdecons) {
-			if (checkIdentity(rdecon.getAssemblyContext_RequiredDelegationConnector(), changedAssemblyContext)){
+			if (EMFHelper.checkIdentity(rdecon.getAssemblyContext_RequiredDelegationConnector(), changedAssemblyContext)){
 				RequiredRole reqRole = providedAndRequiredRoleMapping.getRequiredMapping().get(rdecon.getInnerRequiredRole_RequiredDelegationConnector());
 				if (reqRole != null){
 					rdecon.setInnerRequiredRole_RequiredDelegationConnector(reqRole);
@@ -384,7 +389,7 @@ public class AlternativeComponent  {
 
 	private Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> findAlternatives(
 			List<BasicComponent> repoComponents,
-			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap) {
+			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap, System s) {
 		//logger.debug("findAlternatives(..) called");
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
@@ -393,7 +398,7 @@ public class AlternativeComponent  {
 
 		for (AssemblyContext assemblyContext : assemblyContextToBasicComponentMap
 				.keySet()) {
-			Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = getAlternatives(assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents);
+			Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
 			if (map.size() > 0) {
 				alternativeMap.put(assemblyContext, map);
 			}
@@ -404,17 +409,22 @@ public class AlternativeComponent  {
 
 	/**
 	 * Finds alternatives for a specific assembled component.
+	 * @param assemblyContext 
 	 * @param assembledComponent
 	 * @param repoComponents
+	 * @param s 
 	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
 	 */
 	private Map<BasicComponent, ProvidedAndRequiredRoleMapping> getAlternatives(
-			BasicComponent assembledComponent,
-			List<BasicComponent> repoComponents) {
+			AssemblyContext assemblyContext, BasicComponent assembledComponent,
+			List<BasicComponent> repoComponents, System s) {
 		//logger.debug("getAlternatives(..) called");
 		Map<BasicComponent, ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
 		for (BasicComponent repoComponent : repoComponents) {
-			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assembledComponent, repoComponent);
+			//if compatible, this returns not null
+			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
+			
+			
 			if (p != null) {
 				map.put(repoComponent,p);
 				logger.debug("Found an alternative: "
@@ -441,15 +451,17 @@ public class AlternativeComponent  {
 	 * Current notion of compatible: allows the alternative to provide more and
 	 * require less. TODO: Allow super interfaces and sub interfaces where
 	 * appropriate
+	 * @param assemblyContext 
 	 * 
 	 * @param assembledComponent
 	 * @param alternativeComponent
+	 * @param s 
 	 * @return a map if alternativeComponent has compatible interfaces to replace
 	 *         assembledComponent AND alternativeComponent !=
 	 *         assembledComponent, null otherwise.
 	 */
-	private ProvidedAndRequiredRoleMapping findRoleMappingFor(BasicComponent assembledComponent,
-			BasicComponent alternativeComponent) {
+	private ProvidedAndRequiredRoleMapping findRoleMappingFor(AssemblyContext assemblyContext, BasicComponent assembledComponent,
+			BasicComponent alternativeComponent, System s) {
 
 		//logger.debug("isAlternativeFor(..) called");
 
@@ -489,7 +501,7 @@ public class AlternativeComponent  {
 						+ altpr.getProvidedInterface__ProvidedRole()
 						+ " and Interface "
 						+ asspr.getProvidedInterface__ProvidedRole());*/
-				if (checkIdentity(altpr.getProvidedInterface__ProvidedRole(),
+				if (EMFHelper.checkIdentity(altpr.getProvidedInterface__ProvidedRole(),
 						asspr.getProvidedInterface__ProvidedRole())) {
 					providedMapping.put(asspr, altpr);
 					break;
@@ -527,7 +539,7 @@ public class AlternativeComponent  {
 			for (RequiredRole assrr : assrrl) {
 				// TODO: Allow derived interfaces at the alternativeComponent
 				// TODO: Rather use same ImplementationComponentType?
-				if (checkIdentity(altrr.getRequiredInterface__RequiredRole(),
+				if (EMFHelper.checkIdentity(altrr.getRequiredInterface__RequiredRole(),
 						assrr.getRequiredInterface__RequiredRole())) {
 					requiredMapping.put(assrr, altrr);
 					break;
@@ -553,25 +565,6 @@ public class AlternativeComponent  {
 		return prrm;
 	}
 
-	/**
-	 * Checks for two PCM model elements whether they are the same, i.e. whether
-	 * they have the same ID. The model elements have to be derived from
-	 * Identifier.
-	 * 
-	 * @param i1
-	 *            One Identifier
-	 * @param i2
-	 *            Another Identifier
-	 * @return true if i1.getId().equals(i2.getId()), false otherwise
-	 */
-	public static boolean checkIdentity(Identifier i1, Identifier i2) {
-		if (i1.getId().equals(i2.getId())){
-			//logger.debug("Two model elements match with Id: "+i1.getId());
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 
 

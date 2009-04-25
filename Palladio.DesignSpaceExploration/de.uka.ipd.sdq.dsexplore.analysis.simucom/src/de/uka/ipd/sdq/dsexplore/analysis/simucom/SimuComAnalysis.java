@@ -114,6 +114,7 @@ public class SimuComAnalysis implements IAnalysis {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	private void launchSimuCom(PCMInstance pcmInstance)
 			throws CoreException, AnalysisFailedException {
 		
@@ -125,6 +126,8 @@ public class SimuComAnalysis implements IAnalysis {
 		logger.debug("Starting analysis of "+pcmInstance.getName());
 		
 		SimuComWorkflowLauncher simuCom = new SimuComWorkflowLauncher();
+		
+		this.config.getAttributes().put(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 		
 		try {
 			simuCom.launch(config, mode, launch, monitor);

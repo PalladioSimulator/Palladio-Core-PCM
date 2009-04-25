@@ -3,10 +3,19 @@ package de.uka.ipd.sdq.dsexplore.cost;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.cost.ComponentCost;
 import de.uka.ipd.sdq.pcm.cost.Cost;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
@@ -34,13 +43,44 @@ public class CostEvaluator {
 		double sum = 0;
 		for (Iterator<Cost> iterator = costs.iterator(); iterator.hasNext();) {
 			Cost cost = iterator.next();
-			//XXX Later: only sum up the cost of things that are really used in the instance. This might need more thought with the copying of the pcm instance, so that the right phenotype is looked at. 
-			//if (modelElementIsUsedIn(cost.getAnnotatedElement(),pcm)){
+			if (doesCostApply(cost,pcm)){
 				sum += cost.getInitialCost();
-			//}
+			}
 		}
 		
 		return sum;
+	}
+
+	/**
+	 * Only checks uses in system (for components) and in the allocation (for processing resources)
+	 * @param cost
+	 * @param pcm
+	 * @return
+	 */
+	private boolean doesCostApply(Cost cost, PCMInstance pcm) {
+		if (VariableProcessingResourceCost.class.isInstance(cost)){
+			VariableProcessingResourceCost vc = (VariableProcessingResourceCost)cost;
+			ResourceContainer rc = (ResourceContainer)vc.getProcessingresourcespecification().eContainer();
+			List<AllocationContext> alloc = pcm.getAllocation().getAllocationContexts_Allocation();
+			for (AllocationContext allocationContext : alloc) {
+				if (EMFHelper.checkIdentity(allocationContext.getResourceContainer_AllocationContext(), rc)){
+					return true;
+				}
+			}
+			//No usage of resource container found, return false. 
+			return false;
+		} else if (ComponentCost.class.isInstance(cost)){
+			ComponentCost cc = (ComponentCost)cost;
+			RepositoryComponent rc = cc.getRepositoryComponent();
+			List<AssemblyContext> asctx = pcm.getSystem().getAssemblyContexts_ComposedStructure();
+			for (AssemblyContext assemblyContext : asctx) {
+				if (EMFHelper.checkIdentity(assemblyContext.getEncapsulatedComponent_AssemblyContext(), rc)){
+					return true;
+				}
+			}
+			return false;
+		} else 
+			return true;
 	}
 
 	/**

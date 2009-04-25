@@ -5,6 +5,8 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import org.opt4j.genotype.Bounds;
 
+import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
+import de.uka.ipd.sdq.pcm.designdecision.Domain;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
 import de.uka.ipd.sdq.pcm.designdecision.Enumeration;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
@@ -52,7 +54,16 @@ class DimensionBounds implements Bounds<Double> {
 	}
 	
 	private Double getUpperEnumerationBound(int index) {
-		int numberOfAlternatives = ((EquivalentComponents)this.problem.getDesigndecision().get(index).getDomain()).getRepositorycomponent().size()-1;
+		int numberOfAlternatives = 0;
+		Domain domain = this.problem.getDesigndecision().get(index).getDomain();
+		if (EquivalentComponents.class.isInstance(domain)){
+			numberOfAlternatives = ((EquivalentComponents)domain).getRepositorycomponent().size()-1;
+		} else if (AvailableServers.class.isInstance(domain)){
+			numberOfAlternatives = ((AvailableServers)domain).getResourcecontainer().size()-1;
+		} else {
+			throw new RuntimeException("Domain of design decision not supported: "+this.problem.getDesigndecision().get(index).getDomain().getClass().getName());
+		}
+		
 		return new Double(numberOfAlternatives);
 	}
 	
