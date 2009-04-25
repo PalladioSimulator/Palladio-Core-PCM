@@ -18,8 +18,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
-import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;
 
 public class DSEOptionsTab extends FileNamesInputTab {

@@ -38,7 +38,7 @@ public class AlternativeComponent  {
 	
 	//Repository lastRepository = null;
 	
-	Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = null;
+	Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap = null;
 	
 	//EvolutionGraphNode rootNode = null;
 	
@@ -107,7 +107,7 @@ public class AlternativeComponent  {
 	 * @return
 	 */
 	/*private EvolutionGraphNode createEvolutionGraph(
-			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
+			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap2) {
 		
 		EvolutionGraphNode root = new EvolutionGraphNode(currentSolution);
 		
@@ -116,7 +116,7 @@ public class AlternativeComponent  {
 		
 		int counter = 0;
 		//for each option, apply it once to each element of the set and keep one without applying it.
-		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e : alternativeMap2
+		for (Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> e : alternativeMap2
 				.entrySet()) {
 			logger.debug("Assembly context " + e.getKey().getEntityName()
 					+ " has " + e.getValue().size() + " alternatives:");
@@ -132,7 +132,7 @@ public class AlternativeComponent  {
 			 *
 			Vector<EvolutionGraphNode> newCommonAlternativeNodes = new Vector<EvolutionGraphNode>();
 			
-			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
+			for (Map.Entry<BasicComponent, ComponentReplacer> basicComponentEntry : e.getValue().entrySet()) {
 				
 				Vector<EvolutionGraphNode> newNodes = new Vector<EvolutionGraphNode>();
 				//This is executed once for each option. 
@@ -167,12 +167,12 @@ public class AlternativeComponent  {
 	 */
 	private List<AssembledComponentDecision> createAlternativePCMInstances(
 			PCMInstance currentSolution,
-			Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
+			Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap2) {
 		
 		List<AssembledComponentDecision> l = new ArrayList<AssembledComponentDecision>();
 		
 
-		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> mapping : alternativeMap2
+		for (Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> mapping : alternativeMap2
 				.entrySet()) {
 			logger.debug("Assembly context " + mapping.getKey().getEntityName()
 					+ " has " + mapping.getValue().size() + " alternatives:");
@@ -187,11 +187,11 @@ public class AlternativeComponent  {
 	
 	private AssembledComponentDecision createDesignDecision(
 			PCMInstance currentSolution,
-			Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e) {
+			Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> e) {
 		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
 		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
 		
-		for (Entry<BasicComponent, ProvidedAndRequiredRoleMapping> alternative : e.getValue().entrySet()) {
+		for (Entry<BasicComponent, ComponentReplacer> alternative : e.getValue().entrySet()) {
 			ec.getRepositorycomponent().add(alternative.getKey());
 		}
 		
@@ -211,7 +211,7 @@ public class AlternativeComponent  {
 	 * @return
 	 */
 	/*public PCMInstance createNewPCMInstance(PCMInstance currentSolution,
-			AssemblyContext assemblyContext, Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry, int counter) {
+			AssemblyContext assemblyContext, Entry<BasicComponent, ComponentReplacer> basicComponentEntry, int counter) {
 
 		PCMInstance newSolution = currentSolution.shallowCopy();
 		
@@ -274,7 +274,7 @@ public class AlternativeComponent  {
 			throw new RuntimeException("The AlternativeComponent operator has not properly been initialized. Check previous Exceptions or contact the developers.");
 		}
 		
-		ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
+		ComponentReplacer providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
 		
 		EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
 		
@@ -387,18 +387,18 @@ public class AlternativeComponent  {
 
 	}
 
-	private Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> findAlternatives(
+	private Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> findAlternatives(
 			List<BasicComponent> repoComponents,
 			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap, System s) {
 		//logger.debug("findAlternatives(..) called");
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
-		Map<AssemblyContext, Map<BasicComponent,ProvidedAndRequiredRoleMapping>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<BasicComponent,ProvidedAndRequiredRoleMapping>>();
+		Map<AssemblyContext, Map<BasicComponent,ComponentReplacer>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<BasicComponent,ComponentReplacer>>();
 
 		for (AssemblyContext assemblyContext : assemblyContextToBasicComponentMap
 				.keySet()) {
-			Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
+			Map<BasicComponent,ComponentReplacer> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
 			if (map.size() > 0) {
 				alternativeMap.put(assemblyContext, map);
 			}
@@ -415,14 +415,14 @@ public class AlternativeComponent  {
 	 * @param s 
 	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
 	 */
-	private Map<BasicComponent, ProvidedAndRequiredRoleMapping> getAlternatives(
+	private Map<BasicComponent, ComponentReplacer> getAlternatives(
 			AssemblyContext assemblyContext, BasicComponent assembledComponent,
 			List<BasicComponent> repoComponents, System s) {
 		//logger.debug("getAlternatives(..) called");
-		Map<BasicComponent, ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
+		Map<BasicComponent, ComponentReplacer> map = new IdentityHashMap<BasicComponent, ComponentReplacer>();
 		for (BasicComponent repoComponent : repoComponents) {
 			//if compatible, this returns not null
-			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
+			ComponentReplacer p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
 			
 			
 			if (p != null) {
@@ -460,7 +460,7 @@ public class AlternativeComponent  {
 	 *         assembledComponent AND alternativeComponent !=
 	 *         assembledComponent, null otherwise.
 	 */
-	private ProvidedAndRequiredRoleMapping findRoleMappingFor(AssemblyContext assemblyContext, BasicComponent assembledComponent,
+	private ComponentReplacer findRoleMappingFor(AssemblyContext assemblyContext, BasicComponent assembledComponent,
 			BasicComponent alternativeComponent, System s) {
 
 		//logger.debug("isAlternativeFor(..) called");
@@ -561,7 +561,7 @@ public class AlternativeComponent  {
 		}
 		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
-		ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
+		ComponentReplacer prrm = new ComponentReplacer(providedMapping, requiredMapping);
 		return prrm;
 	}
 

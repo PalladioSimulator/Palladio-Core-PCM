@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm.designdecision;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcm.cost;bundle-version="1.0.0",
  com.google.inject;bundle-version="1.0.1",
- org.opt4j;bundle-version="1.0.0"
+ org.opt4j;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0"
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,

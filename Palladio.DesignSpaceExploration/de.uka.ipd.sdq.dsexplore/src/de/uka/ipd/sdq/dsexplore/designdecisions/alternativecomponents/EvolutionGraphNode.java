@@ -23,7 +23,7 @@ public class EvolutionGraphNode {
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
 	private PCMInstance node;
-	private Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> appliedRule;
+	private Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> appliedRule;
 	
 	private EvolutionGraphNode parent;
 	private Vector<EvolutionGraphNode> children;
@@ -34,7 +34,7 @@ public class EvolutionGraphNode {
 		this.children = new Vector<EvolutionGraphNode>();
 	}
 	
-	public EvolutionGraphNode(PCMInstance node, Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> rule){
+	public EvolutionGraphNode(PCMInstance node, Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> rule){
 		super();
 		this.node = node;
 		this.children = new Vector<EvolutionGraphNode>();
