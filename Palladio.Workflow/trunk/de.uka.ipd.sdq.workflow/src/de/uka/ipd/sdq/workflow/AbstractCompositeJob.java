@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.workflow;
 
 import java.util.LinkedList;
 import java.util.Stack;
@@ -6,9 +6,9 @@ import java.util.Stack;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public abstract class AbstractCompositeJob implements ICompositeJob {
 

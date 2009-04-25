@@ -21,8 +21,8 @@ import org.eclipse.pde.internal.core.ClasspathComputer;
 import org.eclipse.pde.internal.core.natures.PDE;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractCodeGenerationWorkflowRunConfiguration;
-import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 
 @SuppressWarnings("restriction")
 public class CompilePluginCodeJob implements IJob {

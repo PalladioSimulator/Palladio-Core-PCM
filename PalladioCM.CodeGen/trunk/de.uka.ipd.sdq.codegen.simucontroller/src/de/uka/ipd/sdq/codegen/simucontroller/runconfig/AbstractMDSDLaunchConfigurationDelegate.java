@@ -5,8 +5,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 
-import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflow;
 
 public abstract class AbstractMDSDLaunchConfigurationDelegate<T extends AbstractCodeGenerationWorkflowRunConfiguration>
 extends

@@ -4,10 +4,10 @@ import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
+import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 /**

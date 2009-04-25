@@ -12,10 +12,10 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2;
 import org.openarchitectureware.workflow.util.ProgressMonitorAdapter;
 
-import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public abstract class AbstractOAWWorkflowJobBridge<T extends AbstractWorkflowComponent2>
 implements IJob {

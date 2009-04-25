@@ -6,11 +6,11 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles

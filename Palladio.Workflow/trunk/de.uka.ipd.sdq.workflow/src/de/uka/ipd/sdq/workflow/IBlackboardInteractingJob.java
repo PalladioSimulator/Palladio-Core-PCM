@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.workflow;
 
 /**
  * Interface of a job which needs access to a certain type of blackboard to retrieve or store data

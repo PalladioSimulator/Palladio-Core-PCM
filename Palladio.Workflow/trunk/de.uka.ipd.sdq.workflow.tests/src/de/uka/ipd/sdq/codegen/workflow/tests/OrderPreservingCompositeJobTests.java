@@ -7,13 +7,13 @@ import junit.framework.TestCase;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.codegen.workflow.mocks.CancelingJob;
 import de.uka.ipd.sdq.codegen.workflow.mocks.FailingJob;
 import de.uka.ipd.sdq.codegen.workflow.mocks.MockJob;
+import de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public class OrderPreservingCompositeJobTests extends TestCase {
 

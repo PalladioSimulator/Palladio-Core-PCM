@@ -10,10 +10,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractCodeGenerationWorkflowRunConfiguration;
-import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public class CreateSimuComMetaDataFilesJob implements IJob {
 

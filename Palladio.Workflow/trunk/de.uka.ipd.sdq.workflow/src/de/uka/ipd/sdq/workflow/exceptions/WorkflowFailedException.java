@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow.exceptions;
+package de.uka.ipd.sdq.workflow.exceptions;
 
 public class WorkflowFailedException extends RuntimeException {
 

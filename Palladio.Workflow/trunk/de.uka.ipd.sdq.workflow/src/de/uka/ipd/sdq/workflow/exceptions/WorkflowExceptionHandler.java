@@ -1,8 +1,9 @@
-package de.uka.ipd.sdq.codegen.workflow.exceptions;
+package de.uka.ipd.sdq.workflow.exceptions;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import de.uka.ipd.sdq.codegen.workflow.WorkflowPlugin;
+
+import de.uka.ipd.sdq.workflow.WorkflowPlugin;
 
 /**
  * Implementation of a work flow exception handler.

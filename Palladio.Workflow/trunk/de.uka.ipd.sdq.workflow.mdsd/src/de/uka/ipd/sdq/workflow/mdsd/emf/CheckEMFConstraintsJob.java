@@ -8,12 +8,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
+import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 

@@ -1,10 +1,10 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.workflow;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /**
  * Implementation of a composite job that guarantees

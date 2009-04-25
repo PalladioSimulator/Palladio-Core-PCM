@@ -1,13 +1,13 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.workflow;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 
 /**
  * Implementation of a workflow. A workflow is a special composite job which executes all other jobs while displaying the progress in a progress

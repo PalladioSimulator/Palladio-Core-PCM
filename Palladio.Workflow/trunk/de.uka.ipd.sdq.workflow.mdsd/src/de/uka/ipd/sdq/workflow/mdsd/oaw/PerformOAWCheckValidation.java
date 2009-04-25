@@ -22,12 +22,12 @@ import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
-import de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
+import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 

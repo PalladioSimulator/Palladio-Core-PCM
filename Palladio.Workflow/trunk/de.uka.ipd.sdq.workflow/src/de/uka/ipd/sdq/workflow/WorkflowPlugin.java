@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.workflow;
+package de.uka.ipd.sdq.workflow;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;

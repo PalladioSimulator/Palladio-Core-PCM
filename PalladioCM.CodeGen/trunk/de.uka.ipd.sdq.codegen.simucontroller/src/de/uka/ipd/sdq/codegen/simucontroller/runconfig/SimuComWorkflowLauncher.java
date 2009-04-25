@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
-import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.workflow.IJob;
 
 /**
  * The class adapts defined functionality in the AbstractMDSDLaunchConfigurationDelegate for

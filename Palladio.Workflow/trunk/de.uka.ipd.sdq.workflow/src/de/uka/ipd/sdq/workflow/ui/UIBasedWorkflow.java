@@ -1,11 +1,11 @@
-package de.uka.ipd.sdq.codegen.workflow.ui;
+package de.uka.ipd.sdq.workflow.ui;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.workflow.Blackboard;
-import de.uka.ipd.sdq.codegen.workflow.BlackboardBasedWorkflow;
-import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
+import de.uka.ipd.sdq.workflow.Blackboard;
+import de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 
 /**
  * A workflow which is able to interact with the Eclipse GUI, i.e., for message logging or

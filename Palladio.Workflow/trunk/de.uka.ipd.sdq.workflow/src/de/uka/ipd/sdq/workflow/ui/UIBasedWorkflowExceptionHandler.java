@@ -1,8 +1,8 @@
-package de.uka.ipd.sdq.codegen.workflow.ui;
+package de.uka.ipd.sdq.workflow.ui;
 
-import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
+import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 
 public class UIBasedWorkflowExceptionHandler extends WorkflowExceptionHandler {
 
