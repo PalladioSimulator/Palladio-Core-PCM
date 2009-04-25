@@ -63,6 +63,9 @@
 	&lt;feature	url=&quot;features/de.uka.ipd.sdq.sensorframework.visualisation.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.sensorframework.visualisation.feature&quot; version=&quot;${version.full}&quot;&gt;
 		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
 	&lt;/feature&gt;
+	&lt;feature	url=&quot;features/de.uka.ipd.sdq.workflow.feature_${version.full}.jar&quot; id=&quot;de.uka.ipd.sdq.workflow.feature&quot; version=&quot;${version.full}&quot;&gt;
+		&lt;category name=&quot;CBSE Modelling&quot;/&gt;
+	&lt;/feature&gt;
 	&lt;category-def name=&quot;CBSE Modelling&quot; label=&quot;CBSE Modelling&quot;&gt;
 		&lt;description&gt;
 			Component Based software engineering is

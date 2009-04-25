@@ -18,3 +18,4 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.scheduler.configuration,
  de.uka.ipd.sdq.simucomframework.simucomstatus,
  org.eclipse.emf.ecore.change
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

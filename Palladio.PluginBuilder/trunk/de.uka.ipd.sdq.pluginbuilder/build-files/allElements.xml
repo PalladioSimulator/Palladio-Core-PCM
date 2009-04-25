@@ -36,6 +36,10 @@
 		</ant>		
 		<ant antfile="${genericTargets}" target="${target}">
 			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.workflow.feature" />
+		</ant>		
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.tests" />
 		</ant>
 	</target>
@@ -74,6 +78,11 @@
 		</ant>
 	</target>
 	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>	
+	<target name="assemble.de.uka.ipd.sdq.workflow.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
 		</ant>

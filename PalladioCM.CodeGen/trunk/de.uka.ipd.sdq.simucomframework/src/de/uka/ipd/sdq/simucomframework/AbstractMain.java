@@ -2,12 +2,8 @@ package de.uka.ipd.sdq.simucomframework;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
-import org.apache.log4j.Priority;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
@@ -43,6 +39,7 @@ implements
 	* (non-Javadoc)
 	* @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	*/
+	@SuppressWarnings("unchecked")
 	public void start(org.osgi.framework.BundleContext context) throws Exception {
 		// register the service
 		serviceRegistryEntry = context.registerService(
