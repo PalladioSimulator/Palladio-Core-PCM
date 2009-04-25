@@ -109,7 +109,7 @@ public class PCMInstance {
 		
 		this.launchConfiguration = configuration;
 
-		logger.debug("Constructor called");
+		logger.debug("PCM Instance Constructor called");
 		this.setName(configuration.getAttribute(SimuComConfig.EXPERIMENT_RUN,
 				"Initial instance"));
 

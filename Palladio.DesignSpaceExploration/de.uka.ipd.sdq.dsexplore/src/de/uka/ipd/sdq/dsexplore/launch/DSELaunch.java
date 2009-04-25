@@ -129,7 +129,11 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				
 				logger.debug("DSE launch done. It took "+((System.currentTimeMillis()-timestampMillis)/1000)+" seconds.");
 				
-				Opt4JStarter.closeTask();
+				try {
+					Opt4JStarter.closeTask();
+				} catch (Exception e){
+					e.printStackTrace();
+				}
 
 			}
 	}

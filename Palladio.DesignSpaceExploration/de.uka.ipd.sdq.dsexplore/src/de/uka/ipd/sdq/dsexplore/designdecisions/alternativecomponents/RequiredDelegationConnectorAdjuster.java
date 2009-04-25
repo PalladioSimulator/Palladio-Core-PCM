@@ -5,6 +5,13 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 public class RequiredDelegationConnectorAdjuster implements ConnectorAdjuster {
 	
+	public RequiredDelegationConnectorAdjuster(
+			RequiredDelegationConnector connector, RequiredRole role) {
+		super();
+		this.connector = connector;
+		this.role = role;
+	}
+
 	private RequiredDelegationConnector connector;
 	private RequiredRole role;
 

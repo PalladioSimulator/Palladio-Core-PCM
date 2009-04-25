@@ -85,7 +85,7 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		if (ProcessingRateDecision.class.isInstance(designDecision)){
 			this.applyChangeProcessingRateDecision((ProcessingRateDecision)designDecision, doubleGene);
 		} else if (AssembledComponentDecision.class.isInstance(designDecision)){
-			//this.applyChangeAssembledComponentDecision((AssembledComponentDecision)designDecision, doubleGene);
+			this.applyChangeAssembledComponentDecision((AssembledComponentDecision)designDecision, doubleGene);
 		} else if (AllocationDecision.class.isInstance(designDecision)){
 			this.applyChangeAllocationDecision((AllocationDecision)designDecision, doubleGene);
 		} else {
@@ -100,6 +100,8 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		ResourceContainer rc = ((AvailableServers)designDecision.getDomain()).getResourcecontainer().get(gene);
 		
 		designDecision.getAllocationcontext().setResourceContainer_AllocationContext(rc);
+		
+		logger.debug("Handling a "+designDecision.getClass()+", setting resource container to "+rc.getEntityName()+ " for allocation context "+designDecision.getAllocationcontext().getEntityName());
 		
 	}
 

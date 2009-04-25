@@ -70,7 +70,7 @@ public class DSEProblem {
 		determineProcessingRateDecisions();
 		
 		//find equivalent components
-		//determineAssembledComponentsDecisions();
+		determineAssembledComponentsDecisions();
 		
 		determineAllocationDecisions();
 		

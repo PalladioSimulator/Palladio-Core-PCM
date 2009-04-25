@@ -175,10 +175,13 @@ public class AlternativeComponent  {
 		for (Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> mapping : alternativeMap2
 				.entrySet()) {
 			logger.debug("Assembly context " + mapping.getKey().getEntityName()
-					+ " has " + mapping.getValue().size() + " alternatives:");
+					+ " has " + mapping.getValue().size() + " fitting component.");
 			
-			AssembledComponentDecision inst = createDesignDecision(currentSolution, mapping); 
-			l.add(inst);
+			//only save design decision if there are at least two components
+			if (mapping.getValue().size() > 1){
+				AssembledComponentDecision inst = createDesignDecision(currentSolution, mapping); 
+				l.add(inst);
+			}
 			
 		}
 		return l;
@@ -187,15 +190,15 @@ public class AlternativeComponent  {
 	
 	private AssembledComponentDecision createDesignDecision(
 			PCMInstance currentSolution,
-			Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> e) {
+			Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> mapping) {
 		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
 		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
 		
-		for (Entry<BasicComponent, ComponentReplacer> alternative : e.getValue().entrySet()) {
+		for (Entry<BasicComponent, ComponentReplacer> alternative : mapping.getValue().entrySet()) {
 			ec.getRepositorycomponent().add(alternative.getKey());
 		}
 		
-		decision.setAssemblycontext(e.getKey());
+		decision.setAssemblycontext(mapping.getKey());
 		decision.setDomain(ec);
 		
 		
@@ -275,8 +278,9 @@ public class AlternativeComponent  {
 		}
 		
 		ComponentReplacer providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
+		providedAndRequiredRoleMapping.replace();
 		
-		EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
+		/*EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
 		
 		//Lazy initialization of aconsToDelete, as I don't need it in most cases.
 		List<AssemblyConnector> aconsToDelete = null;
@@ -342,7 +346,7 @@ public class AlternativeComponent  {
 			for (RequiredDelegationConnector requiredDelegationConnector : rdeconsToDelete) {
 				rdecons.remove(requiredDelegationConnector);
 			}
-		}
+		}*/
 		
 	}
 
@@ -425,6 +429,7 @@ public class AlternativeComponent  {
 			ComponentReplacer p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
 			
 			
+			
 			if (p != null) {
 				map.put(repoComponent,p);
 				logger.debug("Found an alternative: "
@@ -483,6 +488,7 @@ public class AlternativeComponent  {
 		 * to each other, if they provide the same interfaces equally often. For
 		 * provided interfaces, there just needs to be one matching interface
 		 */
+		ComponentReplacer cr = new ComponentReplacer();
 
 		// Start with provided interfaces. Alternative component
 		EList<ProvidedRole> altprl = alternativeComponent
@@ -504,6 +510,7 @@ public class AlternativeComponent  {
 				if (EMFHelper.checkIdentity(altpr.getProvidedInterface__ProvidedRole(),
 						asspr.getProvidedInterface__ProvidedRole())) {
 					providedMapping.put(asspr, altpr);
+
 					break;
 				}
 			}
@@ -518,7 +525,15 @@ public class AlternativeComponent  {
 			logger.debug("Mapping size: " + providedMapping.size()
 					+ ", provided role list size: " + altprl.size());*/
 			return null;
+		} else {
+			
+			//find connector that points to this assembly context
+			List<ConnectorAdjuster> cas = findProvidedConnectors(assemblyContext, assembledComponent, s, providedMapping);
+
+			//add to list
+			cr.addAllConnectorAdjuster(cas);
 		}
+		
 		logger.debug("These two have matching provided interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
 		// Now look at the required interfaces. alternativeComponent must not
@@ -558,11 +573,67 @@ public class AlternativeComponent  {
 			logger.debug("Mapping size: " + requiredMapping.size()
 					+ ", required role list size: " + altrrl.size());*/
 			return null;
+		} else {
+			
+			//find connector that points to this assembly context
+			List<ConnectorAdjuster> cas = findRequiredConnectors(assemblyContext, assembledComponent, s, requiredMapping);
+
+			//add to list
+			cr.addAllConnectorAdjuster(cas);
 		}
 		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
-		ComponentReplacer prrm = new ComponentReplacer(providedMapping, requiredMapping);
-		return prrm;
+		ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
+		return cr;
+	}
+
+	private List<ConnectorAdjuster> findRequiredConnectors(
+			AssemblyContext assemblyContext, BasicComponent assembledComponent,
+			System s, Map<RequiredRole, RequiredRole> requiredMapping) {
+		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
+		
+		List<AssemblyConnector> ascs = s.getAssemblyConnectors_ComposedStructure();
+		for (AssemblyConnector assemblyConnector : ascs) {
+			if (EMFHelper.checkIdentity(assemblyConnector.getRequiringAssemblyContext_AssemblyConnector(), assemblyContext)){
+				RequiredRole role = requiredMapping.get(assemblyConnector.getRequiredRole_AssemblyConnector());
+				result.add(new OutgoingAssemblyConnectorAdjuster(assemblyConnector, role));
+			}
+		}
+		
+		List<RequiredDelegationConnector> rdcs = s.getRequiredDelegationConnectors_ComposedStructure();
+		
+		for (RequiredDelegationConnector requiredDelegationConnector : rdcs) {
+			if (EMFHelper.checkIdentity(requiredDelegationConnector.getInnerRequiredRole_RequiredDelegationConnector(), assemblyContext)){
+				RequiredRole role = requiredMapping.get(requiredDelegationConnector.getInnerRequiredRole_RequiredDelegationConnector());
+				result.add(new RequiredDelegationConnectorAdjuster(requiredDelegationConnector, role));
+			}
+		}
+		
+		return result;
+	}
+
+	private List<ConnectorAdjuster> findProvidedConnectors(
+			AssemblyContext assemblyContext, BasicComponent assembledComponent, System s, Map<ProvidedRole, ProvidedRole> providedMapping) {
+		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
+		
+		List<AssemblyConnector> ascs = s.getAssemblyConnectors_ComposedStructure();
+		for (AssemblyConnector assemblyConnector : ascs) {
+			if (EMFHelper.checkIdentity(assemblyConnector.getProvidingAssemblyContext_AssemblyConnector(), assemblyContext)){
+				ProvidedRole role = providedMapping.get(assemblyConnector.getProvidedRole_AssemblyConnector());
+				result.add(new IncomingAssemblyConnectorAdjuster(assemblyConnector, role));
+			}
+		}
+		
+		List<ProvidedDelegationConnector> pdcs = s.getProvidedDelegationConnectors_ComposedStructure();
+		
+		for (ProvidedDelegationConnector providedDelegationConnector : pdcs) {
+			if (EMFHelper.checkIdentity(providedDelegationConnector.getAssemblyContext_ProvidedDelegationConnector(), assemblyContext)){
+				ProvidedRole role = providedMapping.get(providedDelegationConnector.getInnerProvidedRole_ProvidedDelegationConnector());
+				result.add(new ProvidedDelegationConnectorReplacer(providedDelegationConnector, role));
+			}
+		}
+		
+		return result;
 	}
 
 

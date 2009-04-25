@@ -5,6 +5,13 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 public class IncomingAssemblyConnectorAdjuster implements ConnectorAdjuster {
 	
+	public IncomingAssemblyConnectorAdjuster(AssemblyConnector connector,
+			ProvidedRole role) {
+		super();
+		this.connector = connector;
+		this.role = role;
+	}
+
 	private AssemblyConnector connector;
 	private ProvidedRole role;
 
