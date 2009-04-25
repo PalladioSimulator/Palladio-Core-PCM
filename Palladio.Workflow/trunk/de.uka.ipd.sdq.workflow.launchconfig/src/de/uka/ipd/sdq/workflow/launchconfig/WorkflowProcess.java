@@ -11,13 +11,13 @@ import org.eclipse.debug.core.model.IStreamsProxy;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.Log4JBasedStreamsProxy;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 
-public class SimProcess extends PlatformObject implements IProcess {
+public class WorkflowProcess extends PlatformObject implements IProcess {
 
 	private ILaunch myLaunch;
 	private boolean isTerminated;
 	private Log4JBasedStreamsProxy myStreamsProxy = null;
 
-	public SimProcess(ILaunch myLaunch) {
+	public WorkflowProcess(ILaunch myLaunch) {
 		super();
 		this.myLaunch = myLaunch;
 		this.myStreamsProxy = new Log4JBasedStreamsProxy();

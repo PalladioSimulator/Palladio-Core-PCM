@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
 public class PCMResourceSetPartition extends ResourceSetPartition {
 	

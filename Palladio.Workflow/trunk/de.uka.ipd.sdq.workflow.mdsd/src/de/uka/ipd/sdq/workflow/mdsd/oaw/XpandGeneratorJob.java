@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
+package de.uka.ipd.sdq.workflow.mdsd.oaw;
 
 import java.util.ArrayList;
 import java.util.HashMap;

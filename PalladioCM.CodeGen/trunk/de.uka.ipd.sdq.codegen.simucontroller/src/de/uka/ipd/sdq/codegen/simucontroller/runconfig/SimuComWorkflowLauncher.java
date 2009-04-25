@@ -72,5 +72,5 @@ public class SimuComWorkflowLauncher extends
 			};
 		}
 		return new SimuComJob(config,listener);
-	}
+	}	
 }
