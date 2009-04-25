@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.workflow.launchconfig;
 
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -14,11 +14,11 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
-import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
+import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 
 /**
  * Abstract base class of all solver runs for PCM model instances. A PCM model instance

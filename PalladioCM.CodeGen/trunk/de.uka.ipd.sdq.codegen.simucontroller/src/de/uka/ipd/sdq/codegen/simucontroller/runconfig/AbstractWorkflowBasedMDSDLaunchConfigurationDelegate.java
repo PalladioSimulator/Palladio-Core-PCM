@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
-import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
-import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.workflow.BlackboardBasedWorkflow;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 
 public abstract class AbstractWorkflowBasedMDSDLaunchConfigurationDelegate 
 	<WorkflowConfigurationType extends AbstractWorkflowBasedRunConfiguration>

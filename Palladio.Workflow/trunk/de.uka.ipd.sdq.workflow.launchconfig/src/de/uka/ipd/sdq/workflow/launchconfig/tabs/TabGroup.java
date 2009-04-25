@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig.tabs;
+package de.uka.ipd.sdq.workflow.launchconfig.tabs;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;

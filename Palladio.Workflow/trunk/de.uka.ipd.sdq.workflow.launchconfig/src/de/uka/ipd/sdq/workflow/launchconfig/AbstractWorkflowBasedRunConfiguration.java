@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.workflow.launchconfig;
 
 /**
  * Base class for all configurations used to configure an Eclipse based run (or launch)

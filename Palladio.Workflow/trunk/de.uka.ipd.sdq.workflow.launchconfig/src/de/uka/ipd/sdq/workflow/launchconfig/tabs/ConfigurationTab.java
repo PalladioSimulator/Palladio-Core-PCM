@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig.tabs;
+package de.uka.ipd.sdq.workflow.launchconfig.tabs;
 
 
 import org.eclipse.core.runtime.CoreException;
@@ -19,9 +19,9 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
-import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
 
 /**
  * The class defines a tab, which is responsible for the minimum configuration

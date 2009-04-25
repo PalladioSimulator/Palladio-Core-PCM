@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig.tabs;
+package de.uka.ipd.sdq.workflow.launchconfig.tabs;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 
-import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 
 /**
  * The class defines a tab, where the specific characteristics for the

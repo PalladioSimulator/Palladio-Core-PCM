@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig.logging;
+package de.uka.ipd.sdq.workflow.launchconfig.logging;
 
 import java.io.IOException;
 import java.util.ArrayList;

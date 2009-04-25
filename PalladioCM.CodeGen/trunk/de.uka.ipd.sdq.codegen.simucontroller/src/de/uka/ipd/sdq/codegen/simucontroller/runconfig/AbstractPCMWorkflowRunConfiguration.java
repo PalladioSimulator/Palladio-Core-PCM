@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
 
-import de.uka.ipd.sdq.codegen.runconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
@@ -17,6 +16,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 
 public abstract class AbstractPCMWorkflowRunConfiguration 
 extends	AbstractWorkflowBasedRunConfiguration {

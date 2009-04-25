@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.uka.ipd.sdq.codegen.runconfig.ConstantsContainer;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
@@ -34,6 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 
 public class PCMInstance {
 	

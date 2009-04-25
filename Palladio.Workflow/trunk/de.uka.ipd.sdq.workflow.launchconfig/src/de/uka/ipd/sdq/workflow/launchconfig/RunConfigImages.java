@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.workflow.launchconfig;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;

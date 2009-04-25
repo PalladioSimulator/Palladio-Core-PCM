@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.workflow.launchconfig;
 
 import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.debug.core.DebugEvent;
@@ -8,8 +8,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IStreamsProxy;
 
-import de.uka.ipd.sdq.codegen.runconfig.logging.Log4JBasedStreamsProxy;
-import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
+import de.uka.ipd.sdq.workflow.launchconfig.logging.Log4JBasedStreamsProxy;
+import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 
 public class SimProcess extends PlatformObject implements IProcess {
 

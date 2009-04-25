@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig.logging;
+package de.uka.ipd.sdq.workflow.launchconfig.logging;
 
 import org.apache.log4j.Level;
 

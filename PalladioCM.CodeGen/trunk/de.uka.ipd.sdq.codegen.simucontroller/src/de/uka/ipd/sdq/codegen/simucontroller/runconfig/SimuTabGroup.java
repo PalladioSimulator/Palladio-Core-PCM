@@ -5,8 +5,8 @@ import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FeatureOptionsTab;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.FeatureOptionsTab;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 /**
  * The class defines tabs for the SimuBench Launch configuration menu.

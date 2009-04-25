@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.runconfig;
+package de.uka.ipd.sdq.workflow.launchconfig;
 
 /**
  * This class is used as a constant container.
