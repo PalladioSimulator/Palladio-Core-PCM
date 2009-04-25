@@ -15,10 +15,9 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.codegen.runconfig.logging.StreamsProxyAppender;
-import de.uka.ipd.sdq.codegen.workflow.Blackboard;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
-import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
+import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
 
 /**
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflowExceptionHandler;
 public abstract class 
 	AbstractWorkflowBasedLaunchConfigurationDelegate
 		<WorkflowConfigurationType extends AbstractWorkflowBasedRunConfiguration,
-		BlackboardType extends Blackboard<?>>
+		WorkflowType extends Workflow>
 	implements ILaunchConfigurationDelegate {
 
 	private static final String SHORT_LOG_PATTERN = "[%-10t] %-5p: %m%n";
@@ -76,12 +75,8 @@ public abstract class
 			logger.info("Validating configuration...");
 			workflowConfiguration.validateAndFreeze();
 	
-			Workflow workflow = new UIBasedWorkflow<BlackboardType>(
-				createWorkflowJob(workflowConfiguration, launch), 
-				monitor, 
-				new UIBasedWorkflowExceptionHandler(
-						!workflowConfiguration.isInteractive()),
-				createBlackboard());
+			Workflow workflow = createWorkflow(workflowConfiguration,
+					monitor, launch);
 			workflow.run();
 		} finally {
 			// Reset classloader to original value
@@ -93,10 +88,33 @@ public abstract class
 	}
 
 	/**
-	 * Factory method for the blackboard used in the workflow of this launch
-	 * @return The blackboard to be used in the workflow
+	 * Instanciate the workflow exception handler used to handle failures in the
+	 * workflow. By default returns an excpetion handler which uses Eclipse
+	 * Dialogs to inform the user about the failure.
+	 * @param interactive Whether the workflow runs interactive
+	 * @return A workflow exception handler
 	 */
-	protected abstract BlackboardType createBlackboard();
+	protected WorkflowExceptionHandler createExcpetionHandler(boolean interactive) {
+		return new UIBasedWorkflowExceptionHandler(!interactive);
+	}
+
+	/** Instantiate the workflow engine. By default a standard workflow engine is created.
+	 * @param workflowConfiguration Configuration of the workflow job
+	 * @param monitor A progress monitor
+	 * @param launch The associated Eclipse launch
+	 * @return The workflow engine to use for this launch
+	 * @throws CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	protected WorkflowType createWorkflow(
+			WorkflowConfigurationType workflowConfiguration, 
+			IProgressMonitor monitor,
+			ILaunch launch) throws CoreException {
+		return (WorkflowType) new Workflow(
+				createWorkflowJob(workflowConfiguration, launch), 
+				monitor,
+				createExcpetionHandler(workflowConfiguration.isInteractive()));
+	}
 
 	/**
 	 * @return
