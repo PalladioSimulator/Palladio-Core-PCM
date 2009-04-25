@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Workflow Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.codegen.workflow
+Bundle-SymbolicName: de.uka.ipd.sdq.workflow
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.codegen.workflow.WorkflowPlugin
 Bundle-Vendor: de.uka.ipd.sdq
@@ -10,7 +10,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.console;resolution:=optional,
  de.uka.ipd.sdq.dialogs;resolution:=optional,
  de.uka.ipd.sdq.errorhandling;resolution:=optional,
- org.apache.log4j;bundle-version="1.2.13"
+ org.apache.log4j;bundle-version="1.2.13";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.workflow,
  de.uka.ipd.sdq.codegen.workflow.exceptions,

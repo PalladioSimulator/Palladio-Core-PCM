@@ -27,7 +27,7 @@ Require-Bundle: org.eclipse.ui,
  org.jfree.jfreechart,
  de.uka.ipd.sdq.context,
  LQNModel,
- de.uka.ipd.sdq.codegen.runconfig,
+ de.uka.ipd.sdq.workflow.launchconfig,
  de.uka.ipd.sdq.markov,
  org.eclipse.emf.query,
  org.eclipse.emf.ocl
