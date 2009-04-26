@@ -65,6 +65,7 @@ public class AlternativeComponent  {
 		
 			System s = currentPCMInstance.getSystem();
 
+			//TODO: Filter Repository components here to allow exchange of composite components
 			List<BasicComponent> repoComponents = filterBasicComponents(r
 					.getComponents__Repository());
 			logger.debug("I found " + repoComponents.size()

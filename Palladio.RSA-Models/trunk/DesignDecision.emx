@@ -520,6 +520,23 @@
           <element xmi:type="uml:Class" href="pcm.emx#_qdz5sOD9Edq8ysXH3gTiEg?pcm/resourceenvironment/ResourceContainer?"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eE05Eg4hEd6vos-fK_qqEQ" x="-1165" y="343"/>
         </children>
+        <children xmi:id="_uNqiQC5JEd67XayFxriNGA" element="_uKOzwC5JEd67XayFxriNGA">
+          <children xmi:id="_uNzsMC5JEd67XayFxriNGA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_uNzsMS5JEd67XayFxriNGA" width="530" height="530"/>
+          </children>
+          <children xmi:id="_uNzsMi5JEd67XayFxriNGA" type="Stereotype"/>
+          <children xmi:id="_uNzsMy5JEd67XayFxriNGA" type="Kind"/>
+          <children xmi:id="_uNzsNC5JEd67XayFxriNGA" type="Name"/>
+          <children xmi:id="_uNzsNS5JEd67XayFxriNGA" type="Parent"/>
+          <children xmi:id="_uNzsNi5JEd67XayFxriNGA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_uNzsNy5JEd67XayFxriNGA"/>
+          </children>
+          <children xmi:id="_uNzsOC5JEd67XayFxriNGA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_uNzsOS5JEd67XayFxriNGA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLClassifierStyle" xmi:id="_uNqiQS5JEd67XayFxriNGA" showStereotype="Label" useClassifierShape="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uNqiQi5JEd67XayFxriNGA" x="22436" y="4153"/>
+        </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_RLu_M_zoEd2sBa2PoI_LqA"/>
         <edges xmi:id="_n28y4PzoEd2sBa2PoI_LqA" element="_n1wgEPzoEd2sBa2PoI_LqA" source="_khi9UfzoEd2sBa2PoI_LqA" target="_mM66AfzoEd2sBa2PoI_LqA">
           <children xmi:id="_n3F80PzoEd2sBa2PoI_LqA" type="NameLabel">
@@ -1418,6 +1435,24 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_iWcfQQ4hEd6vos-fK_qqEQ" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iWcfQg4hEd6vos-fK_qqEQ" points="[-89, -25, 144, 29]$[-150, -51, 83, 3]"/>
         </edges>
+        <edges xmi:id="_xujPEC5JEd67XayFxriNGA" element="_xuQUIC5JEd67XayFxriNGA" source="_3H9M4fzqEd2sBa2PoI_LqA" target="_uNqiQC5JEd67XayFxriNGA">
+          <children xmi:id="_xutAEC5JEd67XayFxriNGA" type="NameLabel">
+            <children xmi:id="_xutAEi5JEd67XayFxriNGA" type="Stereotype"/>
+            <children xmi:id="_xutAEy5JEd67XayFxriNGA" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xutAES5JEd67XayFxriNGA" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_xujPES5JEd67XayFxriNGA" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xujPEi5JEd67XayFxriNGA" points="[15, -24, -171, 195]$[116, -206, -70, 13]"/>
+        </edges>
+        <edges xmi:id="_yHAyYS5JEd67XayFxriNGA" element="_yHAyYC5JEd67XayFxriNGA" source="_BBEi4fzyEd2sBa2PoI_LqA" target="_uNqiQC5JEd67XayFxriNGA">
+          <children xmi:id="_yHAyZC5JEd67XayFxriNGA" type="NameLabel">
+            <children xmi:id="_yHAyZi5JEd67XayFxriNGA" type="Stereotype"/>
+            <children xmi:id="_yHAyZy5JEd67XayFxriNGA" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yHAyZS5JEd67XayFxriNGA" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_yHAyYi5JEd67XayFxriNGA" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yHAyYy5JEd67XayFxriNGA" points="[-13, -35, 70, 155]$[-78, -222, 5, -32]"/>
+        </edges>
       </contents>
       <contents xmi:type="notation:Diagram" xmi:id="_wcDmgPzzEd2sBa2PoI_LqA" type="Class" name="Genotype">
         <children xmi:id="_2lS1oPzzEd2sBa2PoI_LqA" element="_BHSOsPzpEd2sBa2PoI_LqA">
@@ -2302,12 +2337,12 @@
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3H9M4PzqEd2sBa2PoI_LqA" name="Enumeration" isAbstract="true">
+    <packagedElement xmi:type="uml:Class" xmi:id="_3H9M4PzqEd2sBa2PoI_LqA" name="Enumeration" clientDependency="_xuQUIC5JEd67XayFxriNGA" isAbstract="true">
       <generalization xmi:id="_4agZ4PzqEd2sBa2PoI_LqA" general="_mM66APzoEd2sBa2PoI_LqA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_-oEIUPzqEd2sBa2PoI_LqA" name="EquivalentComponents">
       <generalization xmi:id="_Fj88YPzrEd2sBa2PoI_LqA" general="_3H9M4PzqEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_LvR2MfzrEd2sBa2PoI_LqA" name="repositorycomponent" visibility="private" association="_LvR2MPzrEd2sBa2PoI_LqA">
+      <ownedAttribute xmi:id="_LvR2MfzrEd2sBa2PoI_LqA" name="repositorycomponent" visibility="public" association="_LvR2MPzrEd2sBa2PoI_LqA">
         <type xmi:type="uml:Class" href="pcm.emx#_rGa6kKBZEd24Bv0x9CNKpg?pcm/repository/RepositoryComponent?"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LvR2M_zrEd2sBa2PoI_LqA" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LvR2MvzrEd2sBa2PoI_LqA" value="1"/>
@@ -2432,7 +2467,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4jG4FfzxEd2sBa2PoI_LqA"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_BBEi4PzyEd2sBa2PoI_LqA" name="IntegerRange">
+    <packagedElement xmi:type="uml:Class" xmi:id="_BBEi4PzyEd2sBa2PoI_LqA" name="IntegerRange" clientDependency="_yHAyYC5JEd67XayFxriNGA">
       <generalization xmi:id="_C3WIAPzyEd2sBa2PoI_LqA" general="_2oEy8PzqEd2sBa2PoI_LqA"/>
       <ownedAttribute xmi:id="_XBoQAPzyEd2sBa2PoI_LqA" name="to" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
@@ -2501,6 +2536,13 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iVs4Yw4hEd6vos-fK_qqEQ"/>
       </ownedEnd>
     </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_uKOzwC5JEd67XayFxriNGA" name="DiscreteDomain">
+      <ownedComment xmi:id="_bTDLMC5xEd67XayFxriNGA" annotatedElement="_uKOzwC5JEd67XayFxriNGA">
+        <body>geht nicht, da realization beziehung nicht mit exportiert :(</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_xuQUIC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_3H9M4PzqEd2sBa2PoI_LqA"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_yHAyYC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_BBEi4PzyEd2sBa2PoI_LqA"/>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -2536,4 +2578,5 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
   <Default:Documentation xmi:id="_qjX74fzzEd2sBa2PoI_LqA" base_Comment="_qjX74PzzEd2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_1a30cfz0Ed2sBa2PoI_LqA" base_Comment="_1a30cPz0Ed2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_wpHxIfz-Ed2sBa2PoI_LqA" base_Comment="_wpHxIPz-Ed2sBa2PoI_LqA"/>
+  <Default:Documentation xmi:id="_bTM8MC5xEd67XayFxriNGA" base_Comment="_bTDLMC5xEd67XayFxriNGA"/>
 </xmi:XMI>
