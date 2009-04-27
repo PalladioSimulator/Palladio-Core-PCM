@@ -13,6 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.debug.ui;bundle-version="3.4.1",
  org.somox.ui;bundle-version="1.0.0",
  org.eclipse.jface;bundle-version="3.4.1",
- org.eclipse.ui;bundle-version="3.4.1"
+ org.eclipse.ui;bundle-version="3.4.1",
+ de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

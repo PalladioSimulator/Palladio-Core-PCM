@@ -63,13 +63,21 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 									HashMap<String, ExtractionResult> extractionResultMap) {
 		this.status = ModelAnalyzer.Status.RUNNING;
 
-		SoMoXCoreLogger.logInfo("Simple Analyzer startet with\n"
+		SoMoXCoreLogger.logInfo("Simple Analyzer started with"
 									+"\n preferences "+preferences
 									+"\n internalArchitectureModel "+internalArchitectureModel
 									+"\n extractionResultMap "+extractionResultMap);
 
 		SimpleAnalysisResult analysisResult = new SimpleAnalysisResult(this);
-
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			SoMoXCoreLogger.logInfo("TEST 1");
+			e.printStackTrace();
+			
+		}
+		SoMoXCoreLogger.logInfo("TEST 2");
 		Iterator<ExtractionResult> resultIterator = extractionResultMap.values().iterator();
 		while(resultIterator.hasNext()){
 			ExtractionResult result = resultIterator.next();
@@ -88,7 +96,7 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 
 		this.status = ModelAnalyzer.Status.FINISHED;
 		analysisResult.setResultStatus(AnalysisResult.ResultStatus.SUCCESS);
-
+		SoMoXCoreLogger.logInfo("TEST 3");
 		return analysisResult;
 	}
 
