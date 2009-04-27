@@ -12,7 +12,7 @@ public interface IAnalyzerRule {
 	 * @param argAB metrics result for A, B 
 	 * @param argBA metrics result for B, A
 	 * @return Overall value for multiple metrics, taking for example
-	 * interdependencies into account.
+	 * interdependencies into account. Value: [0..1]
 	 */
 	public double computeOverallMetricValue(Map<MetricID,Double> argAB, Map<MetricID,Double> argBA);
 	
