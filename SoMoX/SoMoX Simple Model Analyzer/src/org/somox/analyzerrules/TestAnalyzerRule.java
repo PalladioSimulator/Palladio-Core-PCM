@@ -25,13 +25,13 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		loadProperties();
 		
 		double abstractness = argAB.get(new Abstractness().getMID());
-		double abstractnessWeight = Double.parseDouble(properties.getProperty("org.somox.abstractness.wheight"));
+		double abstractnessWeight = Double.parseDouble(properties.getProperty("org.somox.abstractness.weight"));
 		
 		double coupling = argAB.get(new Coupling().getMID());
-		double couplingWeight = Double.parseDouble(properties.getProperty("org.somox.coupling.wheight"));
+		double couplingWeight = Double.parseDouble(properties.getProperty("org.somox.coupling.weight"));
 		
 		double nameResemblance = argAB.get(new NameResemblance().getMID());
-		double nameResemblanceWeight = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.wheight"));		
+		double nameResemblanceWeight = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weight"));		
 		
 		if(abstractness > coupling) {
 			if(abstractness < nameResemblance) {
