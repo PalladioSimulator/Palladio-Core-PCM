@@ -140,4 +140,9 @@ public class SliceLayerArchitectureQuality implements Metric {
 		return null;
 	}
 
+	@Override
+	public MetricID getMetricID() {
+		return new MetricID(0);
+	}
+
 }

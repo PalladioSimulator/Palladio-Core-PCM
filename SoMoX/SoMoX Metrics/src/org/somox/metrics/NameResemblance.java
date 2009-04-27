@@ -1,5 +1,6 @@
 package org.somox.metrics;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -151,5 +152,9 @@ public class NameResemblance implements Metric {
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public MetricID getMetricID() {
+		return new MetricID(122);
 	}
 }

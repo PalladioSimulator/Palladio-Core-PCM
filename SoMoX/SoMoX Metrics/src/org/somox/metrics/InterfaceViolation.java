@@ -111,4 +111,9 @@ public class InterfaceViolation implements Metric {
 
 	}
 
+	@Override
+	public MetricID getMetricID() {
+		return new MetricID(0);
+	}
+
 }

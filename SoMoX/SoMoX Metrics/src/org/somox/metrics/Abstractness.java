@@ -75,4 +75,9 @@ public class Abstractness implements Metric {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public MetricID getMetricID() {
+		return new MetricID(0);
+	}
 }

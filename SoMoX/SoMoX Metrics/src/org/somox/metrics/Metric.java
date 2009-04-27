@@ -14,4 +14,10 @@ public interface Metric {
 	 * Returns the GUI launch configuration tab that can be used to configure the metric
 	 */
 	public ILaunchConfigurationTab getLaunchConfigurationTab();
+	
+	/**
+	 * Unique identifier for a metric.
+	 * @return the identifier
+	 */
+	public MetricID getMetricID();
 }

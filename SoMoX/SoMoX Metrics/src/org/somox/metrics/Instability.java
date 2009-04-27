@@ -183,4 +183,9 @@ public class Instability implements Metric {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public MetricID getMetricID() {
+		return new MetricID(0);
+	}
 }

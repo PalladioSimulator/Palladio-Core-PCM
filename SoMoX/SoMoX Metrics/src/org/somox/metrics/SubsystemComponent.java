@@ -165,4 +165,9 @@ public class SubsystemComponent implements Metric {
 			return sub;
 		}
 	}
+
+	@Override
+	public MetricID getMetricID() {
+		return new MetricID(0);
+	}
 }
