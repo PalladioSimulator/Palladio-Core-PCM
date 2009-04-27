@@ -19,7 +19,6 @@ import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.system.System;
 
 /**
  * The {@link DSEDecoder} is responsible for converting the genotypes into 
@@ -125,14 +124,12 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		//use the order of the enumeration of EquivalentComponents in the Domain
 		RepositoryComponent componentToBeAssembled = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent().get(gene);
 		
-		//nicht: AlternativeComponent.createPCMInstance();
 		AssemblyContext changedAssemblyContext = designDecision.getAssemblycontext();
 		RepositoryComponent currentComponent = changedAssemblyContext.getEncapsulatedComponent_AssemblyContext();
 		
+		//Do not replace component if it is already assembled.  
 		if (!EMFHelper.checkIdentity(currentComponent, componentToBeAssembled)){
-			changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(componentToBeAssembled);
-			System system = this.problem.getInitialInstance().getSystem();
-			AlternativeComponent.getInstance().fixReferencesToAssemblyContext(system, changedAssemblyContext, componentToBeAssembled, currentComponent);
+			AlternativeComponent.getInstance().applyChange(changedAssemblyContext, componentToBeAssembled);
 		}
 		
 		

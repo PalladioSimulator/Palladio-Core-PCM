@@ -60,39 +60,26 @@ public class AlternativeComponent  {
 	public List<AssembledComponentDecision> generateDesignDecisions(PCMInstance currentPCMInstance) {
 		
 		Repository r = currentPCMInstance.getRepository();
-
 		
-			System s = currentPCMInstance.getSystem();
+		System s = currentPCMInstance.getSystem();
 
-			//TODO: Filter Repository components here to allow exchange of composite components
-			//List<RepositoryComponent> repoComponents = filterBasicComponents(r.getComponents__Repository());
-			List<RepositoryComponent> repoComponents = r.getComponents__Repository();
-			logger.debug("I found " + repoComponents.size()
-					+ " BasicComponents in the repository");
+		List<RepositoryComponent> repoComponents = r.getComponents__Repository();
 
-			Map<AssemblyContext, RepositoryComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
-					s, r);
-			logger.debug("I found " + assemblyContextToBasicComponentMap.size()
-					+ " AssemblyContexts with basic components in the system");
+		alternativeMap = findAlternatives(repoComponents,s.getAssemblyContexts_ComposedStructure(),s);
+		logger.debug("I have a mapping for " + alternativeMap.size()
+				+ " AssemblyContexts with the following alternatives:");
 
-			alternativeMap = findAlternatives(repoComponents,
-					assemblyContextToBasicComponentMap, s);
-			logger.debug("I have a mapping for " + alternativeMap.size()
-					+ " AssemblyContexts with the following alternatives:");
-
-		return createAlternativePCMInstances(currentPCMInstance, alternativeMap);
+		return createAssembledComponentDecisionsInstances(currentPCMInstance, alternativeMap);
 	}
 
 	/**
-	 * Creates a new PCM instance object for each alternative found. 
-	 * Each instance is different in one component to the original. 
-	 * Calls createNewPCMInstance for each alternative to be generated. 
+	 * Creates a an {@link AssembledComponentDecision} for each alternative found. 
+	 * Calls createDesignDecision for each alternative to be generated. 
 	 * @param currentSolution The current solution the new ones will base on
 	 * @param alternativeMap2 The Map containing all replacement options
-	 * @param root 
-	 * @return A list of new PCM instances
+	 * @return A list of design decisions
 	 */
-	private List<AssembledComponentDecision> createAlternativePCMInstances(
+	private List<AssembledComponentDecision> createAssembledComponentDecisionsInstances(
 			PCMInstance currentSolution,
 			Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> alternativeMap2) {
 		
@@ -114,18 +101,24 @@ public class AlternativeComponent  {
 		return l;
 	}
 	
-	
+	/**
+	 * Creates a {@link AssembledComponentDecision} for the given Entry. 
+	 * The design decisions has the domain of all {@link RepositoryComponent}s 
+	 * that are alternatives for the given {@link AssemblyContext}.  
+	 * @param currentSolution
+	 * @param mappingEntry
+	 * @return
+	 */
 	private AssembledComponentDecision createDesignDecision(
 			PCMInstance currentSolution,
-			Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mapping) {
+			Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mappingEntry) {
 		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
 		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
 		
-		for (Entry<RepositoryComponent, ComponentReplacer> alternative : mapping.getValue().entrySet()) {
-			ec.getRepositorycomponent().add(alternative.getKey());
-		}
+		//Set domain to be all alternative components, i.e. all RepositoryComponents in the mapping. 
+		ec.getRepositorycomponent().addAll(mappingEntry.getValue().keySet());
 		
-		decision.setAssemblycontext(mapping.getKey());
+		decision.setAssemblycontext(mappingEntry.getKey());
 		decision.setDomain(ec);
 		
 		
@@ -134,28 +127,28 @@ public class AlternativeComponent  {
 
 
 	/**
-	 * Fix assembly connectors and delegation connectors that point to the 
+	 * Set the given {@link RepositoryComponent} as the encapsulated component of the given {@link AssemblyContext}
+	 * 
+	 * Fixes assembly connectors and delegation connectors that point to the 
 	 * changed assembly so that they point to the new required and provided roles.
 	 * 
-	 * If an alternative does not require a required interface of the original 
-	 * anymore, delete the AssemblyConnector.  
-	 * 
-	 *  TODO: Does not work with the initially assembled component. 
-	 *   
+	 * To do so, the right previously build component replacer is retrieved from {@link AlternativeComponent#alternativeMap}
+	 * and replace is invoked, which applies the change.    
+	 *
 	 * @param changedAssemblyContext
-	 * @param currentComponent 
-	 * @param providedAndRequiredRoleMapping 
+	 * @param newComponent
+	 * @param currentComponent
 	 */
-	public void fixReferencesToAssemblyContext(System system, AssemblyContext changedAssemblyContext, RepositoryComponent newComponent, RepositoryComponent currentComponent) {
+	public void applyChange(AssemblyContext changedAssemblyContext, RepositoryComponent newComponent) {
 		
 		//call AlternativeComponent.generateDesigndecisions first to initialize.
 		if (this.alternativeMap == null){
 			throw new RuntimeException("The AlternativeComponent operator has not properly been initialized. Check previous Exceptions or contact the developers.");
 		}
+		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(newComponent);
 		
-		ComponentReplacer providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
-		providedAndRequiredRoleMapping.replace();
-		
+		ComponentReplacer componentReplacer = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
+		componentReplacer.replace();
 	}
 
 	private List<BasicComponent> filterBasicComponents(
@@ -172,8 +165,13 @@ public class AlternativeComponent  {
 
 	}
 
-	private Map<AssemblyContext, RepositoryComponent> getComponentsInSystem(
-			System s, Repository r) {
+	/**
+	 * Retrieves a map of all {@link AssemblyContext}s in the system with the RepositoryComponent assembled in it  
+	 * @param s
+	 * @param r
+	 * @return
+	 */
+	private Map<AssemblyContext, RepositoryComponent> getComponentsInSystem(System s) {
 
 		logger.debug("getComponentsInSystem(..) called");
 
@@ -184,8 +182,7 @@ public class AlternativeComponent  {
 		 * contexts
 		 */
 
-		EList<AssemblyContext> assemblyContexts = s
-				.getAssemblyContexts_ComposedStructure(); 
+		EList<AssemblyContext> assemblyContexts = s.getAssemblyContexts_ComposedStructure(); 
 
 		for (AssemblyContext ac : assemblyContexts) {
 
@@ -199,16 +196,15 @@ public class AlternativeComponent  {
 
 	private Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> findAlternatives(
 			List<RepositoryComponent> repoComponents,
-			Map<AssemblyContext, RepositoryComponent> assemblyContextToBasicComponentMap, System s) {
-		//logger.debug("findAlternatives(..) called");
+			List<AssemblyContext> assemblyContexts, System s) {
+		
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
 		Map<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>>();
 
-		for (AssemblyContext assemblyContext : assemblyContextToBasicComponentMap
-				.keySet()) {
-			Map<RepositoryComponent,ComponentReplacer> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
+		for (AssemblyContext assemblyContext : assemblyContexts) {
+			Map<RepositoryComponent,ComponentReplacer> map = getAlternatives(assemblyContext, repoComponents, s);
 			if (map.size() > 0) {
 				alternativeMap.put(assemblyContext, map);
 			}
@@ -218,29 +214,27 @@ public class AlternativeComponent  {
 	}
 
 	/**
-	 * Finds alternatives for a specific assembled component.
+	 * Finds alternatives for a specific assembled component. To do so, this checks for each {@link RepositoryComponent} in the given {@link Repository}
+	 * whether it fits in the given {@link AssemblyContext}.
 	 * @param assemblyContext 
-	 * @param assembledComponent
 	 * @param repoComponents
 	 * @param s 
-	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
+	 * @return a Map of alternative {@link RepositoryComponent} with the {@link ComponentReplacer} that can put them in the {@link AssemblyContext}, which is possibly empty if no alternatives are found. 
 	 */
 	private Map<RepositoryComponent, ComponentReplacer> getAlternatives(
-			AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
-			List<RepositoryComponent> repoComponents, System s) {
-		//logger.debug("getAlternatives(..) called");
+			AssemblyContext assemblyContext, List<RepositoryComponent> repoComponents, System s) {
+
 		Map<RepositoryComponent, ComponentReplacer> map = new IdentityHashMap<RepositoryComponent, ComponentReplacer>();
 		for (RepositoryComponent repoComponent : repoComponents) {
+			
 			//if compatible, this returns not null
-			ComponentReplacer p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
-			
-			
-			
+			ComponentReplacer p = findRoleMappingFor(assemblyContext, repoComponent, s);
+		
 			if (p != null) {
 				map.put(repoComponent,p);
 				logger.debug("Found an alternative: "
-						+ assembledComponent.getEntityName()
-						+ " can be replaced by "
+						+ assemblyContext.getEntityName()
+						+ " can encapsulate the component "
 						+ repoComponent.getEntityName() + ".");
 			} /*else {
 				logger.debug(repoComponent.getEntityName()
@@ -254,10 +248,14 @@ public class AlternativeComponent  {
 	/**
 	 * Checks provided and required interfaces and returns whether the
 	 * interfaces are compatible so that the alternativeComponent can replace
-	 * the assembledComponent. Returns the mapping of the provided and 
-	 * required roles to their counterparts, to be able to replace the 
-	 * component later. Returns null if both parameters refer to the
-	 * same BasicComponent.
+	 * the assembledComponent. 
+	 * 
+	 * At the same time, this already finds out how to replace the 
+	 * {@link RepositoryComponent} alternativeComponent if needed. Builds 
+	 * a {@link ComponentReplacer} that stores all information how to replace the components.  
+	 * 
+	 * Returns null if the {@link RepositoryComponent} alternativeComponent cannot 
+	 * be assembled in the given {@link AssemblyContext} assemblyContext. 
 	 * 
 	 * Current notion of compatible: allows the alternative to provide more and
 	 * require less. TODO: Allow super interfaces and sub interfaces where
@@ -268,11 +266,12 @@ public class AlternativeComponent  {
 	 * @param alternativeComponent
 	 * @param s 
 	 * @return a map if alternativeComponent has compatible interfaces to replace
-	 *         assembledComponent AND alternativeComponent !=
 	 *         assembledComponent, null otherwise.
 	 */
-	private ComponentReplacer findRoleMappingFor(AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
+	private ComponentReplacer findRoleMappingFor(AssemblyContext assemblyContext, 
 			RepositoryComponent alternativeComponent, System s) {
+		
+		RepositoryComponent assembledComponent = assemblyContext.getEncapsulatedComponent_AssemblyContext();
 
 		//logger.debug("isAlternativeFor(..) called");
 
@@ -280,7 +279,7 @@ public class AlternativeComponent  {
 		// yes, return false.
 		//if (checkIdentity(assembledComponent, alternativeComponent))
 		//	return null;
-		//TODO: in the case above, we could save te whole calculation. But for now, leave it like this. 
+		//TODO: in the case above, we could save the whole calculation. But for now, leave it like this. 
 
 		// check whether they have compatible interfaces
 		/*
@@ -302,13 +301,10 @@ public class AlternativeComponent  {
 		EList<ProvidedRole> assprl = assembledComponent
 				.getProvidedRoles_InterfaceProvidingEntity();
 
-		// TODO: store which provided role can replace which other provided
-		// role.
 		Map<ProvidedRole, ProvidedRole> providedMapping = new IdentityHashMap<ProvidedRole, ProvidedRole>();
 		for (ProvidedRole asspr : assprl) {
 			for (ProvidedRole altpr : altprl) {
 				// TODO: Allow derived interfaces at the alternativeComponent
-				// TODO: Rather use same ImplementationComponentType?
 /*				logger.debug("Interface "
 						+ altpr.getProvidedInterface__ProvidedRole()
 						+ " and Interface "
@@ -334,7 +330,7 @@ public class AlternativeComponent  {
 		} else {
 			
 			//find connector that points to this assembly context
-			List<ConnectorAdjuster> cas = findProvidedConnectors(assemblyContext, assembledComponent, s, providedMapping);
+			List<ConnectorAdjuster> cas = findProvidedConnectors(assemblyContext, s, providedMapping);
 
 			//add to list
 			cr.addAllConnectorAdjuster(cas);
@@ -351,27 +347,32 @@ public class AlternativeComponent  {
 		EList<RequiredRole> assrrl = assembledComponent
 				.getRequiredRoles_InterfaceRequiringEntity();
 
-		// TODO: store which required role can replace which other required
-		// role.
 		Map<RequiredRole, RequiredRole> requiredMapping = new IdentityHashMap<RequiredRole, RequiredRole>();
 		// Outer loop is alternative, because it must require no more and must
 		// be completely checked.
 		for (RequiredRole altrr : altrrl) {
+			boolean foundMatch = false;
 			for (RequiredRole assrr : assrrl) {
 				// TODO: Allow derived interfaces at the alternativeComponent
 				// TODO: Rather use same ImplementationComponentType?
 				if (EMFHelper.checkIdentity(altrr.getRequiredInterface__RequiredRole(),
 						assrr.getRequiredInterface__RequiredRole())) {
 					requiredMapping.put(assrr, altrr);
+					foundMatch = true;
 					break;
 				}
-				// TODO: break loop and return false when noticing that one role
-				// cannot be fit.
+
+			}
+			// break loop and return false when noticing that one role
+			// cannot be fit.
+			if (!foundMatch){
+				return null;
 			}
 		}
 
 		// If not all required interfaces of the alternative component are
 		// required by the assembled one, return false.
+		//TODO: This should be unreachable... but maybe leave it to be sure.  
 		if (requiredMapping.size() != altrrl.size()) {
 /*			logger.debug("The required interfaces of "
 					+ assembledComponent.getEntityName() + " and "
@@ -382,19 +383,32 @@ public class AlternativeComponent  {
 		} else {
 			
 			//find connector that points to this assembly context
-			List<ConnectorAdjuster> cas = findRequiredConnectors(assemblyContext, assembledComponent, s, requiredMapping);
+			List<ConnectorAdjuster> cas = findRequiredConnectors(assemblyContext, s, requiredMapping);
 
 			//add to list
 			cr.addAllConnectorAdjuster(cas);
 		}
 		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
-		//ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
 		return cr;
 	}
 
+	/**
+	 * Finds out how the Connectors to the {@link AssemblyContext} assemblyContext have to be adjusted on the required side in order
+	 * to put another {@link RepositoryComponent} (given by its roles) there. The mapping requiredMapping already 
+	 * contains a mapping of the {@link RequiredRole}s of the currently assembledComponent to the {@link RequiredRole}s of the
+	 * {@link RepositoryComponent} to be assembled. 
+	 * 
+	 *  The results for each connector are stored in a {@link ConnectorAdjuster} object, which can fix the connector references if needed. 
+	 *  A List of {@link ConnectorAdjuster} is returned with a {@link ConnectorAdjuster} for each connector pointing to or coming from this {@link AssemblyContext}. 
+	 * @param assemblyContext
+	 * @param assembledComponent
+	 * @param s
+	 * @param providedMapping
+	 * @return a List of {@link ConnectorAdjuster}
+	 */
 	private List<ConnectorAdjuster> findRequiredConnectors(
-			AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
+			AssemblyContext assemblyContext,
 			System s, Map<RequiredRole, RequiredRole> requiredMapping) {
 		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
 		
@@ -418,8 +432,22 @@ public class AlternativeComponent  {
 		return result;
 	}
 
+	/**
+	 * Finds out how the Connectors to the {@link AssemblyContext} assemblyContext have to be adjusted on the provided side in order
+	 * to put another {@link RepositoryComponent} (given by its roles) there. The mapping providedMapping already 
+	 * contains a mapping of the {@link ProvidedRole}s of the currently assembledComponent to the {@link ProvidedRole}s of the
+	 * {@link RepositoryComponent} to be assembled. 
+	 * 
+	 *  The results for each connector are stored in a {@link ConnectorAdjuster} object, which can fix the connector references if needed. 
+	 *  A List of {@link ConnectorAdjuster} is returned with a {@link ConnectorAdjuster} for each connector pointing to or coming from this {@link AssemblyContext}. 
+	 * @param assemblyContext
+	 * @param assembledComponent
+	 * @param s
+	 * @param providedMapping
+	 * @return a List of {@link ConnectorAdjuster}
+	 */
 	private List<ConnectorAdjuster> findProvidedConnectors(
-			AssemblyContext assemblyContext, RepositoryComponent assembledComponent, System s, Map<ProvidedRole, ProvidedRole> providedMapping) {
+			AssemblyContext assemblyContext, System s, Map<ProvidedRole, ProvidedRole> providedMapping) {
 		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
 		
 		List<AssemblyConnector> ascs = s.getAssemblyConnectors_ComposedStructure();
