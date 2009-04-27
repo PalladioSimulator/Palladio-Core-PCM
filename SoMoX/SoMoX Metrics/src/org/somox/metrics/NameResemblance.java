@@ -154,7 +154,7 @@ public class NameResemblance implements Metric {
 		return null;
 	}
 
-	public MetricID getMetricID() {
+	public MetricID getMID() {
 		return new MetricID(122);
 	}
 }

@@ -185,7 +185,7 @@ public class Instability implements Metric {
 	}
 
 	@Override
-	public MetricID getMetricID() {
+	public MetricID getMID() {
 		return new MetricID(0);
 	}
 }

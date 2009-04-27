@@ -16,8 +16,9 @@ public interface Metric {
 	public ILaunchConfigurationTab getLaunchConfigurationTab();
 	
 	/**
-	 * Unique identifier for a metric.
+	 * Unique identifier for a metric (not an metric instance)
 	 * @return the identifier
 	 */
-	public MetricID getMetricID();
+	public MetricID getMID();
+	
 }
