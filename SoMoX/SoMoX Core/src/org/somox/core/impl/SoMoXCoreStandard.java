@@ -26,7 +26,7 @@ import org.somox.extractor.ExtractionResult;
 import org.somox.extractor.SoftwareExtractor;
 
 import eu.qimpress.samm.staticstructure.Repository;
-import eu.qimpress.samm.staticstructure.staticstructureFactory;
+import eu.qimpress.samm.staticstructure.StaticstructureFactory;
 
 //import eu.qimpress.commonmodel.commonmodel.StaticStructure.Repository;
 //import eu.qimpress.commonmodel.commonmodel.StaticStructure.StaticStructureFactory;
@@ -177,7 +177,7 @@ public class SoMoXCoreStandard implements SoMoXCore {
 			throws IOException {
 		Resource resource = getResource(projectIdentifier);
 		resource.getContents().clear();
-		resource.getContents().add(internalArchitectureModel);
+		//resource.getContents().add(internalArchitectureModel);
 		resource.save(null);
 	}
 
@@ -196,7 +196,7 @@ public class SoMoXCoreStandard implements SoMoXCore {
 		// an appropriate model inside
 		if(resource == null || resource.getContents().isEmpty()){
 			resource = resourceSet.createResource(uri);
-			Repository qimpressRepository = staticstructureFactory.eINSTANCE.createRepository();
+			Repository qimpressRepository = StaticstructureFactory.eINSTANCE.createRepository();
 			resource.getContents().add(qimpressRepository);
 			resource.save(null);
 		}
