@@ -3,24 +3,21 @@ package org.somox.analyzer.simplemodelanalyzer;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 import org.eclipse.core.runtime.Preferences;
 import org.somox.analyzer.AnalysisResult;
 import org.somox.analyzer.ModelAnalyzer;
 import org.somox.configuration.ConfigurationDefinition;
 import org.somox.core.SoMoXCoreLogger;
-import org.somox.extractor.ArtifactWrapper;
 import org.somox.extractor.ExtractionResult;
-import org.somox.extractor.SoftwareExtractor;
 import org.somox.softwareextractor.sissy.SISSyModelElementRepositoryWrapper;
 
 import de.fzi.sissy.metamod.ModelElementList;
 import de.fzi.sissy.metamod.ModelElementRepository;
-import eu.qimpress.samm.staticstructure.staticstructureFactory;
 import eu.qimpress.samm.staticstructure.CompositeComponent;
 import eu.qimpress.samm.staticstructure.PrimitiveComponent;
 import eu.qimpress.samm.staticstructure.Repository;
+import eu.qimpress.samm.staticstructure.StaticstructureFactory;
 import eu.qimpress.samm.staticstructure.SubcomponentInstance;
 
 
@@ -69,17 +66,25 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 									+"\n extractionResultMap "+extractionResultMap);
 
 		SimpleAnalysisResult analysisResult = new SimpleAnalysisResult(this);
+		SoMoXCoreLogger.logInfo("ANALYZER 1");
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			SoMoXCoreLogger.logInfo("TEST 1");
 			e.printStackTrace();
 			
 		}
-		SoMoXCoreLogger.logInfo("TEST 2");
+		SoMoXCoreLogger.logInfo("ANALYZER 2");
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		SoMoXCoreLogger.logInfo("ANALYZER 3");
 		Iterator<ExtractionResult> resultIterator = extractionResultMap.values().iterator();
-		while(resultIterator.hasNext()){
+		/*while(resultIterator.hasNext()){
 			ExtractionResult result = resultIterator.next();
 			SoftwareExtractor extractor = result.getSoftwareExtractor();
 			List<ArtifactWrapper> artifacts = extractor.getSoftwareArtefacts();
@@ -92,11 +97,10 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 					analysisResult.setInternalArchitectureModel(newInternalArchitectureModel);
 				}
 			}
-		}
+		}*/
 
 		this.status = ModelAnalyzer.Status.FINISHED;
 		analysisResult.setResultStatus(AnalysisResult.ResultStatus.SUCCESS);
-		SoMoXCoreLogger.logInfo("TEST 3");
 		return analysisResult;
 	}
 
@@ -132,23 +136,23 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 
 		//TODO: Implement the real analysis logic here
 		// each class is turned into a simple component
-		Repository qimpressRepository = staticstructureFactory.eINSTANCE.createRepository();
+		Repository qimpressRepository = StaticstructureFactory.eINSTANCE.createRepository();
 
 		ModelElementList packageList = sissyRepository.getRoot().getPackages();
 		Iterator<Object> packageIterator = packageList.iterator();
 		while(packageIterator.hasNext()){
 			de.fzi.sissy.metamod.Package packageElement = (de.fzi.sissy.metamod.Package) packageIterator.next();
-			CompositeComponent packageComponent = staticstructureFactory.eINSTANCE.createCompositeComponent();
+			CompositeComponent packageComponent = StaticstructureFactory.eINSTANCE.createCompositeComponent();
 			packageComponent.setId(packageElement.getQualifiedName());
 			packageComponent.setName(packageElement.getSimpleName());
 			ModelElementList elementList = packageElement.getClasses();
 			Iterator<Object> elementIterator = elementList.iterator();
 			while(elementIterator.hasNext()){
 				de.fzi.sissy.metamod.Class classElement = (de.fzi.sissy.metamod.Class) elementIterator.next();
-				PrimitiveComponent component = staticstructureFactory.eINSTANCE.createPrimitiveComponent();
+				PrimitiveComponent component = StaticstructureFactory.eINSTANCE.createPrimitiveComponent();
 				component.setName(classElement.getSimpleName());
 				component.setId(classElement.getQualifiedName());
-				SubcomponentInstance subComponent = staticstructureFactory.eINSTANCE.createSubcomponentInstance();
+				SubcomponentInstance subComponent = StaticstructureFactory.eINSTANCE.createSubcomponentInstance();
 				subComponent.setRealizedBy(component);
 				subComponent.setId(classElement.getQualifiedName());
 				packageComponent.getSubcomponents().add(subComponent);
