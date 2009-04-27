@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
-import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
@@ -28,6 +27,9 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
 //Singleton
+/**
+ * TODO: Currently, components must have the same provided _and_ required roles, otherwise, an erroneous system is created.   
+ */
 public class AlternativeComponent  {
 
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -38,7 +40,7 @@ public class AlternativeComponent  {
 	
 	//Repository lastRepository = null;
 	
-	Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap = null;
+	Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> alternativeMap = null;
 	
 	//EvolutionGraphNode rootNode = null;
 	
@@ -58,20 +60,17 @@ public class AlternativeComponent  {
 	public List<AssembledComponentDecision> generateDesignDecisions(PCMInstance currentPCMInstance) {
 		
 		Repository r = currentPCMInstance.getRepository();
-		
-		//only if this is called for the first time on a given repository, find alternatives again. 
-		//if (lastRepository == null || !checkIdentity(r, lastRepository) || alternativeMap == null || rootNode == null){
-			//lastRepository = r;
+
 		
 			System s = currentPCMInstance.getSystem();
 
 			//TODO: Filter Repository components here to allow exchange of composite components
-			List<BasicComponent> repoComponents = filterBasicComponents(r
-					.getComponents__Repository());
+			//List<RepositoryComponent> repoComponents = filterBasicComponents(r.getComponents__Repository());
+			List<RepositoryComponent> repoComponents = r.getComponents__Repository();
 			logger.debug("I found " + repoComponents.size()
 					+ " BasicComponents in the repository");
 
-			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
+			Map<AssemblyContext, RepositoryComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
 					s, r);
 			logger.debug("I found " + assemblyContextToBasicComponentMap.size()
 					+ " AssemblyContexts with basic components in the system");
@@ -80,82 +79,9 @@ public class AlternativeComponent  {
 					assemblyContextToBasicComponentMap, s);
 			logger.debug("I have a mapping for " + alternativeMap.size()
 					+ " AssemblyContexts with the following alternatives:");
-			
-			//rootNode = createEvolutionGraph(currentPCMInstance, alternativeMap);
-			//logger.debug(rootNode.toString());
-		//}
 
-		//Create a new PCM instance for each alternative found
-		//Only change one component at a time. 
-		//Generate alternatives with one component different each
-		//List<PCMInstance> l = rootNode.getChildrenOf(currentPCMInstance);
-		
 		return createAlternativePCMInstances(currentPCMInstance, alternativeMap);
 	}
-
-	/**
-	 * Problem: This is not evolutionary, it traverses the whole design space at
-	 * once. With the assumption that we always have a limited amount of
-	 * alternative components, it might work. As this only looks at alternative 
-	 * components in the current repository, it might not be too bad...
-	 * 
-	 * XXX: Check that we can evolve back to previous version, because other 
-	 * things might have changed (combination) that we want to visit an 
-	 * alternative component again. Probably cut away this whole graph thing. 
-	 * 
-	 * @param currentSolution
-	 * @param alternativeMap2
-	 * @return
-	 */
-	/*private EvolutionGraphNode createEvolutionGraph(
-			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap2) {
-		
-		EvolutionGraphNode root = new EvolutionGraphNode(currentSolution);
-		
-		Vector<EvolutionGraphNode> allNodes = new Vector<EvolutionGraphNode>();
-		allNodes.add(root);
-		
-		int counter = 0;
-		//for each option, apply it once to each element of the set and keep one without applying it.
-		for (Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> e : alternativeMap2
-				.entrySet()) {
-			logger.debug("Assembly context " + e.getKey().getEntityName()
-					+ " has " + e.getValue().size() + " alternatives:");
-			
-			/*
-			 * Do not all the new nodes right away to the set of allNodes, but
-			 * wait until we handled the alternatives of one assemblyContext.
-			 * The reason is that we do not want the alternatives of one
-			 * assemblyContext to be alternatives to each other. Example:
-			 * Assembly Context A has alternatives B and C. Then, replacing B
-			 * with C in a second step is not a new alternative, but already
-			 * covered by the node that replaced A with C directly.
-			 *
-			Vector<EvolutionGraphNode> newCommonAlternativeNodes = new Vector<EvolutionGraphNode>();
-			
-			for (Map.Entry<BasicComponent, ComponentReplacer> basicComponentEntry : e.getValue().entrySet()) {
-				
-				Vector<EvolutionGraphNode> newNodes = new Vector<EvolutionGraphNode>();
-				//This is executed once for each option. 
-				for (Iterator<EvolutionGraphNode> iterator = allNodes
-						.iterator(); iterator.hasNext();) {
-					EvolutionGraphNode evolutionGraphNode = iterator.next();
-					//apply the MapEntry to this instance and add it to the set.
-					PCMInstance inst = createNewPCMInstance(evolutionGraphNode.getNode(), e.getKey(), basicComponentEntry, counter);
-					EvolutionGraphNode newNode = new EvolutionGraphNode(inst);
-					evolutionGraphNode.addChild(newNode);
-					newNodes.add(newNode);
-				}
-				//Only add to the temporary list (see explanation at declaration of this list above).
-				newCommonAlternativeNodes.addAll(newNodes);
-				counter++;
-				
-			}
-			allNodes.addAll(newCommonAlternativeNodes);
-		}
-		
-		return root;
-	}*/
 
 	/**
 	 * Creates a new PCM instance object for each alternative found. 
@@ -168,15 +94,15 @@ public class AlternativeComponent  {
 	 */
 	private List<AssembledComponentDecision> createAlternativePCMInstances(
 			PCMInstance currentSolution,
-			Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> alternativeMap2) {
+			Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> alternativeMap2) {
 		
 		List<AssembledComponentDecision> l = new ArrayList<AssembledComponentDecision>();
 		
 
-		for (Map.Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> mapping : alternativeMap2
+		for (Map.Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mapping : alternativeMap2
 				.entrySet()) {
 			logger.debug("Assembly context " + mapping.getKey().getEntityName()
-					+ " has " + mapping.getValue().size() + " fitting component.");
+					+ " has " + mapping.getValue().size() + " fitting component(s).");
 			
 			//only save design decision if there are at least two components
 			if (mapping.getValue().size() > 1){
@@ -191,11 +117,11 @@ public class AlternativeComponent  {
 	
 	private AssembledComponentDecision createDesignDecision(
 			PCMInstance currentSolution,
-			Entry<AssemblyContext, Map<BasicComponent, ComponentReplacer>> mapping) {
+			Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mapping) {
 		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
 		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
 		
-		for (Entry<BasicComponent, ComponentReplacer> alternative : mapping.getValue().entrySet()) {
+		for (Entry<RepositoryComponent, ComponentReplacer> alternative : mapping.getValue().entrySet()) {
 			ec.getRepositorycomponent().add(alternative.getKey());
 		}
 		
@@ -206,57 +132,6 @@ public class AlternativeComponent  {
 		return decision;
 	}
 
-	/**
-	 * 
-	 * @param currentSolution
-	 * @param assemblyContext
-	 * @param basicComponentEntry
-	 * @param counter to name the files differently, count. 
-	 * @return
-	 */
-	/*public PCMInstance createNewPCMInstance(PCMInstance currentSolution,
-			AssemblyContext assemblyContext, Entry<BasicComponent, ComponentReplacer> basicComponentEntry, int counter) {
-
-		PCMInstance newSolution = currentSolution.shallowCopy();
-		
-		*Used the ecore copy. For this, I needed to fix de.uka.ipd.sdq.stoex.impl.RandomVariableImpl,
-		 * as setExpression threw a UnsupportedOperationException when trying to copy. Now 
-		 * setExpression just does nothing*
-		System newSystem = (System)EcoreUtil.copy(newSolution.getSystem());
-		logger.debug("The new system: "+newSystem);
-		
-		newSolution.setSystem(newSystem);
-		newSolution.appendToSystemFileName(modelFilesSuffix+counter);
-		
-		newSolution.setName(newSolution.getName()+modelFilesSuffix+counter);
-		
-		logger.debug("The old assembly we look for: "+assemblyContext);
-		AssemblyContext changedAssemblyContext = null;
-		
-		EList<AssemblyContext> newAssemblyContexts = newSystem.getAssemblyContexts_ComposedStructure();
-		for (AssemblyContext ac : newAssemblyContexts) {
-			//logger.debug("An assembly in the new system: "+ac);
-			if (checkIdentity(ac, assemblyContext)){
-				logger.debug("This is the one:"+ac);
-				changedAssemblyContext = ac;
-				//Replace the assembly.
-				int index = newAssemblyContexts.indexOf(ac);
-				newAssemblyContexts.remove(ac);
-				newAssemblyContexts.add(index, changedAssemblyContext);
-				break;
-			}
-		}
-		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(basicComponentEntry.getKey());
-		
-		//fix the required and provided roles
-		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getKey());
-		
-		//I do not have to fix the allocation because I updated the assembly 
-		//context, which is just referenced by the allocation. 
-		//fixAllocation(changedAssemblyContext);
-		
-		return newSolution;
-	}*/
 
 	/**
 	 * Fix assembly connectors and delegation connectors that point to the 
@@ -281,74 +156,6 @@ public class AlternativeComponent  {
 		ComponentReplacer providedAndRequiredRoleMapping = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
 		providedAndRequiredRoleMapping.replace();
 		
-		/*EList<AssemblyConnector> acons = system.getAssemblyConnectors_ComposedStructure();
-		
-		//Lazy initialization of aconsToDelete, as I don't need it in most cases.
-		List<AssemblyConnector> aconsToDelete = null;
-		
-		for (AssemblyConnector assemblyConnector : acons) {
-			//check provided
-			if ((EMFHelper.checkIdentity(assemblyConnector.getProvidingAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
-				assemblyConnector.setProvidedRole_AssemblyConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(assemblyConnector.getProvidedRole_AssemblyConnector()));
-			}
-			
-			//check required. Delete assembly connector if required role is not needed anymore.
-			if ((EMFHelper.checkIdentity(assemblyConnector.getRequiringAssemblyContext_AssemblyConnector(), changedAssemblyContext))){
-				RequiredRole rRole = providedAndRequiredRoleMapping.getRequiredMapping().get(assemblyConnector.getRequiredRole_AssemblyConnector());
-				if (rRole != null){
-					assemblyConnector.setRequiredRole_AssemblyConnector(rRole);
-				} else {
-					//store assembly connector to be deleted. Cannot delete them right away because of concurrentModificationException.
-					if (aconsToDelete == null) {
-						aconsToDelete =  new ArrayList<AssemblyConnector>();
-					}
-					aconsToDelete.add(assemblyConnector);
-				}
-			}
-		}
-		//delete all AssemblyConnectors not needed anymore.
-		if (aconsToDelete != null){
-			for (AssemblyConnector assemblyConnector : aconsToDelete) {
-				acons.remove(assemblyConnector);
-			}
-		}
-		
-		//check provided delegation connectors
-		EList<ProvidedDelegationConnector> pdecons = system.getProvidedDelegationConnectors_ComposedStructure();
-		for (ProvidedDelegationConnector pdecon : pdecons) {
-			if (EMFHelper.checkIdentity(pdecon.getAssemblyContext_ProvidedDelegationConnector(), changedAssemblyContext)){
-				//sets to null in the second iteration.  
-				pdecon.setInnerProvidedRole_ProvidedDelegationConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(pdecon.getInnerProvidedRole_ProvidedDelegationConnector()));
-			}
-		}
-		
-		//check required delegation connectors. Delete the Connector if the new component does not need the role anymore.
-		EList<RequiredDelegationConnector> rdecons = system.getRequiredDelegationConnectors_ComposedStructure();
-		
-		//Lazy initialization of rdeconsToDelete, as I don't need it in most cases.
-		List<RequiredDelegationConnector> rdeconsToDelete = null;
-		
-		for (RequiredDelegationConnector rdecon : rdecons) {
-			if (EMFHelper.checkIdentity(rdecon.getAssemblyContext_RequiredDelegationConnector(), changedAssemblyContext)){
-				RequiredRole reqRole = providedAndRequiredRoleMapping.getRequiredMapping().get(rdecon.getInnerRequiredRole_RequiredDelegationConnector());
-				if (reqRole != null){
-					rdecon.setInnerRequiredRole_RequiredDelegationConnector(reqRole);
-				} else {
-					//store delegation connector to be deleted. Cannot delete them right away because of concurrentModificationException
-					if (rdeconsToDelete == null){
-						rdeconsToDelete = new ArrayList<RequiredDelegationConnector>();
-					}
-					rdeconsToDelete.add(rdecon);
-				}
-			}
-		}
-		//delete all DelegationConnectors not needed anymore.
-		if (rdeconsToDelete != null){
-			for (RequiredDelegationConnector requiredDelegationConnector : rdeconsToDelete) {
-				rdecons.remove(requiredDelegationConnector);
-			}
-		}*/
-		
 	}
 
 	private List<BasicComponent> filterBasicComponents(
@@ -365,12 +172,12 @@ public class AlternativeComponent  {
 
 	}
 
-	private Map<AssemblyContext, BasicComponent> getComponentsInSystem(
+	private Map<AssemblyContext, RepositoryComponent> getComponentsInSystem(
 			System s, Repository r) {
 
 		logger.debug("getComponentsInSystem(..) called");
 
-		Map<AssemblyContext, BasicComponent> result = new HashMap<AssemblyContext, BasicComponent>();
+		Map<AssemblyContext, RepositoryComponent> result = new HashMap<AssemblyContext, RepositoryComponent>();
 
 		/*
 		 * Get all components assembled in the current system using the assembly
@@ -383,27 +190,25 @@ public class AlternativeComponent  {
 		for (AssemblyContext ac : assemblyContexts) {
 
 			RepositoryComponent pct = ac.getEncapsulatedComponent_AssemblyContext();
-			if (BasicComponent.class.isInstance(pct)) {
-				result.put(ac, (BasicComponent) pct);
-			}
+			result.put(ac, pct);
 		}
 
 		return result;
 
 	}
 
-	private Map<AssemblyContext, Map<BasicComponent, ComponentReplacer>> findAlternatives(
-			List<BasicComponent> repoComponents,
-			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap, System s) {
+	private Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> findAlternatives(
+			List<RepositoryComponent> repoComponents,
+			Map<AssemblyContext, RepositoryComponent> assemblyContextToBasicComponentMap, System s) {
 		//logger.debug("findAlternatives(..) called");
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
-		Map<AssemblyContext, Map<BasicComponent,ComponentReplacer>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<BasicComponent,ComponentReplacer>>();
+		Map<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>>();
 
 		for (AssemblyContext assemblyContext : assemblyContextToBasicComponentMap
 				.keySet()) {
-			Map<BasicComponent,ComponentReplacer> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
+			Map<RepositoryComponent,ComponentReplacer> map = getAlternatives(assemblyContext, assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents, s);
 			if (map.size() > 0) {
 				alternativeMap.put(assemblyContext, map);
 			}
@@ -420,12 +225,12 @@ public class AlternativeComponent  {
 	 * @param s 
 	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
 	 */
-	private Map<BasicComponent, ComponentReplacer> getAlternatives(
-			AssemblyContext assemblyContext, BasicComponent assembledComponent,
-			List<BasicComponent> repoComponents, System s) {
+	private Map<RepositoryComponent, ComponentReplacer> getAlternatives(
+			AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
+			List<RepositoryComponent> repoComponents, System s) {
 		//logger.debug("getAlternatives(..) called");
-		Map<BasicComponent, ComponentReplacer> map = new IdentityHashMap<BasicComponent, ComponentReplacer>();
-		for (BasicComponent repoComponent : repoComponents) {
+		Map<RepositoryComponent, ComponentReplacer> map = new IdentityHashMap<RepositoryComponent, ComponentReplacer>();
+		for (RepositoryComponent repoComponent : repoComponents) {
 			//if compatible, this returns not null
 			ComponentReplacer p = findRoleMappingFor(assemblyContext, assembledComponent, repoComponent, s);
 			
@@ -466,8 +271,8 @@ public class AlternativeComponent  {
 	 *         assembledComponent AND alternativeComponent !=
 	 *         assembledComponent, null otherwise.
 	 */
-	private ComponentReplacer findRoleMappingFor(AssemblyContext assemblyContext, BasicComponent assembledComponent,
-			BasicComponent alternativeComponent, System s) {
+	private ComponentReplacer findRoleMappingFor(AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
+			RepositoryComponent alternativeComponent, System s) {
 
 		//logger.debug("isAlternativeFor(..) called");
 
@@ -584,12 +389,12 @@ public class AlternativeComponent  {
 		}
 		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
-		ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
+		//ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
 		return cr;
 	}
 
 	private List<ConnectorAdjuster> findRequiredConnectors(
-			AssemblyContext assemblyContext, BasicComponent assembledComponent,
+			AssemblyContext assemblyContext, RepositoryComponent assembledComponent,
 			System s, Map<RequiredRole, RequiredRole> requiredMapping) {
 		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
 		
@@ -614,7 +419,7 @@ public class AlternativeComponent  {
 	}
 
 	private List<ConnectorAdjuster> findProvidedConnectors(
-			AssemblyContext assemblyContext, BasicComponent assembledComponent, System s, Map<ProvidedRole, ProvidedRole> providedMapping) {
+			AssemblyContext assemblyContext, RepositoryComponent assembledComponent, System s, Map<ProvidedRole, ProvidedRole> providedMapping) {
 		List<ConnectorAdjuster> result = new ArrayList<ConnectorAdjuster>();
 		
 		List<AssemblyConnector> ascs = s.getAssemblyConnectors_ComposedStructure();
