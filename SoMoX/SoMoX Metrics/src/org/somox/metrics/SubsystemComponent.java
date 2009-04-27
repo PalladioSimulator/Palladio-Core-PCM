@@ -168,6 +168,6 @@ public class SubsystemComponent implements Metric {
 
 	@Override
 	public MetricID getMID() {
-		return new MetricID(0);
+		return new MetricID(8);
 	}
 }
