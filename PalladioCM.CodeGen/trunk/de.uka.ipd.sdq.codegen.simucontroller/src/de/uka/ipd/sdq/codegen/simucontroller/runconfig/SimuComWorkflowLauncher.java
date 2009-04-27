@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import org.apache.log4j.Level;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -31,6 +32,16 @@ public class SimuComWorkflowLauncher extends
 		SimuComConfigurationBuilder builder = new SimuComLaunchConfigurationBasedConfigBuilder(
 				configuration, mode);
 		return builder.getConfiguration();
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractMDSDLaunchConfigurationDelegate#setupLogging(org.apache.log4j.Level)
+	 */
+	@Override
+	protected void setupLogging(Level logLevel) throws CoreException {
+		super.setupLogging(logLevel);
+		setupLogger("de.uka.ipd.sdq.codegen", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
+		setupLogger("de.uka.ipd.sdq.simucomframework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
 	}
 
 	/*

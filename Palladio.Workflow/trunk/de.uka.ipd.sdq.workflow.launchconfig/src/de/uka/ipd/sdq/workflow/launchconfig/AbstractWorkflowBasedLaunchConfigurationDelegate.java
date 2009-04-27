@@ -5,6 +5,7 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 
 import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.log4j.Appender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
@@ -20,6 +21,32 @@ import de.uka.ipd.sdq.workflow.Workflow;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflowExceptionHandler;
+
+class LoggerAppenderStruct {
+	private Logger logger;
+	private Appender appender;
+	/**
+	 * @param logger
+	 * @param appender
+	 */
+	public LoggerAppenderStruct(Logger logger, Appender appender) {
+		super();
+		this.logger = logger;
+		this.appender = appender;
+	}
+	/**
+	 * @return the logger
+	 */
+	public Logger getLogger() {
+		return logger;
+	}
+	/**
+	 * @return the appender
+	 */
+	public Appender getAppender() {
+		return appender;
+	}
+}
 
 /**
  * Abstract base class for Eclipse Launches (both Run and Debug mode are supported) which run
@@ -75,7 +102,7 @@ public abstract class
 	/**
 	 * List of logger configured for the workflow, used to cleanup logger after launch execution
 	 */
-	private ArrayList<Logger> myLogger = new ArrayList<Logger>();
+	private ArrayList<LoggerAppenderStruct> myLogger = new ArrayList<LoggerAppenderStruct>();
 	
 	/**
 	 * Name of the entry in the configuration hashmap containing the log level
@@ -90,6 +117,11 @@ public abstract class
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
+		// Setup a new classloader to allow reconfiguration of apache commons logging
+		ClassLoader oldClassLoader = configureNewClassloader();
+		// Reconfigure apache commons logging to use Log4J as backend logger
+		System.setProperty(LogFactoryImpl.LOG_PROPERTY, "org.apache.commons.logging.impl.Log4JLogger");
+
 		logger = Logger.getLogger(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
 
 		// Add a process to this launch, needed for Eclipse UI updates
@@ -98,11 +130,6 @@ public abstract class
 		setupLogging(configuration.getAttribute(VERBOSE_LOGGING, false) ? Level.DEBUG : Level.INFO );
 		launch.addProcess(getProcess());
 		
-		// Setup a new classloader to allow reconfiguration of apache commons logging
-		ClassLoader oldClassLoader = configureNewClassloader();
-		// Reconfigure apache commons logging to use Log4J as backend logger
-		System.setProperty(LogFactoryImpl.LOG_PROPERTY, "org.apache.commons.logging.impl.Log4JLogger");
-
 		try {
 			logger.info("Create workflow configuration");
 			WorkflowConfigurationType workflowConfiguration = 
@@ -122,8 +149,9 @@ public abstract class
 			Thread.currentThread().setContextClassLoader(oldClassLoader);
 		}
 		
-		for(Logger l : this.myLogger)
-			l.removeAllAppenders();
+		for(LoggerAppenderStruct l : this.myLogger) {
+			l.getLogger().removeAppender(l.getAppender());
+		}
 		
 		// Singnal execution terminatation to Eclipse to update UI 
 		launch.getProcesses()[0].terminate();
@@ -179,7 +207,7 @@ public abstract class
 	 */
 	protected void setupLogging(Level logLevel) throws CoreException {
 		// Setup SDQ workflow engine logging
-		setupLogger("de.uka.ipd.sdq.workflow", logLevel, logLevel.isGreaterOrEqual(Level.DEBUG) ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
+		setupLogger("de.uka.ipd.sdq.workflow", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
 	}
 
 	/**
@@ -193,7 +221,7 @@ public abstract class
 	protected void setupLogger(String loggerName, Level logLevel, String layout) {
 		Logger logger = Logger.getLogger(loggerName);
 		StreamsProxyAppender appender = new StreamsProxyAppender();
-		logger.removeAllAppenders();
+
 		logger.setLevel(logLevel);
 		appender.setLayout(
 				new PatternLayout(layout));
@@ -201,7 +229,7 @@ public abstract class
 		logger.addAppender(appender);
 
 		this.myProcess.addAppender(appender);
-		this.myLogger .add(logger);
+		this.myLogger.add(new LoggerAppenderStruct(logger,appender));
 	}
 
 

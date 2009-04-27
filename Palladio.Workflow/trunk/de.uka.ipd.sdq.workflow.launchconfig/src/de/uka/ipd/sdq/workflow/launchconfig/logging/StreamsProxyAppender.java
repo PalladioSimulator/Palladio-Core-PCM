@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.workflow.launchconfig.logging;
 import java.util.ArrayList;
 
 import org.apache.log4j.AppenderSkeleton;
+import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 
 
@@ -18,12 +19,23 @@ public class StreamsProxyAppender extends AppenderSkeleton {
 	 * Set of listeners interested in new log lines arriving at this log appender 
 	 */
 	private ArrayList<IAppenderListener> appenderListener = new ArrayList<IAppenderListener>();
+	private ClassLoader myClassloader;
 	
 	/**
 	 * Constructor
 	 */
 	public StreamsProxyAppender() {
 		super();
+		this.myClassloader = Thread.currentThread().getContextClassLoader();
+		this.addFilter(new Filter(){
+
+			public int decide(LoggingEvent logEvent) {
+				if (StreamsProxyAppender.this.myClassloader == Thread.currentThread().getContextClassLoader())
+					return 1;
+				return -1;
+			}
+			
+		});
 	}
 	
 	/* (non-Javadoc)
