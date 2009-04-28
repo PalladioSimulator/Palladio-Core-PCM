@@ -40,7 +40,6 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
-	@Override
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 		Package prefixPackage = computePrefix(root.getPackages());
@@ -117,7 +116,6 @@ public class SubsystemComponent implements Metric {
 		return slaq.compute(root, elements1, elements2);
 	}
 
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
@@ -166,7 +164,6 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(8);
 	}

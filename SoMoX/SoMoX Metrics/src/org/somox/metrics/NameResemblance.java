@@ -32,7 +32,6 @@ public class NameResemblance implements Metric {
 		}
 	}
 	
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		HashMap<String, Boolean> resemblanceMap = new HashMap<String, Boolean>();
 		
@@ -148,7 +147,6 @@ public class NameResemblance implements Metric {
 		return resemblance;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;

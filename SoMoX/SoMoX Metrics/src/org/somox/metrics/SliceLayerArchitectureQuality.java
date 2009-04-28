@@ -11,7 +11,6 @@ import de.fzi.gast.types.GASTClass;
 
 public class SliceLayerArchitectureQuality implements Metric {
 
-	@Override
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 
@@ -134,13 +133,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 		return currentPackage;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(7);
 	}

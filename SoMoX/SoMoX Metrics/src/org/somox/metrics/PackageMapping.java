@@ -48,13 +48,11 @@ public class PackageMapping implements Metric {
 		}
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(6);
 	}
