@@ -1,6 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
-import org.eclipse.jface.action.Action;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -13,21 +19,24 @@ import org.eclipse.jface.preference.PreferenceDialog;
 import org.eclipse.jface.preference.PreferenceManager;
 import org.eclipse.jface.preference.PreferenceNode;
 import org.eclipse.jface.util.LocalSelectionTransfer;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.jface.action.Action;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.UIPlugin;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
@@ -36,31 +45,37 @@ import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Measurement;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
 /**
- * The view shows data obtained from the 'SensorfFctory' model. The view is
+ * The view shows data obtained from the 'SensorFactory' model. The view is
  * connected to the model using a content provider.
  * 
  * @author Roman Andrej
  */
 public class ExperimentsView extends ViewPart {
 	private TreeViewer viewer;
-	
+
 	/** Define elements, which can be deleted. */
 	private IDAOFactory selectedFactory = null;
 	private Experiment selectedExperiment = null;
 
 	/** Define the actions for menu manager. */
 	private Action reloadView;
+	private Action saveAsCSVView;
 	private Action collapseAll;
 	private Action expandAll;
 	private Action newDataSet;
 	private Action openDataSet;
 	private Action deleteDataSet;
 	private Action properties;
-	
 
 	public ExperimentsView() {
 	}
@@ -68,8 +83,12 @@ public class ExperimentsView extends ViewPart {
 	class NameSorter extends ViewerSorter {
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets
+	 * .Composite)
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
@@ -81,22 +100,28 @@ public class ExperimentsView extends ViewPart {
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
-		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance(),
-				LocalSelectionTransfer.getTransfer()};
-		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
+		Transfer[] transfers = new Transfer[] {
+				EditorInputTransfer.getInstance(),
+				LocalSelectionTransfer.getTransfer() };
+		viewer.addDragSupport(ops, transfers,
+				new TreeDragSourceListener(viewer));
 		viewer.addDoubleClickListener(new DoubleClickListener());
-		viewer.addSelectionChangedListener(new ISelectionChangedListener (){
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged
+			 * (org.eclipse.jface.viewers.SelectionChangedEvent)
 			 */
 			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+				IStructuredSelection selection = (IStructuredSelection) event
+						.getSelection();
 				Object selectedObject = selection.getFirstElement();
 				setSelectedElement(selectedObject);
 			}
 		});
-		
+
 		makeActions();
 		hookContextMenu();
 		contributeToActionBars();
@@ -127,8 +152,8 @@ public class ExperimentsView extends ViewPart {
 	/**
 	 * Fills the action bar menu with the list of resolvers to be selected
 	 * 
-	 * @param manager -
-	 *            The menu manager to add the actions to.
+	 * @param manager
+	 *            - The menu manager to add the actions to.
 	 */
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(newDataSet);
@@ -141,8 +166,8 @@ public class ExperimentsView extends ViewPart {
 	/**
 	 * Fill context for the tree view pop-up menu.
 	 * 
-	 * @param menu -
-	 *            the menu manager.
+	 * @param menu
+	 *            - the menu manager.
 	 */
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(deleteDataSet);
@@ -150,15 +175,18 @@ public class ExperimentsView extends ViewPart {
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(properties);
+		manager.add(new Separator());
+		manager.add(saveAsCSVView);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+
 	}
 
 	/**
 	 * Adds actions to the local toolbar.
 	 * 
-	 * @param manager -
-	 *            the local toolbar manager.
+	 * @param manager
+	 *            - the local toolbar manager.
 	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(newDataSet);
@@ -173,26 +201,29 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void makeActions() {
-		
-		/** Reload viewer action*/
+
+		/** Reload viewer action */
 		reloadView = new Action() {
 			@Override
 			public void run() {
 				try {
 					SensorFrameworkDataset.singleton().reload();
 				} catch (Exception ex) {
-					MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-							"Reloading the Sensor Dataset Failed", 
-							"Reloading the Sensor Dataset Failed. Error Message given: "+ex.getMessage());
+					MessageDialog.openError(PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getShell(),
+							"Reloading the Sensor Dataset Failed",
+							"Reloading the Sensor Dataset Failed. Error Message given: "
+									+ ex.getMessage());
 				}
 				viewer.refresh();
 			}
 		};
 		reloadView.setText("Reload View");
 		reloadView.setToolTipText("Reload View");
-		reloadView.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/db_reload_obj.gif"));
+		reloadView.setImageDescriptor(VisualisationPlugin
+				.getImageDescriptor("/icons/db_reload_obj.gif"));
 
-		/** Collapse all action*/
+		/** Collapse all action */
 		collapseAll = new Action() {
 			@Override
 			public void run() {
@@ -201,9 +232,10 @@ public class ExperimentsView extends ViewPart {
 		};
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
-		collapseAll.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/collapseall.gif"));
-		
-		/** Expand all action*/
+		collapseAll.setImageDescriptor(VisualisationPlugin
+				.getImageDescriptor("/icons/collapseall.gif"));
+
+		/** Expand all action */
 		expandAll = new Action() {
 			@Override
 			public void run() {
@@ -212,8 +244,9 @@ public class ExperimentsView extends ViewPart {
 		};
 		expandAll.setText("Expand All");
 		expandAll.setToolTipText("Expand All");
-		expandAll.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/expandall.gif"));
-		
+		expandAll.setImageDescriptor(VisualisationPlugin
+				.getImageDescriptor("/icons/expandall.gif"));
+
 		/** New DataSet action. */
 		newDataSet = new Action() {
 			@Override
@@ -233,7 +266,7 @@ public class ExperimentsView extends ViewPart {
 		newDataSet.setToolTipText("New Data Source");
 		newDataSet.setImageDescriptor(VisualisationPlugin
 				.getImageDescriptor("/icons/add_obj.gif"));
-		
+
 		/** Open DataSet action */
 		openDataSet = new Action() {
 			@Override
@@ -246,7 +279,7 @@ public class ExperimentsView extends ViewPart {
 				WizardDialog dialog = new WizardDialog(getSite().getShell(),
 						wizard);
 				dialog.create();
-				
+
 				dialog.setTitle(ConfigureDatasourceDialog.OPEN_WISARD_TITLE);
 				dialog.open();
 				viewer.refresh();
@@ -254,8 +287,9 @@ public class ExperimentsView extends ViewPart {
 		};
 		openDataSet.setText("Open");
 		openDataSet.setToolTipText("Open a Data Source");
-		openDataSet.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/data_source_folder.gif"));
-		
+		openDataSet.setImageDescriptor(VisualisationPlugin
+				.getImageDescriptor("/icons/data_source_folder.gif"));
+
 		/** Delete DataSet/Experiment action. */
 		deleteDataSet = new Action() {
 			@Override
@@ -270,7 +304,7 @@ public class ExperimentsView extends ViewPart {
 				// selected element in 'ExperimentView' is Experiment
 				if (selectedExperiment != null && selectedFactory != null) {
 					selectedFactory.createExperimentDAO().removeExperiment(
-									selectedExperiment, true);
+							selectedExperiment, true);
 					viewer.refresh();
 				}
 			}
@@ -280,13 +314,14 @@ public class ExperimentsView extends ViewPart {
 		deleteDataSet.setImageDescriptor(VisualisationPlugin
 				.getImageDescriptor("/icons/remove_obj.gif"));
 		deleteDataSet.setEnabled(false);
-		
+
 		/** Properties action. */
 		properties = new Action() {
 			@Override
 			public void run() {
 
-				IPreferencePage page = new DAOFactoryPreferencePage(selectedFactory);
+				IPreferencePage page = new DAOFactoryPreferencePage(
+						selectedFactory);
 				page.setTitle("General Information");
 				PreferenceManager mgr = new PreferenceManager();
 				IPreferenceNode node = new PreferenceNode("1", page);
@@ -301,9 +336,135 @@ public class ExperimentsView extends ViewPart {
 		};
 		properties.setText("Properties");
 		properties.setEnabled(false);
-	
+
+		/** Save As CSV action */
+		saveAsCSVView = new Action() {
+			@Override
+			public void run() {
+				ISelection selection = viewer.getSelection();
+				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+				SensorAndMeasurements sensorAndMeasurements = getDataForCSVExport(structuredSelection);
+
+				String fileName = sensorAndMeasurements.getSensor()
+						.getSensorName().toString()
+						+ ".csv";
+				CSVSettingsDialog dialog = new CSVSettingsDialog(PlatformUI
+						.getWorkbench().getActiveWorkbenchWindow().getShell(),
+						SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM, fileName); // exportData
+				// Export
+				// -
+				// Daten
+				// :
+				// filePath
+				// ,
+				// isHeader
+				// ,
+				// separator
+				dialog.open();
+
+				if (!(dialog.getFilePath().equals(""))) {
+					exportDataToCSV(dialog.getFilePath(), sensorAndMeasurements
+							.getMeasurements(), dialog.isHeader(), dialog
+							.getSeparator());
+				} else {
+					// The Save Dialog is canceled.
+				}
+				dialog.frmDialog.dispose();
+			}
+		};
+		saveAsCSVView.setText("Save as CSV");
 	}
-	
+
+	/**
+	 * Transform and export the data in the CSV format.
+	 * 
+	 * @author David Scherr
+	 * @param filename
+	 *            Name of the CSV file.
+	 * @param measurement
+	 *            The collection of measurements of the selected sensor.
+	 * @param isHeader
+	 *            If the value is true, then the CSV file will integrate a
+	 *            superscription.
+	 * @param separator
+	 *            At the moment there are 3 possibilities to separate the CSV
+	 *            data: (1) Semicolon (2) Comma (3) Tabulator. One of these is
+	 *            stored in this parameter as the corresponding character, but
+	 *            still in String format (maybe in the future someone will add a
+	 *            separator with more than one character).
+	 */
+	private void exportDataToCSV(String filename,
+			Collection<Measurement> measurement, boolean isHeader,
+			String separator) {
+
+		FileWriter fileWriter;
+		BufferedWriter bufferedWriter;
+		try {
+			fileWriter = new FileWriter(filename);
+			bufferedWriter = new BufferedWriter(fileWriter);
+			if (measurement.iterator().next() instanceof StateMeasurement) {
+				if (isHeader) {
+					bufferedWriter.append("Event Time" + separator + "State"
+							+ "\n");
+				}
+				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
+						.hasNext();) {
+					StateMeasurement data = ((StateMeasurement) iterator.next());
+					bufferedWriter.append(data.getEventTime() + separator
+							+ data.getSensorState().getStateLiteral() + "\n");
+				}
+			} else if (measurement.iterator().next() instanceof TimeSpanMeasurement) {
+				if (isHeader) {
+					bufferedWriter.append("Event Time" + separator
+							+ "Time Span" + "\n");
+				}
+				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
+						.hasNext();) {
+					TimeSpanMeasurement data = ((TimeSpanMeasurement) iterator
+							.next());
+					bufferedWriter.append(data.getEventTime() + separator
+							+ data.getTimeSpan() + "\n");
+				}
+			} else {
+				Logger logger = Logger.getLogger("ExperimentsView.log");
+				logger.log(Level.SEVERE, "");
+				throw new IllegalArgumentException();
+			}
+			bufferedWriter.close();
+			fileWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Fetch the Data from the selected Experiment Run Element.
+	 * 
+	 * @author David Scherr
+	 * @param selection
+	 *            The selected Element on which the context menu is opened.
+	 * @return The SensorAndMeasurements object will be returned.
+	 */
+	private SensorAndMeasurements getDataForCSVExport(
+			IStructuredSelection selection) {
+
+		Object object = selection.getFirstElement();
+		if (object instanceof TreeObject) {
+			TreeObject treeObject = (TreeObject) object;
+			Object innerObject = treeObject.getObject();
+			ExperimentRun run = treeObject.getRun();
+
+			/** Sensor */
+			if (innerObject instanceof Sensor && run != null) {
+				Sensor sensor = (Sensor) innerObject;
+				SensorAndMeasurements sensorAndMeasurements = run
+						.getMeasurementsOfSensor(sensor);
+				return sensorAndMeasurements;
+			}
+		}
+		return null;
+	}
+
 	/** Set a instance of, in viewer selected element. */
 	private void setSelectedElement(Object selected) {
 
@@ -325,7 +486,7 @@ public class ExperimentsView extends ViewPart {
 			properties.setEnabled(false);
 		}
 	}
-	
+
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
