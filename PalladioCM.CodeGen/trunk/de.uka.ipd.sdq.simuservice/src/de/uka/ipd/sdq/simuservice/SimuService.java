@@ -7,6 +7,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
+import org.apache.log4j.*;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -59,6 +61,10 @@ public class SimuService implements ISimuService {
 		return status;
 	}
 
+	private static Logger logger = 
+		Logger.getLogger(SimuService.class.getName());
+
+	
 	/**
 	 * Performs a simulation run.
 	 * 
@@ -100,6 +106,25 @@ public class SimuService implements ISimuService {
 		// Create new SimuComConfig and continue configuring workflow
 		SimuComConfig simuComConfig = new SimuComConfig(simulationConfiguration, 1, false);
 		
+		ConsoleAppender appender = new ConsoleAppender();
+		
+		Logger simuComLogger =
+			 Logger.getLogger("de.uka.ipd.sdq.simucomframework");
+			         if (simuComConfig.getVerboseLogging())
+			             simuComLogger.setLevel(Level.ALL);
+			         else
+			             simuComLogger.setLevel(Level.WARN);
+			         logger.debug("Extended Simulation Logging enabled!");
+
+			         // Set this class' log level to info to see start and stop
+			         // messages of SimuCom
+			         logger.setLevel(Level.INFO);
+			         
+		Logger helpLogger = Logger.getLogger("de.uka.ipd.sdq.simuservice.SimuService");
+		helpLogger.addAppender(appender);
+			         
+			         
+			         
 		workflowConfiguration.setSimuComConfiguration(simuComConfig);
 		
 
