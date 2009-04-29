@@ -350,16 +350,7 @@ public class ExperimentsView extends ViewPart {
 						+ ".csv";
 				CSVSettingsDialog dialog = new CSVSettingsDialog(PlatformUI
 						.getWorkbench().getActiveWorkbenchWindow().getShell(),
-						SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM, fileName); // exportData
-				// Export
-				// -
-				// Daten
-				// :
-				// filePath
-				// ,
-				// isHeader
-				// ,
-				// separator
+						SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM, fileName);
 				dialog.open();
 
 				if (!(dialog.getFilePath().equals(""))) {
