@@ -75,11 +75,11 @@ public class CSVSettingsDialog extends Dialog {
 	private void createContents() {
 		frmDialog = new Shell(getParent(), SWT.DIALOG_TRIM);
 		frmDialog.setMinimumSize(new Point(400, 300));
-		frmDialog.setSize(408, 320);
+		frmDialog.setSize(550, 320);
 		frmDialog.setText("CSV Settings");
 		{
 			Group grpSeparator = new Group(frmDialog, SWT.NONE);
-			grpSeparator.setBounds(10, 66, 382, 54);
+			grpSeparator.setBounds(10, 66, 525, 54);
 			{
 				cmbSeparator = new Combo(grpSeparator, SWT.NONE);
 				cmbSeparator.addSelectionListener(new SelectionAdapter() {
@@ -124,7 +124,7 @@ public class CSVSettingsDialog extends Dialog {
 				}
 			});
 			btnOK.setEnabled(false);
-			btnOK.setBounds(223, 261, 75, 25);
+			btnOK.setBounds(376, 261, 75, 25);
 			btnOK.setText("OK");
 		}
 		{
@@ -135,12 +135,12 @@ public class CSVSettingsDialog extends Dialog {
 					frmDialog.close();
 				}
 			});
-			btnAbbrechen.setBounds(317, 261, 75, 25);
+			btnAbbrechen.setBounds(460, 261, 75, 25);
 			btnAbbrechen.setText("Abbrechen");
 		}
 		{
 			Group group = new Group(frmDialog, SWT.NONE);
-			group.setBounds(10, 126, 382, 83);
+			group.setBounds(10, 126, 525, 83);
 			{
 				Button btnOpenSaveDialog = new Button(group, SWT.NONE);
 				btnOpenSaveDialog.addSelectionListener(new SelectionAdapter() {
@@ -152,12 +152,12 @@ public class CSVSettingsDialog extends Dialog {
 						}
 					}
 				});
-				btnOpenSaveDialog.setBounds(10, 20, 362, 25);
+				btnOpenSaveDialog.setBounds(10, 20, 505, 25);
 				btnOpenSaveDialog.setText("Open Save File Dialog");
 			}
 			{
 				lblSavePath = new Label(group, SWT.BORDER);
-				lblSavePath.setBounds(10, 52, 362, 22);
+				lblSavePath.setBounds(10, 52, 505, 22);
 			}
 		}
 
