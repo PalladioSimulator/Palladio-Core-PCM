@@ -49,6 +49,7 @@ public class Coupling implements Metric {
 		}
 	}
 
+	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToOtherComp = 0.0;
 		double referencesToWholeProject = 0.0;
@@ -191,11 +192,13 @@ public class Coupling implements Metric {
 		return externClasses;
 	}
 	
+	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public MetricID getMID() {
 		return new MetricID(2342);
 	}

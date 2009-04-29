@@ -19,6 +19,7 @@ public class InterfaceViolation implements Metric {
 	protected HashSet<String> componentAClassNameSet, componentBClassNameSet;
 	protected HashSet<String> componentAIFaceNameSet, componentBIFaceNameSet;
 	
+	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
@@ -31,6 +32,7 @@ public class InterfaceViolation implements Metric {
 		componentBIFaceNameSet = new HashSet<String>();
 	}
 
+	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToClasses = 0.0;
 		double referencesToWholeComponent = 0.0;
@@ -109,6 +111,7 @@ public class InterfaceViolation implements Metric {
 
 	}
 
+	@Override
 	public MetricID getMID() {
 		return new MetricID(5);
 	}
