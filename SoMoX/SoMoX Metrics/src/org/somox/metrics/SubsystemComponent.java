@@ -73,7 +73,7 @@ public class SubsystemComponent implements Metric {
 		
 		//0 expected Subsystems, so return 1.0
 		if (max == 0 || layers.size() == 0 || layers == null) {
-			return 1.0;
+			return 0.0;
 		}
 		
 		for (ModelElement currentElement : elements1) {
