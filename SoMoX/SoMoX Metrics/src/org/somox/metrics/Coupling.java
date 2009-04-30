@@ -16,12 +16,21 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.helpers.DerivationHelper;
 import de.fzi.gast.types.GASTClass;
 
+/**
+ * Coupling metric
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class Coupling implements Metric {
 	protected Set<String> wildcardBlacklist;
 	protected Set<String> specifiedBlacklist;
 	protected HashSet<String> externNameSet;
 	protected HashSet<String> componentANameSet, componentBNameSet;
 
+	/**
+	 * Default-constructor initializing the blacklists and the namesets
+	 */
 	public Coupling () {
 		wildcardBlacklist = new HashSet<String>();
 		specifiedBlacklist = new HashSet<String>();

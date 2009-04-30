@@ -12,10 +12,19 @@ import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
+/**
+ * SubsystemComponent metric
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class SubsystemComponent implements Metric {
 	protected Set<String> wildcardBlacklist;
 	protected Set<String> specifiedBlacklist;
 	
+	/**
+	 * Default-constructor initializing the namesets
+	 */
 	public SubsystemComponent () {
 		wildcardBlacklist = new HashSet<String>();
 		specifiedBlacklist = new HashSet<String>();
@@ -62,9 +71,9 @@ public class SubsystemComponent implements Metric {
 			}
 		}
 		
+		//0 expected Subsystems, so return 1.0
 		if (max == 0 || layers.size() == 0 || layers == null) {
-			System.out.println("NULL");
-			return 0.0;
+			return 1.0;
 		}
 		
 		for (ModelElement currentElement : elements1) {

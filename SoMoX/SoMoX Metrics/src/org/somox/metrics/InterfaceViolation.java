@@ -13,7 +13,12 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.helpers.DerivationHelper;
 import de.fzi.gast.types.GASTClass;
 
-
+/**
+ * InterfaceViolation metric
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class InterfaceViolation implements Metric {
 
 	protected HashSet<String> componentAClassNameSet, componentBClassNameSet;
@@ -25,6 +30,9 @@ public class InterfaceViolation implements Metric {
 		return null;
 	}
 	
+	/**
+	 * Default-constructor initializing the namesets
+	 */
 	public InterfaceViolation () {
 		componentAClassNameSet = new HashSet<String>();
 		componentBClassNameSet = new HashSet<String>();

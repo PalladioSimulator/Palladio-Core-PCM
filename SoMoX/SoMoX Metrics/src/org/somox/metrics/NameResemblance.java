@@ -10,6 +10,12 @@ import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
+/**
+ * NameResemblance metric
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class NameResemblance implements Metric {
 
 	/**

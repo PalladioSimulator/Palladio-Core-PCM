@@ -15,6 +15,12 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 import de.fzi.gast.types.typesPackage;
 
+/**
+ * Abstractness metric
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class Abstractness implements Metric {
 
 	@Override
@@ -42,6 +48,17 @@ public class Abstractness implements Metric {
 		return abstractness;
 	}
 	
+	
+	/**
+	 * Same as "compute" with a different way of calculating the metric
+	 * 
+	 * This method uses EMF-Query to calculate the metric
+	 * 
+	 * @param root Root-Object of the Software-Project modeled as GAST-model
+	 * @param elements1 First part of the composite component
+	 * @param elements2 Second part of the composite component
+	 * @return the computed metric between 0.0 and 1.0
+	 */
 	public double computeWithOutEMF (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double abstractness = 0.0;
 		double abstractClasses = 0.0;

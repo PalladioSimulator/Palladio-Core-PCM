@@ -7,6 +7,12 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 
+/**
+ * DMS metric, calculated by using Abstractness and Instability
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class DMS implements Metric {
 	protected Instability instability;
 	protected Abstractness abstractness;
