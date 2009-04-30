@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
-import de.uka.ipd.sdq.pcm.resourcetype.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -30,7 +29,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Creates the default factory implementation.

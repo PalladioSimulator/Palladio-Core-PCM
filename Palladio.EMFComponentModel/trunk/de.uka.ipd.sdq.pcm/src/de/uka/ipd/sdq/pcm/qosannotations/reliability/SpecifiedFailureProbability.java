@@ -35,7 +35,7 @@ public interface SpecifiedFailureProbability extends SpecifiedQoSAnnotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.

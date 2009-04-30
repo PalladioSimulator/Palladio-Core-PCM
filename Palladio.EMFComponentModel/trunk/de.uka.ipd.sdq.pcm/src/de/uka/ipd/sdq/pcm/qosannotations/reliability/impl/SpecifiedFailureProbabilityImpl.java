@@ -33,7 +33,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->

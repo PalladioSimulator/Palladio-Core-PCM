@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -46,7 +49,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent() <em>Service Effect Specifications Basic Component</em>}' containment reference list.
@@ -68,8 +71,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 */
 	protected EList<PassiveResource> passiveResource_BasicComponent;
 
-	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,16 +115,42 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Seff Type Used Twice</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\n"+"  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Seff Type Used Twice</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(RepositoryPackage.Literals.BASIC_COMPONENT);
+			try {
+				NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -139,16 +166,42 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #ProvideSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Provide Same Interfaces As Implementation Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ProvideSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to provide the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+
+	/**
+	 * The cached OCL invariant for the '{@link #ProvideSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Provide Same Interfaces As Implementation Type</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ProvideSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean ProvideSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(RepositoryPackage.Literals.BASIC_COMPONENT);
+			try {
+				PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -164,16 +217,42 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #RequireSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Require Same Interfaces As Implementation Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RequireSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to require the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+
+	/**
+	 * The cached OCL invariant for the '{@link #RequireSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Require Same Interfaces As Implementation Type</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RequireSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean RequireSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(RepositoryPackage.Literals.BASIC_COMPONENT);
+			try {
+				REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic

@@ -37,7 +37,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getUnitSpecification() <em>Unit Specification</em>}' attribute.

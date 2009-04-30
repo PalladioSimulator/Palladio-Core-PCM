@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
-import de.uka.ipd.sdq.pcm.qosannotations.performance.*;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.SystemSpecifiedExecutionTime;
@@ -35,7 +34,7 @@ public class PerformanceSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

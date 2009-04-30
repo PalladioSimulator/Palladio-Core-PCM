@@ -23,6 +23,6 @@ public interface CommunicationLinkResourceType extends ProcessingResourceType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // CommunicationLinkResourceType

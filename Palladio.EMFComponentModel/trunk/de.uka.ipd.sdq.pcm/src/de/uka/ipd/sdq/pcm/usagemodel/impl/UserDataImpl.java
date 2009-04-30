@@ -42,7 +42,7 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getUserDataParameterUsages_UserData() <em>User Data Parameter Usages User Data</em>}' containment reference list.
