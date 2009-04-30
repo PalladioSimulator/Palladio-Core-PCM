@@ -22,7 +22,7 @@
 
 %% Informationen für die PDF-Datei
 \hypersetup{
- pdfauthor={N.N.},
+ pdfauthor={Christina Pildner},
  pdftitle={Not set}
  pdfsubject={Not set},
  pdfkeywords={Not set}
@@ -61,14 +61,8 @@
 
 % Index-Datei öffnen
 \ifnotdraft{\makeindex}
-%%%%%%%%%%%%%% includeonly %%%%%%%%%%%%%%%%%%%
-% Es werden nur die Teile eingebunden, die hier 
-% aufgefuehrt sind!
-\includeonly{%
-titelseite,%
-erklaerung,% Ist in KA Pflicht für Diplomarbeiten
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Documentanfang 
 \begin{document}
 
 \frontmatter
@@ -76,13 +70,6 @@ erklaerung,% Ist in KA Pflicht für Diplomarbeiten
 \ifnotdraft{
  \include{titelseite}
  \blankpage % Leerseite auf Titelrückseite
- %
- % Die folgende Erklärung ist für Diplomarbeiten Pflicht
- % (siehe Prüfungsordnung), für Studienarbeiten nicht notwendig
- %\include{erklaerung}
- %\blankpage % Leerseite auf Erklärungsrückseite
- %\include{abstract}
- %\blankpage
 }
 %
 %% *************** Hier geht's ab ****************
@@ -92,10 +79,6 @@ erklaerung,% Ist in KA Pflicht für Diplomarbeiten
 \ifnotdraft{
 \tableofcontents
 \blankpage
-%\listoffigures
-%\blankpage
-%\listoftables
-%\blankpage
 }
 
 
@@ -107,11 +90,6 @@ erklaerung,% Ist in KA Pflicht für Diplomarbeiten
 \mainmatter
 \pagenumbering{arabic}
 \include{einleitung}  % Einleitung
-%\include{analyse}     % Analyse
-%\include{entwurf}     % Entwurf
-%\include{implemen}    % Implementierung
-%\include{eval}        % Evaluierung
-\include{zusammenf}   % Zusammenfassung und Ausblick
 
 %% ++++++++++++++++++++++++++++++++++++++++++
 %% Anhang

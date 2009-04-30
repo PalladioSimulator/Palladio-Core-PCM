@@ -1,88 +1,208 @@
 %% Einleitung.tex
 
+\chapter{Einleitung}  \label{Einleitung}
 
-\chapter{Einleitung}  \label{ch: Einleitung}
+Die Diplomarbeit, die mit diesem Proposal beschrieben wird, soll Sicherheitsschwachstellen in objektorientierten Modulen untersuchen und modellieren. Die Resultate der Analyse sollen als Grundlage für ein Tool werden, das dem Programmierer bei dem Erkenntnis dieser Schwachstellen ihres Codes behilflich ist. In der \textit{Einleitung} dieses Proposal werden die Hintergründe und Ziele der Diplomarbeit dargestellt. Weiter in der \textit{Konzeption} werden die Grundlagen, Architekturmerkmale und Erwartungen aufgelistet. Die anschließende \textit{Durchführung} listet unter andere organisatorische Details, gibt einen Überblick über die verwendete Werkzeuge und Richtlinien und zeit einen vorläufigen Zeitplan für die Diplomarbeit.
 
-Dieser Proposal beschreibt die Planungen zur Umsetzung der Diplomarbeit "`Modellbasierte Analyse von Sicherheitsschwachstellen in objektorientierten Modulen"'. Diese \textit{Einleitung} befasst sich mit der Motivation und die Ziele der Diplomarbeit. Der nächsten Kapitel \textit{Konzeption} 
+\section{Motivation} \label{Motivation}
+Enge Interaktion zwischen Anwendungen ist längst keine Zukunftsvision mehr. Eigenschaften wie schnellerer Zugriff auf Dienste und schnellere Verarbeitung der Daten haben dieses Konzept zur Selbstverständlichkeit gemacht. Allerdings es bestehen Nachteile: Benutzerdaten, involvierte Software und Systeme können zum Ziel mancher Angriffe werden. Diese lassen sich vermeiden durch das Erkennen und Vermeidung von Vulnerabilitäten bereits während der Entwicklungsphase. Desweiteren erfordern steigende Produktivitätsbedürfnisse, dass Testen und Analyse kostengünstiger und deswegen automatisiert werden sollen. 
 
-Um die Lesbarkeit zu fördern, wird des weiter der Begriff "`objektorientiert"' als "`OO"' gekennzeichnet. 
+\section{Ziele und Aufgabenstellung} 
+Ein Teil der Diplomarbeit beschäftigt sich mit der Erstellung eines Tools, die mittels statischer Analyse den Code des Programmierers untersucht und somit aufgedeckte Vulnerabilitäten anzeigt. Dieses Tool soll Programmierern das Auffinden und Verstehen der Vulnerabilitäten aus eigenem Code erleichtern durch eine übersichtliche Auflistung der Ergebnissen und weitere Informationen über dem Befund.
 
-\section{Hintergrund und Motivation} \label{ch: Einleitung: sec: Hintergrund und Motivation}
+Der zweite Teil der Diplomarbeit besteht aus der Definition und Klassifikation der Vulnerabilitäten in OO-Modulen in Java. Dieses erfordert eine vorgehende Modellbildung, damit die Sicherheitskriterien in kompatible Formalismen ausgedruckt werden können. Eine Sicherheitsschwachstelle wird durch die Problemmuster identifizierbar, die sie verursacht. 
 
-Enge Interaktionen in kritischen Anwendungen zwischen Dienste und Bibliotheken von verschiedener Herkunft finden immer häufiger statt, entweder in großen statischen Systemen in den viele Komponente wiederverwendet werden, oder kleine, dynamischen Umgebungen wie der OSGi-Platform.  Desweiteren erfordern steigende Produktivitätsbedürfnisse, dass Testen und Analyse kostengünstiger werden, und deswegen automatisiert werden sollen. 
+\section{Grundlagen}
+- Definition Vulnerabilität 
+- Definition Statische Analyse 
+	- Bereits vorhandene Forschung 
+- Vorstellung der Vulnerabilitätenkatalog
+ - Bereits vorhandene Kataloge 
+-SISSy (hier oder beim Entwicklungsumgebung?)
 
-\section{Ziele}
+Unter "`Vulnerabilität"' wird eine Schwäche in einer Rechenanlage verstanden. Diese kann  ausgenutzt werden um unautorisierten Zugang zu Informationen zu bekommen oder kritische Bearbeitungen zu stören (die letzte bekannt unter den Namen "`DoS"' - Denial of Services). Eine Vulnerabilität kann entweder ein Defekt sein oder eine gefährliche Funktion sein.
 
-Ein Teil der Diplomarbeit besteht aus der Definition und Klassifikation der Sicherheitsschwachstellen in OO-Modulen in Java. Dieses erfordert eine vorgehende Modellbildung, damit die Sicherheitskriterien in kompatible Formalismen ausgedruckt werden können. Eine Sicherheitsschwachstelle wird durch die Problemmuster identifizierbar, die sie verursacht. Die Definition einer Sicherheitsschwachstelle wird durch vorhandene Modelle dargestellt. Unter verschiedene Möglichkeiten der Analyse und Darstellung,  wird PQL (Programm Query Language) \ und SISSy( Structural Inprovement of Software System) in Betracht gezogen. 
+Durch Analyse des Quellcodes können solche Vulnerabilitäten entdeckt werden. In dies ist eine sehr forschungsintesives Bereich der Informatik. Es gibt bereits viele verschiedene Analysemethoden und Tools, die das Ziel haben, Vulnerabilitäten in verschiedene Programmiersprachen zu entdecken, allerdings kein Silver Bullet. Das Verständnis einer Vulnerabilität, die Methodik der Analyse, die verschieden Sprachen und die Entdeckung neuer Vulnerabilitäten machen es unmöglich. Die meist bekannten Tools sind zum Beispiel ESC/Java 2, FindBugs \cite{Hove04}, JLint \cite{JLint} und PMD \cite{PMD}. Eine an der Universität Maryland durchgeführte Untersuchung \cite{Ruta04}, zeigt jedoch, dass keine von den Tools eine vollständige Abdeckung der Fehler erzielen. Das liegt unter anderen auch daran, dass sie unterschiedliche Ziele haben und unterschiedliche Elemente des Java-Codes untersuchen: FindBugs, JLint und PMD führen eine syntaktische Analyse durch, ESC/Java 2 dagegen eine Modellüberprüfung.
+
+Schwächen in Java lassen sich in der JVM (Java Virtual Machine) und in den Anwendungscode finden. Die Diplomarbeit beschäftigt sich nur mit dem, die aus dem Anwendungscode stammen. Die Charakteristika von Java-Sprachkonstrukte die sich ausbeuten lassen sind zum Beispiel Typ-Sicherheit, \texttt{public} Felder, innere Klassen, Serialisierung, Reflektion. Weitere Vulnerabilitäten können bei Fehlersuche, Überwachung und Verwaltung entstehen, indem man additionale Software dafür nutzt. Eine Möglichkeit diese zu vermeiden, ist Code herzustellen, die sich an Richtlinien hält. Diese Richtlinien sollen dem Programmierer behilflich bei der Herstellung sicherer Code sein. SUN stellt solche bereit \cite{Sun07}, MCGraw und Felten bezeichnen ihre Richtlinien als "`die 12 Regeln"' für ein sicherer Java-Code. \cite{McFe98}. 
+
+Die Liste der erforschten Vulnerabilitäten befindet sich in dem technischen Report: "`Java Component Vulnerabilities - an Experimental Classification targeted at the OSGI Platform"' \cite{PF07a}. (OSGi Platformen ermöglichen Verwaltung von mehrere Anwendungen über JVM, die dadurch die Möglichkeit haben, miteinander zu kommunizieren. Die On-the-Fly-Installation der OSGi-Komponente lassen neue Schwachstellen entstehen und momentan kein Mechanismus garantiert, dass der ausgeführte Code kein negatives Verhalten aufweist.) Die Darstellung der Vulnerabilitäten im Katalog ist semiformal und beinhaltet alle Informationen die zum Verständnis und Prävention und Korrektur nützlich sind. Beispiel: (Auszug aus dem Katalog)
+
+\textbf{D.5.10 Memory Load Injection}
+
+\textbf{Vulnerability Reference}
+\begin{itemize}
+	\item	 \textbf{Vulnerability Name:} Memory Load Injection
+	\item  \textbf{Identifier:} Mb.java.10
+	\item  \textbf{Origin:} MOSGI Ares Research Project (OSGi Platform Monitoring)
+	\item  \textbf{Location of Exploit Code:} Application Code - Java API
+	\item  \textbf{Source:} Application Code (No Algorithm Safety - Java)
+	\item  \textbf{Target:} Platform
+	\item  \textbf{Consequence Type:} Performance Breakdown
+	\item  \textbf{Introduction Time:} Development
+	\item  \textbf{Exploit Time:} Execution
+\end{itemize}
+
+\textbf{Vulnerability Description}
+\begin{itemize}
+	\item  \textbf{Description:} A malicious bundle that consumes most of available memory (61,65 MB in the example)
+	\item  \textbf{Preconditions:} -
+	\item  \textbf{Attack Process:} Store a huge amount of data in a byte array
+	\item  Consequence Description: Only a limited memory space is available for the execution of programs
+	\item  \textbf{See Also:} Ramping Memory Load Injection, CPU Load Injection 
+\end{itemize}
+
+\textbf{Protection}
+\begin{itemize}
+	\item  \textbf{Existing Mechanisms:} -
+	\item  \textbf{Enforcement Point:} -
+	\item  \textbf{Potential Mechanisms:} Code static Analysis ; Resource Control and Isolation - Memory
+	\item  \textbf{Attack Prevention:} -
+	\item  \textbf{Reaction:} -
+\end{itemize}
+
+\textbf{Vulnerability Implementation}
+\begin{itemize}
+	\item  \textbf{Code Reference}: Fr.inria.ares.memloadinjector-0.1.jar
+	\item  \textbf{OSGi} Profile: J2SE-1.5
+	\item  \textbf{Date:} 2006-08-24
+	\item  \textbf{Test Coverage:} 100%
+	\item  \textbf{Known Vulnerable Platforms:} Felix; Equinox; Knopflerfish; Concierge; SFelix
+\end{itemize}
+
+
+Für die Abstraktion des Quellcodes, die für die Analyse notwendig ist, wird das Tool SISSy in Betracht genommen, die am FZI in Rahmen des Projekts QBench entstanden ist. Das Ziel des Projekts ist 
+\begin{quote}
+Entwicklung und Einsatz eines ganzheitlichen Ansatzes zur konstruktions- und evolutionsbegleitenden Sicherung der inneren Qualität von objektorientierter Software, um den Aufwand der Softwareentwicklung und -evolution (und damit Kosten) deutlich senken zu können.
+\end{quote} \cite{QBench}.
+
+-PQL 
+
+
+\chapter{Konzeption} 
+
+-Taxonomie
+
+\section{Formale Definition}
+
+Wie in dem letzten Kapitel erwähnt wurde, teil der Aufgabenstellung besteht darin, eine formale Darstellung der Vulnerabilitäten zu entwickeln, die eine genaue und eindeutige Beschreibung dieser gewährleistet, frei von subjektiver Interpretation. Damit sollen die Vulnerabilitäten aus dem bereits erwähnten Vulnerabilitätenkatalog darstellbar sein. Desweiteren soll die Darstellung leicht erweiterbar sein, um neu entdeckte Vulnerabilitäten aufgenommen zu werden. 
+
+Beispiel einer möglichen formalen Darstellung wäre:
+
+
+\textit{Exposed Fields} für Objektinstanzen
+
+$ 
+	Obj_{C_{A,i}} \stackrel{set}{\Rightarrow} Obj_{C_{B,j}}.var1 \\
+	\Rightarrow \\
+	\exists Obj_{C_{C,k}} \neq Obj_{C_{A,i} }
+		\mid 	Obj_{C_{C,k}}.Obj_{C_{B,j}}.var1 = Obj_{C_{A,i}}.Obj_{C_{B,j }}.var1
+$
+
+Schreibweise: 
+$ Obj_{C_{A,i}} $ : Objektinstanz i einer Klasse der Componente A \\
+$ Obj_{C_{A,i}}.var1 $ : var1 von $ Obj_{C_{A,i}} $ 
+
+Die Regel besagt: Eine "`Exposed Fields"' Vulnerabilität ist vorhanden falls eine Objektinstanz i einer Klasse aus Komponente A eine Variable var1 der Instanz j einer Klasse aus Komponente B setzen darf und eine weitere Instanz einer Klasse aus einer Komponente C gibt, die die gleiche Variable setzen darf.  
+
+\section{Analyse}
+
+Nach der Entwicklung der formelle Darstellung soll diese für die Analyse in einem von dem Tool interpretierbar Format dargestellt werden. Dafür eignen sich Textzeichen basierte Formate sehr gut: sie sind leicht einzulesen und auch von Benutzer lesbar. Das Beispiel weiterführen würde eine mögliche Darstellung so gestaltet: 
+
+\begin{verbatim*}
+ - XML - Darstellung
+\end{verbatim*}
+
+Der nächste Schritt ist die Analyse des Codes. Dafür werden SISSy und PQL in Betracht genommen.  Diese sollen den Code untersuchen und daraus Informationen abstrahieren, die bedeutend für die Analyse sind. Die Analyse besteht dann darin, die abstrahierte Informationen nach dem Muster in den Schritt zwei zu untersuchen. Die Befunde werden persistent gespeichert, damit sie jederzeit von dem Programmierer aufrufbar sein können. 
+
  
-PQL ist eine Anfragespache, die dem Programmierrer
+\section{Architektur}
+Eclipse ist eine der beliebtesten Open Source Entwicklungsplattform für Java, dessen Framework einfach mit weitere Werkzeuge zu erweitern ist. Daher wurde entschlossen, das Tool als Eclipse Plug-In zu entwickeln. Vorteile eines Eclipse Plug-In sind unter andere
+\begin{itemize}
+	\item Einfache Installation und Bedienung,
+	\item Erweiterbarkeit,
+	\item Plattform-unabhängige Nutzung.
+\end{itemize}
+
+\section{Erwartete Qualitätsmerkmale}
+Von der Benutzersicht soll das Tool zuverlässig die Vulnerabilitäten erkennen, ideal ohne False Positives oder False Negatives. Die Durchführung der Analyse soll nicht viel Zeit und Ressourcen in Anspruch nehmen und soll keine Unvollständigen Ergebnisse zeigen. Die Resultaten der Analyse und Hinweise sollen verständlich sein auch für Benutzer ohne allzu lange Programmiererfahrung \cite{ChWe07}. Eine Dokumentation der Installation und Nutzung soll der Umgang mit dem Tool erleichtern. Von der Sicht der Entwickler soll das Tool modularisiert erstellt werden, so das spätere Erweiterungen leicht durchzuführen sind. Besonders die Liste der Vulnerabilitäten soll leicht aktualisiert werden.  
 
 
-Ein weiteres Teil der Diplomarbeit beschäftigt sich mit der Erstellung eines Tools, das die Erkenntnisse und des ersten Teils implementiert. Dieses Tool soll Programmierern das Auffinden und Verstehen der Vulnerabilitäten aus eigenem Code erleichtern, indem es Vulnerabilitäten in Code entdeckt, dem Programmierer darstellt und Informationen dazu aufblendet. 
+
+\section{Risiko}
+- SISSy - Darstellung nicht ausreichend für den Ganzen Katalog -> andere Tools zu Hilfe nehmen
+- Aufwand der Formalisierung, Transformation größer als vorgestellt -> Ein Teil der Katalog Transformieren 
+- Krankheitsfall - Ausreichende Puffer in der Planung. 
+
+\chapter{Durchführung}
+
+\section{Organisatorisches}
+Erstgutachter: Prof. Dr. Ralf H. Reussner \\
+Zweitgutacher: \\
+Betreuer: Dr. Pierre Parrend
+
+Die Diplomarbeit findet am Institut für  Programmstrukturen und Datenorganisation (IPD), Lehrstuhl für Software Design und Qualität (SDQ), in Kollaboration mit Forschungszentrum Informatik (FZI). 
+
+\section{Entwicklungsumgebung}
+ 
+Für die Erstellung der Implementierung wird Eclipse als Entwicklungsplattform und Java als Programmiersprache verwendet. Um eine übersichtliche Code-Erstellung während der Diplomarbeit zu gewährleisten wird das Maven Eclipse Plug-in eingesetzt. Zusammen mit CheckStyle und Javadoc soll dazu führen, die SEQ-Code-Konventionen \cite{SEQCK} einzuhalten. 
+
+Zur Hilfe bei der Erstellung der statische Analyse kommt SISSy zum Einsatz. Um die Ergebnisse zu speichern verwendet SISSy von der Open Source Datenbank PostgreSQL. Diese Datenbank wird auch genutzt, um die Resultate der Analyse zu speichern.   
+
+Für die Durchführung der Tests während des Code-Review wird JUnit eingesetzt. 
+
+Ausarbeitung, Präsentationen und weitere Artikel werden mit LaTeX erstellt. Dazu werden die Vorlagen von SEQ für Diplomarbeiten und Präsentationen genutzt. Die Ausarbeitung erfolgt auf Englisch. Laut Prüfungsordnung ist notwendig, dass die dazugehörige Zusammenfassung auf Deutsch geliefert wird.
+
+\section{Artefakte}	
+Während der sechsmonatigen Zeit der Durchführung sollen folgende Artefakte entstehen:
+
+\begin{itemize}
+	\item Literaturüberblick über bereits vorhandene verwandte Forschungsthemen, Tools, Verfahren und Konzepte,
+	\item Software, die die erforschte Konzepte implementiert,
+	\item JUnit Test für das zu erstellende Software,
+	\item Dokumentation für die Installation und Nutzung des Tools,
+	\item Entwickler-Dokumentation für die möglichen Weiterentwicklung des Tools
+	\item Ausarbeitung des Forschungsthemas.
+\end{itemize}
+Desweiteren sind wissenschaftlichen Arbeiten und Veröffentlichungen erwünscht. 
+
+
+\section{Zeitplan}
+Gemäß der Prüfungsordnung der Universität Karlsruhe (TH) für den Diplomstudiengang Informatik beträgt die Bearbeitungszeit einer Diplomarbeit an der Uni Karlsruhe von der Anmeldung bis zum Abschluss sechs Monate. Ein grober Zeitplan mit Meilensteinen ist in der folgenden Abbildung dargestellt. Dieses Diagramm stellt nur Rahmen der Diplomarbeit dar, im Laufe der Zeit soll der Ablauf verfeinert werden.
+
+Während der Bearbeitungszeit finden regelmäßige Treffen zwischen der betreuten Studentin und Betreuer statt, mindestens einmal in der Woche. Desweiteren besucht der Prüfling die regelmäßigen Treffen der Diplomanden am SDQ und FZI. 
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=24cm, angle= 90] {DA-Verlauf}
+	\end{center}
+	
+	\caption{Zeitliche Planung der Diplomarbeit}
+	\label{Gantt}
+\end{figure}
+
+Die wichtige Planungsmerkmale sind: 
+
+\subsection{Ausarbeitungsphase}
+Die Ausarbeitungsphase dauert sechs Monate. In dieser Zeit werden alle Textdokumente (die unter Artefakte aufgelistet werden) geschrieben. Die Meilensteine dieser Phase sind:
+\begin{itemize}
+	\item Gliederung und Literatur reichen - einen Monat nach dem Beginn der Diplomarbeit soll dieser Artefakt abgegeben werden. 
+	\item Abgabe der Rohfassung - Betreuer bekommt die Rohfassung. Änderungsvorschläge werden in der danach in der Ausarbeitung aufgenommen.
+\end{itemize}
 
   
- Aufgabenstellung:
--	Definieren von Sicherheitsschwachstellen in OO-Komponenten, 
-o	Schwachstellen sollen Problemmuster verursachen, die identifizierbar sind 
-o	Erfordert eine vorgehende Modelbildung, damit die Sicherheitskriterien in kompatiblen Formalismen ausgedruckt werden können. 
-Mögliche Aufgaben
--	Definition und Formalisierung der Sicherheitsschwächen in OO-Modulen
--	Identifizierung notwendiger Elemente zu Quellcode Analyse
--	Entwicklung einer prototypischen Analyse
--	Validierung der Analyse anhand von OO-Modulen und Bibliotheken
-Das Hauptziel der Diplomarbeit ist, Sicherheitsschwachstellen in 
+\subsection{Formalisierung-Phase} 
+In dieser Zeit wird die formale Darstellung der Vulnerabilitäten entwickelt. 25 Arbeitstagen sind dafür gedacht, weitere 5 als Puffer. 
 
-Das praktische Teil der Diplomarbeit ist, ein Tool für Statische Analyse zu entwickeln, die dem Programmierer unterstützen soll, ein sicheren Quellcode in Java zu erstellen. 
--	Sicht des Benutzter 
-o	Was macht das Tool
-"	Statische Analyse des Quellcodes 
-"	Abblenden von Informationen und Hinweise während der Programmierung 
-"	Info basierend auf dem Catalog von PP (Siehe Diss)
-o	Welche Eingenschaften soll er haben?
-"	Bediehnbarkeit
-"	Einfach zu verstehen
-"	Einfach zu bedienen
--	Sicht der Programmierer
-o	Eigenschaften
-"	Einfach zu erweitern (Modularisierung+Dokumentation)
-"	Einfügen von weiteren Begriffen
-o	Basierend auf 
-"	SISSy?
-"	
-1.3	Artefakte
-Während der sechs monatigen Zeit der Durchführung sollen folgende Artefakte entstehen
-"	Literaturüberblick über bereits vorhandene ähnliche Forschungsthemen, Tools, Verfahren und Konzepte.
-"	Softwareprogram, die erforschte Konzepte implementiert
-"	Ausarbeitung des Forschungsthemas.
-Desweiteren sind wissenschaftlichen Arbeiten und Veröffentlichungen erwünscht. 
-2.	Grundlagen
-
-3.	Konzeption 
--	Formale Beschreibung der Vulnerabilität
--	Katalogen 
--	Analyse erwähnen (Statische und 
-3.1	Erwartete Qualitätsmerkmale 
--Vertraulichkeit
--Verfügbarkeit
--korrekte Zugangskontrolle
-3.2	Architektur
-4.	Durchführung
-4.1	Forschung und Analyse
-4.2	Entwicklungsumgebung 
-Für die Erstellung der Implementierung wird Eclipse als Entwiklungsplattform verwendet. Als Programmiersprache wird Java verwendet.
-Es werden weitere Eclipse-Plugins und 
-4.3	Organisatorisches
-Erstgutachter: Prof. Dr. Ralf H. Reussner
-Zweitgutacher: 
-Betreuer: Dr. Pierre Parrend
-Die Diplomarbeit findet am Institut für  Programmstrukturen und Datenorganisation (IPD), Lehrstuhl für Software Design und Qualität (SDQ), in Kollaboration mit Forschungszentrum Informatik (FZI).  
-4.4	Zeitplan
--	Meilensteine
-Gemäß der Prüfungsordnung der Universität Karlsruhe (TH) für 
-den Diplomstudiengang Informatik vom  beträgt die Bearbeitungszeit einer Diplomarbeit an der Uni Karlsruhe von der Anmeldung bis zum Abschluss sechs Monate. Ein grober Zeitplan mit einigen Meilensteinen und bis dahin erstellten Artefakten ist in der folgenden Gantt-Abbildung dargestellt. Das Diagramm stellt nur den Rahmen der Diplomarbeit dar, im Laufe der Zeit soll der Ablauf verfeinert werden.
-Während der Bearbeitung finden regelmäßige Treffen zwischen Prüfling und Betreuer statt, mindestens einmal in der Woche. Desweiteren besucht der Prüfling die regelmäßigen Treffen der Diplomanten am SDQ und FZI. 
+\subsection{Entwicklungsphase}
+Die Entwicklungsphase umfasst die Architektur des Tools als auch seine Implementierung, Testen und Korrektur. Die Architekturentwurf (25 Arbeitstage) wird von dem Betreuer abgenommen, bei Bedarf werden Änderungen durchgeführt. Steht der Entwurf fest, wird mit der Implementierung angefangen. In dieser Zeit wird der Code des Tool zusammen mit dem JUnit erstellt. Am Ende der Implementierungszeitraum (25 Arbeitstage), nach einer Woche Review-Vorbereitung (bei der die JUnit-Tests und Anleitung für Test vervollständigt werden, haben die Tester (ausgewählten Studenten und Mitarbeiter des Instituts) eine Woche Zeit, den Code zu Testen. Die Befunde des Testen und weitere Kritikpunkte werden im Review-Treffen dem Studenten vorgestellt und im Protokoll des Treffs festgehalten. Der nächsten Schritt beschäftigt sich mit der Korrektur der Codes.
 
 
+\subsection{Puffer}
+Für jede wichtige Phase wird ein Puffer von mindestens 30\% einkalkuliert. Diese Puffer sorgen für eine punktliche Durchführung der Diplomarbeit, trotzt mancher Risikos aufgelistet in Kapitel "`Konzeption"'.
+
+\subsection{Abgabe}
+Dem Betreuer wird alle Artefakte vollständig abgegeben. Nach der Abgabe kann keine Korrekturen mehr unternommen werden. Nach zwei Wochen folgt die Präsentation der Diplomarbeit vor der Mitarbeiter und Studenten des Instituts. 
 
 %%% Local Variables: 
 %%% mode: latex

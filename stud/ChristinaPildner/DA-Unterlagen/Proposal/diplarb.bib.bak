@@ -1,6 +1,33 @@
 % This file was created with JabRef 2.4.2.
 % Encoding: Cp1252
 
+@BOOK{BlNe05,
+  title = {Java Puzzlers - Traps, Pittfallls and Corner Cases},
+  publisher = {Addison-Wesley},
+  year = {2005},
+  author = {Joshua Bloch and Neal Gafter},
+  edition = {1},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.25}
+}
+
+@MISC{Checkstyle,
+  author = {Checkstyle},
+  title = {Checkstyle Documentation on Sourceforge.net - http://checkstyle.sourceforge.net/index.html},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.23},
+  url = {http://checkstyle.sourceforge.net/index.html}
+}
+
+@BOOK{ChWe07,
+  title = {Secure Programming with Static Analysis},
+  publisher = {Addison Wesley},
+  year = {2007},
+  author = {Brian Chess and Jacob West},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.28}
+}
+
 @INPROCEEDINGS{Crew97,
   author = {Roger F. Crew},
   title = {ASTLOG: A Language for Examining Abstrakt Sysntax Trees},
@@ -8,13 +35,36 @@
   year = {1997},
   address = {Santa Barbara},
   month = {Oktober},
+  note = {sal},
   owner = {Christina},
   timestamp = {2009.04.14},
   url = {http://www.usenix.org/publications/library/proceedings/dsl97/full_papers/crew/crew.pdf}
 }
 
+@INPROCEEDINGS{Flan02,
+  author = {Cormac Flanagan and K. Rustan M. Leino and Mark Lillibridge and Greg
+	Nelson and James B. Saxe and Raymie Stata},
+  title = {Extended static checking for Java},
+  booktitle = {PLDI '02: Proceedings of the ACM SIGPLAN 2002 Conference on Programming
+	language design and implementation},
+  year = {2002},
+  pages = {234--245},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  doi = {http://doi.acm.org/10.1145/512529.512558},
+  isbn = {1-58113-463-0},
+  location = {Berlin, Germany}
+}
+
+@MISC{QBench,
+  author = {FZI},
+  title = {QBench Poject - http://www.qbench.de/QBench/CMS/index_html},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.28}
+}
+
 @INPROCEEDINGS{Gold05,
-  author = {Simon F. Goldsmith  and Robert O'Callahan and Alex Aiken},
+  author = {Simon F. Goldsmith and Robert O'Callahan and Alex Aiken},
   title = {Relational queries over program traces},
   booktitle = {OOPSLA '05: Proceedings of the 20th annual ACM SIGPLAN conference
 	on Object-oriented programming, systems, languages, and applications},
@@ -44,6 +94,28 @@
   location = {San Diego, CA, USA}
 }
 
+@ARTICLE{Hove04,
+  author = {David Hovemeyer and William Pugh},
+  title = {Finding bugs is easy},
+  journal = {SIGPLAN Not.},
+  year = {2004},
+  volume = {39},
+  pages = {92--106},
+  number = {12},
+  address = {New York, NY, USA},
+  doi = {http://doi.acm.org/10.1145/1052883.1052895},
+  issn = {0362-1340},
+  publisher = {ACM}
+}
+
+@MISC{JLint,
+  author = {JLint},
+  title = {Jlint - http://artho.com/jlint/},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.24},
+  url = {http://artho.com/jlint/}
+}
+
 @INPROCEEDINGS{Mart05,
   author = {Michael Martin and Benjamin Livshits and Monica Lam},
   title = {Finding Application Errors and Security Flaws Using PQL: a Program
@@ -55,6 +127,25 @@
   owner = {Christina Pildner},
   timestamp = {2009.04.22},
   url = {http://www.truststc.org/pubs/397.html}
+}
+
+@MISC{Maven,
+  author = {Maven},
+  title = {Apache Maven Project - http://maven.apache.org/},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.23},
+  url = {http://maven.apache.org/}
+}
+
+@ARTICLE{McFe98,
+  author = {Gary Mcgraw and Edward Felten},
+  title = {Twelve rules for developing more secure Java code},
+  journal = {JavaWorld.com},
+  year = {1998},
+  month = {January},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.25},
+  url = {http://www.javaworld.com/javaworld/jw-12-1998/jw-12-securityrules.html}
 }
 
 @INPROCEEDINGS{Parr09,
@@ -82,7 +173,8 @@
   month = {October},
   publisher = {Springer Berlin / Heidelberg},
   owner = {Christina Pildner},
-  timestamp = {2009.04.22}
+  timestamp = {2009.04.22},
+  url = {http://www.rzo.free.fr/parrend08cbse.php}
 }
 
 @TECHREPORT{PF07a,
@@ -113,7 +205,16 @@
 	a robust OSGi Platform is built, and recommendations are made to
 	enhance the OSGi Specifications.},
   owner = {Christina Pildner},
-  timestamp = {2009.04.23}
+  timestamp = {2009.04.23},
+  url = {http://www.rzo.free.fr/parrend07OSGivulnerabilities.php}
+}
+
+@MISC{PMD,
+  author = {PMD},
+  title = {PMD - http://pmd.sourceforge.net},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.24},
+  url = {http://pmd.sourceforge.net/}
 }
 
 @ARTICLE{Ruta04,
@@ -144,5 +245,24 @@
   owner = {Christina Pildner},
   publisher = {IEEE Computer Society},
   timestamp = {2009.04.22}
+}
+
+@MISC{SEQCK,
+  author = {SEQ},
+  title = {SDQ-Code-Konventionen - http://sdqweb.ipd.uka.de/wiki/Checkstyle\#SDQ-Code-Konventionen},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.23},
+  url = {http://sdqweb.ipd.uka.de/wiki/Checkstyle#SDQ-Code-Konventionen}
+}
+
+@MANUAL{Sun07,
+  title = {Secure coding guidelines for the Java programming language, version
+	2.0.},
+  author = {Sun Microsystems, Inc},
+  organization = {Sun Microsystems Inc.},
+  year = {2007},
+  owner = {Christina Pildner},
+  timestamp = {2009.04.25},
+  url = {http://java.sun.com/security/seccodeguide.html}
 }
 
