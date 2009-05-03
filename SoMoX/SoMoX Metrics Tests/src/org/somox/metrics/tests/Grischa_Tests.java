@@ -367,7 +367,6 @@ public class Grischa_Tests {
 		}
 		
 		if (elements.size() > 0) {
-			int i=0;
 			for (ModelElement element : elements) {
 				
 				//TEST for PackageMapping and SubsystemComponent
@@ -404,7 +403,8 @@ public class Grischa_Tests {
 				}*/
 				
 				//ALL ELEMENTS DIVIDED: Used for SLAQ, Abstractness
-				/*if (i<=elements.size()/2) {
+				/*int i=0;
+				if (i<=elements.size()/2) {
 					elements1.add(element);
 				} else {
 					elements2.add(element);
