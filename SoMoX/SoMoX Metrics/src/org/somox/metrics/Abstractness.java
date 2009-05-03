@@ -22,9 +22,15 @@ import de.fzi.gast.types.typesPackage;
  *
  */
 public class Abstractness implements Metric {
-
+	
 	@Override
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute(Root root, List<ModelElement> elements1,
+			List<ModelElement> elements2) {
+		return computeWithOutEMF(root, elements1, elements2);
+	}
+
+	//TODO: EMF-Query counts ALL abstract elements: also methods, etc. => wrong result
+	public double computeWithEMF (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double abstractness = 0.0;
 		double abstractClasses = 0.0;
 		double totalClasses = 0.0;

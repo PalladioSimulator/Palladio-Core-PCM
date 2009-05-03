@@ -129,7 +129,9 @@ public class Coupling implements Metric {
 			}
 		}
 		
-		coupling = referencesToOtherComp/referencesToWholeProject;
+		if (referencesToWholeProject != 0.0) {
+			coupling = referencesToOtherComp/referencesToWholeProject;
+		}
 		
 		referencesToOtherComp = 0.0;
 		referencesToWholeProject = 0.0;
@@ -139,7 +141,6 @@ public class Coupling implements Metric {
 
 			for (Access currentAccess : accesses) {
 				GASTClass accessedClass = currentAccess.getAccessedClass();
-				
 				if (accessedClass != null) {
 					if (componentANameSet.contains(accessedClass.getQualifiedName())) {
 						referencesToOtherComp += 1.0;
@@ -153,6 +154,8 @@ public class Coupling implements Metric {
 		
 		if (coupling < referencesToOtherComp/referencesToWholeProject) {
 			coupling = referencesToOtherComp/referencesToWholeProject;
+			System.out.println("References other: " + referencesToOtherComp);
+			System.out.println("References whole: " + referencesToWholeProject);
 		}
 		
 		return coupling;

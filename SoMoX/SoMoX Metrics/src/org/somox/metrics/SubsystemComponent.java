@@ -71,7 +71,7 @@ public class SubsystemComponent implements Metric {
 			}
 		}
 		
-		//0 expected Subsystems, so return 1.0
+		//0 expected Subsystems, so return 0.0
 		if (max == 0 || layers.size() == 0 || layers == null) {
 			return 0.0;
 		}
@@ -84,7 +84,7 @@ public class SubsystemComponent implements Metric {
 						if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
 							for (Package layerPackage : layers) {
 								if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
-									subLayer = slicePackage.getQualifiedName() + layerPackage.getSimpleName();
+									subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
 									break;
 								}
 							}
@@ -107,7 +107,7 @@ public class SubsystemComponent implements Metric {
 						if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
 							for (Package layerPackage : layers) {
 								if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
-									subLayer = slicePackage.getQualifiedName() + layerPackage.getSimpleName();
+									subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
 									break;
 								}
 							}

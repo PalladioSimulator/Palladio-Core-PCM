@@ -117,7 +117,6 @@ public class Instability implements Metric {
 				if (accessedClass != null) {
 					if (internNameSet.contains(accessedClass.getQualifiedName())) {
 						afferentCoupling += 1.0;
-						System.out.println("ACCESS from " + currentClass.getQualifiedName() + " to " + accessedClass.getQualifiedName());
 					}
 				}
 					
@@ -133,7 +132,6 @@ public class Instability implements Metric {
 				if (accessedClass != null) {
 					if (externNameSet.contains(accessedClass.getQualifiedName())) {
 						efferentCoupling += 1.0;
-						System.out.println("ACCESS from " + currentClass.getQualifiedName() + " to " + accessedClass.getQualifiedName());
 					}
 				}
 			}

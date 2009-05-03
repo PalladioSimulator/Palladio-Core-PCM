@@ -21,7 +21,7 @@ public class SliceLayerArchitectureQuality implements Metric {
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 
-		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);
+		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);		
 		EList<de.fzi.gast.core.Package> slices = prefixPackage.getSubPackages();
 		EList<de.fzi.gast.core.Package> layers = null;
 
@@ -54,7 +54,7 @@ public class SliceLayerArchitectureQuality implements Metric {
 			if (expectedSubsystems == 0) {
 				return 1.0;
 			} else {
-				return existingSubsystems/expectedSubsystems;
+				return (double)existingSubsystems/(double)expectedSubsystems;
 			}
 		}
 	}
