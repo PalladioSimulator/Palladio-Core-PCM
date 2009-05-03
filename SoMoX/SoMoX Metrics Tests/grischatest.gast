@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesses="http://www.fzi.de/gast/accesses" xmlns:annotations="http://www.fzi.de/gast/annotations" xmlns:core="http://www.fzi.de/gast/core" xmlns:statements="http://www.fzi.de/gast/statements" xmlns:types="http://www.fzi.de/gast/types">
+  <files uniqueId="28" sourceFile="true" linesOfCode="9" pathName="FILE:C:\fallstudien\grischa\Testproject\Testproject\src\test\slice1\layer1\MyLayer1Class1.java"/>
+  <files uniqueId="29" sourceFile="true" linesOfCode="5" pathName="FILE:C:\fallstudien\grischa\Testproject\Testproject\src\test\slice1\layer1\MyLayer1Interface.java"/>
+  <files uniqueId="30" sourceFile="true" importedTypes="//@packages.1/@subPackages.0/@subPackages.0/@classes.0 //@packages.1/@subPackages.0/@subPackages.0/@classes.1 //@packages.1/@subPackages.0/@subPackages.0/@classes.2" linesOfCode="31" pathName="FILE:C:\fallstudien\grischa\Testproject\Testproject\src\test\slice2\layer2\MyOtherClass.java"/>
+  <files uniqueId="31" sourceFile="true" linesOfCode="12" pathName="FILE:C:\fallstudien\grischa\Testproject\Testproject\src\test\slice1\layer1\MyLayer1Class2.java"/>
+  <files uniqueId="32" sourceFile="true" importedTypes="//@packages.1/@subPackages.0/@subPackages.0/@classes.0 //@packages.1/@subPackages.0/@subPackages.0/@classes.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0" linesOfCode="13" pathName="FILE:C:\fallstudien\grischa\Testproject\Testproject\src\test\slice1\layer2\MyLayer2Class1.java"/>
+  <files status="LIBRARY" uniqueId="108" pathName="ARCHIVE:C:\Programme\Java\jdk1.6.0_01\jre\lib\rt.jar?java/lang/Object.class"/>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="1" visibility="VISIBILITYPACKAGE" simpleName="char" primitive="true">
+    <self status="IMPLICIT" uniqueId="2" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="3" accessedClass="//@types.0" accessedTarget="//@types.0" surroundingClass="//@types.0" targetType="//@types.0">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="4" visibility="VISIBILITYPACKAGE" simpleName="short" primitive="true">
+    <self status="IMPLICIT" uniqueId="5" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="6" accessedClass="//@types.1" accessedTarget="//@types.1" surroundingClass="//@types.1" targetType="//@types.1">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="7" visibility="VISIBILITYPACKAGE" simpleName="byte" primitive="true">
+    <self status="IMPLICIT" uniqueId="8" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="9" accessedClass="//@types.2" accessedTarget="//@types.2" surroundingClass="//@types.2" targetType="//@types.2">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="10" visibility="VISIBILITYPACKAGE" simpleName="int" primitive="true">
+    <self status="IMPLICIT" uniqueId="11" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="12" accessedClass="//@types.3" accessedTarget="//@types.3" surroundingClass="//@types.3" targetType="//@types.3">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="13" visibility="VISIBILITYPACKAGE" simpleName="long" primitive="true">
+    <self status="IMPLICIT" uniqueId="14" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="15" accessedClass="//@types.4" accessedTarget="//@types.4" surroundingClass="//@types.4" targetType="//@types.4">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="16" visibility="VISIBILITYPACKAGE" simpleName="float" primitive="true">
+    <self status="IMPLICIT" uniqueId="17" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="18" accessedClass="//@types.5" accessedTarget="//@types.5" surroundingClass="//@types.5" targetType="//@types.5">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="19" visibility="VISIBILITYPACKAGE" simpleName="void" primitive="true">
+    <self status="IMPLICIT" uniqueId="20" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="21" accessedClass="//@types.6" accessedTarget="//@types.6" surroundingClass="//@types.6" targetType="//@types.6">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="22" visibility="VISIBILITYPACKAGE" simpleName="double" primitive="true">
+    <self status="IMPLICIT" uniqueId="23" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="24" accessedClass="//@types.7" accessedTarget="//@types.7" surroundingClass="//@types.7" targetType="//@types.7">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <types xsi:type="types:GASTClass" status="IMPLICIT" uniqueId="25" visibility="VISIBILITYPACKAGE" simpleName="boolean" primitive="true">
+    <self status="IMPLICIT" uniqueId="26" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+      <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      <typeDeclaration status="IMPLICIT" uniqueId="27" accessedClass="//@types.8" accessedTarget="//@types.8" surroundingClass="//@types.8" targetType="//@types.8">
+        <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+      </typeDeclaration>
+    </self>
+  </types>
+  <packages status="LIBRARY" uniqueId="138" simpleName="java">
+    <subPackages status="LIBRARY" uniqueId="109" simpleName="lang">
+      <classes status="LIBRARY" uniqueId="105" visibility="VISIBILITYPUBLIC" simpleName="Object" referenceType="true">
+        <position assembly="//@files.5"/>
+        <self status="IMPLICIT" uniqueId="106" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+          <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+          <typeDeclaration status="IMPLICIT" uniqueId="107" accessedClass="//@packages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.0/@subPackages.0/@classes.0" targetType="//@packages.0/@subPackages.0/@classes.0">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+          </typeDeclaration>
+        </self>
+      </classes>
+    </subPackages>
+  </packages>
+  <packages status="LIBRARY" uniqueId="139" simpleName="test">
+    <subPackages status="LIBRARY" uniqueId="136" simpleName="slice1">
+      <subPackages status="LIBRARY" uniqueId="36" simpleName="layer1">
+        <classes uniqueId="33" visibility="VISIBILITYPUBLIC" simpleName="MyLayer1Class1" referenceType="true" superTypes="//@packages.0/@subPackages.0/@classes.0">
+          <position endColumn="1" startColumn="1" endLine="9" startLine="3" sourceFile="//@files.0"/>
+          <fields uniqueId="58" visibility="VISIBILITYPUBLIC" simpleName="value">
+            <position endColumn="24" startColumn="16" endLine="4" startLine="4" sourceFile="//@files.0"/>
+            <typeDeclaration uniqueId="57" accessedClass="//@types.3" accessedTarget="//@types.3" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" targetType="//@types.3">
+              <position endColumn="24" startColumn="16" endLine="4" startLine="4" sourceFile="//@files.0"/>
+            </typeDeclaration>
+          </fields>
+          <methods uniqueId="76" simpleName="method" visibility="VISIBILITYPUBLIC" virtual="true">
+            <position endColumn="5" startColumn="5" endLine="8" startLine="6" sourceFile="//@files.0"/>
+            <returnTypeDeclaration uniqueId="78" accessedClass="//@types.6" accessedTarget="//@types.6" surroundingFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@methods.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" targetType="//@types.6">
+              <position endColumn="5" startColumn="5" endLine="8" startLine="6" sourceFile="//@files.0"/>
+            </returnTypeDeclaration>
+            <body uniqueId="77">
+              <position endColumn="5" startColumn="27" endLine="8" startLine="6" sourceFile="//@files.0"/>
+            </body>
+          </methods>
+          <constructors status="IMPLICIT" uniqueId="80" simpleName="MyLayer1Class1" visibility="VISIBILITYPUBLIC" static="true" virtual="true">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+          </constructors>
+          <constructors simpleName="value" accesses="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@constructors.1/@body/@statements.0/@accesses.0" numberOfStatements="1" numberOfEdgesInCFG="1" numberOfNodesInCFG="1" visibility="VISIBILITYPACKAGE" initializer="true">
+            <position endColumn="24" startColumn="24" endLine="4" startLine="4" sourceFile="//@files.0"/>
+            <body uniqueId="101">
+              <position endColumn="24" startColumn="24" endLine="4" startLine="4" sourceFile="//@files.0"/>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="102">
+                <position endColumn="24" startColumn="24" endLine="4" startLine="4" sourceFile="//@files.0"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="103" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@constructors.1/@body/@statements.0" surroundingFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@constructors.1" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="24" startColumn="16" endLine="4" startLine="4" sourceFile="//@files.0"/>
+                </accesses>
+              </statements>
+            </body>
+          </constructors>
+          <inheritanceTypeAccesses uniqueId="110" accessedClass="//@packages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" targetType="//@packages.0/@subPackages.0/@classes.0">
+            <position endColumn="1" startColumn="1" endLine="9" startLine="3" sourceFile="//@files.0"/>
+          </inheritanceTypeAccesses>
+          <self status="IMPLICIT" uniqueId="34" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            <typeDeclaration status="IMPLICIT" uniqueId="35" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.0">
+              <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            </typeDeclaration>
+          </self>
+        </classes>
+        <classes uniqueId="38" visibility="VISIBILITYPUBLIC" simpleName="MyLayer1Class2" referenceType="true" superTypes="//@packages.1/@subPackages.0/@subPackages.0/@classes.2">
+          <position endColumn="1" startColumn="1" endLine="12" startLine="4" sourceFile="//@files.3"/>
+          <methods uniqueId="67" simpleName="doSomething" visibility="VISIBILITYPUBLIC" overriddenMember="//@packages.1/@subPackages.0/@subPackages.0/@classes.2/@methods.0" virtual="true">
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="140">
+              <position endColumn="13" endLine="3" startLine="3" sourceFile="//@files.3"/>
+              <texts>//INHERITANCE</texts>
+            </annotations>
+            <position endColumn="5" startColumn="5" endLine="7" startLine="5" sourceFile="//@files.3"/>
+            <returnTypeDeclaration uniqueId="69" accessedClass="//@types.6" accessedTarget="//@types.6" surroundingFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@methods.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" targetType="//@types.6">
+              <position endColumn="5" startColumn="5" endLine="7" startLine="5" sourceFile="//@files.3"/>
+            </returnTypeDeclaration>
+            <body uniqueId="68">
+              <position endColumn="5" startColumn="32" endLine="7" startLine="5" sourceFile="//@files.3"/>
+            </body>
+          </methods>
+          <methods uniqueId="70" simpleName="doSomethingElse" visibility="VISIBILITYPUBLIC" virtual="true">
+            <position endColumn="5" startColumn="5" endLine="11" startLine="9" sourceFile="//@files.3"/>
+            <returnTypeDeclaration uniqueId="72" accessedClass="//@types.6" accessedTarget="//@types.6" surroundingFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@methods.1" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" targetType="//@types.6">
+              <position endColumn="5" startColumn="5" endLine="11" startLine="9" sourceFile="//@files.3"/>
+            </returnTypeDeclaration>
+            <body uniqueId="71">
+              <position endColumn="5" startColumn="36" endLine="11" startLine="9" sourceFile="//@files.3"/>
+            </body>
+          </methods>
+          <constructors status="IMPLICIT" uniqueId="79" simpleName="MyLayer1Class2" visibility="VISIBILITYPUBLIC" static="true" virtual="true">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+          </constructors>
+          <inheritanceTypeAccesses uniqueId="104" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.2">
+            <position endColumn="56" startColumn="29" endLine="4" startLine="4" sourceFile="//@files.3"/>
+          </inheritanceTypeAccesses>
+          <self status="IMPLICIT" uniqueId="39" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            <typeDeclaration status="IMPLICIT" uniqueId="40" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.1">
+              <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            </typeDeclaration>
+          </self>
+        </classes>
+        <classes uniqueId="42" visibility="VISIBILITYPUBLIC" abstract="true" simpleName="MyLayer1Interface" referenceType="true" superTypes="//@packages.0/@subPackages.0/@classes.0" interface="true">
+          <position endColumn="1" startColumn="1" endLine="5" startLine="3" sourceFile="//@files.1"/>
+          <methods uniqueId="73" simpleName="doSomething" visibility="VISIBILITYPUBLIC" abstract="true" virtual="true">
+            <position endColumn="20" startColumn="5" endLine="4" startLine="4" sourceFile="//@files.1"/>
+            <returnTypeDeclaration uniqueId="75" accessedClass="//@types.6" accessedTarget="//@types.6" surroundingFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.2/@methods.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" targetType="//@types.6">
+              <position endColumn="20" startColumn="5" endLine="4" startLine="4" sourceFile="//@files.1"/>
+            </returnTypeDeclaration>
+            <body status="LIBRARY" uniqueId="74"/>
+          </methods>
+          <inheritanceTypeAccesses uniqueId="113" accessedClass="//@packages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" targetType="//@packages.0/@subPackages.0/@classes.0">
+            <position endColumn="1" startColumn="1" endLine="5" startLine="3" sourceFile="//@files.1"/>
+          </inheritanceTypeAccesses>
+          <self status="IMPLICIT" uniqueId="43" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            <typeDeclaration status="IMPLICIT" uniqueId="44" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" surroundingClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.2">
+              <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            </typeDeclaration>
+          </self>
+        </classes>
+      </subPackages>
+      <subPackages status="LIBRARY" uniqueId="56" simpleName="layer2">
+        <classes uniqueId="53" visibility="VISIBILITYPUBLIC" simpleName="MyLayer2Class1" referenceType="true" superTypes="//@packages.0/@subPackages.0/@classes.0">
+          <position endColumn="1" startColumn="1" endLine="13" startLine="7" sourceFile="//@files.4"/>
+          <fields uniqueId="60" visibility="VISIBILITYPACKAGE" simpleName="ml1c1">
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="141">
+              <position endColumn="14" startColumn="1" endLine="9" startLine="9" sourceFile="//@files.4"/>
+              <texts>//AGGREGATION</texts>
+            </annotations>
+            <position endColumn="24" startColumn="20" endLine="10" startLine="10" sourceFile="//@files.4"/>
+            <typeDeclaration uniqueId="59" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.0">
+              <position endColumn="24" startColumn="20" endLine="10" startLine="10" sourceFile="//@files.4"/>
+            </typeDeclaration>
+          </fields>
+          <fields uniqueId="62" visibility="VISIBILITYPACKAGE" simpleName="ml1c2">
+            <position endColumn="24" startColumn="20" endLine="11" startLine="11" sourceFile="//@files.4"/>
+            <typeDeclaration uniqueId="61" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" surroundingClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.1">
+              <position endColumn="24" startColumn="20" endLine="11" startLine="11" sourceFile="//@files.4"/>
+            </typeDeclaration>
+          </fields>
+          <fields uniqueId="64" visibility="VISIBILITYPACKAGE" simpleName="moc">
+            <position endColumn="20" startColumn="18" endLine="12" startLine="12" sourceFile="//@files.4"/>
+            <typeDeclaration uniqueId="63" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" targetType="//@packages.1/@subPackages.1/@subPackages.0/@classes.0">
+              <position endColumn="20" startColumn="18" endLine="12" startLine="12" sourceFile="//@files.4"/>
+            </typeDeclaration>
+          </fields>
+          <constructors status="IMPLICIT" uniqueId="81" simpleName="MyLayer2Class1" visibility="VISIBILITYPUBLIC" static="true" virtual="true">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+          </constructors>
+          <inheritanceTypeAccesses uniqueId="112" accessedClass="//@packages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" targetType="//@packages.0/@subPackages.0/@classes.0">
+            <position endColumn="1" startColumn="1" endLine="13" startLine="7" sourceFile="//@files.4"/>
+          </inheritanceTypeAccesses>
+          <self status="IMPLICIT" uniqueId="54" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            <typeDeclaration status="IMPLICIT" uniqueId="55" accessedClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" surroundingClass="//@packages.1/@subPackages.0/@subPackages.1/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.1/@classes.0">
+              <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            </typeDeclaration>
+          </self>
+        </classes>
+      </subPackages>
+    </subPackages>
+    <subPackages status="LIBRARY" uniqueId="137" simpleName="slice2">
+      <subPackages status="LIBRARY" uniqueId="51" simpleName="layer2">
+        <classes uniqueId="48" visibility="VISIBILITYPUBLIC" simpleName="MyOtherClass" referenceType="true" superTypes="//@packages.0/@subPackages.0/@classes.0">
+          <position endColumn="1" startColumn="1" endLine="31" startLine="7" sourceFile="//@files.2"/>
+          <fields uniqueId="66" visibility="VISIBILITYPACKAGE" simpleName="layer">
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="142">
+              <position endColumn="14" startColumn="1" endLine="8" startLine="8" sourceFile="//@files.2"/>
+              <texts>//AGGREGATION</texts>
+            </annotations>
+            <position endColumn="24" startColumn="20" endLine="9" startLine="9" sourceFile="//@files.2"/>
+            <typeDeclaration uniqueId="65" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.0">
+              <position endColumn="24" startColumn="20" endLine="9" startLine="9" sourceFile="//@files.2"/>
+            </typeDeclaration>
+          </fields>
+          <constructors uniqueId="82" simpleName="MyOtherClass" accesses="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.1/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.1/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.2/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.2/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3/@accesses.2 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4/@accesses.2 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.5/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.5/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6/@accesses.2 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7/@accesses.2 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7/@accesses.3 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8/@accesses.0 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8/@accesses.1 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8/@accesses.2 //@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8/@accesses.3" numberOfStatements="9" linesOfComments="4" numberOfEdgesInCFG="1" numberOfNodesInCFG="1" visibility="VISIBILITYPUBLIC" virtual="true">
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="143">
+              <position endColumn="15" startColumn="2" endLine="13" startLine="13" sourceFile="//@files.2"/>
+              <texts>//AGGREGATION</texts>
+            </annotations>
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="144">
+              <position endColumn="8" startColumn="2" endLine="20" startLine="20" sourceFile="//@files.2"/>
+              <texts>//CALL</texts>
+            </annotations>
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="145">
+              <position endColumn="8" startColumn="2" endLine="25" startLine="25" sourceFile="//@files.2"/>
+              <texts>//READ</texts>
+            </annotations>
+            <annotations xsi:type="annotations:Comment" status="LIBRARY" uniqueId="146">
+              <position endColumn="9" startColumn="2" endLine="28" startLine="28" sourceFile="//@files.2"/>
+              <texts>//WRITE</texts>
+            </annotations>
+            <position endColumn="5" startColumn="5" endLine="30" startLine="11" sourceFile="//@files.2"/>
+            <localVariables uniqueId="94" simpleName="ifaceA">
+              <position endColumn="32" startColumn="27" endLine="14" startLine="14" sourceFile="//@files.2"/>
+              <typeDeclaration uniqueId="93" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.2">
+                <position endColumn="32" startColumn="27" endLine="14" startLine="14" sourceFile="//@files.2"/>
+              </typeDeclaration>
+            </localVariables>
+            <localVariables uniqueId="96" simpleName="ifaceB">
+              <position endColumn="40" startColumn="35" endLine="14" startLine="14" sourceFile="//@files.2"/>
+              <typeDeclaration uniqueId="95" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.2">
+                <position endColumn="40" startColumn="35" endLine="14" startLine="14" sourceFile="//@files.2"/>
+              </typeDeclaration>
+            </localVariables>
+            <localVariables uniqueId="98" simpleName="temp">
+              <position endColumn="30" startColumn="13" endLine="26" startLine="26" sourceFile="//@files.2"/>
+              <typeDeclaration uniqueId="97" accessedClass="//@types.3" accessedTarget="//@types.3" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@types.3">
+                <position endColumn="30" startColumn="13" endLine="26" startLine="26" sourceFile="//@files.2"/>
+              </typeDeclaration>
+            </localVariables>
+            <body uniqueId="83">
+              <position endColumn="5" startColumn="28" endLine="30" startLine="11" sourceFile="//@files.2"/>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="84">
+                <position endColumn="40" startColumn="9" endLine="14" startLine="14" sourceFile="//@files.2"/>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="85">
+                <position endColumn="35" startColumn="9" endLine="16" startLine="16" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="114" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.1" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.0">
+                  <position endColumn="14" startColumn="9" endLine="16" startLine="16" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="115" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@constructors.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.1" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@constructors.0">
+                  <position endColumn="35" startColumn="18" endLine="16" startLine="16" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="86">
+                <position endColumn="35" startColumn="9" endLine="17" startLine="17" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="116" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.1" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.2" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.1">
+                  <position endColumn="14" startColumn="9" endLine="17" startLine="17" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="117" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@constructors.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.2" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@constructors.0">
+                  <position endColumn="35" startColumn="18" endLine="17" startLine="17" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="87">
+                <position endColumn="34" startColumn="9" endLine="18" startLine="18" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:SelfAccess" status="LIBRARY" uniqueId="118" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="119" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="13" startColumn="9" endLine="18" startLine="18" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="120" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@constructors.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.3" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@constructors.0">
+                  <position endColumn="34" startColumn="17" endLine="18" startLine="18" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="88">
+                <position endColumn="51" startColumn="9" endLine="21" startLine="21" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:CastTypeAccess" uniqueId="121" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.0/@subPackages.0/@classes.1">
+                  <position endColumn="31" startColumn="10" endLine="21" startLine="21" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="122" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.1" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.1">
+                  <position endColumn="31" startColumn="26" endLine="21" startLine="21" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="123" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.1" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@methods.1" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.4" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.1/@methods.1">
+                  <position endColumn="51" startColumn="9" endLine="21" startLine="21" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="89">
+                <position endColumn="29" startColumn="9" endLine="22" startLine="22" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="124" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.5" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.0">
+                  <position endColumn="15" startColumn="9" endLine="22" startLine="22" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="125" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.2" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.2/@methods.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.5" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.2/@methods.0">
+                  <position endColumn="29" startColumn="9" endLine="22" startLine="22" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="90">
+                <position endColumn="23" startColumn="9" endLine="23" startLine="23" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:SelfAccess" status="LIBRARY" uniqueId="126" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="127" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="14" startColumn="9" endLine="23" startLine="23" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:FunctionAccess" uniqueId="128" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@methods.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.6" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetFunction="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@methods.0">
+                  <position endColumn="23" startColumn="9" endLine="23" startLine="23" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="91">
+                <position endColumn="30" startColumn="9" endLine="26" startLine="26" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="99" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.2" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.2">
+                  <position endColumn="30" startColumn="13" endLine="26" startLine="26" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:SelfAccess" status="LIBRARY" uniqueId="129" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="130" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="25" startColumn="20" endLine="26" startLine="26" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="131" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.7" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="30" startColumn="20" endLine="26" startLine="26" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+              <statements xsi:type="statements:SimpleStatement" uniqueId="92">
+                <position endColumn="28" startColumn="9" endLine="29" startLine="29" sourceFile="//@files.2"/>
+                <accesses xsi:type="accesses:SelfAccess" status="LIBRARY" uniqueId="132" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@self"/>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="133" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="14" startColumn="9" endLine="29" startLine="29" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="134" accessedClass="//@packages.1/@subPackages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" write="true" targetVariable="//@packages.1/@subPackages.0/@subPackages.0/@classes.0/@fields.0">
+                  <position endColumn="19" startColumn="9" endLine="29" startLine="29" sourceFile="//@files.2"/>
+                </accesses>
+                <accesses xsi:type="accesses:VariableAccess" uniqueId="135" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.2" surroundingStatement="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@body/@statements.8" surroundingFunction="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetVariable="//@packages.1/@subPackages.1/@subPackages.0/@classes.0/@constructors.0/@localVariables.2">
+                  <position endColumn="26" startColumn="23" endLine="29" startLine="29" sourceFile="//@files.2"/>
+                </accesses>
+              </statements>
+            </body>
+          </constructors>
+          <inheritanceTypeAccesses uniqueId="111" accessedClass="//@packages.0/@subPackages.0/@classes.0" accessedTarget="//@packages.0/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.0/@subPackages.0/@classes.0">
+            <position endColumn="1" startColumn="1" endLine="31" startLine="7" sourceFile="//@files.2"/>
+          </inheritanceTypeAccesses>
+          <self status="IMPLICIT" uniqueId="49" visibility="VISIBILITYPRIVAT" simpleName="&lt;self>">
+            <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            <typeDeclaration status="IMPLICIT" uniqueId="50" accessedClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" accessedTarget="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" surroundingClass="//@packages.1/@subPackages.1/@subPackages.0/@classes.0" targetType="//@packages.1/@subPackages.1/@subPackages.0/@classes.0">
+              <position endColumn="-1" startColumn="-1" endLine="-1" startLine="-1"/>
+            </typeDeclaration>
+          </self>
+        </classes>
+      </subPackages>
+    </subPackages>
+  </packages>
+</core:Root>
