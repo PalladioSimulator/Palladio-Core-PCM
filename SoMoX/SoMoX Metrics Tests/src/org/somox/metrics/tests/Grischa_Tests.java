@@ -107,7 +107,7 @@ public class Grischa_Tests {
 		abs = new Abstractness();
 
 		long time1First = System.nanoTime();
-		double abstractnessWithEMF = abs.compute(root, elements1, elements2);
+		double abstractnessWithEMF = abs.computeWithEMF(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
 		
