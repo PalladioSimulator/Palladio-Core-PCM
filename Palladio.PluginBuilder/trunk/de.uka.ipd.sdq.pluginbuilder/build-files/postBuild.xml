@@ -31,7 +31,7 @@
         <!-- site.xml files for integration and release builds are handled elsewhere -->
         <antcall target="-createNightlyBuildSiteXml"/>
         <delete dir="${buildDirectory}/temp.updatesite"/>
-        <antcall target="-createP2Site"/>
+        <!-- <antcall target="-createP2Site"/> -->
     </target>
 	
 	<target name="-createP2Site">
