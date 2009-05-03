@@ -31,7 +31,26 @@
         <!-- site.xml files for integration and release builds are handled elsewhere -->
         <antcall target="-createNightlyBuildSiteXml"/>
         <delete dir="${buildDirectory}/temp.updatesite"/>
+        <antcall target="-createP2Site"/>
     </target>
+	
+	<target name="-createP2Site">
+		<java jar="@{launcherjar}" fork="true" timeout="10800000" taskname="p2"
+	   		  jvm="${java.home}/bin/java" failonerror="false" maxmemory="256m">
+	   		<classpath>
+	     		<fileset dir="${builder.build.path}/plugins"
+	       			includes="org.eclipse.equinox.launcher_*.jar,
+	         			org.eclipse.equinox.p2.metadata.generator_*.jar"/>
+	     		<pathelement location="${builder.build.path}/plugins" />
+	   		</classpath>
+	   		<arg line=" org.eclipse.equinox.launcher.Main" />
+	   		<arg line=" -application org.eclipse.equinox.p2.metadata.generator.EclipseGenerator" />
+	   		<arg line=" -updateSite ${UpdateSiteStagingLocation}/ -site file:${UpdateSiteStagingLocation}/site.xml" />
+	   		<arg line=" -metadataRepository file:${UpdateSiteStagingLocation}/ -metadataRepositoryName &quot;PCM Updates&quot;" />
+	   		<arg line=" -artifactRepository file:${UpdateSiteStagingLocation}/ -artifactRepositoryName &quot;PCM Artifacts&quot;" />
+	   		<arg line=" -noDefaultIUs -compress -reusePack200Files" />
+	 	</java>
+	</target>
 	
     <!-- replace at least yourFeature, categoryName and categoryDef --> 
     <target name="-createNightlyBuildSiteXml" if="isNightlyBuild">
