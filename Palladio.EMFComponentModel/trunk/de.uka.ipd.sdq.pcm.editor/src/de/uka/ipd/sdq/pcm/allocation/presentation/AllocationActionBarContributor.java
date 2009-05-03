@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.presentation;
 
-import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -38,7 +37,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
+import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 
 /**
  * This is the action bar contributor for the Allocation model editor.

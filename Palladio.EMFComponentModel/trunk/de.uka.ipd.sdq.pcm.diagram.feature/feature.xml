@@ -295,6 +295,8 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.emf.type.core"/>
       <import plugin="org.antlr"/>
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
+      <import plugin="de.uka.ipd.sdq.pcm.editor"/>
+      <import plugin="org.eclipse.osgi.util"/>
    </requires>
 
    <plugin

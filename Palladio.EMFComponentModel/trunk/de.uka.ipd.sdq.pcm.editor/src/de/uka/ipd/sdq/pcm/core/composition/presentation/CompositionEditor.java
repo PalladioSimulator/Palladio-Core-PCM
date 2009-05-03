@@ -127,7 +127,6 @@ import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapt
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
-import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
