@@ -31,17 +31,18 @@
         <!-- site.xml files for integration and release builds are handled elsewhere -->
         <antcall target="-createNightlyBuildSiteXml"/>
         <delete dir="${buildDirectory}/temp.updatesite"/>
-        <!-- <antcall target="-createP2Site"/> -->
+        <!-- <antcall target="createP2Site"/> -->
     </target>
 	
-	<target name="-createP2Site">
-		<java jar="@{launcherjar}" fork="true" timeout="10800000" taskname="p2"
-	   		  jvm="${java.home}/bin/java" failonerror="false" maxmemory="256m">
+	<target name="createP2Site">
+		<java fork="true" timeout="10800000" taskname="p2"
+	   		  jvm="/usr/bin/java" failonerror="false" maxmemory="256m"
+			  classname="org.eclipse.equinox.launcher.Main">
 	   		<classpath>
-	     		<fileset dir="${builder.build.path}/plugins"
+	     		<fileset dir="/home/ccontrol/eclipse/plugins"
 	       			includes="org.eclipse.equinox.launcher_*.jar,
 	         			org.eclipse.equinox.p2.metadata.generator_*.jar"/>
-	     		<pathelement location="${builder.build.path}/plugins" />
+	     		<pathelement location="/home/ccontrol/eclipse/plugins" />
 	   		</classpath>
 	   		<arg line=" org.eclipse.equinox.launcher.Main" />
 	   		<arg line=" -application org.eclipse.equinox.p2.metadata.generator.EclipseGenerator" />
