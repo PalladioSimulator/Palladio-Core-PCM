@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.workflow.feature"
       label="SDQ Workflow Engine Feature"
-      version="1.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://sdq.ipd.uka.de">
@@ -17,6 +17,10 @@ run under the Eclipse UI from the Run Dialog.
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <url>
+      <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
+   </url>
 
    <includes
          id="de.uka.ipd.sdq.workflow.feature.source"
