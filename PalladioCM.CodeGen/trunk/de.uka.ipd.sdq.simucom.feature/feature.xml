@@ -218,6 +218,7 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
+      <discovery label="oAW Update Site" url="http://www.openarchitectureware.org/updatesite/milestone/"/>
    </url>
 
    <includes
