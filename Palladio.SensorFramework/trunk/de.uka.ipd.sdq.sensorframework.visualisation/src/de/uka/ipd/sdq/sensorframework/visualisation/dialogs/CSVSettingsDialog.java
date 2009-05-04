@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.sensorframework.visualisation.views;
+package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
 import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
@@ -31,14 +31,16 @@ public class CSVSettingsDialog extends Dialog {
 	private Button chkHeader;
 	private boolean isHeader = true;
 	
-	private Combo cmbSeparator;
-	private String SEMICOLON = "Semicolon";
-	private String COMMA = "Comma";
-	private String TABULATOR = "Tabulator";
-	private String selectedSeparator = SEMICOLON;
-	private String[] separatorItems = new String[] { SEMICOLON, COMMA,
-			TABULATOR };
+	// The values are not in accordance with the common java convention, but as
+	// entries for a Combobox it is more readable.
+	private enum Separator {
+		Semicolon, Comma, Tabulator; 
+	}
 
+	private Combo cmbSeparator;
+	private String selectedSeparator = Separator.Semicolon.toString();
+	private String[] separatorItems;	
+	
 	/**
 	 * Create the dialog.
 	 * 
@@ -49,6 +51,13 @@ public class CSVSettingsDialog extends Dialog {
 		super(parent, style);
 		setText("SWT Dialog");
 		this.fileName = fileName;
+		
+		separatorItems = new String[3];
+		int i = 0;
+		for(Separator sep: Separator.values()) {
+			separatorItems[i] = sep.toString();
+			i++;
+		}
 	}
 
 	/**
@@ -216,13 +225,17 @@ public class CSVSettingsDialog extends Dialog {
 	 * @author David Scherr
 	 */
 	public String getSeparator() {
-		if (selectedSeparator.equals(SEMICOLON)) {
+		if (selectedSeparator.equals(Separator.Semicolon.toString())) {
 			return ";";
-		} else if (selectedSeparator.equals(COMMA)) {
+		} else if (selectedSeparator.equals(Separator.Comma.toString())) {
 			return ",";
-		} else if (selectedSeparator.equals(TABULATOR)) {
+		} else if (selectedSeparator.equals(Separator.Tabulator.toString())) {
 			return "\t";
 		}
 		return ";"; // Standard
+	}
+	
+	public void dispose() {
+		frmDialog.dispose();
 	}
 }

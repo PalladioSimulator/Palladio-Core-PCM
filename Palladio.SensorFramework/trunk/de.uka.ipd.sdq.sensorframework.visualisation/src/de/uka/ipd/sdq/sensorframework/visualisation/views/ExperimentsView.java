@@ -53,6 +53,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.CSVSettingsDialog;
 
 /**
  * The view shows data obtained from the 'SensorFactory' model. The view is
@@ -69,7 +70,7 @@ public class ExperimentsView extends ViewPart {
 
 	/** Define the actions for menu manager. */
 	private Action reloadView;
-	private Action saveAsCSVView;
+	private Action saveAsCSV;
 	private Action collapseAll;
 	private Action expandAll;
 	private Action newDataSet;
@@ -77,6 +78,8 @@ public class ExperimentsView extends ViewPart {
 	private Action deleteDataSet;
 	private Action properties;
 
+	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentsView.log");
+	
 	public ExperimentsView() {
 	}
 
@@ -176,7 +179,7 @@ public class ExperimentsView extends ViewPart {
 		manager.add(new Separator());
 		manager.add(properties);
 		manager.add(new Separator());
-		manager.add(saveAsCSVView);
+		manager.add(saveAsCSV);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 
@@ -338,7 +341,7 @@ public class ExperimentsView extends ViewPart {
 		properties.setEnabled(false);
 
 		/** Save As CSV action */
-		saveAsCSVView = new Action() {
+		saveAsCSV = new Action() {
 			@Override
 			public void run() {
 				ISelection selection = viewer.getSelection();
@@ -360,10 +363,10 @@ public class ExperimentsView extends ViewPart {
 				} else {
 					// The Save Dialog is canceled.
 				}
-				dialog.frmDialog.dispose();
+				dialog.dispose();
 			}
 		};
-		saveAsCSVView.setText("Save as CSV");
+		saveAsCSV.setText("Save as CSV");
 	}
 
 	/**
@@ -394,31 +397,48 @@ public class ExperimentsView extends ViewPart {
 			fileWriter = new FileWriter(filename);
 			bufferedWriter = new BufferedWriter(fileWriter);
 			if (measurement.iterator().next() instanceof StateMeasurement) {
+				// If you have activated the header in the dialog (CSVSettingsDialog),
+				// then you get a superscription of the measurement types.
 				if (isHeader) {
 					bufferedWriter.append("Event Time" + separator + "State"
 							+ "\n");
 				}
+				// Get each element of Event Time and Sensor State as a pair which will be
+				// save as one CSV line into the buffer.
 				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
 						.hasNext();) {
+					// The instance of the Measurement is known as StateMeasurement and
+					// through the casting you get the special data of this type of Measurement.
 					StateMeasurement data = ((StateMeasurement) iterator.next());
+					// Write one pair of data per line with the separator, which
+					// you can choose in the dialog (CSVSettingsDialog).
 					bufferedWriter.append(data.getEventTime() + separator
 							+ data.getSensorState().getStateLiteral() + "\n");
 				}
 			} else if (measurement.iterator().next() instanceof TimeSpanMeasurement) {
+				// If you have activated the header in the dialog (CSVSettingsDialog),
+				// then you get a superscription of the measurement types.
 				if (isHeader) {
 					bufferedWriter.append("Event Time" + separator
 							+ "Time Span" + "\n");
 				}
+				// Get each element of Event Time and Time Span as a pair which will be
+				// save as one CSV line into the buffer.
 				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
 						.hasNext();) {
+					// The instance of the Measurement is known as TimeSpanMeasurement and
+					// through the casting you get the special data of this type of Measurement.
 					TimeSpanMeasurement data = ((TimeSpanMeasurement) iterator
 							.next());
+					// Write one pair of data per line with the separator, which
+					// you can choose in the dialog (CSVSettingsDialog).
 					bufferedWriter.append(data.getEventTime() + separator
 							+ data.getTimeSpan() + "\n");
 				}
 			} else {
-				Logger logger = Logger.getLogger("ExperimentsView.log");
-				logger.log(Level.SEVERE, "");
+				// The type of measurement is unknown.				
+				logger.log(Level.SEVERE, "It is not possible to export this type of measurement to the CSV format."
+						+ "At the moment only instances of StateMeasurement and TimeSpanMeasurement are suitable.");
 				throw new IllegalArgumentException();
 			}
 			bufferedWriter.close();
@@ -429,7 +449,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Fetch the Data from the selected Experiment Run Element.
+	 * Get the Data which is associated with the selected TreeView element (Experiment Run).
 	 * 
 	 * @author David Scherr
 	 * @param selection
