@@ -17,6 +17,7 @@ import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
 import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
+import org.opt4j.optimizer.sa.SimulatedAnnealingModule;
 import org.opt4j.start.Opt4J;
 import org.opt4j.start.Opt4JTask;
 
@@ -55,11 +56,17 @@ public class Opt4JStarter {
 		Opt4JStarter.analysisTool = analysisTool;
 		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
 		Opt4JStarter.problem = new DSEProblem(pcmInstance);
+		
+		Opt4JStarter.problem.saveProblem();
 
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
 		ea.setGenerations(maxIterations);
 		ea.setAlpha(individualsPerGeneration);
 		ea.setLambda((int) Math.floor(individualsPerGeneration / 2.0 + 0.5));
+		
+		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
+		sa.setIterations(maxIterations);
+		
 
 		DSEModule dseModule = new DSEModule();
 

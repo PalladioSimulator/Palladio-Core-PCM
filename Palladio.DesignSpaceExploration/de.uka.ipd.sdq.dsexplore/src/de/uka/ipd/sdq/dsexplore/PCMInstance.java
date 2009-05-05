@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -117,24 +118,24 @@ public class PCMInstance {
 
 		String filename = configuration.getAttribute(
 				ConstantsContainer.ALLOCATION_FILE, "");
-		this.allocation = ((Allocation) ConfigurationHelper.loadFromXMIFile(filename));
+		this.allocation = ((Allocation) EMFHelper.loadFromXMIFile(filename));
 		this.allocationFileName = filename;
 
 		filename = configuration.getAttribute(
 				ConstantsContainer.REPOSITORY_FILE, "");
-		this.repository = ((Repository) ConfigurationHelper.loadFromXMIFile(filename));
+		this.repository = ((Repository) EMFHelper.loadFromXMIFile(filename));
 		this.repositoryFileName = filename;
 		this.resourceenvironment = this.allocation
 				.getTargetResourceEnvironment_Allocation();
 
 		filename = configuration.getAttribute(
 				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, "");
-		this.resourceRepository = ((ResourceRepository) ConfigurationHelper.loadFromXMIFile(filename));
+		this.resourceRepository = ((ResourceRepository) EMFHelper.loadFromXMIFile(filename));
 		this.resourceRepositoryFileName = filename;
 
 		filename = configuration
 				.getAttribute(ConstantsContainer.USAGE_FILE, "");
-		this.usageModel = ((UsageModel) ConfigurationHelper.loadFromXMIFile(filename));
+		this.usageModel = ((UsageModel) EMFHelper.loadFromXMIFile(filename));
 		this.usageModelFileName = filename;
 
 		this.system = this.allocation.getSystem_Allocation();
@@ -293,15 +294,15 @@ public boolean equals(Object o) {
 
 
 	public void saveAllocationToFile() {
-		saveToXMIFile(allocation, allocationFileName);
+		EMFHelper.saveToXMIFile(allocation, allocationFileName);
 	}
 
 	public void saveResEnvToFile() {
-		saveToXMIFile(resourceenvironment, resEnvFileName);
+		EMFHelper.saveToXMIFile(resourceenvironment, resEnvFileName);
 	}
 
 	public void saveSystemToFile() {
-		saveToXMIFile(system, systemFileName);
+		EMFHelper.saveToXMIFile(system, systemFileName);
 	}
 
 	/**
@@ -434,44 +435,6 @@ public boolean equals(Object o) {
 		int indexOfLastDot = fileName.lastIndexOf(".");
 		return fileName.substring(0, indexOfLastDot) + fileNameSuffix
 				+ fileName.substring(indexOfLastDot);
-	}
-
-	/**
-	 * Save the given EObject to the file given by filename.
-	 * 
-	 * @param modelToSave
-	 *            The EObject to save
-	 * @param fileName
-	 *            The filename where to save.
-	 */
-	private void saveToXMIFile(final EObject modelToSave, final String fileName) {
-		logger.debug("Saving " + modelToSave.toString() + " to " + fileName);
-
-		// Create a resource set.
-		ResourceSet resourceSet = new ResourceSetImpl();
-
-		// Register the default resource factory -- only needed for stand-alone!
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
-						new XMIResourceFactoryImpl());
-	
-		URI fileURI = URI.createFileURI(new File(fileName).getAbsolutePath());
-		Resource resource = resourceSet.createResource(fileURI);
-		resource.getContents().add(modelToSave);
-		
-
-
-		try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (FileNotFoundException e){
-			if (fileName.length() > 250){
-				//try again with a shorter filename
-				saveToXMIFile(modelToSave, fileName.substring(0, fileName.indexOf("-"))+"-shortened-"+fileName.hashCode());
-			}
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		}
-		// logger.debug("Saved " + fileURI);
 	}
 
 	public ILaunchConfiguration getLaunchConfiguration() {

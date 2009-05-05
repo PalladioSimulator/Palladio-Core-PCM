@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import java.util.List;
 
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.opt4j.genotype.Bounds;
 import org.opt4j.genotype.DoubleGenotype;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
+import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -53,7 +55,6 @@ public class DSEProblem {
 	/**
 	 * @param initialInstance
 	 */
-	@Inject
 	public DSEProblem(PCMInstance initialInstance){
 		this.initialInstance = initialInstance;
 		
@@ -191,6 +192,21 @@ public class DSEProblem {
 	
 	protected DoubleGenotype getInitialGenotype(){
 		return this.initialGenotype;
+	}
+
+
+	public void saveProblem() {
+
+		int index = this.initialInstance.getRepositoryFileName().lastIndexOf("\\");
+		String filename = this.initialInstance.getRepositoryFileName().substring(0,index+1)
+		+ this.initialInstance.getName()+".designdecision";
+		
+//		resourceSet.getPackageRegistry().put
+//		(designdecisionPackage.eNS_URI, 
+//		 designdecisionPackage.eINSTANCE);
+		
+		EMFHelper.saveToXMIFile(this.pcmProblem, filename);
+		
 	}
 
 	

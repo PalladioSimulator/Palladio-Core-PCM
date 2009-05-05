@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
@@ -146,7 +147,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	 */
 	private CostRepository getCostModel(ILaunchConfiguration configuration) throws CoreException {
 		String costModelFileName = configuration.getAttribute(DSEConstantsContainer.COST_FILE, "");
-		CostRepository cr =  (CostRepository)ConfigurationHelper.loadFromXMIFile(costModelFileName);
+		CostRepository cr =  (CostRepository)EMFHelper.loadFromXMIFile(costModelFileName);
 		if (cr == null){
 			throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, "Cost model "+costModelFileName+" could not be loaded.", null));
 		}
