@@ -240,7 +240,11 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iVs4Yw4hEd6vos-fK_qqEQ"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_uKOzwC5JEd67XayFxriNGA" name="DiscreteDomain"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_uKOzwC5JEd67XayFxriNGA" name="DiscreteDomain">
+      <ownedComment xmi:id="_bTDLMC5xEd67XayFxriNGA" annotatedElement="_uKOzwC5JEd67XayFxriNGA">
+        <body>geht nicht, da realization beziehung nicht mit exportiert :(</body>
+      </ownedComment>
+    </packagedElement>
     <packagedElement xmi:type="uml:Realization" xmi:id="_xuQUIC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_3H9M4PzqEd2sBa2PoI_LqA"/>
     <packagedElement xmi:type="uml:Realization" xmi:id="_yHAyYC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_BBEi4PzyEd2sBa2PoI_LqA"/>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
@@ -278,4 +282,5 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
   <Default:Documentation xmi:id="_qjX74fzzEd2sBa2PoI_LqA" base_Comment="_qjX74PzzEd2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_1a30cfz0Ed2sBa2PoI_LqA" base_Comment="_1a30cPz0Ed2sBa2PoI_LqA"/>
   <Default:Documentation xmi:id="_wpHxIfz-Ed2sBa2PoI_LqA" base_Comment="_wpHxIPz-Ed2sBa2PoI_LqA"/>
+  <Default:Documentation xmi:id="_bTM8MC5xEd67XayFxriNGA" base_Comment="_bTDLMC5xEd67XayFxriNGA"/>
 </xmi:XMI>

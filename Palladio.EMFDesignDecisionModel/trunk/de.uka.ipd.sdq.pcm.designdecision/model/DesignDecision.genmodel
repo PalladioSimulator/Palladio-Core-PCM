@@ -24,7 +24,7 @@
   </genAnnotations>
   <foreignModel>DesignDecision.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="designdecision" basePackage="de.uka.ipd.sdq.pcm"
-      resource="XML" disposableProviderFactory="true" ecorePackage="designdecision.ecore#/">
+      resource="XMI" disposableProviderFactory="true" ecorePackage="designdecision.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DesignDecision">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//DesignDecision/domain"/>
