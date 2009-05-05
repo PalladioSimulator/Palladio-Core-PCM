@@ -9,9 +9,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.pcm.designdecision.presentation
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: de.uka.ipd.sdq.pcm.designdecision.edit;visibility:=reexport,
+ org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- de.uka.ipd.sdq.pcm.designdecision.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
