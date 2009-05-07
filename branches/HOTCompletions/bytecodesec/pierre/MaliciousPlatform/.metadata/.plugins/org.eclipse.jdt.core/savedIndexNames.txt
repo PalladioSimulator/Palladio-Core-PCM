@@ -1,4 +1,0 @@
-INDEX VERSION 1.125+C:\Dokumente und Einstellungen\parrend\Eigene Dateien\schaffen\dev\research\bytecodesec\MaliciousPlatform\.metadata\.plugins\org.eclipse.jdt.core
-3253080073.index
-3696739560.index
-2581149486.index
