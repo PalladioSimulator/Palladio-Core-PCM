@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Sensorframework File Storage Utils
-Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.storage
-Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.junit4
-Bundle-Vendor: sdq.ipd.uka.de
-Export-Package: de.uka.ipd.sdq.sensorframework.storage.lists
