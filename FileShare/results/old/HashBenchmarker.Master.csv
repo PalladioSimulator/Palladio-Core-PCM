@@ -1,7 +1,0 @@
-Platform description;JVM conf;JIT conf;digest algo;nr of measurements;immediate dige-sting?;input size;nr of diff. rd. inputs;median of getInstance;median of update;median of digest
-"MK_Lenovo""""";"-server""""";"-default""""";"SHA-512""""";"200""";TRUE;30000;20;30451;2616254;24584
-"MK_Lenovo""""";"-server""""";"-default""""";"SHA-512""""";"200""";TRUE;40000;20;30730;3487035;24584
-"MK_Lenovo""""";"-server""""";"-default""""";"SHA-512""""";"200""";TRUE;50000;20;30730;4354744;24584
-"MK_Lenovo""""";"-server""""";"-Xint""""";"SHA-512""""";"200""";TRUE;30000;20;39391;60078306;274057
-"MK_Lenovo""""";"-server""""";"-Xint""""";"SHA-512""""";"200""";TRUE;40000;20;44698;80119401;275454
-"MK_Lenovo""""";"-server""""";"-Xint""""";"SHA-512""""";"200""";TRUE;50000;20;48051;100111327;276850
