@@ -1,7 +1,0 @@
-# Debugging options for the de.uka.ipd.sdq.pcm.gmf.composite plug-in
-
-# Turn on general debugging for the de.uka.ipd.sdq.pcm.gmf.composite plug-in
-de.uka.ipd.sdq.pcm.gmf.composite/debug=false
-
-# Turn on debugging of visualID processing
-de.uka.ipd.sdq.pcm.gmf.composite/debug/visualID=true
