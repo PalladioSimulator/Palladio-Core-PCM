@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Sensorframework Adapter Test Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.adapter.test
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: de.uka.ipd.sdq.sensorframework.adapter,
- org.junit,
- de.uka.ipd.sdq.sensorframework

@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Tests
-Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework.variables.tests
-Bundle-Version: 1.0.0
-Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
- org.junit,
- org.apache.log4j
