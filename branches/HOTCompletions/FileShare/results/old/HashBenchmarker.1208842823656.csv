@@ -1,2 +1,0 @@
-"Platform description";"JVM conf";"JIT conf";"digest algo";"nr of measurements";"immediate digesting?";"input size";"nr of diff. rd. inputs";"median of getInstance";"median of update";"median of digest"
-""MK_Lenovo"";""-server"";""-Xint"";""SHA-512"";200";"true";30000;20;39391;60078306;274057
