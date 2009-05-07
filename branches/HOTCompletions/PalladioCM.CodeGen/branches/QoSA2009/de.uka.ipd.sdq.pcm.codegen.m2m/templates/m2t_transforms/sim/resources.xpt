@@ -1,0 +1,106 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT resourceenvironment»
+
+// ----------------------------
+// Templates to generate simulated resources and resource environments
+// ----------------------------
+
+// Load the resource demand on a simulated resource
+«DEFINE ResourceDemand FOR ParametricResourceDemand»
+   {
+      // double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
+      // ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
+   }
+«ENDDEFINE»
+
+// ----------------------------
+// Templates for a simulated resource environment
+// Generate a class which contains the model information
+// and sets up simulated resources accordingly
+// ----------------------------
+«DEFINE ResourceEnvironmentRoot FOR resourceenvironment::ResourceEnvironment»
+	«FILE "main/ResourceEnvironment.java"»
+		package main;
+		
+		public class ResourceEnvironment implements de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory {
+		   «EXPAND ResourceContainerInit FOR this»
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceContainerInit FOR ResourceEnvironment»
+	public String[] getResourceContainerIDList() {
+		return new String[] { 
+			«FOREACH this.resourceContainer_ResourceEnvironment AS rc SEPARATOR ","»
+				"«rc.id»"
+			«ENDFOREACH»
+		};
+	}
+
+	public String[] getLinkingResourceContainerIDList() {
+		return new String[] { 
+			«FOREACH this.linkingresource AS rc SEPARATOR ","»
+				"«rc.id»"
+			«ENDFOREACH»
+		};
+	}
+	
+	public void fillResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer rc) {
+		«EXPAND ResourceContainerCase FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " else "»
+		else
+			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");	
+	}
+
+	public void fillLinkingResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer rc) {
+		«EXPAND LinkingResourceCase FOREACH this.linkingresource SEPARATOR " else "»
+		«IF this.linkingresource.size > 0»
+		else
+			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");
+		«ENDIF»	
+	}
+
+«ENDDEFINE»
+
+«DEFINE ResourceContainerCase FOR ResourceContainer»
+	if (rc.getResourceContainerID().equals("«this.id»")) {
+		«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
+		«REM» Refactor!
+		«EXPAND PassiveResourceAdd FOREACH this.passiveResourceSpecifications_ResourceContainer»
+		«ENDREM»
+	}
+«ENDDEFINE»
+
+«DEFINE LinkingResourceCase FOR LinkingResource»
+	if (rc.getResourceContainerID().equals("«this.id»")) {
+		«EXPAND LinkingResourceAdd FOR this.communicationLinkResourceSpecifications_LinkingResource»
+	}
+«ENDDEFINE»
+
+«DEFINE LinkingResourceAdd FOR CommunicationLinkResourceSpecification»
+	rc.addActiveResource(
+		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
+		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
+		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
+«ENDDEFINE»
+
+«DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
+	rc.addActiveResource(
+		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
+		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
+		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
+		"TODO: unit!",
+		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
+«ENDDEFINE»
+
+«REM»TODO: Refactor
+«DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»
+	rc.addPassiveResource(
+		"«this.passiveResourceType_PassiveResourceSpecification.entityName»",
+		«this.capacity»);
+«ENDDEFINE»
+«ENDREM»

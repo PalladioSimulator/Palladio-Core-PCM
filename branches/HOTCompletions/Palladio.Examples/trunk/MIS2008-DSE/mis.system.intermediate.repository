@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:completions="http://sdq.ipd.uka.de/Completions/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_OC_w3WlXEd2DzZIfE50SFg" entityName="CompletionsRepository">
+  <components__Repository xsi:type="completions:Completion" id="_ODSromlXEd2DzZIfE50SFg" entityName="ConnectorCompletion114">
+    <childComponentContexts_ComposedStructure id="_ODSrvGlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent113" encapsulatedComponent_ChildComponentContext="_ODSrnGlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODSr1WlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent115" encapsulatedComponent_ChildComponentContext="_ODSrpmlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODSr72lXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent116" encapsulatedComponent_ChildComponentContext="_ODSrp2lXEd2DzZIfE50SFg"/>
+    <providedDelegationConnectors_ComposedStructure id="_ODSr8WlXEd2DzZIfE50SFg" innerProvidedRole_ProvidedDelegationConnector="_ODSrwWlXEd2DzZIfE50SFg" outerProvidedRole_ProvidedDelegationConnector="_ODSro2lXEd2DzZIfE50SFg" childComponentContext_ProvidedDelegationConnector="_ODSr1WlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODSr8mlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODSr2WlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODSrpGlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODSr72lXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODSr9WlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODSrwGlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODSrvmlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODSr1WlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODSr9mlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODSr12lXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODSrv2lXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODSr72lXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODSr82lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODSr1WlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODSrvGlXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODSrqGlXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODSrwmlXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODSr9GlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODSrvGlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODSr72lXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODSr2GlXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODSrqWlXEd2DzZIfE50SFg"/>
+    <providedRoles_InterfaceProvidingEntity id="_ODSro2lXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrpGlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrvmlXEd2DzZIfE50SFg" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrv2lXEd2DzZIfE50SFg" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODSrnGlXEd2DzZIfE50SFg" entityName="InnerBasicComponent113">
+    <providedRoles_InterfaceProvidingEntity id="_ODSrqGlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrqWlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSrqmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSrrGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrq2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrrWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSrrmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrrWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrr2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSrq2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrrGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSrr2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrrmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSrrWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrrGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrrmlXEd2DzZIfE50SFg" role_ExternalService="_ODSrqWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSrsGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSrsmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrsWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrs2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSrtGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrs2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrtWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSrsWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrsmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSrtWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrtGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSrs2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrsmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrtGlXEd2DzZIfE50SFg" role_ExternalService="_ODSrqWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSrtmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSruGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrt2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSruWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODSrumlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSruWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSru2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSrt2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSruGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSru2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrumlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSruWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSruGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrumlXEd2DzZIfE50SFg" role_ExternalService="_ODSrqWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODSrpmlXEd2DzZIfE50SFg" entityName="InnerBasicComponent115">
+    <providedRoles_InterfaceProvidingEntity id="_ODSrwWlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrwGlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSrwmlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSrw2lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSrxWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSrxGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrxmlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSrx2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSrxmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSryGlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSrxGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrxWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSryGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrx2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSrxmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrxWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrx2lXEd2DzZIfE50SFg" role_ExternalService="_ODSrwmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSryWlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSry2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSrymlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrzGlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSrzWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSrzGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrzmlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSrymlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSry2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSrzmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSrzWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSrzGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSry2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSrzWlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSrz2lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr0WlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr0GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr0mlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr02lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr0mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr1GlXEd2DzZIfE50SFg" role_ExternalService="_ODSrwGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSr0GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr0WlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSr1GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr02lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSr0mlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr0WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr02lXEd2DzZIfE50SFg" role_ExternalService="_ODSrwmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODSrp2lXEd2DzZIfE50SFg" entityName="InnerBasicComponent116">
+    <providedRoles_InterfaceProvidingEntity id="_ODSr2GlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSr12lXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODSr2WlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSr2mlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr3GlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr22lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr3WlXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr3mlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr3WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr32lXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODSr32lXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODSr3mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr4GlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSr22lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr3GlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSr4GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr32lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSr3WlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr3GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr3mlXEd2DzZIfE50SFg" role_ExternalService="_ODSr2WlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSr4WlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr42lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr4mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr5GlXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr5WlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr5GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr5mlXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODSr5mlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODSr5WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr52lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSr4mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr42lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSr52lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr5mlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSr5GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr42lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr5WlXEd2DzZIfE50SFg" role_ExternalService="_ODSr2WlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODSr6GlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr6mlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr6WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr62lXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODSr7GlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODSr62lXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr7WlXEd2DzZIfE50SFg" role_ExternalService="_ODSr12lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODSr7WlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODSr7GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr7mlXEd2DzZIfE50SFg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODSr6WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr6mlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODSr7mlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr7WlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODSr62lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODSr6mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODSr7GlXEd2DzZIfE50SFg" role_ExternalService="_ODSr2WlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="completions:Completion" id="_ODmNoGlXEd2DzZIfE50SFg" entityName="ConnectorCompletion118">
+    <childComponentContexts_ComposedStructure id="_ODmNtGlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent117" encapsulatedComponent_ChildComponentContext="_ODmNnmlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODmNyGlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent119" encapsulatedComponent_ChildComponentContext="_ODmNpGlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODmN22lXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent120" encapsulatedComponent_ChildComponentContext="_ODmNpWlXEd2DzZIfE50SFg"/>
+    <providedDelegationConnectors_ComposedStructure id="_ODmN3WlXEd2DzZIfE50SFg" innerProvidedRole_ProvidedDelegationConnector="_ODmNuWlXEd2DzZIfE50SFg" outerProvidedRole_ProvidedDelegationConnector="_ODmNoWlXEd2DzZIfE50SFg" childComponentContext_ProvidedDelegationConnector="_ODmNyGlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmN3mlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmNzGlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmNomlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmN22lXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmN4WlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmNuGlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmNtmlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmNyGlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmN4mlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmNymlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmNt2lXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmN22lXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODmN32lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmNyGlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODmNtGlXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODmNpmlXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODmNumlXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODmN4GlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmNtGlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODmN22lXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODmNy2lXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODmNp2lXEd2DzZIfE50SFg"/>
+    <providedRoles_InterfaceProvidingEntity id="_ODmNoWlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNomlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNtmlXEd2DzZIfE50SFg" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNt2lXEd2DzZIfE50SFg" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmNnmlXEd2DzZIfE50SFg" entityName="InnerBasicComponent117">
+    <providedRoles_InterfaceProvidingEntity id="_ODmNpmlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNp2lXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmNqGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmNqmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNqWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNq2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmNrGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNq2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNrWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmNqWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNqmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmNrWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNrGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmNq2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNqmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNrGlXEd2DzZIfE50SFg" role_ExternalService="_ODmNp2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmNrmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmNsGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNr2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNsWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmNsmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNsWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNs2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmNr2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNsGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmNs2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNsmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmNsWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNsGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNsmlXEd2DzZIfE50SFg" role_ExternalService="_ODmNp2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmNpGlXEd2DzZIfE50SFg" entityName="InnerBasicComponent119">
+    <providedRoles_InterfaceProvidingEntity id="_ODmNuWlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNuGlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNumlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmNu2lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmNvWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmNvGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNv2lXEd2DzZIfE50SFg" role_ExternalService="_ODmNuGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="1"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmNwGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmNv2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNwWlXEd2DzZIfE50SFg" role_ExternalService="_ODmNuGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmNvGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNvWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmNwWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNwGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmNv2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNvWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNwGlXEd2DzZIfE50SFg" role_ExternalService="_ODmNumlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmNwmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmNxGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmNw2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNxWlXEd2DzZIfE50SFg" role_ExternalService="_ODmNuGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmNxmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmNxWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNx2lXEd2DzZIfE50SFg" role_ExternalService="_ODmNuGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmNw2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNxGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmNx2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNxmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmNxWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNxGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNxmlXEd2DzZIfE50SFg" role_ExternalService="_ODmNumlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmNpWlXEd2DzZIfE50SFg" entityName="InnerBasicComponent120">
+    <providedRoles_InterfaceProvidingEntity id="_ODmNy2lXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNymlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmNzGlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmNzWlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmNz2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmNzmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN0GlXEd2DzZIfE50SFg" role_ExternalService="_ODmNymlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmN0WlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmN0GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN0mlXEd2DzZIfE50SFg" role_ExternalService="_ODmNymlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODmN0mlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODmN0WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN02lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmNzmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmNz2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmN02lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN0mlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmN0GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmNz2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN0WlXEd2DzZIfE50SFg" role_ExternalService="_ODmNzGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmN1GlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmN1mlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmN1WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN12lXEd2DzZIfE50SFg" role_ExternalService="_ODmNymlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmN2GlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmN12lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN2WlXEd2DzZIfE50SFg" role_ExternalService="_ODmNymlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODmN2WlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODmN2GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN2mlXEd2DzZIfE50SFg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmN1WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN1mlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmN2mlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN2WlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmN12lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN1mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN2GlXEd2DzZIfE50SFg" role_ExternalService="_ODmNzGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="completions:Completion" id="_ODmN6WlXEd2DzZIfE50SFg" entityName="ConnectorCompletion122">
+    <childComponentContexts_ComposedStructure id="_ODmN_WlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent121" encapsulatedComponent_ChildComponentContext="_ODmN52lXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODmOEGlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent123" encapsulatedComponent_ChildComponentContext="_ODmN7WlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODmOI2lXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent124" encapsulatedComponent_ChildComponentContext="_ODmN7mlXEd2DzZIfE50SFg"/>
+    <providedDelegationConnectors_ComposedStructure id="_ODmOJWlXEd2DzZIfE50SFg" innerProvidedRole_ProvidedDelegationConnector="_ODmOAmlXEd2DzZIfE50SFg" outerProvidedRole_ProvidedDelegationConnector="_ODmN6mlXEd2DzZIfE50SFg" childComponentContext_ProvidedDelegationConnector="_ODmOEGlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmOJmlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmOFGlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmN62lXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmOI2lXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmOKWlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmOAWlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmN_2lXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmOEGlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODmOKmlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODmOEmlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODmOAGlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODmOI2lXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODmOJ2lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmOEGlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODmN_WlXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODmN72lXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODmOA2lXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODmOKGlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmN_WlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODmOI2lXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODmOE2lXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODmN8GlXEd2DzZIfE50SFg"/>
+    <providedRoles_InterfaceProvidingEntity id="_ODmN6mlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmN62lXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmN_2lXEd2DzZIfE50SFg" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmOAGlXEd2DzZIfE50SFg" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmN52lXEd2DzZIfE50SFg" entityName="InnerBasicComponent121">
+    <providedRoles_InterfaceProvidingEntity id="_ODmN72lXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmN8GlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmN8WlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmN82lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN8mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN9GlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmN9WlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN9GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN9mlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmN8mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN82lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmN9mlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN9WlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmN9GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN82lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN9WlXEd2DzZIfE50SFg" role_ExternalService="_ODmN8GlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmN92lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmN-WlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN-GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN-mlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODmN-2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN-mlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN_GlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmN-GlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN-WlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmN_GlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN-2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmN-mlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmN-WlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmN-2lXEd2DzZIfE50SFg" role_ExternalService="_ODmN8GlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmN7WlXEd2DzZIfE50SFg" entityName="InnerBasicComponent123">
+    <providedRoles_InterfaceProvidingEntity id="_ODmOAmlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmOAWlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmOA2lXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmOBGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOBmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOBWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOB2lXEd2DzZIfE50SFg" role_ExternalService="_ODmOAWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="1"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOCGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOB2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOCWlXEd2DzZIfE50SFg" role_ExternalService="_ODmOAWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmOBWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOBmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmOCWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOCGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmOB2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOBmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOCGlXEd2DzZIfE50SFg" role_ExternalService="_ODmOA2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmOCmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmODGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOC2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmODWlXEd2DzZIfE50SFg" role_ExternalService="_ODmOAWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmODmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmODWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOD2lXEd2DzZIfE50SFg" role_ExternalService="_ODmOAWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmOC2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmODGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmOD2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmODmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmODWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmODGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmODmlXEd2DzZIfE50SFg" role_ExternalService="_ODmOA2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODmN7mlXEd2DzZIfE50SFg" entityName="InnerBasicComponent124">
+    <providedRoles_InterfaceProvidingEntity id="_ODmOE2lXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmOEmlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODmOFGlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmOFWlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOF2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOFmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOGGlXEd2DzZIfE50SFg" role_ExternalService="_ODmOEmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOGWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOGGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOGmlXEd2DzZIfE50SFg" role_ExternalService="_ODmOEmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODmOGmlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODmOGWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOG2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmOFmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOF2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmOG2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOGmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmOGGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOF2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOGWlXEd2DzZIfE50SFg" role_ExternalService="_ODmOFGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODmOHGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOHmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOHWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOH2lXEd2DzZIfE50SFg" role_ExternalService="_ODmOEmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODmOIGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODmOH2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOIWlXEd2DzZIfE50SFg" role_ExternalService="_ODmOEmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODmOIWlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODmOIGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOImlXEd2DzZIfE50SFg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODmOHWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOHmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODmOImlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOIWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODmOH2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODmOHmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODmOIGlXEd2DzZIfE50SFg" role_ExternalService="_ODmOFGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="completions:Completion" id="_ODvXZGlXEd2DzZIfE50SFg" entityName="ConnectorCompletion126">
+    <childComponentContexts_ComposedStructure id="_ODvXfmlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent125" encapsulatedComponent_ChildComponentContext="_ODvXYmlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODvXl2lXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent127" encapsulatedComponent_ChildComponentContext="_ODvXaGlXEd2DzZIfE50SFg"/>
+    <childComponentContexts_ComposedStructure id="_ODvXsWlXEd2DzZIfE50SFg" entityName="BCAssembly InnerBasicComponent128" encapsulatedComponent_ChildComponentContext="_ODvXaWlXEd2DzZIfE50SFg"/>
+    <providedDelegationConnectors_ComposedStructure id="_ODvXs2lXEd2DzZIfE50SFg" innerProvidedRole_ProvidedDelegationConnector="_ODvXg2lXEd2DzZIfE50SFg" outerProvidedRole_ProvidedDelegationConnector="_ODvXZWlXEd2DzZIfE50SFg" childComponentContext_ProvidedDelegationConnector="_ODvXl2lXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODvXtGlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODvXm2lXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODvXZmlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODvXsWlXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODvXt2lXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODvXgmlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODvXgGlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODvXl2lXEd2DzZIfE50SFg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ODvXuGlXEd2DzZIfE50SFg" innerRequiredRole_RequiredDelegationConnector="_ODvXmWlXEd2DzZIfE50SFg" outerRequiredRole_RequiredDelegationConnector="_ODvXgWlXEd2DzZIfE50SFg" childComponentContext_RequiredDelegationConnector="_ODvXsWlXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODvXtWlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODvXl2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODvXfmlXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODvXamlXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODvXhGlXEd2DzZIfE50SFg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_ODvXtmlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODvXfmlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_ODvXsWlXEd2DzZIfE50SFg" providedRole_CompositeAssemblyConnector="_ODvXmmlXEd2DzZIfE50SFg" requiredRole_CompositeAssemblyConnector="_ODvXa2lXEd2DzZIfE50SFg"/>
+    <providedRoles_InterfaceProvidingEntity id="_ODvXZWlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXZmlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXgGlXEd2DzZIfE50SFg" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXgWlXEd2DzZIfE50SFg" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODvXYmlXEd2DzZIfE50SFg" entityName="InnerBasicComponent125">
+    <providedRoles_InterfaceProvidingEntity id="_ODvXamlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXa2lXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXbGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXbmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXbWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXb2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXcGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXb2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXcWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXbWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXbmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXcWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXcGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXb2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXbmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXcGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXa2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXcmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXdGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXc2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXdWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXdmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXdWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXd2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXc2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXdGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXd2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXdmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXdWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXdGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXdmlXEd2DzZIfE50SFg" role_ExternalService="_ODvXa2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXeGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXemlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXeWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXe2lXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_ODvXfGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXe2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXfWlXEd2DzZIfE50SFg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXeWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXemlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXfWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXfGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXe2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXemlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXfGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXa2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODvXaGlXEd2DzZIfE50SFg" entityName="InnerBasicComponent127">
+    <providedRoles_InterfaceProvidingEntity id="_ODvXg2lXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXgmlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXhGlXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXhWlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXh2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXhmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXiGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXiWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXiGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXimlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXhmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXh2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXimlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXiWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXiGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXh2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXiWlXEd2DzZIfE50SFg" role_ExternalService="_ODvXhGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXi2lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXjWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXjGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXjmlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXj2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXjmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXkGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXjGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXjWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXkGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXj2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXjmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXjWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXj2lXEd2DzZIfE50SFg" role_ExternalService="_ODvXhGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXkWlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXk2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXkmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXlGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXlWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXlGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXlmlXEd2DzZIfE50SFg" role_ExternalService="_ODvXgmlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXkmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXk2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXlmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXlWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXlGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXk2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXlWlXEd2DzZIfE50SFg" role_ExternalService="_ODvXhGlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ODvXaWlXEd2DzZIfE50SFg" entityName="InnerBasicComponent128">
+    <providedRoles_InterfaceProvidingEntity id="_ODvXmmlXEd2DzZIfE50SFg" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXmWlXEd2DzZIfE50SFg" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_ODvXm2lXEd2DzZIfE50SFg" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_bt-WENo5EdyCSNQKlT1LxA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXnGlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXnmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXnWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXn2lXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXoGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXn2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXoWlXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODvXoWlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODvXoGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXomlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXnWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXnmlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXomlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXoWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXn2lXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXnmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXoGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXm2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXo2lXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXpWlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXpGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXpmlXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXp2lXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXpmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXqGlXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODvXqGlXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODvXp2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXqWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXpGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXpWlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXqWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXqGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXpmlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXpWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXp2lXEd2DzZIfE50SFg" role_ExternalService="_ODvXm2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ODvXqmlXEd2DzZIfE50SFg">
+      <describedService__SEFF href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXrGlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXq2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXrWlXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ODvXrmlXEd2DzZIfE50SFg" entityName="ExternalCall" predecessor_AbstractAction="_ODvXrWlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXr2lXEd2DzZIfE50SFg" role_ExternalService="_ODvXmWlXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_ODvXr2lXEd2DzZIfE50SFg" entityName="ResultSetter" predecessor_AbstractAction="_ODvXrmlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXsGlXEd2DzZIfE50SFg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ODvXq2lXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXrGlXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ODvXsGlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXr2lXEd2DzZIfE50SFg"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_ODvXrWlXEd2DzZIfE50SFg" predecessor_AbstractAction="_ODvXrGlXEd2DzZIfE50SFg" successor_AbstractAction="_ODvXrmlXEd2DzZIfE50SFg" role_ExternalService="_ODvXm2lXEd2DzZIfE50SFg">
+        <calledService_ExternalService href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#//@interfaces__Repository.1/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+</Repository>

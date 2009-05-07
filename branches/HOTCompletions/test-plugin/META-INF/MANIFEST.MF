@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test_plugin Plug-in
+Bundle-SymbolicName: test_plugin
+Bundle-Version: 1.0.0
+Bundle-Activator: test_plugin.Activator
+Require-Bundle: org.eclipse.core.runtime
+Eclipse-LazyStart: true
+Export-Package: test_plugin

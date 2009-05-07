@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Substitution of Components</TITLE>
+<META NAME="description" CONTENT="Substitution of Components">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node117.html">
+<LINK REL="previous" HREF="node110.html">
+<LINK REL="up" HREF="node69.html">
+<LINK REL="next" HREF="node117.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2217"
+  HREF="node117.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2211"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2205"
+  HREF="node115.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2213"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2215"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2218"
+  HREF="node117.html">First Class Entities</A>
+<B> Up:</B> <A NAME="tex2html2212"
+  HREF="node69.html">Component Developer (OLD)</A>
+<B> Previous:</B> <A NAME="tex2html2206"
+  HREF="node115.html">Limitations</A>
+ &nbsp; <B>  <A NAME="tex2html2214"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2216"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00427000000000000000"></A>
+<A NAME="sec:ComponentDeveloper:Substitution_of_Components"></A>
+<BR>
+Substitution of Components
+</H2>
+The conditions for component substitution base on the interoperability conditions. Figure&nbsp;<A HREF="#fig:cm-component-substitution-01">3.13</A> illustrates the substitution of <TT>Component X</TT>. It has dependencies at the provided (<TT>Component A</TT>) and at the required (<TT>Component B</TT>) side. If <TT>Component X</TT> is replaced by another component all connections must be kept and all connections must fulfil the interoperability conditions of the PCM.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cm-component-substitution-01"></A><A NAME="1953"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.13:</STRONG>
+Example: <TT>Component X</TT> shall be substituted by another component</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="753" HEIGHT="156" ALIGN="BOTTOM" BORDER="0"
+ SRC="./cm-component-substitution-01.gif"
+ ALT="Image cm-component-substitution-01">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+If a provided or a complete type is substituted by an implementation type, one has to keep in mind, that this implies the availability of a SEFF for the implementation type. Based on the provided protocol the required protocol can be calculated through the SEFF (TODO cf. section ...). Hence, if there is a protocol defined at the required side of the substituted component, this must not conflict with the calculated protocol.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

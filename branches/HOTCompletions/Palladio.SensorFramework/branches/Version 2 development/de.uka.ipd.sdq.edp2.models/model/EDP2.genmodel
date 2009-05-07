@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.edp2.models/src"
+    modelPluginID="de.uka.ipd.sdq.edp2.models" modelName="EDP2" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>EDP2.ecore</foreignModel>
+  <genPackages prefix="Emfmodel" basePackage="de.uka.ipd.sdq.edp2.models" disposableProviderFactory="true"
+      fileExtensions="edp2,edp2desc,edp2nm" ecorePackage="EDP2.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//PersistenceKindOptions">
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/BinaryLong"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/BinaryDouble"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/XmlJScience"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/Emf"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//CaptureType">
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//CaptureType/Identifier"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//CaptureType/NaturalNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//CaptureType/RealNumber"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//DataType/Quantitative"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//DataType/Qualitative"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//Scale">
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Scale/Nominal"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Scale/Ordinal"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Scale/Interval"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Scale/Ratio"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//Monotonic">
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Monotonic/No"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Monotonic/Yes"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Monotonic/Strong"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//Enumeration1"/>
+    <genDataTypes ecoreDataType="EDP2.ecore#//EJSMeasure"/>
+    <genDataTypes ecoreDataType="EDP2.ecore#//EJSDurationMeasure"/>
+    <genDataTypes ecoreDataType="EDP2.ecore#//EJSUnit"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//AggregatedMeasurements">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/measurementRange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregatedMeasurements/valid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/aggregationStatistics"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Identifiable/uuid"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//MeasurementRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//MeasurementRange/rawMeasurements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//MeasurementRange/endTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//MeasurementRange/startTime"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//MeasurementRange/measurement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//MeasurementRange/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//Propertyable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Propertyable/additionalInformation"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//EStringtoEObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//EStringtoEObjectMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//EStringtoEObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//RawMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//RawMeasurements/dataSeries"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//RawMeasurements/measurementRange"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//dataSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/statistics"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/aggregatedMeasurements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//dataSeries/valuesUuid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/rawMeasurements"/>
+      <genOperations ecoreOperation="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues">
+        <genParameters ecoreParameter="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues/diagnostics"/>
+        <genParameters ecoreParameter="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//NominalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//NominalStatistics/count"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//NominalStatistics/rawYSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//FixedWidthAggregatedMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/intervals"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/aggregationOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/dataSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//FixedIntervals">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//FixedIntervals/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//FixedIntervals/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//FixedIntervals/numberOfIntervals"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//FixedIntervals/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//Measurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/measure"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/experimentRun"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/measurementRange"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//Measure">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/experimentSetting"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/experimentSettings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Measure/persistencyKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Measure/measuredObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/metric"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//ExperimentGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/experimentSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/measure"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//ExperimentSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentSetting/experimentName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentSetting/experimentRuns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentSetting/measure"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//ExperimentRun">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentRun/measurement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentRun/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentRun/duration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentRun/experimentSetting"/>
+      <genOperations ecoreOperation="EDP2.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor">
+        <genParameters ecoreParameter="EDP2.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor/diagnostics"/>
+        <genParameters ecoreParameter="EDP2.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//BaseMetricDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/captureType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/monotnic"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//MetricDescription"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Description/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Description/textualDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//AggregationFunctionDescription"/>
+    <genClasses ecoreClass="EDP2.ecore#//AggregationStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregationStatistics/distinctValuesBeforeAggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregationStatistics/distinctValuesAfterAggregation"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//LongBinaryMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//LongBinaryMeasurements/storageUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//CategoryIdentifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//CategoryIdentifier/stateLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//NominalMeasurements"/>
+    <genClasses ecoreClass="EDP2.ecore#//NominalMeasure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//NominalMeasure/definedCategoryIdentifiers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//NominalMeasure/initialState"/>
+      <genOperations ecoreOperation="EDP2.ecore#//NominalMeasure/PersistenceKindOnlyEmfAllowed">
+        <genParameters ecoreParameter="EDP2.ecore#//NominalMeasure/PersistenceKindOnlyEmfAllowed/diagnostics"/>
+        <genParameters ecoreParameter="EDP2.ecore#//NominalMeasure/PersistenceKindOnlyEmfAllowed/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//DoubleBinaryMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//DoubleBinaryMeasurements/storageUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//OrdinalMeasure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//OrdinalMeasure/defaultUnitOfMeasurements"/>
+      <genOperations ecoreOperation="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf">
+        <genParameters ecoreParameter="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf/diagnostics"/>
+        <genParameters ecoreParameter="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//JSXmlMeasurements"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//IJSDuration"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//IJSQuantity"/>
+    <genClasses ecoreClass="EDP2.ecore#//Descriptions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Descriptions/description"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//MetricSetDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//MetricSetDescription/subsumedMetrics"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//OrdinalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//OrdinalStatistics/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//OrdinalStatistics/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//OrdinalStatistics/median"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//OrdinalStatistics/percentiles"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//Percentile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Percentile/percentile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Percentile/value"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//IntervalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//IntervalStatistics/arithmethicMean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//IntervalStatistics/variance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//IntervalStatistics/standardDeviation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//IntervalStatistics/sum"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//RatioStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//RatioStatistics/coefficientOfVariation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//RatioStatistics/geometricMean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//RatioStatistics/harmonicMean"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//ObservedNominalMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ObservedNominalMeasurements/observedCategories"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ObservedNominalMeasurements/uuid"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//ObservedCategory">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//ObservedCategory/categoryIdentifier"/>
+    </genClasses>
+    <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//PrimitiveTypes"/>
+  </genPackages>
+</genmodel:GenModel>

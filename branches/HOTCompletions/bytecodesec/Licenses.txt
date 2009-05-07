@@ -1,0 +1,10 @@
+© Copyright FZI Deutschland 2009.
+
+Die Lizenzübersicht muss jeweils mitverteilt werden.
+
+Benutzte Lizenzen:
+---------------------------------------------------------------------------------------------------
+Bibliothek                    | Typ                     | URL
+---------------------------------------------------------------------------------------------------
+javassist                     | MPL + LGPL              | http://www.csg.is.titech.ac.jp/~chiba/javassist/
+---------------------------------------------------------------------------------------------------

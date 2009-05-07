@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="context"
+    nsURI="http://sdq.ipd.uka.de/Context/1.0" nsPrefix="context">
+  <eSubpackages name="computed_usage" nsURI="http://sdq.ipd.uka.de/Context/Usage/1.0"
+      nsPrefix="context.computed_usage">
+    <eClassifiers xsi:type="ecore:EClass" name="ComputedUsageContext" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchProbabilities_ComputedUsageContext"
+          ordered="false" upperBound="-1" eType="#//computed_usage/BranchProbability"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="loopiterations_ComputedUsageContext"
+          ordered="false" upperBound="-1" eType="#//computed_usage/LoopIteration"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_ComputedUsageContext"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/composition/AssemblyContext"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input_ComputedUsageContext"
+          ordered="false" lowerBound="1" eType="#//computed_usage/Input" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalCallOutput_ComputedUsageContext"
+          ordered="false" upperBound="-1" eType="#//computed_usage/ExternalCallOutput"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalCallInput_ComputedUsageContext"
+          ordered="false" upperBound="-1" eType="#//computed_usage/ExternalCallInput"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output_ComputedUsageContext"
+          ordered="false" lowerBound="1" eType="#//computed_usage/Output" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchProbability">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchtransition_BranchProbability"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractBranchTransition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopIteration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="loopaction_LoopIteration"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractLoopAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_LoopIteration"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/PCMRandomVariable"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Input">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterChacterisations_Input"
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallOutput">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCharacterisations_ExternalCallOutput"
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalCallAction_ExternalCallOutput"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallInput">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCharacterisations_ExternalCallInput"
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalCallAction_ExternalCallInput"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Output">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCharacterisations_Output"
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComputedUsage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContexts_ComputedUsage"
+          ordered="false" upperBound="-1" eType="#//computed_usage/ComputedUsageContext"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="computed_allocation" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0"
+      nsPrefix="context.computed_allocation">
+    <eClassifiers xsi:type="ecore:EClass" name="ComputedAllocationContext" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemands_ComputedAllocationContext"
+          ordered="false" upperBound="-1" eType="#//computed_allocation/ResourceDemand"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContext_ComputedAllocationContext"
+          ordered="false" lowerBound="1" eType="#//computed_usage/ComputedUsageContext"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext_ComputedAllocationContext"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemand">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemand_ResourceDemand"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ParametricResourceDemand"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ResourceDemand"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/PCMRandomVariable"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComputedAllocation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="computedAllocationContexts_ComputedAllocation"
+          ordered="false" upperBound="-1" eType="#//computed_allocation/ComputedAllocationContext"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

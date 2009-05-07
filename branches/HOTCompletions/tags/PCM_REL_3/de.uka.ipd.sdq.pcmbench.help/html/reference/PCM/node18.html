@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>QoS Analysis Workflow</TITLE>
+<META NAME="description" CONTENT="QoS Analysis Workflow">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html599"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html593"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html587"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html595"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html597"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html600"
+  HREF="node19.html">Discussion</A>
+<B> Up:</B> <A NAME="tex2html594"
+  HREF="node6.html">Component-based Development Process</A>
+<B> Previous:</B> <A NAME="tex2html588"
+  HREF="node17.html">Specification Workflow</A>
+ &nbsp; <B>  <A NAME="tex2html596"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html598"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00315000000000000000"></A>
+<A NAME="sec:Component-based_Development_Process:qos-analysis"></A>
+<BR>
+QoS Analysis Workflow
+</H2>
+
+<P>
+During QoS analysis, the software architecture is refined with information on the deployment context, the usage model, and the internal structure of components. Figure <A HREF="#fig:Component-based_Development_Process:QoSAnalysisWorkflow">2.6</A> shows the process in detail. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Component-based_Development_Process:QoSAnalysisWorkflow"></A><A NAME="324"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.6:</STRONG>
+Detailed View of the QoS Analysis Workflow</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="987" HEIGHT="608" ALIGN="BOTTOM" BORDER="0"
+ SRC="./process-model3.gif"
+ ALT="Image process-model3">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The deployer starts with the <I>resource environment specification</I> based on the software architecture and use case models. Given this information, the required hardware and software resources and their interconnections are derived. As a result, this workflow yields a discription of the resource environment, for example, a deployment diagram without allocated components or an instance of the resource environment model described in section <A HREF="node140.html#sec:System_Deployer:Resource_Environment">3.4.4</A>. Instead of specifying a new resource environment, the deployer can also use the descriptions of existing hardware and software resources. Moreover, a set of representative system environments can be designed if the final resource environment is still unknown. For QoS analysis, detailed information on the resources modelled in the environment are required. 
+
+<P>
+During <I>allocation</I>, the deployer specifies the mapping of components to resources. The result of this workflow can be a complete deployment diagram or a resource environment plus allocation contexts for components as described in section <A HREF="node142.html#sec:System_Deployer:Allocation_Context">3.4.5</A>. The resulting specifications are part of the inputs of the QoS analysis models used later. The resulting fully specified resource environment and component allocation is passed to the QoS analyst.
+
+<P>
+The domain expert refines the use case models from the requirements during the <I>use case analysis</I> workflow. A description of the scenarios for the users is created based on an external view of the current software architecture. The scenarios describe how users interact with the system and what dependencies exists in the process. For example, activity charts or usage models (see section <A HREF="node146.html#sec:Domain_Expert:Usage_Model">3.5.2</A>) can be used to describe such scenarios. The scenario descriptions are input to the <I>usage model refinement</I>. The domain expert annotates the descriptions with, for example, branching probabilities, expected size of different user groups, expected workload, user think times, and parameter characterisations.
+
+<P>
+As the central role in QoS analysis, the QoS analyst integrates the QoS relevant information, performs the evaluation, and delivers the feedback to all involved parties. In the <I>QoS requirement annotation</I> workflow, the QoS analyst maps QoS requirements to direct requirements of the software architecture. For example, the maximum waiting time of a user becomes the upper limit of the response time of a component's service. While doing so, the QoS analyst selects QoS metrics, like response time or probability of failure on demand, that are evaluated during later workflows.
+
+<P>
+During <I>QoS information integration</I>, the QoS analyst collects the specifications provided by the component developers, deployers, domain experts, and software architects, checks them for soundness, and integrates them into an overall QoS model of the system. In case of missing specifications, the QoS analyst is responsible for deriving the missing information by contacting the respective roles or by estimation and measurement. The system specification is then automatically transformed into a prediction model.
+
+<P>
+The <I>QoS evaluation</I> workflow either yields an analytical or simulation result. QoS evaluation aims, for example, at testing the scalability of the architecture and at identifying bottlenecks. The QoS analyst performs an interpretation of the results, comes up with possible design alternatives, and delivers the results to the software architect. If the results show that the QoS requirements cannot be fulfilled with the current architecture, the software architect has to modify the specifications or renegotiate the requirements.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html599"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html593"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html587"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html595"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html597"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html600"
+  HREF="node19.html">Discussion</A>
+<B> Up:</B> <A NAME="tex2html594"
+  HREF="node6.html">Component-based Development Process</A>
+<B> Previous:</B> <A NAME="tex2html588"
+  HREF="node17.html">Specification Workflow</A>
+ &nbsp; <B>  <A NAME="tex2html596"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html598"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

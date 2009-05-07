@@ -1,0 +1,67 @@
+© Copyright FZI Deutschland 2009.
+
+Die Lizenzübersicht muss jeweils mitverteilt werden.
+
+Benutzte Lizenzen:
+---------------------------------------------------------------------------------------------------
+Bibliothek                    | Typ                     | URL
+---------------------------------------------------------------------------------------------------
+ant-launcher                  | Apache (*1)             | ...
+ant                           | Apache (*1)             | ...
+asm-all                       | BSD                     |  http://asm.objectweb.org/license.html
+ByLoader                      | ?                       | [nicht auffindbar]
+commons-math                  | Apache (*1)             | http://commons.apache.org/math/
+derby                         | Apache (*1)             | ...
+gnujaxp                       | GPL Exception(*)        | https://olex.openlogic.com/licenses/49
+iText                         | MPL + LGPL (*2)         | http://www.lowagie.com/iText/download.html
+janino                        | New BSD                 | http://janino.net/javadoc/org/codehaus/janino/doc-files/new_bsd_license.txt
+javac                         | Sun                     | http://java.com/de/download/license.jsp
+javassist                     | MPL + LGPL (*2)         | http://www.csg.is.titech.ac.jp/~chiba/javassist/
+JCommon                       | GPL + GPL               | http://jcommons.sourceforge.net/download.html
+jfreechart-experimental       | LGPL (*2)               | ...
+jfreechart-swt                | LGPL (*2)               | ...
+jfreechart                    | LGPL (*2)               | ...
+jl                            | ?                       | [nicht auffindbar]
+junit                         | Apache (*1)             | http://commons.apache.org/jelly/libs/junit/license.html
+Log4J                         | Apache (*1)             | http://logging.apache.org/log4j/1.2/license.html
+servlet                       | ?                       | [nicht auffindbar]
+sunflow                       | MIT                     | http://www.opensource.org/licenses/mit-license.php
+swtgraphics2d                 | BSD                     | http://www.cs.umd.edu/hcil/jazz/download/open-source.shtml 
+Tidy                          | ?                       | [nicht auffindbar]
+xom                           | LGPL                    | http://www.xom.nu/license.xhtml
+SPECjvm2008                   | SPEC                    | http://www.spec.org/spec/docs/sample_license_agreement.pdf
+---------------------------------------------------------------------------------------------------
+
+(*): gnujaxp gpl mit exception: darf gelinkt werden:
+  
+  As a special exception, the copyright holders of this library give you
+  permission to link this library with independent modules to produce an
+  executable, regardless of the license terms of these independent
+  modules, and to copy and distribute the resulting executable under
+  terms of your choice, provided that you also meet, for each linked
+  independent module, the terms and conditions of the license of that
+  module.  An independent module is a module which is not derived from
+  or based on this library.  If you modify this library, you may extend
+  this exception to your version of the library, but you are not
+  obligated to do so.  If you do not wish to do so, delete this
+  exception statement from your version.
+  
+---------------------------------------------------------------------------------------------------
+(*1) Apache License:
+
+Copyright 2009 FZI
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+---------------------------------------------------------------------------------------------------
+(*2) http://www.gnu.org/licenses/lgpl.html

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rvisualisation Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.sensorframework.visualisation,
+ org.eclipse.ui.views.properties.tabbed,
+ de.uka.ipd.sdq.sensorframework,
+ org.apache.log4j,
+ org.rosuda.JRI
+Eclipse-LazyStart: true
+Bundle-ClassPath: .
+Export-Package: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views

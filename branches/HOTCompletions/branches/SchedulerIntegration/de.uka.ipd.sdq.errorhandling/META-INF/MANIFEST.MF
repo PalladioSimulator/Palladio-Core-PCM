@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SDQ Errorhandling Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.errorhandling
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.errorhandling.Activator
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.ui;resolution:=optional
+Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.errorhandling,
+ de.uka.ipd.sdq.errorhandling.dialogs.issues
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

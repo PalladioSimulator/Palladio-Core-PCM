@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Desmo_J Wrapper Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.desmojwrapper
+Bundle-Version: 2.1.1
+Bundle-ClassPath: desmojmod.jar
+Export-Package: desmoj.core.advancedModellingFeatures,
+ desmoj.core.advancedModellingFeatures.report,
+ desmoj.core.dist,
+ desmoj.core.exception,
+ desmoj.core.report,
+ desmoj.core.simulator,
+ desmoj.core.statistic,
+ desmoj.core.util

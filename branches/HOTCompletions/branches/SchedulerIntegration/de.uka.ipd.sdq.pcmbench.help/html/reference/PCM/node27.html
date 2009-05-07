@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parameterised Contracts as Generalisation of Classical Contracts</TITLE>
+<META NAME="description" CONTENT="Parameterised Contracts as Generalisation of Classical Contracts">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html724"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html718"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html714"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html720"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html722"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html725"
+  HREF="node28.html">Context</A>
+<B> Up:</B> <A NAME="tex2html719"
+  HREF="node25.html">Parametric Contracts</A>
+<B> Previous:</B> <A NAME="tex2html715"
+  HREF="node26.html">Interoperability Checks, Substitutability Checks</A>
+ &nbsp; <B>  <A NAME="tex2html721"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html723"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00342000000000000000"></A>
+<A NAME="pc:pc"></A>
+<BR>
+Parameterised Contracts as Generalisation of Classical Contracts
+</H2>
+While interoperability tests check the requires-interface of a component
+against the provides-interface of <I>another</I> component, parameterised
+contracts link the provides-interface of one component to the requires-
+interface of <I>the same</I> component (see points (2) and (3) in figure
+<A HREF="#fig:comp-env">2.7</A>). 
+
+<P>
+The usefulness of parameterised contracts is based on the observation that in
+practice often only a subset of a component's functionality is used. This is
+especially true for coarse-grained components. In this case, also only a
+subset of the functionality described in the requires-interface is actually
+used. That means that the component could be used without any problems in
+environments where not all dependencies, as described in the requires
+interface, are given. Vice versa, if a component does not receive all (but
+some) functionality it requires from the environment, it often can deliver a
+reasonable subset of its functionality.
+
+<DIV ALIGN="CENTER"><A NAME="fig:comp-env"></A><A NAME="545"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.7:</STRONG>
+Interoperability checks (1) and Requires-parameterised Contract
+      (2) and  Provides-parameterised Contract (3)</CAPTION>
+<TR><TD></TD></TR>
+</TABLE>
+</DIV>
+These facts can be modelled by a set of possible provides-interfaces
+<!-- MATH
+ $\mathbf{P}:=\{prov\}$
+ -->
+<IMG
+ WIDTH="98" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \mathbf{P}:=\{prov\}$"> and a set of possible requires-interfaces
+<!-- MATH
+ $\mathbf{R}:=\{req\}$
+ -->
+<IMG
+ WIDTH="90" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \mathbf{R}:=\{req\}$"> and a monotone total bijective mapping <IMG
+ WIDTH="13" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ p$"> between them
+<!-- MATH
+ $p:\mathbf{P}\rightarrow \mathbf{R}$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ p:\mathbf{P}\rightarrow \mathbf{R}$">.<A NAME="tex2html8"
+  HREF="footnode.html#foot571"><SUP>2.1</SUP></A> As a
+result, each requires-interface <!-- MATH
+ $req\in \mathbf{R}$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ req\in \mathbf{R}$"> is now a function of a
+provides-interface <IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ prov$">: <!-- MATH
+ $req = p(prov)$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ req = p(prov)$"> and (because <IMG
+ WIDTH="13" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ p$"> is bijective) each
+provides-interface <!-- MATH
+ $prov\in\mathbf{P}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ prov\in\mathbf{P}$"> can be modelled as a function of a
+requires-interface <!-- MATH
+ $req\in\mathbf{R}$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ req\in \mathbf{R}$">: <!-- MATH
+ $prov=p^{-1}(req)$
+ -->
+<IMG
+ WIDTH="127" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ prov=p^{-1}(req)$">.
+
+<P>
+This mapping <IMG
+ WIDTH="13" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ p$"> is now called <I>parameterised contract</I>, since it
+parameterises the precondition with the postcondition of the component and
+vice versa. It can be considered as a generalisation of ``classical contract''
+which uses a fixed pre- and postcondition. The parameterised contract is
+bundled with the component and computes the interfaces of the components on
+demand.
+
+<P>
+For the following, assume component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B$"> uses component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> and is used by
+component <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A$">. If component <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A$"> uses only a subset of the functionality
+offered by <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B$"> we compute a new requires-interface of <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B$"> with the
+parameterised contract <IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ p_B$">:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:prov-pc"></A><!-- MATH
+ \begin{equation}
+p_B(req_A\cap prov_B) =: req'_B \subseteq req_B
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="261" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$\displaystyle p_B(req_A\cap prov_B) =: req'_B \subseteq req_B$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that the new requires-interface <IMG
+ WIDTH="40" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ req'_B$"> requires possibly less than the
+original requires-interface <!-- MATH
+ $req_B:=p_B(prov_B)$
+ -->
+<IMG
+ WIDTH="148" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ req_B:=p_B(prov_B)$"> (but never more) since <IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ p_B$">
+is monotone and <!-- MATH
+ $req_A\cap prov_B\subseteq prov_B$
+ -->
+<IMG
+ WIDTH="173" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ req_A\cap prov_B\subseteq prov_B$">. When computing the
+requires-interface out of a provides-interface (possibly intersected with an
+external requires-interface) the parameterised contract is called
+<I>provides-parameterised contract</I>.
+
+<P>
+Likewise, if component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> does not provide all the functionality required by
+<IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B$">, one can compute a new provides-interface <IMG
+ WIDTH="50" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ prov'_B$"> with <IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ p_B$">:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:req-pc"></A><!-- MATH
+ \begin{equation}
+p_B^{-1}(req_B\cap prov_C) =: prov'_B \subseteq prov_B
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="288" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$\displaystyle p_B^{-1}(req_B\cap prov_C) =: prov'_B \subseteq prov_B$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.6)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Since <IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ p_B$"> is monotone, <IMG
+ WIDTH="31" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ p^{-1}$"> is, too. With <!-- MATH
+ $req_B\cap prov_C\subseteq
+req_B$
+ -->
+<IMG
+ WIDTH="164" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ req_B\cap prov_C\subseteq
+req_B$"> we have <!-- MATH
+ $prov'_B \subseteq prov_B:=p^{-1}(req_B)$
+ -->
+<IMG
+ WIDTH="223" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ prov'_B \subseteq prov_B:=p^{-1}(req_B)$">.  In this case we use
+a <I>requires-parameterised contract</I>.
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html724"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html718"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html714"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html720"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html722"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html725"
+  HREF="node28.html">Context</A>
+<B> Up:</B> <A NAME="tex2html719"
+  HREF="node25.html">Parametric Contracts</A>
+<B> Previous:</B> <A NAME="tex2html715"
+  HREF="node26.html">Interoperability Checks, Substitutability Checks</A>
+ &nbsp; <B>  <A NAME="tex2html721"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html723"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

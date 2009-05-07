@@ -1,0 +1,167 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE UsageModel(Allocation a) FOR UsageModel»
+	«EXPAND UsageScenario(a) FOREACH this.usageScenario_UsageModel»
+	«EXPAND UsageScenarioFactory FOREACH this.usageScenario_UsageModel»
+	«EXPAND Main FOR this»
+«ENDDEFINE» 
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		«EXPAND m2t_transforms::java_core::ImportsTM FOR this»
+		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providedInterface__ProvidedRole»
+		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.toSet()»
+		«EXPAND ContextImports FOR this»
+		public class «this.javaName()» 
+		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
+		{
+			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall»
+			«EXPAND AllocationContextTM FOR a»
+			«EXPAND UsageScenarioConstructor(a) FOR this»
+			
+			«EXPAND ScenarioRunner FOR this.scenarioBehaviour_UsageScenario»
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE ContextImports FOR UsageScenario»
+	/**
+	* Imports for the system context classes
+	**/
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+		«EXPAND m2t_transforms::java_core::Import FOR ((System)pr.providingEntity_ProvidedRole).fqnContext()»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
+public «this.javaName()»(SimuComModel myModel) {
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
+		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
+			ctx = new «a.fqnAllocationContext()»(myModel);
+			ctx.getStack().createAndPushNewStackFrame();
+			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
+				new «system.contextClassName()»
+					(«EXPAND DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
+		«ENDLET»
+      	my«pr.providingEntity_ProvidedRole.javaName()».setContext(context«pr.providingEntity_ProvidedRole.javaName()»);
+
+		«pr.portMemberVar()» = my«pr.providingEntity_ProvidedRole.javaName()».«pr.portGetter()»();
+	«ENDFOREACH»
+}
+«ENDDEFINE»
+
+«DEFINE SystemMemberVar FOR ProvidedRole»
+   protected «this.providedInterface__ProvidedRole.javaName()» «this.portMemberVar()» = null;
+«ENDDEFINE»
+
+«DEFINE ScenarioRunner FOR ScenarioBehaviour»
+public void scenarioRunner(SimProcess thread) {
+	ctx.setSimProcess(thread);
+	«EXPAND UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+}
+«ENDDEFINE»
+
+«DEFINE UserActions FOR AbstractUserAction»
+   «EXPAND m2t_transforms::user_actions::UserAction FOR this»
+   «IF !Stop.isInstance(this)»
+      «EXPAND UserActions FOR this.successor»
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE DummyRequiredSystemTM(System s) FOR RequiredRole»
+	null
+«ENDDEFINE»
+
+«DEFINE AllocationContextTM FOR Allocation»
+«ENDDEFINE»
+
+«DEFINE UsageScenarioFactory FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()+"Factory"» 
+		extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
+		{
+			«EXPAND FactoryConstructor FOR this»
+			
+			public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
+				return new «this.implementationPackage()+"."+this.javaName()»(model);
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE UsageFactoryBaseClass FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR UsageScenario»
+	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+	public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model){
+		«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
+		this.model = model;
+	}
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR ClosedWorkload»
+	super(model,"«this.thinkTime_ClosedWorkload.specification.javaString()»");
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR OpenWorkload»
+	super(model);
+«ENDDEFINE»
+
+«DEFINE Main FOR UsageModel»
+	«FILE "MainClass.java"»
+		public class MainClass extends de.uka.ipd.sdq.simucomframework.AbstractMain {
+			public static void main(String[] args) {
+				new MainClass().run();
+			}
+			
+			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
+				return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
+					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
+				};
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver FOR UsageScenario»
+	new «EXPAND WorkloadClass(this) FOR this.workload_UsageScenario»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),«this.population»)
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkload( getModel(),
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),
+	"«this.interArrivalTime_OpenWorkload.specification.javaString()»")
+«ENDDEFINE»

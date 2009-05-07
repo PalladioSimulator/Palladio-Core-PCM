@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.capra.editor; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: de.uka.ipd.sdq.capra.presentation.CapraEditorPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.capra.core.presentation,
+ de.uka.ipd.sdq.capra.extension.presentation,
+ de.uka.ipd.sdq.capra.measurement.presentation,
+ de.uka.ipd.sdq.capra.presentation,
+ de.uka.ipd.sdq.capra.resources.presentation,
+ de.uka.ipd.sdq.capra.schedulers.presentation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ de.uka.ipd.sdq.capra.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ de.uka.ipd.sdq.scheduler.configuration,
+ de.uka.ipd.sdq.scheduler.configuration.edit
+Eclipse-LazyStart: true

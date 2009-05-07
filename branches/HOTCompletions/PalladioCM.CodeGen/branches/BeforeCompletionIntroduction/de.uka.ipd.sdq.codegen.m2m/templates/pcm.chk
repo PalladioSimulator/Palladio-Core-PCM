@@ -1,0 +1,16 @@
+import parameter;
+import seff;
+import repository;
+extension m2t_transforms::pcm;
+
+context VariableUsage ERROR 'LHS ID not set':
+	this.namedReference_VariableUsage != null;
+	
+context ExternalCallAction ERROR this.calledService_ExternalService.serviceName + ' Variable Reference not set':
+	!this.parameterUsage_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
+	
+context ResourceDemandingSEFF ERROR 'SEFF needs exactly one start and one stop action':
+	this.steps_Behaviour.typeSelect(StartAction).size == 1 && this.steps_Behaviour.typeSelect(StopAction).size == 1;
+	
+context BasicComponent ERROR this.entityName +': basic component must have at least a minimal SEFF for any provided method':
+	this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));

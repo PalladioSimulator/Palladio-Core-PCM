@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource id="_vYT2IFiSEd2BdpQhc44b3A" entityName="WebserverServer &lt;-> Scheduler" toResourceContainer_LinkingResource="_EX6xcdpAEdyxgfK4Hy_RFA" fromResourceContainer_LinkingResource="_8-cpgNo_EdyxgfK4Hy_RFA">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+      <latency_CommunicationLinkResourceSpecification specification="1"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <linkingresource id="_2sDwkFiSEd2BdpQhc44b3A" entityName="WebserverServer &lt;-> AppServer" toResourceContainer_LinkingResource="_L0Dy4dpAEdyxgfK4Hy_RFA" fromResourceContainer_LinkingResource="_8-cpgNo_EdyxgfK4Hy_RFA">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+      <latency_CommunicationLinkResourceSpecification specification="1"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <linkingresource id="_7fnmMFiSEd2BdpQhc44b3A" entityName="SchedulerServer &lt;-> AppServer" toResourceContainer_LinkingResource="_L0Dy4dpAEdyxgfK4Hy_RFA" fromResourceContainer_LinkingResource="_EX6xcdpAEdyxgfK4Hy_RFA">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+      <latency_CommunicationLinkResourceSpecification specification="1"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <linkingresource id="_BY6U0liTEd2BdpQhc44b3A" entityName="AppServer &lt;-> DBServer" toResourceContainer_LinkingResource="_U2Nv4dpAEdyxgfK4Hy_RFA" fromResourceContainer_LinkingResource="_L0Dy4dpAEdyxgfK4Hy_RFA">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+      <latency_CommunicationLinkResourceSpecification specification="1"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <resourceContainer_ResourceEnvironment id="_8-cpgNo_EdyxgfK4Hy_RFA" entityName="WebServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="FCFS">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_EX6xcdpAEdyxgfK4Hy_RFA" entityName="SchedulerServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="FCFS">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_L0Dy4dpAEdyxgfK4Hy_RFA" entityName="ApplicationServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="FCFS">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="2.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_U2Nv4dpAEdyxgfK4Hy_RFA" entityName="DBServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="FCFS">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</ResourceEnvironment>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+  <usageScenario_UsageModel id="_cf4x8P1pEdyHRtyNpj5nfQ" entityName="defaultUsageScenario">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="0.0"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_cf71QP1pEdyHRtyNpj5nfQ" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_cgAtwP1pEdyHRtyNpj5nfQ" successor="_f1FMIP1pEdyHRtyNpj5nfQ"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_cgDKAP1pEdyHRtyNpj5nfQ" predecessor="_kbIxQP1pEdyHRtyNpj5nfQ"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_f1FMIP1pEdyHRtyNpj5nfQ" successor="_kbIxQP1pEdyHRtyNpj5nfQ" predecessor="_cgAtwP1pEdyHRtyNpj5nfQ">
+        <providedRole_EntryLevelSystemCall href="AcquireExample.system#_Z1xxkP1oEdyHRtyNpj5nfQ"/>
+        <signature_EntryLevelSystemCall href="AcquireExample.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_kbIxQP1pEdyHRtyNpj5nfQ" successor="_cgDKAP1pEdyHRtyNpj5nfQ" predecessor="_f1FMIP1pEdyHRtyNpj5nfQ">
+        <providedRole_EntryLevelSystemCall href="AcquireExample.system#_Z1xxkP1oEdyHRtyNpj5nfQ"/>
+        <signature_EntryLevelSystemCall href="AcquireExample.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>

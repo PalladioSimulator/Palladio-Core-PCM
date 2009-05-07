@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_cXcEsB_7Edy5k9ER1TBmjg" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_cr__cR_7Edy5k9ER1TBmjg" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_cr__ch_7Edy5k9ER1TBmjg"/>
+    <element xmi:type="pcm.seff:StartAction" href="cocome.repository#_cr__cB_7Edy5k9ER1TBmjg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cr__cx_7Edy5k9ER1TBmjg" x="361" y="80"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_c7plAB_7Edy5k9ER1TBmjg" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_c7plAR_7Edy5k9ER1TBmjg"/>
+    <element xmi:type="pcm.seff:StopAction" href="cocome.repository#_c7f0AB_7Edy5k9ER1TBmjg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c7plAh_7Edy5k9ER1TBmjg" x="368" y="145"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_cXcEsR_7Edy5k9ER1TBmjg"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="cocome.repository#_ZHuAYh_7Edy5k9ER1TBmjg"/>
+  <edges xmi:type="notation:Edge" xmi:id="_dPd44B_7Edy5k9ER1TBmjg" type="4001" source="_cr__cR_7Edy5k9ER1TBmjg" target="_c7plAB_7Edy5k9ER1TBmjg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_dPd44R_7Edy5k9ER1TBmjg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_dPd44h_7Edy5k9ER1TBmjg"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dPd44x_7Edy5k9ER1TBmjg" points="[0, 9, -12, -61]$[3, 81, -9, 11]"/>
+  </edges>
+</notation:Diagram>

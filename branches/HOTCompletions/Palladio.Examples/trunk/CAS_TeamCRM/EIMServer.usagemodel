@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_M3FSAO98EdyzDp8AKfFBlg" entityName="MassQuery+getObject">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="0"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_5kR4sO-IEdyzDp8AKfFBlg">
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_oB_hIO-dEdyEEIuBZMydLw" predecessor="_o7B8AESOEd2YqN90Pw-V6Q"/>
+      <actions_ScenarioBehaviour xsi:type="Start" id="_ovAYIO-dEdyEEIuBZMydLw" successor="_1MIgUPgmEdyTkbqZoLnbxA"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_1MIgUPgmEdyTkbqZoLnbxA" successor="_o7B8AESOEd2YqN90Pw-V6Q" predecessor="_ovAYIO-dEdyEEIuBZMydLw">
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="EnumPMF[ (&quot;ADDRESS&quot;;0.25) (&quot;APPOINTMENT&quot;;0.6) (&quot;TODO&quot;;0.15) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="EIMServer.system#_sXiz0O-XEdyOK6Elhl05eA"/>
+        <signature_EntryLevelSystemCall href="EIMServer.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_o7B8AESOEd2YqN90Pw-V6Q" successor="_oB_hIO-dEdyEEIuBZMydLw" predecessor="_1MIgUPgmEdyTkbqZoLnbxA">
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="EnumPMF[ (&quot;ADDRESS&quot;;0.25) (&quot;APPOINTMENT&quot;;0.6) (&quot;TODO&quot;;0.15) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="EIMServer.system#_sXiz0O-XEdyOK6Elhl05eA"/>
+        <signature_EntryLevelSystemCall href="EIMServer.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>

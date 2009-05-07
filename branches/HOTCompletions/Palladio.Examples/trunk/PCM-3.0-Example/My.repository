@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_oLaakLcZEd23_qXrExV82A">
+  <components__Repository xsi:type="BasicComponent" id="_q7GT8LcZEd23_qXrExV82A" entityName="aComponent">
+    <providedRoles_InterfaceProvidingEntity id="_roGj4LcZEd23_qXrExV82A" entityName="Provided_aName_aName" providedInterface__ProvidedRole="_rJ2hoLcZEd23_qXrExV82A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0" id="_t8XskLcZEd23_qXrExV82A">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_uROiQLcZEd23_qXrExV82A" successor_AbstractAction="_vCZggLcZEd23_qXrExV82A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_uROiQbcZEd23_qXrExV82A" predecessor_AbstractAction="_vCZggLcZEd23_qXrExV82A"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_vCZggLcZEd23_qXrExV82A" predecessor_AbstractAction="_uROiQLcZEd23_qXrExV82A" successor_AbstractAction="_uROiQbcZEd23_qXrExV82A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_rJ2hoLcZEd23_qXrExV82A" entityName="anInterface">
+    <signatures__Interface serviceName="asignature"/>
+  </interfaces__Repository>
+</Repository>

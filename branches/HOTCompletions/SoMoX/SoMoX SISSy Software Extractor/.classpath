@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.cdt.core_3.1.1.200609270800.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.core.filebuffers_3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.core.resources_3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.core.runtime_3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.core.variables_3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.osgi_3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/cdt/org.eclipse.text_3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/antlr.jar"/>
+	<classpathentry kind="lib" path="lib/CloneAnalyzer.jar"/>
+	<classpathentry kind="lib" path="lib/deadcode.jar"/>
+	<classpathentry kind="lib" path="lib/jargs.jar"/>
+	<classpathentry kind="lib" path="lib/jtds-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/opparser.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-8.0-310.jdbc3.jar"/>
+	<classpathentry kind="lib" path="lib/recoder.jar"/>
+	<classpathentry kind="lib" path="lib/sissy.jar"/>
+	<classpathentry kind="lib" path="lib/xmlwriter.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

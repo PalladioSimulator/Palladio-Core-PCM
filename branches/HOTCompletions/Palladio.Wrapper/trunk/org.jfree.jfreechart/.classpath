@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="jcommon-1.0.12.jar" sourcepath="jcommon-1.0.12.zip"/>
+	<classpathentry exported="true" kind="lib" path="jfreechart-1.0.9.jar" sourcepath="jfreechart-1.0.9.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/org.jfree.jfreechart/jfreechart-1.0.9-javadocs.zip!/jfreechart-1.0.9-javadocs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="jfreechart-1.0.9-swt.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.ByBench/src"
+    modelPluginID="de.uka.ipd.sdq.ByBench" modelName="ByBench" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier">
+  <foreignModel>ByBench.ecore</foreignModel>
+  <genPackages prefix="ByBench" basePackage="de.uka.ipd.sdq" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="ByBench.ecore#/">
+    <genClasses ecoreClass="ByBench.ecore#//Scenario">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/scenarioprecondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/measurementstart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/scenariocore"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/measurementend"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/scenariopostcondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/namedcardinality"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//Scenario/benchmarkedInstruction"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//ScenarioPrecondition"/>
+    <genClasses ecoreClass="ByBench.ecore#//InstructionSequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//InstructionSequence/sequenceelement"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//SequenceElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//SequenceElement/successor"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//MeasurementStart"/>
+    <genClasses ecoreClass="ByBench.ecore#//ScenarioCore"/>
+    <genClasses ecoreClass="ByBench.ecore#//MeasurementEnd"/>
+    <genClasses ecoreClass="ByBench.ecore#//ScenarioPostcondition"/>
+    <genClasses ecoreClass="ByBench.ecore#//NamedCardinality">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ByBench.ecore#//NamedCardinality/cardinalityValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ByBench.ecore#//NamedCardinality/cardinalityName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//NamedCardinality/instructionchaining"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//NamedCardinality/instructionlooping"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//InstructionChaining">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//InstructionChaining/instructionsequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//InstructionChaining/namedcardinality"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//InstructionLooping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ByBench.ecore#//InstructionLooping/instructionsequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ByBench.ecore#//InstructionLooping/namedcardinality"/>
+    </genClasses>
+    <genClasses ecoreClass="ByBench.ecore#//AtomicInstruction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ByBench.ecore#//AtomicInstruction/ParameterValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ByBench.ecore#//AtomicInstruction/ParameterConversion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ByBench.ecore#//AtomicInstruction/opcode"/>
+      <genOperations ecoreOperation="ByBench.ecore#//AtomicInstruction/ensureValidOpcode">
+        <genParameters ecoreParameter="ByBench.ecore#//AtomicInstruction/ensureValidOpcode/diagnostics"/>
+        <genParameters ecoreParameter="ByBench.ecore#//AtomicInstruction/ensureValidOpcode/context"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

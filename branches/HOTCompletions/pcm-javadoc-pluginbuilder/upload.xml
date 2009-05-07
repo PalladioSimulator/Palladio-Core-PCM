@@ -1,0 +1,23 @@
+<project name="UpdateSite" default="upload">
+	
+	<target name="clean_remote">
+		<sshexec host="i43pc12.ipd.uka.de"
+				username="ccontrol"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true" 
+		command="cd /var/www/eclipse/javadoc/; 
+			rm -rf *; 
+			"/>
+	</target>
+
+	<target name="upload" depends="clean_remote">
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/javadoc/"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true">
+		    <fileset dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/javadoc"/>
+	  	</scp>			
+	</target>
+	
+</project>

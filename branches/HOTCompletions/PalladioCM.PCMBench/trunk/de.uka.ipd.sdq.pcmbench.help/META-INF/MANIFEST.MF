@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCMBench Help Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.help;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.help,
+ org.eclipse.help.ui,
+ org.eclipse.ui.intro,
+ org.eclipse.help.webapp,
+ org.eclipse.ui.intro.universal

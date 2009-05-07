@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: mediastore_ejbClient.jar 
+ jid3lib-0.5.4.jar
+

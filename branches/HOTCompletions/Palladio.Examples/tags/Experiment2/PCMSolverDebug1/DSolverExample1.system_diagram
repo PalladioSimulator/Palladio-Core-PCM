@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.core.composition="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmi:id="_Guq3MH6yEdud8MGZ5QaR_Q" type="system" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_HbhWIH6yEdud8MGZ5QaR_Q" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_HbrHIH6yEdud8MGZ5QaR_Q" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_HeNdwH6yEdud8MGZ5QaR_Q" type="1001">
+        <children xmi:type="notation:Node" xmi:id="_HeNdxn6yEdud8MGZ5QaR_Q" type="4003"/>
+        <children xmi:type="notation:Node" xmi:id="_HegYsH6yEdud8MGZ5QaR_Q" type="2001">
+          <children xmi:type="notation:Node" xmi:id="_HegYtn6yEdud8MGZ5QaR_Q" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HegYt36yEdud8MGZ5QaR_Q" y="5"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HegYsX6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_HegYsn6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_HegYs36yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_HegYtH6yEdud8MGZ5QaR_Q"/>
+          <element xmi:type="pcm.repository:ProvidedRole" href="DSolverExample1.repository#_2rc3kHckEdugqbdw26ZvAA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HegYtX6yEdud8MGZ5QaR_Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HegYuH6yEdud8MGZ5QaR_Q" type="2002">
+          <children xmi:type="notation:Node" xmi:id="_HegYvn6yEdud8MGZ5QaR_Q" type="4002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HegYv36yEdud8MGZ5QaR_Q" y="5"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HegYuX6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_HegYun6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_HegYu36yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_HegYvH6yEdud8MGZ5QaR_Q"/>
+          <element xmi:type="pcm.repository:RequiredRole" href="DSolverExample1.repository#_8P4wgXckEdugqbdw26ZvAA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HegYvX6yEdud8MGZ5QaR_Q" x="120" y="16" width="30" height="16"/>
+        </children>
+        <styles xmi:type="notation:FontStyle" xmi:id="_HeNdwX6yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_HeNdwn6yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_HeNdw36yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_HeNdxH6yEdud8MGZ5QaR_Q"/>
+        <element xmi:type="pcm.core.composition:AssemblyContext" href="DSolverExample1.system#_fKfcwHcmEdugqbdw26ZvAA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HeNdxX6yEdud8MGZ5QaR_Q" x="79" y="159" width="121"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_HeNdx36yEdud8MGZ5QaR_Q" type="1001">
+        <children xmi:type="notation:Node" xmi:id="_HeNdzX6yEdud8MGZ5QaR_Q" type="4003"/>
+        <children xmi:type="notation:Node" xmi:id="_HezToH6yEdud8MGZ5QaR_Q" type="2001">
+          <children xmi:type="notation:Node" xmi:id="_HezTpn6yEdud8MGZ5QaR_Q" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HezTp36yEdud8MGZ5QaR_Q" x="35" y="43"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HezToX6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_HezTon6yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_HezTo36yEdud8MGZ5QaR_Q"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_HezTpH6yEdud8MGZ5QaR_Q"/>
+          <element xmi:type="pcm.repository:ProvidedRole" href="DSolverExample1.repository#_6nku4HckEdugqbdw26ZvAA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HezTpX6yEdud8MGZ5QaR_Q"/>
+        </children>
+        <styles xmi:type="notation:FontStyle" xmi:id="_HeNdyH6yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_HeNdyX6yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_HeNdyn6yEdud8MGZ5QaR_Q"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_HeNdy36yEdud8MGZ5QaR_Q"/>
+        <element xmi:type="pcm.core.composition:AssemblyContext" href="DSolverExample1.system#_j6xU4HcmEdugqbdw26ZvAA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HeNdzH6yEdud8MGZ5QaR_Q" x="295" y="163" width="140"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_HbrHIX6yEdud8MGZ5QaR_Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_HbrHIn6yEdud8MGZ5QaR_Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_HdKU4H6yEdud8MGZ5QaR_Q" type="1004">
+      <children xmi:type="notation:Node" xmi:id="_HdKU5n6yEdud8MGZ5QaR_Q" type="4004">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HdKU536yEdud8MGZ5QaR_Q" y="5"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_HdKU4X6yEdud8MGZ5QaR_Q"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_HdKU4n6yEdud8MGZ5QaR_Q"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_HdKU436yEdud8MGZ5QaR_Q"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_HdKU5H6yEdud8MGZ5QaR_Q"/>
+      <element xmi:type="pcm.repository:ProvidedRole" href="DSolverExample1.system#_i6s_AHcmEdugqbdw26ZvAA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HdKU5X6yEdud8MGZ5QaR_Q"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_HbhWIX6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_HbhWIn6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_HbhWI36yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_HbhWJH6yEdud8MGZ5QaR_Q"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HbhWJX6yEdud8MGZ5QaR_Q" y="-20" width="474" height="402"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_Guq3MX6yEdud8MGZ5QaR_Q"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_Guq3Mn6yEdud8MGZ5QaR_Q"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_Guq3M36yEdud8MGZ5QaR_Q"/>
+  <element xmi:type="pcm.system:System" href="DSolverExample1.system#0"/>
+  <edges xmi:type="notation:Edge" xmi:id="_He9EoH6yEdud8MGZ5QaR_Q" type="3001" source="_HegYuH6yEdud8MGZ5QaR_Q" target="_HezToH6yEdud8MGZ5QaR_Q">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_He9EoX6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_He9Eon6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_He9Eo36yEdud8MGZ5QaR_Q"/>
+    <element xmi:type="pcm.core.composition:AssemblyConnector" href="DSolverExample1.system#_mS64AHcmEdugqbdw26ZvAA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_He9EpH6yEdud8MGZ5QaR_Q" points="[0, 20, 0, -80]$[0, 80, 0, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Hfi6gH6yEdud8MGZ5QaR_Q" type="3002" source="_HdKU4H6yEdud8MGZ5QaR_Q" target="_HegYsH6yEdud8MGZ5QaR_Q">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_Hfi6gX6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Hfi6gn6yEdud8MGZ5QaR_Q"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Hfi6g36yEdud8MGZ5QaR_Q"/>
+    <element xmi:type="pcm.core.composition:ProvidedDelegationConnector" href="DSolverExample1.system#_lomIoHcmEdugqbdw26ZvAA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Hfi6hH6yEdud8MGZ5QaR_Q" points="[-30, -15, -15, -8]$[-31, -16, -16, -9]"/>
+  </edges>
+</notation:Diagram>

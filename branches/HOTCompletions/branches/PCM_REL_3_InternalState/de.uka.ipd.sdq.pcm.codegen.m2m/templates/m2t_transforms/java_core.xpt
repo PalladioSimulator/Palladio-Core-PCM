@@ -1,0 +1,158 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT core::entity»
+«IMPORT completions»
+«IMPORT parameter»
+
+«DEFINE ClassHeader FOR ProvidesComponentType»
+public class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE Signature FOR Signature»
+   «EXPAND ReturnTypeTM FOR this»
+   «this.javaSignature()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE ReturnType FOR Signature»
+   «IF this.returntype__Signature != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.returntype__Signature»
+   «ELSE»
+      void
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR Signature»
+	«ERROR "ReturnTypeTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR Signature»
+   «ERROR "ParameterListTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR Signature»
+   «ERROR "ParameterUsageTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Parameter FOR Parameter»
+   «IF this.datatype__Parameter != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.datatype__Parameter»
+   «ELSE»
+      void
+   «ENDIF»
+   «this.parameterName»
+«ENDDEFINE»
+
+«DEFINE ParameterUse FOR Parameter»
+   «this.parameterName»
+«ENDDEFINE»
+
+//-----
+// Generate method implementations by traversing the SEFF
+«DEFINE ComponentService FOR ServiceEffectSpecification»
+	«ERROR "Unknown Service Effect Specification found!"»
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR Signature»
+	«EXPAND ReturnTypeTM FOR this»
+      «this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»
+         («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
+«DEFINE ComponentService(ProvidesComponentType component) FOR Signature»
+   public «EXPAND ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface_Signature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND Actions FOR seff.steps_Behaviour.findStart()»      
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+«ENDDEFINE»
+
+«DEFINE Actions FOR AbstractAction»
+   «EXPAND m2t_transforms::seff::Action FOR this»
+   «IF !StopAction.isInstance(this)»
+      «EXPAND Actions FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+//-----
+
+//-----
+// Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
+// ComposedStructure
+«DEFINE ComponentImplementation FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementation FOR ImplementationComponentType»
+   «FILE this.getFileName()»
+	   «EXPAND ComponentImplementationInterface FOR this»
+	   package «this.implementationPackage()»;
+	      
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND SuperClassesTM FOR this»
+	   implements «this.fqnInterface()»
+	   {
+	   	  //TODO: this should go to the java specific part
+	      «EXPAND ComponentFields FOR this» 
+	   
+	   	  «EXPAND ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND InnerImplementation FOR this»
+		  «EXPAND SpecificImplementationPartTM FOR this»
+	   }
+	   «EXPAND ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentFields FOR ImplementationComponentType»
+	«ERROR "We should only have basic components: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE ComponentFields FOR BasicComponent»
+	«EXPAND SingleComponentField FOREACH this.componentState_BasicComponent.specification_State»
+«ENDDEFINE»
+
+«DEFINE SingleComponentField FOR VariableUsage»
+	public String «this.namedReference_VariableUsage.referenceName» = "«this.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1,"«this.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1);
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationInterface FOR InterfaceProvidingEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		package «this.implementationPackage()»;
+	      
+		public interface «this.interfaceName()»
+	    {
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface SEPARATOR ";"»;
+	    }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationChildClassTM FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE SuperClassesTM FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR BasicComponent»
+	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR CompositeComponent»
+«ENDDEFINE»
+///-----
+
+«DEFINE ComponentConstructorTM FOR ProvidesComponentType»
+«ENDDEFINE»

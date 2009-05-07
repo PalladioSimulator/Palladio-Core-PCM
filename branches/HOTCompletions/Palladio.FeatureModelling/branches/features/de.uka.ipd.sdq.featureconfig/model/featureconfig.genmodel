@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.featureconfig/src"
+    modelPluginID="de.uka.ipd.sdq.featureconfig" modelName="Featureconfig" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.genmodel#//featuremodel">
+  <foreignModel>featureconfig.ecore</foreignModel>
+  <genPackages prefix="featureconfig" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="featureconfig.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="featureconfig.ecore#//ConfigState">
+      <genEnumLiterals ecoreEnumLiteral="featureconfig.ecore#//ConfigState/SELECTED"/>
+      <genEnumLiterals ecoreEnumLiteral="featureconfig.ecore#//ConfigState/ELIMINATED"/>
+      <genEnumLiterals ecoreEnumLiteral="featureconfig.ecore#//ConfigState/DEFAULT"/>
+    </genEnums>
+    <genClasses ecoreClass="featureconfig.ecore#//ConfigNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference featureconfig.ecore#//ConfigNode/origin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute featureconfig.ecore#//ConfigNode/configState"/>
+      <genOperations ecoreOperation="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid">
+        <genParameters ecoreParameter="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid/diagnostics"/>
+        <genParameters ecoreParameter="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="featureconfig.ecore#//FeatureConfig">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/referencedObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/confignode"/>
+      <genOperations ecoreOperation="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel">
+        <genParameters ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/diagnostics"/>
+        <genParameters ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="featureconfig.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//Configuration/defaultConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//Configuration/configOverrides"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute featureconfig.ecore#//Configuration/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

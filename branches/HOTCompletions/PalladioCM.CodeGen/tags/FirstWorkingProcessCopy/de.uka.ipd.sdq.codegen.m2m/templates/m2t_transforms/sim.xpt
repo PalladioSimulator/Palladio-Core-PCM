@@ -1,0 +1,21 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+ 
+«DEFINE Branch FOR BranchAction»
+	«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR " else "»
+	else
+		throw new RuntimeException("No branch condition evaluated to true :-(");
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR AbstractBranchTransition»
+   «ERROR "Unknown branch transition found!"»
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR GuardedBranchTransition»
+	if ((Boolean)ctx.evaluate("«this.branchCondition_BranchTransition.specification.javaString()»") == true)
+	{
+		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+	}
+«ENDDEFINE»

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FZIExcePlatform/src/de/fzi/softsec/compplatform/ComponentStarter&apos; to &apos;ComponentStarter.java&apos;" description="Rename resource &apos;ComponentStarter&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/de/fzi/softsec/compplatform/ComponentStarter" name="ComponentStarter.java" stamp="1233331743447" updateReferences="true"/>
+</session>

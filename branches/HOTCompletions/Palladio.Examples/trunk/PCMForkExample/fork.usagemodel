@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_j3mXAP_cEduaJLTMDGKSdg">
+    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="0"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_nmmYUP_cEduaJLTMDGKSdg">
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.0">
+        <actualParameterUsage_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;count&quot;)[ (1; 0.3) (2; 0.4) (5; 0.3) ]" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="a"/>
+        </actualParameterUsage_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="fork.system#_26hq0P_bEduaJLTMDGKSdg"/>
+        <signature_EntryLevelSystemCall href="fork.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</pcm.usagemodel:UsageModel>

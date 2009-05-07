@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoMoX Metrics Plug-in
+Bundle-SymbolicName: org.somox.metrics;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.somox.metrics.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf;bundle-version="2.4.0",
+ org.eclipse.emf.ecore;bundle-version="2.4.1",
+ org.eclipse.emf.query;bundle-version="1.2.0",
+ org.eclipse.debug.ui;bundle-version="3.4.1",
+ org.somox.core;bundle-version="1.0.0",
+ de.fzi.gast;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.somox.metrics

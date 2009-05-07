@@ -1,0 +1,127 @@
+ByteCode 2008
+ByCounter: Portable Runtime Counting of
+Bytecode Instructions and Method Invocations
+Michael Kuperberg 1 Martin Krogmann 2 Ralf Reussner 3
+Chair for Software Design and Quality
+Institute for Program Structures and Data Organisation
+Faculty of Informatics, Universit¨at Karlsruhe (TH)
+Abstract
+For bytecode-based applications, runtime instruction counts can be used as a platform-
+independent application execution metric, and also can serve as the basis for
+bytecode-based performance prediction. However, different instruction types have
+different execution durations, so they must be counted separately, and method invocations
+should be identified and counted because of their substantial contribution
+to the total application performance. For Java bytecode, most JVMs and profilers
+do not provide such functionality at all, and existing bytecode analysis frameworks
+require expensive JVM instrumentation for instruction-level counting. In this paper,
+we present ByCounter, a lightweight approach for exact runtime counting of
+executed bytecode instructions and method invocations. ByCounter significantly
+reduces total counting costs by instrumenting only the application bytecode and
+not the JVM, and it can be used without modifications on any JVM. We evaluate
+the presented approach by successfully applying it to multiple Java applications on
+different JVMs, and discuss the runtime costs of applying ByCounter to these
+cases.
+Key words: Java, bytecode, counting, portable, fine-grained
+1 Introduction
+The runtime behaviour of applications has functional aspects such as correctness,
+but also extra-functional aspects, such as performance. The runtime
+behaviour of a Java application can be described by analysing the execution
+of the application’s Java bytecode instructions. Execution counts of these
+instructions are needed for bytecode-based performance prediction of Java
+applications [1], and also for dynamic bytecode metrics [2].
+1 Email: michael.kuperberg@informatik.uni-karlsruhe.de
+2 Email: martin.krogmann@informatik.uni-karlsruhe.de
+3 Email: reussner@ipd.uka.de
+This paper is electronically published in
+Electronic Notes in Theoretical Computer Science
+URL: www.elsevier.nl/locate/entcs
+Kuperberg, Krogmann, Reussner
+As different instruction types have different execution durations, they must
+be counted separately. Also, method invocations should be identified due to
+the substantial contribution of methods to the total application performance.
+Thus, each method signature should have its own counter. To obtain all these
+runtime counts, static analysis (i.e. without executing the application) could
+be used, but it would have to be augmented to evaluate runtime effects of control
+flow constructs like loops or branches. Even if control flow consideration
+is attempted with advanced techniques such as symbolic execution, additional
+effort is required for handling infinite symbolic execution trees [3, pp. 27-31].
+Hence, it is often faster and easier to use dynamic (i.e. runtime) analysis for
+counting executed instructions and invoked methods.
+However, dynamic counting of executed Java bytecode instructions is not
+offered by Java profilers or conventional Java Virtual Machines (JVMs). Existing
+program behaviour analysis frameworks for Java applications (such as
+JRAF [4]) do not differentiate between bytecode instruction types, do not
+identify method invocations performed from bytecode, or do not work at the
+level of bytecode instructions at all. These frameworks frequently rely on the
+instrumentation of the JVM, however, such instrumentation requires substantial
+effort and must be reimplemented for different JVMs.
+The contribution of the paper is a novel approach for lightweight portable
+runtime counting of Java bytecode instructions and method invocations. Its
+implementation is called ByCounter and it works by instrumenting the
+application bytecode instead of instrumenting the JVM. Through this, By-
+Counter can be used with any JVM, and the instrumented application can
+be executed by any JVM, making the ByCounter approach truly portable.
+Furthermore, ByCounter does not alter existing method signatures in instrumented
+classes nor does it require wrappers, so the instrumentation does
+not lead to any structural changes in the existing application.
+To make performance characterisation through bytecode counts more precise,
+runtime parameters of some bytecode instructions must be considered,
+as they can have significant impact on their performance [1]. For these cases,
+ByCounter provides basic parameter recording (e.g. for the array-creating
+instructions), and it also offers extension hooks for the recording mechanism.
+The presented approach is evaluated on two different Java virtual machines
+using applications that are subsets of three Java benchmarks. For these applications,
+our evaluation shows that despite accounting of single bytecode instructions,
+the ByCounter overhead during the counting phase at runtime
+is reasonably low (between ca. 1% and 85% in all cases except one outlier),
+while instrumenting the bytecode requires < 0.3 s in all studied cases.
+The paper is structured as follows: in Section 2, we outline the foundations
+of our approach. Section 3 provides an overview over how ByCounter
+works, while Section 4 describes its implementation. Section 5 presents our
+evaluation, before related work is presented in Section 6. Finally, we list our
+assumptions and limitation in Section 7 and conclude the paper in Section 8.
+2
+Kuperberg, Krogmann, Reussner
+2 Foundations
+Java bytecode is executed on the Java Virtual Machine (JVM), which abstracts
+the specific details of the underlying software/hardware platform, making
+compiled Java classes portable across different platforms for which JVMs
+are offered. Each JVM is supplied with a set of Java classes that form the
+(vendor-specific) implementation of the Java API.
+In Java bytecode, four instructions are used to invoke Java methods, including
+those of the Java API: INVOKEINTERFACE, INVOKESPECIAL, INVOKESTATIC
+and INVOKEVIRTUAL (hereafter called INVOKE*). The signature of the
+invoked method appears as the parameter of the INVOKE* instruction, while
+the parameters of the invoked method are prepared on the stack before method
+invocation. If an invoked method is part of the Java API, its implementation
+can be different across operating systems, as it may call platform-specific native
+methods (e.g. for file system access).
+To avoid platform-dependent counts, invocations of API and all other
+methods must initially be counted as they appear in application’s bytecode,
+without decomposing them into the elements of their implementation. This results
+in a “flat” view, which summarises the execution of the analysed method
+in a platform-independent way. If needed, counts for the invoked methods can
+be obtained using the same approach, too. Using this additional information,
+counts for the entire (expanded) calling tree of the analysed method can be
+computed, and such stepwise approach promotes reuse of counting results.
+For bytecode-based performance prediction, parameters of invoked methods,
+but also parameters of non-INVOKE* bytecode instructions can be significant,
+because they influence the execution speed of the instruction [1].
+The latter parameters and their locations are described in the JVM specification
+[5]; for example, the MULTIANEWARRAY instruction is followed by the array
+element type and the array dimensionality directly in the bytecode, while the
+sizes of the individual array dimensions have to be prepared on the stack.
+Hence, in order to describe the runtime behaviour of programs as precisely
+as possible, the approach must be able to record such parameters. However,
+parameter recording slows down the execution of the instrumented methods,
+and parameters may be relevant only in specific cases and only for some instructions
+or methods.
+As Java bytecode instructions or methods can have parameters of arbitrary
+object types, persistent parameter recording by simply saving the parameter
+value may be irrational, or even technically impossible. In such a case, a
+characterisation of the parameter object instance should be recorded: for a
+(custom) data structure, its size could be a suitable characterisation. Hence,
+to allow users to provide their own characterisations for Java classes of their
+choice, the approach must offer suitable extension hooks.
+In the next section, we provide an overview on our implementation of this
+approach, and how it handles the issues described in this section.

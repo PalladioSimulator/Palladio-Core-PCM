@@ -1,0 +1,134 @@
+<project name="Run as part of postBuild" default="main">
+    
+    <target name="main">
+        <property name="UpdateSiteStagingLocation" value="${buildResultsDirectory}/../updateSite"/>
+        <antcall target="-generateUpdateSite"/>
+    	<!-- <antcall target="-javadoc"/> -->
+    </target>
+	
+    <!-- ======================================== -->
+    <!-- Added by kelsaka: Creates javadoc for the project -->
+    <!-- <target name="javadoc" description="Creates Javadoc">
+		<mkdir dir="${basedir}/results/javadoc/"/>
+	    <javadoc 
+        	destdir="${buildDirectory}/results/javadoc/"
+        	author="true" 
+        	defaultexcludes="yes" 
+        	use="true" 
+        	version="true" 
+        	windowtitle="${project.name}"> -->
+<!--
+	    	source="${buildDirectory}"  
+	    	excludepackagenames="${build.src.excludes}" 
+        	packagenames="${build.doc.packages}"
+        	public="true"
+        	sourcepathref="project.source"
+-->
+
+            <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
+<!--            <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
+            <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+			<taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
+				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/>	
+	    	<fileset dir="${buildDirectory}/" includes="**/*.java"/>
+        </javadoc>
+    </target> -->
+    <!-- ======================================== -->
+
+    
+    <!--======================================================-->
+    <!-- UpdateSite Export target, to be called from allElements  -->
+    <!-- ==================================================== -->
+    <target name="updateSiteExport">
+        <ant antfile="build.xml" dir="${buildDirectory}/features/${id}/" target="build.update.jar">
+            <property name="feature.destination" value="${UpdateSiteStagingLocation}/features"/>
+            <property name="plugin.destination" value="${UpdateSiteStagingLocation}/plugins"/>
+        </ant>
+    </target>
+    
+    <target name="-generateUpdateSite">
+        <!-- Create the directory structure -->
+        <mkdir dir="${UpdateSiteStagingLocation}"/>
+        <mkdir dir="${UpdateSiteStagingLocation}/features"/>
+        <mkdir dir="${UpdateSiteStagingLocation}/plugins"/>
+        <!-- Build the jar files -->
+        <ant antfile="${builder}/customTargets.xml" target="allElements">
+            <property name="genericTargets" value="${builder}/postBuild.xml"/>
+            <property name="target" value="updateSiteExport"/>
+        </ant>
+        <!-- site.xml files for integration and release builds are handled elsewhere -->
+        <antcall target="-createNightlyBuildSiteXml"/>
+        <delete dir="${buildDirectory}/temp.updatesite"/>
+    </target>
+	
+    <!-- replace at least yourFeature, categoryName and categoryDef --> 
+    <target name="-createNightlyBuildSiteXml" if="isNightlyBuild">
+        <echo file="${UpdateSiteStagingLocation}/site.xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        	&lt;site&gt;
+        	&lt;description
+        	url=&quot;http://sdqweb.ipd.uka.de/eclipse/PCM_nightly/&quot;&gt;
+        	Update site for the Palladio Component Model.
+        	The plugins contained in this feature enable modelling and accessing instances
+        	of the Palladio Component Model stored in XMI using EMF.
+        	&lt;/description&gt;
+        	&lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.pcm.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.pcm.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	&lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	&lt;/feature&gt;
+        	   &lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.pcm.diagram.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.pcm.diagram.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.probfunction.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.probfunction.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.simucom.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.simucom.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;feature url=&quot;features/de.uka.ipd.sdq.sensorframework.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.sensorframework.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.pcmsolver.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.pcmsolver.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;feature
+        	url=&quot;features/de.uka.ipd.sdq.sensorframework.visualisation.feature_${version.full}.jar&quot;
+        	id=&quot;de.uka.ipd.sdq.sensorframework.visualisation.feature&quot;
+        	version=&quot;${version.full}&quot;&gt;
+        	      &lt;category name=&quot;CBSE
+        	Modelling&quot;/&gt;
+        	   &lt;/feature&gt;
+        	   &lt;category-def name=&quot;CBSE Modelling&quot;
+        	label=&quot;CBSE Modelling&quot;&gt;
+        	      &lt;description&gt;
+        	         Component Based software engineering is
+        	about building software systems from basic building blocks, so called
+        	components.
+        	&lt;/description&gt;
+        	&lt;/category-def&gt;
+        	&lt;/site&gt;
+        </echo>  	
+    </target>
+    
+</project>

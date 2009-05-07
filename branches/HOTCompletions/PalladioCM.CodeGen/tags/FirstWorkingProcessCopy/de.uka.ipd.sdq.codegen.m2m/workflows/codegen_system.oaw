@@ -1,0 +1,100 @@
+<workflow>
+
+	<property file='./workflows/codegen.properties'/>
+	<property file='${propertyFile}'/>
+	
+	<component class="oaw.emf.XmiReader">
+		<modelFile value="${systemFile}"/>
+		<outputSlot value="pcmmodel"/>
+	</component>
+
+	<component class="oaw.emf.XmiReader">
+		<modelFile value="${allocationFile}"/>
+		<outputSlot value="allocation"/>
+	</component>
+    
+	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.resType.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"/>
+		</metaModel>
+		<metaModel id="pcm.system.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.system.SystemPackage"/>
+		</metaModel>
+		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
+		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
+		<outlet path="${outpath}">
+			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
+		</outlet>
+	</component>	
+	
+	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
+		<advices value="templates::simulation_template_methods"/>
+	</component>	
+
+	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.resType.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"/>
+		</metaModel>
+		<metaModel id="pcm.system.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.system.SystemPackage"/>
+		</metaModel>
+		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
+		<expand value="m2t_transforms::allocation::Root FOR allocation"/>
+		<outlet path="${outpath}">
+			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
+		</outlet>
+	</component>	
+
+	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
+		<advices value="templates::simulation_template_methods"/>
+	</component>	
+</workflow>

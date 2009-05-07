@@ -1,0 +1,124 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE Main FOR UsageModel»
+	«FILE "Main.java"»
+		«FOREACH this.usageScenario_UsageModel AS us»
+			«EXPAND WorkloadDriverClass(us) FOR us.workload_UsageScenario»
+		«ENDFOREACH»
+	
+		interface IStopable {
+			void requestStop();
+		}
+		
+		public class Main {
+			public static de.uka.ipd.sdq.sensorfactory.entities.Experiment exp = null;
+			public static void main(String[] args) {
+				exp = de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO.singleton().createExperiment("test");
+				java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
+				«FOREACH this.usageScenario_UsageModel AS us»
+					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»
+				«ENDFOREACH»
+				System.out.println("Starting workload threads. Request a measurement stop by pressing any key!");
+				for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext();) {
+				    it.next().start();
+				}
+		        try {
+					System.in.read();
+				} catch (java.io.IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println("Request Thread stop");
+				for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext();) {
+				    ((IStopable)it.next()).requestStop();
+				}
+				for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext();) {
+				    try {
+						it.next().join();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO.singleton().storeExperiment(exp);
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR Workload»
+	«ERROR "This should never get called!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR Workload»
+	«ERROR "This should never get called!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
+    //TODO: Fix me
+	new Thread(new java.lang.Runnable(){
+		public void run() {
+			while (true) {
+				«u.fqn()» us = new «u.fqn()»();
+				new Thread(us).run();
+                try {
+                	// TODO: Wait for specified model time
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
+«ENDDEFINE»
+
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR ClosedWorkload»
+	for (int i = 0; i < «this.population»; i++) {
+		threads.add(new «u.javaName()»Thread(exp, exp.addExperimentRun(new java.util.Date().toString())));
+	}
+«ENDDEFINE»
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR ClosedWorkload»
+class «u.javaName()»Thread extends Thread implements IStopable {
+    de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor tss = null;
+    «u.fqn()» us = null;
+    de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun experimentRun = null;
+    boolean shouldContinue = true;
+    
+    public «u.javaName()»Thread(de.uka.ipd.sdq.sensorfactory.entities.Experiment exp,
+    	de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun expRun) {
+    	tss = exp.addTimeSpanSensor("Scenario overall «u.entityName»");
+		us = new «u.fqn()»();
+		experimentRun = expRun;
+    }
+    
+    public void requestStop() {
+    	shouldContinue = false;
+    }
+    
+    public void run() {
+	    while (shouldContinue) {
+        	long start = System.nanoTime();
+			us.run();
+            experimentRun.addTimeSpanMeasurement(tss, System.nanoTime(),(System.nanoTime()-start)/Math.pow(10,9));
+            try {
+            	// TODO: Wait for think time of the model instance
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+    }
+}
+«ENDDEFINE»
+

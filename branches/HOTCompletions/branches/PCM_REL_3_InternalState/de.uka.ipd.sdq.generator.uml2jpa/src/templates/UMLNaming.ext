@@ -1,0 +1,74 @@
+import uml;
+import Persistence;
+
+// Für "normale" Typen wird einfach der Name als qualifizierter Name geliefert
+String fqn (Type pt) : pt.name; 
+String fqn (DataType pt) : pt.name; 
+
+String fqn (Property p) : p.isMultivalued() ? "java.util.Collection<"+p.type.fqn()+">" : p.type.fqn();
+
+// *** HILFSFUNKTIONEN ***
+// mit private gekennzeichnete Extensions sind nicht außerhalb des Extension Files sichtbar
+// Diese Funktion ermittelt rekursiv den qualifizierten Packagenamen eines Packages.
+private cached String packageName (uml::Package pck) :
+	(pck.nestingPackage!=null && !uml::Model.isInstance(pck.nestingPackage)) ? packageName(pck.nestingPackage)+"."+pck.name : pck.name;
+
+// Liefert den Package-Namen einer Klasse
+String packageName (Classifier cls) : 
+	cls.package!=null ? packageName(cls.package) : "";
+ 
+// Liefert das Package einer Klasse als Pfad
+String packagePath (Classifier cls) : 
+	packageName(cls).toPath();
+
+String toPath (String s) : s.replaceAll("\\.", "/");
+
+// Liefert den voll qualifizierten Namen einer Klasse
+// Da diese Funktion potentiell oft für eine Klasse aufgerufen wird, wird sie
+// hier mit dem Schlüsselwort 'cached' gekennzeichnet. Das Ergebnis wird je
+// Parameterkombination zwischengespeichert.
+cached String fqn (Classifier cls) : 
+	basefqn(cls);
+
+//Liefert den Namen der Implementierungsklasse zurück
+cached String implfqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".impl."+cls.name+"Impl" : cls.name+"Impl";
+
+cached String ensureObjectType (String t) :
+	let s = t :
+		s == "double" ? "Double" :
+		(s == "int" ? "Integer" :
+		s);
+		
+//Liefert den Namen des Interfaces zurück
+cached String iffqn (Classifier cls) :
+	let s = iffqn_original(cls) :
+		s == "JavaPrimitiveTypes.double" ? "double" :
+		s;
+
+//Liefert den Namen des Interfaces zurück
+cached String iffqn_original (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+"."+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String basefqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".base."+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String abstractbasefqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".base.Abstract"+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String daoiffqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".dao.I"+cls.name+"DAO" : cls.name;
+
+String typeDecl(Type t) :
+	t.fqn();
+	
+String typeDecl(Class c) :
+	c.iffqn();
+
+String typeDecl(PrimitiveType pt):
+	pt.name == "Integer" ? "int" : 
+	 (pt.name == "Double" ? "double" : 
+	 (pt.name == "String" ? "String" : pt.name));	

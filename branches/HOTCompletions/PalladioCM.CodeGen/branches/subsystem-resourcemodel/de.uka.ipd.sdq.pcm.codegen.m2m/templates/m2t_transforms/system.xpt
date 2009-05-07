@@ -1,0 +1,44 @@
+«EXTENSION m2t_transforms::java_names»
+«IMPORT system»
+«IMPORT core::composition»
+
+«DEFINE Root FOR System»
+   «EXPAND m2t_transforms::completions::ExpandCompletions FOR this»
+   «FILE this.getFileName()»
+      «EXPAND System FOR this»
+   «ENDFILE»
+   «FILE "main/AssemblyContextRegistry.java"»
+		package main;
+		
+		import java.util.HashMap;
+		
+		/**
+		* This class manages all component instances.
+		**/
+		public class AssemblyContextRegistry 
+		{	
+			private static HashMap<String, Object> componentInstances = new HashMap<String, Object>();
+			
+			public static void register(String assemblyContextID, Object componentInstance) { 
+				componentInstances.put(assemblyContextID, componentInstance);
+			}
+			
+			public static Object getComponentInstance(String assemblyContextID) {
+				return componentInstances.get(assemblyContextID);
+			}
+			
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE System FOR System»
+	«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
+    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	«EXPAND m2t_transforms::resource_context_pattern::RequiredResourceInterfaces FOR this»
+	«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
+	«EXPAND SystemAdditionsTM FOR this»
+«ENDDEFINE»
+
+«DEFINE SystemAdditionsTM FOR System»
+«ENDDEFINE»
