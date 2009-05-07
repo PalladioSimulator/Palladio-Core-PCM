@@ -26,8 +26,8 @@ public class CSVSettingsDialog extends Dialog {
 
 	private String fileName;
 	private String filePath;
-	private Label lblSavePath;
-	private Button btnOK;
+	private String fileDir;
+	private Button btnSave;
 	private Button chkHeader;
 	private boolean isHeader = true;
 	
@@ -40,17 +40,29 @@ public class CSVSettingsDialog extends Dialog {
 	private Combo cmbSeparator;
 	private String selectedSeparator = Separator.Semicolon.toString();
 	private String[] separatorItems;	
+	private Label lblHeader;
+	private String fileExtension;
+	private DialogType dialogType;
 	
 	/**
 	 * Create the dialog.
 	 * 
-	 * @param parent
-	 * @param style
+	 * @param parent The parent display shell on which the dialog will be created.
+	 * @param style Behavior and style of the dialog.
+	 * @param filePath default file path
+	 * @param fileName default file name
+	 * @param fileExtension default file extension
 	 */
-	public CSVSettingsDialog(Shell parent, int style, String fileName) {
-		super(parent, style);
+	public CSVSettingsDialog(String fileDir, String fileName, String fileExtension, DialogType type) {
+		
+		super(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM);
 		setText("SWT Dialog");
+		
+		this.dialogType = type;
+		this.fileDir = fileDir;	
 		this.fileName = fileName;
+		this.fileExtension = fileExtension;
 		
 		separatorItems = new String[3];
 		int i = 0;
@@ -83,12 +95,12 @@ public class CSVSettingsDialog extends Dialog {
 	 */
 	private void createContents() {
 		frmDialog = new Shell(getParent(), SWT.DIALOG_TRIM);
-		frmDialog.setMinimumSize(new Point(400, 300));
-		frmDialog.setSize(550, 320);
+		frmDialog.setMinimumSize(new Point(100, 100));
+		frmDialog.setSize(245, 220);
 		frmDialog.setText("CSV Settings");
 		{
 			Group grpSeparator = new Group(frmDialog, SWT.NONE);
-			grpSeparator.setBounds(10, 66, 525, 54);
+			grpSeparator.setBounds(10, 31, 218, 90);
 			{
 				cmbSeparator = new Combo(grpSeparator, SWT.NONE);
 				cmbSeparator.addSelectionListener(new SelectionAdapter() {
@@ -105,7 +117,7 @@ public class CSVSettingsDialog extends Dialog {
 			}
 			{
 				Label lblSeparator = new Label(grpSeparator, SWT.NONE);
-				lblSeparator.setBounds(121, 23, 65, 20);
+				lblSeparator.setBounds(143, 23, 65, 20);
 				lblSeparator.setText("Separator");
 			}
 			{
@@ -115,26 +127,33 @@ public class CSVSettingsDialog extends Dialog {
 						isHeader = chkHeader.getSelection();
 					}
 				});
-				chkHeader.setText("CSV Header");
-				chkHeader.setBounds(231, 20, 111, 23);
+				chkHeader.setBounds(56, 61, 51, 23);
 				chkHeader.setSelection(isHeader);
 			}
 			{
-				Label label = new Label(grpSeparator, SWT.SEPARATOR
-						| SWT.VERTICAL);
-				label.setBounds(201, 17, 2, 28);
+				lblHeader = new Label(grpSeparator, SWT.NONE);
+				lblHeader.setBounds(143, 64, 65, 20);
+				lblHeader.setText("Header");
 			}
 		}
 		{
-			btnOK = new Button(frmDialog, SWT.NONE);
-			btnOK.addSelectionListener(new SelectionAdapter() {
+			btnSave = new Button(frmDialog, SWT.NONE);
+			btnSave.addSelectionListener(new SelectionAdapter() {
+				
 				public void widgetSelected(SelectionEvent e) {
+					
+					if (dialogType == DialogType.FILE) {
+						saveAsCSVFileDialog();						
+					} else if (dialogType == DialogType.PATH) {
+						CSVDirectoryDialog dirDialog = new CSVDirectoryDialog(fileDir);
+						fileDir = dirDialog.getFileDir();
+						filePath = fileDir;
+					}
 					frmDialog.close();
 				}
 			});
-			btnOK.setEnabled(false);
-			btnOK.setBounds(376, 261, 75, 25);
-			btnOK.setText("OK");
+			btnSave.setBounds(10, 152, 75, 25);
+			btnSave.setText("Save As");
 		}
 		{
 			Button btnAbbrechen = new Button(frmDialog, SWT.NONE);
@@ -144,30 +163,8 @@ public class CSVSettingsDialog extends Dialog {
 					frmDialog.close();
 				}
 			});
-			btnAbbrechen.setBounds(460, 261, 75, 25);
-			btnAbbrechen.setText("Abbrechen");
-		}
-		{
-			Group group = new Group(frmDialog, SWT.NONE);
-			group.setBounds(10, 126, 525, 83);
-			{
-				Button btnOpenSaveDialog = new Button(group, SWT.NONE);
-				btnOpenSaveDialog.addSelectionListener(new SelectionAdapter() {
-					public void widgetSelected(SelectionEvent e) {
-						saveAsCSVFileDialog();
-						lblSavePath.setText(getFilePath());
-						if (!(getFilePath().equals(""))) {
-							btnOK.setEnabled(true);
-						}
-					}
-				});
-				btnOpenSaveDialog.setBounds(10, 20, 505, 25);
-				btnOpenSaveDialog.setText("Open Save File Dialog");
-			}
-			{
-				lblSavePath = new Label(group, SWT.BORDER);
-				lblSavePath.setBounds(10, 52, 505, 22);
-			}
+			btnAbbrechen.setBounds(153, 152, 75, 25);
+			btnAbbrechen.setText("Cancel");
 		}
 
 	}
@@ -178,27 +175,20 @@ public class CSVSettingsDialog extends Dialog {
 	 * @author David Scherr
 	 */
 	private void saveAsCSVFileDialog() {
-		// Replace all chars, which can't be a part of a valid windows filename.
-		fileName = fileName.replace('\\', '-');
-		fileName = fileName.replace('/', '-');
-		fileName = fileName.replace(':', '-');
-		fileName = fileName.replace('*', '+');
-		fileName = fileName.replace('?', '!');
-		fileName = fileName.replace('"', ' ');
-		fileName = fileName.replace('<', '(');
-		fileName = fileName.replace('>', ')');
-		fileName = fileName.replace('|', ',');
 
 		FileDialog dialog = new FileDialog(PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getShell(), SWT.SAVE);
+
+		dialog.setFilterPath(fileDir);
 		dialog.setFileName(fileName);
+		dialog.setFilterExtensions(new String[] {fileExtension});
 		dialog.setOverwrite(true);
-		dialog.setFilterExtensions(new String[] { "*.csv" });
+		
 		filePath = dialog.open();
-		if ((filePath == null) || (dialog.getFileName().equals(""))) {
+
+		if (filePath == null) {
 			// The dialog is canceled.
 			filePath = "";
-			btnOK.setEnabled(false);
 		}
 	}
 

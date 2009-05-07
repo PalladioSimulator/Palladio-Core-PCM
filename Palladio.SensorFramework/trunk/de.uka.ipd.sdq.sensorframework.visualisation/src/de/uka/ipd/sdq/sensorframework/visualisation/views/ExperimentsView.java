@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.File;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -41,6 +42,7 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
@@ -54,6 +56,7 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.CSVSettingsDialog;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.DialogType;
 
 /**
  * The view shows data obtained from the 'SensorFactory' model. The view is
@@ -344,26 +347,7 @@ public class ExperimentsView extends ViewPart {
 		saveAsCSV = new Action() {
 			@Override
 			public void run() {
-				ISelection selection = viewer.getSelection();
-				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-				SensorAndMeasurements sensorAndMeasurements = getDataForCSVExport(structuredSelection);
-
-				String fileName = sensorAndMeasurements.getSensor()
-						.getSensorName().toString()
-						+ ".csv";
-				CSVSettingsDialog dialog = new CSVSettingsDialog(PlatformUI
-						.getWorkbench().getActiveWorkbenchWindow().getShell(),
-						SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM, fileName);
-				dialog.open();
-
-				if (!(dialog.getFilePath().equals(""))) {
-					exportDataToCSV(dialog.getFilePath(), sensorAndMeasurements
-							.getMeasurements(), dialog.isHeader(), dialog
-							.getSeparator());
-				} else {
-					// The Save Dialog is canceled.
-				}
-				dialog.dispose();
+				saveDataAsCSV();
 			}
 		};
 		saveAsCSV.setText("Save as CSV");
@@ -387,7 +371,7 @@ public class ExperimentsView extends ViewPart {
 	 *            still in String format (maybe in the future someone will add a
 	 *            separator with more than one character).
 	 */
-	private void exportDataToCSV(String filename,
+	private void exportSensorDataToCSV(String filename,
 			Collection<Measurement> measurement, boolean isHeader,
 			String separator) {
 
@@ -449,31 +433,93 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Get the Data which is associated with the selected TreeView element (Experiment Run).
+	 * Get the Data which are associated with the selected TreeView element and
+	 * open a save dialog which settings for the CSV export.
 	 * 
 	 * @author David Scherr
-	 * @param selection
-	 *            The selected Element on which the context menu is opened.
-	 * @return The SensorAndMeasurements object will be returned.
 	 */
-	private SensorAndMeasurements getDataForCSVExport(
-			IStructuredSelection selection) {
+	private void saveDataAsCSV() {
+		
+		ISelection selection = viewer.getSelection();
+		IStructuredSelection structuredSelection = (IStructuredSelection) selection;	
+		Object object = structuredSelection.getFirstElement();
 
-		Object object = selection.getFirstElement();
-		if (object instanceof TreeObject) {
+		if (object instanceof FileDAOFactory) {
+			
+		} else if (object instanceof ExperimentAndDAO) {
+			
+		} else if (object instanceof TreeContainer) {
+			System.out.println(((TreeContainer) object).getName());
+			
+		} else if (object instanceof TreeObject) {
 			TreeObject treeObject = (TreeObject) object;
 			Object innerObject = treeObject.getObject();
-			ExperimentRun run = treeObject.getRun();
-
-			/** Sensor */
-			if (innerObject instanceof Sensor && run != null) {
+			
+			if (innerObject instanceof Sensor) {
+				// Get the measurement of a special selected sensor of the TreeObject.
 				Sensor sensor = (Sensor) innerObject;
-				SensorAndMeasurements sensorAndMeasurements = run
-						.getMeasurementsOfSensor(sensor);
-				return sensorAndMeasurements;
+				SensorAndMeasurements sensorAndMeasurements = treeObject.getRun().getMeasurementsOfSensor(sensor);			
+				String fileName = senatiseFileName(sensorAndMeasurements.getSensor().getSensorName().toString()+ ".csv");
+
+				CSVSettingsDialog dialog = new CSVSettingsDialog("", fileName, "*.csv", DialogType.FILE);
+				dialog.open();		
+				
+				if (!(dialog.getFilePath().equals(""))) {
+					// new File(dialog.getFilePath()).mkdirs();
+					exportSensorDataToCSV(dialog.getFilePath(), sensorAndMeasurements
+							.getMeasurements(), dialog.isHeader(), dialog
+							.getSeparator());
+				} else {
+					// The Save Dialog is canceled.
+				}
+				dialog.dispose();	
+
+			} else if (innerObject instanceof ExperimentRun) {
+				// Get the measurements of all sensors of the selected TreeObject.
+				ExperimentRun run = (ExperimentRun) innerObject;				
+				SensorAndMeasurements sensorAndMeasurements;
+				String fileName = "";
+				String filePath = "";
+				String experimentDir = senatiseFileName(run.getExperimentDateTime());
+				
+				CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.PATH);
+				dialog.open();
+				filePath = dialog.getFilePath() + File.separatorChar + experimentDir;
+				
+				if (!(filePath.equals(""))) {
+					new File(filePath).mkdirs();
+					for (Iterator<Sensor> iterator = treeObject.getExperiment().getSensors().iterator(); iterator.hasNext();) {
+						Sensor sensor = iterator.next();
+						sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
+						fileName = senatiseFileName(sensor.getSensorName().toString() + ".csv");
+						
+						exportSensorDataToCSV(filePath + File.separatorChar + fileName,
+								sensorAndMeasurements.getMeasurements(),
+								dialog.isHeader(), dialog.getSeparator());	
+					}
+					
+				} else {
+					// The Save Dialog is canceled.
+				}
+				dialog.dispose();				
 			}
 		}
-		return null;
+	}
+	
+	private String senatiseFileName(String fileName) {
+		
+		// Replace all chars, which can't be a part of a valid windows filename.
+		fileName = fileName.replace('\\', '-');	
+		fileName = fileName.replace('/', '-');
+		fileName = fileName.replace(':', '-');
+		fileName = fileName.replace('*', '+');
+		fileName = fileName.replace('?', '!');
+		fileName = fileName.replace('"', ' ');
+		fileName = fileName.replace('<', '(');
+		fileName = fileName.replace('>', ')');
+		fileName = fileName.replace('|', ',');
+
+		return fileName;
 	}
 
 	/** Set a instance of, in viewer selected element. */
