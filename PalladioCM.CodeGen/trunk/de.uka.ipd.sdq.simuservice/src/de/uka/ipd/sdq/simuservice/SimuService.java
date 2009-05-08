@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.simuservice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.jws.WebMethod;
@@ -11,7 +13,14 @@ import org.apache.log4j.*;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
@@ -51,7 +60,9 @@ public class SimuService implements ISimuService {
 		try {
 			performSimulation(status, params);
 		} catch (Exception e) {
-			//status.setException(e);
+			// status.setException(e);
+			int i = 0;
+			i++;
 		}
 
 		// Freeze the status object:
@@ -61,10 +72,9 @@ public class SimuService implements ISimuService {
 		return status;
 	}
 
-	private static Logger logger = 
-		Logger.getLogger(SimuService.class.getName());
+	private static Logger logger = Logger
+			.getLogger(SimuService.class.getName());
 
-	
 	/**
 	 * Performs a simulation run.
 	 * 
@@ -82,51 +92,64 @@ public class SimuService implements ISimuService {
 
 		// TODO: Fill the configuration object with the params and add default
 		// values for other parameters:
-		
+
 		// Set configuration values received from params object
 		workflowConfiguration.setAllocationFile(params.getAllocationFile());
 		workflowConfiguration.setRepositoryFile(params.getRepositoryFile());
 		workflowConfiguration.setUsageModelFile(params.getUsageFile());
-		workflowConfiguration.setResourceTypeFile(params.getResourceEnvironmentFile());
+		workflowConfiguration.setResourceTypeFile(params
+				.getResourceEnvironmentFile());
 		workflowConfiguration.setSystemFile(params.getSystemFile());
-		
+
+		int datasourceID = 12;
+		Iterator<IDAOFactory> iterator = SensorFrameworkDataset.singleton()
+				.getDataSources().iterator();
+		ArrayList<IDAOFactory> dataSources = new ArrayList<IDAOFactory>();
+		while (iterator.hasNext()) {
+			dataSources.add(iterator.next());
+		}
+		for (IDAOFactory dataSource : dataSources) {
+			SensorFrameworkDataset.singleton().removeDataSource(dataSource);
+		}
+		SensorFrameworkDataset.singleton().addDataSource(
+				new FileDAOFactory(datasourceID, params.getResultsDirectory()));
+
 		// Set default configuration values
-		workflowConfiguration.setMiddlewareFile("pathmap://PCM_MODELS/Glassfish.repository");
-		workflowConfiguration.setFeatureConfigFile("pathmap://PCM_MODELS/ConnectorConfig.featureconfig");
-		
+		workflowConfiguration
+				.setMiddlewareFile("pathmap://PCM_MODELS/Glassfish.repository");
+		workflowConfiguration
+				.setFeatureConfigFile("pathmap://PCM_MODELS/ConnectorConfig.featureconfig");
+
 		// HashMap will contain further configuration information
 		Map<String, Object> simulationConfiguration = new HashMap<String, Object>();
-		
-		simulationConfiguration.put("datasourceID", 1);
-		simulationConfiguration.put("maximumMeasurementCount", "10000000");
-		simulationConfiguration.put("experimentRun", "ServiceTestRun");
-		simulationConfiguration.put("simTime", "120");
-		simulationConfiguration.put("verboseLogging", false);
-		
-		// Create new SimuComConfig and continue configuring workflow
-		SimuComConfig simuComConfig = new SimuComConfig(simulationConfiguration, 1, false);
-		
-		ConsoleAppender appender = new ConsoleAppender();
-		
-		Logger simuComLogger =
-			 Logger.getLogger("de.uka.ipd.sdq.simucomframework");
-			         if (simuComConfig.getVerboseLogging())
-			             simuComLogger.setLevel(Level.ALL);
-			         else
-			             simuComLogger.setLevel(Level.WARN);
-			         logger.debug("Extended Simulation Logging enabled!");
 
-			         // Set this class' log level to info to see start and stop
-			         // messages of SimuCom
-			         logger.setLevel(Level.INFO);
-			         
-		Logger helpLogger = Logger.getLogger("de.uka.ipd.sdq.simuservice.SimuService");
-		helpLogger.addAppender(appender);
-			         
-			         
-			         
+		simulationConfiguration.put("datasourceID", datasourceID);
+		simulationConfiguration.put("maximumMeasurementCount", "-1");
+		simulationConfiguration.put("experimentRun", "ServiceTestRun");
+		simulationConfiguration.put("simTime", "1000000");
+		simulationConfiguration.put("verboseLogging", true);
+
+		// Create new SimuComConfig and continue configuring workflow
+		SimuComConfig simuComConfig = new SimuComConfig(
+				simulationConfiguration, 1, false);
+
+		MessageConsole console = new MessageConsole("SimuService Run", null);
+		console.activate();
+		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
+				new IConsole[] { console });
+		MessageConsoleStream stream = console.newMessageStream();
+
+		PatternLayout myLayout = new PatternLayout(
+				"%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
+		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
+		BasicConfigurator.configure(writerAppender);
+
+		if (simuComConfig.getVerboseLogging())
+			Logger.getRootLogger().setLevel(Level.ALL);
+		else
+			Logger.getRootLogger().setLevel(Level.WARN);
+
 		workflowConfiguration.setSimuComConfiguration(simuComConfig);
-		
 
 		// Validate the configuration and fix all values:
 		workflowConfiguration.validateAndFreeze();
