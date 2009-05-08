@@ -14,14 +14,14 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
-import de.uka.ipd.sdq.codegen.workflow.Workflow;
-import de.uka.ipd.sdq.codegen.workflow.exceptions.WorkflowExceptionHandler;
-import de.uka.ipd.sdq.codegen.workflow.ui.UIBasedWorkflow;
 import de.uka.ipd.sdq.simuservice.types.ISimuService;
 import de.uka.ipd.sdq.simuservice.types.SimuServiceParams;
 import de.uka.ipd.sdq.simuservice.types.SimuServiceResultStatus;
+import de.uka.ipd.sdq.workflow.Workflow;
+import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflow;
 
 /**
  * The SimuService provides an operation to perform a simulation, and thus
