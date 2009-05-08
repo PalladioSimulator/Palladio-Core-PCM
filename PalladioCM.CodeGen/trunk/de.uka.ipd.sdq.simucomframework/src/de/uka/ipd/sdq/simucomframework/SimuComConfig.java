@@ -45,7 +45,7 @@ public class SimuComConfig implements Serializable {
 					MAXIMUM_MEASUREMENT_COUNT));
 			this.verboseLogging = (Boolean)configuration.get(
 					VERBOSE_LOGGING);
-			this.datasourceID = (Integer)configuration.get(
+			this.datasourceID = (Long)configuration.get(
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
