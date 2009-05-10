@@ -65,4 +65,10 @@ public class PackageMapping implements Metric {
 	public MetricID getMID() {
 		return new MetricID(6);
 	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
+	}
 }

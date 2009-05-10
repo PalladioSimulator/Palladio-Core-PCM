@@ -21,7 +21,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 
-		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);		
+		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);
+		
+		if (prefixPackage == null) {
+			return 0.0;
+		}
 		EList<de.fzi.gast.core.Package> slices = prefixPackage.getSubPackages();
 		EList<de.fzi.gast.core.Package> layers = null;
 
@@ -149,6 +153,12 @@ public class SliceLayerArchitectureQuality implements Metric {
 	@Override
 	public MetricID getMID() {
 		return new MetricID(7);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

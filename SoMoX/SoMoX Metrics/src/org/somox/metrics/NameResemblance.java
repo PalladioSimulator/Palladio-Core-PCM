@@ -1,6 +1,5 @@
 package org.somox.metrics;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,6 +23,7 @@ public class NameResemblance implements Metric {
 	 */
 	protected int percentage = 80;
 	
+	protected int [][] resemblances;
 	
 	/**
 	 * Setter-method for the percentage paramter
@@ -162,5 +162,10 @@ public class NameResemblance implements Metric {
 
 	public MetricID getMID() {
 		return new MetricID(122);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		
 	}
 }

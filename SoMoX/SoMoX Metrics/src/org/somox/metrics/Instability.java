@@ -25,6 +25,17 @@ import de.fzi.gast.types.GASTClass;
 public class Instability implements Metric {
 	protected Set<String> wildcardBlacklist;
 	protected Set<String> specifiedBlacklist;
+	protected Set<String> wildcardWhitelist;
+	protected Set<String> specifiedWhitelist;
+	
+	/**
+	 * Boolean that indicates if blacklist or whitelist is used
+	 * If set to <code>true</code> only the blacklist is used
+	 * If set to <code>false</code> only the whitelist is used
+	 * Default: false (whitelist used)
+	 */
+	protected boolean blacklistIndicator;	
+	
 	protected HashSet<String> externNameSet;
 	protected HashSet<String> internNameSet;
 
@@ -32,8 +43,11 @@ public class Instability implements Metric {
 	 * Default-constructor initializing the blacklists and the namesets
 	 */
 	public Instability () {
+		blacklistIndicator = false;
 		wildcardBlacklist = new HashSet<String>();
 		specifiedBlacklist = new HashSet<String>();
+		wildcardWhitelist = new HashSet<String>();
+		specifiedWhitelist = new HashSet<String>();
 		externNameSet = new HashSet<String>();
 		internNameSet = new HashSet<String>();
 	}
@@ -42,17 +56,46 @@ public class Instability implements Metric {
 	 * Setter method for the name-blacklist
 	 * 
 	 * This method is used to set the "blacklist" for class- and Package-Names
-	 * in the Project.
+	 * in the Project. The blacklistIndicator is set to <code>true</code> automatically.
+	 * By setting the blacklist, the whitelist won't be used in the computation.
+	 * 
+	 * Be aware that computing the metric by using a blacklist is probably faster than using a 
+	 * whitelist due to implementation reasons !
 	 * 
 	 * @param blacklist The String-Set with names that need to be blacklisted. Strings ending with ".*"
 	 * are used to blacklist whole Packages, other Strings are used to blacklist single classes
 	 */
-	public void setBlacklist (HashSet<String> blacklist) {		
+	public void setBlacklist (HashSet<String> blacklist) {
+		blacklistIndicator = true;
 		for (String current : blacklist) {
 			if (current.endsWith(".*")) {
 				wildcardBlacklist.add(current.substring(0, current.length()-2));
 			} else {
 				specifiedBlacklist.add(current);
+			}
+		}
+	}
+	
+	/**
+	 * Setter method for the name-whitelist
+	 * 
+	 * This method is used to set the "whitelist" for class- and Package-Names
+	 * in the Project. The blacklistIndicator is set to <code>false</code> automatically.
+	 * By setting the whitelist, the blacklist won't be used in the computation.
+	 * 
+	 * Be aware that computing the metric by using a blacklist is probably faster than using a 
+	 * whitelist due to implementation reasons !
+	 * 
+	 * @param whitelist The String-Set with names that need to be whitelisted. Strings ending with ".*"
+	 * are used to whitelist whole Packages, other Strings are used to whitelist single classes
+	 */
+	public void setWhitelist (HashSet<String> whitelist) {
+		blacklistIndicator = false;
+		for (String current : whitelist) {
+			if (current.endsWith(".*")) {
+				wildcardWhitelist.add(current.substring(0, current.length()-2));
+			} else {
+				specifiedWhitelist.add(current);
 			}
 		}
 	}
@@ -67,39 +110,76 @@ public class Instability implements Metric {
 		
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
-				if (!specifiedBlacklist.contains(((GASTClass) current).getQualifiedName())) {
-					boolean contains = false;
-					for (String currentWildcard : wildcardBlacklist) {
-						if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
-							contains = true;
-							break;
+				if (blacklistIndicator) {
+					if (!specifiedBlacklist.contains(((GASTClass) current).getQualifiedName())) {
+						boolean contains = false;
+						for (String currentWildcard : wildcardBlacklist) {
+							if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
+								contains = true;
+								break;
+							}
+						}
+						if (!contains) {
+							internClasses.add((GASTClass)current);
+							internNameSet.add(((GASTClass)current).getQualifiedName());
 						}
 					}
-					if (!contains) {
+				} else {
+					if (specifiedWhitelist.contains(((GASTClass) current).getQualifiedName())) {
 						internClasses.add((GASTClass)current);
 						internNameSet.add(((GASTClass)current).getQualifiedName());
+					} else {
+						boolean contains = false;
+						for (String currentWildcard : wildcardWhitelist) {
+							if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
+								contains = true;
+								break;
+							}
+						}
+						if (contains) {
+							internClasses.add((GASTClass)current);
+							internNameSet.add(((GASTClass)current).getQualifiedName());
+						}
 					}
 				}
 			}
 		}
 		for (ModelElement current : elements2) {
 			if (current instanceof GASTClass) {
-				if (!specifiedBlacklist.contains(((GASTClass) current).getQualifiedName())) {
-					boolean contains = false;
-					for (String currentWildcard : wildcardBlacklist) {
-						if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
-							contains = true;
-							break;
+				if (blacklistIndicator) {
+					if (!specifiedBlacklist.contains(((GASTClass) current).getQualifiedName())) {
+						boolean contains = false;
+						for (String currentWildcard : wildcardBlacklist) {
+							if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
+								contains = true;
+								break;
+							}
+						}
+						if (!contains) {
+							internClasses.add((GASTClass)current);
+							internNameSet.add(((GASTClass)current).getQualifiedName());
 						}
 					}
-					if (!contains) {
+				} else {
+					if (specifiedWhitelist.contains(((GASTClass) current).getQualifiedName())) {
 						internClasses.add((GASTClass)current);
 						internNameSet.add(((GASTClass)current).getQualifiedName());
+					} else {
+						boolean contains = false;
+						for (String currentWildcard : wildcardWhitelist) {
+							if (((GASTClass) current).getQualifiedName().startsWith(currentWildcard)) {
+								contains = true;
+								break;
+							}
+						}
+						if (contains) {
+							internClasses.add((GASTClass)current);
+							internNameSet.add(((GASTClass)current).getQualifiedName());
+						}
 					}
 				}
 			}
 		}
-
 		
 		EList<Package> packages = root.getPackages();
 		
@@ -136,7 +216,6 @@ public class Instability implements Metric {
 				}
 			}
 		}
-		
 		if (afferentCoupling == 0.0 && efferentCoupling == 0.0) {
 			return 0.0;
 		} else {
@@ -160,25 +239,67 @@ public class Instability implements Metric {
 		}
 		
 		for (Package current : packages) {
-			boolean contains = false;
-			for (String currentWildcard : wildcardBlacklist) {
-				if (current.getQualifiedName().startsWith(currentWildcard)) {
-					contains = true;
-					break;
+			if (blacklistIndicator) {
+				boolean contains = false;
+				for (String currentWildcard : wildcardBlacklist) {
+					if (current.getQualifiedName().startsWith(currentWildcard)) {
+						contains = true;
+						break;
+					}
 				}
-			}
-			if (!contains) {
-				EList<GASTClass> packageClasses = current.getClasses();
-				for (GASTClass currentClass : packageClasses) {
-					if (!specifiedBlacklist.contains(currentClass.getQualifiedName())) {
+				if (!contains) {
+					EList<GASTClass> packageClasses = current.getClasses();
+					for (GASTClass currentClass : packageClasses) {
+						if (!specifiedBlacklist.contains(currentClass.getQualifiedName())) {
+							if (!internNameSet.contains(currentClass.getQualifiedName())) {
+								externClasses.add(currentClass);
+								externNameSet.add(currentClass.getQualifiedName());
+							}
+
+						}
+					}
+					externClasses.addAll(extractExternClasses(current.getSubPackages()));
+				}
+			} else {
+				boolean contains = false;
+				for (String currentWildcard : wildcardWhitelist) {
+					if (current.getQualifiedName().startsWith(currentWildcard)) {
+						contains = true;
+						break;
+					}
+				}
+				if (contains) {
+					EList<GASTClass> packageClasses = current.getClasses();
+					for (GASTClass currentClass : packageClasses) {
 						if (!internNameSet.contains(currentClass.getQualifiedName())) {
 							externClasses.add(currentClass);
 							externNameSet.add(currentClass.getQualifiedName());
 						}
-						
+					}
+					externClasses.addAll(extractExternClasses(current.getSubPackages()));
+				} else {
+					boolean whitelistClassContained = false;
+					for (String currentSpecified : specifiedWhitelist) {
+						if (currentSpecified.startsWith(current.getQualifiedName())) {
+							whitelistClassContained = true;
+							break;
+						}
+					}
+					if (whitelistClassContained) {
+						EList<GASTClass> packageClasses = current.getClasses();
+						for (GASTClass currentClass : packageClasses) {
+							if (!internNameSet.contains(currentClass.getQualifiedName())) {
+								for (String currentSpecified : specifiedWhitelist) {
+									if (currentClass.getQualifiedName().equals(currentSpecified)) {
+										externClasses.add(currentClass);
+										externNameSet.add(currentClass.getQualifiedName());
+									}
+								}
+							}
+						}
+						externClasses.addAll(extractExternClasses(current.getSubPackages()));
 					}
 				}
-				externClasses.addAll(extractExternClasses(current.getSubPackages()));
 			}
 		}
 		
@@ -194,5 +315,11 @@ public class Instability implements Metric {
 	@Override
 	public MetricID getMID() {
 		return new MetricID(4);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
 	}
 }

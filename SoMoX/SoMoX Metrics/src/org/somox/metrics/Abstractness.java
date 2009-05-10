@@ -13,7 +13,6 @@ import org.eclipse.emf.query.statements.WHERE;
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
-import de.fzi.gast.types.typesPackage;
 
 /**
  * Abstractness metric
@@ -24,8 +23,7 @@ import de.fzi.gast.types.typesPackage;
 public class Abstractness implements Metric {
 	
 	@Override
-	public double compute(Root root, List<ModelElement> elements1,
-			List<ModelElement> elements2) {
+	public double compute(Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		return computeWithOutEMF(root, elements1, elements2);
 	}
 
@@ -35,7 +33,7 @@ public class Abstractness implements Metric {
 		double abstractClasses = 0.0;
 		double totalClasses = 0.0;
 
-		EObjectAttributeValueCondition abstractCondition = new EObjectAttributeValueCondition(typesPackage.eINSTANCE.getMember_Abstract(), new BooleanCondition(true));
+		EObjectAttributeValueCondition abstractCondition = new EObjectAttributeValueCondition(de.fzi.gast.types.typesPackage.eINSTANCE.getMember_Abstract(), new BooleanCondition(true));
 		SELECT abstractnessQuery = new SELECT(new FROM(elements1), new WHERE(abstractCondition));
 
 		IQueryResult result = abstractnessQuery.execute();
@@ -102,5 +100,11 @@ public class Abstractness implements Metric {
 	@Override
 	public MetricID getMID() {
 		return new MetricID(234);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
 	}
 }

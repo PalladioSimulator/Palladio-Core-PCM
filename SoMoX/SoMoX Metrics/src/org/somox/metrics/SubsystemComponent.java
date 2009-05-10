@@ -20,31 +20,67 @@ import de.fzi.gast.types.GASTClass;
  */
 public class SubsystemComponent implements Metric {
 	protected Set<String> wildcardBlacklist;
-	protected Set<String> specifiedBlacklist;
+	protected Set<String> wildcardWhitelist;
+	
+	/**
+	 * Boolean that indicates if blacklist or whitelist is used
+	 * If set to <code>true</code> only the blacklist is used
+	 * If set to <code>false</code> only the whitelist is used
+	 * Default: false (whitelist used)
+	 */
+	protected boolean blacklistIndicator;	
 	
 	/**
 	 * Default-constructor initializing the namesets
 	 */
 	public SubsystemComponent () {
+		blacklistIndicator = false;
 		wildcardBlacklist = new HashSet<String>();
-		specifiedBlacklist = new HashSet<String>();
+		wildcardWhitelist = new HashSet<String>();
 	}
 	
 	/**
 	 * Setter method for the name-blacklist
 	 * 
 	 * This method is used to set the "blacklist" for class- and Package-Names
-	 * in the Project.
+	 * in the Project. The blacklistIndicator is set to <code>true</code> automatically.
+	 * By setting the blacklist, the whitelist won't be used in the computation.
 	 * 
-	 * @param blacklist The String-Set with names that need to be blacklisted. Strings ending with ".*"
-	 * are used to blacklist whole Packages, other Strings are used to blacklist single classes
+	 * Be aware that computing the metric by using a blacklist is probably faster than using a 
+	 * whitelist due to implementation reasons !
+	 * 
+	 * @param blacklist The String-Set with names that need to be blacklisted.
 	 */
-	public void setBlacklist (HashSet<String> blacklist) {		
+	public void setBlacklist (HashSet<String> blacklist) {
+		blacklistIndicator = true;
 		for (String current : blacklist) {
 			if (current.endsWith(".*")) {
 				wildcardBlacklist.add(current.substring(0, current.length()-2));
 			} else {
-				specifiedBlacklist.add(current);
+				wildcardBlacklist.add(current);
+			}
+		}
+	}
+	
+	/**
+	 * Setter method for the name-whitelist
+	 * 
+	 * This method is used to set the "whitelist" for class- and Package-Names
+	 * in the Project. The blacklistIndicator is set to <code>false</code> automatically.
+	 * By setting the whitelist, the blacklist won't be used in the computation.
+	 * 
+	 * Be aware that computing the metric by using a blacklist is probably faster than using a 
+	 * whitelist due to implementation reasons!
+	 * 
+	 * @param whitelist The String-Set with names that need to be whitelisted.
+	 */
+	public void setWhitelist (HashSet<String> whitelist) {
+		blacklistIndicator = false;
+		for (String current : whitelist) {
+			if (current.endsWith(".*")) {
+				wildcardWhitelist.add(current.substring(0, current.length()-2));
+			} else {
+				wildcardWhitelist.add(current);
 			}
 		}
 	}
@@ -148,10 +184,19 @@ public class SubsystemComponent implements Metric {
 		
 		while (iterator.hasNext()) {
 			Package current = iterator.next();
-			for (String currentWildcard : wildcardBlacklist) {
-				if (current.getQualifiedName().startsWith(currentWildcard)) {
-					iterator.remove();
-					break;
+			if (blacklistIndicator) {
+				for (String currentWildcard : wildcardBlacklist) {
+					if (current.getQualifiedName().startsWith(currentWildcard) || current.getQualifiedName().equals(currentWildcard)) {
+						iterator.remove();
+						break;
+					}
+				}
+			} else {
+				for (String currentWildcard : wildcardWhitelist) {
+					if (!current.getQualifiedName().startsWith(currentWildcard) && !current.getQualifiedName().equals(currentWildcard)) {
+						iterator.remove();
+						break;
+					}
 				}
 			}
 		}
@@ -178,5 +223,11 @@ public class SubsystemComponent implements Metric {
 	@Override
 	public MetricID getMID() {
 		return new MetricID(8);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
 	}
 }

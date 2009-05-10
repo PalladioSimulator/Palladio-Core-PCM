@@ -56,4 +56,10 @@ public class DMS implements Metric {
 	public MetricID getMID() {
 		return new MetricID(3);
 	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
+	}
 }

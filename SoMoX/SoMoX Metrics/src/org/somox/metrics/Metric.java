@@ -25,6 +25,8 @@ public interface Metric {
 	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2);
 	
+	public void initialize (Root root);
+	
 	/**
 	 * Returns the GUI launch configuration tab that can be used to configure the metric
 	 */

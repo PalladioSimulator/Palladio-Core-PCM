@@ -69,7 +69,7 @@ public class InterfaceViolation implements Metric {
 				}
 			}
 		}
-		
+
 		for (GASTClass currentClass : componentAClasses) {
 			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
 
@@ -122,6 +122,12 @@ public class InterfaceViolation implements Metric {
 	@Override
 	public MetricID getMID() {
 		return new MetricID(5);
+	}
+
+	@Override
+	public void initialize(Root root) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
