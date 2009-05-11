@@ -102,9 +102,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 			
 			for (ModelElement current : elements1) {
 				if (current instanceof GASTClass) {
-					if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
-						prefixFound = false;
-						break;
+					if (!((GASTClass) current).isInner()) {
+						if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
+							prefixFound = false;
+							break;
+						}
 					}
 				}
 			}
@@ -125,9 +127,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 			
 			for (ModelElement current : elements2) {
 				if (current instanceof GASTClass) {
-					if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
-						prefixFound = false;
-						break;
+					if (!((GASTClass) current).isInner()) {
+						if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
+							prefixFound = false;
+							break;
+						}
 					}
 				}
 			}
