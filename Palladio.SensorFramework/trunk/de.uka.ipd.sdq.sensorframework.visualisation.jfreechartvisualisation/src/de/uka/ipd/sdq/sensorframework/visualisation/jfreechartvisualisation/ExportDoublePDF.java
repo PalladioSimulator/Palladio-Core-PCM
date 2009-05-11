@@ -1,14 +1,9 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
 import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;

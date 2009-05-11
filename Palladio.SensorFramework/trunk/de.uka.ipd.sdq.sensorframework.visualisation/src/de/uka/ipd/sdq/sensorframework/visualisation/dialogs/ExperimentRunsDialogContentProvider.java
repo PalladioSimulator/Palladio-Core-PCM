@@ -23,6 +23,7 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
+	@SuppressWarnings("unchecked")
 	public Object[] getChildren(Object parent) {
 		
 		if (parent instanceof ArrayList) 

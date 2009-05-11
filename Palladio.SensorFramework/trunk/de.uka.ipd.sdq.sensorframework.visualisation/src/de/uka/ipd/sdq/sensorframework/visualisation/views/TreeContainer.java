@@ -66,6 +66,7 @@ public class TreeContainer implements IAdaptable {
 		this.experiment = parent;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 //		if (adapter == de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun.class) {
 //			this.elements = experiment.getExperimentRuns();

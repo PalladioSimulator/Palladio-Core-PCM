@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 /**
