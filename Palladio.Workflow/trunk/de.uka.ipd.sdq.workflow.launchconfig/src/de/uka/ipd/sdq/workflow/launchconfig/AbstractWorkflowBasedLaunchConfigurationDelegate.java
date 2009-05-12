@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.workflow.launchconfig;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.logging.impl.LogFactoryImpl;
-import org.apache.log4j.Appender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
@@ -14,39 +14,12 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
-import org.eclipse.debug.core.model.IProcess;
 
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.Workflow;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflowExceptionHandler;
-
-class LoggerAppenderStruct {
-	private Logger logger;
-	private Appender appender;
-	/**
-	 * @param logger
-	 * @param appender
-	 */
-	public LoggerAppenderStruct(Logger logger, Appender appender) {
-		super();
-		this.logger = logger;
-		this.appender = appender;
-	}
-	/**
-	 * @return the logger
-	 */
-	public Logger getLogger() {
-		return logger;
-	}
-	/**
-	 * @return the appender
-	 */
-	public Appender getAppender() {
-		return appender;
-	}
-}
 
 /**
  * Abstract base class for Eclipse Launches (both Run and Debug mode are supported) which run
@@ -92,17 +65,7 @@ public abstract class
 	/**
 	 * Logger of this class 
 	 */
-	protected Logger logger = null;
-
-	/**
-	 * The Eclipse process attached to this launch run 
-	 */
-	private WorkflowProcess myProcess = null;
-
-	/**
-	 * List of logger configured for the workflow, used to cleanup logger after launch execution
-	 */
-	private ArrayList<LoggerAppenderStruct> myLogger = new ArrayList<LoggerAppenderStruct>();
+	private static Logger logger = Logger.getLogger(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
 	
 	/**
 	 * Name of the entry in the configuration hashmap containing the log level
@@ -117,18 +80,24 @@ public abstract class
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 
+		// The Eclipse process attached to this launch run 
+		WorkflowProcess myProcess = null;
+		
 		// Setup a new classloader to allow reconfiguration of apache commons logging
 		ClassLoader oldClassLoader = configureNewClassloader();
 		// Reconfigure apache commons logging to use Log4J as backend logger
 		System.setProperty(LogFactoryImpl.LOG_PROPERTY, "org.apache.commons.logging.impl.Log4JLogger");
 
-		logger = Logger.getLogger(AbstractWorkflowBasedLaunchConfigurationDelegate.class);
-
 		// Add a process to this launch, needed for Eclipse UI updates
-		this.myProcess = getProcess(launch);
+		myProcess = getProcess(launch);
+		
 		// Configure logging output to the Eclipse console
-		setupLogging(configuration.getAttribute(VERBOSE_LOGGING, false) ? Level.DEBUG : Level.INFO );
-		launch.addProcess(getProcess());
+		List<LoggerAppenderStruct> loggerList = setupLogging(configuration.getAttribute(VERBOSE_LOGGING, false) ? Level.DEBUG : Level.INFO );
+		for (LoggerAppenderStruct logger : loggerList) {
+			myProcess.addAppender(logger.getAppender());
+		}
+
+		launch.addProcess(myProcess);
 		
 		try {
 			logger.info("Create workflow configuration");
@@ -149,7 +118,7 @@ public abstract class
 			Thread.currentThread().setContextClassLoader(oldClassLoader);
 		}
 		
-		for(LoggerAppenderStruct l : this.myLogger) {
+		for(LoggerAppenderStruct l : loggerList) {
 			l.getLogger().removeAppender(l.getAppender());
 		}
 		
@@ -205,9 +174,13 @@ public abstract class
 	 * @param logLevel The apache log4j log level requested by the user as log level
 	 * @throws CoreException 
 	 */
-	protected void setupLogging(Level logLevel) throws CoreException {
+	protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel) throws CoreException {
+		ArrayList<LoggerAppenderStruct> loggerList = new ArrayList<LoggerAppenderStruct>();
+
 		// Setup SDQ workflow engine logging
-		setupLogger("de.uka.ipd.sdq.workflow", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
+		loggerList.add(setupLogger("de.uka.ipd.sdq.workflow", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+		
+		return loggerList;
 	}
 
 	/**
@@ -218,7 +191,7 @@ public abstract class
 	 * 		The layout may reuse the defined constants in this class for short and detailed
 	 *      log outputs
 	 */
-	protected void setupLogger(String loggerName, Level logLevel, String layout) {
+	protected LoggerAppenderStruct setupLogger(String loggerName, Level logLevel, String layout) {
 		Logger logger = Logger.getLogger(loggerName);
 		StreamsProxyAppender appender = new StreamsProxyAppender();
 
@@ -228,8 +201,7 @@ public abstract class
 		logger.setAdditivity(false);
 		logger.addAppender(appender);
 
-		this.myProcess.addAppender(appender);
-		this.myLogger.add(new LoggerAppenderStruct(logger,appender));
+		return new LoggerAppenderStruct(logger,appender);
 	}
 
 
@@ -264,15 +236,4 @@ public abstract class
 	 * @throws CoreException
 	 */
 	protected abstract WorkflowConfigurationType deriveConfiguration(ILaunchConfiguration configuration, String mode) throws CoreException;
-	
-	/**
-	 * Return the Eclipse process attached to this workflow run
-	 * @return The Eclipse process attached to this workflow run
-	 */
-	protected IProcess getProcess() {
-		if (this.myProcess == null)
-			throw new UnsupportedOperationException("Cannot call getProcess before the workflow is instanciated.");
-
-		return this.myProcess;
-	}
 }
