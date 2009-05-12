@@ -252,7 +252,6 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 			Iterator<String> it = keys.iterator();
 			while (it.hasNext()) {
 				String key = it.next();
-				System.out.println("KEY: " + key);
 				if (stringAttributes.containsKey(key)) {
 					stringAttributes.get(key).setText(
 							attributes.get(key).toString());
