@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Level;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
@@ -10,6 +12,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
 
 /**
  * The class adapts defined functionality in the AbstractMDSDLaunchConfigurationDelegate for
@@ -38,10 +41,12 @@ public class SimuComWorkflowLauncher extends
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractMDSDLaunchConfigurationDelegate#setupLogging(org.apache.log4j.Level)
 	 */
 	@Override
-	protected void setupLogging(Level logLevel) throws CoreException {
-		super.setupLogging(logLevel);
-		setupLogger("de.uka.ipd.sdq.codegen", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
-		setupLogger("de.uka.ipd.sdq.simucomframework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
+	protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel) throws CoreException {
+		ArrayList<LoggerAppenderStruct> loggerList = super.setupLogging(logLevel);
+		loggerList.add(setupLogger("de.uka.ipd.sdq.codegen", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+		loggerList.add(setupLogger("de.uka.ipd.sdq.simucomframework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+		
+		return loggerList;
 	}
 
 	/*
