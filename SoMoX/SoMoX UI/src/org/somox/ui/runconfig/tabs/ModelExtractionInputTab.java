@@ -17,6 +17,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -128,29 +129,28 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 		SoMoXUILogger.logInfo("Number of configs to be build: " + configs.size());
 		Set<String> configurationDefinitionKeys = getConfigurationDefinitions().keySet();
 		Iterator<String> configIterator = configurationDefinitionKeys.iterator();
+		final Group typeGroup = new Group(container, SWT.NONE);
+		final GridLayout glTypeGroup = new GridLayout();
+		glTypeGroup.numColumns = 4;
+		typeGroup.setLayout(glTypeGroup);
+		typeGroup.setText("SISSy configuration");
+		typeGroup.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, true, false));
 		while (configIterator.hasNext()) {
 			String key = configIterator.next();
 			ConfigurationDefinition config = getConfigurationDefinitions().get(key);
 
 			if (ConfigurationDefinition.Type.DIRECTORY.equals(config.getType())) {
 
-				final Group directoryTypeGroup = new Group(container, SWT.NONE);
-				final GridLayout glDirectoryTypeGroup = new GridLayout();
-				glDirectoryTypeGroup.numColumns = 3;
-				directoryTypeGroup.setLayout(glDirectoryTypeGroup);
-				directoryTypeGroup.setText(config.getName());
-				directoryTypeGroup.setLayoutData(new GridData(SWT.FILL,
-						SWT.CENTER, true, false));
-
-				final Text textDirectory = new Text(directoryTypeGroup,
-						SWT.SINGLE | SWT.BORDER);
+				final Text textDirectory = new Text(typeGroup,
+						SWT.NONE | SWT.SINGLE | SWT.BORDER);
 				final GridData gd_textResourceTypeRepository = new GridData(
 						SWT.FILL, SWT.CENTER, true, false);
-				gd_textResourceTypeRepository.widthHint = 200;
+				gd_textResourceTypeRepository.horizontalSpan = 2;
 				textDirectory.setLayoutData(gd_textResourceTypeRepository);
 				textDirectory.addModifyListener(modifyListener);
 
-				final Button workspaceButton = new Button(directoryTypeGroup,
+				final Button workspaceButton = new Button(typeGroup,
 						SWT.NONE);
 				workspaceButton.setText("Workspace...");
 				workspaceButton
@@ -158,7 +158,7 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 								textDirectory, true, false, false));
 
 				final Button buttonResourceTypeRepository = new Button(
-						directoryTypeGroup, SWT.NONE);
+						typeGroup, SWT.NONE);
 				buttonResourceTypeRepository.setLayoutData(new GridData());
 				buttonResourceTypeRepository.setText("File System...");
 				buttonResourceTypeRepository
@@ -194,19 +194,14 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 
 			} else if (ConfigurationDefinition.Type.STRING.equals(config
 					.getType())) {
-				final Group stringTypeGroup = new Group(container, SWT.NONE);
+
+				final Label stringLabel = new Label(typeGroup, SWT.NONE);
+				stringLabel.setText(config.getName());
+				final Text stringField = new Text(typeGroup, SWT.BORDER);
 				final GridData gd_stringTypeGroup = new GridData(SWT.FILL,
 						SWT.CENTER, true, false);
-				stringTypeGroup.setLayoutData(gd_stringTypeGroup);
-				final GridLayout gridLayout = new GridLayout();
-				gridLayout.numColumns = 2;
-				stringTypeGroup.setLayout(gridLayout);
-
-				final Label stringLabel = new Label(stringTypeGroup, SWT.NONE);
-				stringLabel.setText(config.getName());
-				final Text stringField = new Text(stringTypeGroup, SWT.BORDER);
-				stringField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-						true, false));
+				gd_stringTypeGroup.horizontalSpan = 3;
+				stringField.setLayoutData(gd_stringTypeGroup);
 				stringField.addModifyListener(modifyListener);
 				stringField.setText(config.getDefaultValue());
 				stringAttributes.put(config.getId(), stringField);
@@ -214,13 +209,26 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 			} else if (ConfigurationDefinition.Type.BOOLEAN.equals(config
 					.getType())) {
 
-				final Group booleanTypeGroup = new Group(container, SWT.NONE);
-				booleanTypeGroup.setLayoutData(new GridData(SWT.FILL,
-						SWT.CENTER, false, false));
-				booleanTypeGroup.setLayout(new GridLayout());
-				final Button booleanButton = new Button(booleanTypeGroup,
+				final Button booleanButton = new Button(typeGroup,
 						SWT.CHECK);
 				booleanButton.setText(config.getName());
+				final GridData gd_booleanTypeGroup = new GridData(SWT.NONE,
+						SWT.CENTER, true, false);
+				booleanButton.setLayoutData(gd_booleanTypeGroup);
+				booleanButton.addSelectionListener(new SelectionListener() {
+
+					public void widgetDefaultSelected(SelectionEvent e) {
+						ModelExtractionInputTab.this.setDirty(true);
+						ModelExtractionInputTab.this.updateLaunchConfigurationDialog();
+					}
+
+					public void widgetSelected(SelectionEvent e) {
+						ModelExtractionInputTab.this.setDirty(true);
+						ModelExtractionInputTab.this.updateLaunchConfigurationDialog();						
+					}
+					
+				});
+				gd_booleanTypeGroup.horizontalSpan = 4;
 				if ((config.getDefaultValue() != null) && (config.getDefaultValue().equals("true"))) {
 					booleanButton.setEnabled(true);
 				}
@@ -244,13 +252,16 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 			Iterator<String> it = keys.iterator();
 			while (it.hasNext()) {
 				String key = it.next();
+				System.out.println("KEY: " + key);
 				if (stringAttributes.containsKey(key)) {
 					stringAttributes.get(key).setText(
 							attributes.get(key).toString());
 					continue;
 				}
 				if (booleanAttributes.containsKey(key)) {
-					//booleanAttributes.get(key).setEnabled(true);
+					if (((Boolean)attributes.get(key)).booleanValue() == true) {
+						booleanAttributes.get(key).setSelection(true);
+					}
 					continue;
 				}
 
