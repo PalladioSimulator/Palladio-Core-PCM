@@ -272,28 +272,9 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="com.db4o"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="org.hibernate"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="ca.umontreal.iro.lecuyer.ssj"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="ca.umontreal.iro.lecuyer.ssj.win32"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"/>
 
 </feature>
