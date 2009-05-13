@@ -644,12 +644,6 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
-      <param name="element.id" value="com.db4o"/>
-      <param name="project.name" value="/com.db4o"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.Wrapper/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
       <param name="element.id" value="org.hibernate"/>
       <param name="project.name" value="/org.hibernate"/>
       <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.Wrapper/trunk"/>
