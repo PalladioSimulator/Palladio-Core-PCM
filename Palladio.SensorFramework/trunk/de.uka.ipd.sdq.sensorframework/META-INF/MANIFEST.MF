@@ -10,7 +10,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.logging,
  org.junit4,
  org.hibernate,
- ca.umontreal.iro.lecuyer.ssj,
  de.uka.ipd.sdq.sensorframework.storage
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.sensorframework,
