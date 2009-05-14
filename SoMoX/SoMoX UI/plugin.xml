@@ -86,7 +86,8 @@
       <wizard 
           id="org.somox.ui.SomoxProject" 
           name="SoMoX Project"
-          icon="icons/somox_16x16.gif" 
+          icon="icons/somox_16x16.gif"
+          project="true" 
           category="org.somox.ui.SomoxProject" 
           class="org.somox.ui.wizards.SomoxProjectWizard"> 
           <description> 

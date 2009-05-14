@@ -19,6 +19,7 @@ import de.fzi.sissy.metamod.ModelElementRepository;
  * Software Extractor taking use of the SISSy framework
  *
  * @author Benjamin Klatt
+ * @author Michael Hauck
  *
  */
 public class SISSySoftwareExtractor implements
@@ -42,6 +43,9 @@ public class SISSySoftwareExtractor implements
 
 	/** The java version of the software to analyze */
 	private static String CONFIGURATION_ID_SOURCEVERSION = "org.somox.softwareextractor.sissy.sourceversion";
+	
+	/** If the extraction is interruptable */
+	private static String CONFIGURATION_ID_ISINTERRUPTABLE = "org.somox.softwareextractor.sissy.isinterruptable";
 	// ---------------------------------
 	// Data fields
 	// ---------------------------------
@@ -61,7 +65,6 @@ public class SISSySoftwareExtractor implements
 	public ExtractionResult runExtraction(String extractorId, Preferences preferences) {
 		SoMoXCoreLogger.logInfo("SISSy Software Extractor Started");
 
-
 		// build the configuration String
 		LinkedList<String> paramList = new LinkedList<String>();
 		paramList.add("-"+preferences.getString(CONFIGURATION_ID_SOURCETYPE));
@@ -78,6 +81,14 @@ public class SISSySoftwareExtractor implements
 
 		// run SISSy
 		SoMoXCoreLogger.logInfo("SISSy Software Extractor starting");
+		
+		/*try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+		}*/
+		
 
 		ModelElementRepository modelRepository = Main.runSISSy(parameters);
 		
@@ -111,6 +122,11 @@ public class SISSySoftwareExtractor implements
 																			"The version number of the source (i.e. 1.4 or 5.0 for java)",
 																			ConfigurationDefinition.Type.STRING,
 																			"5.0");
+		
+		ConfigurationDefinition isInterruptable = new ConfigurationDefinition(	CONFIGURATION_ID_ISINTERRUPTABLE,
+				"Is interruptable",
+				ConfigurationDefinition.Type.BOOLEAN,
+				"false");
 
 		ConfigurationDefinition arguments = new ConfigurationDefinition(	CONFIGURATION_ID_SISSYARGUMENTS,
 																			"Argument string for additional settings",
@@ -122,6 +138,7 @@ public class SISSySoftwareExtractor implements
 		configs.add(sourceType);
 		configs.add(sourceVersion);
 		configs.add(arguments);
+		configs.add(isInterruptable);
 		return configs;
 	}
 

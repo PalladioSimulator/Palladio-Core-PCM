@@ -258,7 +258,7 @@ public class ModelExtractionInputTab extends AbstractLaunchConfigurationTab {
 					continue;
 				}
 				if (booleanAttributes.containsKey(key)) {
-					if (((Boolean)attributes.get(key)).booleanValue() == true) {
+					if (attributes.get(key).toString().toLowerCase().equals("true")) {
 						booleanAttributes.get(key).setSelection(true);
 					}
 					continue;

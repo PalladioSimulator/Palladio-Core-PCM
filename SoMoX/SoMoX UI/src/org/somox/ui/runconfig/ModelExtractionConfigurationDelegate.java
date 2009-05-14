@@ -1,5 +1,6 @@
 package org.somox.ui.runconfig;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -28,6 +29,7 @@ import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
 
 /**
  * The class is defined by the delegate attribute of a launchConfigurationType
@@ -148,10 +150,12 @@ public class ModelExtractionConfigurationDelegate extends
 	}
 
 	@Override
-	protected void setupLogging(Level logLevel) throws CoreException {
-		super.setupLogging(logLevel);
-		setupLogger("org.somox", logLevel, logLevel.isGreaterOrEqual(Level.DEBUG) ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
-		setupLogger("de.fzi.sissy", logLevel, logLevel.isGreaterOrEqual(Level.DEBUG) ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN);
+	protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel) throws CoreException {
+		ArrayList<LoggerAppenderStruct> loggerList = super.setupLogging(logLevel);
+		loggerList.add(setupLogger("org.somox", logLevel, logLevel.isGreaterOrEqual(Level.DEBUG) ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+		loggerList.add(setupLogger("de.fzi.sissy", logLevel, logLevel.isGreaterOrEqual(Level.DEBUG) ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+		
+		return loggerList;
 	}
 
 }
