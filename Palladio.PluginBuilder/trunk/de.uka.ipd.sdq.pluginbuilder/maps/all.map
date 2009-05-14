@@ -17,3 +17,4 @@ plugin@de.uka.ipd.sdq.probfunction.edit=COPY,C:/coding/svnpcm,de.uka.ipd.sdq.pro
 plugin@de.uka.ipd.sdq.probfunction.math=COPY,C:/coding/svnpcm,de.uka.ipd.sdq.probfunction.math
 feature@de.uka.ipd.sdq.tests=COPY,C:/coding/svnpcm,de.uka.ipd.sdq.tests
 plugin@de.uka.ipd.sdq.pcm.stochasticexpressions.tests=COPY,C:/coding/svnpcm,de.uka.ipd.sdq.pcm.stochasticexpressions.tests
+plugin@org.apache.log4j,1.2.13=GET,http://download.eclipse.org/tools/orbit/downloads/drops/S20090513051706/bundles/org.apache.log4j_1.2.13.v200903072027.jar
