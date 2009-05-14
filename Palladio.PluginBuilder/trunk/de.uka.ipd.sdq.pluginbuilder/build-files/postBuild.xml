@@ -31,9 +31,17 @@
         <!-- site.xml files for integration and release builds are handled elsewhere -->
         <antcall target="-createNightlyBuildSiteXml"/>
         <delete dir="${buildDirectory}/temp.updatesite"/>
+	<antcall target="copyBinaryJars"/>
 	<antcall target="createP2Site"/>
     </target>
 	
+	<target name="copyBinaryJars">
+                <!-- copy binary plugins -->
+                <copy todir="${UpdateSiteStagingLocation}/plugins">
+                        <fileset dir="${buildDirectory}/plugins" includes="*.jar"/>
+                </copy>
+	</target>
+
 	<target name="createP2Site">
 		<java fork="true" timeout="10800000" taskname="p2"
 	   		  jvm="/usr/bin/java" failonerror="false" maxmemory="256m"

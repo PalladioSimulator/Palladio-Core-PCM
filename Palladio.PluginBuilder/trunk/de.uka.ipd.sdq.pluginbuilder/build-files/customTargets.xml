@@ -194,13 +194,6 @@
 	<!-- Call External post build file if available -->
 	<!-- ==================================================== -->
 	<target name="callExternalPostBuild" if="is.External.Postbuild">
-		<!-- copy binary plugins -->
-		<copy todir="${buildDirectory}/updateSite/plugins">
-			<fileset dir="${buildDirectory}/plugins">
-				<includes name="*.jar"/>
-			</fileset>
-		</copy>
-
 		<ant antfile="${buildHome}/build-files/postBuild.xml"/> 
 	</target>
 	
