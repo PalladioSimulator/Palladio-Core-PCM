@@ -81,7 +81,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			this.typeAnnotation.put(expr, TypeEnum.INT_PMF);
 		} else
 			throw new UnsupportedOperationException();
-		//logger.info(expr.getOperation().toString());
+		//logger.debug(expr.getOperation().toString());
 
 		return expr;
 	}
