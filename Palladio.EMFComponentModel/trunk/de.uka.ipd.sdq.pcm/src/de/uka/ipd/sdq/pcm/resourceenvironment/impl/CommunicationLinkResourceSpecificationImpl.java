@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getFailureProbability <em>Failure Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}</li>
@@ -39,6 +40,26 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFailureProbability()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double FAILURE_PROBABILITY_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFailureProbability()
+	 * @generated
+	 * @ordered
+	 */
+	protected double failureProbability = FAILURE_PROBABILITY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCommunicationLinkResourceType_CommunicationLinkResourceSpecification() <em>Communication Link Resource Type Communication Link Resource Specification</em>}' reference.
@@ -87,6 +108,27 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	@Override
 	protected EClass eStaticClass() {
 		return ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getFailureProbability() {
+		return failureProbability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFailureProbability(double newFailureProbability) {
+		double oldFailureProbability = failureProbability;
+		failureProbability = newFailureProbability;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY, oldFailureProbability, failureProbability));
 	}
 
 	/**
@@ -237,6 +279,8 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
+				return new Double(getFailureProbability());
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				if (resolve) return getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 				return basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
@@ -256,6 +300,9 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
+				setFailureProbability(((Double)newValue).doubleValue());
+				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setCommunicationLinkResourceType_CommunicationLinkResourceSpecification((CommunicationLinkResourceType)newValue);
 				return;
@@ -277,6 +324,9 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
+				setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
+				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setCommunicationLinkResourceType_CommunicationLinkResourceSpecification((CommunicationLinkResourceType)null);
 				return;
@@ -298,6 +348,8 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
+				return failureProbability != FAILURE_PROBABILITY_EDEFAULT;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return communicationLinkResourceType_CommunicationLinkResourceSpecification != null;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
@@ -306,6 +358,22 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				return throughput_CommunicationLinkResourceSpecification != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (failureProbability: ");
+		result.append(failureProbability);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CommunicationLinkResourceSpecificationImpl

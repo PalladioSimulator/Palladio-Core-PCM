@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getMTTR <em>MTTR</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getMTTF <em>MTTF</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -40,6 +42,46 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The default value of the '{@link #getMTTR() <em>MTTR</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMTTR()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MTTR_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getMTTR() <em>MTTR</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMTTR()
+	 * @generated
+	 * @ordered
+	 */
+	protected double mttr = MTTR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMTTF() <em>MTTF</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMTTF()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MTTF_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getMTTF() <em>MTTF</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMTTF()
+	 * @generated
+	 * @ordered
+	 */
+	protected double mttf = MTTF_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
@@ -98,6 +140,48 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getMTTR() {
+		return mttr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMTTR(double newMTTR) {
+		double oldMTTR = mttr;
+		mttr = newMTTR;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR, oldMTTR, mttr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getMTTF() {
+		return mttf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMTTF(double newMTTF) {
+		double oldMTTF = mttf;
+		mttf = newMTTF;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF, oldMTTF, mttf));
 	}
 
 	/**
@@ -224,6 +308,10 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
+				return new Double(getMTTR());
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
+				return new Double(getMTTF());
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -243,6 +331,12 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
+				setMTTR(((Double)newValue).doubleValue());
+				return;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
+				setMTTF(((Double)newValue).doubleValue());
+				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy((SchedulingPolicy)newValue);
 				return;
@@ -264,6 +358,12 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
+				setMTTR(MTTR_EDEFAULT);
+				return;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
+				setMTTF(MTTF_EDEFAULT);
+				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy(SCHEDULING_POLICY_EDEFAULT);
 				return;
@@ -285,6 +385,10 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
+				return mttr != MTTR_EDEFAULT;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
+				return mttf != MTTF_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -305,7 +409,11 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (schedulingPolicy: ");
+		result.append(" (MTTR: ");
+		result.append(mttr);
+		result.append(", MTTF: ");
+		result.append(mttf);
+		result.append(", schedulingPolicy: ");
 		result.append(schedulingPolicy);
 		result.append(')');
 		return result.toString();

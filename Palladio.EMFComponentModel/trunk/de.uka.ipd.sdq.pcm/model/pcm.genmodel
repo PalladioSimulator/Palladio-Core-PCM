@@ -23,7 +23,7 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/temp/pcm_export/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export_RSA/pcm.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="" basePackage="de.uka.ipd.sdq"
@@ -556,6 +556,7 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/failureProbability"/>
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/communicationLinkResourceType_CommunicationLinkResourceSpecification"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -564,6 +565,8 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTF"/>
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/activeResourceType_ActiveResourceSpecification"/>

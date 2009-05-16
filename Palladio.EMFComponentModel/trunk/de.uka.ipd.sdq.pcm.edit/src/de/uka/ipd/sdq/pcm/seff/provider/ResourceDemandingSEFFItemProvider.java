@@ -6,11 +6,14 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -34,7 +37,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class ResourceDemandingSEFFItemProvider
-	extends ServiceEffectSpecificationItemProvider
+	extends IdentifierItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -46,7 +49,7 @@ public class ResourceDemandingSEFFItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -69,29 +72,52 @@ public class ResourceDemandingSEFFItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
+			addSeffTypeIDPropertyDescriptor(object);
+			addDescribedService__SEFFPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Seff Type ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addSeffTypeIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifier_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifier_id_feature", "_UI_Identifier_type"),
-				 IdentifierPackage.Literals.IDENTIFIER__ID,
+				 getString("_UI_ServiceEffectSpecification_seffTypeID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature", "_UI_ServiceEffectSpecification_type"),
+				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Described Service SEFF feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescribedService__SEFFPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceEffectSpecification_describedService__SEFF_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_describedService__SEFF_feature", "_UI_ServiceEffectSpecification_type"),
+				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -163,7 +189,7 @@ public class ResourceDemandingSEFFItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceDemandingSEFF.class)) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
@@ -238,6 +264,17 @@ public class ResourceDemandingSEFFItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
 				 SeffFactory.eINSTANCE.createSetVariableAction()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

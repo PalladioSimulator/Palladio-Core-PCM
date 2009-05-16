@@ -49,7 +49,7 @@ public class ProcessingResourceSpecificationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -72,10 +72,56 @@ public class ProcessingResourceSpecificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMTTRPropertyDescriptor(object);
+			addMTTFPropertyDescriptor(object);
 			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the MTTR feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMTTRPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_MTTR_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_MTTR_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the MTTF feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMTTFPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_MTTF_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_MTTF_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -171,11 +217,8 @@ public class ProcessingResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SchedulingPolicy labelValue = ((ProcessingResourceSpecification)object).getSchedulingPolicy();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProcessingResourceSpecification_type") :
-			getString("_UI_ProcessingResourceSpecification_type") + " " + label;
+		ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)object;
+		return getString("_UI_ProcessingResourceSpecification_type") + " " + processingResourceSpecification.getMTTR();
 	}
 
 	/**
@@ -190,6 +233,8 @@ public class ProcessingResourceSpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

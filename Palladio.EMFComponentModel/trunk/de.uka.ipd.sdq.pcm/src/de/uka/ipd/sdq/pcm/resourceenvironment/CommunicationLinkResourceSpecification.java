@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}</li>
@@ -35,6 +36,32 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specifies the probability that a service call over this communication link fails. The failure could be due to message loss or overload, for example.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Failure Probability</em>' attribute.
+	 * @see #setFailureProbability(double)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_FailureProbability()
+	 * @model default="0.0" required="true" ordered="false"
+	 * @generated
+	 */
+	double getFailureProbability();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Failure Probability</em>' attribute.
+	 * @see #getFailureProbability()
+	 * @generated
+	 */
+	void setFailureProbability(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference.

@@ -37,17 +37,20 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
 
 	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Failure Probability</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specifies the probability that during the execution of this InternalAction, a software failure occurs, and causes the control flow to abort the currently executed RDSEFF.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Failure Probability</em>' attribute.
 	 * @see #setFailureProbability(double)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_FailureProbability()
-	 * @model default="0" required="true" ordered="false"
+	 * @model default="0.0" required="true" ordered="false"
 	 * @generated
 	 */
 	double getFailureProbability();

@@ -180,13 +180,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = 0;
+
+	/**
 	 * The feature id for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 0;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference.
@@ -195,7 +204,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 1;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
@@ -204,7 +213,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
@@ -213,7 +222,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -226,13 +235,31 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>MTTR</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION__MTTR = 0;
+
+	/**
+	 * The feature id for the '<em><b>MTTF</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION__MTTF = 1;
+
+	/**
 	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 0;
+	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
@@ -241,7 +268,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 1;
+	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Processing Rate Processing Resource Specification</b></em>' containment reference.
@@ -250,7 +277,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 2;
+	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 4;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -259,7 +286,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -404,6 +431,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EClass getCommunicationLinkResourceSpecification();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability()
+	 * @see #getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getCommunicationLinkResourceSpecification_FailureProbability();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,6 +483,28 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProcessingResourceSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MTTR</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR()
+	 * @see #getProcessingResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getProcessingResourceSpecification_MTTR();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MTTF</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF()
+	 * @see #getProcessingResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getProcessingResourceSpecification_MTTF();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
@@ -603,6 +663,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification();
 
 		/**
+		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = eINSTANCE.getCommunicationLinkResourceSpecification_FailureProbability();
+
+		/**
 		 * The meta object literal for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -635,6 +703,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>MTTR</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__MTTR = eINSTANCE.getProcessingResourceSpecification_MTTR();
+
+		/**
+		 * The meta object literal for the '<em><b>MTTF</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__MTTF = eINSTANCE.getProcessingResourceSpecification_MTTF();
 
 		/**
 		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' attribute feature.

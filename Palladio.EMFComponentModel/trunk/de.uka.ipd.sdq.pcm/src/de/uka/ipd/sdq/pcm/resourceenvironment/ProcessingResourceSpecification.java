@@ -18,6 +18,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -35,6 +37,58 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>MTTR</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown of this physical resource to its repair or replacement.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>MTTR</em>' attribute.
+	 * @see #setMTTR(double)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_MTTR()
+	 * @model default="0.0" required="true" ordered="false"
+	 * @generated
+	 */
+	double getMTTR();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>MTTR</em>' attribute.
+	 * @see #getMTTR()
+	 * @generated
+	 */
+	void setMTTR(double value);
+
+	/**
+	 * Returns the value of the '<em><b>MTTF</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Mean Time To Failure (MTTF) of a physical resource is the expected timespan from the start of its usage until breakdown.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>MTTF</em>' attribute.
+	 * @see #setMTTF(double)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_MTTF()
+	 * @model default="0.0" required="true" ordered="false"
+	 * @generated
+	 */
+	double getMTTF();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>MTTF</em>' attribute.
+	 * @see #getMTTF()
+	 * @generated
+	 */
+	void setMTTF(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.
