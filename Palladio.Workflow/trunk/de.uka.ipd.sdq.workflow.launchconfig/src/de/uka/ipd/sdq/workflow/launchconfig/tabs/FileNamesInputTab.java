@@ -43,6 +43,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	
 	/** input fields */
 	private Text textResourceType;
+	private Text textResourceEnvironment;
 	private Text textRepository;
 	private Text textSystem;
 	private Text textAllocation;
@@ -105,6 +106,12 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		 */
 		textResourceType = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "Resource Type File", ConstantsContainer.RESOURCETYPE_EXTENSION, textResourceType);
+
+		/**
+		 * Create resource environment section
+		 */
+		textResourceEnvironment = new Text(container, SWT.SINGLE | SWT.BORDER);
+		createFileInputSection(container, modifyListener, "Resource Environment File", ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION, textResourceEnvironment);
 
 		/**
 		 * Create repository section
@@ -214,6 +221,13 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
+			textResourceEnvironment.setText(configuration.getAttribute(
+					ConstantsContainer.RESOURCEENVIRONMENT_FILE, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"Resource Environment File", e.getMessage());
+		}
+
+		try {
 			textSystem.setText(configuration.getAttribute(
 					ConstantsContainer.SYSTEM_FILE, ""));
 		} catch (CoreException e) {
@@ -235,6 +249,9 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
 				textResourceType.getText());
+		configuration.setAttribute(
+				ConstantsContainer.RESOURCEENVIRONMENT_FILE,
+				textResourceEnvironment.getText());
 		configuration.setAttribute(ConstantsContainer.REPOSITORY_FILE,
 				textRepository.getText());
 		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
@@ -278,6 +295,11 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		if (!validateFilePath(textResourceType.getText(),
 				ConstantsContainer.RESOURCETYPE_EXTENSION)) {
 			setErrorMessage("ResourceTypeRepository is missing!");
+			return false;
+		}
+		if (!validateFilePath(textResourceEnvironment.getText(),
+				ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION)) {
+			setErrorMessage("ResourceEnvironment is missing!");
 			return false;
 		}
 		if (!validateFilePath(textSystem.getText(),

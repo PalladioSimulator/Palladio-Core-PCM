@@ -8,16 +8,17 @@ import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 /**
  * The configuration tabs shown in the run dialog or debug dialog for the PCM
- * Solver launch.
+ * Solver Reliability launch.
  * 
  * The extension point org.eclipse.debug.ui.launchConfigurationTabGroups in the
  * plugin.xml refers to this class. The class inherits from the eclipse-internal
  * tab group.
  * 
- * @author koziolek, brosch
+ * @author brosch
  * 
  */
-public class PCMSolverTabGroup extends AbstractLaunchConfigurationTabGroup {
+public class PCMSolverReliabilityTabGroup extends
+		AbstractLaunchConfigurationTabGroup {
 
 	/**
 	 * The main routine that creates and sets the individual tab pages.
@@ -34,8 +35,10 @@ public class PCMSolverTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 		// Assemble the tab pages:
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new FileNamesInputTab(), new MainConfigTab(), new CommonTab() };
-
+				new FileNamesInputTab(),
+				new OptionsTab()
+		};
+		
 		// Do the setup:
 		setTabs(tabs);
 	}

@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.markov.StateType;
 import de.uka.ipd.sdq.markov.Transition;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 
@@ -83,22 +84,75 @@ public class MarkovBuilder {
 
 	/**
 	 * Creates a Markov Chain that represents an execution of a
-	 * ResourceDemandingBehaviour. For each action within the given chain of
-	 * actions, a State within the resulting Markov Chain is created. Together
-	 * with the Markov Chain, a list of States is returned that corresponds to
-	 * the given action list.
+	 * ScenarioBehaviour.
 	 * 
 	 * @param name
 	 *            the name of the new Markov Chain
 	 * @param actions
-	 *            the chain of actions of the ResourceDemandingBehaviour
+	 *            the actions of the ScenarioBehaviour
+	 * @param statesOut
+	 *            the list of states created within the method that corresponds
+	 *            to the given list of actions
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initScenarioBehaviourMarkovChain(final String name,
+			final ArrayList<AbstractUserAction> actions,
+			final ArrayList<State> statesOut) {
+
+		// Collect the action names:
+		ArrayList<String> actionNames = new ArrayList<String>();
+		for (int i = 0; i < actions.size(); i++) {
+			actionNames.add(actions.get(i).getEntityName());
+		}
+
+		// Build the Markov Chain:
+		return initBehaviourMarkovChain(name, actionNames, statesOut);
+	}
+
+	/**
+	 * Creates a Markov Chain that represents an execution of a
+	 * ResourceDemandingBehaviour.
+	 * 
+	 * @param name
+	 *            the name of the new Markov Chain
+	 * @param actions
+	 *            the actions of the ResourceDemandingBehaviour
+	 * @param statesOut
+	 *            the list of states created within the method that corresponds
+	 *            to the given list of actions
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initResourceDemandingBehaviourMarkovChain(
+			final String name, final ArrayList<AbstractAction> actions,
+			final ArrayList<State> statesOut) {
+
+		// Collect the action names:
+		ArrayList<String> actionNames = new ArrayList<String>();
+		for (int i = 0; i < actions.size(); i++) {
+			actionNames.add(actions.get(i).getEntityName());
+		}
+
+		// Build the Markov Chain:
+		return initBehaviourMarkovChain(name, actionNames, statesOut);
+	}
+
+	/**
+	 * Creates a Markov Chain that represents an execution of a PCM behavior.
+	 * For each action within the given chain of actions, a State within the
+	 * resulting Markov Chain is created. Together with the Markov Chain, a list
+	 * of States is returned that corresponds to the given action list.
+	 * 
+	 * @param name
+	 *            the name of the new Markov Chain
+	 * @param actionNames
+	 *            the names of the actions of the Behaviour
 	 * @param statesOut
 	 *            the list of states created within the method that corresponds
 	 *            to the given list of actions
 	 * @return the resulting Markov Chain
 	 */
 	public MarkovChain initBehaviourMarkovChain(final String name,
-			final ArrayList<AbstractAction> actions,
+			final ArrayList<String> actionNames,
 			final ArrayList<State> statesOut) {
 
 		// Create the Markov Chain Entity:
@@ -125,11 +179,11 @@ public class MarkovBuilder {
 		State stateToSuccess = stateStart;
 
 		// Go through the chain of actions:
-		for (int i = 0; i < actions.size(); i++) {
+		for (int i = 0; i < actionNames.size(); i++) {
 
 			// Create a Markov State for this Action:
 			State state = markovFactory.createState();
-			state.setName(name + " - " + actions.get(i).getEntityName());
+			state.setName(name + " - " + actionNames.get(i));
 			markovChain.getStates().add(state);
 			statesOut.add(state);
 
@@ -181,12 +235,14 @@ public class MarkovBuilder {
 		} catch (NumberFormatException e) {
 			logger
 					.error("Unexpected format of failure probability specification: "
-							+ failureProbabilityExpression);
+							+ failureProbabilityExpression
+							+ ". Setting success probability to 1.0");
 			successProbability = 1;
 		}
 		if ((successProbability < 0) || (successProbability > 1)) {
 			logger.error("Invalid value of failure probability specification: "
-					+ failureProbabilityExpression);
+					+ failureProbabilityExpression
+					+ ". Setting success probability to 1.0");
 			successProbability = 1;
 		}
 
@@ -649,9 +705,13 @@ public class MarkovBuilder {
 	 * @param aggregateState
 	 *            the Markov State in the aggregate Markov Chain which will be
 	 *            replaced by the specific Markov Chain
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
 	 */
 	public void incorporateMarkovChain(final MarkovChain aggregateMarkovChain,
-			final MarkovChain specificMarkovChain, final State aggregateState) {
+			final MarkovChain specificMarkovChain, final State aggregateState,
+			final boolean optimize) {
 
 		// Assure that the replaceable Markov State is contained in the
 		// aggregate Markov Chain:
@@ -742,9 +802,11 @@ public class MarkovBuilder {
 		aggregateMarkovChain.getTransitions().add(transitionFailure);
 
 		// Optimize the aggregate MarkovChain:
-		reduceState(aggregateMarkovChain, stateSpecificStart);
-		reduceState(aggregateMarkovChain, stateSpecificSuccess);
-		reduceState(aggregateMarkovChain, stateSpecificFailure);
+		if (optimize) {
+			reduceState(aggregateMarkovChain, stateSpecificStart);
+			reduceState(aggregateMarkovChain, stateSpecificSuccess);
+			reduceState(aggregateMarkovChain, stateSpecificFailure);
+		}
 	}
 
 	/**

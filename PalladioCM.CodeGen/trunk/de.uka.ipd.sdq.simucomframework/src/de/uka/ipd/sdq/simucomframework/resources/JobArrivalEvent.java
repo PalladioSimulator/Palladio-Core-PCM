@@ -33,12 +33,12 @@ public class JobArrivalEvent extends SimEvent {
 		resource.processPassedTime();
 		resource.addJob(demand);
 		double nextEventTime = resource.getTimeWhenNextJobIsDone();
-		if(resource.isScheduled())
-			resource.reschedule(nextEventTime);
-		else {
-			ISimEventDelegate ev = new JobDoneEvent(getModel(), "JobDone");
-			ev.schedule(resource, nextEventTime);
+		if(nextEventTime < 0){
+			throw new RuntimeException("Next scheduled event time < 0");
 		}
+		ISimEventDelegate ev = resource.getJobDoneEvent();
+		ev.removeEvent();
+		ev.schedule(resource,nextEventTime);
 		resource.setIdle(false);
 	}
 }

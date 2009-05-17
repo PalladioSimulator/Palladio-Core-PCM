@@ -43,19 +43,24 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 			ExpressionSolver solver = new ExpressionSolver();
 			ManagedPDF resultPDF = solver.getResponseTime(stoRegEx);
 			
+			if(resultPDF == null){
+				logger.error("StochasticRegularExpression could not be solved!");
+				return;
+			}
+			
 			long timeAfterCalc = System.nanoTime();
 			long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
 			overallDuration += duration;
-			logger.warn("Finished Running ExprSolver:\t\t"+ duration + " ms");
-			logger.info("Resulting PDF:\t\t"+resultPDF.toString());
-			logger.info("As csv:\n\nx;probability\n"+new ProbFunctionCSVPrint().doSwitch(resultPDF.getModelBoxedPdf()));
+			logger.info("Finished Running ExprSolver:\t"+ duration + " ms");
+			logger.debug("Resulting PDF:\t\t\t"+resultPDF.toString());
+			logger.trace("As csv:\n\nx;probability\n"+new ProbFunctionCSVPrint().doSwitch(resultPDF.getModelBoxedPdf()));
 			
 			visualize(resultPDF.getPdfTimeDomain());
 			long timeAfterVisualisation = System.nanoTime();
 			duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVisualisation-timeAfterCalc);
 			overallDuration += duration;
-			logger.warn("Finished Visualisation:\t\t"+ duration + " ms");
-			logger.warn("Finished SRE-Solver:\t\t"+ overallDuration+ " ms");
+			logger.info("Finished Visualisation:\t\t"+ duration + " ms");
+			logger.info("Finished SRE-Solver:\t\t"+ overallDuration+ " ms");
 			
 		} else
 			logger.error("No StochasticRegularExpression available for solution!");
@@ -73,7 +78,7 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 		long timeAfterCalc = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
 		overallDuration += duration;
-		logger.warn("Finished Running PCM2SRE:\t\t"+ duration + " ms");
+		logger.info("Finished Running PCM2SRE:\t\t"+ duration + " ms");
 		
 		
 	}
@@ -81,7 +86,7 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 	private void printStoRegEx() {
 		ExpressionPrinter expPrinter = new ExpressionPrinter();
 		expPrinter.doSwitch(stoRegEx);
-		logger.info("ExpressionPrinter: "+expPrinter.getOutput());
+		logger.debug("ExpressionPrinter: "+expPrinter.getOutput());
 	}
 
 	private void runPcm2RegEx(PCMInstance model) {

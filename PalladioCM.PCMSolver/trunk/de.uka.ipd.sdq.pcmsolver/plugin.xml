@@ -23,4 +23,26 @@
 	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver">
 	    </launchConfigurationTabGroup>
 	</extension>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverReliabilityLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+            name="PCM Solver Reliability"
+            modes="run, debug">
+      </launchConfigurationType>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/favicon.ico"
+	        configTypeID="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTypeImage.PCMSolver.Reliability">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        class="de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverReliabilityTabGroup"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver.Reliability">
+	    </launchConfigurationTabGroup>
+	</extension>
 </plugin>

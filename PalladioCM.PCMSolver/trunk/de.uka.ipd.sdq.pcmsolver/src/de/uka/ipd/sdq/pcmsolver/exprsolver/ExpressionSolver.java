@@ -30,42 +30,52 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import flanagan.complex.Complex;
 
 public class ExpressionSolver {
-	
-	private static Logger logger = Logger.getLogger(ExpressionSolver.class.getName());
-	
+
+	private static Logger logger = Logger.getLogger(ExpressionSolver.class
+			.getName());
+
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
-	
-	public ExpressionSolver(){
+
+	public ExpressionSolver() {
 	}
-	
-	public ManagedPDF getResponseTime(Expression expr){
-		return (ManagedPDF)exprSwitch.doSwitch(expr);
+
+	public ManagedPDF getResponseTime(Expression expr) {
+		return (ManagedPDF) exprSwitch.doSwitch(expr);
 	}
-	
+
 	private ExpressionSwitch exprSwitch = new ExpressionSwitch() {
 
 		@Override
 		public Object caseAlternative(Alternative object) {
-			ManagedPDF leftManagedPDF = (ManagedPDF)doSwitch(object.getLeftOption().getRegexp());
-			ManagedPDF rightManagedPDF = (ManagedPDF)doSwitch(object.getRightOption().getRegexp());
-			
-			if (leftManagedPDF == null && rightManagedPDF != null) 
+
+			// Do the logging:
+			logger.debug("Visit Alternative");
+
+			ManagedPDF leftManagedPDF = (ManagedPDF) doSwitch(object
+					.getLeftOption().getRegexp());
+			ManagedPDF rightManagedPDF = (ManagedPDF) doSwitch(object
+					.getRightOption().getRegexp());
+
+			if (leftManagedPDF == null && rightManagedPDF != null)
 				return rightManagedPDF;
-			else if (leftManagedPDF != null && rightManagedPDF == null) 
+			else if (leftManagedPDF != null && rightManagedPDF == null)
 				return leftManagedPDF;
-			else if (leftManagedPDF == null && rightManagedPDF == null){
+			else if (leftManagedPDF == null && rightManagedPDF == null) {
 				return null;
 			}
-			
-			IProbabilityDensityFunction leftPDF = leftManagedPDF.getPdfFrequencyDomain();
-			IProbabilityDensityFunction rightPDF = rightManagedPDF.getPdfFrequencyDomain();
-			
+
+			IProbabilityDensityFunction leftPDF = leftManagedPDF
+					.getPdfFrequencyDomain();
+			IProbabilityDensityFunction rightPDF = rightManagedPDF
+					.getPdfFrequencyDomain();
+
 			double leftProb = object.getLeftOption().getProbability();
 			double rightProb = object.getRightOption().getProbability();
-			
+
 			IProbabilityDensityFunction resultPDF = null;
 			try {
-				resultPDF = leftPDF.scale(leftProb).add(rightPDF.scale(rightProb));
+				resultPDF = leftPDF.scale(leftProb).add(
+						rightPDF.scale(rightProb));
 			} catch (FunctionsInDifferenDomainsException e) {
 				e.printStackTrace();
 			} catch (UnknownPDFTypeException e) {
@@ -73,30 +83,37 @@ public class ExpressionSolver {
 			} catch (IncompatibleUnitsException e) {
 				e.printStackTrace();
 			}
-			
-			return new ManagedPDF(resultPDF,true);
+
+			return new ManagedPDF(resultPDF, true);
 		}
 
 		@Override
 		public Object caseLoop(Loop object) {
-			ManagedPDF innerManagedPDF = (ManagedPDF)doSwitch(object.getRegExp());
-			if (innerManagedPDF == null) return null;
-			
-			IProbabilityMassFunction iterations = getIterPMF(object); 
-			
+
+			// Do the logging:
+			logger.debug("Visit Loop");
+
+			ManagedPDF innerManagedPDF = (ManagedPDF) doSwitch(object
+					.getRegExp());
+			if (innerManagedPDF == null)
+				return null;
+
+			IProbabilityMassFunction iterations = getIterPMF(object);
+
 			reconfigureForLoopBody(innerManagedPDF, iterations);
-			
-			
+
 			ISamplePDF innerPDF = innerManagedPDF.getSamplePdfFrequencyDomain();
 			ISamplePDF resultPDF = null;
 			ISamplePDF tempPDF = null;
 			try {
-				resultPDF = ManagedPDF.createZeroFunction().getSamplePdfFrequencyDomain();
-				tempPDF = ManagedPDF.createDiracImpulse().getSamplePdfFrequencyDomain();
+				resultPDF = ManagedPDF.createZeroFunction()
+						.getSamplePdfFrequencyDomain();
+				tempPDF = ManagedPDF.createDiracImpulse()
+						.getSamplePdfFrequencyDomain();
 			} catch (ConfigurationNotSetException e) {
 				e.printStackTrace();
 			}
-	
+
 			int pos = 0;
 			List<ISample> samples = iterations.getSamples();
 			try {
@@ -106,7 +123,8 @@ public class ExpressionSolver {
 						tempPDF = (ISamplePDF) tempPDF.mult(innerPDF);
 						pos++;
 					}
-					resultPDF = (ISamplePDF) resultPDF.add(tempPDF.scale(sample.getProbability()));
+					resultPDF = (ISamplePDF) resultPDF.add(tempPDF.scale(sample
+							.getProbability()));
 				}
 			} catch (FunctionsInDifferenDomainsException e) {
 				e.printStackTrace();
@@ -120,25 +138,29 @@ public class ExpressionSolver {
 		}
 
 		/**
-		 * Adjusts the maximum domain size of the managed PDFs, if the 
-		 * function resulting from convoluting the inner loop PDFs would
-		 * need more sampling points. 
+		 * Adjusts the maximum domain size of the managed PDFs, if the function
+		 * resulting from convoluting the inner loop PDFs would need more
+		 * sampling points.
+		 * 
 		 * @param innerManagedPDF
 		 * @param iterations
 		 */
 		private void reconfigureForLoopBody(ManagedPDF innerManagedPDF,
 				IProbabilityMassFunction iterations) {
-			
+
 			int maxDomainSize = (int) (getMaxIterations(iterations) * getLargestSamplingValue(innerManagedPDF));
-			
+
 			try {
-				PDFConfiguration config = PDFConfiguration.getCurrentConfiguration();
+				PDFConfiguration config = PDFConfiguration
+						.getCurrentConfiguration();
 				int currentDomainSize = config.getNumSamplingPoints();
 				if (currentDomainSize < maxDomainSize) {
 					double distance = config.getDistance();
 					IUnit unit = config.getUnit();
-					logger.info("Adjusting MaxDomainSize from "+currentDomainSize+" to "+maxDomainSize);
-					PDFConfiguration.setCurrentConfiguration(maxDomainSize,distance, unit);
+					logger.debug("Adjusting MaxDomainSize from "
+							+ currentDomainSize + " to " + maxDomainSize);
+					PDFConfiguration.setCurrentConfiguration(maxDomainSize,
+							distance, unit);
 				}
 			} catch (ConfigurationNotSetException e1) {
 				e1.printStackTrace();
@@ -146,14 +168,15 @@ public class ExpressionSolver {
 		}
 
 		private double getLargestSamplingValue(ManagedPDF innerManagedPDF) {
-			ISamplePDF innerSamplePDF = innerManagedPDF.getSamplePdfTimeDomain();
-			
+			ISamplePDF innerSamplePDF = innerManagedPDF
+					.getSamplePdfTimeDomain();
+
 			double largestValue = 0.0;
 			List<Complex> list = innerSamplePDF.getValues();
-			for (int i=list.size()-1; i>=0; i--){
+			for (int i = list.size() - 1; i >= 0; i--) {
 				Complex z = list.get(i);
 				double prob = ((double) Math.round(z.getReal() * 10000.0)) / 10000.0;
-				if (prob > 0.0){
+				if (prob > 0.0) {
 					largestValue = i;
 					break;
 				}
@@ -164,10 +187,11 @@ public class ExpressionSolver {
 		private int getMaxIterations(IProbabilityMassFunction iterations) {
 			List<ISample> sampleList = iterations.getSamples();
 			int maxIterations = 0;
-			for (int i=sampleList.size()-1; i>=0; i--){
+			for (int i = sampleList.size() - 1; i >= 0; i--) {
 				ISample sample = sampleList.get(i);
-				if (sample.getProbability()!=0.0){
-					maxIterations = (Integer)sample.getValue(); break;
+				if (sample.getProbability() != 0.0) {
+					maxIterations = (Integer) sample.getValue();
+					break;
 				}
 			}
 			return maxIterations;
@@ -175,37 +199,48 @@ public class ExpressionSolver {
 
 		private IProbabilityMassFunction getIterPMF(Loop object) {
 			String iter = object.getIterationsString();
-			try{
+			try {
 				int iterInt = Integer.parseInt(iter);
 				ISample sample = pfFactory.createSample(iterInt, 1.0);
 				List<ISample> sampleList = new ArrayList<ISample>();
 				sampleList.add(sample);
 				IUnit unit = pfFactory.createDefaultUnit();
-				return pfFactory.createProbabilityMassFunction(sampleList, unit, true);
-			} catch(NumberFormatException e){
-				ProbabilityFunctionLiteral loopLiteral = (ProbabilityFunctionLiteral)ExpressionHelper.parseToExpression(object.getIterationsString());
-				ProbabilityMassFunction loopPMF = (ProbabilityMassFunction) loopLiteral.getFunction_ProbabilityFunctionLiteral();
-				//return pfFactory.transformToPMF( object.getIterationsPMF() );
-				return pfFactory.transformToPMF( loopPMF );
+				return pfFactory.createProbabilityMassFunction(sampleList,
+						unit, true);
+			} catch (NumberFormatException e) {
+				ProbabilityFunctionLiteral loopLiteral = (ProbabilityFunctionLiteral) ExpressionHelper
+						.parseToExpression(object.getIterationsString());
+				ProbabilityMassFunction loopPMF = (ProbabilityMassFunction) loopLiteral
+						.getFunction_ProbabilityFunctionLiteral();
+				// return pfFactory.transformToPMF( object.getIterationsPMF() );
+				return pfFactory.transformToPMF(loopPMF);
 			}
 		}
 
 		@Override
 		public Object caseSequence(Sequence object) {
-			ManagedPDF leftManagedPDF = (ManagedPDF)doSwitch(object.getLeftRegExp());
-			ManagedPDF rightManagedPDF = (ManagedPDF)doSwitch(object.getRightRegExp());
 
-			if (leftManagedPDF == null && rightManagedPDF != null) 
+			// Do the logging:
+			logger.debug("Visit Sequence");
+
+			ManagedPDF leftManagedPDF = (ManagedPDF) doSwitch(object
+					.getLeftRegExp());
+			ManagedPDF rightManagedPDF = (ManagedPDF) doSwitch(object
+					.getRightRegExp());
+
+			if (leftManagedPDF == null && rightManagedPDF != null)
 				return rightManagedPDF;
-			else if (leftManagedPDF != null && rightManagedPDF == null) 
+			else if (leftManagedPDF != null && rightManagedPDF == null)
 				return leftManagedPDF;
-			else if (leftManagedPDF == null && rightManagedPDF == null){
+			else if (leftManagedPDF == null && rightManagedPDF == null) {
 				return null;
 			}
-			
-			IProbabilityDensityFunction leftPDF = leftManagedPDF.getPdfFrequencyDomain();
-			IProbabilityDensityFunction rightPDF = rightManagedPDF.getPdfFrequencyDomain();
-		
+
+			IProbabilityDensityFunction leftPDF = leftManagedPDF
+					.getPdfFrequencyDomain();
+			IProbabilityDensityFunction rightPDF = rightManagedPDF
+					.getPdfFrequencyDomain();
+
 			IProbabilityDensityFunction resultPDF = null;
 			try {
 				resultPDF = leftPDF.mult(rightPDF);
@@ -216,23 +251,31 @@ public class ExpressionSolver {
 			} catch (IncompatibleUnitsException e) {
 				e.printStackTrace();
 			}
-			
-			return new ManagedPDF(resultPDF,true);
+
+			return new ManagedPDF(resultPDF, true);
 		}
 
 		@Override
 		public Object caseSymbol(Symbol object) {
-			List<ResourceUsage> resourceUsageList = (List<ResourceUsage>) object.getResourceUsages();
+
+			// Do the logging:
+			logger.debug("Visit Symbol: " + object.getName());
+			
+			List<ResourceUsage> resourceUsageList = (List<ResourceUsage>) object
+					.getResourceUsages();
 			IProbabilityDensityFunction resultPDF = null;
-			for (ResourceUsage resourceUsage : resourceUsageList){
-				ManagedPDF managedPDF  = new ManagedPDF(resourceUsage.getUsageTime(), true);
-				IProbabilityDensityFunction iPDF = managedPDF.getPdfFrequencyDomain();
-				
-				if (resultPDF == null){
+			for (ResourceUsage resourceUsage : resourceUsageList) {
+				ManagedPDF managedPDF = new ManagedPDF(resourceUsage
+						.getUsageTime(), true);
+				IProbabilityDensityFunction iPDF = managedPDF
+						.getPdfFrequencyDomain();
+
+				if (resultPDF == null) {
 					resultPDF = iPDF;
 				} else {
 					try {
-						resultPDF = resultPDF.mult(iPDF); // add up resource demands
+						resultPDF = resultPDF.mult(iPDF); // add up resource
+						// demands
 					} catch (FunctionsInDifferenDomainsException e) {
 						e.printStackTrace();
 					} catch (UnknownPDFTypeException e) {
@@ -241,15 +284,14 @@ public class ExpressionSolver {
 						e.printStackTrace();
 					}
 				}
-				
+
 			}
-			if (resultPDF == null) 
+			if (resultPDF == null)
 				return null;
-			else 
-				return new ManagedPDF(resultPDF,true);
+			else
+				return new ManagedPDF(resultPDF, true);
 		}
-		
+
 	};
-	
-	
+
 }

@@ -136,7 +136,7 @@ public class InternalActionHandler{
 		 * (without *1.0, e.g. (4) / 20 would result in a demand of 0 instead of 0.2) 
 		 */
 		specification = "("+ specification+") / (("+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification()+")*1.0)";
-		logger.info("Actual Resource Demand (Expression): "+specification);
+		logger.debug("Actual Resource Demand (Expression): "+specification);
 		
 		Expression solvedExpr = (Expression) ExpressionHelper
 				.getSolvedExpression(specification, visitor.getContextWrapper());
@@ -146,7 +146,7 @@ public class InternalActionHandler{
 		String solvedSpecification = ExpressionHelper
 				.getSolvedExpressionAsString(specification,
 						visitor.getContextWrapper());
-		logger.info("Computed Actual Resource Demand: "+solvedSpecification);
+		logger.debug("Computed Actual Resource Demand: "+solvedSpecification);
 		return solvedSpecification;
 	}
 

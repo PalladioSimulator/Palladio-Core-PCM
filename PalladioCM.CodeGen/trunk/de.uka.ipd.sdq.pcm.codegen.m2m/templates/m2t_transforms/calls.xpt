@@ -14,7 +14,7 @@
 // The list of parameter usages characterises the paramter contents
 // ----------------------------------
 «DEFINE Call(Object call, String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND PreCallTM(call, parameterUsages) FOR this»
+	«EXPAND PreCallTM(call, prefix, parameterUsages) FOR this»
    	«prefix»«this.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
 	«EXPAND PostCallTM(call, outParameterUsages) FOR this»
@@ -25,7 +25,7 @@
 // Template method for code to be executed before 
 // an external call
 // ----------------------------------
-«DEFINE PreCallTM(Object call, List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
 «ENDDEFINE»
 
 

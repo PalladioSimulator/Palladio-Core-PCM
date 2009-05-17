@@ -39,7 +39,7 @@ public class LqnTransformTest {
 	
 	@Test
 	public void runLqnTransform(){
-		PCMSolver solver = new PCMSolver(props);
+		// PCMSolver solver = new PCMSolver(props);
 	}
 	
 	

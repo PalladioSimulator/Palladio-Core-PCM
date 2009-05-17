@@ -65,7 +65,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseScenarioBehaviour(ScenarioBehaviour object) {
-		logger.info("VisitScenarioBehaviour");
+		logger.debug("VisitScenarioBehaviour");
 		doSwitch(getStartAction(object));
 		return object;
 	}
@@ -75,7 +75,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseStart(Start object) {
-		logger.info("VisitStart");
+		logger.debug("VisitStart");
 		doSwitch(object.getSuccessor());
 		return object;
 	}
@@ -85,7 +85,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseStop(Stop object) {
-		logger.info("VisitStop");
+		logger.debug("VisitStop");
 		return object;
 	}
 
@@ -93,7 +93,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	
 	@Override
 	public Object caseBranch(Branch object) {
-		logger.info("VisitBranch");
+		logger.debug("VisitBranch");
 		EList<BranchTransition> btList = object.getBranchTransitions_Branch();
 		for(BranchTransition bt : btList){
 			doSwitch(bt.getBranchedBehaviour_BranchTransition());
@@ -107,8 +107,8 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseEntryLevelSystemCall(EntryLevelSystemCall elsc) {
-		logger.info("VisitEntryLevelSystemCall");
-		logger.info("Called System Method "
+		logger.debug("VisitEntryLevelSystemCall");
+		logger.debug("Called System Method "
 				+ elsc.getSignature_EntryLevelSystemCall().getServiceName());
 		
 		if (contextWrapper == null)
@@ -133,14 +133,14 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	
 	@Override
 	public Object caseDelay(Delay object) {
-		logger.info("VisitDelay");
+		logger.debug("VisitDelay");
 		doSwitch(object.getSuccessor());
 		return object;
 	}
 
 	@Override
 	public Object caseLoop(Loop object) {
-		logger.info("VisitLoop");
+		logger.debug("VisitLoop");
 		doSwitch(object.getBodyBehaviour_Loop());
 		doSwitch(object.getSuccessor());
 		return object;

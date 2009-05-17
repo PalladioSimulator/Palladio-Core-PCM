@@ -27,6 +27,7 @@ public class ClosedWorkload implements IWorkloadDriver {
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver#run()
 	 */
 	public void run() {
+		ClosedWorkloadUser.resetFailureCounters();
 		for (int i=0; i<population; i++) {
 			IUser user = userFactory.createUser();
 			user.startUserLife();

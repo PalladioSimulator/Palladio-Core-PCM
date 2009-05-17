@@ -27,6 +27,13 @@
 		package main;
 		
 		public class ResourceEnvironment implements de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory {
+			
+			private static final ResourceEnvironment instance = new ResourceEnvironment();
+			
+			public static ResourceEnvironment getInstance() {
+				return instance;
+			}
+		
 		   «EXPAND ResourceContainerInit FOR this»
 		}
 	«ENDFILE»
@@ -47,6 +54,33 @@
 				"«rc.id»"
 			«ENDFOREACH»
 		};
+	}
+	
+	public String getFromResourceContainerID(String linkingResourceContainerID) {
+		«FOREACH this.linkingresource AS rc»
+			if(linkingResourceContainerID.equals("«rc.id»")) {
+				return "«rc.fromResourceContainer_LinkingResource.id.get(0)»";
+			}
+		«ENDFOREACH»
+		return null;
+	}
+	
+	public String getToResourceContainerID(String linkingResourceContainerID) {
+		«FOREACH this.linkingresource AS rc»
+			if (linkingResourceContainerID.equals("«rc.id»")) {
+				return "«rc.toResourceContainer_LinkingResource.id.get(0)»";
+			}
+		«ENDFOREACH»
+		return null;
+	}
+	
+	public String getLinkingResourceContainerID(String fromResourceContainerID, String toResourceContainerID) {
+		for (String id: getLinkingResourceContainerIDList()) {
+			if (getFromResourceContainerID(id).equals(fromResourceContainerID) && getToResourceContainerID(id).equals(toResourceContainerID)) {
+				return id;
+			}
+		}
+		return null;
 	}
 	
 	public void fillResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer rc) {
@@ -85,7 +119,8 @@
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
 		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
 		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
+		«this.failureProbability»);
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
@@ -93,6 +128,8 @@
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
+		«this.MTTF»,
+		«this.MTTR»,
 		"TODO: unit!",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
 «ENDDEFINE»

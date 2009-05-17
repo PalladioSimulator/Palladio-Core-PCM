@@ -8,11 +8,14 @@ import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Entity;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
+import de.uka.ipd.sdq.simucomframework.exceptions.CommunicationLinkFailedException;
 import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceNotAvailableException;
 import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
@@ -41,6 +44,20 @@ public abstract class AbstractScheduledResource extends Entity {
 	// private State busyState;
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
+
+	protected JobDoneEvent myJobDoneEvent = null;
+
+	// For resources that can become unavailable (SimulatedActiveResources):
+	protected double mttf = 0.0;
+	protected double mttr = 0.0;
+	protected boolean canBeUnavailable = false;
+	protected boolean isAvailable = true;
+	protected ResourceFailedEvent failedEvent;
+	protected ResourceRepairedEvent repairedEvent;
+
+	// For resources that can fail (SimulatedLinkingResources):
+	protected boolean canFail = false;
+	protected double failureProbability = 0.0;
 
 	private HashMap<String, State> statesCache = new HashMap<String, State>();
 
@@ -93,6 +110,8 @@ public abstract class AbstractScheduledResource extends Entity {
 		myResourceStatus.setId(this.getName());
 		myModel.getSimulationStatus().getResourceStatus().getActiveResources()
 				.add(myResourceStatus);
+
+		this.myJobDoneEvent = new JobDoneEvent(getModel(), "JobDone");
 	}
 
 	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
@@ -157,6 +176,20 @@ public abstract class AbstractScheduledResource extends Entity {
 	 *            resource
 	 */
 	public void consumeResource(SimProcess thread, double demand) {
+
+		// Check first if the resource is currently available:
+		if (!isAvailable) {
+			throw new ResourceNotAvailableException();
+		}
+
+		// If the resource can fail, simulate a failure with the given
+		// probability:
+		// if (canFail) {
+		//	   if (Math.random() < failureProbability) {
+		//	       throw new CommunicationLinkFailedException();
+		//	   }
+		// }
+
 		if (this.getModel().getSimulationControl().isRunning()) {
 			double calculatedDemand = calculateDemand(demand);
 			logger.info("Resource " + this.getName() + " loaded with "
@@ -290,9 +323,13 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * lifecycle
 	 */
 	public void activateResource() {
-		logger.debug("Starting Resource " + this.getName());
+		logger.debug("Starting resource " + this.getName());
 		lastTimeOfAdjustingJobs = getModel().getSimulationControl()
 				.getCurrentSimulationTime();
+		if (canBeUnavailable) {
+			double t = getFailureTime();
+			failedEvent.schedule(this, t);
+		}
 	}
 
 	/**
@@ -300,13 +337,18 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * been stopped
 	 */
 	public void deactivateResource() {
-		if (!this.isStopped ){
-			logger.debug("Stopping Resource " + this.getName());
+		if (!this.isStopped) {
+			logger.debug("Stopping resource " + this.getName());
 			this.isStopped = true;
-			experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
-					.getSimulationControl().getCurrentSimulationTime());
+			experimentRun.addStateMeasurement(stateSensor, idleState,
+					getModel().getSimulationControl()
+							.getCurrentSimulationTime());
 			this.getModel().getSimulationStatus().getResourceStatus()
 					.getActiveResources().remove(myResourceStatus);
+			if (this.canBeUnavailable) {
+				this.failedEvent.removeEvent();
+				this.repairedEvent.removeEvent();
+			}
 		}
 	}
 
@@ -325,4 +367,61 @@ public abstract class AbstractScheduledResource extends Entity {
 				.getCurrentSimulationTime();
 	}
 
+	/**
+	 * Marks the resource as being available or unavailable.
+	 * 
+	 * @param isAvailable
+	 *            the target state to set
+	 */
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+		double time = this.getModel().getSimulationControl()
+				.getCurrentSimulationTime();
+		String status = (this.isAvailable) ? "available" : "unavailable";
+		logger.debug("Resource " + this.getName() + " " + status
+				+ " at sim time " + time);
+	}
+
+	/**
+	 * Returns the failure time for this resource (or -1.0 if the resource
+	 * cannot fail).
+	 * 
+	 * @return the failure time for the resource
+	 */
+	public double getFailureTime() {
+		if (!canBeUnavailable) {
+			throw new RuntimeException(
+					"getFailureTime() should not be invoked as resource cannot fail");
+		}
+		double failureTimeSample = (Double) Context.evaluateStatic("Exp(1/"
+				+ this.mttf + ")", Double.class);
+		logger.debug("Resource will fail at sim time +" + failureTimeSample);
+		return failureTimeSample;
+	}
+
+	/**
+	 * Returns the repair time for this resource (or -1.0 if the resource cannot
+	 * fail).
+	 * 
+	 * @return the repair time for the resource
+	 */
+	public double getRepairTime() {
+		if (!canBeUnavailable) {
+			throw new RuntimeException(
+					"getRepairTime() should not be invoked as resource cannot fail");
+		}
+		double repairTimeSample = (Double) Context.evaluateStatic("Exp(1/"
+				+ this.mttr + ")", Double.class);
+		logger.debug("Resource will be repaired at sim time +"
+				+ repairTimeSample);
+		return repairTimeSample;
+	}
+
+	public ISimEventDelegate getJobDoneEvent() {
+		return myJobDoneEvent;
+	}
+
+	public double getFailureProbability() {
+		return (canFail)? failureProbability : 0.0;
+	}
 }

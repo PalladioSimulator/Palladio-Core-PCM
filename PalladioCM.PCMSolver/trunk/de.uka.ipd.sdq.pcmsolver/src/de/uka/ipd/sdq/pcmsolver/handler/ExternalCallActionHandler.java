@@ -62,11 +62,11 @@ public class ExternalCallActionHandler {
 		ServiceEffectSpecification seff = visitor.getContextWrapper().getNextSEFF(call);
 		
 		if (seff == null){
-			logger.info("I found no SEFF for service "+serviceToBeCalled.getServiceName() + " called by External Call "+ call.getId() + " thus I assume a System External Call");
+			logger.debug("I found no SEFF for service "+serviceToBeCalled.getServiceName() + " called by External Call "+ call.getId() + " thus I assume a System External Call");
 			String timeSpecification = getTimeSpecification(serviceToBeCalled);
 			createInternalAction(timeSpecification, call);
 		} else {
-			//logger.info("Found Assembly Connector");
+			//logger.debug("Found Assembly Connector");
 			ContextWrapper oldContextWrapper = (ContextWrapper)visitor.getContextWrapper().clone();
 			ContextWrapper contextWrapper = visitor.getContextWrapper().getContextWrapperFor(call);
 

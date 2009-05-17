@@ -29,6 +29,11 @@
 
 «DEFINE ComponentConstructor FOR RepositoryComponent»
 	private String assemblyContextID = null;
+	
+	public String getAssemblyContextID() {
+		return assemblyContextID;
+	}
+		
 	«EXPAND PassiveResourceDecls FOR this»
 	
 	public «this.javaName()» (String assemblyContextID) {

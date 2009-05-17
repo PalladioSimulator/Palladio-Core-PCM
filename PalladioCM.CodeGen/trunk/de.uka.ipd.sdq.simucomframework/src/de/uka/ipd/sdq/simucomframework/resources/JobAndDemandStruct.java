@@ -10,10 +10,6 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
  * @author Steffen Becker
  *
  */
-/**
- * @author Steffen Becker
- *
- */
 class JobAndDemandStruct extends Entity {
 	private double demand;
 	private SimProcess jobParent;

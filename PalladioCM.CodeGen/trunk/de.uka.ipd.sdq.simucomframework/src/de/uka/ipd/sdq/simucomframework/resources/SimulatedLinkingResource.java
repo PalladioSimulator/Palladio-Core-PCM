@@ -15,11 +15,13 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	private String throughput;
 	private String latencySpec;
 	
-	public SimulatedLinkingResource(SimuComModel myModel, String typeID, String description, String d, String latencySpec)
+	public SimulatedLinkingResource(SimuComModel myModel, String typeID, String description, String d, String latencySpec, Double failureProbability)
 	{
 		super (myModel, typeID, description, SchedulingStrategy.FCFS);
 		this.latencySpec = latencySpec;
 		this.throughput = d;
+		this.failureProbability = failureProbability;
+		this.canFail = (this.failureProbability > 0.0);
 	}
 
 	@Override

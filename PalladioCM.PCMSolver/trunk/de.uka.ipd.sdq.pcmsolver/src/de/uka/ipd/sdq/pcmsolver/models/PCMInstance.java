@@ -36,10 +36,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 
 public class PCMInstance {
-	
-	private static Logger logger = 
-		Logger.getLogger(PCMInstance.class.getName());
-	
+
+	private static Logger logger = Logger
+			.getLogger(PCMInstance.class.getName());
+
 	private Allocation allocation;
 
 	private Repository repository;
@@ -51,17 +51,18 @@ public class PCMInstance {
 	private de.uka.ipd.sdq.pcm.system.System system;
 
 	private UsageModel usageModel;
-	
+
 	private ComputedUsage usage;
-	
+
 	private ComputedAllocation actualAllocation;
-	
+
 	private String storagePath;
 
 	public PCMInstance(Properties config) {
 		this.storagePath = config.getProperty("Storage_Path");
 		this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
-		this.actualAllocation = ComputedAllocationFactory.eINSTANCE.createComputedAllocation();
+		this.actualAllocation = ComputedAllocationFactory.eINSTANCE
+				.createComputedAllocation();
 		loadFromFiles(config);
 	}
 
@@ -71,26 +72,36 @@ public class PCMInstance {
 				.createComputedAllocation();
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");
-			
-			String filename = configuration.getAttribute(ConstantsContainer.ALLOCATION_FILE, "");
+
+			String filename = configuration.getAttribute(
+					ConstantsContainer.ALLOCATION_FILE, "");
 			this.allocation = ((Allocation) loadFromXMIFile(filename));
-			filename = configuration.getAttribute(ConstantsContainer.REPOSITORY_FILE, "");
+
+			filename = configuration.getAttribute(
+					ConstantsContainer.REPOSITORY_FILE, "");
 			this.repository = ((Repository) loadFromXMIFile(filename));
-//			filename = configuration.getAttribute("inputResourceEnvironment","");
-//			this.resourceEnvironment = ((ResourceEnvironment) loadFromXMIFile(filename));
-			this.resourceEnvironment = this.allocation.getTargetResourceEnvironment_Allocation();
-			filename = configuration.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, "");
+
+			filename = configuration.getAttribute(
+					ConstantsContainer.RESOURCEENVIRONMENT_FILE, "");
+			this.resourceEnvironment = ((ResourceEnvironment) loadFromXMIFile(filename));
+
+			filename = configuration.getAttribute(
+					ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, "");
 			this.resourceRepository = ((ResourceRepository) loadFromXMIFile(filename));
-//			filename = configuration.getAttribute("inputSystem", "");
-//			this.system = ((de.uka.ipd.sdq.pcm.system.System) loadFromXMIFile(filename));
-			filename = configuration.getAttribute(ConstantsContainer.USAGE_FILE, "");
+
+			filename = configuration.getAttribute(
+					ConstantsContainer.SYSTEM_FILE, "");
+			this.system = ((de.uka.ipd.sdq.pcm.system.System) loadFromXMIFile(filename));
+
+			filename = configuration.getAttribute(
+					ConstantsContainer.USAGE_FILE, "");
 			this.usageModel = ((UsageModel) loadFromXMIFile(filename));
-			this.system = this.allocation.getSystem_Allocation();
+
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Allocation getAllocation() {
 		return allocation;
 	}
@@ -139,7 +150,6 @@ public class PCMInstance {
 		this.usageModel = usageModel;
 	}
 
-	
 	public ComputedAllocation getComputedAllocation() {
 		return actualAllocation;
 	}
@@ -169,22 +179,23 @@ public class PCMInstance {
 		this.system = ((de.uka.ipd.sdq.pcm.system.System) loadFromXMIFile(filename));
 		filename = config.getProperty("Filename_UsageModel");
 		this.usageModel = ((UsageModel) loadFromXMIFile(filename));
-	}	
-	
-	public void saveToFiles(String fileNamePrefix){
-		fileNamePrefix = storagePath + "\\" + fileNamePrefix;
-		saveToXMIFile(allocation, fileNamePrefix+".allocation");
-		saveToXMIFile(repository, fileNamePrefix+".repository");
-		saveToXMIFile(resourceEnvironment, fileNamePrefix+".resourceenvironment");
-		saveToXMIFile(resourceRepository, fileNamePrefix+".resourcetype");
-		saveToXMIFile(system, fileNamePrefix+".system");
-		saveToXMIFile(usageModel, fileNamePrefix+".usagemodel");
-		
-		saveToXMIFile(usage, fileNamePrefix+".usage");
-		saveToXMIFile(actualAllocation, fileNamePrefix+".actualallocation");
-		
 	}
-	
+
+	public void saveToFiles(String fileNamePrefix) {
+		fileNamePrefix = storagePath + "\\" + fileNamePrefix;
+		saveToXMIFile(allocation, fileNamePrefix + ".allocation");
+		saveToXMIFile(repository, fileNamePrefix + ".repository");
+		saveToXMIFile(resourceEnvironment, fileNamePrefix
+				+ ".resourceenvironment");
+		saveToXMIFile(resourceRepository, fileNamePrefix + ".resourcetype");
+		saveToXMIFile(system, fileNamePrefix + ".system");
+		saveToXMIFile(usageModel, fileNamePrefix + ".usagemodel");
+
+		saveToXMIFile(usage, fileNamePrefix + ".usage");
+		saveToXMIFile(actualAllocation, fileNamePrefix + ".actualallocation");
+
+	}
+
 	private EObject loadFromXMIFile(String fileName) {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -214,29 +225,28 @@ public class PCMInstance {
 			return null;
 		}
 
-		//logger.debug("Loaded " + uri);
+		// logger.debug("Loaded " + uri);
 
-//		if (!fileName.endsWith(".assembly") &&
-//		    !fileName.endsWith("repository")) {
-//			// Validate the contents of the loaded resource.
-//			for (Iterator j = resource.getContents().iterator(); j.hasNext();) {
-//				EObject eObject = (EObject) j.next();
-//				Diagnostic diagnostic = Diagnostician.INSTANCE
-//						.validate(eObject);
-//				if (diagnostic.getSeverity() != Diagnostic.OK) {
-//					System.out.println();
-//					System.out.println(diagnostic.getMessage());
-//					// printDiagnostic(diagnostic, "");
-//					
-//				}
-//			}
-//		}
+		// if (!fileName.endsWith(".assembly") &&
+		// !fileName.endsWith("repository")) {
+		// // Validate the contents of the loaded resource.
+		// for (Iterator j = resource.getContents().iterator(); j.hasNext();) {
+		// EObject eObject = (EObject) j.next();
+		// Diagnostic diagnostic = Diagnostician.INSTANCE
+		// .validate(eObject);
+		// if (diagnostic.getSeverity() != Diagnostic.OK) {
+		// System.out.println();
+		// System.out.println(diagnostic.getMessage());
+		// // printDiagnostic(diagnostic, "");
+		//					
+		// }
+		// }
+		// }
 		EObject eObject = (EObject) resource.getContents().iterator().next();
 		return EcoreUtil.getRootContainer(eObject);
 	}
-	
-	
-	private void saveToXMIFile(EObject modelToSave, String fileName) {
+
+	public void saveToXMIFile(EObject modelToSave, String fileName) {
 		// Create a resource set.
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -254,10 +264,9 @@ public class PCMInstance {
 		} catch (IOException e) {
 			logger.error(e.getMessage());
 		}
-		//logger.debug("Saved " + fileURI);
+		// logger.debug("Saved " + fileURI);
 	}
-	
-	
+
 	private void registerPackages(ResourceSet resourceSet) {
 
 		resourceSet.getPackageRegistry().put(AllocationPackage.eNS_URI,

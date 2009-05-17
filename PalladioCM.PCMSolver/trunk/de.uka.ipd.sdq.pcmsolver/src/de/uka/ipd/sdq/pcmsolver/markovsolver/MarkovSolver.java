@@ -34,7 +34,7 @@ public class MarkovSolver {
 	public double solve(MarkovChain markovChain) {
 
 		// Do the logging:
-		logger.info("Solving Markov Chain [" + markovChain.getName() + "]");
+		logger.debug("Solving Markov Chain [" + markovChain.getName() + "]");
 
 		// Get the indices of the Start and Success States:
 		int index_start = findIndex(markovChain, StateType.START);

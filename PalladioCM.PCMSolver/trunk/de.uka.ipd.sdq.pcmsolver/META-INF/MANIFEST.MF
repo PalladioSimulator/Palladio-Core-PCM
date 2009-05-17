@@ -30,7 +30,9 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.workflow.launchconfig,
  de.uka.ipd.sdq.markov,
  org.eclipse.emf.query,
- org.eclipse.emf.ocl
+ org.eclipse.emf.ocl,
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ de.uka.ipd.sdq.dialogs;bundle-version="2.0.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.exprsolver,

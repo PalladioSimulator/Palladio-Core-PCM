@@ -9,16 +9,16 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 
 /**
- * Launches the PCM Solver.
+ * Launches the PCM Solver for Reliability analysis.
  * 
  * The extension point org.eclipse.debug.core.launchConfigurationTypes in the
  * plugin.xml refers to this class. The class inherits from the eclipse-internal
  * launch configuration delegate.
  * 
- * @author koziolek, brosch
+ * @author brosch
  * 
  */
-public class PCMSolverLaunchConfigurationDelegate implements
+public class PCMSolverReliabilityLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	/**
@@ -42,7 +42,7 @@ public class PCMSolverLaunchConfigurationDelegate implements
 			final IProgressMonitor monitor) throws CoreException {
 
 		// Create a new PCM Solver:
-		PCMSolver solver = new PCMSolver(configuration, monitor);
+		PCMSolver solver = new PCMSolver(configuration, monitor, true);
 
 		// Start the solver:
 		solver.execute();

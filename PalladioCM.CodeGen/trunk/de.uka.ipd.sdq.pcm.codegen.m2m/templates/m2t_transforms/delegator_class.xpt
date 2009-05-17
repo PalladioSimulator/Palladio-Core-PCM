@@ -15,6 +15,11 @@
 	     public «prefix»«this.javaName()»(«this.fqn()» myInnerPort){
 	        this.myInnerPort = myInnerPort;
 	     }
+	     
+	     public String getComponentAssemblyContextID() {
+	     	return this.myInnerPort.getComponentAssemblyContextID();
+	     }
+	     
 	     «EXPAND Delegator FOREACH this.signatures__Interface»
 	  }
 	«ENDFILE»

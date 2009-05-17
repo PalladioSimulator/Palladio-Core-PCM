@@ -24,7 +24,7 @@ public class JobDoneEvent extends SimEvent {
 		JobAndDemandStruct job = resource.removeFinishedJob();
 		job.getJobParent().scheduleAt(0);
 	 	if (resource.hasMoreJobs()) {
-			ISimEventDelegate ev = new JobDoneEvent(getModel(), "JobDone");
+			ISimEventDelegate ev = resource.getJobDoneEvent();
 			ev.schedule(resource, resource.getTimeWhenNextJobIsDone());
 			resource.setIdle(false);
 		} else {
