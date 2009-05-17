@@ -58,6 +58,9 @@ public class Opt4JStarter {
 		Opt4JStarter.problem = new DSEProblem(pcmInstance);
 		
 		Opt4JStarter.problem.saveProblem();
+		
+
+		DSEModule dseModule = new DSEModule();
 
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
 		ea.setGenerations(maxIterations);
@@ -66,9 +69,7 @@ public class Opt4JStarter {
 		
 		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
 		sa.setIterations(maxIterations);
-		
 
-		DSEModule dseModule = new DSEModule();
 
 		/*
 		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
@@ -77,6 +78,7 @@ public class Opt4JStarter {
 		// ArchiveModule am = new ArchiveModule();
 		// am.setType(ArchiveModule.Type.);
 		PopulationTrackerModule p = new PopulationTrackerModule();
+		
 
 		Collection<Module> modules = new ArrayList<Module>();
 		modules.add(ea);

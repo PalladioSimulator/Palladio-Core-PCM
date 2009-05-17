@@ -8,6 +8,8 @@ import org.opt4j.core.problem.Decoder;
 import org.opt4j.core.problem.Evaluator;
 import org.opt4j.core.problem.ProblemModule;
 
+import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTracker;
+
 
 public class DSEModule extends ProblemModule {
 
@@ -23,6 +25,7 @@ public class DSEModule extends ProblemModule {
 	}
 
 	public void configure() {
+		//bind(DSENeighbor.class).asEagerSingleton();
 		bindProblem(DSECreator.class, DSEDecoder.class,
 				DSEEvaluator.class);
 
@@ -30,11 +33,16 @@ public class DSEModule extends ProblemModule {
 
 	//@Override
 	protected void config() {
+		
+		//bind(DSENeighbor.class).asEagerSingleton();
+		
 		Class<? extends Creator<?>> creator = DSECreator.class;
 		Class<? extends Decoder<?, ?>> decoder = DSEDecoder.class;
 		Class<? extends Evaluator<?>> evaluator = DSEEvaluator.class;
 		
 		bindProblem(creator, decoder, evaluator);
+		
+
 
 		
 	}

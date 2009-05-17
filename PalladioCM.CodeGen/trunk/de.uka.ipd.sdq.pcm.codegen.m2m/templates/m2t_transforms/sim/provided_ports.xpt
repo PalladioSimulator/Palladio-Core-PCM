@@ -13,7 +13,7 @@
 «ENDDEFINE»
 
 «DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR Signature»
-	logger.debug("Entering port of composed structure «cs.entityName»");
+	//logger.debug("Entering port of composed structure «cs.entityName»");
 	«EXPAND PrePortCode FOR cs»
 	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(
 	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);

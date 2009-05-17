@@ -97,5 +97,11 @@ class DimensionBounds implements Bounds<Double> {
 				Enumeration.class.isInstance(this.problem.getDesigndecision().get(index).getDomain())
 				|| IntegerRange.class.isInstance(this.problem.getDesigndecision().get(index).getDomain()));
 	}
+	
+	public boolean isEnum(int index){
+		return (
+				Enumeration.class.isInstance(this.problem.getDesigndecision().get(index).getDomain())
+				);
+	}
 
 }

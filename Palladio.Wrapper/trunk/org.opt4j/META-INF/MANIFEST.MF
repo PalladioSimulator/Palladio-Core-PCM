@@ -25,6 +25,9 @@ Export-Package: org.opt4j.benchmark.dtlz;uses:="org.opt4j.benchmark,org.opt4j.co
    javax.swing.table,
    org.opt4j.core.optimizer,
    com.google.inject",
+ org.opt4j.operator.common,
+ org.opt4j.operator.neighbor,
+ org.opt4j.operator.normalize,
  org.opt4j.optimizer.de;
   uses:="org.opt4j.optimizer.ea,
    org.opt4j.operator.crossover,
