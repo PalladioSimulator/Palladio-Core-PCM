@@ -72,20 +72,28 @@ public class Initialization {
 		if (elements.size() > 0) {
 			for (ModelElement element : elements) {
 				if (element instanceof GASTClass) {
-					List<GASTClass> currentList = new LinkedList<GASTClass>();
-					currentList.add((GASTClass)element);
-					
-					EList<GASTClass> innerClasses = ((GASTClass)element).getInnerClasses();
-					
-					if (innerClasses != null) {
-						currentList.addAll(innerClasses);
-					}
-					elementList.add(currentList);
+					elementList.add(getInnerClasses((GASTClass)element));
 				}
 			}
 		}
 		
 		return elementList;
+	}
+	
+	private List<GASTClass> getInnerClasses (GASTClass element) {
+		List<GASTClass> currentList = new LinkedList<GASTClass>();
+		currentList.add((GASTClass)element);
+		
+		EList<GASTClass> innerClasses = ((GASTClass)element).getInnerClasses();
+		
+		if (innerClasses != null) {
+			currentList.addAll(innerClasses);
+		}
+		for (GASTClass innerClass : innerClasses) {
+			currentList.addAll(getInnerClasses(innerClass));
+		}
+		
+		return currentList;
 	}
 	
 	private void iteratePackages (EList<Package> packages) {

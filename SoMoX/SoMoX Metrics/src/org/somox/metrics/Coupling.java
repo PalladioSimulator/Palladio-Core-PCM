@@ -217,26 +217,6 @@ public class Coupling implements Metric {
 		referencesToOtherComp = 0.0;
 		referencesToWholeProject = 0.0;
 		
-		for (GASTClass currentClass : componentBClasses) {
-			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
-
-			for (Access currentAccess : accesses) {
-				GASTClass accessedClass = currentAccess.getAccessedClass();
-				if (accessedClass != null) {
-					if (componentANameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToOtherComp += 1.0;
-						referencesToWholeProject += 1.0;
-					} else if (externNameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToWholeProject += 1.0;
-					}
-				}
-			}
-		}
-		
-		if (coupling < referencesToOtherComp/referencesToWholeProject) {
-			coupling = referencesToOtherComp/referencesToWholeProject;
-		}
-		
 		return coupling;
 
 	}

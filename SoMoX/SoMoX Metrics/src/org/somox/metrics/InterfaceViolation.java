@@ -91,30 +91,6 @@ public class InterfaceViolation implements Metric {
 			ifaceViol = referencesToClasses/referencesToWholeComponent;
 		}
 		
-		referencesToClasses = 0.0;
-		referencesToWholeComponent = 0.0;
-		
-		for (GASTClass currentClass : componentBClasses) {
-			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
-
-			for (Access currentAccess : accesses) {
-				GASTClass accessedClass = currentAccess.getAccessedClass();
-				
-				if (accessedClass != null) {
-					if (componentAClassNameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToClasses += 1.0;
-						referencesToWholeComponent += 1.0;
-					} else if (componentAIFaceNameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToWholeComponent += 1.0;
-					}
-				}
-			}
-		}
-		
-		if (ifaceViol < referencesToClasses/referencesToWholeComponent && referencesToWholeComponent != 0) {
-			ifaceViol = referencesToClasses/referencesToWholeComponent;
-		}
-		
 		return ifaceViol;
 
 	}
