@@ -29,7 +29,6 @@ public class DesmoJSimEvent extends desmoj.core.simulator.Event implements
 		myAbstractEvent.eventRoutine(dWho.getEntity());
 	}
 
-	@Override
 	public void removeEvent() {
 		if (this.isScheduled()) {
 			this.cancel();
