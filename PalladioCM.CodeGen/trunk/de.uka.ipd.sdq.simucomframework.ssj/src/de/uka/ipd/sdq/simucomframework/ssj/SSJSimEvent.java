@@ -37,7 +37,6 @@ public class SSJSimEvent extends Event implements ISimEventDelegate {
 		myAbstractEvent.eventRoutine(((SSJEntity) who).getEntity());
 	}
 
-	@Override
 	public void removeEvent() {
 		this.cancel();
 	}
