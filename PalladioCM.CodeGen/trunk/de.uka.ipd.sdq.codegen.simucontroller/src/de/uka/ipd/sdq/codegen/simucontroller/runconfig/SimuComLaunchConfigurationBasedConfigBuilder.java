@@ -37,6 +37,7 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
 		setPCMFilenames(config);
 		
 		config.setSimulateLinkingResources(getBooleanAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES));
+		config.setSimulateFailures(getBooleanAttribute(ConstantsContainer.SIMULATE_FAILURES));
 		config.setCleanupCode(getBooleanAttribute(ConstantsContainer.DELETE_PLUGIN));
 		config.setPluginID(getStringAttribute(ConstantsContainer.PLUGIN_ID));
 		

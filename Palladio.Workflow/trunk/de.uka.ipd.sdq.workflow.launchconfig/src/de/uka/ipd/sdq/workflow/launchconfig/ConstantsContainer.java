@@ -50,9 +50,12 @@ public class ConstantsContainer {
 	public static final String INTERFACESOUT_PATH = "interfacesOutpath";
 	public static final String CLIENTOUT_PATH = "clientOutpath";
 	public static final String EJBSOUT_PATH = "ejbsOutpath";
+	
+	/** Simulation features */
 	public static final String FEATURE_CONFIG = "featureConfig";
 	public static final String FEATURE_FILE = "featureFile";
 	public static final String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
+	public static final String SIMULATE_FAILURES = "simulateFailures";
 	
 	/** Default values */
 	public static String SIMUCOM_DEFAULT_PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";

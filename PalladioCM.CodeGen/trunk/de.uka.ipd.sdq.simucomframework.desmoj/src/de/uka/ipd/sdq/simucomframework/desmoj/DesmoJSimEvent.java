@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.desmoj;
 
-import de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent;
 import desmoj.core.simulator.Entity;

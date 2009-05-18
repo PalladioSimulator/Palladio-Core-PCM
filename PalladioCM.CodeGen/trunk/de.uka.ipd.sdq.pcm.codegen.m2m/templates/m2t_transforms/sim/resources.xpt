@@ -56,27 +56,33 @@
 		};
 	}
 	
-	public String getFromResourceContainerID(String linkingResourceContainerID) {
+	public java.util.ArrayList<String> getFromResourceContainerID(String linkingResourceContainerID) {
+		java.util.ArrayList<String> resultList = new java.util.ArrayList<String>();
 		«FOREACH this.linkingresource AS rc»
 			if(linkingResourceContainerID.equals("«rc.id»")) {
-				return "«rc.fromResourceContainer_LinkingResource.id.get(0)»";
+			«FOREACH rc.fromResourceContainer_LinkingResource.id AS id»
+				resultList.add("«id»");
+			«ENDFOREACH»
 			}
 		«ENDFOREACH»
-		return null;
+		return resultList;
 	}
 	
-	public String getToResourceContainerID(String linkingResourceContainerID) {
+	public java.util.ArrayList<String> getToResourceContainerID(String linkingResourceContainerID) {
+		java.util.ArrayList<String> resultList = new java.util.ArrayList<String>();
 		«FOREACH this.linkingresource AS rc»
 			if (linkingResourceContainerID.equals("«rc.id»")) {
-				return "«rc.toResourceContainer_LinkingResource.id.get(0)»";
+			«FOREACH rc.toResourceContainer_LinkingResource.id AS id»
+				resultList.add("«id»");
+			«ENDFOREACH»
 			}
 		«ENDFOREACH»
-		return null;
+		return resultList;
 	}
 	
 	public String getLinkingResourceContainerID(String fromResourceContainerID, String toResourceContainerID) {
 		for (String id: getLinkingResourceContainerIDList()) {
-			if (getFromResourceContainerID(id).equals(fromResourceContainerID) && getToResourceContainerID(id).equals(toResourceContainerID)) {
+			if (getFromResourceContainerID(id).contains(fromResourceContainerID) && getToResourceContainerID(id).contains(toResourceContainerID)) {
 				return id;
 			}
 		}

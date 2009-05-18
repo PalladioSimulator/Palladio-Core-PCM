@@ -40,21 +40,27 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private static final String DEFAULT_CONNECTOR_FEATURE_CONFIG = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
 	private Button simulateLinkingResourcesButton;
+	private Button simulateFailuresButton;
 	private Text textFeatureConfig;
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse
+	 * .swt.widgets.Composite)
 	 */
 	public void createControl(Composite parent) {
-		
-		final ModifyListener modifyListener = new ModifyListener(){
+
+		final ModifyListener modifyListener = new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
 			}
 		};
-		final SelectionListener selectionListener = new SelectionListener(){
+
+		final SelectionListener selectionListener = new SelectionListener() {
 
 			public void widgetDefaultSelected(SelectionEvent e) {
 				FeatureOptionsTab.this.setDirty(true);
@@ -65,26 +71,44 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
 			}
-		};		
+		};
+
+		// Create the top-level container:
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
 
+		// Create networking section:
 		final Group networkingGroup = new Group(container, SWT.NONE);
 		networkingGroup.setText("Networking");
-		final GridData gd_networkingGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		final GridData gd_networkingGroup = new GridData(SWT.FILL, SWT.CENTER,
+				true, false);
 		networkingGroup.setLayoutData(gd_networkingGroup);
 		networkingGroup.setLayout(new GridLayout());
-
 		simulateLinkingResourcesButton = new Button(networkingGroup, SWT.CHECK);
-		final GridData gd_simulateLinkingResourcesButton = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		simulateLinkingResourcesButton.setLayoutData(gd_simulateLinkingResourcesButton);
-		simulateLinkingResourcesButton.setText("Simulate Linking Resources");
+		final GridData gd_simulateLinkingResourcesButton = new GridData(
+				SWT.FILL, SWT.CENTER, true, false);
+		simulateLinkingResourcesButton
+				.setLayoutData(gd_simulateLinkingResourcesButton);
+		simulateLinkingResourcesButton.setText("Simulate linking resources");
 		simulateLinkingResourcesButton.addSelectionListener(selectionListener);
 
-		/**
-		 * Create feature model section
-		 */
+		// Create reliability section:
+		final Group reliabilityGroup = new Group(container, SWT.NONE);
+		reliabilityGroup.setText("Reliability");
+		final GridData gd_reliabilityGroup = new GridData(SWT.FILL, SWT.CENTER,
+				true, false);
+		reliabilityGroup.setLayoutData(gd_reliabilityGroup);
+		reliabilityGroup.setLayout(new GridLayout());
+		simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
+		final GridData gd_simulateFailuresButton = new GridData(
+				SWT.FILL, SWT.CENTER, true, false);
+		simulateFailuresButton
+				.setLayoutData(gd_simulateFailuresButton);
+		simulateFailuresButton.setText("Simulate failures");
+		simulateFailuresButton.addSelectionListener(selectionListener);
+
+		// Create PCM2EJB feature configuration section:
 		final Group featureConfigGroup = new Group(container, SWT.NONE);
 		final GridLayout glReposetoryTypeGroup = new GridLayout();
 		glReposetoryTypeGroup.numColumns = 3;
@@ -92,7 +116,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		featureConfigGroup.setText("PCM2EJB Feature Configuration File");
 		featureConfigGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				true, false));
-
 		textFeatureConfig = new Text(featureConfigGroup, SWT.SINGLE
 				| SWT.BORDER);
 		final GridData gd_textResourceTypeRepository = new GridData(SWT.FILL,
@@ -100,22 +123,25 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		gd_textResourceTypeRepository.widthHint = 200;
 		textFeatureConfig.setLayoutData(gd_textResourceTypeRepository);
 		textFeatureConfig.addModifyListener(modifyListener);
-
 		final Button workspaceButton = new Button(featureConfigGroup, SWT.NONE);
 		workspaceButton.setText("Workspace...");
 		workspaceButton
 				.addSelectionListener(new WorkspaceButtonSelectionListener(
-						textFeatureConfig, ConstantsContainer.RESOURCETYPE_EXTENSION));
-
+						textFeatureConfig,
+						ConstantsContainer.RESOURCETYPE_EXTENSION));
 		final Button buttonResourceTypeRepository = new Button(
 				featureConfigGroup, SWT.NONE);
 		buttonResourceTypeRepository.setLayoutData(new GridData());
 		buttonResourceTypeRepository.setText("File System...");
 		buttonResourceTypeRepository
 				.addSelectionListener(new SelectionAdapter() {
-					
-					/* (non-Javadoc)
-					 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+
+					/*
+					 * (non-Javadoc)
+					 * 
+					 * @see
+					 * org.eclipse.swt.events.SelectionAdapter#widgetSelected
+					 * (org.eclipse.swt.events.SelectionEvent)
 					 */
 					public void widgetSelected(SelectionEvent e) {
 						textFeatureConfig
@@ -125,8 +151,8 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	}
 
 	/**
-	 * The function calls the FileDialog and gives back absolute path on the file
-	 * as String
+	 * The function calls the FileDialog and gives back absolute path on the
+	 * file as String
 	 * 
 	 * @param extensions
 	 *            which the dialog will use to filter the files it shows to the
@@ -146,15 +172,19 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		}
 		return filename;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
 		return "Feature Settings";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	@Override
@@ -162,15 +192,31 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		return RunConfigImages.getFeaturTabImage();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse
+	 * .debug.core.ILaunchConfiguration)
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			simulateLinkingResourcesButton.setSelection(configuration.getAttribute(
-					ConstantsContainer.SIMULATE_LINKING_RESOURCES, true));
+			simulateLinkingResourcesButton
+					.setSelection(configuration
+							.getAttribute(
+									ConstantsContainer.SIMULATE_LINKING_RESOURCES,
+									true));
 		} catch (CoreException e) {
 			simulateLinkingResourcesButton.setSelection(true);
+		}
+		try {
+			simulateFailuresButton
+					.setSelection(configuration
+							.getAttribute(
+									ConstantsContainer.SIMULATE_FAILURES,
+									true));
+		} catch (CoreException e) {
+			simulateFailuresButton.setSelection(false);
 		}
 		try {
 			textFeatureConfig.setText(configuration.getAttribute(
@@ -180,26 +226,40 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse
+	 * .debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
+		configuration.setAttribute(
+				ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				this.simulateLinkingResourcesButton.getSelection());
+		configuration.setAttribute(
+				ConstantsContainer.SIMULATE_FAILURES,
+				this.simulateFailuresButton.getSelection());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				textFeatureConfig.getText());
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.
+	 * debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
-				true);
+		configuration.setAttribute(
+				ConstantsContainer.SIMULATE_LINKING_RESOURCES, true);
+		configuration.setAttribute(
+				ConstantsContainer.SIMULATE_FAILURES, false);
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				DEFAULT_CONNECTOR_FEATURE_CONFIG);
 	}
-	
+
 	/** Button SelectionListener - call a WorkspaceResourceDialog */
 	class WorkspaceButtonSelectionListener extends SelectionAdapter {
 
@@ -211,55 +271,63 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 			this.extension = getExtensionFromArray(extensions);
 		}
 
-		/* (non-Javadoc)
-		 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse
+		 * .swt.events.SelectionEvent)
 		 */
 		@Override
 		public void widgetSelected(SelectionEvent e) {
 			field.setText(openResourceDialog(extension));
 		}
 
-		private String getExtensionFromArray(String[] array){
+		private String getExtensionFromArray(String[] array) {
 			return array[0];
 		}
 	}
 
 	/**
-	 * The function calls the ContainerSelectionDialog and gives back relative to
-	 * the workspace
+	 * The function calls the ContainerSelectionDialog and gives back relative
+	 * to the workspace
 	 * 
 	 * @return relative path to file in workspace
 	 */
 	private String openResourceDialog(String extension) {
-		
+
 		/** Filter from the redundant files. */
 		List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
 		ResourcePatternFilter filter = new ResourcePatternFilter();
-		filter.setPatterns(new String[]{"*diagram","*.settings","*.project"});
+		filter
+				.setPatterns(new String[] { "*diagram", "*.settings",
+						"*.project" });
 		filters.add(filter);
-		
-		/** create the dialog message*/
+
+		/** create the dialog message */
 		String msg = "Select a file (" + extension + ").";
 
 		IFile file = null;
 
 		IFile[] files = WorkspaceResourceDialog.openFileSelection(getShell(),
 				null, msg, false, null, filters);
-		
+
 		if (files.length != 0)
 			file = files[0];
 		if (file != null)
 			return file.getLocation().toOSString();
-		
+
 		return "";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getId()
 	 */
 	@Override
 	public String getId() {
 		return "de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab";
 	}
-	
+
 }
