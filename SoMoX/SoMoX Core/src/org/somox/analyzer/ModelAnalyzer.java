@@ -16,7 +16,7 @@ import eu.qimpress.samm.staticstructure.Repository;
  * @author Benjamin Klatt
  *
  */
-public interface ModelAnalyzer extends ConfigurableComponent{
+public interface ModelAnalyzer {
 
 	/** The result status of the model analyzer */
 	public enum Status {READY,RUNNING ,FINISHED,WAITING}

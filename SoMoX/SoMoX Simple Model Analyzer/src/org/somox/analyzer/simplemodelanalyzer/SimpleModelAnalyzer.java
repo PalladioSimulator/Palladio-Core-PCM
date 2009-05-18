@@ -3,13 +3,16 @@ package org.somox.analyzer.simplemodelanalyzer;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.core.runtime.Preferences;
 import org.somox.analyzer.AnalysisResult;
 import org.somox.analyzer.ModelAnalyzer;
 import org.somox.configuration.ConfigurationDefinition;
 import org.somox.core.SoMoXCoreLogger;
+import org.somox.extractor.ArtifactWrapper;
 import org.somox.extractor.ExtractionResult;
+import org.somox.extractor.SoftwareExtractor;
 import org.somox.softwareextractor.sissy.SISSyModelElementRepositoryWrapper;
 
 import de.fzi.sissy.metamod.ModelElementList;
@@ -84,7 +87,7 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 		}
 		SoMoXCoreLogger.logInfo("ANALYZER 3");
 		Iterator<ExtractionResult> resultIterator = extractionResultMap.values().iterator();
-		/*while(resultIterator.hasNext()){
+		while(resultIterator.hasNext()){
 			ExtractionResult result = resultIterator.next();
 			SoftwareExtractor extractor = result.getSoftwareExtractor();
 			List<ArtifactWrapper> artifacts = extractor.getSoftwareArtefacts();
@@ -97,7 +100,7 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 					analysisResult.setInternalArchitectureModel(newInternalArchitectureModel);
 				}
 			}
-		}*/
+		}
 
 		this.status = ModelAnalyzer.Status.FINISHED;
 		analysisResult.setResultStatus(AnalysisResult.ResultStatus.SUCCESS);
@@ -112,16 +115,6 @@ public class SimpleModelAnalyzer implements ModelAnalyzer {
 	// Getters / Setters
 	// ---------------------------------
 
-	@Override
-	public LinkedList<ConfigurationDefinition> getConfigurationDefinitions() {
-		LinkedList<ConfigurationDefinition> configs = new LinkedList<ConfigurationDefinition>();
-		ConfigurationDefinition directory = new ConfigurationDefinition(	OUTPUT_DIRECTORY,
-				"The output directory",
-				ConfigurationDefinition.Type.DIRECTORY,
-				"");
-		configs.add(directory);
-		return configs;
-	}
 
 	/**
 	 * Analyze the current model and the SISSy input to build a new internal architecture model
