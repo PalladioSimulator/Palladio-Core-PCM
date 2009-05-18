@@ -11,7 +11,7 @@
 «DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
 	«IF ExternalCallAction.isInstance(call)»
 		// If the call goes over network, simulate the possibility of a communication link failure:
-		{
+		if (ctx.getModel().getConfig().getSimulateFailures()) {
 			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
 			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
 			try {

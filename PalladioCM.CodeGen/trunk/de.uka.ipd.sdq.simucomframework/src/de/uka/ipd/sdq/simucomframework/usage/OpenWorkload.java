@@ -84,17 +84,20 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 				.getFailureCount(SimulationFailureType.ResourceUnavailable);
 
 		// Print failure statistics:
-		logger.warn("Total usage scenario runs: " + runCount);
-		logger.warn("Internal action failures: " + internalActionFailureCount);
-		logger.warn("Communication link failures: "
-				+ communicationLinkFailureCount);
-		logger.warn("Resource unavailability failures: "
-				+ resourceUnavailabilityCount);
-		logger
-				.warn("Total probability of success: "
-						+ (1 - (double) (internalActionFailureCount
-								+ communicationLinkFailureCount + resourceUnavailabilityCount)
-						/ (double) runCount));
+		if (this.getModel().getConfig().getSimulateFailures()) {
+			logger.warn("Total usage scenario runs: " + runCount);
+			logger.warn("Internal action failures: "
+					+ internalActionFailureCount);
+			logger.warn("Communication link failures: "
+					+ communicationLinkFailureCount);
+			logger.warn("Resource unavailability failures: "
+					+ resourceUnavailabilityCount);
+			logger
+					.warn("Total probability of success: "
+							+ (1 - (double) (internalActionFailureCount
+									+ communicationLinkFailureCount + resourceUnavailabilityCount)
+									/ (double) runCount));
+		}
 	}
 
 	private void waitForNextUser() {
@@ -111,19 +114,22 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 		user.startUserLife();
 		return user;
 	}
-	
-		public void addTerminatedObserver(IActiveResource o) {
+
+	public void addTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkload.addTerminatedObserver has not been implemented yet.");
+		throw new RuntimeException(
+				"The method OpenWorkload.addTerminatedObserver has not been implemented yet.");
 	}
 
 	public void fireTerminated() {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkload.fireTerminated has not been implemented yet.");
+		throw new RuntimeException(
+				"The method OpenWorkload.fireTerminated has not been implemented yet.");
 	}
 
 	public void removeTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkload.removeTerminatedObserver has not been implemented yet.");
-	}	
+		throw new RuntimeException(
+				"The method OpenWorkload.removeTerminatedObserver has not been implemented yet.");
+	}
 }

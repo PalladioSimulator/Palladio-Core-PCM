@@ -16,7 +16,8 @@ public class SimulatedActiveResource extends AbstractScheduledResource {
 		this.units = units;
 		this.mttf = mttf;
 		this.mttr = mttr;
-		this.canBeUnavailable = ((this.mttf > 0.0) && (this.mttr > 0.0));
+		this.canBeUnavailable = (myModel.getConfig().getSimulateFailures()
+				&& (this.mttf > 0.0) && (this.mttr > 0.0));
 
 		// used to let resource fail and be repaired again:
 		if (this.canBeUnavailable) {

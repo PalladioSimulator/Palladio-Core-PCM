@@ -18,15 +18,18 @@ public class SimuComConfig implements Serializable {
 	public static final String DATASOURCE_ID = "datasourceID";
 	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
 	public static final String MAXIMUM_MEASUREMENT_COUNT = "maximumMeasurementCount";
+	
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
 	public static String SIMULATION_TIME = "simTime";
 	public static String VERBOSE_LOGGING = "verboseLogging";
+	public static String SIMULATE_FAILURES = "simulateFailures";
 	
 	/** configuration options */
 	private String nameExperimentRun;
 	private long simuTime;
 	private boolean verboseLogging;
+	private boolean simulateFailures;
 	private long datasourceID;
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
@@ -45,6 +48,8 @@ public class SimuComConfig implements Serializable {
 					MAXIMUM_MEASUREMENT_COUNT));
 			this.verboseLogging = (Boolean)configuration.get(
 					VERBOSE_LOGGING);
+			this.simulateFailures = (Boolean)configuration.get(
+					SIMULATE_FAILURES);
 			this.datasourceID = (Integer)configuration.get(
 					DATASOURCE_ID);
 			this.runNumber = runNo;
@@ -68,6 +73,10 @@ public class SimuComConfig implements Serializable {
 	
 	public boolean getVerboseLogging() {
 		return verboseLogging || isDebug;
+	}
+	
+	public boolean getSimulateFailures() {
+		return simulateFailures;
 	}
 
 	public long getDatasourceID() {

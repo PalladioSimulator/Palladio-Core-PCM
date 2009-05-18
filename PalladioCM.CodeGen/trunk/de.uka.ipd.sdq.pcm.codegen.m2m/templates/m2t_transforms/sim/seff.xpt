@@ -27,7 +27,7 @@
 
 «DEFINE Action FOR InternalAction»
     // Simulate a failure that occurs with a predefined probability:
-    {
+    if (ctx.getModel().getConfig().getSimulateFailures()) {
         double failureProbability;
         try {
 		    failureProbability = Double.parseDouble("«this.failureProbability»");

@@ -88,25 +88,29 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 
 		// Print failure statistics after last user is finished:
 		if (USERCOUNT == 0) {
-			logger.warn("Total usage scenario runs: " + RUNCOUNT);
-			logger.warn("Internal action failures: "
-					+ INTERNALACTIONFAILURECOUNT);
-			logger.warn("Communication link failures: "
-					+ COMMUNICATIONLINKFAILURECOUNT);
-			logger.warn("Resource unavailability failures: "
-					+ RESOURCEUNAVAILABILITYCOUNT);
-			logger
-					.warn("Total probability of success: "
-							+ (1 - (double) (INTERNALACTIONFAILURECOUNT
-									+ COMMUNICATIONLINKFAILURECOUNT + RESOURCEUNAVAILABILITYCOUNT)
-									/ (double) RUNCOUNT));
+			if (this.getModel().getConfig().getSimulateFailures()) {
+				logger.warn("Total usage scenario runs: " + RUNCOUNT);
+				logger.warn("Internal action failures: "
+						+ INTERNALACTIONFAILURECOUNT);
+				logger.warn("Communication link failures: "
+						+ COMMUNICATIONLINKFAILURECOUNT);
+				logger.warn("Resource unavailability failures: "
+						+ RESOURCEUNAVAILABILITYCOUNT);
+				logger
+						.warn("Total probability of success: "
+								+ (1 - (double) (INTERNALACTIONFAILURECOUNT
+										+ COMMUNICATIONLINKFAILURECOUNT + RESOURCEUNAVAILABILITYCOUNT)
+										/ (double) RUNCOUNT));
+			}
 		}
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(desmoj.core.simulator.SimProcess)
+	 * @see
+	 * de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(
+	 * desmoj.core.simulator.SimProcess)
 	 */
 	public void scenarioRunner(SimProcess thread) {
 		double thinkTime = (Double) Context.evaluateStatic(this.thinkTime,
@@ -139,17 +143,20 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 
 	public void addTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ClosedWorkloadUser.addTerminatedObserver has not been implemented yet.");
+		throw new RuntimeException(
+				"The method ClosedWorkloadUser.addTerminatedObserver has not been implemented yet.");
 	}
 
 	public void fireTerminated() {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ClosedWorkloadUser.fireTerminated has not been implemented yet.");
+		throw new RuntimeException(
+				"The method ClosedWorkloadUser.fireTerminated has not been implemented yet.");
 	}
 
 	public void removeTerminatedObserver(IActiveResource o) {
 		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ClosedWorkloadUser.removeTerminatedObserver has not been implemented yet.");
+		throw new RuntimeException(
+				"The method ClosedWorkloadUser.removeTerminatedObserver has not been implemented yet.");
 	}
 
 }
