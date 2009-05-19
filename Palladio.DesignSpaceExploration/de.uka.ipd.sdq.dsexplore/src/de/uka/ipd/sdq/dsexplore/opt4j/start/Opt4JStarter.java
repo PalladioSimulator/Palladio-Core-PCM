@@ -169,9 +169,9 @@ public class Opt4JStarter {
 		counter = 0;
 
 		// content
-		for (Individual ind : individuals) {
+		for (Individual ind2 : individuals) {
 			try {
-			output = prettyPrintResultLineCSV(output, ind);
+			output = prettyPrintResultLineCSV(output, ind2);
 			} catch (Exception e){
 				exceptionList.add(new Exception("Encountered corrupted result number "+counter+", skipped it", e));
 			}

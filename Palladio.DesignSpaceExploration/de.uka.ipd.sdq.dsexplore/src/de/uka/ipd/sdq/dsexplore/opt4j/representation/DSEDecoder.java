@@ -139,15 +139,16 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	public String getDecisionString(int index, double gene){
 		DesignDecision designDecision = this.problem.getDesignDecision(index);
 		String result = "";
+		int intgene = (int)gene;		
 		/**
 		 * TODO Make the selection of the appropriate applyChange method more implicit. Maybe move the method to DesignDecision itself.  
 		 */
 		if (ProcessingRateDecision.class.isInstance(designDecision)){
-			result = ((ProcessingRateDecision)designDecision).getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().getSpecification();
+			result = String.valueOf(gene);
 		} else if (AssembledComponentDecision.class.isInstance(designDecision)){
-			result = ((AssembledComponentDecision)designDecision).getAssemblycontext().getEncapsulatedComponent_AssemblyContext().getEntityName();
+			result = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent().get(intgene).getEntityName();
 		} else if (AllocationDecision.class.isInstance(designDecision)){
-			result = ((AllocationDecision)designDecision).getAllocationcontext().getResourceContainer_AllocationContext().getEntityName();
+			result = ((AvailableServers)designDecision.getDomain()).getResourcecontainer().get(intgene).getEntityName();
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
