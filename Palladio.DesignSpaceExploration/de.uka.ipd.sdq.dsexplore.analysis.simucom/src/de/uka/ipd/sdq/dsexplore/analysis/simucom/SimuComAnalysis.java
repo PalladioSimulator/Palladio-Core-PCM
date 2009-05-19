@@ -127,7 +127,6 @@ public class SimuComAnalysis implements IAnalysis {
 		
 		SimuComWorkflowLauncher simuCom = new SimuComWorkflowLauncher();
 		
-		this.config.getAttributes().put(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 		
 		try {
 			simuCom.launch(config, mode, launch, monitor);

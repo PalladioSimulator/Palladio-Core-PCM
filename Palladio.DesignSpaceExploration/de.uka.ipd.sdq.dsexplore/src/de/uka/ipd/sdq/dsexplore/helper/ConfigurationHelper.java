@@ -73,6 +73,8 @@ public class ConfigurationHelper {
 			
 			workingCopy.setAttribute(SimuComConfig.EXPERIMENT_RUN, instance.getName());
 			
+			workingCopy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
+			
 			ILaunchConfiguration newLaunchConfig = workingCopy.doSave();
 			
 			this.rememberedLaunchConfigs.add(newLaunchConfig);
