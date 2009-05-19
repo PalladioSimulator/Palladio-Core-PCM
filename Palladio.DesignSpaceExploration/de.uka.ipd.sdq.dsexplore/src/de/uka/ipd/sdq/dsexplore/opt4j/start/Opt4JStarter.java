@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTracker;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTrackerModule;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
@@ -36,7 +37,9 @@ import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 public class Opt4JStarter {
 	
-	public static IAnalysis analysisTool = null; 
+	public static IAnalysis perfAnalysisTool = null; 
+	
+	public static IAnalysis relAnalysisTool = null;
 	
 	public static CostEvaluator costEvaluator = null;
 	
@@ -48,12 +51,13 @@ public class Opt4JStarter {
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
-	public static void startOpt4J(IAnalysis analysisTool,
-			PCMInstance pcmInstance, int maxIterations,
+	public static void startOpt4J(IAnalysis perfAnalysisTool,
+			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
 			int individualsPerGeneration, CostRepository costs)
 			throws CoreException {
 
-		Opt4JStarter.analysisTool = analysisTool;
+		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
+		Opt4JStarter.relAnalysisTool = relAnalysisTool;
 		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
 		Opt4JStarter.problem = new DSEProblem(pcmInstance);
 		
@@ -157,12 +161,61 @@ public class Opt4JStarter {
 		}
 		logger.warn(output);
 		
+		logger.warn("------------ PRETTY CSV RESULTS " + collectionName
+				+ " ----------------------");
+		
+		output = "\n";
+		output = prettyPrintHeadlineCSV(individuals, output);
+		counter = 0;
+
+		// content
+		for (Individual ind : individuals) {
+			try {
+			output = prettyPrintResultLineCSV(output, ind);
+			} catch (Exception e){
+				exceptionList.add(new Exception("Encountered corrupted result number "+counter+", skipped it", e));
+			}
+			counter++;
+		}
+		logger.warn(output);
+		
 		if (exceptionList.size() > 0){
 			logger.warn("Encountered exceptions while printing results");
 			for (Exception exception : exceptionList) {
 				exception.printStackTrace();
 			}
 		}
+	}
+
+	private static String prettyPrintResultLineCSV(String output, Individual ind) {
+		
+		DSEDecoder decoder = task.getInstance(DSEDecoder.class);
+		
+		// first objectives
+		Objectives objs = ind.getObjectives();
+		for (Entry<Objective, Value<?>> entry : objs) {
+			output += entry.getValue() + ";";
+		}
+		//then genes
+		DoubleGenotype genes = (DoubleGenotype) ind.getGenotype();
+		for (int i = 0; i < genes.size(); i++) {
+			output += decoder.getDecisionString(i, genes.get(i))+";";
+		}
+		output += "\n";
+		return output;
+	}
+
+	private static String prettyPrintHeadlineCSV(
+			Collection<Individual> individuals, String output) {
+		
+		Individual i = individuals.iterator().next();
+		output += printObjectives(i, output);
+		
+		output += Opt4JStarter.problem.toString();
+		
+		output += "\n";
+		
+		return output; 
 	}
 
 	private static void printResultLineNatural(Individual individual) {
@@ -189,14 +242,11 @@ public class Opt4JStarter {
 	private static String printHeadlineCSV(Collection<Individual> individuals,
 			String output) {
 		{
+			Individual i = individuals.iterator().next();
+			
 			// headline
 			// first objectives
-			Individual i = individuals.iterator().next();
-			Objectives objs = i.getObjectives();
-			for (Entry<Objective, Value<?>> entry : objs) {
-				output += entry.getKey().getName() + "("
-						+ entry.getKey().getSign() + ");";
-			}
+			output += printObjectives(i, output);
 			// then genes
 			DoubleGenotype genes = (DoubleGenotype) i.getGenotype();
 			for (int j = 0; j < genes.size(); j++) {
@@ -207,6 +257,15 @@ public class Opt4JStarter {
 		return output;
 	}
 	
+	private static String printObjectives(Individual i,	String output) {
+		Objectives objs = i.getObjectives();
+		for (Entry<Objective, Value<?>> entry : objs) {
+			output += entry.getKey().getName() + "("
+					+ entry.getKey().getSign() + ");";
+		}
+		return output;
+	}
+
 	public static void closeTask(){
       Opt4JStarter.task.close(); 
 	}

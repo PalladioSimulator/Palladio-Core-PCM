@@ -157,5 +157,16 @@ public class ResourceContainerReplicationDecisionImpl extends DesignDecisionImpl
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * @generated not
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.ecore.impl.BasicEObjectImpl#toString()
+	 */
+	@Override
+	public String toString(){
+		return "replication of "+this.getResourcecontainer().getEntityName();
+		
+	}
 
 } //ResourceContainerReplicationDecisionImpl

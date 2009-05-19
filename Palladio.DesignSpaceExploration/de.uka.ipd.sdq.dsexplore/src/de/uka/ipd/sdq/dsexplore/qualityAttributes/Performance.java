@@ -1,6 +1,11 @@
 package de.uka.ipd.sdq.dsexplore.qualityAttributes;
 
 
-public class Performance extends QualityAttribute {
+public class Performance implements QualityAttribute {
+
+	@Override
+	public String getQualityIdentifier() {
+		return "de.uka.ipd.sdq.dsexplore.performance";
+	}
 
 }

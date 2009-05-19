@@ -205,4 +205,8 @@ public class PCMSolver {
 		Logger.getRootLogger().setLevel(
 				(verboseLogging) ? Level.DEBUG : Level.INFO);
 	}
+
+	public SolverStrategy getStrategy() {
+		return strategy;
+	}
 }

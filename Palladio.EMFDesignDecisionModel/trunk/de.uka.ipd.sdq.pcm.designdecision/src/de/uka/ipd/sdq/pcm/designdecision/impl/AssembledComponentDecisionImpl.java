@@ -157,5 +157,16 @@ public class AssembledComponentDecisionImpl extends DesignDecisionImpl implement
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * @generated not
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.ecore.impl.BasicEObjectImpl#toString()
+	 */
+	@Override
+	public String toString(){
+		return "component in "+this.getAssemblycontext().getEntityName();
+		
+	}
 
 } //AssembledComponentDecisionImpl

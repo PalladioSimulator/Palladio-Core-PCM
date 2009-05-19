@@ -15,7 +15,7 @@ public interface IAlgorithm {
 	/**
 	 * Initialise the algorithm with an initial population and the analysis tool to use. 
 	 * @param population
-	 * @param analysisTool
+	 * @param perfAnalysisTool
 	 * @param configuration 
 	 * @throws CoreException 
 	 */

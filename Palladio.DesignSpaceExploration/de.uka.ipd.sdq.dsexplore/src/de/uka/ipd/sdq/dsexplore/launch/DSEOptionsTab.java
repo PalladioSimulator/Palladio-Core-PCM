@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;

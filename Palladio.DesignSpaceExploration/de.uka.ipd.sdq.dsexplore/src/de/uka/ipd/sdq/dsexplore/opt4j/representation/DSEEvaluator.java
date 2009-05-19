@@ -36,6 +36,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	public DSEEvaluator(){
 		this.objectives.add(new Objective("response time", Objective.Sign.MIN));
 		this.objectives.add(new Objective("cost", Objective.Sign.MIN));
+		this.objectives.add(new Objective("POFOD", Objective.Sign.MIN));
 	}
 	
 	public void reset(){
@@ -52,6 +53,8 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 			retrieveResponseTime(pheno, obj);
 
 			retrieveCost(pheno, obj);
+			
+			retrieveReliability(pheno, obj);
 			
 			firstRunSuccessful = true;
 
@@ -76,6 +79,11 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 					obj.add(this.objectives.get(1), Double.NaN);
 				}
 				
+				//afterwards (now having two entries for sure) add reliability if not there (i.e. if size == 2, not 3). 
+				if (obj.size() == 2){
+					obj.add(this.objectives.get(2), Double.NaN);
+				}
+				
 				return obj;
 			}
 		}
@@ -90,11 +98,18 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	private void retrieveResponseTime(PCMPhenotype pheno, Objectives obj)
 			throws AnalysisFailedException, CoreException {
 		//retrieve response time
-		IAnalysisResult result = Opt4JStarter.analysisTool.analyse(pheno.getPcm());
+		IAnalysisResult result = Opt4JStarter.perfAnalysisTool.analyse(pheno.getPcm());
 		obj.add(this.objectives.get(0), result.getMeanValue());
 		
 		//Maybe handle a demand too large exception in the simulation separately by setting the objective to infinity. 
 		
+	}
+	
+	private void retrieveReliability(PCMPhenotype pheno, Objectives obj)
+			throws AnalysisFailedException, CoreException {
+		//retrieve response time
+		IAnalysisResult result = Opt4JStarter.relAnalysisTool.analyse(pheno.getPcm());
+		obj.add(this.objectives.get(2), result.getMeanValue());
 	}
 
 	@Override

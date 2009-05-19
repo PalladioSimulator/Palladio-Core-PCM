@@ -157,5 +157,6 @@ public class AllocationChoiceImpl extends ChoiceImpl implements AllocationChoice
 		}
 		return super.eIsSet(featureID);
 	}
+	
 
 } //AllocationChoiceImpl

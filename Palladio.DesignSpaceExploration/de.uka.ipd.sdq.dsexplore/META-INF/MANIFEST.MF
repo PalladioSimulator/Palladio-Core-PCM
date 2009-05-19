@@ -7,7 +7,6 @@ Bundle-Activator: de.uka.ipd.sdq.dsexplore.DSEPluginActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui,
- de.uka.ipd.sdq.codegen.runconfig,
  org.apache.log4j,
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.pcm.designdecision;bundle-version="1.0.0",

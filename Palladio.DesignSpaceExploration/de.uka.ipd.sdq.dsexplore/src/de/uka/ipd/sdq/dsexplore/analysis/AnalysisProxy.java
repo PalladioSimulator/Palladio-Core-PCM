@@ -19,10 +19,13 @@ public class AnalysisProxy implements IAnalysis {
 	private IProgressMonitor monitor;
 	private ILaunchConfiguration configuration;
 	
+	private String qualityAttribute;
+	
 	IAnalysis ana = null;
 
-	public AnalysisProxy(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) {
+	public AnalysisProxy(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor, String qualityAttribute) {
 		this.initialise(configuration, mode, launch, monitor);
+		this.qualityAttribute = qualityAttribute;
 	}
 
 	@Override
@@ -38,7 +41,7 @@ public class AnalysisProxy implements IAnalysis {
 //			ana = (IAnalysis)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.analysis").iterator().next();
 			
 			// obtain the extension of the choosen analysis method 
-			String methodName = configuration.getAttribute(DSEConstantsContainer.ANALYSIS_METHOD, "");
+			String methodName = configuration.getAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute), "");
 			IExtension[] extensions = ExtensionHelper.loadAnalysisExtensions();
 			for (IExtension ext : extensions) {
 				IConfigurationElement[] elements = ext.getConfigurationElements();

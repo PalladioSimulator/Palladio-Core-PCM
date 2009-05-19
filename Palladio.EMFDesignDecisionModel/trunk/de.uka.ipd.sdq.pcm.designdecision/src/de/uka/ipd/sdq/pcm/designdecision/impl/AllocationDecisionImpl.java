@@ -157,5 +157,16 @@ public class AllocationDecisionImpl extends DesignDecisionImpl implements Alloca
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * @generated not
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.ecore.impl.BasicEObjectImpl#toString()
+	 */
+	@Override
+	public String toString(){
+		return "allocate "+this.getAllocationcontext().getEntityName();
+		
+	}
 
 } //AllocationDecisionImpl

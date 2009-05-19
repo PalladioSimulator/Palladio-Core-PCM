@@ -1,8 +1,11 @@
 package de.uka.ipd.sdq.dsexplore.launch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -26,6 +29,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LaunchHelper;
+import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 
 /**
  * This class represents the launch configuration tab "Analyis Method". It
@@ -44,6 +48,7 @@ import de.uka.ipd.sdq.dsexplore.helper.LaunchHelper;
  */
 public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 
+
 	private StackLayout layout;
 	
 	private Combo methodCombo;
@@ -55,13 +60,22 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	private Map<IExtension, ILaunchConfigurationTabGroup> extensionTabGroupMap;
 
 	private AnalysisMethodListener listener = new AnalysisMethodListener();
+
+	private String qualityAttribute;
+	
+
+	public DSEAnalysisMethodTab(String qualityAttribute) {
+		super();
+		
+		this.qualityAttribute = qualityAttribute;
+	}
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void createControl(Composite parent) {
-		IExtension[] extensions = ExtensionHelper.loadAnalysisExtensions();
+		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 
 		// Map extensions to their analyis method names
 		nameExtensionMap = new HashMap<String, IExtension>();
@@ -74,10 +88,10 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		setControl(container);
 		container.setLayout(new GridLayout(1, true));
 		
-		String[] methodNames = loadAnalysisMethodNames(extensions);
-		Arrays.sort(methodNames);
+		List<String> methodNames = loadAnalysisMethodNames(extensions);
+		Collections.sort(methodNames);
 		methodCombo = new Combo(container, SWT.READ_ONLY);
-		methodCombo.setItems(methodNames);
+		methodCombo.setItems(methodNames.toArray(methodCombo.getItems()));
 		methodCombo.addSelectionListener(listener);
 		methodCombo.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 		
@@ -119,7 +133,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		if (extensionTabGroupMap == null) {
 			extensionTabGroupMap = new HashMap<IExtension, ILaunchConfigurationTabGroup>();
 			
-			IExtension[] extensions = ExtensionHelper.loadAnalysisExtensions();
+			List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 			for (IExtension ext : extensions) {
 			
 				ILaunchConfigurationTabGroup tabGroup = null;
@@ -162,14 +176,14 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 * @param extensions
 	 * @return
 	 */
-	private String[] loadAnalysisMethodNames(IExtension[] extensions) {
-		String[] names = new String[extensions.length]; 
-		for (int i=0; i < extensions.length; i++) {
-			IExtension extension = extensions[i];
+	private List<String> loadAnalysisMethodNames(List<IExtension> extensions) {
+		List<String> names = new ArrayList<String>(); 
+		for (int i=0; i < extensions.size(); i++) {
+			IExtension extension = extensions.get(i);
 			IConfigurationElement[] elements = extension.getConfigurationElements();
 			for (IConfigurationElement element : elements) {
 				if (element.getName().equals("analysis")) {
-					names[i] = element.getAttribute("name");
+					names.add(element.getAttribute("name"));
 				}
 			}
 		}
@@ -195,13 +209,14 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		
 		return null;
 	}
+	
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public String getName() {
-		return "Analysis Method";
+		return this.qualityAttribute.substring(this.qualityAttribute.lastIndexOf(".")+1) + " Analysis Method";
 	}
 
 	/**
@@ -210,7 +225,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
-			String method = configuration.getAttribute(DSEConstantsContainer.ANALYSIS_METHOD, 
+			String method = configuration.getAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute), 
 					""); // TODO: Set default string for analysis method
 			String[] items = methodCombo.getItems();
 			for (int i=0; i<items.length; i++){
@@ -236,7 +251,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(DSEConstantsContainer.ANALYSIS_METHOD, methodCombo.getText());
+		configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute), methodCombo.getText());
 		
 		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
 				.entrySet().iterator();
@@ -251,10 +266,10 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// Set the first discovered analysis extension as default analysis method
-		IExtension[] extensions = ExtensionHelper.loadAnalysisExtensions();
-		if (extensions.length > 0) {
-			configuration.setAttribute(DSEConstantsContainer.ANALYSIS_METHOD,
-					loadAnalysisMethodName(extensions[0]));
+		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
+		if (extensions.size() > 0) {
+			configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute),
+					loadAnalysisMethodName(extensions.get(0)));
 		}
 		
 		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()

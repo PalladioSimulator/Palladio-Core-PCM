@@ -164,6 +164,7 @@ public class DSEProblem {
 				range.setFrom(currentRate * 0.5);
 				decision.setDomain(range);
 				decision.setProcessingresourcespecification(resource);
+				decision.setResourcecontainer(resourceContainer);
 				this.pcmProblem.getDesigndecision().add(decision);
 				this.initialGenotype.add(currentRate);
 				;
@@ -206,6 +207,20 @@ public class DSEProblem {
 //		 designdecisionPackage.eINSTANCE);
 		
 		EMFHelper.saveToXMIFile(this.pcmProblem, filename);
+		
+	}
+	
+	@Override
+	public String toString(){
+		
+		String result = "";
+		
+		List<DesignDecision> decisions = this.pcmProblem.getDesigndecision();
+		for (DesignDecision designDecision : decisions) {
+			result += designDecision.toString()+";";
+		}
+		
+		return result;
 		
 	}
 

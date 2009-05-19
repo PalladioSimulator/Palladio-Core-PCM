@@ -9,7 +9,10 @@ public class DSEConstantsContainer {
 	public static final String THRESHOLD = "strengthenResource_threshold";
 	public static final String INCR_FACTOR = "strengthenResource_increaseFactor";
 
-	public static final String ANALYSIS_METHOD = "analysisMethod";
+	/**
+	 * This must not be used as a key directly, but the quality attribute has to be appended.
+	 */
+	private static final String ANALYSIS_METHOD_PREFIX = "analysisMethod";
 	
 	/** Model filenames value */
 	public static final String COST_FILE = "costFile";
@@ -19,8 +22,13 @@ public class DSEConstantsContainer {
 	 * shows to the argument.
 	 */
 	public static final String[] COST_MODEL_EXTENSION = new String[] { "*.cost" };
+	
+	public static final String PERFORMANCE = "de.uka.ipd.sdq.dsexplore.performance";
+	public static final String RELIABILITY = "de.uka.ipd.sdq.dsexplore.reliability";
 
-
+	public static final String getAnalysisMethod(String qualityAttribute){
+		return ANALYSIS_METHOD_PREFIX+qualityAttribute;
+	}
 
 	
 }

@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.dsexplore.helper;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
@@ -52,6 +54,7 @@ public class ExtensionHelper {
 		return Platform.getExtensionRegistry().getExtensionPoint(
 				"de.uka.ipd.sdq.dsexplore.analysis").getExtensions();
 	}
+	
 
 	/**
 	 * Given an {@link IExtension}, this methods returns the content of the
@@ -98,6 +101,46 @@ public class ExtensionHelper {
 			}
 		}
 
+		return null;
+	}
+
+	/**
+	 * Loads all extensions which extends the
+	 * "de.uka.ipd.sdq.dsexplore.analysis" extension point and which specify the given quality attribute.
+	 * 
+	 * @return all analysis method extensions
+	 */
+	public static List<IExtension> loadAnalysisExtensions(String qualityAttribute) {
+		IExtension[] exts = Platform.getExtensionRegistry().getExtensionPoint(
+		"de.uka.ipd.sdq.dsexplore.analysis").getExtensions();
+		
+		List<IExtension> results = new ArrayList<IExtension>();
+		
+		for (IExtension extension : exts) {
+			if (qualityAttribute.equals(loadQualityAttribute(extension))){
+				results.add(extension);
+			}
+		}
+		
+		return results;
+	}
+	
+	/**
+	 * Loads the name of a single analysis method represented by the passed
+	 * extension.
+	 * 
+	 * @param extension
+	 * @return the analysis method's name; null if the passed extension is not
+	 *         an analysis extension or the name attribute is not set.
+	 */
+	private static String loadQualityAttribute(IExtension extension) {
+		IConfigurationElement[] elements = extension.getConfigurationElements();
+		for (IConfigurationElement element : elements) {
+			if (element.getName().equals("analysis")) {
+				return element.getAttribute("qualityAttribute");
+			}
+		}
+		
 		return null;
 	}
 	

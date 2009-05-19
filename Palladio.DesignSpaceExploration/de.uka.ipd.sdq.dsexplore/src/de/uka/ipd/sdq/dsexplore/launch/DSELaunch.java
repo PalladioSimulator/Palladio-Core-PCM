@@ -94,12 +94,14 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    //initialise the algorithm and analysis
 		    //HillClimbingAlgorithm algorithm = new HillClimbingAlgorithm(mrtRequirements);
 		    //IAlgorithm algorithm = new FullSearchAlgorithm();
-			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
-		    //algorithm.initialise(instances, analysisTool,configuration);
+			IAnalysis perfAnalysisTool = new AnalysisProxy(configuration, mode, launch, monitor, DSEConstantsContainer.PERFORMANCE);
+			IAnalysis relAnalysisTool = new AnalysisProxy(configuration, mode, launch, monitor,DSEConstantsContainer.RELIABILITY);
+			
+		    //algorithm.initialise(instances, perfAnalysisTool,configuration);
 			
 			CostRepository costs = getCostModel(configuration);
 		    
-		    Opt4JStarter.startOpt4J(analysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs);
+		    Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs);
 		    
 		  		
 			} finally {

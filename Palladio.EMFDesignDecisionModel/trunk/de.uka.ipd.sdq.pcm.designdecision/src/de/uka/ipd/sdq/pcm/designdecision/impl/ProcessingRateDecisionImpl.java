@@ -218,5 +218,16 @@ public class ProcessingRateDecisionImpl extends DesignDecisionImpl implements Pr
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * @generated not
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.ecore.impl.BasicEObjectImpl#toString()
+	 */
+	@Override
+	public String toString(){
+		return "rate of "+this.getProcessingresourcespecification().getActiveResourceType_ActiveResourceSpecification().getEntityName() + " in "+this.getResourcecontainer().getEntityName();
+		
+	}
 
 } //ProcessingRateDecisionImpl

@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.qualityAttributes;
 
-public class QualityAttribute {
+public interface QualityAttribute {
 
+	public  String getQualityIdentifier();
 
 }
