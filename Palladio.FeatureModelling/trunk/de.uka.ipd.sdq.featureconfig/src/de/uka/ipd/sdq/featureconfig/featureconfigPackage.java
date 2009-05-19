@@ -54,7 +54,7 @@ public interface featureconfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.uka.ipd.sdq";
+	String eNS_PREFIX = "de.uka.ipd.sdq.featureconfig";
 
 	/**
 	 * The singleton instance of the package.
@@ -158,7 +158,7 @@ public interface featureconfigPackage extends EPackage {
 	int CONFIGURATION__DEFAULT_CONFIG = 0;
 
 	/**
-	 * The feature id for the '<em><b>Config Overrides</b></em>' containment reference.
+	 * The feature id for the '<em><b>Config Overrides</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -281,10 +281,10 @@ public interface featureconfigPackage extends EPackage {
 	EReference getConfiguration_DefaultConfig();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featureconfig.Configuration#getConfigOverrides <em>Config Overrides</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featureconfig.Configuration#getConfigOverrides <em>Config Overrides</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Config Overrides</em>'.
+	 * @return the meta object for the containment reference list '<em>Config Overrides</em>'.
 	 * @see de.uka.ipd.sdq.featureconfig.Configuration#getConfigOverrides()
 	 * @see #getConfiguration()
 	 * @generated
@@ -405,7 +405,7 @@ public interface featureconfigPackage extends EPackage {
 		EReference CONFIGURATION__DEFAULT_CONFIG = eINSTANCE.getConfiguration_DefaultConfig();
 
 		/**
-		 * The meta object literal for the '<em><b>Config Overrides</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Config Overrides</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
