@@ -19739,9 +19739,7 @@ A ResourceDemandingBehaviour contains a chain of AbstractActions. Each action in
         <ownedComment xmi:id="_9b1jYKdDEd2mBdDaN9hoZQ" annotatedElement="_eX2J0InoEducPr8SMhBkpQ">
           <body>Two types of branch transitions exist which correspond to the two types of branches. The types cannot be mixed. Either all branch transitions of one BranchAction are probabilistic or guarded.</body>
         </ownedComment>
-        <generalization xmi:id="_KZmV4InsEducPr8SMhBkpQ">
-          <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
-        </generalization>
+        <generalization xmi:id="_V5EgsERoEd6SiulQ94Od9w" general="_X0NSMHDEEdur9cZft9T4NQ"/>
         <ownedAttribute xmi:id="_YSp44eTDEdq49qz7R-l1Hg" name="branchBehaviour_BranchTransition" type="_-kKR4OKHEdq6IvzVMFpuzg" aggregation="composite" association="_YSp44OTDEdq49qz7R-l1Hg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YSp45OTDEdq49qz7R-l1Hg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YSp44-TDEdq49qz7R-l1Hg" value="1"/>
