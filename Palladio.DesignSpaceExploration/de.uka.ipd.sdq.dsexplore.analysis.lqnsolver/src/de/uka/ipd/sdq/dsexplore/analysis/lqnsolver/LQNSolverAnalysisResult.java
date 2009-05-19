@@ -7,7 +7,10 @@ import java.util.Iterator;
 import java.util.Locale;
 
 import org.apache.log4j.Logger;
+import org.eclipse.debug.internal.ui.actions.expressions.ConvertToWatchExpressionAction;
+import org.eclipse.emf.common.util.EList;
 
+import LqnCore.ActivityDefType;
 import LqnCore.LqnModelType;
 import LqnCore.OutputResultType;
 import LqnCore.ProcessorType;
@@ -34,18 +37,21 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 
 	private PCMInstance pcm;
 
+	private double responseTime;
+	
 	private String utilization;
 
 	private String throughput;
 	
-	public LQNSolverAnalysisResult(LqnModelType model, PCMInstance pcm) {
+	public LQNSolverAnalysisResult(LqnModelType model, PCMInstance pcm) throws AnalysisFailedException {
 		this.model = model;
 		this.pcm = pcm;
 		
 		initialize();
 	}
 	
-	private void initialize() {
+	private void initialize() throws AnalysisFailedException {
+		responseTime = 0.0;
 		utilization = "0";
 		throughput = "0";
 		
@@ -69,6 +75,16 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 		// TODO: Can we really assume there is only one task?
 		TaskType task = processor.getTask().get(0);
 		OutputResultType outputResult = task.getResultTask().get(0);
+		
+		// We add all result service times of the usage scenario to compute the response time
+		// TODO: check whether this works correctly if the usage scenario contains branches
+		EList<ActivityDefType> activities = task.getTaskActivities().getActivity();
+		for (ActivityDefType activity : activities) {
+			EList<OutputResultType> results = activity.getResultActivity();
+			for (OutputResultType outputResultType : results) {
+				responseTime += convertStringToDouble((String) outputResultType.getServiceTime());
+			}
+		}
 		
 		utilization = (String) outputResult.getUtilization();
 		throughput = (String) outputResult.getThroughput();
@@ -95,18 +111,24 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 	 */
 	@Override
 	public double getMeanValue() throws AnalysisFailedException {
-		double ret = -1;
+		return responseTime;
+	}
+
+	private double convertStringToDouble(String toConvert) throws AnalysisFailedException {
+		double ret;
+		
 		try { 
-			utilization = utilization.replaceAll("e", "E");
+			toConvert = toConvert.replaceAll("e", "E");
+			toConvert = toConvert.replaceAll("\\+", "");
 			DecimalFormat format = new DecimalFormat("0.0E000",
 					DecimalFormatSymbols.getInstance(Locale.ENGLISH));
-			ret = format.parse(utilization).doubleValue();
+			ret = format.parse(toConvert).doubleValue();
 		}
 		catch (ParseException ex) {
 			throw new AnalysisFailedException(
-					"Failed to parse utilization value.", ex);
+					"Failed to parse string value.", ex);
 		}
-		
+
 		return ret;
 	}
 
