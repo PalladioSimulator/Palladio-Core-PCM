@@ -60,7 +60,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		this.blackboard.removePartition(PCM_MODELS_PARTITION_ID);
 	}
 
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

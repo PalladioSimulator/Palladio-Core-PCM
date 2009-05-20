@@ -116,7 +116,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 				"< to resource container >"+resContainer.getEntityName()+"<");
 	}
 
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

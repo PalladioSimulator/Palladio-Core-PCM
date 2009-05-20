@@ -41,7 +41,7 @@ public class TransformPCMForSensitivityAnalysisJob implements
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob#setBlackbard(de.uka.ipd.sdq.codegen.workflow.Blackboard)
 	 */
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

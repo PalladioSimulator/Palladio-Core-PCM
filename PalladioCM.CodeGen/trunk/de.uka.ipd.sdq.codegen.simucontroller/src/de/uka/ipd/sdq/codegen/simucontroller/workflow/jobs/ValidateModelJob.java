@@ -73,11 +73,11 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	}
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException{
-		oawCheckJob.setBlackbard(blackboard);
+		oawCheckJob.setBlackboard(blackboard);
 		oawCheckJob.execute(monitor);
 		List<SeverityAndIssue> result = oawCheckJob.getResult();
 		
-		emfCheckJob.setBlackbard(blackboard);
+		emfCheckJob.setBlackboard(blackboard);
 		emfCheckJob.execute(monitor);
 		result.addAll(emfCheckJob.getResult());
 		
@@ -121,7 +121,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob#setBlackbard(de.uka.ipd.sdq.codegen.workflow.Blackboard)
 	 */
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 }
