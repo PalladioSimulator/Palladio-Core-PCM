@@ -1,7 +1,10 @@
 package org.somox.metrics;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
@@ -25,6 +28,12 @@ public class NameResemblance implements Metric {
 	
 	protected int [][] resemblances;
 	
+	protected Map<String,Map<String,Integer>> resemblancePuffer;
+	
+	public NameResemblance () {
+		resemblancePuffer = new HashMap<String,Map<String,Integer>>();
+	}
+	
 	/**
 	 * Setter-method for the percentage paramter
 	 * 
@@ -38,7 +47,6 @@ public class NameResemblance implements Metric {
 		}
 	}
 	
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		HashMap<String, Boolean> resemblanceMap = new HashMap<String, Boolean>();
 		
@@ -53,7 +61,16 @@ public class NameResemblance implements Metric {
 							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 							}
-							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+							int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+							if (res == -1) {
+								if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);
+									resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+									resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
+								} else {
+									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),0);
+								}
+							} else if (res > 0) {
 								resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
 							}
@@ -66,7 +83,16 @@ public class NameResemblance implements Metric {
 						if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 							resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 						}
-						if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+						int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+						if (res == -1) {
+							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+								resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);
+								resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
+							} else {
+								resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),0);
+							}
+						} else if (res > 0) {
 							resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
 							resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
 						}
@@ -86,7 +112,16 @@ public class NameResemblance implements Metric {
 							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 							}
-							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+							int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+							if (res == -1) {
+								if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName(), percentage)) {
+									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);
+									resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
+									resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
+								} else {
+									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),0);
+								}
+							} else if (res > 0) {
 								resemblanceMap.put(((GASTClass)current).getSimpleName(), true);
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), true);
 							}
@@ -154,7 +189,6 @@ public class NameResemblance implements Metric {
 		return resemblance;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
@@ -164,8 +198,24 @@ public class NameResemblance implements Metric {
 		return new MetricID(122);
 	}
 
-	@Override
 	public void initialize(Root root) {
+		List<ModelElement> repo = root.getRepository().getModelElements();
+		List<GASTClass> classList = new LinkedList<GASTClass>();
+		for (ModelElement current : repo) {
+			if (current instanceof GASTClass) {
+				resemblancePuffer.put(((GASTClass) current).getQualifiedName(), new HashMap<String,Integer>());
+				classList.add((GASTClass)current);
+			}
+		}
 		
+		Set<String> keys = resemblancePuffer.keySet();
+		
+		for (String currentKey : keys) {
+			for (GASTClass currentClass : classList) {
+				if (!currentKey.equals(currentClass.getQualifiedName())) {
+					resemblancePuffer.get(currentKey).put(currentClass.getQualifiedName(), -1);
+				}
+			}
+		}
 	}
 }

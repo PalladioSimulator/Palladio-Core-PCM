@@ -29,7 +29,6 @@ public class DMS implements Metric {
 		this.instability = instability;
 	}
 
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		if (abstractness == null) {
 			abstractness = new Abstractness();
@@ -46,20 +45,15 @@ public class DMS implements Metric {
 		return dms;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(3);
 	}
 
-	@Override
 	public void initialize(Root root) {
-		// TODO Auto-generated method stub
-		
 	}
 }

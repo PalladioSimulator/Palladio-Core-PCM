@@ -22,7 +22,6 @@ import de.fzi.gast.types.GASTClass;
  */
 public class Abstractness implements Metric {
 	
-	@Override
 	public double compute(Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		return computeWithOutEMF(root, elements1, elements2);
 	}
@@ -91,20 +90,15 @@ public class Abstractness implements Metric {
 		return abstractness;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(234);
 	}
 
-	@Override
 	public void initialize(Root root) {
-		// TODO Auto-generated method stub
-		
 	}
 }

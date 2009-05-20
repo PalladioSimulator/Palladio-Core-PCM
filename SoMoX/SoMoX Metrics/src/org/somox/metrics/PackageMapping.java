@@ -16,7 +16,6 @@ import de.fzi.gast.types.GASTClass;
  */
 public class PackageMapping implements Metric {
 
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		boolean samePackage = true;
 		String packageName = null;
@@ -55,20 +54,15 @@ public class PackageMapping implements Metric {
 		}
 	}
 
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(6);
 	}
 
-	@Override
 	public void initialize(Root root) {
-		// TODO Auto-generated method stub
-		
 	}
 }

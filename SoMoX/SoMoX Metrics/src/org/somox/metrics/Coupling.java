@@ -22,6 +22,10 @@ import de.fzi.gast.types.GASTClass;
  * @author Grischa Liebel
  *
  */
+/**
+ * @author fish
+ *
+ */
 public class Coupling implements Metric {
 	protected Set<String> wildcardBlacklist;
 	protected Set<String> specifiedBlacklist;
@@ -51,6 +55,16 @@ public class Coupling implements Metric {
 		externNameSet = new HashSet<String>();
 		componentANameSet = new HashSet<String>();
 		componentBNameSet = new HashSet<String>();
+	}
+	
+	/**
+	 * Setter-method for the blacklist indicator. If set to <code>true</code> the blacklist is used,
+	 * if set to <code>false</code> the whitelist is used
+	 * 
+	 * @param blacklistIndicator The indicator
+	 */
+	public void setBlacklistIndicator (boolean blacklistIndicator) {
+		this.blacklistIndicator = blacklistIndicator;
 	}
 	
 	/**
@@ -101,7 +115,6 @@ public class Coupling implements Metric {
 		}
 	}
 
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToOtherComp = 0.0;
 		double referencesToWholeProject = 0.0;
@@ -304,20 +317,16 @@ public class Coupling implements Metric {
 		return externClasses;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(2342);
 	}
 
-	@Override
 	public void initialize(Root root) {
-		// TODO Auto-generated method stub
 		
 	}
 }

@@ -27,6 +27,15 @@ import de.fzi.gast.types.GASTClass;
 import de.fzi.gast.types.provider.typesItemProviderAdapterFactory;
 import de.fzi.gast.variables.provider.variablesItemProviderAdapterFactory;
 
+
+/**
+ * Initialization class for the metrics.
+ * 
+ * Classes are extracted from the Resource and "bundled" with their inner classes.
+ * 
+ * @author Grischa Liebel
+ *
+ */
 public class Initialization {
 	private AdapterFactoryEditingDomain editingDomain;
 
@@ -37,16 +46,31 @@ public class Initialization {
 	private Root root = null;
 	private List<ModelElement> elements;
 	
+	/**
+	 * Class lists are extracted from the resource at the given URI
+	 * 
+	 * @param uri The URI of the model file
+	 * @return a list of class lists. Each class list contains one outer class and its inner classes
+	 */
 	public List<List<GASTClass>> extractLists (URI uri) {
 		initializeEditingDomain();
 		createResource(uri);
 		return extractClasses();		
 	}
 	
+	/**
+	 * Returns the root object of the given modell
+	 * @return the root object
+	 */
 	public Root getRoot () {
 		return root;
 	}
 	
+	/**
+	 * Extracts all outer classes with their inner classes 
+	 * 
+	 * @return a list of class lists. Every list element is a list containing one outer and all of its inner classes
+	 */
 	private List<List<GASTClass>> extractClasses () {
 		EList<EObject> contents = resource.getContents();
 		
@@ -66,6 +90,12 @@ public class Initialization {
 		return addInnerClasses(elements);
 	}
 	
+	/**
+	 * Adds all inner classes to the given outer classes
+	 * 
+	 * @param elements A list of ModelElements
+	 * @return a list of lists of GASTClasses
+	 */
 	private List<List<GASTClass>> addInnerClasses (List<ModelElement> elements) {
 		List<List<GASTClass>> elementList = new LinkedList<List<GASTClass>>();
 		
@@ -80,6 +110,12 @@ public class Initialization {
 		return elementList;
 	}
 	
+	/**
+	 * Returns a list of the given class itself and all of its inner classes
+	 * 
+	 * @param element A GASTClass object
+	 * @return a list containing the given class plus all inner classes
+	 */
 	private List<GASTClass> getInnerClasses (GASTClass element) {
 		List<GASTClass> currentList = new LinkedList<GASTClass>();
 		currentList.add((GASTClass)element);
@@ -96,9 +132,14 @@ public class Initialization {
 		return currentList;
 	}
 	
+	/**
+	 * Iterates recursively over all packages to extract every GASTClass
+	 * @param packages a list of packages
+	 */
 	private void iteratePackages (EList<Package> packages) {
 		for (de.fzi.gast.core.Package current : packages) {
-			if (!current.getSimpleName().equals("java") && !current.getSimpleName().equals("javax") && !current.getSimpleName().equals("junit") && !current.getSimpleName().equals("apache") && !current.getSimpleName().equals("netlib") && !current.getSimpleName().equals("sun") && !current.getSimpleName().equals("info") && !current.getSimpleName().equals("de")) {
+			//TODO implement black-/whitelist concept
+			//if (!current.getSimpleName().equals("java") && !current.getSimpleName().equals("javax") && !current.getSimpleName().equals("junit") && !current.getSimpleName().equals("apache") && !current.getSimpleName().equals("netlib") && !current.getSimpleName().equals("sun") && !current.getSimpleName().equals("info") && !current.getSimpleName().equals("de")) {
 				EList<GASTClass> classes = current.getClasses();
 				for (GASTClass currentClass : classes) {
 					elements.add(currentClass);
@@ -107,10 +148,15 @@ public class Initialization {
 				if (subPackages.size() > 0) {
 					iteratePackages(subPackages);
 				}
-			}
+			//}
 		}
 	}
 	
+	/**
+	 * Creates a resource from a given URI
+	 * 
+	 * @param fileURI The model URI
+	 */
 	private void createResource(URI fileURI) {
 		// Register the default resource factory -- only needed for stand-alone!
 		editingDomain.getResourceSet().getResourceFactoryRegistry().getExtensionToFactoryMap().put(
@@ -129,6 +175,9 @@ public class Initialization {
 	}
 	
 	
+	/**
+	 * Initializes the editing domain
+	 */
 	private void initializeEditingDomain () {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 

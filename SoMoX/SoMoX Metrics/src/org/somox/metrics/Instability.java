@@ -77,6 +77,16 @@ public class Instability implements Metric {
 	}
 	
 	/**
+	 * Setter-method for the blacklist indicator. If set to <code>true</code> the blacklist is used,
+	 * if set to <code>false</code> the whitelist is used
+	 * 
+	 * @param blacklistIndicator The indicator
+	 */
+	public void setBlacklistIndicator (boolean blacklistIndicator) {
+		this.blacklistIndicator = blacklistIndicator;
+	}
+	
+	/**
 	 * Setter method for the name-whitelist
 	 * 
 	 * This method is used to set the "whitelist" for class- and Package-Names
@@ -100,7 +110,6 @@ public class Instability implements Metric {
 		}
 	}
 
-	@Override
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double efferentCoupling = 0.0;
 		double afferentCoupling = 0.0;
@@ -306,20 +315,15 @@ public class Instability implements Metric {
 		return externClasses;
 	}
 	
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(4);
 	}
 
-	@Override
-	public void initialize(Root root) {
-		// TODO Auto-generated method stub
-		
+	public void initialize(Root root) {		
 	}
 }

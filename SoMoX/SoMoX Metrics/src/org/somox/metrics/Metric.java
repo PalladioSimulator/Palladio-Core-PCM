@@ -14,6 +14,9 @@ import de.fzi.gast.core.Root;
  *
  */
 public interface Metric {
+	//TODO Remove @Override tags
+	//TODO Test for innerclasses where necessary (currently not possible, method doesn't work)
+	//TODO implement initialize methods where they could be useful
 	
 	/**
 	 * Computes the Metric for a composite component

@@ -63,6 +63,16 @@ public class SubsystemComponent implements Metric {
 	}
 	
 	/**
+	 * Setter-method for the blacklist indicator. If set to <code>true</code> the blacklist is used,
+	 * if set to <code>false</code> the whitelist is used
+	 * 
+	 * @param blacklistIndicator The indicator
+	 */
+	public void setBlacklistIndicator (boolean blacklistIndicator) {
+		this.blacklistIndicator = blacklistIndicator;
+	}
+	
+	/**
 	 * Setter method for the name-whitelist
 	 * 
 	 * This method is used to set the "whitelist" for class- and Package-Names
@@ -85,7 +95,6 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
-	@Override
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 		Package prefixPackage = computePrefix(root.getPackages());
@@ -162,7 +171,6 @@ public class SubsystemComponent implements Metric {
 		return slaq.compute(root, elements1, elements2);
 	}
 
-	@Override
 	public ILaunchConfigurationTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
@@ -220,14 +228,10 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
-	@Override
 	public MetricID getMID() {
 		return new MetricID(8);
 	}
 
-	@Override
-	public void initialize(Root root) {
-		// TODO Auto-generated method stub
-		
+	public void initialize(Root root) {		
 	}
 }
