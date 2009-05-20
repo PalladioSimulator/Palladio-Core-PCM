@@ -45,7 +45,7 @@ public class BlackboardBasedWorkflow<T extends Blackboard<?>> extends Workflow {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Setting Blackboard of job "+job.getClass().getCanonicalName());
 				}
-				((IBlackboardInteractingJob<T>) job).setBlackbard(this.myBlackboard);
+				((IBlackboardInteractingJob<T>) job).setBlackboard(this.myBlackboard);
 			}
 		}
 		super.execute(monitor);

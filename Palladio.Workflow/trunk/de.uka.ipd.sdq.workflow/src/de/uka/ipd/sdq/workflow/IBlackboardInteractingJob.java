@@ -10,5 +10,5 @@ public interface IBlackboardInteractingJob<BlackboardType extends Blackboard<?>>
 	 * Sets the blackboard of this job to the given blackboard
 	 * @param blackboard The blackboard to be used by this job
 	 */
-	public void setBlackbard(BlackboardType blackboard);
+	public void setBlackboard(BlackboardType blackboard);
 }

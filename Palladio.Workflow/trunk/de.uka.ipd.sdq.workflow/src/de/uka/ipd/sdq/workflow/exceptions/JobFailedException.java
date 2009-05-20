@@ -2,8 +2,16 @@ package de.uka.ipd.sdq.workflow.exceptions;
 
 import org.eclipse.core.runtime.CoreException;
 
-@SuppressWarnings("serial")
+/**
+ * Exception to be thrown if the execute method of a job terminates unrecoverable.
+ * @author Steffen Becker
+  */
 public class JobFailedException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2638800346598141354L;
 
 	public JobFailedException() {
 		super();

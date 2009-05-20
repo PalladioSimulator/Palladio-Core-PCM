@@ -33,7 +33,7 @@ extends OrderPreservingCompositeJob implements ICompositeJob, IBlackboardInterac
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 		for (IJob job : this.myJobs){
 			if (job instanceof IBlackboardInteractingJob){
-				((IBlackboardInteractingJob) job).setBlackbard(this.myBlackboard);
+				((IBlackboardInteractingJob) job).setBlackboard(this.myBlackboard);
 			}
 		}
 		super.execute(monitor);
@@ -42,7 +42,7 @@ extends OrderPreservingCompositeJob implements ICompositeJob, IBlackboardInterac
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.workflow.IBlackboardInteractingJob#setBlackbard(de.uka.ipd.sdq.codegen.workflow.Blackboard)
 	 */
-	public void setBlackbard(BlackboardType blackboard) {
+	public void setBlackboard(BlackboardType blackboard) {
 		this.myBlackboard = blackboard;
 	}
 }

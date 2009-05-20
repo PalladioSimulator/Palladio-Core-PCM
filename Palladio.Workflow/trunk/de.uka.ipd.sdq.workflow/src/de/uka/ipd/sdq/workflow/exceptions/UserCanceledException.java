@@ -1,7 +1,11 @@
 package de.uka.ipd.sdq.workflow.exceptions;
 
-@SuppressWarnings("serial")
 public class UserCanceledException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1628079109828905830L;
 
 	public UserCanceledException() {
 		super();
