@@ -16,16 +16,27 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class ResourceSetPartition {
 	protected ResourceSet rs = new ResourceSetImpl();
 	
+	/**
+	 * @return Returns the internal used resource set of this blackboard partition
+	 */
 	public ResourceSet getResourceSet() {
 		return rs;
 	}
 	
+	/**
+	 * Initialise the EPackages of the models to be stored in this blackboard partition
+	 * @param ePackages The list of EPackages which form the meta-model of the model stored in this model partition
+	 */
 	public void initialiseResourceSetEPackages(EPackage[] ePackages) {
 		for (EPackage ePackage : ePackages) {
 			rs.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 		}
 	}
 	
+	/**
+	 * Load the model with the given URI into this blackboard partition
+	 * @param modelURI The URI of the model to be loaded
+	 */
 	public void loadModel(String modelURI) {
 		Resource r;
 		if (modelURI.indexOf("://") >= 0) { 
@@ -36,6 +47,9 @@ public class ResourceSetPartition {
 		EcoreUtil.resolveAll(r);
 	}
 
+	/**
+	 * Resolve all model proxies, i.e., load all dependent models
+	 */
 	public void resolveAllProxies() {
 		for (Resource r : this.rs.getResources()) {
 			EcoreUtil.resolveAll(r);

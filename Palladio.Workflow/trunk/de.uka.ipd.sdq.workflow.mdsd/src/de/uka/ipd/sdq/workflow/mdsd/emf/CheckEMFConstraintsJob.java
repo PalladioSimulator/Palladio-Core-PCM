@@ -17,6 +17,13 @@ import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
+/**
+ * A job which checks all model constraints implemented by EMF directly or generated using the 
+ * EMF OCL extension.
+ * 
+ * @author Steffen Becker
+ *
+ */
 public class CheckEMFConstraintsJob 
 implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 		IBlackboardInteractingJob<MDSDBlackboard> {
@@ -25,16 +32,26 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 	private MDSDBlackboard blackboard;
 	private String partitionName;
 
+	/**
+	 * Create a new constrains check job
+	 * @param partitionName The blackboard partition containing the model to be checked
+	 */
 	public CheckEMFConstraintsJob(String partitionName) {
 		super();
 		
 		this.partitionName = partitionName;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJobWithResult#getResult()
+	 */
 	public ArrayList<SeverityAndIssue> getResult() {
 		return this.result;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		
@@ -43,7 +60,7 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 		partition.resolveAllProxies();
 		
 		for (Resource r : partition.getResourceSet().getResources()) {
-			// Check PCM internal OCL constraints
+			// Check model internal OCL constraints
 			Diagnostician diagnostician = new Diagnostician();
 			Diagnostic d = diagnostician.validate(r.getContents().get(0));
 			appendSeverityAndIssueFromDiagnostic(result,d);
@@ -51,16 +68,25 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#getName()
+	 */
 	public String getName() {
 		return "Check EMF Model Constraints";
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#rollback(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void rollback(IProgressMonitor monitor)
 			throws RollbackFailedException {
 		// Not needed
 	}
 
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka.ipd.sdq.workflow.Blackboard)
+	 */
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 	

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.workflow.mdsd.oaw;
 
 import java.util.ArrayList;
@@ -32,8 +29,9 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
 /**
- * @author Snowball
- *
+ * Execute a model validation check using a given oAW check file. The oAW check language allows 
+ * powerfull specification of model validation rules similar to OCL constraints.
+ * @author Steffen Becker
  */
 public class PerformOAWCheckValidation 
 implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJob<MDSDBlackboard> {
@@ -47,9 +45,10 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 	private EPackage[] ePackages;
 
 	/**
-	 * @param partitionName
-	 * @param checkFilename
-	 * @param packages
+	 * Create a new oAW check job
+	 * @param partitionName The blackboard model partition containing the model to validate
+	 * @param checkFilename The URL of the check file containing the rules for well-formed models
+	 * @param packages The EPackages used in the model to be checked
 	 */
 	public PerformOAWCheckValidation(String partitionName,
 			String checkFilename, EPackage[] packages) {
@@ -105,7 +104,7 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 		return this.result;
 	}
 
-	public void setBlackbard(MDSDBlackboard blackboard) {
+	public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 
