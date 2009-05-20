@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.workflow.launchconfig.logging;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.spi.LoggingEvent;
 import org.eclipse.debug.core.model.IStreamMonitor;
@@ -41,8 +42,8 @@ public class Log4JBasedStreamsProxy implements IStreamsProxy {
 	public Log4JBasedStreamsProxy() {
 		super();
 		
-		this.outMonitor = new OutputAppenderBasedStreamMonitor();
-		this.errMonitor = new ErrorAppenderBasedStreamMonitor();
+		this.outMonitor = new AppenderBasedStreamMonitor(Level.WARN, AppenderBasedStreamMonitor.ComparisonOperator.LESS_THAN);
+		this.errMonitor = new AppenderBasedStreamMonitor(Level.WARN, AppenderBasedStreamMonitor.ComparisonOperator.GREATER_OR_EQUAL_THAN);
 		
 		myAppender.setLayout(new PatternLayout());
 		this.addAppender(myAppender);

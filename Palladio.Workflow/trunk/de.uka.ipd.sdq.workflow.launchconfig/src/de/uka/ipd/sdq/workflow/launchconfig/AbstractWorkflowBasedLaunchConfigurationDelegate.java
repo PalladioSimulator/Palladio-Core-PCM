@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
@@ -79,15 +80,49 @@ public abstract class
 	 */
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-
-		// The Eclipse process attached to this launch run 
-		WorkflowProcess myProcess = null;
 		
 		// Setup a new classloader to allow reconfiguration of apache commons logging
 		ClassLoader oldClassLoader = configureNewClassloader();
+		List<LoggerAppenderStruct> loggerList = setupProcessAndLogger(
+				configuration, launch);
+		try {
+			createAndRunWorkflow(configuration, mode, launch, monitor);
+		} finally {
+			// Reset classloader to original value
+			Thread.currentThread().setContextClassLoader(oldClassLoader);
+		}
+		tearDownProcessAndLogger(launch, loggerList);
+	}
+
+	/** Remove the IProcess associated to this launch and deinstall loggers used in this run
+	 * @param launch
+	 * @param loggerList
+	 * @throws DebugException
+	 */
+	private void tearDownProcessAndLogger(ILaunch launch,
+			List<LoggerAppenderStruct> loggerList) throws DebugException {
+		for(LoggerAppenderStruct l : loggerList) {
+			l.getLogger().removeAppender(l.getAppender());
+		}
+		
+		// Singnal execution terminatation to Eclipse to update UI 
+		launch.getProcesses()[0].terminate();
+	}
+
+	/**
+	 * Setup the Eclipse IProcess used to communicate with the Eclipse UI and its logging
+	 * @param configuration
+	 * @param launch
+	 * @return
+	 * @throws CoreException
+	 */
+	private List<LoggerAppenderStruct> setupProcessAndLogger(
+			ILaunchConfiguration configuration, ILaunch launch)
+			throws CoreException {
 		// Reconfigure apache commons logging to use Log4J as backend logger
 		System.setProperty(LogFactoryImpl.LOG_PROPERTY, "org.apache.commons.logging.impl.Log4JLogger");
 
+		WorkflowProcess myProcess;
 		// Add a process to this launch, needed for Eclipse UI updates
 		myProcess = getProcess(launch);
 		
@@ -98,32 +133,33 @@ public abstract class
 		}
 
 		launch.addProcess(myProcess);
+		return loggerList;
+	}
+
+	/**
+	 * Setup workflow engine and run workflow
+	 * @param configuration
+	 * @param mode
+	 * @param launch
+	 * @param monitor
+	 * @throws CoreException
+	 */
+	private void createAndRunWorkflow(ILaunchConfiguration configuration,
+			String mode, ILaunch launch, IProgressMonitor monitor)
+			throws CoreException {
+		logger.info("Create workflow configuration");
+		WorkflowConfigurationType workflowConfiguration = 
+			deriveConfiguration(configuration, mode);
+
+		logger.info("Validating workflow configuration");
+		workflowConfiguration.validateAndFreeze();
+
+		logger.info("Creating workflow engine");
+		Workflow workflow = createWorkflow(workflowConfiguration,
+				monitor, launch);
 		
-		try {
-			logger.info("Create workflow configuration");
-			WorkflowConfigurationType workflowConfiguration = 
-				deriveConfiguration(configuration, mode);
-		
-			logger.info("Validating workflow configuration");
-			workflowConfiguration.validateAndFreeze();
-	
-			logger.info("Creating workflow engine");
-			Workflow workflow = createWorkflow(workflowConfiguration,
-					monitor, launch);
-			
-			logger.info("Executing workflow");
-			workflow.run();
-		} finally {
-			// Reset classloader to original value
-			Thread.currentThread().setContextClassLoader(oldClassLoader);
-		}
-		
-		for(LoggerAppenderStruct l : loggerList) {
-			l.getLogger().removeAppender(l.getAppender());
-		}
-		
-		// Singnal execution terminatation to Eclipse to update UI 
-		launch.getProcesses()[0].terminate();
+		logger.info("Executing workflow");
+		workflow.run();
 	}
 
 	/**

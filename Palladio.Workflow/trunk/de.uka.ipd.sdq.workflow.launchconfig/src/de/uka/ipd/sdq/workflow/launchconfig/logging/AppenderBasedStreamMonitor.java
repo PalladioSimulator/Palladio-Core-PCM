@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.workflow.launchconfig.logging;
 import java.util.ArrayList;
 
 import org.apache.log4j.Level;
+import org.apache.log4j.Priority;
 import org.eclipse.debug.core.IStreamListener;
 import org.eclipse.debug.core.model.IStreamMonitor;
-
 
 /**
  * Base class of appender monitors. An appender monitor watches its added appenders for newly
@@ -15,8 +15,13 @@ import org.eclipse.debug.core.model.IStreamMonitor;
  * @author Steffen
  *
  */
-public abstract class AppenderBasedStreamMonitor implements IStreamMonitor, IAppenderListener {
+public class AppenderBasedStreamMonitor implements IStreamMonitor, IAppenderListener {
 
+	public enum ComparisonOperator {
+		LESS_THAN,
+		GREATER_OR_EQUAL_THAN
+	}
+	
 	/**
 	 * List of listeners provided by Eclipse which need to be informed of new log lines
 	 * arriving at one of the appenders added to this monitor. 
@@ -27,12 +32,21 @@ public abstract class AppenderBasedStreamMonitor implements IStreamMonitor, IApp
 	 * Container for all log messages recorded by this monitor 
 	 */
 	private StringBuffer myText = new StringBuffer();
+
+	/**
+	 * Log level of this appender 
+	 */
+	private Priority internalLogLevel;
 	
+	private ComparisonOperator comparisionOperator;
 	/**
 	 * Base class constructor 
 	 */
-	public AppenderBasedStreamMonitor() {
+	public AppenderBasedStreamMonitor(Level logLevel, ComparisonOperator op) {
 		super();
+		
+		this.internalLogLevel = logLevel;
+		this.comparisionOperator = op;
 	}
 	
 	/* (non-Javadoc)
@@ -84,5 +98,15 @@ public abstract class AppenderBasedStreamMonitor implements IStreamMonitor, IApp
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.logging.IAppenderListener#textAddedEvent(java.lang.String, org.apache.log4j.Level)
 	 */
-	public abstract void textAddedEvent(String text, Level level);
+	public void textAddedEvent(String text, Level level) {
+		if (comparisionOperator == ComparisonOperator.LESS_THAN) {
+			if (!level.isGreaterOrEqual(internalLogLevel)) {
+				notifyListeners(text);
+			}
+		} else {
+			if (level.isGreaterOrEqual(internalLogLevel)) {
+				notifyListeners(text);
+			}
+		}
+	}
 }
