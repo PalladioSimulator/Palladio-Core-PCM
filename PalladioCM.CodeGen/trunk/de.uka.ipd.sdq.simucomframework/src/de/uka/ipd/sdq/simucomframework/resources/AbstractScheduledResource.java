@@ -184,11 +184,11 @@ public abstract class AbstractScheduledResource extends Entity {
 
 		// If the resource can fail, simulate a failure with the given
 		// probability:
-		// if (canFail) {
-		//	   if (Math.random() < failureProbability) {
-		//	       throw new CommunicationLinkFailedException();
-		//	   }
-		// }
+		if (canFail) {
+			if (Math.random() < failureProbability) {
+				throw new CommunicationLinkFailedException();
+			}
+		}
 
 		if (this.getModel().getSimulationControl().isRunning()) {
 			double calculatedDemand = calculateDemand(demand);
@@ -422,6 +422,6 @@ public abstract class AbstractScheduledResource extends Entity {
 	}
 
 	public double getFailureProbability() {
-		return (canFail)? failureProbability : 0.0;
+		return (canFail) ? failureProbability : 0.0;
 	}
 }
