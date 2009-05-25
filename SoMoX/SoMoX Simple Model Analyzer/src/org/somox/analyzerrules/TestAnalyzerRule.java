@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
 
-import org.somox.metrics.Abstractness;
 import org.somox.metrics.Coupling;
 import org.somox.metrics.DMS;
 import org.somox.metrics.InterfaceViolation;
@@ -24,39 +23,6 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	
 	private static final String CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE = "config/SimpleAnalyzer.properties";
 	private Properties properties;
-
-	public double computeOverallMetricValue(Map<MetricID, Double> argAB,
-			Map<MetricID, Double> argBA) {
-		loadProperties();
-		
-		double abstractness = argAB.get(new Abstractness().getMID());
-		double abstractnessWeight = Double.parseDouble(properties.getProperty("org.somox.abstractness.weight"));
-		
-		double coupling = argAB.get(new Coupling().getMID());
-		double couplingWeight = Double.parseDouble(properties.getProperty("org.somox.coupling.weight"));
-		
-		double nameResemblance = argAB.get(new NameResemblance().getMID());
-		double nameResemblanceWeight = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weight"));		
-		
-		if(abstractness > coupling) {
-			if(abstractness < nameResemblance) {
-				return abstractness * abstractnessWeight * nameResemblance + nameResemblanceWeight;
-			}
-			return 0.9 * couplingWeight;
-		} else {
-			return 0.2;
-		}
-	}
-
-	private void loadProperties() {
-	    this.properties = new Properties();
-	
-	    try {
-	        properties.load(new FileInputStream(CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE));
-	    } catch (IOException e) {
-	    	e.printStackTrace();
-	    }
-	}
 	
 	/**
 	 * Computes the overall metric score based on Landrys weighting functions
@@ -65,8 +31,9 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	 * @param argBA The ID for every metric and its calculated score for the components B A
 	 * @return the overall score of the metric
 	 */
-	public double computeOverallMetricValueLandry(Map<MetricID, Double> argAB,
+	public double computeOverallMetricValue(Map<MetricID, Double> argAB,
 			Map<MetricID, Double> argBA) {
+		loadProperties();
 		
 		double nameResemblance = argAB.get(new NameResemblance().getMID());
 		double subsystemComponent = argAB.get(new SubsystemComponent().getMID());
@@ -82,44 +49,40 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		double interfaceViolationBA = argBA.get(new InterfaceViolation().getMID());
 		double interfaceViolation = Math.max(interfaceViolationAB, interfaceViolationBA);
 		
-		int w1=0, w2=0, w3=0, w4=60, w5=7;
+		double w1=0, w2=0, w3=0;
+		
+		double w4 = Double.parseDouble(properties.getProperty("org.somox.packageMapping.weightPackageMapping"));
+		double w5 = Double.parseDouble(properties.getProperty("org.somox.dms.weightDMS"));
 		
 		//determine weight of nameResemblance
 		if (coupling < 0.2) {
-			w1 = 0;
+			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowCoupling"));
 		} else if (coupling < 0.7) {
-			w1 = 10;
+			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidCoupling"));
 		} else {
 			if (nameResemblance < 0.5) {
-				w1 = 15;
+				w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowNameResemblance"));
 			} else if (nameResemblance < 0.7) {
-				w1 = 25;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidNameResemblance"));
 			} else if (nameResemblance < 0.9) {
-				w1 = 40;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighNameResemblance"));
 			} else {
-				w1 = 90;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighestNameResemblance"));
 			}
 		}
 		
 		//determine weight of interfaceViolation
 		if (coupling >=0.5 && interfaceViolation > 0.0) {
-			w2 = 60;
+			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationRelevant"));
 		} else {
-			w2 = 0;
+			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationIrrelevant"));
 		}
 		
 		//determine weight of subsystemComponent
 		if (slaq >= 0.5) {
-			w3 = 25;
+			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightHighSLAQ"));
 		} else {
-			w3 = 0;
-		}
-		
-		//determine weight of subsystemComponent
-		if (slaq >= 0.5) {
-			w3 = 25;
-		} else {
-			w3 = 0;
+			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightLowSLAQ"));
 		}
 		
 		//compute overall metric score
@@ -132,5 +95,14 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		
 		return score;
 	}
+
+	private void loadProperties() {
+	    this.properties = new Properties();
 	
+	    try {
+	        properties.load(new FileInputStream(CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE));
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+	}	
 }
