@@ -2,25 +2,28 @@ package de.uka.ipd.sdq.simuservice;
 
 import javax.xml.ws.Endpoint;
 
-
 /**
- * Creates a Web server that publishes an endpoint for the prediction-Web service
+ * Creates a Web server that publishes an endpoint for the prediction-Web
+ * service
+ * 
  * @author brosch, heupel
- *
+ * 
  */
 public class SimulationProvidingWebServer extends Thread {
 
+	private final String ENDPOINT = "http://localhost:8080/services";
+
 	@Override
 	public void run() {
-		System.out.println("Server is beeing started....");
-		
-		//Start server + publish Web service under specified address (AND ONLY THERE)
-		Endpoint endpoint = Endpoint.publish( "http://localhost:8080/services",
-                new SimuService() ); 
-		
-		System.out.println("Server started - you should now be able to acces the webservice");
-		
-		
+
+		System.out.println("Simulation web server is beeing started....");
+
+		Endpoint.publish(ENDPOINT, new SimuService());
+
+		System.out.println("Simulation web server: "
+				+ SimuService.class.getName() + " published at " + ENDPOINT);
+		System.out.println("Simulation web server: "
+				+ SimuService.class.getName() + " ready");
 	}
-	
+
 }

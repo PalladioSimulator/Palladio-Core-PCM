@@ -101,18 +101,22 @@ public class SimuService implements ISimuService {
 				.getResourceEnvironmentFile());
 		workflowConfiguration.setSystemFile(params.getSystemFile());
 
-		int datasourceID = 12;
+		long datasourceID = 0;
+		boolean datasourceExists = false;
 		Iterator<IDAOFactory> iterator = SensorFrameworkDataset.singleton()
 				.getDataSources().iterator();
-		ArrayList<IDAOFactory> dataSources = new ArrayList<IDAOFactory>();
 		while (iterator.hasNext()) {
-			dataSources.add(iterator.next());
+			IDAOFactory dataSource = iterator.next();
+			if (dataSource.getID() == datasourceID) {
+				datasourceExists = true;
+				break;
+			}
 		}
-		for (IDAOFactory dataSource : dataSources) {
-			SensorFrameworkDataset.singleton().removeDataSource(dataSource);
+		if (datasourceExists == false) {
+			SensorFrameworkDataset.singleton().addDataSource(
+					new FileDAOFactory(datasourceID, params
+							.getResultsDirectory()));
 		}
-		SensorFrameworkDataset.singleton().addDataSource(
-				new FileDAOFactory(datasourceID, params.getResultsDirectory()));
 
 		// Set default configuration values
 		workflowConfiguration
@@ -124,10 +128,10 @@ public class SimuService implements ISimuService {
 		Map<String, Object> simulationConfiguration = new HashMap<String, Object>();
 
 		simulationConfiguration.put("datasourceID", datasourceID);
-		simulationConfiguration.put("maximumMeasurementCount", "-1");
+		simulationConfiguration.put("maximumMeasurementCount", "1000");
 		simulationConfiguration.put("experimentRun", "ServiceTestRun");
-		simulationConfiguration.put("simTime", "1000000");
-		simulationConfiguration.put("verboseLogging", true);
+		simulationConfiguration.put("simTime", "-1");
+		simulationConfiguration.put("verboseLogging", false);
 
 		// Create new SimuComConfig and continue configuring workflow
 		SimuComConfig simuComConfig = new SimuComConfig(
