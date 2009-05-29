@@ -241,13 +241,13 @@ public class AllocationContextEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel allocationNameFigure0 = new WrapLabel();
+			WrapLabel allocationNameFigure0 = new PcmWrapLabel();
 			allocationNameFigure0.setText("<...>");
 
 			this.add(allocationNameFigure0);
 			setFigureAllocationNameFigure(allocationNameFigure0);
 
-			WrapLabel allocationComponentLabelFigure0 = new WrapLabel();
+			WrapLabel allocationComponentLabelFigure0 = new PcmWrapLabel();
 			allocationComponentLabelFigure0.setText("");
 
 			this.add(allocationComponentLabelFigure0);

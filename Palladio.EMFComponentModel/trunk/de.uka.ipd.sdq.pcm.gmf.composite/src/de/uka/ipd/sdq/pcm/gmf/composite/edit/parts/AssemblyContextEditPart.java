@@ -286,7 +286,7 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel entityEntityName2Figure0 = new WrapLabel();
+			WrapLabel entityEntityName2Figure0 = new PcmWrapLabel();
 			entityEntityName2Figure0.setText("<...>");
 
 			this.add(entityEntityName2Figure0);

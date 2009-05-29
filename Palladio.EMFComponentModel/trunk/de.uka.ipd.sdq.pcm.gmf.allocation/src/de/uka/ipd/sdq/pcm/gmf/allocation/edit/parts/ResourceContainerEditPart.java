@@ -236,7 +236,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel resContainerNameFigure0 = new WrapLabel();
+			WrapLabel resContainerNameFigure0 = new PcmWrapLabel();
 			resContainerNameFigure0.setText("<...>");
 
 			this.add(resContainerNameFigure0);

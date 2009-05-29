@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -278,7 +279,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 	 */
 	public class CompositeStructureFigure extends RectangleFigure {
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		public CompositeStructureFigure() {
 			this.setFill(true);
@@ -289,6 +290,15 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20),
 					getMapMode().DPtoLP(20)));
+			
+//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+//			layout.setVertical(true);
+//			layout.setSpacing(0);
+//			layout.setStretchMinorAxis(true);
+//			layout.setMinorAlignment(FlowLayout.ALIGN_CENTER);
+//			layout.setStretchMajorAxis(true);
+//			this.setLayoutManager(layout);
+			
 			createContents();
 		}
 
@@ -297,7 +307,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 		 */
 		private void createContents() {
 
-			WrapLabel compositeStructureStereotypeLabelFigure0 = new WrapLabel();
+			WrapLabel compositeStructureStereotypeLabelFigure0 = new PcmWrapLabel();
 			// Do not set the label to "<<CompositeStructure>>", but to the 
 			// name of the actual instance type, e. g. CompositeComponent or SubSystem
 			compositeStructureStereotypeLabelFigure0
@@ -305,7 +315,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 
 			this.add(compositeStructureStereotypeLabelFigure0);
 
-			WrapLabel compositeStructureNameLabelFigure0 = new WrapLabel();
+			WrapLabel compositeStructureNameLabelFigure0 = new PcmWrapLabel();
 			compositeStructureNameLabelFigure0.setText("");
 
 			this.add(compositeStructureNameLabelFigure0);
