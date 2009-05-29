@@ -15,12 +15,12 @@ public class SimuServiceResultStatus {
 	private boolean frozen = false;
 
 	/**
-	 * Standard constructor - might be needed  
+	 * Standard constructor - might be needed
 	 */
-	public SimuServiceResultStatus(){
-	
+	public SimuServiceResultStatus() {
+
 	}
-	
+
 	/**
 	 * Freezes the properties of the object.
 	 */
@@ -81,72 +81,54 @@ public class SimuServiceResultStatus {
 	}
 
 	/**
-	 * Indicates if the workflow was successfully executed.
+	 * Indicates if workflow execution was successful.
 	 */
-	private boolean workflowExecuted = false;
+	private boolean workflowSuccessful = false;
 
 	/**
-	 * Sets the workflowExecuted property.
+	 * Sets the workflowSuccessful property.
 	 * 
-	 * @param workflowExecuted
+	 * @param workflowSuccessful
 	 *            the property to set
 	 */
-	public void setWorkflowExecuted(boolean workflowExecuted) {
+	public void setWorkflowSuccessful(boolean workflowSuccessful) {
 		if (!frozen) {
-			this.workflowExecuted = workflowExecuted;
+			this.workflowSuccessful = workflowSuccessful;
 		}
 	}
 
 	/**
-	 * Gets the value of the workflowExecuted property.
+	 * Gets the value of the workflowSuccessful property.
 	 * 
 	 * @return the property value
 	 */
-	public boolean isWorkflowExecuted() {
-		return workflowExecuted;
+	public boolean isWorkflowSuccessful() {
+		return workflowSuccessful;
 	}
 
 	/**
-	 * Indicates if SimuService was successfully invoked and executed.
-	 * 
-	 * @return SimuService success status
+	 * Stores any exception that has occurred during SimuService execution.
 	 */
-	public boolean isSuccessful() {
-		return (workflowParamsConfigured && workflowCreated && workflowExecuted);
+	private String exception = null;
+
+	/**
+	 * Stores an exception that has occurred during SimuService execution.
+	 * 
+	 * @param exception
+	 *            the exception to set
+	 */
+	public void setException(String exception) {
+		if (!frozen) {
+			this.exception = exception;
+		}
 	}
 
-//	/**
-//	 * Stores any exception that has occurred during SimuService execution.
-//	 */
-//	private Exception exception = null;
-//
-//	/**
-//	 * Stores an exception that has occurred during SimuService execution.
-//	 * 
-//	 * @param exception
-//	 *            the exception to set
-//	 */
-//	public void setException(Exception exception) {
-//		if (!frozen) {
-//			this.exception = exception;
-//		}
-//	}
-//
-//	/**
-//	 * Gets any occurred exception.
-//	 * 
-//	 * @return the property value
-//	 */
-//	public Exception getException() {
-//		return exception;
-//	}
-//
-//	/**
-//	 * Indicates if an exception has occurred during SimuService execution.
-//	 * 
-//	 * @return
-//	 */
-//	public boolean hasExceptionOccurred() {
-//		return exception != null;
-//	}
+	/**
+	 * Gets any occurred exception.
+	 * 
+	 * @return the property value
+	 */
+	public String getException() {
+		return exception;
+	}
 }
