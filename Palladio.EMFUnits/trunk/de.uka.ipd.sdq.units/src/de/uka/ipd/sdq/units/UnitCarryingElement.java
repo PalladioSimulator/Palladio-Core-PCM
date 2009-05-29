@@ -43,7 +43,7 @@ public interface UnitCarryingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unit</em>' reference.
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitCarryingElement_Unit()
-	 * @model required="true" transient="true" volatile="true" ordered="false" suppressedSetVisibility="true"
+	 * @model transient="true" volatile="true" ordered="false" suppressedSetVisibility="true"
 	 *        extendedMetaData="name='' namespace=''"
 	 * @generated
 	 */

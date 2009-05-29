@@ -178,7 +178,7 @@ public class UnitPowerImpl extends UnitImpl implements UnitPower {
 			case UnitsPackage.UNIT_POWER__UNIT:
 				return getUnit();
 			case UnitsPackage.UNIT_POWER__EXPONENT:
-				return new Integer(getExponent());
+				return getExponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,7 +195,7 @@ public class UnitPowerImpl extends UnitImpl implements UnitPower {
 				setUnit((Unit)newValue);
 				return;
 			case UnitsPackage.UNIT_POWER__EXPONENT:
-				setExponent(((Integer)newValue).intValue());
+				setExponent((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
