@@ -1,12 +1,12 @@
 package org.somox.metrics;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.eclipse.emf.common.util.EList;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -199,13 +199,10 @@ public class NameResemblance implements Metric {
 	}
 
 	public void initialize(Root root) {
-		List<ModelElement> repo = root.getRepository().getModelElements();
-		List<GASTClass> classList = new LinkedList<GASTClass>();
-		for (ModelElement current : repo) {
-			if (current instanceof GASTClass) {
-				resemblancePuffer.put(((GASTClass) current).getQualifiedName(), new HashMap<String,Integer>());
-				classList.add((GASTClass)current);
-			}
+		
+		EList<GASTClass> classList = root.getAllNormalClasses();
+		for (GASTClass currentClass : classList)  {
+			resemblancePuffer.put(currentClass.getQualifiedName(), new HashMap<String,Integer>());
 		}
 		
 		Set<String> keys = resemblancePuffer.keySet();
