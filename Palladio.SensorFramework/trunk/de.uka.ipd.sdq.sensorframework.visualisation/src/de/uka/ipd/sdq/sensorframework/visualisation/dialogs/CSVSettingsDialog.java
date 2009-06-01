@@ -1,17 +1,17 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.ui.PlatformUI;
 
 /**
@@ -30,6 +30,7 @@ public class CSVSettingsDialog extends Dialog {
 	private Button btnSave;
 	private Button chkHeader;
 	private boolean isHeader = true;
+	private boolean isCanceled = false;
 	
 	// The values are not in accordance with the common java convention, but as
 	// entries for a Combobox it is more readable.
@@ -47,11 +48,11 @@ public class CSVSettingsDialog extends Dialog {
 	/**
 	 * Create the dialog.
 	 * 
-	 * @param parent The parent display shell on which the dialog will be created.
-	 * @param style Behavior and style of the dialog.
-	 * @param filePath default file path
+	 * @param fileDir default file directory
 	 * @param fileName default file name
 	 * @param fileExtension default file extension
+	 * @param type The type of the Dialog either DialogType.DIRECTORY stands for SWT DirectoryDialog
+	 * or DialogType.FILE stands for SWT FileDialog.
 	 */
 	public CSVSettingsDialog(String fileDir, String fileName, String fileExtension, DialogType type) {
 		
@@ -138,18 +139,17 @@ public class CSVSettingsDialog extends Dialog {
 		}
 		{
 			btnSave = new Button(frmDialog, SWT.NONE);
-			btnSave.addSelectionListener(new SelectionAdapter() {
-				
+			btnSave.addSelectionListener(new SelectionAdapter() {	
 				public void widgetSelected(SelectionEvent e) {
-					
 					if (dialogType == DialogType.FILE) {
 						saveAsCSVFileDialog();						
-					} else if (dialogType == DialogType.PATH) {
+					} else if (dialogType == DialogType.DIRECTORY) {
 						CSVDirectoryDialog dirDialog = new CSVDirectoryDialog(fileDir);
 						fileDir = dirDialog.getFileDir();
 						filePath = fileDir;
+						isCanceled = dirDialog.isCanceled();
 					}
-					frmDialog.close();
+					frmDialog.close();					
 				}
 			});
 			btnSave.setBounds(10, 152, 75, 25);
@@ -161,12 +161,17 @@ public class CSVSettingsDialog extends Dialog {
 				public void widgetSelected(SelectionEvent e) {
 					filePath = "";
 					frmDialog.close();
+					isCanceled = true;
 				}
 			});
 			btnAbbrechen.setBounds(153, 152, 75, 25);
 			btnAbbrechen.setText("Cancel");
 		}
 
+	}
+	
+	public boolean isCanceled() {
+		return isCanceled;
 	}
 
 	/**
@@ -189,6 +194,7 @@ public class CSVSettingsDialog extends Dialog {
 		if (filePath == null) {
 			// The dialog is canceled.
 			filePath = "";
+			isCanceled = true;
 		}
 	}
 
