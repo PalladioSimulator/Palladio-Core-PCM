@@ -1,14 +1,13 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
+import java.io.File;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -28,14 +27,18 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.jface.action.Action;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MessageBox;
+
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
@@ -432,7 +435,7 @@ public class ExperimentsView extends ViewPart {
 
 	/**
 	 * Get the Data which are associated with the selected TreeView element and
-	 * open a save dialog which settings for the CSV export.
+	 * open a save dialog with settings for the CSV export.
 	 * 
 	 * @author David Scherr
 	 */
@@ -447,7 +450,15 @@ public class ExperimentsView extends ViewPart {
 		} else if (object instanceof ExperimentAndDAO) {
 			
 		} else if (object instanceof TreeContainer) {
-			System.out.println(((TreeContainer) object).getName());
+			System.out.println(((TreeContainer) object).getElements());
+			CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.DIRECTORY);
+			dialog.open();
+			/*
+			 * Er soll die dem markierten Objekt untergeordneten Experiment Runs speichern.
+			 * Dazu sollte der unten vorhandene Quelltext des Speichervorgangs in eine Methode gepackt
+			 * werden, die nur noch aufgerufen werden muss mit dem Experiment Run als Parameter.
+			 */
+			dialog.dispose();
 			
 		} else if (object instanceof TreeObject) {
 			TreeObject treeObject = (TreeObject) object;
@@ -457,13 +468,12 @@ public class ExperimentsView extends ViewPart {
 				// Get the measurement of a special selected sensor of the TreeObject.
 				Sensor sensor = (Sensor) innerObject;
 				SensorAndMeasurements sensorAndMeasurements = treeObject.getRun().getMeasurementsOfSensor(sensor);			
-				String fileName = senatiseFileName(sensorAndMeasurements.getSensor().getSensorName().toString()+ ".csv");
-
+				String fileName = sanitizeFileName(sensorAndMeasurements.getSensor().getSensorName().toString()+ ".csv");
+				// Please note that the dialog type is a FileDialog.
 				CSVSettingsDialog dialog = new CSVSettingsDialog("", fileName, "*.csv", DialogType.FILE);
 				dialog.open();		
 				
 				if (!(dialog.getFilePath().equals(""))) {
-					// new File(dialog.getFilePath()).mkdirs();
 					exportSensorDataToCSV(dialog.getFilePath(), sensorAndMeasurements
 							.getMeasurements(), dialog.isHeader(), dialog
 							.getSeparator());
@@ -478,36 +488,65 @@ public class ExperimentsView extends ViewPart {
 				SensorAndMeasurements sensorAndMeasurements;
 				String fileName = "";
 				String filePath = "";
-				String experimentDir = senatiseFileName(run.getExperimentDateTime());
+				boolean isDirValid = false;
+				String dirExperiment = sanitizeFileName(run.getExperimentDateTime());
+				// Please note that the dialog type is a DirectoryDialog.
+				CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.DIRECTORY);
 				
-				CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.PATH);
-				dialog.open();
-				filePath = dialog.getFilePath() + File.separatorChar + experimentDir;
-				
-				if (!(filePath.equals(""))) {
-					new File(filePath).mkdirs();
-					for (Iterator<Sensor> iterator = treeObject.getExperiment().getSensors().iterator(); iterator.hasNext();) {
-						Sensor sensor = iterator.next();
-						sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
-						fileName = senatiseFileName(sensor.getSensorName().toString() + ".csv");
-						
-						exportSensorDataToCSV(filePath + File.separatorChar + fileName,
-								sensorAndMeasurements.getMeasurements(),
-								dialog.isHeader(), dialog.getSeparator());	
+				// If the directory does already exist and the user doesn't want to overwrite, then you must
+				// choose another directory or cancel the dialog, otherwise you must cancel the dialog.
+				while (!isDirValid) {
+					dialog.open();
+					if (dialog.isCanceled()) {
+						isDirValid = true;
+					} else {
+						// The dialog is not canceled.
+						isDirValid = true;
+						filePath = dialog.getFilePath() + File.separatorChar + dirExperiment;
+						File fileObject = new File(filePath);
+						if (fileObject.exists()) {
+							MessageBox box = new MessageBox(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), SWT.OK | SWT.CANCEL);
+							box.setMessage("The directory already exists! Do you want to overwrite it?");
+			                int boxResult = box.open();							
+			                if (boxResult == SWT.OK) {
+								// Overwrite the existing directory.
+			                	isDirValid = true;
+			                } else if (boxResult == SWT.CANCEL) {
+			                	// Open the directory dialog again, to choose another directory.
+			                	isDirValid = false;
+			                }
+						}
+						if (isDirValid) {
+							new File(filePath).mkdirs();
+							for (Iterator<Sensor> iterator = treeObject.getExperiment().getSensors().iterator(); iterator.hasNext();) {
+								Sensor sensor = iterator.next();
+								sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
+								fileName = sanitizeFileName(sensor.getSensorName().toString() + ".csv");
+								
+								exportSensorDataToCSV(filePath + File.separatorChar + fileName,
+										sensorAndMeasurements.getMeasurements(),
+										dialog.isHeader(), dialog.getSeparator());	
+							}
+						}
 					}
-					
-				} else {
-					// The Save Dialog is canceled.
 				}
-				dialog.dispose();				
+				dialog.dispose();
 			}
 		}
 	}
 	
-	private String senatiseFileName(String fileName) {
+	/**
+	 * Some characters are not allowed for file names, e.g. : , ", *, etc. which will be
+	 * replaced by sanitizeFileName().
+	 * 
+	 * @author David Scherr
+	 * @param fileName The name of the file.
+	 * @return The sanitized file name, which is free of not allowed characters.
+	 */
+	private String sanitizeFileName(String fileName) {
 		
 		// Replace all chars, which can't be a part of a valid windows filename.
-		fileName = fileName.replace('\\', '-');	
+		fileName = fileName.replace('\\', '-');
 		fileName = fileName.replace('/', '-');
 		fileName = fileName.replace(':', '-');
 		fileName = fileName.replace('*', '+');
