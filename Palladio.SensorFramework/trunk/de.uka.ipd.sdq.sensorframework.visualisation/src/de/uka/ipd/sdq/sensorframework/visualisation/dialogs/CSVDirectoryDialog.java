@@ -9,6 +9,7 @@ import org.eclipse.ui.PlatformUI;
  */
 public class CSVDirectoryDialog {
 	private String fileDir;
+	private boolean isCanceled = false;
 
 	/**
 	 * Runs the application
@@ -21,16 +22,22 @@ public class CSVDirectoryDialog {
 		this.fileDir = fileDir;
 		DirectoryDialog dialog = new DirectoryDialog(shell);
 		dialog.setFilterPath(fileDir);
-		dialog.setText("SWT's DirectoryDialog");
+		dialog.setText("Directory of Experiment Run");
 		dialog.setMessage("Select a directory");
-
+		
 		this.fileDir = dialog.open();
+		
 		if (this.fileDir == null) {
 			this.fileDir = "";
-		}		
+			isCanceled  = true;
+		}
 	}
 
 	public String getFileDir() {
 		return fileDir;
+	}
+	
+	public boolean isCanceled() {
+		return isCanceled;
 	}
 }
