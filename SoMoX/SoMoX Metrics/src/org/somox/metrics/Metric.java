@@ -2,7 +2,7 @@ package org.somox.metrics;
 
 import java.util.List;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -33,7 +33,7 @@ public interface Metric {
 	/**
 	 * Returns the GUI launch configuration tab that can be used to configure the metric
 	 */
-	public ILaunchConfigurationTab getLaunchConfigurationTab();
+	public MetricTab getLaunchConfigurationTab();
 	
 	/**
 	 * Unique identifier for a metric (not an metric instance)

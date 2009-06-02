@@ -3,7 +3,6 @@ package org.somox.analyzer;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.Preferences;
-import org.somox.configuration.ConfigurableComponent;
 import org.somox.extractor.ExtractionResult;
 
 import eu.qimpress.samm.staticstructure.Repository;

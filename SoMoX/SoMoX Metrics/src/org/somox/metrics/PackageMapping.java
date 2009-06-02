@@ -2,7 +2,7 @@ package org.somox.metrics;
 
 import java.util.List;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -54,7 +54,7 @@ public class PackageMapping implements Metric {
 		}
 	}
 
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

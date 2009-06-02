@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -189,7 +189,7 @@ public class NameResemblance implements Metric {
 		return resemblance;
 	}
 	
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

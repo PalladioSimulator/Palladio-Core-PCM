@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;
@@ -317,7 +317,7 @@ public class Coupling implements Metric {
 		return externClasses;
 	}
 	
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

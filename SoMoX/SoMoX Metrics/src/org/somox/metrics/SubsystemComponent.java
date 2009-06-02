@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Package;
@@ -171,7 +171,7 @@ public class SubsystemComponent implements Metric {
 		return slaq.compute(root, elements1, elements2);
 	}
 
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

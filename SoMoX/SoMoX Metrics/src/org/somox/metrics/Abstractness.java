@@ -2,13 +2,13 @@ package org.somox.metrics;
 
 import java.util.List;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.query.conditions.booleans.BooleanCondition;
 import org.eclipse.emf.query.conditions.eobjects.structuralfeatures.EObjectAttributeValueCondition;
 import org.eclipse.emf.query.statements.FROM;
 import org.eclipse.emf.query.statements.IQueryResult;
 import org.eclipse.emf.query.statements.SELECT;
 import org.eclipse.emf.query.statements.WHERE;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -90,7 +90,7 @@ public class Abstractness implements Metric {
 		return abstractness;
 	}
 	
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

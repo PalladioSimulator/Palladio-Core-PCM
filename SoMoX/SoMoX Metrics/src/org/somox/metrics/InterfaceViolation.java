@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.emf.common.util.EList;
+import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;
@@ -24,7 +24,7 @@ public class InterfaceViolation implements Metric {
 	protected HashSet<String> componentAClassNameSet, componentBClassNameSet;
 	protected HashSet<String> componentAIFaceNameSet, componentBIFaceNameSet;
 	
-	public ILaunchConfigurationTab getLaunchConfigurationTab() {
+	public MetricTab getLaunchConfigurationTab() {
 		// TODO Auto-generated method stub
 		return null;
 	}

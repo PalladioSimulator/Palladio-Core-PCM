@@ -8,6 +8,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.somox.analyzer.MetricTab;
+import org.somox.analyzer.ModelAnalyzerTabGroupBlackboard;
 import org.somox.core.SoMoXCoreLogger;
 import org.somox.metrics.Metric;
 import org.somox.ui.runconfig.tabs.ModelAnalyzerInputTab;
@@ -21,6 +23,12 @@ import org.somox.ui.runconfig.tabs.ModelAnalyzerInputTab;
  * @author Michael Hauck
  */
 public class ModelAnalyzerTabGroup extends AbstractLaunchConfigurationTabGroup {
+	
+	private ModelAnalyzerTabGroupBlackboard modelAnalyzerTabGroupBlackboard = null;
+	
+	public ModelAnalyzerTabGroup() {
+		modelAnalyzerTabGroupBlackboard = new ModelAnalyzerTabGroupBlackboard(); 
+	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
@@ -66,7 +74,9 @@ public class ModelAnalyzerTabGroup extends AbstractLaunchConfigurationTabGroup {
 			if (o instanceof Metric) {
 				Metric metric = (Metric)o;
 				if(metric.getLaunchConfigurationTab() != null) {
-					tabList.add(metric.getLaunchConfigurationTab());
+					MetricTab metricTab = metric.getLaunchConfigurationTab();
+					metricTab.setModelAnalyzerTabGroupBlackboard(modelAnalyzerTabGroupBlackboard);
+					tabList.add(metricTab);
 				}
 				
 			}
@@ -76,6 +86,8 @@ public class ModelAnalyzerTabGroup extends AbstractLaunchConfigurationTabGroup {
 	
 	protected ArrayList<ILaunchConfigurationTab> getCoreAnalyzerTabs() {
 		ArrayList<ILaunchConfigurationTab> tabList = new ArrayList<ILaunchConfigurationTab>();
+		ModelAnalyzerInputTab modelAnalyzerInputTab = new ModelAnalyzerInputTab();
+		modelAnalyzerInputTab.setModelAnalyzerTabGroupBlackboard(modelAnalyzerTabGroupBlackboard);
 		tabList.add(new ModelAnalyzerInputTab());
 		return tabList;		
 	}
