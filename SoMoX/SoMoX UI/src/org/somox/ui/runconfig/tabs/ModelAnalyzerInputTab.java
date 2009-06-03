@@ -32,6 +32,10 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 	public void setModelAnalyzerTabGroupBlackboard(
 			ModelAnalyzerTabGroupBlackboard blackboard) {
 		this.blackboard = blackboard;
+		if (inputFile == null) {
+			blackboard.setSomoxAnalyzerInputFile(null);
+			return;
+		}
 		if ((inputFile.getText() == null) || (inputFile.getText().equals(""))) {
 			blackboard.setSomoxAnalyzerInputFile(null);
 			return;
