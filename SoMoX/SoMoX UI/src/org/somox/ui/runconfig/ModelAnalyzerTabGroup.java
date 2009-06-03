@@ -88,7 +88,7 @@ public class ModelAnalyzerTabGroup extends AbstractLaunchConfigurationTabGroup {
 		ArrayList<ILaunchConfigurationTab> tabList = new ArrayList<ILaunchConfigurationTab>();
 		ModelAnalyzerInputTab modelAnalyzerInputTab = new ModelAnalyzerInputTab();
 		modelAnalyzerInputTab.setModelAnalyzerTabGroupBlackboard(modelAnalyzerTabGroupBlackboard);
-		tabList.add(new ModelAnalyzerInputTab());
+		tabList.add(modelAnalyzerInputTab);
 		return tabList;		
 	}
 	

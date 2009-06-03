@@ -38,7 +38,12 @@ public class TestMetricTab extends MetricTab {
 			Button btnButton = new Button(control, SWT.NONE);
 			btnButton.addMouseListener(new MouseAdapter() {
 				public void mouseDown(MouseEvent e) {
-					
+					String file = TestMetricTab.this.getModelAnalyzerTabGroupBlackboard().getSomoxAnalyzerInputFile();
+					if (file == null) {
+						System.out.println("File null!");	
+					} else {
+						System.out.println("File: " + file);
+					}
 				}
 			});
 			btnButton.setText("InputFile");

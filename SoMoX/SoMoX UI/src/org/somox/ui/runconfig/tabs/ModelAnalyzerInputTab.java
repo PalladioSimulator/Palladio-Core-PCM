@@ -28,7 +28,7 @@ import org.somox.common.SoMoXProjectPreferences;
 public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 
 	private ModelAnalyzerTabGroupBlackboard blackboard = null;
-
+	
 	public void setModelAnalyzerTabGroupBlackboard(
 			ModelAnalyzerTabGroupBlackboard blackboard) {
 		this.blackboard = blackboard;
@@ -44,9 +44,9 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 				.getFile()
 				+ inputFile.getText());
 		if (!inputFi.exists()) {
-			blackboard.setSomoxAnalyzerInputFile(null);
+			this.blackboard.setSomoxAnalyzerInputFile(null);
 		} else {
-			blackboard.setSomoxAnalyzerInputFile(inputFile.getText());
+			this.blackboard.setSomoxAnalyzerInputFile(inputFile.getText());
 		}
 	}
 
