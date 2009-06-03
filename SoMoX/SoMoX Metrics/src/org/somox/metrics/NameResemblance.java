@@ -190,8 +190,8 @@ public class NameResemblance implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		//return new TestMetricTab();
-		return null;
+		return new TestMetricTab();
+		//return null;
 	}
 
 	public MetricID getMID() {
