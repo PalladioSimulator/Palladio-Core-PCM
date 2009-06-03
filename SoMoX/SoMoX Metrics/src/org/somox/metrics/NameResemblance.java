@@ -190,7 +190,7 @@ public class NameResemblance implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
+		//return new TestMetricTab();
 		return null;
 	}
 
