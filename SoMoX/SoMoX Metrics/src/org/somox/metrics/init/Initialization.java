@@ -17,8 +17,6 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 
 import de.fzi.gast.accesses.provider.accessesItemProviderAdapterFactory;
 import de.fzi.gast.annotations.provider.annotationsItemProviderAdapterFactory;
-import de.fzi.gast.core.ModelElement;
-import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.core.provider.coreItemProviderAdapterFactory;
 import de.fzi.gast.functions.provider.functionsItemProviderAdapterFactory;
@@ -44,7 +42,8 @@ public class Initialization {
 	private Resource resource;
 	
 	private Root root = null;
-	private List<ModelElement> elements;
+	
+	private EList<GASTClass> classList;
 	
 	/**
 	 * Class lists are extracted from the resource at the given URI
@@ -74,20 +73,17 @@ public class Initialization {
 	private List<List<GASTClass>> extractClasses () {
 		EList<EObject> contents = resource.getContents();
 		
-		elements = new LinkedList<ModelElement>();
-		
 		for (EObject current : contents) {
 			if (current instanceof Root) {
 				root = (Root)current;
 			}
 		}
 		if (root != null) {
-			EList<de.fzi.gast.core.Package> packages = root.getPackages();
-			iteratePackages(packages);
+			classList = root.getAllNormalClasses();
 		}
 		
 		
-		return addInnerClasses(elements);
+		return addInnerClasses(classList);
 	}
 	
 	/**
@@ -96,14 +92,12 @@ public class Initialization {
 	 * @param elements A list of ModelElements
 	 * @return a list of lists of GASTClasses
 	 */
-	private List<List<GASTClass>> addInnerClasses (List<ModelElement> elements) {
+	private List<List<GASTClass>> addInnerClasses (EList<GASTClass> elements) {
 		List<List<GASTClass>> elementList = new LinkedList<List<GASTClass>>();
 		
-		if (elements.size() > 0) {
-			for (ModelElement element : elements) {
-				if (element instanceof GASTClass) {
-					elementList.add(getInnerClasses((GASTClass)element));
-				}
+		if (elements != null && elements.size() > 0) {
+			for (GASTClass element : elements) {
+				elementList.add(getInnerClasses(element));
 			}
 		}
 		
@@ -118,11 +112,14 @@ public class Initialization {
 	 */
 	private List<GASTClass> getInnerClasses (GASTClass element) {
 		List<GASTClass> currentList = new LinkedList<GASTClass>();
-		currentList.add((GASTClass)element);
+		currentList.add(element);
 		
-		EList<GASTClass> innerClasses = ((GASTClass)element).getInnerClasses();
+		EList<GASTClass> innerClasses = element.getInnerClasses();
 		
 		if (innerClasses != null) {
+			for (GASTClass current : innerClasses) {
+				System.out.println("INNER " + current.isInner());
+			}
 			currentList.addAll(innerClasses);
 		}
 		for (GASTClass innerClass : innerClasses) {
@@ -130,26 +127,6 @@ public class Initialization {
 		}
 		
 		return currentList;
-	}
-	
-	/**
-	 * Iterates recursively over all packages to extract every GASTClass
-	 * @param packages a list of packages
-	 */
-	private void iteratePackages (EList<Package> packages) {
-		for (de.fzi.gast.core.Package current : packages) {
-			//TODO implement black-/whitelist concept
-			//if (!current.getSimpleName().equals("java") && !current.getSimpleName().equals("javax") && !current.getSimpleName().equals("junit") && !current.getSimpleName().equals("apache") && !current.getSimpleName().equals("netlib") && !current.getSimpleName().equals("sun") && !current.getSimpleName().equals("info") && !current.getSimpleName().equals("de")) {
-				EList<GASTClass> classes = current.getClasses();
-				for (GASTClass currentClass : classes) {
-					elements.add(currentClass);
-				}
-				EList<de.fzi.gast.core.Package> subPackages = current.getSubPackages();
-				if (subPackages.size() > 0) {
-					iteratePackages(subPackages);
-				}
-			//}
-		}
 	}
 	
 	/**

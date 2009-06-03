@@ -25,7 +25,6 @@ public class InterfaceViolation implements Metric {
 	protected HashSet<String> componentAIFaceNameSet, componentBIFaceNameSet;
 	
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -190,7 +190,7 @@ public class NameResemblance implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		return new TestMetricTab();
+		return new NameResemblanceTab();
 		//return null;
 	}
 
@@ -201,6 +201,8 @@ public class NameResemblance implements Metric {
 	public void initialize(Root root) {
 		
 		EList<GASTClass> classList = root.getAllNormalClasses();
+		classList.addAll(root.getAllInnerClasses());
+		
 		for (GASTClass currentClass : classList)  {
 			resemblancePuffer.put(currentClass.getQualifiedName(), new HashMap<String,Integer>());
 		}
@@ -209,9 +211,7 @@ public class NameResemblance implements Metric {
 		
 		for (String currentKey : keys) {
 			for (GASTClass currentClass : classList) {
-				if (!currentKey.equals(currentClass.getQualifiedName())) {
-					resemblancePuffer.get(currentKey).put(currentClass.getQualifiedName(), -1);
-				}
+				resemblancePuffer.get(currentKey).put(currentClass.getQualifiedName(), -1);
 			}
 		}
 	}

@@ -318,8 +318,7 @@ public class Coupling implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CouplingTab();
 	}
 
 	public MetricID getMID() {

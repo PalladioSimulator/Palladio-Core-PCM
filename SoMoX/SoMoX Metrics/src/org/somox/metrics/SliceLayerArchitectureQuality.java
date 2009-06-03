@@ -148,7 +148,6 @@ public class SliceLayerArchitectureQuality implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

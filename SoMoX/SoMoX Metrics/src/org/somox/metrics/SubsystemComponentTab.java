@@ -4,21 +4,23 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
+import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Tree;
 import org.somox.analyzer.MetricTab;
-import org.somox.analyzer.ModelAnalyzerTabGroupBlackboard;
-import org.somox.core.SoMoXCoreLogger;
 
-public class TestMetricTab extends MetricTab {
+public class SubsystemComponentTab extends MetricTab {
 	
 	protected Composite control;
+	private Group group;
 
 	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
 
@@ -33,20 +35,24 @@ public class TestMetricTab extends MetricTab {
 	 */
 	public void createControl(Composite parent) {
 		control = new Composite(parent, SWT.NONE);
-		control.setLayout(new GridLayout(1, false));
+		control.setLayout(new GridLayout(2, false));
 		{
-			Button btnButton = new Button(control, SWT.NONE);
-			btnButton.addMouseListener(new MouseAdapter() {
-				public void mouseDown(MouseEvent e) {
-					String file = TestMetricTab.this.getModelAnalyzerTabGroupBlackboard().getSomoxAnalyzerInputFile();
-					if (file == null) {
-						System.out.println("File null!");	
-					} else {
-						System.out.println("File: " + file);
-					}
-				}
-			});
-			btnButton.setText("InputFile");
+			group = new Group(control, SWT.NONE);
+			group.setLayout(new FillLayout(SWT.VERTICAL));
+			{
+				Button btnBlacklist = new Button(group, SWT.RADIO);
+				btnBlacklist.setText("Blacklist");
+			}
+			{
+				Button btnWhitelist = new Button(group, SWT.RADIO);
+				btnWhitelist.setSelection(true);
+				btnWhitelist.setText("Whitelist");
+			}
+		}
+		{
+			CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			Tree tree = checkboxTreeViewer.getTree();
+			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		}
 	}
 
@@ -75,11 +81,11 @@ public class TestMetricTab extends MetricTab {
 
 	@Override
 	public String getName() {
-		return "NameResemblance";
+		return "SubsystemComponent";
 	}
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
-
+		
 	}
 
 	public boolean isValid(ILaunchConfiguration launchConfig) {

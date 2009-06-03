@@ -46,8 +46,7 @@ public class DMS implements Metric {
 	}
 	
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
-		return null;
+		return new DMSTab();
 	}
 
 	public MetricID getMID() {
