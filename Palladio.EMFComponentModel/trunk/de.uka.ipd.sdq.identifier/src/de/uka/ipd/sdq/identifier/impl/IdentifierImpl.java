@@ -38,6 +38,13 @@ import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
  */
 public abstract class IdentifierImpl extends EObjectImpl implements Identifier {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

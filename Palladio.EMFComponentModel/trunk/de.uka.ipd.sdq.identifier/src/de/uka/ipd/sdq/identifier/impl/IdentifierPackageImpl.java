@@ -31,6 +31,12 @@ public class IdentifierPackageImpl extends EPackageImpl implements IdentifierPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass identifierEClass = null;
 
 	/**
@@ -223,7 +229,7 @@ public class IdentifierPackageImpl extends EPackageImpl implements IdentifierPac
 		   source, 
 		   new String[] {
 			 "name", "",
-			 "namespace", ""
+			 "namespace", "id"
 		   });
 	}
 

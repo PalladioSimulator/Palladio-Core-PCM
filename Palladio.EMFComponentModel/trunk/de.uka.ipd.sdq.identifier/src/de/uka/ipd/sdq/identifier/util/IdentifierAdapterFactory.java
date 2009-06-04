@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
+import de.uka.ipd.sdq.identifier.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -23,6 +24,12 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * @generated
  */
 public class IdentifierAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

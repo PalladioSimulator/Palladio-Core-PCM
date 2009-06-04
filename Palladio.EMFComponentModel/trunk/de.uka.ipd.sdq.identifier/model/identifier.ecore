@@ -30,7 +30,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value=""/>
-        <details key="namespace" value=""/>
+        <details key="namespace" value="id"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -18,6 +18,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
  */
 public final class IdentifierEditPlugin extends EMFPlugin {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

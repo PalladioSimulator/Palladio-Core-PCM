@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
+import de.uka.ipd.sdq.identifier.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +29,12 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * @generated
  */
 public class IdentifierSwitch<T> {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

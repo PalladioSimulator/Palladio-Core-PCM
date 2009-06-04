@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
+import de.uka.ipd.sdq.identifier.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -24,6 +25,13 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * @generated
  */
 public class IdentifierValidator extends EObjectValidator {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

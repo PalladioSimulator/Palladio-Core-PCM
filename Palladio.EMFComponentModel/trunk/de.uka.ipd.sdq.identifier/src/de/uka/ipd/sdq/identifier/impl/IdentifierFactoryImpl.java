@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.identifier.impl;
 
+import de.uka.ipd.sdq.identifier.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -22,6 +23,13 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * @generated
  */
 public class IdentifierFactoryImpl extends EFactoryImpl implements IdentifierFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
