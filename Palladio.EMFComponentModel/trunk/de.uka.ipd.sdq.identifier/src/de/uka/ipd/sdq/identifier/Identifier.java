@@ -46,7 +46,7 @@ public interface Identifier extends EObject {
 	 * @see #setId(String)
 	 * @see de.uka.ipd.sdq.identifier.IdentifierPackage#getIdentifier_Id()
 	 * @model id="true" required="true" ordered="false"
-	 *        extendedMetaData="name='' namespace=''"
+	 *        extendedMetaData="name='' namespace='id'"
 	 * @generated
 	 */
 	String getId();
