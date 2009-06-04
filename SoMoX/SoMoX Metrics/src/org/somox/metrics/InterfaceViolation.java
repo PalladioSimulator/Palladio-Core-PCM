@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;

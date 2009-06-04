@@ -3,7 +3,6 @@ package org.somox.metrics;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;

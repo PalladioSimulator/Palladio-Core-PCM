@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
-import org.somox.analyzer.MetricTab;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;

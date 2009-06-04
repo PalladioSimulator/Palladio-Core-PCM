@@ -8,10 +8,10 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
-import org.somox.analyzer.MetricTab;
 import org.somox.analyzer.ModelAnalyzerTabGroupBlackboard;
 import org.somox.core.SoMoXCoreLogger;
 import org.somox.metrics.Metric;
+import org.somox.metrics.MetricTab;
 import org.somox.ui.runconfig.tabs.ModelAnalyzerInputTab;
 
 /**

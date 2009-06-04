@@ -15,7 +15,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Tree;
-import org.somox.analyzer.MetricTab;
 
 public class CouplingTab extends MetricTab {
 	
