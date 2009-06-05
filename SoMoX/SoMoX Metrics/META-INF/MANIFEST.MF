@@ -15,8 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.somox.core;bundle-version="1.0.0",
  eu.qimpress.identifier;bundle-version="1.0.0",
  de.fzi.gast;bundle-version="1.0.0",
- de.fzi.gast.edit;bundle-version="1.0.0",
- org.somox.metrics.ui;bundle-version="1.0.0"
+ de.fzi.gast.edit;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.somox.metrics,
