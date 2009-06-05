@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Workflow Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.codegen.workflow
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.codegen.workflow.WorkflowPlugin
+Bundle-Vendor: de.uka.ipd.sdq
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.pcm,
+ org.openarchitectureware.core.expressions,
+ org.openarchitectureware.core.workflow,
+ org.openarchitectureware.core.emftools,
+ de.uka.ipd.sdq.errorhandling,
+ org.apache.log4j
+Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.codegen.workflow,
+ de.uka.ipd.sdq.codegen.workflow.jobs

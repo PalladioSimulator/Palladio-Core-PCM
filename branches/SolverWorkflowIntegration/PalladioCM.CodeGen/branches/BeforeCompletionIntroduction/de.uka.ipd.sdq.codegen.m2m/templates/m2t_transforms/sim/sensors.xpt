@@ -1,0 +1,10 @@
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Start a response time measurement
+	double startTime«this» = ctx.getModel().currentTime().getTimeValue();
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Stop the response time measurement
+	ctx.getModel().getSensorFactory().addMeasurement("Response Time of «this»",
+		ctx.getModel().currentTime().getTimeValue()-startTime«this»);
+«ENDDEFINE»

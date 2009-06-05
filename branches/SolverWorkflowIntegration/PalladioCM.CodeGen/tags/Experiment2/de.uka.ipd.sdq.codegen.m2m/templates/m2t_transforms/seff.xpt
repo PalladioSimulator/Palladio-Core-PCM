@@ -1,0 +1,57 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+«IMPORT completions»
+
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ExternalCallAction»
+    «EXPAND m2t_transforms::calls::Call(this,
+       	"myContext.getRole"+this.calledService_ExternalService.interface_Signature.javaName()+"().",
+    	this.parameterUsage_ExternalCallAction, this.outputVariableUsage_ExternalCallAction) FOR this.calledService_ExternalService»
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+   «ERROR "InternalAction is a template method and must be overridden"»
+«ENDDEFINE»
+ 
+«DEFINE Action FOR BranchAction»
+   «ERROR "BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR AquireAction»
+   «ERROR "AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+«ENDDEFINE»

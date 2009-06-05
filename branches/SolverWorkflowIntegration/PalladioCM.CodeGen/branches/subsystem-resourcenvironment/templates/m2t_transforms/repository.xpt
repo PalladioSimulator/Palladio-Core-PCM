@@ -1,0 +1,43 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT core::entity»
+«IMPORT system»
+«IMPORT core::composition»
+
+// Generate code for a single repository
+// This means:
+// - Generate all Interfaces
+// - Generate all components
+// - Generate all datatypes (POJO only)
+«DEFINE Root FOR Repository»
+   «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
+   «EXPAND ComponentRoot FOREACH this.components__Repository»
+«ENDDEFINE»
+
+«DEFINE InterfaceFile FOR Interface»
+   «FILE this.getFileName() INTERFACES»
+      package «this.repository_Interface.basePackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentRoot FOR RepositoryComponent»
+   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentRoot FOR CompositeComponent»
+   	«FILE this.getFileName()»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
+	    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+		«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
+	«ENDFILE»
+	«REM»
+	I guess this line is generating additional overhead, the components inside a CC should be generated already
+	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext»
+	«ENDREM»
+«ENDDEFINE»

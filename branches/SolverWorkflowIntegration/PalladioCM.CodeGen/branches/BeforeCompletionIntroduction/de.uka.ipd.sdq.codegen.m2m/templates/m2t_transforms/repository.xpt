@@ -1,0 +1,30 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT entity»
+«IMPORT system»
+«IMPORT composition»
+
+// Generate code for a single repository
+// This means:
+// - Generate all Interfaces
+// - Generate all components
+// - Generate all datatypes (POJO only)
+«DEFINE Root FOR Repository»
+   «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
+   «EXPAND ComponentRoot FOREACH this.components__Repository»
+«ENDDEFINE»
+
+«DEFINE InterfaceFile FOR Interface»
+   «FILE this.getFileName()»
+      package «this.repository_Interface.basePackageName()»;
+            
+      public interface «this.javaName()» {
+	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentRoot FOR ProvidesComponentType»
+   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+«ENDDEFINE»

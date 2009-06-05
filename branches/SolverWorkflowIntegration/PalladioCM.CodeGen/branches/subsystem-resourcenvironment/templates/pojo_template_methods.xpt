@@ -1,0 +1,88 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
+
+«AROUND m2t_transforms::system::SystemAdditionsTM FOR System»
+	«EXPAND m2t_transforms::ejb3::system::DeploymentDescriptor FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR ProvidesComponentType»
+	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this» 
+«ENDAROUND»
+
+// ----------------------------
+// Parameter
+// ----------------------------
+«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+	«EXPAND m2t_transforms::java_core::Parameter FOREACH this.parameters__Signature SEPARATOR ","»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+   «EXPAND m2t_transforms::java_core::ParameterUse FOREACH this.parameters__Signature SEPARATOR ","»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+   «EXPAND m2t_transforms::java_core::ReturnType FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
+   «EXPAND m2t_transforms::pojo::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
+// ----------------------------
+// Resource Demand
+// ----------------------------
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ParametricResourceDemand»
+	«EXPAND m2t_transforms::pojo::resources::ResourceDemand FOR this»
+«ENDAROUND»
+
+// ----------------------------
+// Actions Dispatcher ---> SEFF
+// ----------------------------
+«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR LoopAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::seff::Action FOR BranchAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR InternalAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR AcquireAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND»
+// ----------------------------
+// End of Actions Dispatcher 
+// ----------------------------
+
+//-----------------------------
+// Usage TM
+//-----------------------------
+«AROUND m2t_transforms::usage::MainTM FOR UsageModel»
+ 	«EXPAND m2t_transforms::pojo::usage::Main FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
+«ENDAROUND»

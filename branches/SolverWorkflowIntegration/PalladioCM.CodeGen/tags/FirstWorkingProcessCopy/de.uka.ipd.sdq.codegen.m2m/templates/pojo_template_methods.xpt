@@ -1,0 +1,13 @@
+«IMPORT repository»
+
+«AROUND BasicComponentTM FOR BasicComponent»
+   «EXPAND m2t_transforms::pojo::BasicComponent FOR this»
+«ENDAROUND»
+
+«AROUND ParameterListTM FOR Signature»
+	«EXPAND m2t_transforms::java_core::Parameter FOREACH this.parameters__Signature SEPARATOR ","»
+«ENDAROUND»
+
+«AROUND ParameterUsageListTM FOR Signature»
+   «EXPAND m2t_transforms::java_core::ParameterUse FOREACH this.parameters__Signature SEPARATOR ","»
+«ENDAROUND»
