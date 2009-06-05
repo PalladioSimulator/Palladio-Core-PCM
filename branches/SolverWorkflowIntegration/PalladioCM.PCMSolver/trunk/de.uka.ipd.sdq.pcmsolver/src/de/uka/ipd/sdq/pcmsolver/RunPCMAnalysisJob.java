@@ -20,34 +20,27 @@ import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.Pcm2RegExStrategy;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
+import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
+import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 /**
  * The central class that controls the PCM Solver process when launched from the
  * eclipse UI.
  * 
- * @author koziolek, brosch
+ * @author koziolek, brosch, becker
  * 
  */
-public class PCMSolver {
-
-	/**
-	 * A console for output of PCm Solver results.
-	 */
-	private static MessageConsole messageConsole;
-
-	/**
-	 * Retrieves the PCM Solver console.
-	 * 
-	 * @return the PCM Solver console
-	 */
-	public static MessageConsole getConsole() {
-		return messageConsole;
-	}
+public class RunPCMAnalysisJob implements IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/**
 	 * Enables log4j logging for this class.
 	 */
-	private static Logger logger = Logger.getLogger(PCMSolver.class.getName());
+	private static Logger logger = Logger.getLogger(RunPCMAnalysisJob.class.getName());
 
 	/**
 	 * Configuration details constant.
@@ -60,20 +53,14 @@ public class PCMSolver {
 	private static final double DISTANCEDEFAULT = 1.0;
 
 	/**
-	 * Wrapper object for the model parts belonging to the PCM instance.
-	 */
-	private PCMInstance currentModel;
-
-	/**
-	 * References the progress monitor associated with the launch.
-	 */
-	private IProgressMonitor monitor;
-
-	/**
 	 * Indicates the actual type of the PCM solving process. The user can choose
 	 * between different types through the launch configuration.
 	 */
 	private SolverStrategy strategy;
+
+	private MDSDBlackboard blackboard;
+
+	private ILaunchConfiguration configuration;
 
 	/**
 	 * The constructor.
@@ -88,18 +75,10 @@ public class PCMSolver {
 	 * @param reliability
 	 *            enables reliability analysis
 	 */
-	public PCMSolver(final ILaunchConfiguration configuration,
-			final IProgressMonitor monitor, final boolean reliability) {
+	public RunPCMAnalysisJob(final ILaunchConfiguration configuration, final boolean reliability) {
 
-		// Set the progress monitor:
-		this.monitor = monitor;
-
-		// Configure log4j logging:
-		configureLogging(configuration);
-
-		// Determine the PCM model parts from the launch configuration:
-		currentModel = new PCMInstance(configuration);
-
+		this.configuration = configuration;
+		
 		// Determine configuration details:
 		int domainSize = DOMAINSIZEDEFAULT;
 		double distance = DISTANCEDEFAULT;
@@ -140,16 +119,20 @@ public class PCMSolver {
 	 * @param monitor
 	 *            the progress monitor
 	 */
-	public PCMSolver(final ILaunchConfiguration configuration,
+	public RunPCMAnalysisJob(final ILaunchConfiguration configuration,
 			final IProgressMonitor monitor) {
-		this(configuration, monitor, false);
+		this(configuration, false);
 	}
 
 	/**
 	 * Executes the PCM Solver process.
 	 */
-	public void execute() {
+	public void execute(IProgressMonitor monitor) throws JobFailedException,
+		UserCanceledException {
 
+		// Determine the PCM model parts from the launch configuration:
+		PCMInstance currentModel = new PCMInstance((PCMResourceSetPartition)this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID));
+		
 		// Check the model for being valid:
 		if (!currentModel.isValid()) {
 			logger.error("PCM Instance invalid! Check filenames.");
@@ -166,47 +149,21 @@ public class PCMSolver {
 		monitor.worked(50);
 	}
 
-	/**
-	 * Configures the log4j logging capability.
-	 * 
-	 * @param configuration
-	 *            the launch configuration
-	 */
-	private void configureLogging(final ILaunchConfiguration configuration) {
-
-		// Set the layout for logging messages:
-		PatternLayout myLayout = new PatternLayout(
-				"%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
-
-		// Define and configure a new message console:
-		if (messageConsole == null) {
-			messageConsole = new MessageConsole(
-					"PCM Solver Console: Analysis Tool Output", null);
-			ConsolePlugin.getDefault().getConsoleManager().addConsoles(
-					new IConsole[] { messageConsole });
-		}
-
-		// Switch to this console if any other console is active:
-		messageConsole.activate();
-
-		// Enable writing to the console:
-		BasicConfigurator.resetConfiguration();
-		BasicConfigurator.configure(new WriterAppender(myLayout, messageConsole
-				.newMessageStream()));
-
-		// Adapt the logging level to the choice of the user:
-		boolean verboseLogging = false;
-		try {
-			verboseLogging = configuration.getAttribute(
-					MessageStrings.VERBOSE_LOGGING, false);
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		Logger.getRootLogger().setLevel(
-				(verboseLogging) ? Level.DEBUG : Level.INFO);
-	}
-
 	public SolverStrategy getStrategy() {
 		return strategy;
+	}
+
+	@Override
+	public void setBlackboard(MDSDBlackboard blackboard) {
+		this.blackboard = blackboard;
+	}
+
+	public String getName() {
+		return "Run PCM Analysis";
+	}
+
+	public void rollback(IProgressMonitor monitor)
+			throws RollbackFailedException {
+		// Nothing to do here
 	}
 }

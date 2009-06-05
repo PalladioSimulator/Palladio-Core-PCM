@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
 
 public class LqnTransformTest {
 

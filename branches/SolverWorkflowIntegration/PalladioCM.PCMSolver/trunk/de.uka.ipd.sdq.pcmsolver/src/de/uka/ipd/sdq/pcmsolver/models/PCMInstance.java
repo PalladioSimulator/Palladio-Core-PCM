@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
+import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 
 public class PCMInstance {
 
@@ -66,6 +67,7 @@ public class PCMInstance {
 		loadFromFiles(config);
 	}
 
+	@Deprecated
 	public PCMInstance(ILaunchConfiguration configuration) {
 		this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
 		this.actualAllocation = ComputedAllocationFactory.eINSTANCE
@@ -102,6 +104,20 @@ public class PCMInstance {
 		}
 	}
 
+	public PCMInstance(PCMResourceSetPartition pcmModel) {
+		this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
+		this.actualAllocation = ComputedAllocationFactory.eINSTANCE
+				.createComputedAllocation();
+		this.storagePath = ".";
+
+		this.setAllocation(pcmModel.getAllocation());
+		this.setRepository(pcmModel.getRepository());
+		this.setResourceEnvironment(pcmModel.getAllocation().getTargetResourceEnvironment_Allocation());
+		this.setResourceRepository(pcmModel.getResourceTypeRepository());
+		this.setSystem(pcmModel.getSystem());
+		this.setUsageModel(pcmModel.getUsageModel());
+	}
+	
 	public Allocation getAllocation() {
 		return allocation;
 	}

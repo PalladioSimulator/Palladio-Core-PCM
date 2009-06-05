@@ -9,6 +9,8 @@ import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.IJobWithResult;
 import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.ValidateModelJob;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation

@@ -6,7 +6,9 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /**
  * Launches the PCM Solver for Reliability analysis.
@@ -42,10 +44,18 @@ public class PCMSolverReliabilityLaunchConfigurationDelegate implements
 			final IProgressMonitor monitor) throws CoreException {
 
 		// Create a new PCM Solver:
-		PCMSolver solver = new PCMSolver(configuration, monitor, true);
+		RunPCMAnalysisJob solver = new RunPCMAnalysisJob(configuration, true);
 
 		// Start the solver:
-		solver.execute();
+		try {
+			solver.execute(monitor);
+		} catch (JobFailedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UserCanceledException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

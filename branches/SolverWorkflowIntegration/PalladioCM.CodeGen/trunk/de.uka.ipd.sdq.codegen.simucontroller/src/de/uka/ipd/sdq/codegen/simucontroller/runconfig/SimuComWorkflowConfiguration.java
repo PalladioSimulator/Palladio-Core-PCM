@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
 
 /**

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
+package de.uka.ipd.sdq.workflow.mdsd;
 
 import de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;

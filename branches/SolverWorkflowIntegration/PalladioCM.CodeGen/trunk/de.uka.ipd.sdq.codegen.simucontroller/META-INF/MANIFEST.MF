@@ -40,10 +40,10 @@ Require-Bundle: org.eclipse.ui,
  org.junit4;bundle-version="4.3.1",
  org.eclipse.emf.query.ocl;bundle-version="1.2.0",
  org.eclipse.ocl.ecore;bundle-version="1.2.1",
- de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0";visibility:=reexport
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
- de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs,
  de.uka.ipd.sdq.pcm.transformations
 Bundle-Vendor: sdq.ipd.uka.de
