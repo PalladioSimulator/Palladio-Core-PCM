@@ -1,6 +1,7 @@
 package org.somox.ui.runconfig;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
+import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.somox.ui.runconfig.tabs.ModelExtractionInputTab;
@@ -20,7 +21,7 @@ public class ModelExtractionTabGroup extends AbstractLaunchConfigurationTabGroup
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new ModelExtractionInputTab()};
+				new ModelExtractionInputTab(), new CommonTab()};
 		setTabs(tabs);
 	}
 }
