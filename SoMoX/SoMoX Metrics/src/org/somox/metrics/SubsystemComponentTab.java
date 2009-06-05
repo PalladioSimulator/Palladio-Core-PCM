@@ -78,7 +78,6 @@ public class SubsystemComponentTab extends MetricTab {
 		return null;
 	}
 
-	@Override
 	public String getName() {
 		return "SubsystemComponent";
 	}

@@ -78,7 +78,6 @@ public class DMSTab extends MetricTab {
 		return null;
 	}
 
-	@Override
 	public String getName() {
 		return "DMS";
 	}

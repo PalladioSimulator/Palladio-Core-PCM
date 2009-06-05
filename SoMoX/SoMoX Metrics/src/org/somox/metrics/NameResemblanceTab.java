@@ -68,7 +68,6 @@ public class NameResemblanceTab extends MetricTab {
 		return null;
 	}
 
-	@Override
 	public String getName() {
 		return "NameResemblance";
 	}

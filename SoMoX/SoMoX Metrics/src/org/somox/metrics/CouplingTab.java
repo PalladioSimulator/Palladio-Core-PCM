@@ -78,7 +78,6 @@ public class CouplingTab extends MetricTab {
 		return null;
 	}
 
-	@Override
 	public String getName() {
 		return "Coupling";
 	}
