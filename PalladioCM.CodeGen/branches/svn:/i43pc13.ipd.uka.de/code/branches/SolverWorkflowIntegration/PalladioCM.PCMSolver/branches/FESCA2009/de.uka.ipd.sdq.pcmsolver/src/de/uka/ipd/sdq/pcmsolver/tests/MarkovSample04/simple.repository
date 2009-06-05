@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_2nycwJVoEd2S446fqASmQg" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_3dpGsJVoEd2S446fqASmQg" entityName="myComponent">
+    <providedRoles_InterfaceProvidingEntity id="_9OBJ4JVoEd2S446fqASmQg" entityName="myInterface" providedInterface__ProvidedRole="_5c1-UJVoEd2S446fqASmQg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_81BbEJVoEd2S446fqASmQg" entityName="myInterface" requiredInterface__RequiredRole="_5c1-UJVoEd2S446fqASmQg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Y1JogJVqEd2S446fqASmQg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ZGkIoJVqEd2S446fqASmQg" entityName="myStart" successor_AbstractAction="_DTkWEJbNEd2UBcYpj-zXhg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ZGkIoZVqEd2S446fqASmQg" entityName="myStop" predecessor_AbstractAction="_DTkWEJbNEd2UBcYpj-zXhg"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_DTkWEJbNEd2UBcYpj-zXhg" entityName="ExtCallFake_myInterface.mySignature" predecessor_AbstractAction="_ZGkIoJVqEd2S446fqASmQg" successor_AbstractAction="_ZGkIoZVqEd2S446fqASmQg" failureProbability="0.01"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_5c1-UJVoEd2S446fqASmQg" entityName="myInterface">
+    <signatures__Interface serviceName="mySignature"/>
+  </interfaces__Repository>
+</Repository>

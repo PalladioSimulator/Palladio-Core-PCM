@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simu Data Visualization Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.jface.text,
+ org.eclipse.ui.ide,
+ de.uka.ipd.sdq.sensorframework,
+ org.eclipse.core.expressions,
+ org.eclipse.debug.ui,
+ de.uka.ipd.sdq.sensorframework.dialogs,
+ de.uka.ipd.sdq.pcm.dialogs,
+ de.uka.ipd.sdq.pcmbench.tabs
+Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
+Eclipse-BuddyPolicy: dependent
+Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.sensorframework.visualisation.editor
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

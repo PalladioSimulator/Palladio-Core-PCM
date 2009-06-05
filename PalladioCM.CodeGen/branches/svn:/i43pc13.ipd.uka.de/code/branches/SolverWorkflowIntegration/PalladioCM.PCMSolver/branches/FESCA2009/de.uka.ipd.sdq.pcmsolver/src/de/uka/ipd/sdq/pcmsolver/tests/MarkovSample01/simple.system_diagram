@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" type="CompositeModel" name="simple.system_diagram" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="12"/>
+          </children>
+          <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="simple.repository#_BeYG0FiXEd25ur7DrWap4g"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="84"/>
+        </children>
+        <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="simple.system#_6w1bUFiXEd25ur7DrWap4g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="115" y="13" width="241" height="181"/>
+      </children>
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <children type="3003">
+      <children type="5003">
+        <layoutConstraint xsi:type="notation:Location" x="-134" y="24"/>
+      </children>
+      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="simple.system#_TF13UFiYEd25ur7DrWap4g"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="228" y="48" width="385" height="265"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="simple.system#_lgRnwFiXEd25ur7DrWap4g"/>
+  <edges type="4003" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="simple.system#_Wv_N0FiYEd25ur7DrWap4g"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -105, 3]$[133, 1, -2, 4]"/>
+  </edges>
+</notation:Diagram>

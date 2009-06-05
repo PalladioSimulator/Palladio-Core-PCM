@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: de.uka.ipd.sdq.benchmarks.concurrency.DemandServer
+Class-Path: log4j.jar
+

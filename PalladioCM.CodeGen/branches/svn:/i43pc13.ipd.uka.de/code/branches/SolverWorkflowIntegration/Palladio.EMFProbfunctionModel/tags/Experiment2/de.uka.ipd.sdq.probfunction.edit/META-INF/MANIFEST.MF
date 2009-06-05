@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.edit; singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.uka.ipd.sdq.probfunction.provider
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Eclipse-LazyStart: true

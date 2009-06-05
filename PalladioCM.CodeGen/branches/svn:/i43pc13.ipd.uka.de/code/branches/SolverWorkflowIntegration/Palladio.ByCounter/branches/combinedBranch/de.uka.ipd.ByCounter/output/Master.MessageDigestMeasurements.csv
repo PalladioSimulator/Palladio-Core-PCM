@@ -1,0 +1,5 @@
+"Platform description","JVM conf","JIT conf","digest algo","nr of measurements","immediate digesting?","input size","nr of diff. rd. inputs", "value0", "value1", "value2"
+"Lenovo","-server -Xmx1024M","-Xint","SHA-512",40","false",100000,20,47213,110933652,157003
+"Lenovo","-server -Xmx1024M","-Xint","SHA-512",40","false",100000,20,47772,110328827,157283
+"Lenovo","-server -Xmx1024M","-Xint","SHA-512",40","false",100000,20,47771,110678033,157003
+"Lenovo","-server -Xmx1024M","-Xint","SHA-512",40","false",10000,20,33523,11125157,151974

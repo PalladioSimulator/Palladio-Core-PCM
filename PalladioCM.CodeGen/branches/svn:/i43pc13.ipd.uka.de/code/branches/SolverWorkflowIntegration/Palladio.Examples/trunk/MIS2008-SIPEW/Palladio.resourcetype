@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
+  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_BIjHoQ3KEdyouMqirZIhzQ" entityName="hdd"/>
+  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_3nrZgRwbEdym-derHwSMPw" entityName="cpu"/>
+  <availableResourceTypes_ResourceRepository xsi:type="CommunicationLinkResourceType" id="_5Jd8Ihy6EdyK8tsgv3Eumw" entityName="LAN"/>
+</ResourceRepository>

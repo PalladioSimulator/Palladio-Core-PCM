@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DSE StrengthenResource Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.newcandidates.strengthenResource;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: de.uka.ipd.sdq.dsexplore,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.pcm,
+ org.apache.log4j,
+ org.eclipse.debug.core,
+ de.uka.ipd.sdq.codegen.runconfig,
+ de.uka.ipd.sdq.featureconfig

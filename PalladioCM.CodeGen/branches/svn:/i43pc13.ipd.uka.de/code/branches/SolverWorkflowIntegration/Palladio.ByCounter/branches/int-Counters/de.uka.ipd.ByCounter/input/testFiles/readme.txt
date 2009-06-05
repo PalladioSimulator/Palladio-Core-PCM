@@ -1,0 +1,34 @@
+Following files have been deleted from this branch; they can be found in the trunkFile
+
+File: j0.jpg  	36 KB  	05.06.2008  	16:24:00
+File: j1.jpg 	29 KB 	05.06.2008 	16:24:00
+File: j2.jpg 	44 KB 	05.06.2008 	16:24:00
+File: j3.jpg 	36 KB 	05.06.2008 	16:24:00
+File: j4.jpg 	20 KB 	05.06.2008 	16:24:00
+File: j5.jpg 	25 KB 	05.06.2008 	16:24:00
+File: j6.jpg 	10 KB 	05.06.2008 	16:24:00
+File: j7.jpg 	23 KB 	05.06.2008 	16:24:00
+File: j8.jpg 	29 KB 	05.06.2008 	16:24:00
+File: j9.jpg 	29 KB 	05.06.2008 	16:24:00
+File: large.jpg 	11665 KB 	05.06.2008 	16:24:08
+File: large.zip 	11713 KB 	05.06.2008 	16:24:03
+File: lesstiny.txt 	1 KB 	05.06.2008 	16:24:01
+File: long.txt 	1888 KB 	05.06.2008 	16:24:08
+File: medium.jpg 	774 KB 	05.06.2008 	16:24:07
+File: medium.txt 	913 KB 	05.06.2008 	16:24:00
+File: medium.zip 	833 KB 	05.06.2008 	16:24:01
+File: p0.pdf 	25 KB 	05.06.2008 	16:24:00
+File: p1.pdf 	26 KB 	05.06.2008 	16:24:00
+File: p2.pdf 	32 KB 	05.06.2008 	16:24:00
+File: p3.pdf 	29 KB 	05.06.2008 	16:24:00
+File: p4.pdf 	33 KB 	05.06.2008 	16:24:00
+File: p5.pdf 	37 KB 	05.06.2008 	16:24:00
+File: p6.pdf 	37 KB 	05.06.2008 	16:24:00
+File: p7.pdf 	31 KB 	05.06.2008 	16:24:00
+File: p8.pdf 	38 KB 	05.06.2008 	16:24:00
+File: p9.pdf 	40 KB 	05.06.2008 	16:24:00
+File: small.jpg 	25 KB 	05.06.2008 	16:24:01
+File: small.txt 	33 KB 	05.06.2008 	16:24:00
+File: small.zip 	40 KB 	05.06.2008 	16:24:00
+File: superlong.txt 	9439 KB 	05.06.2008 	16:24:07
+File: tiny.txt 	1 KB 	05.06.2008 	16:24:00

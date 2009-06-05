@@ -1,0 +1,43 @@
+package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
+
+import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+/**
+ * This class demonstrates the DirectoryDialog class
+ */
+public class CSVDirectoryDialog {
+	private String fileDir;
+	private boolean isCanceled = false;
+
+	/**
+	 * Runs the application
+	 */
+	public CSVDirectoryDialog(String fileDir) {
+		
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		shell.setText("CSV Directory");
+
+		this.fileDir = fileDir;
+		DirectoryDialog dialog = new DirectoryDialog(shell);
+		dialog.setFilterPath(fileDir);
+		dialog.setText("Directory of Experiment Run");
+		dialog.setMessage("Select a directory");
+		
+		this.fileDir = dialog.open();
+		
+		if (this.fileDir == null) {
+			this.fileDir = "";
+			isCanceled  = true;
+		}
+	}
+
+	public String getFileDir() {
+		return fileDir;
+	}
+	
+	public boolean isCanceled() {
+		return isCanceled;
+	}
+}

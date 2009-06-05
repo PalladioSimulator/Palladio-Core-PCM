@@ -1,0 +1,2 @@
+"Platform description";"JVM conf";"JIT conf";"digest algo";"nr of measurements";"immediate digesting?";"input size";"nr of diff. rd. inputs";"median of getInstance";"median of update";"median of digest"
+""forMicha"";""MKlenovo1.6"";""default"";""SHA-512"";200";"false";24789;20;32965;2188616;24095

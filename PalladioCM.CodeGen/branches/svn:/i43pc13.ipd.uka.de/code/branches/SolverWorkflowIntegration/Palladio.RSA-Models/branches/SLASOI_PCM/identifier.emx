@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+  <uml:Model xmi:id="_hFALoK6GEdqR97hrnpMlhg" name="identifier">
+    <eAnnotations xmi:id="_hFALoa6GEdqR97hrnpMlhg" source="uml2.diagrams"/>
+    <eAnnotations xmi:id="_jGBoMK6GEdqR97hrnpMlhg" source="http://www.eclipse.org/emf/2002/Ecore"/>
+    <packageImport xmi:id="_hFALs66GEdqR97hrnpMlhg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier" isAbstract="true">
+      <ownedComment xmi:id="_ozoGMJ1ZEdqX-LqEpACX-A" annotatedElement="_UMp04JMWEdqSSImFLKDkSg">
+        <body>Identifiers are not fixed to one realization.&#xD;
+GUIDs are recommend. GUIDs are described in their own model. See GUIDModel (GUID.emx).&#xD;
+Identifier implementations can be found in external projects only.</body>
+      </ownedComment>
+      <ownedRule xmi:id="_wUOe8J1bEdqX-LqEpACX-A" name="idHasToBeUnique" constrainedElement="_UMp04JMWEdqSSImFLKDkSg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_wUOe8Z1bEdqX-LqEpACX-A">
+          <language>OCL</language>
+          <body>self.allInstances()->isUnique(p | p.id)</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="_hFALqq6GEdqR97hrnpMlhg">
+      <eAnnotations xmi:id="_hFALq66GEdqR97hrnpMlhg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_hFALra6GEdqR97hrnpMlhg">
+      <eAnnotations xmi:id="_hFALrq6GEdqR97hrnpMlhg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_hFALsK6GEdqR97hrnpMlhg">
+      <eAnnotations xmi:id="_hFALsa6GEdqR97hrnpMlhg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_IrdAUMmBEdqBcN1R6EvWUw?Deployment/Deployment?"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment?"/>
+    </profileApplication>
+    <profileApplication xmi:id="_pKaxkCiuEduNHNn-nQsgCQ">
+      <eAnnotations xmi:id="_pKaxkSiuEduNHNn-nQsgCQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_TF6xUJZwEdyvM-KRcbKtDQ" base_Package="_hFALoK6GEdqR97hrnpMlhg" packageName="identifier" nsPrefix="identifier" nsURI="http://sla-at-soi.eu/Identifier/1.0" basePackage="org.slasoi.negotiation.repository.emf" prefix="identifier"/>
+  <Default:Documentation xmi:id="_TF_p0JZwEdyvM-KRcbKtDQ" base_Comment="_ozoGMJ1ZEdqX-LqEpACX-A"/>
+  <Ecore:EAttribute xmi:id="_TF90oJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_bTQrMJMWEdqSSImFLKDkSg" attributeName="id" isID="true"/>
+</xmi:XMI>

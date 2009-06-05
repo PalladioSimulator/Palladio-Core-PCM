@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!--	
+	Mit dieser Datei kann das Verhalten von Log4J gesteuert werden. 
+	Der ConsoleAppender gibt alles auf die Konsole aus; 
+	der SocketAppender erzeugt eine SocketSchnittstelle, 
+	welche von Chainsaw benutzt wird.
+-->
+		
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="myConsoleApp" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %-35C{1}[%-4L] %n      %m %n"/>
+		</layout>
+	</appender>
+	
+<!--
+	<appender name="mySocketApp" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost"/>
+		<param name="Port" value="4445"/>
+		<param name="LocationInfo" value="true"/>
+	</appender>
+-->		
+	<root>
+		<level value="DEBUG"/>
+		<appender-ref ref="myConsoleApp"/>
+<!--
+		<appender-ref ref="mySocketApp"/>
+-->
+	</root>
+	
+</log4j:configuration>

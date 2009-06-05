@@ -1,0 +1,119 @@
+/*
+ * Copyright (c) 2008 Standard Performance Evaluation Corporation (SPEC)
+ *               All rights reserved.
+ *
+ * Copyright (c) 1997,1998 Sun Microsystems, Inc. All rights reserved.
+ *
+ * This source code is provided as is, without any express or implied warranty.
+ *
+ * Complain about Java errors that ought to be caught as
+ * exceptions by the JVM. *NOT* an exhaustive conformance
+ * test. This is just intended to catch some common errors
+ * and omissions for the convenience of the benchmarker in
+ * avoiding some run rule mistakes. This needs to be
+ * expanded to test more.
+ *
+ * The timing of this "benchmark" is ignored in metric
+ * calculation. It is here only in order to pass or
+ * fail output verification.
+ */
+
+package deprecated.spec.benchmarks.check;
+
+import com.sun.tools.javac.main.JavaCompiler;
+
+import deprecated.spec.harness.SpecJVMBenchmarkBase;
+import deprecated.spec.harness.results.BenchmarkResult;
+import deprecated.spec.validity.Digests;
+
+
+public class Main extends SpecJVMBenchmarkBase {
+    
+    public Main(BenchmarkResult bmResult, int threadId) {
+        super(bmResult, threadId);
+    }
+    
+    /**
+     * Run this functional test.
+     */
+    public static String testType() {
+        return FUNCTIONAL;
+    }
+    
+    public long runBenchmark() {
+        boolean caughtIndex = false;
+        boolean gotToFinally = false;
+        
+        try {
+            int[] a = new int[10];
+            for (int i = 0; i <= 10; i++)
+                a[i] = i;
+            deprecated.spec.harness.Context.getOut().println("Error: array bounds not checked");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            caughtIndex = true;
+        } finally {
+            gotToFinally = true;
+        }
+        
+        if (!caughtIndex) {
+            deprecated.spec.harness.Context.getOut().println("1st bounds test error:\tindex exception not received");
+        }
+        if (!gotToFinally) {
+            deprecated.spec.harness.Context.getOut().println("1st bounds test error:\tfinally clause not executed");
+        }
+        if (caughtIndex && gotToFinally) {
+            deprecated.spec.harness.Context.getOut().println("1st bounds test:\tOK");
+        }
+        
+        checkSubclassing();
+        
+        
+        // LoopBounds mule = new LoopBounds();
+        LoopBounds.run();
+        
+        if (LoopBounds.gotError) {
+            deprecated.spec.harness.Context.getOut().println("2nd bounds test:\tfailed");
+        } else {
+            deprecated.spec.harness.Context.getOut().println("2nd bounds test:\tOK");
+        }
+        if(!checkCompilerVersion())
+            deprecated.spec.harness.Context.getOut().println("Compiler version test:\tfailed");
+        
+        PepTest horse = new PepTest();
+        horse.instanceMain();
+        
+        if (horse.gotError) {
+            deprecated.spec.harness.Context.getOut().println("PepTest failed");
+        }
+        if ("TRUE".equals(System.getProperty("VALIDATE"))) { 
+	        // Validate that jar files have not been altered
+	        Digests digests = new Digests();
+	        if( !digests.crunch_jars() ) {
+	           deprecated.spec.harness.Context.getOut().println("Jar validity failed");
+	        }
+
+	      // Validate that resource files have not been altered
+	    if( !digests.crunch_resources() ) {
+	        deprecated.spec.harness.Context.getOut().println("Resource validity failed");
+	    }
+        }    
+        return 0;
+    }
+    
+    private static void checkSubclassing() {
+        Super sup = new Super(3);
+        Sub sub = new Sub(3);
+        deprecated.spec.harness.Context.getOut().println(sup.getName() + ": " + sup.toString());
+        deprecated.spec.harness.Context.getOut().println(sub.getName() + ": " + sub.toString());
+        deprecated.spec.harness.Context.getOut().println("Super: prot=" + sup.getProtected() + ", priv=" + sup.getPrivate());
+        deprecated.spec.harness.Context.getOut().println("Sub:  prot=" + sub.getProtected() + ", priv=" + sub.getPrivate());
+    }
+    
+    private boolean checkCompilerVersion(){
+    	return "1.7.0-opensource".equals(JavaCompiler.version());    	   
+    }
+    
+    public void harnessMain() {
+        runBenchmark();
+    }    
+}

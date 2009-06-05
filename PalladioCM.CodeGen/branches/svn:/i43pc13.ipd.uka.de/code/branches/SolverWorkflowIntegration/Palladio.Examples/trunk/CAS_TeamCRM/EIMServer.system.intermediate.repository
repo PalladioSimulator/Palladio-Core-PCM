@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:completions="http://sdq.ipd.uka.de/Completions/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_orJbBUSQEd2YqN90Pw-V6Q" entityName="CompletionsRepository">
+  <components__Repository xsi:type="completions:Completion" id="_osCy5USQEd2YqN90Pw-V6Q" entityName="ConnectorCompletion14">
+    <childComponentContexts_ComposedStructure id="_osCzBUSQEd2YqN90Pw-V6Q" entityName="BCAssembly InnerBasicComponent13" encapsulatedComponent_ChildComponentContext="_osCy4ESQEd2YqN90Pw-V6Q"/>
+    <childComponentContexts_ComposedStructure id="_osCzJUSQEd2YqN90Pw-V6Q" entityName="BCAssembly InnerBasicComponent15" encapsulatedComponent_ChildComponentContext="_osCy6USQEd2YqN90Pw-V6Q"/>
+    <childComponentContexts_ComposedStructure id="_osCzRkSQEd2YqN90Pw-V6Q" entityName="BCAssembly InnerBasicComponent16" encapsulatedComponent_ChildComponentContext="_osCy6kSQEd2YqN90Pw-V6Q"/>
+    <providedDelegationConnectors_ComposedStructure id="_osCzSESQEd2YqN90Pw-V6Q" innerProvidedRole_ProvidedDelegationConnector="_osCzCkSQEd2YqN90Pw-V6Q" outerProvidedRole_ProvidedDelegationConnector="_osCy5kSQEd2YqN90Pw-V6Q" childComponentContext_ProvidedDelegationConnector="_osCzJUSQEd2YqN90Pw-V6Q"/>
+    <requiredDelegationConnectors_ComposedStructure id="_osCzSUSQEd2YqN90Pw-V6Q" innerRequiredRole_RequiredDelegationConnector="_osCzKUSQEd2YqN90Pw-V6Q" outerRequiredRole_RequiredDelegationConnector="_osCy50SQEd2YqN90Pw-V6Q" childComponentContext_RequiredDelegationConnector="_osCzRkSQEd2YqN90Pw-V6Q"/>
+    <requiredDelegationConnectors_ComposedStructure id="_osCzTESQEd2YqN90Pw-V6Q" innerRequiredRole_RequiredDelegationConnector="_osCzCUSQEd2YqN90Pw-V6Q" outerRequiredRole_RequiredDelegationConnector="_osCzB0SQEd2YqN90Pw-V6Q" childComponentContext_RequiredDelegationConnector="_osCzJUSQEd2YqN90Pw-V6Q"/>
+    <requiredDelegationConnectors_ComposedStructure id="_osCzTUSQEd2YqN90Pw-V6Q" innerRequiredRole_RequiredDelegationConnector="_osCzJ0SQEd2YqN90Pw-V6Q" outerRequiredRole_RequiredDelegationConnector="_osCzCESQEd2YqN90Pw-V6Q" childComponentContext_RequiredDelegationConnector="_osCzRkSQEd2YqN90Pw-V6Q"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_osCzSkSQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_osCzJUSQEd2YqN90Pw-V6Q" providingChildComponentContext_CompositeAssemblyConnector="_osCzBUSQEd2YqN90Pw-V6Q" providedRole_CompositeAssemblyConnector="_osCy60SQEd2YqN90Pw-V6Q" requiredRole_CompositeAssemblyConnector="_osCzC0SQEd2YqN90Pw-V6Q"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_osCzS0SQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_osCzBUSQEd2YqN90Pw-V6Q" providingChildComponentContext_CompositeAssemblyConnector="_osCzRkSQEd2YqN90Pw-V6Q" providedRole_CompositeAssemblyConnector="_osCzKESQEd2YqN90Pw-V6Q" requiredRole_CompositeAssemblyConnector="_osCy7ESQEd2YqN90Pw-V6Q"/>
+    <providedRoles_InterfaceProvidingEntity id="_osCy5kSQEd2YqN90Pw-V6Q" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCy50SQEd2YqN90Pw-V6Q" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzB0SQEd2YqN90Pw-V6Q" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzCESQEd2YqN90Pw-V6Q" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_osCy4ESQEd2YqN90Pw-V6Q" entityName="InnerBasicComponent13">
+    <providedRoles_InterfaceProvidingEntity id="_osCy60SQEd2YqN90Pw-V6Q" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCy7ESQEd2YqN90Pw-V6Q" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCy7USQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy70SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy7kSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy8ESQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy8USQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy8ESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy8kSQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCy7kSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy70SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCy8kSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy8USQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCy8ESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy70SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy8USQEd2YqN90Pw-V6Q" role_ExternalService="_osCy7ESQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCy80SQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy9USQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy9ESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy9kSQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy90SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy9kSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy-ESQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCy9ESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy9USQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCy-ESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy90SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCy9kSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy9USQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy90SQEd2YqN90Pw-V6Q" role_ExternalService="_osCy7ESQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCy-USQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy-0SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy-kSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy_ESQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCy_USQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy_ESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy_kSQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCy-kSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy-0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCy_kSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy_USQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCy_ESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCy-0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCy_USQEd2YqN90Pw-V6Q" role_ExternalService="_osCy7ESQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCy_0SQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCzAUSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzAESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzAkSQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_osCzA0SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzAkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzBESQEd2YqN90Pw-V6Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzAESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzAUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzBESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzA0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzAkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzAUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzA0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCy7ESQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_osCy6USQEd2YqN90Pw-V6Q" entityName="InnerBasicComponent15">
+    <providedRoles_InterfaceProvidingEntity id="_osCzCkSQEd2YqN90Pw-V6Q" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzCUSQEd2YqN90Pw-V6Q" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzC0SQEd2YqN90Pw-V6Q" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzDESQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzDkSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzDUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzEESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzEUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzEESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzEkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzDUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzDkSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzEkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzEUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzEESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzDkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzEUSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzC0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzE0SQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzFUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzFESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzFkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="UsersID.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzF0SQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzFkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzGESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzFESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzFUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzGESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzF0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzFkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzFUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzF0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCzC0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzGUSQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzG0SQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzGkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzHESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzHUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzHESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzHkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzGkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzG0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzHkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzHUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzHESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzG0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzHUSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzC0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzH0SQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzIUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzIESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzIkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzI0SQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzIkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzJESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzCUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzIESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzIUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzJESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzI0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzIkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzIUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzI0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCzC0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_osCy6kSQEd2YqN90Pw-V6Q" entityName="InnerBasicComponent16">
+    <providedRoles_InterfaceProvidingEntity id="_osCzKESQEd2YqN90Pw-V6Q" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzJ0SQEd2YqN90Pw-V6Q" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_osCzKUSQEd2YqN90Pw-V6Q" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_HRo-0OBaEdyjufEo8k7-YA"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzKkSQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzLESQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzK0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzLUSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzLkSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzLUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzL0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_osCzL0SQEd2YqN90Pw-V6Q" entityName="ResultSetter" predecessor_AbstractAction="_osCzLkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzMESQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzK0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzLESQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzMESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzL0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzLUSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzLESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzLkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzKUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzMUSQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzM0SQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzMkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzNESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzNUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzNESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzNkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_osCzNkSQEd2YqN90Pw-V6Q" entityName="ResultSetter" predecessor_AbstractAction="_osCzNUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzN0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzMkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzM0SQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzN0SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzNkSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzNESQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzM0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzNUSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzKUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzOESQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzOkSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzOUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzO0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzPESQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzO0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzPUSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_osCzPUSQEd2YqN90Pw-V6Q" entityName="ResultSetter" predecessor_AbstractAction="_osCzPESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzPkSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzOUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzOkSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzPkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzPUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzO0SQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzOkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzPESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzKUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_osCzP0SQEd2YqN90Pw-V6Q">
+      <describedService__SEFF href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzQUSQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzQESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzQkSQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_osCzQ0SQEd2YqN90Pw-V6Q" entityName="ExternalCall" predecessor_AbstractAction="_osCzQkSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzRESQEd2YqN90Pw-V6Q" role_ExternalService="_osCzJ0SQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_osCzRESQEd2YqN90Pw-V6Q" entityName="ResultSetter" predecessor_AbstractAction="_osCzQ0SQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzRUSQEd2YqN90Pw-V6Q">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_osCzQESQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzQUSQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_osCzRUSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzRESQEd2YqN90Pw-V6Q"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_osCzQkSQEd2YqN90Pw-V6Q" predecessor_AbstractAction="_osCzQUSQEd2YqN90Pw-V6Q" successor_AbstractAction="_osCzQ0SQEd2YqN90Pw-V6Q" role_ExternalService="_osCzKUSQEd2YqN90Pw-V6Q">
+        <calledService_ExternalService href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+</Repository>
