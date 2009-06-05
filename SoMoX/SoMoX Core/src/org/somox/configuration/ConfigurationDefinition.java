@@ -71,10 +71,7 @@ public class ConfigurationDefinition {
 									List<String> possibleValues,
 									int multiplicity,
 									boolean required) {
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.defaultValue = defaultValue;
+		this(id, name, type, defaultValue);
 		this.possibleValues = possibleValues;
 		this.multiplicity = multiplicity;
 		this.setRequired(required);
@@ -88,10 +85,21 @@ public class ConfigurationDefinition {
 	 * @param defaultValue	The defaultValue
 	 */
 	public ConfigurationDefinition(String id, String name, ConfigurationDefinition.Type type, String defaultValue) {
-		this.id = id;
-		this.name = name;
-		this.type = type;
+		this(id, name, type);
 		this.defaultValue = defaultValue;
+	}
+
+	/**
+	 * Constructor requiring the basic information and the default value
+	 * @param id	The identifier for the parameter
+	 * @param name	The name of the parameter
+	 * @param type	The type of the parameter
+	 * @param defaultValue	The defaultValue
+	 * @param required	Flag whether this configuration is required
+	 */
+	public ConfigurationDefinition(String id, String name, ConfigurationDefinition.Type type, String defaultValue, boolean required) {
+		this(id, name, type, defaultValue);
+		this.setRequired(required);
 	}
 
 	/**
