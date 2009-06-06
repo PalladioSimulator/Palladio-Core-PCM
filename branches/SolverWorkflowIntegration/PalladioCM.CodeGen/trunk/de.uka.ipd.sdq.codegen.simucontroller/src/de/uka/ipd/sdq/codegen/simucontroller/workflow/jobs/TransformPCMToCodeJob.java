@@ -98,7 +98,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES,
 				getPCMOutlets(),
 				expression);
-		job.setAdvice(SIMULATION_TEMPLATE);
+		job.getAdvices().add(SIMULATION_TEMPLATE);
 		job.setCheckProtectedRegions(true);
 		
 		return job;
