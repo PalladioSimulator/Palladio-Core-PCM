@@ -12,22 +12,42 @@ import de.uka.ipd.sdq.workflow.mdsd.AbstractWorkflowBasedMDSDLaunchConfiguration
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflow;
 
-public abstract class AbstractPCMLaunchConfigurationDelegate<T extends AbstractPCMWorkflowRunConfiguration>
+/**
+ * Base class for workflow based launch configurations (i.e., Eclipse Run and Debug tasks) which sets up a blackboard
+ * containing PCM and other models (e.g., annotation mark models), a UI based run (i.e., a run which reports errors
+ * to its user by the means of Eclipse UI Dialogs), and which configures openArchitectureWare's logging to report
+ * to this runs console.
+ * 
+ * @author Steffen Becker
+ *
+ * @param <WorkflowConfigurationType> The type of the workflow configuration used in this workflow. It has to be a subclass
+ * of {@link AbstractPCMWorkflowRunConfiguration} as it needs the names of the PCM model parts involved
+ */
+public abstract class AbstractPCMLaunchConfigurationDelegate<WorkflowConfigurationType extends AbstractPCMWorkflowRunConfiguration>
 extends
-	AbstractWorkflowBasedMDSDLaunchConfigurationDelegate<T> {
+	AbstractWorkflowBasedMDSDLaunchConfigurationDelegate<WorkflowConfigurationType> {
 
+	/**
+	 * Constructor 
+	 */
 	public AbstractPCMLaunchConfigurationDelegate() {
 		super();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.mdsd.AbstractWorkflowBasedMDSDLaunchConfigurationDelegate#createBlackboard()
+	 */
 	@Override
 	protected MDSDBlackboard createBlackboard() {
 		return new MDSDBlackboard();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate#createWorkflow(de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration, org.eclipse.core.runtime.IProgressMonitor, org.eclipse.debug.core.ILaunch)
+	 */
 	@Override
 	protected UIBasedWorkflow<MDSDBlackboard> createWorkflow(
-			T workflowConfiguration, 
+			WorkflowConfigurationType workflowConfiguration, 
 			IProgressMonitor monitor,
 			ILaunch launch) throws CoreException {
 		return new UIBasedWorkflow<MDSDBlackboard>(

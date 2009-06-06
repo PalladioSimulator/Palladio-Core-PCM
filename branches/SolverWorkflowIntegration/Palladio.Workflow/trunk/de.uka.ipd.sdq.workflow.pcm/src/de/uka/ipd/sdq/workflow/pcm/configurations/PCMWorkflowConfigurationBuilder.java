@@ -7,14 +7,29 @@ import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguratio
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 
+/**
+ * Builder class which is able to fill the PCM specific parts of a workflow configuration object based on the PCM
+ * filename configuration tab entries.
+ * 
+ * @author Steffen Becker
+ */
 public class PCMWorkflowConfigurationBuilder extends
 		AbstractWorkflowConfigurationBuilder {
 
+	/** Constructor of this builder
+	 * @param configuration The configuration as created by Eclipse based on the data entered by the user in the
+	 * Eclipse Run Dialog
+	 * @param mode Either "debug" or "run", passed by Eclipse depending on the used dialog
+	 * @throws CoreException
+	 */
 	public PCMWorkflowConfigurationBuilder(ILaunchConfiguration configuration,
 			String mode) throws CoreException {
 		super(configuration, mode);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder#fillConfiguration(de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration)
+	 */
 	@Override
 	public void fillConfiguration(
 			AbstractWorkflowBasedRunConfiguration configuration)
@@ -24,6 +39,10 @@ public class PCMWorkflowConfigurationBuilder extends
 		setPCMFilenames(config);
 	}
 
+	/** Read the PCM model filenames from this builder's launch configuration
+	 * @param config The configuration object to fill with the PCM model filenames
+	 * @throws CoreException
+	 */
 	private void setPCMFilenames(AbstractPCMWorkflowRunConfiguration config) throws CoreException {
 		
 		config.setRepositoryFile   ( getStringAttribute(ConstantsContainer.REPOSITORY_FILE) );

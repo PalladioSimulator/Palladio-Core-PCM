@@ -22,6 +22,11 @@ import de.uka.ipd.sdq.workflow.mdsd.oaw.PerformOAWCheckValidation;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 
+/** Inner class used to display the dialog containing found validation errors. Needed by Eclipse to
+ * display the dialog in Eclipse's UI thread
+ * 
+ * @author Steffen Becker
+ */
 class ErrorDisplayRunner implements Runnable {
 	
 	private List<SeverityAndIssue> issues;
@@ -46,12 +51,14 @@ class ErrorDisplayRunner implements Runnable {
 }
 
 /**
- * @author Snowball
- *
+ * A job for running model validation checks. The job executes both, OCL and oAW check, validations on a PCM model instance.
+ * If errors are found, they are reported to the user for corrections.
+ * @author Steffen Becker
  */
 public class ValidateModelJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
+	private static final String PCM_CHECK_FILENAME = "pcm";
 	private Logger logger = Logger.getLogger(ValidateModelJob.class);
 	private MDSDBlackboard blackboard = null;
 	private AbstractPCMWorkflowRunConfiguration configuration;
@@ -66,11 +73,14 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		this.configuration = configuration;
 		this.oawCheckJob = new PerformOAWCheckValidation(
 				LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, 
-				"pcm", 
+				PCM_CHECK_FILENAME, 
 				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		this.emfCheckJob = new CheckEMFConstraintsJob(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException{
 		oawCheckJob.setBlackboard(blackboard);
 		oawCheckJob.execute(monitor);

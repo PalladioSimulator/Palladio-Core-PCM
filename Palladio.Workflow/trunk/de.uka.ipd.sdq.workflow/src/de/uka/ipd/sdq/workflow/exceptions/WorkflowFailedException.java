@@ -11,4 +11,8 @@ public class WorkflowFailedException extends RuntimeException {
 		super(msg,e);
 	}
 
+	public WorkflowFailedException(String msg) {
+		super(msg);
+	}
+
 }
