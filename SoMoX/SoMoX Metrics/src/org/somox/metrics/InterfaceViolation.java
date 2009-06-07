@@ -23,6 +23,12 @@ public class InterfaceViolation implements Metric {
 	protected HashSet<String> componentAClassNameSet, componentBClassNameSet;
 	protected HashSet<String> componentAIFaceNameSet, componentBIFaceNameSet;
 	
+	List<GASTClass> componentAClasses;
+	List<GASTClass> componentBClasses;
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return null;
 	}
@@ -35,36 +41,19 @@ public class InterfaceViolation implements Metric {
 		componentBClassNameSet = new HashSet<String>();
 		componentAIFaceNameSet = new HashSet<String>();
 		componentBIFaceNameSet = new HashSet<String>();
+		componentAClasses = new LinkedList<GASTClass>();
+		componentBClasses = new LinkedList<GASTClass>();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToClasses = 0.0;
 		double referencesToWholeComponent = 0.0;
 		double ifaceViol = 0.0;
-		
-		List<GASTClass> componentAClasses = new LinkedList<GASTClass>();
-		List<GASTClass> componentBClasses = new LinkedList<GASTClass>();
 
-		for (ModelElement current : elements1) {
-			if (current instanceof GASTClass) {
-				componentAClasses.add((GASTClass)current);
-				if (((GASTClass) current).isInterface()) {
-					componentAIFaceNameSet.add(((GASTClass)current).getQualifiedName());
-				} else {
-					componentAClassNameSet.add(((GASTClass)current).getQualifiedName());
-				}
-			}
-		}
-		for (ModelElement current : elements2) {
-			if (current instanceof GASTClass) {
-				componentBClasses.add((GASTClass)current);
-				if (((GASTClass) current).isInterface()) {
-					componentBIFaceNameSet.add(((GASTClass)current).getQualifiedName());
-				} else {
-					componentBClassNameSet.add(((GASTClass)current).getQualifiedName());
-				}
-			}
-		}
+		extractLists(root,elements1,elements2);
 
 		for (GASTClass currentClass : componentAClasses) {
 			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
@@ -91,10 +80,49 @@ public class InterfaceViolation implements Metric {
 
 	}
 
+	/**
+	 * Extracts from the ModelElement lists the non-blacklisted
+	 * or whitelisted (depending on blacklistIndicator) classes
+	 * 
+	 * @param root Root-Object of the Software-Project modeled as GAST-model
+	 * @param elements1 First part of the composite component
+	 * @param elements2 Second part of the composite component
+	 */
+	private void extractLists(Root root, List<ModelElement> elements1,
+			List<ModelElement> elements2) {
+		for (ModelElement current : elements1) {
+			if (current instanceof GASTClass) {
+				componentAClasses.add((GASTClass)current);
+				if (((GASTClass) current).isInterface()) {
+					componentAIFaceNameSet.add(((GASTClass)current).getQualifiedName());
+				} else {
+					componentAClassNameSet.add(((GASTClass)current).getQualifiedName());
+				}
+			}
+		}
+		for (ModelElement current : elements2) {
+			if (current instanceof GASTClass) {
+				componentBClasses.add((GASTClass)current);
+				if (((GASTClass) current).isInterface()) {
+					componentBIFaceNameSet.add(((GASTClass)current).getQualifiedName());
+				} else {
+					componentBClassNameSet.add(((GASTClass)current).getQualifiedName());
+				}
+			}
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(5);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {
 	}
 

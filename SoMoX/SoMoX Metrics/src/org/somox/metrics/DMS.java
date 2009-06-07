@@ -19,22 +19,18 @@ public class DMS implements Metric {
 	/**
 	 * Setter-method for a Instability-Object
 	 * 
-	 * This method is necessary, so that a blacklist can be added to the Instability-object
+	 * This method is necessary, so that a black- or whitelist can be added to the Instability-object
 	 * 
-	 * @param instability a Instability-object with set blacklist
+	 * @param instability a Instability-object with set black- or whitelist
 	 */
 	public void setInstability (Instability instability) {
 		this.instability = instability;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
-		if (abstractness == null) {
-			abstractness = new Abstractness();
-		}
-		if (instability == null) {
-			instability = new Instability();
-		}
-		
 		double abs = abstractness.compute(root, elements1, elements2);
 		double ins = instability.compute(root, elements1, elements2);
 		
@@ -43,14 +39,25 @@ public class DMS implements Metric {
 		return dms;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return new DMSTab();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(3);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {
+		abstractness = new Abstractness();
+		instability = new Instability();
 	}
 }

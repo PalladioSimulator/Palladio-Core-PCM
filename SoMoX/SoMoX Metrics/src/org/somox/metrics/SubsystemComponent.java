@@ -25,7 +25,7 @@ public class SubsystemComponent implements Metric {
 	 * Boolean that indicates if blacklist or whitelist is used
 	 * If set to <code>true</code> only the blacklist is used
 	 * If set to <code>false</code> only the whitelist is used
-	 * Default: false (whitelist used)
+	 * Default: true (blacklist used)
 	 */
 	protected boolean blacklistIndicator;	
 	
@@ -33,7 +33,7 @@ public class SubsystemComponent implements Metric {
 	 * Default-constructor initializing the namesets
 	 */
 	public SubsystemComponent () {
-		blacklistIndicator = false;
+		blacklistIndicator = true;
 		wildcardBlacklist = new HashSet<String>();
 		wildcardWhitelist = new HashSet<String>();
 	}
@@ -94,8 +94,12 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
+		//compute overall prefix
 		Package prefixPackage = computePrefix(root.getPackages());
 		
 		if (prefixPackage == null) {
@@ -107,6 +111,7 @@ public class SubsystemComponent implements Metric {
 		
 		String subLayer = null;
 		
+		//compute the maximum number of layers in a slice
 		int max = 0;
 		for (Package current : slices) {
 			if (current.getSubPackages().size()>=max) {
@@ -115,7 +120,7 @@ public class SubsystemComponent implements Metric {
 			}
 		}
 		
-		//0 expected Subsystems, so return 0.0
+		//0 expected Subsystems, return 0.0
 		if (max == 0 || layers.size() == 0 || layers == null) {
 			return 0.0;
 		}
@@ -170,6 +175,9 @@ public class SubsystemComponent implements Metric {
 		return slaq.compute(root, elements1, elements2);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return new SubsystemComponentTab();
 	}
@@ -226,10 +234,16 @@ public class SubsystemComponent implements Metric {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(8);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {		
 	}
 }

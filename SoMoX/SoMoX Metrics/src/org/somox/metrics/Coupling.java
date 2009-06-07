@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.EList;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;
-import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.helpers.DerivationHelper;
 import de.fzi.gast.types.GASTClass;
@@ -30,12 +29,14 @@ public class Coupling implements Metric {
 	protected Set<String> specifiedBlacklist;
 	protected Set<String> wildcardWhitelist;
 	protected Set<String> specifiedWhitelist;
+	protected List<GASTClass> componentAClasses;
+	protected List<GASTClass> componentBClasses;
 	
 	/**
 	 * Boolean that indicates if blacklist or whitelist is used
 	 * If set to <code>true</code> only the blacklist is used
 	 * If set to <code>false</code> only the whitelist is used
-	 * Default: false (whitelist used)
+	 * Default: true (blacklist used)
 	 */
 	protected boolean blacklistIndicator;	
 	
@@ -46,7 +47,7 @@ public class Coupling implements Metric {
 	 * Default-constructor initializing the blacklists and the namesets
 	 */
 	public Coupling () {
-		blacklistIndicator = false;
+		blacklistIndicator = true;
 		wildcardWhitelist = new HashSet<String>();
 		specifiedWhitelist = new HashSet<String>();
 		wildcardBlacklist = new HashSet<String>();
@@ -54,6 +55,8 @@ public class Coupling implements Metric {
 		externNameSet = new HashSet<String>();
 		componentANameSet = new HashSet<String>();
 		componentBNameSet = new HashSet<String>();
+		componentAClasses = new LinkedList<GASTClass>();
+		componentBClasses = new LinkedList<GASTClass>();
 	}
 	
 	/**
@@ -114,16 +117,58 @@ public class Coupling implements Metric {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double referencesToOtherComp = 0.0;
 		double referencesToWholeProject = 0.0;
 		double coupling = 0.0;
 		
-		List<GASTClass> externClasses = new LinkedList<GASTClass>();
+		extractLists(root, elements1, elements2);
+		extractExternClasses(root);
 		
-		List<GASTClass> componentAClasses = new LinkedList<GASTClass>();
-		List<GASTClass> componentBClasses = new LinkedList<GASTClass>();
+		if (externNameSet == null || externNameSet.size()==0) {
+			return 0.0;
+		}
 		
+		for (GASTClass currentClass : componentAClasses) {
+			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
+
+			for (Access currentAccess : accesses) {
+				GASTClass accessedClass = currentAccess.getAccessedClass();
+				
+				if (accessedClass != null) {
+					if (componentBNameSet.contains(accessedClass.getQualifiedName())) {
+						referencesToOtherComp += 1.0;
+						referencesToWholeProject += 1.0;
+					} else if (externNameSet.contains(accessedClass.getQualifiedName())) {
+						referencesToWholeProject += 1.0;
+					}
+				}
+			}
+		}
+		
+		if (referencesToWholeProject != 0.0) {
+			coupling = referencesToOtherComp/referencesToWholeProject;
+		}
+		
+		referencesToOtherComp = 0.0;
+		referencesToWholeProject = 0.0;
+		
+		return coupling;
+
+	}
+	
+	/**
+	 * Extracts from the ModelElement lists the non-blacklisted
+	 * or whitelisted (depending on blacklistIndicator) classes
+	 * 
+	 * @param root Root-Object of the Software-Project modeled as GAST-model
+	 * @param elements1 First part of the composite component
+	 * @param elements2 Second part of the composite component
+	 */
+	private void extractLists(Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
 				if (blacklistIndicator) {
@@ -196,134 +241,70 @@ public class Coupling implements Metric {
 				}
 			}
 		}
-
-		
-		EList<Package> packages = root.getPackages();
-		
-		externClasses = extractExternClasses(packages);
-		if (externClasses == null || externClasses.size()==0) {
-			return 0.0;
-		}
-		
-		for (GASTClass currentClass : componentAClasses) {
-			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
-
-			for (Access currentAccess : accesses) {
-				GASTClass accessedClass = currentAccess.getAccessedClass();
-				
-				if (accessedClass != null) {
-					if (componentBNameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToOtherComp += 1.0;
-						referencesToWholeProject += 1.0;
-					} else if (externNameSet.contains(accessedClass.getQualifiedName())) {
-						referencesToWholeProject += 1.0;
-					}
-				}
-			}
-		}
-		
-		if (referencesToWholeProject != 0.0) {
-			coupling = referencesToOtherComp/referencesToWholeProject;
-		}
-		
-		referencesToOtherComp = 0.0;
-		referencesToWholeProject = 0.0;
-		
-		return coupling;
-
 	}
-	
+
 	/**
-	 * Extracts all non-blacklisted Classes from a given package-EList
-	 * that are not included in the given ModelElement-lists 
+	 * Extracts all non-black- or whitelisted classes that are not in the
+	 * component namesets
 	 * 
-	 * @param packages The EList containing the packages that need to be searched
-	 * @return a list of GASTClasses that are non-blacklisted an not included in 
-	 * the ModelElement-lists given as parameters in the compute-method
+	 * @param root The Root-Object
 	 */
-	protected List<GASTClass> extractExternClasses (EList<Package> packages) {
+	protected void extractExternClasses (Root root) {
 		List<GASTClass> externClasses = new LinkedList<GASTClass>();
 		
-		if (packages == null || packages.size() == 0) {
-			return externClasses;
-		}
+		externClasses = root.getAllNormalClasses();
+		externClasses.addAll(root.getAllInterfaces());
+		externClasses.addAll(root.getAllInnerClasses());
 		
-		for (Package current : packages) {
+		for (GASTClass currentClass : externClasses) {
 			if (blacklistIndicator) {
 				boolean contains = false;
 				for (String currentWildcard : wildcardBlacklist) {
-					if (current.getQualifiedName().startsWith(currentWildcard)) {
+					if (currentClass.getQualifiedName().startsWith(currentWildcard) || specifiedBlacklist.contains(currentClass.getQualifiedName())) {
 						contains = true;
 						break;
 					}
 				}
 				if (!contains) {
-					EList<GASTClass> packageClasses = current.getClasses();
-					for (GASTClass currentClass : packageClasses) {
-						if (!specifiedBlacklist.contains(currentClass.getQualifiedName())) {
-							if (!componentANameSet.contains(currentClass.getQualifiedName()) && !componentBNameSet.contains(currentClass.getQualifiedName())) {
-								externClasses.add(currentClass);
-								externNameSet.add(currentClass.getQualifiedName());
-							}
-
-						}
+					if (!componentANameSet.contains(currentClass.getQualifiedName()) && !componentBNameSet.contains(currentClass.getQualifiedName())) {
+						externNameSet.add(currentClass.getQualifiedName());
 					}
-					externClasses.addAll(extractExternClasses(current.getSubPackages()));
+
 				}
 			} else {
 				boolean contains = false;
 				for (String currentWildcard : wildcardWhitelist) {
-					if (current.getQualifiedName().startsWith(currentWildcard)) {
+					if (currentClass.getQualifiedName().startsWith(currentWildcard) || specifiedWhitelist.contains(currentClass.getQualifiedName())) {
 						contains = true;
 						break;
 					}
 				}
 				if (contains) {
-					EList<GASTClass> packageClasses = current.getClasses();
-					for (GASTClass currentClass : packageClasses) {
-						if (!componentANameSet.contains(currentClass.getQualifiedName()) && !componentBNameSet.contains(currentClass.getQualifiedName())) {
-							externClasses.add(currentClass);
-							externNameSet.add(currentClass.getQualifiedName());
-						}
-					}
-					externClasses.addAll(extractExternClasses(current.getSubPackages()));
-				} else {
-					boolean whitelistClassContained = false;
-					for (String currentSpecified : specifiedWhitelist) {
-						if (currentSpecified.startsWith(current.getQualifiedName())) {
-							whitelistClassContained = true;
-							break;
-						}
-					}
-					if (whitelistClassContained) {
-						EList<GASTClass> packageClasses = current.getClasses();
-						for (GASTClass currentClass : packageClasses) {
-							if (!componentANameSet.contains(currentClass.getQualifiedName()) && !componentBNameSet.contains(currentClass.getQualifiedName())) {
-								for (String currentSpecified : specifiedWhitelist) {
-									if (currentClass.getQualifiedName().equals(currentSpecified)) {
-										externClasses.add(currentClass);
-										externNameSet.add(currentClass.getQualifiedName());
-									}
-								}
-							}
-						}
-						externClasses.addAll(extractExternClasses(current.getSubPackages()));
+					if (!componentANameSet.contains(currentClass.getQualifiedName()) && !componentBNameSet.contains(currentClass.getQualifiedName())) {
+						externNameSet.add(currentClass.getQualifiedName());
 					}
 				}
 			}
 		}
-		
-		return externClasses;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return new CouplingTab();
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(2342);
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {
 		
 	}

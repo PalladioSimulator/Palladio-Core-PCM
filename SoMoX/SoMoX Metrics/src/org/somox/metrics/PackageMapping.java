@@ -14,6 +14,9 @@ import de.fzi.gast.types.GASTClass;
  */
 public class PackageMapping implements Metric {
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		boolean samePackage = true;
 		String packageName = null;
@@ -52,14 +55,23 @@ public class PackageMapping implements Metric {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(6);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {
 	}
 }

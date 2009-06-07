@@ -41,10 +41,10 @@ public class SubsystemComponentTab extends MetricTab {
 			{
 				Button btnBlacklist = new Button(group, SWT.RADIO);
 				btnBlacklist.setText("Blacklist");
+				btnBlacklist.setSelection(true);
 			}
 			{
 				Button btnWhitelist = new Button(group, SWT.RADIO);
-				btnWhitelist.setSelection(true);
 				btnWhitelist.setText("Whitelist");
 			}
 		}

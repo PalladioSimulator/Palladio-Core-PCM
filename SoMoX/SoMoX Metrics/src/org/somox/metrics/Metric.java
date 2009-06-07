@@ -13,7 +13,6 @@ import de.fzi.gast.core.Root;
  */
 public interface Metric {
 	//TODO Test for innerclasses where necessary (currently not possible, method doesn't work)
-	//TODO implement initialize methods where they could be useful
 	
 	/**
 	 * Computes the Metric for a composite component
@@ -25,6 +24,12 @@ public interface Metric {
 	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2);
 	
+	/**
+	 * Initializes the Metric. Must be called before metrics are computed.
+	 * Should be called again, if the model changed
+	 * 
+	 * @param root The Root object of the GAST model
+	 */
 	public void initialize (Root root);
 	
 	/**

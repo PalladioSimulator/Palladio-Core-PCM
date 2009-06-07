@@ -16,9 +16,13 @@ import de.fzi.gast.types.GASTClass;
  */
 public class SliceLayerArchitectureQuality implements Metric {
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute(Root root, List<ModelElement> elements1,
 			List<ModelElement> elements2) {
 
+		//compute overall prefix
 		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);
 		
 		if (prefixPackage == null) {
@@ -27,6 +31,7 @@ public class SliceLayerArchitectureQuality implements Metric {
 		EList<de.fzi.gast.core.Package> slices = prefixPackage.getSubPackages();
 		EList<de.fzi.gast.core.Package> layers = null;
 
+		//compute the maximum number of layers in a slice
 		int max = 0;
 		for (de.fzi.gast.core.Package current : slices) {
 			if (current.getSubPackages().size()>=max) {
@@ -35,6 +40,7 @@ public class SliceLayerArchitectureQuality implements Metric {
 			}
 		}
 
+		//check how many of the computed layers exist in every slice 
 		if (max == 0) {
 			return 1.0;
 		} else {
@@ -146,14 +152,23 @@ public class SliceLayerArchitectureQuality implements Metric {
 		return currentPackage;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(7);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {
 		
 	}

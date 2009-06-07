@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.EList;
 
 import de.fzi.gast.accesses.Access;
 import de.fzi.gast.core.ModelElement;
-import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.helpers.DerivationHelper;
 import de.fzi.gast.types.GASTClass;
@@ -31,24 +30,29 @@ public class Instability implements Metric {
 	 * Boolean that indicates if blacklist or whitelist is used
 	 * If set to <code>true</code> only the blacklist is used
 	 * If set to <code>false</code> only the whitelist is used
-	 * Default: false (whitelist used)
+	 * Default: true (blacklist used)
 	 */
 	protected boolean blacklistIndicator;	
 	
 	protected HashSet<String> externNameSet;
 	protected HashSet<String> internNameSet;
+	
+	List<GASTClass> externClasses;
+	List<GASTClass> internClasses;
 
 	/**
 	 * Default-constructor initializing the blacklists and the namesets
 	 */
 	public Instability () {
-		blacklistIndicator = false;
+		blacklistIndicator = true;
 		wildcardBlacklist = new HashSet<String>();
 		specifiedBlacklist = new HashSet<String>();
 		wildcardWhitelist = new HashSet<String>();
 		specifiedWhitelist = new HashSet<String>();
 		externNameSet = new HashSet<String>();
 		internNameSet = new HashSet<String>();
+		externClasses = new LinkedList<GASTClass>();
+		internClasses = new LinkedList<GASTClass>();
 	}
 	
 	/**
@@ -109,13 +113,65 @@ public class Instability implements Metric {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
 		double efferentCoupling = 0.0;
 		double afferentCoupling = 0.0;
 		
-		List<GASTClass> externClasses = new LinkedList<GASTClass>();
-		List<GASTClass> internClasses = new LinkedList<GASTClass>();
+		extractInternClasses(root,elements1,elements2);		
+		extractExternClasses(root);
 		
+		if (externNameSet == null || externNameSet.size()==0) {
+			return 0.0;
+		}
+		
+		for (GASTClass currentClass : externClasses) {
+			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
+
+			for (Access currentAccess : accesses) {
+				GASTClass accessedClass = currentAccess.getAccessedClass();
+
+				if (accessedClass != null) {
+					if (internNameSet.contains(accessedClass.getQualifiedName())) {
+						afferentCoupling += 1.0;
+					}
+				}
+					
+			}
+		}
+		
+		for (GASTClass currentClass : internClasses) {
+			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
+
+			for (Access currentAccess : accesses) {
+				GASTClass accessedClass = currentAccess.getAccessedClass();
+				
+				if (accessedClass != null) {
+					if (externNameSet.contains(accessedClass.getQualifiedName())) {
+						efferentCoupling += 1.0;
+					}
+				}
+			}
+		}
+		if (afferentCoupling == 0.0 && efferentCoupling == 0.0) {
+			return 0.0;
+		} else {
+			return efferentCoupling/(afferentCoupling + efferentCoupling);
+		}
+	}
+	
+	/**
+	 * Extracts from the ModelElement lists the non-blacklisted
+	 * or whitelisted (depending on blacklistIndicator) classes
+	 * 
+	 * @param root Root-Object of the Software-Project modeled as GAST-model
+	 * @param elements1 First part of the composite component
+	 * @param elements2 Second part of the composite component
+	 */
+	private void extractInternClasses(Root root, List<ModelElement> elements1,
+			List<ModelElement> elements2) {
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
 				if (blacklistIndicator) {
@@ -189,140 +245,74 @@ public class Instability implements Metric {
 			}
 		}
 		
-		EList<Package> packages = root.getPackages();
-		
-		externClasses = extractExternClasses(packages);
-		if (externClasses == null || externClasses.size()==0) {
-			return 0.0;
-		}
-		
-		for (GASTClass currentClass : externClasses) {
-			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
-
-			for (Access currentAccess : accesses) {
-				GASTClass accessedClass = currentAccess.getAccessedClass();
-
-				if (accessedClass != null) {
-					if (internNameSet.contains(accessedClass.getQualifiedName())) {
-						afferentCoupling += 1.0;
-					}
-				}
-					
-			}
-		}
-		
-		for (GASTClass currentClass : internClasses) {
-			EList<Access> accesses = DerivationHelper.selectAccessesInSubtree(currentClass);
-
-			for (Access currentAccess : accesses) {
-				GASTClass accessedClass = currentAccess.getAccessedClass();
-				
-				if (accessedClass != null) {
-					if (externNameSet.contains(accessedClass.getQualifiedName())) {
-						efferentCoupling += 1.0;
-					}
-				}
-			}
-		}
-		if (afferentCoupling == 0.0 && efferentCoupling == 0.0) {
-			return 0.0;
-		} else {
-			return efferentCoupling/(afferentCoupling + efferentCoupling);
-		}
 	}
-	
+
 	/**
-	 * Extracts all non-blacklisted Classes from a given package-EList
-	 * that are not included in the given ModelElement-lists 
+	 * Extracts all non-black- or whitelisted classes that are not in the
+	 * component namesets
 	 * 
-	 * @param packages The EList containing the packages that need to be searched
-	 * @return a list of GASTClasses that are non-blacklisted an not included in 
-	 * the ModelElement-lists given as parameters in the compute-method
+	 * @param root Root-Object of the Software-Project modeled as GAST-model
 	 */
-	protected List<GASTClass> extractExternClasses (EList<Package> packages) {
+	protected void extractExternClasses (Root root) {
+		List<GASTClass> finalClasses = new LinkedList<GASTClass>();
 		List<GASTClass> externClasses = new LinkedList<GASTClass>();
 		
-		if (packages == null || packages.size() == 0) {
-			return externClasses;
-		}
+		externClasses = root.getAllNormalClasses();
+		externClasses.addAll(root.getAllInterfaces());
+		externClasses.addAll(root.getAllInnerClasses());
 		
-		for (Package current : packages) {
+		for (GASTClass currentClass : externClasses) {
 			if (blacklistIndicator) {
 				boolean contains = false;
 				for (String currentWildcard : wildcardBlacklist) {
-					if (current.getQualifiedName().startsWith(currentWildcard)) {
+					if (currentClass.getQualifiedName().startsWith(currentWildcard) || specifiedBlacklist.contains(currentClass.getQualifiedName())) {
 						contains = true;
 						break;
 					}
 				}
 				if (!contains) {
-					EList<GASTClass> packageClasses = current.getClasses();
-					for (GASTClass currentClass : packageClasses) {
-						if (!specifiedBlacklist.contains(currentClass.getQualifiedName())) {
-							if (!internNameSet.contains(currentClass.getQualifiedName())) {
-								externClasses.add(currentClass);
-								externNameSet.add(currentClass.getQualifiedName());
-							}
-
-						}
+					if (!internNameSet.contains(currentClass.getQualifiedName())) {
+						finalClasses.add(currentClass);
+						externNameSet.add(currentClass.getQualifiedName());
 					}
-					externClasses.addAll(extractExternClasses(current.getSubPackages()));
+
 				}
 			} else {
 				boolean contains = false;
 				for (String currentWildcard : wildcardWhitelist) {
-					if (current.getQualifiedName().startsWith(currentWildcard)) {
+					if (currentClass.getQualifiedName().startsWith(currentWildcard) || specifiedWhitelist.contains(currentClass.getQualifiedName())) {
 						contains = true;
 						break;
 					}
 				}
 				if (contains) {
-					EList<GASTClass> packageClasses = current.getClasses();
-					for (GASTClass currentClass : packageClasses) {
-						if (!internNameSet.contains(currentClass.getQualifiedName())) {
-							externClasses.add(currentClass);
-							externNameSet.add(currentClass.getQualifiedName());
-						}
-					}
-					externClasses.addAll(extractExternClasses(current.getSubPackages()));
-				} else {
-					boolean whitelistClassContained = false;
-					for (String currentSpecified : specifiedWhitelist) {
-						if (currentSpecified.startsWith(current.getQualifiedName())) {
-							whitelistClassContained = true;
-							break;
-						}
-					}
-					if (whitelistClassContained) {
-						EList<GASTClass> packageClasses = current.getClasses();
-						for (GASTClass currentClass : packageClasses) {
-							if (!internNameSet.contains(currentClass.getQualifiedName())) {
-								for (String currentSpecified : specifiedWhitelist) {
-									if (currentClass.getQualifiedName().equals(currentSpecified)) {
-										externClasses.add(currentClass);
-										externNameSet.add(currentClass.getQualifiedName());
-									}
-								}
-							}
-						}
-						externClasses.addAll(extractExternClasses(current.getSubPackages()));
+					if (!internNameSet.contains(currentClass.getQualifiedName())) {
+						finalClasses.add(currentClass);
+						externNameSet.add(currentClass.getQualifiedName());
 					}
 				}
 			}
 		}
-		
-		return externClasses;
+		this.externClasses = finalClasses;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricTab getLaunchConfigurationTab() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MetricID getMID() {
 		return new MetricID(4);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void initialize(Root root) {		
 	}
 }
