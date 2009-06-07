@@ -125,17 +125,11 @@ public class Generic_Tests {
 		abs = new Abstractness();
 
 		long time1First = System.nanoTime();
-		double abstractnessWithEMF = abs.compute(root, elements1, elements2);
+		double abstractnessWithoutEMF = abs.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
-		
-		
-		long time2First = System.nanoTime();
-		double abstractnessWithoutEMF = abs.computeWithOutEMF(root, elements1, elements2);
-		long time2total = System.nanoTime()-time2First;
-		
+
 		System.out.println("Abstractness");
-		System.out.println("Calculated with EMF-Query: " + abstractnessWithEMF + " (took: " + time1total + " ns)");
-		System.out.println("Calculated without EMF-Query: " + abstractnessWithoutEMF + " (took: " + time2total + " ns)");
+		System.out.println("Calculated without EMF-Query: " + abstractnessWithoutEMF + " (took: " + time1total + " ns)");
 		
 		System.out.println("");
 		
@@ -291,9 +285,6 @@ public class Generic_Tests {
 		nameRes = new NameResemblance();
 
 		long time1First = System.nanoTime();
-		
-		//last parameter = percentage needs to be changed manually
-		nameRes.setPercentage(50);
 		double nameResemblance = nameRes.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		

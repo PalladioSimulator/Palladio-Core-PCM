@@ -34,6 +34,7 @@ import org.somox.metrics.SubsystemComponent;
 import de.fzi.gast.accesses.provider.accessesItemProviderAdapterFactory;
 import de.fzi.gast.annotations.provider.annotationsItemProviderAdapterFactory;
 import de.fzi.gast.core.ModelElement;
+import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.core.provider.coreItemProviderAdapterFactory;
 import de.fzi.gast.functions.provider.functionsItemProviderAdapterFactory;
@@ -73,6 +74,7 @@ public class Tests {
 	private static Root root = null;
 	private static List<ModelElement> elements1;
 	private static List<ModelElement> elements2;
+	private static List<ModelElement> elements;
 	
 
 	/**
@@ -107,24 +109,13 @@ public class Tests {
 	@Test
 	public void abstractnessTest () throws Exception {
 		abs = new Abstractness();
-
-		long time1First = System.nanoTime();
-		double abstractnessWithEMF = abs.compute(root, elements1, elements2);
-		long time1total = System.nanoTime()-time1First;
-		
 		
 		long time2First = System.nanoTime();
-		double abstractnessWithoutEMF = abs.computeWithOutEMF(root, elements1, elements2);
+		double abstractnessWithoutEMF = abs.compute(root, elements1, elements2);
 		long time2total = System.nanoTime()-time2First;
 		
 		System.out.println("Abstractness");
-		System.out.println("Calculated with EMF-Query: " + abstractnessWithEMF + " (took: " + time1total + " ns)");
 		System.out.println("Calculated without EMF-Query: " + abstractnessWithoutEMF + " (took: " + time2total + " ns)");
-		
-		assertTrue("Abstractness results are equal", abstractnessWithEMF == abstractnessWithoutEMF);
-		
-		//needs to be changed for different models / different lists
-		assertTrue("Abstractness result correct", abstractnessWithEMF == 0.5);
 		
 		System.out.println("");
 	}
@@ -171,6 +162,7 @@ public class Tests {
 	 */
 	@Test
 	public void instabilityTest () throws Exception {
+		
 		ins = new Instability();
 		
 		HashSet<String> blacklist = new HashSet<String>();
@@ -317,9 +309,6 @@ public class Tests {
 		nameRes = new NameResemblance();
 
 		long time1First = System.nanoTime();
-		
-		//last parameter = percentage needs to be changed manually
-		nameRes.setPercentage(50);
 		double nameResemblance = nameRes.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
@@ -354,6 +343,7 @@ public class Tests {
 	private static void extractClassLists () {
 		EList<EObject> contents =resource.getContents();
 		
+		elements = new LinkedList<ModelElement>();
 		elements1 = new LinkedList<ModelElement>();
 		elements2 = new LinkedList<ModelElement>();
 		
@@ -364,22 +354,35 @@ public class Tests {
 		}
 		if (root != null) {
 			EList<de.fzi.gast.core.Package> packages = root.getPackages();
-			for (de.fzi.gast.core.Package current : packages) {
-				if (!current.getSimpleName().equals("java")) {
-					EList<de.fzi.gast.core.Package> subPackages = current.getSubPackages();
-					for (de.fzi.gast.core.Package currentSub : subPackages) {
-						EList<GASTClass> classes = currentSub.getClasses();
-						int sizeFirst = classes.size()/2;
-						int i=0;
-						for (GASTClass currentClass : classes) {
-							if (i<sizeFirst) {
-								elements1.add(currentClass);
-							} else {
-								elements2.add(currentClass);
-							}
-							i++;
-						}
-					}
+			iteratePackages(packages);
+		}
+		
+		System.out.println(elements.size());
+		
+		if (elements.size() > 0) {
+			int i=0;
+			for (ModelElement element : elements) {
+
+				if (i<elements.size()/2) {
+					elements1.add(element);
+				} else {
+					elements2.add(element);
+				}
+				i++;
+			}
+		}
+	}
+	
+	private static void iteratePackages (EList<Package> packages) {
+		for (de.fzi.gast.core.Package current : packages) {
+			if (!current.getSimpleName().equals("java")) {
+				EList<GASTClass> classes = current.getClasses();
+				for (GASTClass currentClass : classes) {
+					elements.add(currentClass);
+				}
+				EList<de.fzi.gast.core.Package> subPackages = current.getSubPackages();
+				if (subPackages.size() > 0) {
+					iteratePackages(subPackages);
 				}
 			}
 		}

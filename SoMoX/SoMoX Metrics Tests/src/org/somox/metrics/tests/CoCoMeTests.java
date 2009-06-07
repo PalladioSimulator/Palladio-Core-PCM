@@ -3,21 +3,11 @@ package org.somox.metrics.tests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -30,18 +20,11 @@ import org.somox.metrics.NameResemblance;
 import org.somox.metrics.PackageMapping;
 import org.somox.metrics.SliceLayerArchitectureQuality;
 import org.somox.metrics.SubsystemComponent;
+import org.somox.metrics.init.Initialization;
 
-import de.fzi.gast.accesses.provider.accessesItemProviderAdapterFactory;
-import de.fzi.gast.annotations.provider.annotationsItemProviderAdapterFactory;
 import de.fzi.gast.core.ModelElement;
-import de.fzi.gast.core.Package;
 import de.fzi.gast.core.Root;
-import de.fzi.gast.core.provider.coreItemProviderAdapterFactory;
-import de.fzi.gast.functions.provider.functionsItemProviderAdapterFactory;
-import de.fzi.gast.statements.provider.statementsItemProviderAdapterFactory;
 import de.fzi.gast.types.GASTClass;
-import de.fzi.gast.types.provider.typesItemProviderAdapterFactory;
-import de.fzi.gast.variables.provider.variablesItemProviderAdapterFactory;
 
 /**
  * @author Grischa Liebel
@@ -64,17 +47,16 @@ public class CoCoMeTests {
 	private PackageMapping pMap;
 	private SliceLayerArchitectureQuality slaq;
 	private SubsystemComponent sC;
-
-	private static AdapterFactoryEditingDomain editingDomain;
-
-	private static ComposedAdapterFactory adapterFactory;
-	
-	private static Resource resource;
 	
 	private static Root root = null;
-	private static List<ModelElement> elements;
+	private static List<List<GASTClass>> elements;
 	private static List<ModelElement> elements1;
 	private static List<ModelElement> elements2;
+	
+	/**
+	 * The absolute or relative path to the GAST model
+	 */
+	private static final String modelName = "cocome.gast";
 	
 
 	/**
@@ -84,9 +66,11 @@ public class CoCoMeTests {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		initializeEditingDomain();
-		createResource(null);
+		Initialization init = new Initialization();
+		URI fileURI = URI.createFileURI(new File(modelName).getAbsolutePath());
+		elements = init.extractLists(fileURI);
 		extractClassLists();
+		root = init.getRoot();
 	}
 	
 	@Before
@@ -111,19 +95,11 @@ public class CoCoMeTests {
 		abs = new Abstractness();
 
 		long time1First = System.nanoTime();
-		double abstractnessWithEMF = abs.compute(root, elements1, elements2);
+		double abstractnessWithoutEMF = abs.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
-		
-		
-		long time2First = System.nanoTime();
-		double abstractnessWithoutEMF = abs.computeWithOutEMF(root, elements1, elements2);
-		long time2total = System.nanoTime()-time2First;
-		
+
 		System.out.println("Abstractness");
-		System.out.println("Calculated with EMF-Query: " + abstractnessWithEMF + " (took: " + time1total + " ns)");
-		System.out.println("Calculated without EMF-Query: " + abstractnessWithoutEMF + " (took: " + time2total + " ns)");
-		
-		assertTrue("Abstractness results are equal", abstractnessWithEMF - abstractnessWithoutEMF < 0.00000001);
+		System.out.println("Calculated without EMF-Query: " + abstractnessWithoutEMF + " (took: " + time1total + " ns)");
 		
 		//needs to be changed for different models / different lists
 		//assertTrue("Abstractness result correct", abstractnessWithEMF == 0.5);
@@ -346,11 +322,9 @@ public class CoCoMeTests {
 	@Test
 	public void nameResemblanceTest () throws Exception {
 		nameRes = new NameResemblance();
+		nameRes.initialize(root);
 
 		long time1First = System.nanoTime();
-		
-		//last parameter = percentage needs to be changed manually
-		nameRes.setPercentage(80);
 		double nameResemblance = nameRes.compute(root, elements1, elements2);
 		long time1total = System.nanoTime()-time1First;
 		
@@ -383,88 +357,21 @@ public class CoCoMeTests {
 	}
 	
 	private static void extractClassLists () {
-		EList<EObject> contents = resource.getContents();
-		
-		elements = new LinkedList<ModelElement>();
 		elements1 = new LinkedList<ModelElement>();
 		elements2 = new LinkedList<ModelElement>();
 		
-		for (EObject current : contents) {
-			if (current instanceof Root) {
-				root = (Root)current;
-			}
-		}
-		if (root != null) {
-			EList<de.fzi.gast.core.Package> packages = root.getPackages();
-			iteratePackages(packages);
-		}
-		
 		if (elements.size() > 0) {
 			int i=0;
-			for (ModelElement element : elements) {
-
-				if (i<elements.size()/2) {
-					elements1.add(element);
-				} else {
-					elements2.add(element);
-				}
+			for (List<GASTClass> classTupel : elements) {
+				for (GASTClass current : classTupel) {
+					if (i<elements.size()/2) {
+						elements1.add(current);
+					} else {
+						elements2.add(current);
+					}
+				}				
 				i++;
 			}
 		}
 	}
-	
-	private static void iteratePackages (EList<Package> packages) {
-		for (de.fzi.gast.core.Package current : packages) {
-			if (!current.getSimpleName().equals("java") && !current.getSimpleName().equals("javax") && !current.getSimpleName().equals("junit") && !current.getSimpleName().equals("apache") && !current.getSimpleName().equals("netlib") && !current.getSimpleName().equals("sun") && !current.getSimpleName().equals("info") && !current.getSimpleName().equals("de")) {
-				EList<GASTClass> classes = current.getClasses();
-				for (GASTClass currentClass : classes) {
-					elements.add(currentClass);
-				}
-				EList<de.fzi.gast.core.Package> subPackages = current.getSubPackages();
-				if (subPackages.size() > 0) {
-					iteratePackages(subPackages);
-				}
-			}
-		}
-	}
-	
-	private static void createResource(URI uri) {
-		// Register the default resource factory -- only needed for stand-alone!
-		editingDomain.getResourceSet().getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-				Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-		// Get the URI of the model file.
-		URI fileURI = URI.createFileURI(new File("cocome.gast").getAbsolutePath());
-
-		//Try to load the resource through the editingDomain.
-		resource = null;
-		try {
-			resource = editingDomain.getResourceSet().getResource(fileURI, true);
-		}
-		catch (Exception e) {
-			resource = editingDomain.getResourceSet().getResource(fileURI, false);
-		}
-
-		System.out.println("Resource \"" + fileURI.lastSegment() + "\" loaded: " + resource.isLoaded() + "\n");
-	}
-	
-	
-	private static void initializeEditingDomain () {
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new statementsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new coreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new annotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new typesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new functionsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new accessesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new variablesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-	}
-
 }
