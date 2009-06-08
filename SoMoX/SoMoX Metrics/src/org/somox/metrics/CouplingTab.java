@@ -1,9 +1,13 @@
 package org.somox.metrics;
 
+import java.io.File;
+
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -15,11 +19,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Tree;
+import org.somox.analyzer.BlackboardListener;
 
 public class CouplingTab extends MetricTab {
 	
 	protected Composite control;
 	private Group group;
+	protected CheckboxTreeViewer checkboxTreeViewer;
 
 	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
 
@@ -27,6 +33,16 @@ public class CouplingTab extends MetricTab {
 
 	public boolean canSave() {
 		return true;
+	}
+	
+	public void setInput (String inputFile) {
+		String platformPath = Platform.getInstanceLocation().getURL().getPath();
+		platformPath = platformPath + inputFile;
+		
+		if (inputFile.endsWith("gast")) {
+			URI fileURI = URI.createFileURI(new File(platformPath).getAbsolutePath());
+			System.out.println(fileURI.path());
+		}
 	}
 
 	/**
@@ -49,10 +65,18 @@ public class CouplingTab extends MetricTab {
 			}
 		}
 		{
-			CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
 			Tree tree = checkboxTreeViewer.getTree();
 			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		}
+		
+		this.getModelAnalyzerTabGroupBlackboard().addBlackboardListener(new BlackboardListener() {
+
+			public void blackboardChanged() {
+				CouplingTab.this.setInput(CouplingTab.this.getModelAnalyzerTabGroupBlackboard().getSomoxAnalyzerInputFile());
+			}
+			
+		});
 	}
 
 	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {
