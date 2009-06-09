@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simuservice;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -43,6 +44,12 @@ import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflow;
 public class SimuService implements ISimuService {
 
 	/**
+	 * The use of semaphore ensures that the SimuService is not executed more
+	 * than once concurrently.
+	 */
+	private static Semaphore semaphore = new Semaphore(1);
+
+	/**
 	 * The simulation operation is provided by the service.
 	 * 
 	 * @param params
@@ -55,6 +62,17 @@ public class SimuService implements ISimuService {
 		// Create a new status object to capture the status of the SimuService
 		// execution:
 		SimuServiceResultStatus status = new SimuServiceResultStatus();
+
+		// Ensure that the method is not executed more than once concurrently:
+		try {
+			semaphore.acquire();
+		} catch (InterruptedException e) {
+
+			// If the semaphore mechanism does not work, return an error:
+			status.setException(e.getMessage());
+			status.freeze();
+			return status;
+		}
 
 		// Perform the simulation run. Catch any exception that might occur:
 		try {
@@ -69,12 +87,18 @@ public class SimuService implements ISimuService {
 		// Freeze the status object:
 		status.freeze();
 
+		// Release the acquired semaphore:
+		semaphore.release();
+
 		// Return the result:
 		return status;
 	}
 
 	/**
 	 * Performs a simulation run.
+	 * 
+	 * This method is synchronized so that multiple simulations are not
+	 * performed concurrently.
 	 * 
 	 * @param status
 	 *            object for reporting the status of the simulation run
@@ -103,7 +127,7 @@ public class SimuService implements ISimuService {
 		// Initialize logging functionality:
 		initializeLogging(params.isVerboseLogging(), params.isClearLogging());
 
-		// Record the status if SimuService execution:
+		// Record the status of SimuService execution:
 		status.setWorkflowParamsConfigured(true);
 
 		// Create a new workflow that throws exceptions:
@@ -112,7 +136,7 @@ public class SimuService implements ISimuService {
 				workflowConfiguration), new NullProgressMonitor(),
 				new WorkflowExceptionHandler(true), new MDSDBlackboard());
 
-		// Record the status if SimuService execution:
+		// Record the status of SimuService execution:
 		status.setWorkflowCreated(true);
 
 		// Execute the workflow:
@@ -122,7 +146,7 @@ public class SimuService implements ISimuService {
 		// flushed to the file system and can be retrieved by the client):
 		SensorFrameworkDataset.singleton().removeAllDataSources();
 
-		// Record the status if SimuService execution:
+		// Record the status of SimuService execution:
 		status.setWorkflowSuccessful(true);
 	}
 
