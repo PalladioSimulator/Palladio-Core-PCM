@@ -1,14 +1,10 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
-import org.opt4j.common.archive.BasicArchive;
 import org.opt4j.config.annotations.Name;
-import org.opt4j.core.Archive;
 import org.opt4j.core.problem.Creator;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.core.problem.Evaluator;
 import org.opt4j.core.problem.ProblemModule;
-
-import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTracker;
 
 
 public class DSEModule extends ProblemModule {

@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
  * @author Anne
  *
  */
-@SuppressWarnings("serial")
 public class PCMPhenotype implements Phenotype {
 	
 	PCMInstance pcm = null;

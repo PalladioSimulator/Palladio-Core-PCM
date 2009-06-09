@@ -14,6 +14,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.opt4j.config.visualization.Configurator;
+import org.opt4j.core.DoubleValue;
+import org.opt4j.core.Value;
 import org.opt4j.start.Opt4J;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
@@ -46,6 +48,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	private double mrtRequirements = 0;
 	private int individualsPerGeneration = 5;
 	private double maxCost = 0;
+	private double maxPOFOD = 0;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -101,7 +104,12 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			
 			CostRepository costs = getCostModel(configuration);
 		    
-		    Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs);
+			ArrayList<Value<Double>> upperConstraints = new ArrayList<Value<Double>>();
+			upperConstraints.add(new DoubleValue(mrtRequirements));
+			upperConstraints.add(new DoubleValue(maxCost));
+			upperConstraints.add(new DoubleValue(maxPOFOD));
+			
+		    Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints);
 		    
 		  		
 			} finally {
@@ -130,7 +138,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 					}
 				}*/
 				
-				logger.debug("DSE launch done. It took "+((System.currentTimeMillis()-timestampMillis)/1000)+" seconds.");
+				logger.warn("DSE launch done. It took "+((System.currentTimeMillis()-timestampMillis)/1000)+" seconds.");
 				
 				try {
 					Opt4JStarter.closeTask();

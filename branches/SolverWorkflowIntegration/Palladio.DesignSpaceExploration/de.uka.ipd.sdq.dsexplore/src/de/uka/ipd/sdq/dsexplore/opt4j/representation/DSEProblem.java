@@ -3,12 +3,8 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import java.util.List;
 
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
-import org.opt4j.genotype.Bounds;
 import org.opt4j.genotype.DoubleGenotype;
-
-import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
@@ -24,7 +20,6 @@ import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
-import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -75,7 +70,7 @@ public class DSEProblem {
 		
 		determineAllocationDecisions();
 		
-		
+		determineSOAPOrRMIDecisions();
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
 
@@ -92,6 +87,12 @@ public class DSEProblem {
 		 * 
 		 * Also meta-model the genotype as a choice within the range.
 		 */		
+	}
+
+
+	private void determineSOAPOrRMIDecisions() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

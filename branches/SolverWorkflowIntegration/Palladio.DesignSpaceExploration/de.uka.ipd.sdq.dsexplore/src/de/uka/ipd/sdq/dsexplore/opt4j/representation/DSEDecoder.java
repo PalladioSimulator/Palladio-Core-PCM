@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.Alternativ
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
@@ -113,8 +114,23 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	private void applyChangeProcessingRateDecision (ProcessingRateDecision designDecision, Double doubleGene) {
 		//XXX The value is changed in the original model, not in a copy. 
 
+		//old spec for adjusting MTTF
+		String oldRateString = designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().getSpecification();
+		double oldRate = CostUtil.getDoubleFromSpecification(oldRateString);
+		
+		double oldMTTF = designDecision.getProcessingresourcespecification().getMTTF();
+		
+		//FIXME: This will introduce rounding errors sooner or later
+		double mttf = oldMTTF * doubleGene.doubleValue() / oldRate;
+		
+		//round to just four digits after decimal sign, to maybe have no errors by the above 
+		//long l = (int)Math.round(mttf * 100000000); // truncates  
+		//mttf = l / 100000000.0;  
+		
 		designDecision.getProcessingresourcespecification().getProcessingRate_ProcessingResourceSpecification().setSpecification(doubleGene.toString());
-		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString());
+		designDecision.getProcessingresourcespecification().setMTTF(mttf);
+		
+		logger.debug("Handling a "+designDecision.getClass()+", setting rate to "+doubleGene.toString()+" and MTTF to "+mttf+" (old rate: "+oldMTTF+")");
 	}
 	
 	private void applyChangeAssembledComponentDecision ( AssembledComponentDecision designDecision, Double doubleGene) {

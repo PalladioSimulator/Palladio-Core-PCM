@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import java.util.Random;
 
-import org.apache.log4j.Logger;
 import org.opt4j.core.Genotype;
 import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.operator.common.Apply;
