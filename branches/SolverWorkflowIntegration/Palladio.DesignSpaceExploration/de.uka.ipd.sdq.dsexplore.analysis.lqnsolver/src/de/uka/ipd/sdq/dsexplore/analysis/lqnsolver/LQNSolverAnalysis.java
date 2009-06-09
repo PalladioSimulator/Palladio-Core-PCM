@@ -12,9 +12,16 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverJob;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.LqnXmlHandler;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.Pcm2LqnStrategy;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
+import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
 /**
  * Starts a LQN Solver Analysis for the design space exploration.
@@ -53,10 +60,11 @@ public class LQNSolverAnalysis implements IAnalysis {
 	
 	/**
 	 * {@inheritDoc}
+	 * @throws UserCanceledException 
 	 */
 	@Override
 	public IAnalysisResult analyse(final PCMInstance pcmInstance)
-			throws AnalysisFailedException, CoreException {
+			throws AnalysisFailedException, CoreException, UserCanceledException {
 		
 		iteration++;
 		
@@ -98,21 +106,27 @@ public class LQNSolverAnalysis implements IAnalysis {
 	 * @param pcmInstance the instance of PCM
 	 * @throws AnalysisFailedException 
 	 * @throws CoreException 
+	 * @throws UserCanceledException 
 	 */
 	private void launchLQNSolver(final PCMInstance pcmInstance)
-			throws AnalysisFailedException, CoreException {
+			throws AnalysisFailedException, CoreException, UserCanceledException {
+	
+		if (monitor == null){
+			throw new AnalysisFailedException(this.getClass().getName()+" was not correctly initialised.");
+		}
 		
 		this.config = ConfigurationHelper.getInstance().updateConfig(config, pcmInstance);
 		pcmInstance.saveUpdatesToFile();
+	
 		
 		logger.debug("Starting analysis of "+pcmInstance.getName());
-		
-		PCMSolverLaunchConfigurationDelegate pcmSolver = new PCMSolverLaunchConfigurationDelegate();
-		
+
+		PCMSolverLaunchConfigurationDelegate solverDelegate = new PCMSolverLaunchConfigurationDelegate();
+
 		try {
 			
 			//TODO catch exceptions due to convergence problems and handle them nicely. For example, set the response time to MAXINT or similar.
-			pcmSolver.launch(config, mode, launch, monitor);
+			solverDelegate.launch(this.config, this.mode, this.launch, this.monitor);
 			logger.debug("Finished PCMSolver analysis");
 			
 		} catch (CoreException e) {  

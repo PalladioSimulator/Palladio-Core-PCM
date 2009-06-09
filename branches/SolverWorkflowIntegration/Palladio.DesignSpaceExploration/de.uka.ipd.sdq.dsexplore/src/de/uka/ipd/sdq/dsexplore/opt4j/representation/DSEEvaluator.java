@@ -15,8 +15,8 @@ import org.opt4j.core.problem.Evaluator;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
-//import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-//import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /**
  * The Evaluator is responsible for determining the objective functions values 
@@ -82,8 +82,8 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 
 			return obj;
 			
-		//} catch (UserCanceledException e){
-		//	throw new RuntimeException("User cancelled.", e);
+		} catch (UserCanceledException e){
+			throw new RuntimeException("User cancelled.", e);
 			
 		} catch (Exception e){
 			
@@ -130,7 +130,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	}
 
 	private void retrieveResponseTime(PCMPhenotype pheno, Objectives obj, Objective o)
-			throws AnalysisFailedException, CoreException{ //, UserCanceledException, JobFailedException {
+			throws AnalysisFailedException, CoreException, UserCanceledException, JobFailedException {
 		//retrieve response time
 		IAnalysisResult result = Opt4JStarter.perfAnalysisTool.analyse(pheno.getPcm());
 		addValueIfValid(obj,o,result.getMeanValue());
@@ -140,7 +140,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	}
 	
 	private void retrieveReliability(PCMPhenotype pheno, Objectives obj, Objective o)
-			throws AnalysisFailedException, CoreException{ //, UserCanceledException, JobFailedException {
+			throws AnalysisFailedException, CoreException, UserCanceledException, JobFailedException {
 		//retrieve response time
 		IAnalysisResult result = Opt4JStarter.relAnalysisTool.analyse(pheno.getPcm());
 		addValueIfValid(obj,o,result.getMeanValue());
