@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTracker;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTrackerModule;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEConstraint;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
@@ -51,15 +52,20 @@ public class Opt4JStarter {
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
+	public static List<Value<Double>> upperConstraints;
+
 	public static void startOpt4J(IAnalysis perfAnalysisTool,
 			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs)
+			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints)
 			throws CoreException {
 
 		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
 		Opt4JStarter.relAnalysisTool = relAnalysisTool;
 		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
 		Opt4JStarter.problem = new DSEProblem(pcmInstance);
+		
+		Opt4JStarter.upperConstraints = upperConstraints;
+		
 		
 		Opt4JStarter.problem.saveProblem();
 		
@@ -193,7 +199,7 @@ public class Opt4JStarter {
 		
 		// first objectives
 		Objectives objs = ind.getObjectives();
-		for (Entry<Objective, Value<?>> entry : objs) {
+		for (Entry<Objective, Value<?>> entry : objs) { 
 			output += entry.getValue() + ";";
 		}
 		//then genes
