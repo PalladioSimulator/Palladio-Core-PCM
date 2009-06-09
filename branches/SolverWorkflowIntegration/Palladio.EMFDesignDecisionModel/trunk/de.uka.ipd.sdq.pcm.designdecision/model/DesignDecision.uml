@@ -247,6 +247,12 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
     </packagedElement>
     <packagedElement xmi:type="uml:Realization" xmi:id="_xuQUIC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_3H9M4PzqEd2sBa2PoI_LqA"/>
     <packagedElement xmi:type="uml:Realization" xmi:id="_yHAyYC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_BBEi4PzyEd2sBa2PoI_LqA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sBedwFR4Ed68Gcam1yGdWA" name="ConnectorConfigDecision">
+      <generalization xmi:id="_8JrQYFR4Ed68Gcam1yGdWA" general="_khi9UPzoEd2sBa2PoI_LqA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8mfU4FVMEd68Gcam1yGdWA" name="SoapOrRmi">
+      <generalization xmi:id="_-1ZccFVMEd68Gcam1yGdWA" general="_3H9M4PzqEd2sBa2PoI_LqA"/>
+    </packagedElement>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>

@@ -159,6 +159,11 @@ public class DesignDecisionItemProvider
 			(createChildParameter
 				(designdecisionPackage.Literals.DESIGN_DECISION__DOMAIN,
 				 designdecisionFactory.eINSTANCE.createDoubleRange()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.DESIGN_DECISION__DOMAIN,
+				 designdecisionFactory.eINSTANCE.createSoapOrRmi()));
 	}
 
 	/**

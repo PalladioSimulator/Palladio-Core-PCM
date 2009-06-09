@@ -117,4 +117,6 @@
       <details key="documentation" value="geht nicht, da realization beziehung nicht mit exportiert :("/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectorConfigDecision" eSuperTypes="#//DesignDecision"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SoapOrRmi" eSuperTypes="#//Enumeration"/>
 </ecore:EPackage>

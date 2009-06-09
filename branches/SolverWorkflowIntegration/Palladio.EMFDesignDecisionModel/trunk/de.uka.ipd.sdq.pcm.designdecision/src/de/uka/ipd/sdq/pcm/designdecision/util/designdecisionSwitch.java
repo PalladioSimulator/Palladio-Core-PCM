@@ -225,6 +225,21 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case designdecisionPackage.CONNECTOR_CONFIG_DECISION: {
+				ConnectorConfigDecision connectorConfigDecision = (ConnectorConfigDecision)theEObject;
+				T result = caseConnectorConfigDecision(connectorConfigDecision);
+				if (result == null) result = caseDesignDecision(connectorConfigDecision);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.SOAP_OR_RMI: {
+				SoapOrRmi soapOrRmi = (SoapOrRmi)theEObject;
+				T result = caseSoapOrRmi(soapOrRmi);
+				if (result == null) result = caseEnumeration(soapOrRmi);
+				if (result == null) result = caseDomain(soapOrRmi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -526,6 +541,36 @@ public class designdecisionSwitch<T> {
 	 * @generated
 	 */
 	public T caseDiscreteDomain(DiscreteDomain object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connector Config Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connector Config Decision</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConnectorConfigDecision(ConnectorConfigDecision object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Soap Or Rmi</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Soap Or Rmi</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSoapOrRmi(SoapOrRmi object) {
 		return null;
 	}
 

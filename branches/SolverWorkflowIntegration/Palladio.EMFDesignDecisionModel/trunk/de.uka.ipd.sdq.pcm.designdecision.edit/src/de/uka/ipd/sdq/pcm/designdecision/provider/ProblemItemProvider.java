@@ -170,6 +170,11 @@ public class ProblemItemProvider
 			(createChildParameter
 				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
 				 designdecisionFactory.eINSTANCE.createResourceContainerReplicationDecision()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
+				 designdecisionFactory.eINSTANCE.createConnectorConfigDecision()));
 	}
 
 	/**

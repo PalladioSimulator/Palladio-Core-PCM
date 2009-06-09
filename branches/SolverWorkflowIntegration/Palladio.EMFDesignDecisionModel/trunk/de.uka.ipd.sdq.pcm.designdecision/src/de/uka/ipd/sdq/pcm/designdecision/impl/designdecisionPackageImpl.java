@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.ComponentChoice;
+import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain;
 import de.uka.ipd.sdq.pcm.designdecision.Domain;
@@ -32,6 +33,7 @@ import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
 import de.uka.ipd.sdq.pcm.designdecision.Range;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision;
+import de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
@@ -208,6 +210,20 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * @generated
 	 */
 	private EClass discreteDomainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectorConfigDecisionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass soapOrRmiEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -665,6 +681,24 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConnectorConfigDecision() {
+		return connectorConfigDecisionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSoapOrRmi() {
+		return soapOrRmiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public designdecisionFactory getdesigndecisionFactory() {
 		return (designdecisionFactory)getEFactoryInstance();
 	}
@@ -748,6 +782,10 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		createEReference(problemEClass, PROBLEM__DESIGNDECISION);
 
 		discreteDomainEClass = createEClass(DISCRETE_DOMAIN);
+
+		connectorConfigDecisionEClass = createEClass(CONNECTOR_CONFIG_DECISION);
+
+		soapOrRmiEClass = createEClass(SOAP_OR_RMI);
 	}
 
 	/**
@@ -798,6 +836,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		doubleRangeEClass.getESuperTypes().add(this.getRange());
 		resourceContainerReplicationChoiceEClass.getESuperTypes().add(this.getChoice());
 		resourceContainerReplicationDecisionEClass.getESuperTypes().add(this.getDesignDecision());
+		connectorConfigDecisionEClass.getESuperTypes().add(this.getDesignDecision());
+		soapOrRmiEClass.getESuperTypes().add(this.getEnumeration());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(designDecisionEClass, DesignDecision.class, "DesignDecision", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -860,6 +900,10 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		initEReference(getProblem_Designdecision(), this.getDesignDecision(), null, "designdecision", null, 1, -1, Problem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(discreteDomainEClass, DiscreteDomain.class, "DiscreteDomain", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(connectorConfigDecisionEClass, ConnectorConfigDecision.class, "ConnectorConfigDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(soapOrRmiEClass, SoapOrRmi.class, "SoapOrRmi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -74,6 +74,8 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DECISION: return createResourceContainerReplicationDecision();
 			case designdecisionPackage.GENOTYPE: return createGenotype();
 			case designdecisionPackage.PROBLEM: return createProblem();
+			case designdecisionPackage.CONNECTOR_CONFIG_DECISION: return createConnectorConfigDecision();
+			case designdecisionPackage.SOAP_OR_RMI: return createSoapOrRmi();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -217,6 +219,26 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	public Problem createProblem() {
 		ProblemImpl problem = new ProblemImpl();
 		return problem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConnectorConfigDecision createConnectorConfigDecision() {
+		ConnectorConfigDecisionImpl connectorConfigDecision = new ConnectorConfigDecisionImpl();
+		return connectorConfigDecision;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SoapOrRmi createSoapOrRmi() {
+		SoapOrRmiImpl soapOrRmi = new SoapOrRmiImpl();
+		return soapOrRmi;
 	}
 
 	/**

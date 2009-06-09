@@ -152,6 +152,24 @@ public interface designdecisionFactory extends EFactory {
 	Problem createProblem();
 
 	/**
+	 * Returns a new object of class '<em>Connector Config Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Connector Config Decision</em>'.
+	 * @generated
+	 */
+	ConnectorConfigDecision createConnectorConfigDecision();
+
+	/**
+	 * Returns a new object of class '<em>Soap Or Rmi</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Soap Or Rmi</em>'.
+	 * @generated
+	 */
+	SoapOrRmi createSoapOrRmi();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

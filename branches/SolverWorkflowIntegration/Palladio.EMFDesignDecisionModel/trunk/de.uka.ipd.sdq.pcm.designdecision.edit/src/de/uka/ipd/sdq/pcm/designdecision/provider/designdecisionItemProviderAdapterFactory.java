@@ -398,6 +398,52 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectorConfigDecisionItemProvider connectorConfigDecisionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectorConfigDecisionAdapter() {
+		if (connectorConfigDecisionItemProvider == null) {
+			connectorConfigDecisionItemProvider = new ConnectorConfigDecisionItemProvider(this);
+		}
+
+		return connectorConfigDecisionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SoapOrRmiItemProvider soapOrRmiItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSoapOrRmiAdapter() {
+		if (soapOrRmiItemProvider == null) {
+			soapOrRmiItemProvider = new SoapOrRmiItemProvider(this);
+		}
+
+		return soapOrRmiItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +556,8 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 		if (resourceContainerReplicationDecisionItemProvider != null) resourceContainerReplicationDecisionItemProvider.dispose();
 		if (genotypeItemProvider != null) genotypeItemProvider.dispose();
 		if (problemItemProvider != null) problemItemProvider.dispose();
+		if (connectorConfigDecisionItemProvider != null) connectorConfigDecisionItemProvider.dispose();
+		if (soapOrRmiItemProvider != null) soapOrRmiItemProvider.dispose();
 	}
 
 }

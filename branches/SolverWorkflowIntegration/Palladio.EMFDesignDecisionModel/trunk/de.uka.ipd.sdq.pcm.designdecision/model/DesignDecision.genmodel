@@ -96,5 +96,7 @@
           createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//Problem/designdecision"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DiscreteDomain"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ConnectorConfigDecision"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//SoapOrRmi"/>
   </genPackages>
 </genmodel:GenModel>

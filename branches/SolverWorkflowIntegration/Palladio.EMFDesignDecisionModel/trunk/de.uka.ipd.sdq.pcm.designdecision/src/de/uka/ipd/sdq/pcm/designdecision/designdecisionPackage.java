@@ -739,6 +739,54 @@ public interface designdecisionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDecisionImpl <em>Connector Config Decision</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDecisionImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getConnectorConfigDecision()
+	 * @generated
+	 */
+	int CONNECTOR_CONFIG_DECISION = 20;
+
+	/**
+	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_CONFIG_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
+
+	/**
+	 * The number of structural features of the '<em>Connector Config Decision</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_CONFIG_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl <em>Soap Or Rmi</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSoapOrRmi()
+	 * @generated
+	 */
+	int SOAP_OR_RMI = 21;
+
+	/**
+	 * The number of structural features of the '<em>Soap Or Rmi</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOAP_OR_RMI_FEATURE_COUNT = ENUMERATION_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision <em>Design Decision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,6 +1218,26 @@ public interface designdecisionPackage extends EPackage {
 	EClass getDiscreteDomain();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision <em>Connector Config Decision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connector Config Decision</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision
+	 * @generated
+	 */
+	EClass getConnectorConfigDecision();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi <em>Soap Or Rmi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Soap Or Rmi</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi
+	 * @generated
+	 */
+	EClass getSoapOrRmi();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1558,6 +1626,26 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISCRETE_DOMAIN = eINSTANCE.getDiscreteDomain();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDecisionImpl <em>Connector Config Decision</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDecisionImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getConnectorConfigDecision()
+		 * @generated
+		 */
+		EClass CONNECTOR_CONFIG_DECISION = eINSTANCE.getConnectorConfigDecision();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl <em>Soap Or Rmi</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSoapOrRmi()
+		 * @generated
+		 */
+		EClass SOAP_OR_RMI = eINSTANCE.getSoapOrRmi();
 
 	}
 

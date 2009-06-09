@@ -152,6 +152,14 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createDiscreteDomainAdapter();
 			}
 			@Override
+			public Adapter caseConnectorConfigDecision(ConnectorConfigDecision object) {
+				return createConnectorConfigDecisionAdapter();
+			}
+			@Override
+			public Adapter caseSoapOrRmi(SoapOrRmi object) {
+				return createSoapOrRmiAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -448,6 +456,34 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiscreteDomainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision <em>Connector Config Decision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision
+	 * @generated
+	 */
+	public Adapter createConnectorConfigDecisionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi <em>Soap Or Rmi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi
+	 * @generated
+	 */
+	public Adapter createSoapOrRmiAdapter() {
 		return null;
 	}
 
