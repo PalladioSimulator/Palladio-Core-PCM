@@ -12,6 +12,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	}
 	
 	private ILaunchConfiguration rawConfiguration;
+	private boolean isReliabilityAnalysis;
 
 	public void setRawConfig(ILaunchConfiguration configuration) {
 		this.rawConfiguration = configuration;		
@@ -22,6 +23,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 	}
 
 	public boolean isReliabilityAnalysis() {
-		return false;
+		return this.isReliabilityAnalysis;
+	}
+	
+	public void setIsReliabilityAnalysis(boolean isReliability) {
+		this.isReliabilityAnalysis = isReliability;
 	}
 }
