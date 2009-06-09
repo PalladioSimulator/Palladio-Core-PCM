@@ -7,7 +7,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
-import org.eclipse.osgi.service.datalocation.Location;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -34,20 +33,20 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 			ModelAnalyzerTabGroupBlackboard blackboard) {
 		this.blackboard = blackboard;
 		if (inputFile == null) {
-			blackboard.setSomoxAnalyzerInputFile(null);
+			updateBlackboard(null);
 			return;
 		}
 		if ((inputFile.getText() == null) || (inputFile.getText().equals(""))) {
-			blackboard.setSomoxAnalyzerInputFile(null);
+			updateBlackboard(null);
 			return;
 		}
 		File inputFi = new File(Platform.getInstanceLocation().getURL()
 				.getFile()
 				+ inputFile.getText());
 		if (!inputFi.exists()) {
-			this.blackboard.setSomoxAnalyzerInputFile(null);
+			updateBlackboard(null);
 		} else {
-			this.blackboard.setSomoxAnalyzerInputFile(inputFile.getText());
+			updateBlackboard(inputFile.getText());
 		}
 	}
 
@@ -149,9 +148,7 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 		try {
 			inputFile.setText(configuration.getAttribute(
 					SoMoXProjectPreferences.SOMOX_ANALYZER_INPUT_FILE, ""));
-			if (blackboard != null) {
-				blackboard.setSomoxAnalyzerInputFile(inputFile.getText());
-			}
+			updateBlackboard(inputFile.getText());
 		} catch (CoreException e) {
 			inputFile.setText("");
 		}
@@ -182,9 +179,7 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 		}
 		if (inputFile.getText().equals("")) {
 			setErrorMessage("Input file not specified");
-			if (blackboard != null) {
-				blackboard.setSomoxAnalyzerInputFile(null);
-			}
+			updateBlackboard(null);
 			return false;
 		}
 		File inputFi = new File(Platform.getInstanceLocation().getURL()
@@ -193,14 +188,10 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 		if (!inputFi.exists()) {
 			setErrorMessage("Input file " + inputFile.getText()
 					+ " does not exist");
-			if (blackboard != null) {
-				blackboard.setSomoxAnalyzerInputFile(null);
-			}
+			updateBlackboard(null);
 			return false;
 		}
-		if (blackboard != null) {
-			blackboard.setSomoxAnalyzerInputFile(inputFile.getText());
-		}
+		updateBlackboard(inputFile.getText());
 		return true;
 	}
 
@@ -216,6 +207,20 @@ public class ModelAnalyzerInputTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public boolean canSave() {
 		return true;
+	}
+	
+	private void updateBlackboard(String inputFile) {
+		if (blackboard != null) {
+			if (blackboard.getSomoxAnalyzerInputFile() == null) {
+				if (inputFile != null) {
+					blackboard.setSomoxAnalyzerInputFile(inputFile);
+				}
+				return;
+			}
+			if (!blackboard.getSomoxAnalyzerInputFile().equals(inputFile)) {
+				blackboard.setSomoxAnalyzerInputFile(inputFile);
+			}
+		}
 	}
 
 }
