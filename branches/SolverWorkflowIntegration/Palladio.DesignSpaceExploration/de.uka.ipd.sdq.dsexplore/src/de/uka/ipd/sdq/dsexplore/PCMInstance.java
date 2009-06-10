@@ -1,11 +1,6 @@
 package de.uka.ipd.sdq.dsexplore;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,37 +8,22 @@ import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
-import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
-import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 
 /**
  * Encapsulated an PCM instance. Represents ONE candidate only and needs to be copied when changed. 
@@ -90,6 +70,10 @@ public class PCMInstance {
 	private String usageModelFileName;
 	
 	private ILaunchConfiguration launchConfiguration;
+
+	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+	private de.uka.ipd.sdq.featureconfig.Configuration connectorConfig;
+	private String connectorConfigFilename;
 
 	public PCMInstance() {
 		super();
@@ -146,6 +130,10 @@ public class PCMInstance {
 				.getTargetResourceEnvironment_Allocation().eResource().getURI()
 				.toFileString();
 		logger.debug("ResourceEnv: " + this.resEnvFileName);
+		
+		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+		this.connectorConfigFilename = configuration.getAttribute(ConstantsContainer.FEATURE_CONFIG, "");
+		this.connectorConfig = ((de.uka.ipd.sdq.featureconfig.Configuration) EMFHelper.loadFromXMIFile(this.connectorConfigFilename));
 	}
 
 	/**
@@ -177,7 +165,8 @@ public class PCMInstance {
 			UsageModel usageModel, String allocationFileName,
 			String repositoryFileName, String resourceRepositoryFileName,
 			String usageModelFileName, String systemFileName,
-			String resourceEnvironmentFileName, String name) {
+			String resourceEnvironmentFileName, String name,
+			de.uka.ipd.sdq.featureconfig.Configuration connectorConfig, String connectorConfigFileName) {
 		super();
 		this.repository = repository;
 		this.system = system;
@@ -195,7 +184,13 @@ public class PCMInstance {
 		this.systemFileName = systemFileName;
 		this.resEnvFileName = resourceEnvironmentFileName;
 		this.name = name;
+		
+		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+		this.connectorConfig = connectorConfig;
+		this.connectorConfigFilename = connectorConfigFileName;
+		
 	}
+
 
 	public void appendToAllocationFileName(String allocationFileNameSuffix) {
 		this.allocationFileName = appendToFilename(allocationFileNameSuffix, this.allocationFileName);
@@ -291,7 +286,15 @@ public boolean equals(Object o) {
 		return usageModelFileName;
 	}
 
-
+	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+	public Configuration getConnectorConfig(){
+		return this.connectorConfig;
+	}
+	
+	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+	public String getConnectorConfigFilename(){
+		return this.connectorConfigFilename;
+	}
 
 	public void saveAllocationToFile() {
 		EMFHelper.saveToXMIFile(allocation, allocationFileName);
@@ -348,6 +351,14 @@ public boolean equals(Object o) {
 		}
 		
 		saveAllocationToFile();
+		
+		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+		saveConnectorConfigToFiles();
+	}
+
+	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+	private void saveConnectorConfigToFiles() {
+		EMFHelper.saveToXMIFile(this.connectorConfig, this.connectorConfigFilename);
 	}
 
 	public void setAllocation(Allocation allocation) {
@@ -393,7 +404,8 @@ public boolean equals(Object o) {
 				this.usageModel, this.allocationFileName,
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, this.systemFileName,
-				this.resEnvFileName, this.name);
+				this.resEnvFileName, this.name,
+				this.connectorConfig, this.connectorConfigFilename);
 		return pcm;
 	}
 	
@@ -419,13 +431,15 @@ public boolean equals(Object o) {
 		ResourceEnvironment re = (ResourceEnvironment)EcoreUtil.copy(this.resourceenvironment);
 		Allocation a = (Allocation)EcoreUtil.copy(this.allocation);
 		a.setTargetResourceEnvironment_Allocation(re);
+		
+		de.uka.ipd.sdq.featureconfig.Configuration cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
 			
 		PCMInstance pcm = new PCMInstance(this.repository, s, a, re, this.resourcetype, this.mwRepository,
 				this.storagePath, this.resourceRepository,
 				this.usageModel, appendToFilename("c",this.allocationFileName),
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, appendToFilename("c",this.systemFileName),
-				appendToFilename("c",this.resEnvFileName), this.name+"-c");
+				appendToFilename("c",this.resEnvFileName), this.name+"-c", cfg, appendToFilename("c", this.connectorConfigFilename));
 		
 		return pcm;
 

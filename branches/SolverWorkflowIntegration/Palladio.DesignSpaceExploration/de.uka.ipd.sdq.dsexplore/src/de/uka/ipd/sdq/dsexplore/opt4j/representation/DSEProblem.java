@@ -9,16 +9,20 @@ import org.opt4j.genotype.DoubleGenotype;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
+import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
+import de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
@@ -70,6 +74,7 @@ public class DSEProblem {
 		
 		determineAllocationDecisions();
 		
+		//Quickfix: Add a Soap or RMI decision. This is not meta modelled. 
 		determineSOAPOrRMIDecisions();
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
@@ -90,8 +95,25 @@ public class DSEProblem {
 	}
 
 
+	/**
+	 * XXX: This is not meta modelled and just a quick fix
+	 * 
+	 */
 	private void determineSOAPOrRMIDecisions() {
-		// TODO Auto-generated method stub
+		
+		Configuration connectorConfig = this.initialInstance.getConnectorConfig();
+		FeatureConfig featureConfig = connectorConfig.getDefaultConfig();
+		
+		ConnectorConfigDecision cd = this.designDecisionFactory.createConnectorConfigDecision();
+		SoapOrRmi domain = this.designDecisionFactory.createSoapOrRmi();
+		
+		cd.setDomain(domain);
+		cd.setFeatureconfig(featureConfig);
+		
+		this.pcmProblem.getDesigndecision().add(cd);
+		
+		//0.0 stands for SOAP, 1.0 for RMI
+		this.initialGenotype.add(0.0);
 		
 	}
 

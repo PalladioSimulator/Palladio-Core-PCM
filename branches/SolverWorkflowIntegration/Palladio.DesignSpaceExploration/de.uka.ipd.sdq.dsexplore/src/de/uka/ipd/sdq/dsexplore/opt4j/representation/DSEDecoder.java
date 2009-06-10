@@ -10,11 +10,13 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
+import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
@@ -88,11 +90,29 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 			this.applyChangeAssembledComponentDecision((AssembledComponentDecision)designDecision, doubleGene);
 		} else if (AllocationDecision.class.isInstance(designDecision)){
 			this.applyChangeAllocationDecision((AllocationDecision)designDecision, doubleGene);
-		} else {
+		} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
+			this.applyChangeConnectorConfigDecision((ConnectorConfigDecision)designDecision, doubleGene);
+		} else{
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
 	}
 	
+	private void applyChangeConnectorConfigDecision(
+			ConnectorConfigDecision designDecision, Double doubleGene) {
+		int gene = doubleGene.intValue();
+		
+		if (gene == 0){
+			//Apply SOAP
+			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(0).setConfigState(ConfigState.ELIMINATED);
+			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(1).setConfigState(ConfigState.SELECTED);
+		} else if (gene == 1){
+			//Apply RMI
+			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(1).setConfigState(ConfigState.ELIMINATED);
+			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(0).setConfigState(ConfigState.SELECTED);
+		} else throw new RuntimeException("ConnectorConfigDecision has a value out of range:"+gene+" or as double "+doubleGene);
+		
+	}
+
 	private void applyChangeAllocationDecision(
 			AllocationDecision designDecision, Double doubleGene) {
 		int gene = doubleGene.intValue();
