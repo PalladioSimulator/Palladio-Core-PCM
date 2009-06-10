@@ -185,6 +185,8 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 			result = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent().get(intgene).getEntityName();
 		} else if (AllocationDecision.class.isInstance(designDecision)){
 			result = ((AvailableServers)designDecision.getDomain()).getResourcecontainer().get(intgene).getEntityName();
+		} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
+			result = intgene == 0 ? "SOAP" : "RMI";
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
