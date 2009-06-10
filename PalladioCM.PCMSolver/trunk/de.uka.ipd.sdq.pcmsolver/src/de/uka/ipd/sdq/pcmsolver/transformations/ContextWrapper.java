@@ -721,6 +721,9 @@ public class ContextWrapper implements Cloneable {
 		AssemblyConnector matchingAssConn = null;
 		EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
 				.getAssemblyConnectors_ComposedStructure();
+
+		String roleId = eca.getRole_ExternalService().getId();
+		
 		for (AssemblyConnector assConn : assConnList) {
 			String myAssId = assCtx.getId();
 			String assId = assConn
@@ -734,9 +737,11 @@ public class ContextWrapper implements Cloneable {
 			if (assConn
 					.getRequiringAssemblyContext_AssemblyConnector()
 					.getId().equals(assCtx.getId())
-					&& assConn.getRequiredRole_AssemblyConnector()
-							.getRequiredInterface__RequiredRole().getId()
-							.equals(requiredInterface.getId())) {
+		     && assConn.getRequiredRole_AssemblyConnector()
+					.getRequiredInterface__RequiredRole().getId()
+					.equals(requiredInterface.getId())
+			 && assConn.getRequiredRole_AssemblyConnector()
+			 		.getId().equals(roleId)) {
 				matchingAssConn = assConn;
 			}
 		}
