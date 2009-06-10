@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+  <uml:Model xmi:id="_wDpnIHvxEdyOhKBWyuRGig" name="FeatureConfig">
+    <ownedComment xmi:id="_h5My8KwTEd2RCOCuXmp_aA" annotatedElement="_wDpnIHvxEdyOhKBWyuRGig">
+      <body>The Feature Config simply sets states selected, eliminated or default for single features. Thus, invalid configurations can be built, this is by purpose, so that invalid intermediate steps can &#xD;
+be stored. </body>
+    </ownedComment>
+    <packageImport xmi:id="_wDqOMXvxEdyOhKBWyuRGig">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="__AsOMHvxEdyOhKBWyuRGig" name="ConfigNode">
+      <ownedComment xmi:id="_CpO-QIMGEd2EZ-q5ZcFTEQ" annotatedElement="__AsOMHvxEdyOhKBWyuRGig">
+        <body>Holds ConfigState of a Feature. For a Feature it holds the actual value. </body>
+      </ownedComment>
+      <ownedRule xmi:id="_XSHtkHv5EdyOhKBWyuRGig" name="ConfigCardinalityInvalid" constrainedElement="__AsOMHvxEdyOhKBWyuRGig">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_XSI7sHv5EdyOhKBWyuRGig">
+          <language>OCL</language>
+          <body>let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;in &#xD;&#xA;&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;&#x9; else&#xD;&#xA;&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;&#x9; endif</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_JRmdUHvyEdyOhKBWyuRGig" name="origin" visibility="public" association="_JRjaAHvyEdyOhKBWyuRGig">
+        <type xmi:type="uml:Class" href="FeatureModel.uml#_yRwvYHvvEdyOhKBWyuRGig"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_wwMHkHvyEdyOhKBWyuRGig" name="configState" visibility="public" type="_lsvBMHvyEdyOhKBWyuRGig">
+        <ownedComment xmi:id="_Zz3R0IMGEd2EZ-q5ZcFTEQ" annotatedElement="_wwMHkHvyEdyOhKBWyuRGig">
+          <body>actual state for annotated Features; for FeatureGroups it is a derived attribute</body>
+        </ownedComment>
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="_zr0LMHvyEdyOhKBWyuRGig" name="UNSET" type="_lsvBMHvyEdyOhKBWyuRGig" instance="_vQEYoHvyEdyOhKBWyuRGig"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_JRjaAHvyEdyOhKBWyuRGig" memberEnd="_JRmdUHvyEdyOhKBWyuRGig _JRqHsHvyEdyOhKBWyuRGig">
+      <ownedEnd xmi:id="_JRqHsHvyEdyOhKBWyuRGig" name="node" visibility="private" type="__AsOMHvxEdyOhKBWyuRGig" association="_JRjaAHvyEdyOhKBWyuRGig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_lsvBMHvyEdyOhKBWyuRGig" name="ConfigState">
+      <ownedLiteral xmi:id="_nEihoHvyEdyOhKBWyuRGig" name="SELECTED"/>
+      <ownedLiteral xmi:id="_oQewUHvyEdyOhKBWyuRGig" name="ELIMINATED"/>
+      <ownedLiteral xmi:id="_vQEYoHvyEdyOhKBWyuRGig" name="DEFAULT">
+        <ownedComment xmi:id="_Ow_7MD4DEd2Fu_0CQ-Fq-g" annotatedElement="_vQEYoHvyEdyOhKBWyuRGig">
+          <body>use value from deaultConfig&#xD;
+aka NULL, not set, do not override</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_2-grAHvyEdyOhKBWyuRGig" name="FeatureConfig">
+      <ownedRule xmi:id="_i6LkkHvzEdyOhKBWyuRGig" name="RootIsFeatureModel" constrainedElement="_2-grAHvyEdyOhKBWyuRGig">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_i6MysHvzEdyOhKBWyuRGig">
+          <language>OCL</language>
+          <body>self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_6W8fQHwaEdyOhKBWyuRGig" name="referencedObject" visibility="public" association="_6W74MHwaEdyOhKBWyuRGig">
+        <type xmi:type="uml:Class" href="Ecore.uml#_SeWijsX_EduPJbEsMYXjUQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9W4bIXwaEdyOhKBWyuRGig" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9W4bIHwaEdyOhKBWyuRGig"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_eqNqEDk2Ed2yIp43-c7nBw" name="confignode" visibility="public" type="__AsOMHvxEdyOhKBWyuRGig" aggregation="composite" association="_eqLN0Dk2Ed2yIp43-c7nBw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eqPfQDk2Ed2yIp43-c7nBw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eqO4MDk2Ed2yIp43-c7nBw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_6W74MHwaEdyOhKBWyuRGig" memberEnd="_6W8fQHwaEdyOhKBWyuRGig _6W-UcHwaEdyOhKBWyuRGig">
+      <ownedEnd xmi:id="_6W-UcHwaEdyOhKBWyuRGig" name="featureconfig" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_6W74MHwaEdyOhKBWyuRGig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JTpAsHweEdyOhKBWyuRGig" name="Configuration">
+      <ownedComment xmi:id="_n5HjcKwSEd2RCOCuXmp_aA" annotatedElement="_JTpAsHweEdyOhKBWyuRGig">
+        <body>External container for default and overrides config</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_LeUvkHweEdyOhKBWyuRGig" name="defaultConfig" visibility="public" type="_2-grAHvyEdyOhKBWyuRGig" aggregation="composite" association="_LeSTUHweEdyOhKBWyuRGig">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LelOQHweEdyOhKBWyuRGig" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LedScHweEdyOhKBWyuRGig" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_TxXj0HweEdyOhKBWyuRGig" name="configOverrides" visibility="public" type="_2-grAHvyEdyOhKBWyuRGig" aggregation="composite" association="_TxWVsHweEdyOhKBWyuRGig">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxYx8XweEdyOhKBWyuRGig" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxYx8HweEdyOhKBWyuRGig"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_eLzuQD4BEd2Fu_0CQ-Fq-g" name="name" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LeSTUHweEdyOhKBWyuRGig" memberEnd="_LeUvkHweEdyOhKBWyuRGig _LenqgHweEdyOhKBWyuRGig">
+      <ownedEnd xmi:id="_LenqgHweEdyOhKBWyuRGig" name="" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_LeSTUHweEdyOhKBWyuRGig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_TxWVsHweEdyOhKBWyuRGig" memberEnd="_TxXj0HweEdyOhKBWyuRGig _TxaAEHweEdyOhKBWyuRGig">
+      <ownedEnd xmi:id="_TxaAEHweEdyOhKBWyuRGig" name="" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_TxWVsHweEdyOhKBWyuRGig"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_eqLN0Dk2Ed2yIp43-c7nBw" memberEnd="_eqNqEDk2Ed2yIp43-c7nBw _eqR7gDk2Ed2yIp43-c7nBw">
+      <ownedEnd xmi:id="_eqR7gDk2Ed2yIp43-c7nBw" name="" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_eqLN0Dk2Ed2yIp43-c7nBw"/>
+    </packagedElement>
+    <profileApplication xmi:id="_wDqOMnvxEdyOhKBWyuRGig">
+      <eAnnotations xmi:id="_wDqOM3vxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_wDqONHvxEdyOhKBWyuRGig">
+      <eAnnotations xmi:id="_wDqONXvxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_wDqONnvxEdyOhKBWyuRGig">
+      <eAnnotations xmi:id="_wDqON3vxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_2cc8QHvxEdyOhKBWyuRGig">
+      <eAnnotations xmi:id="_2cdjUHvxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_3dHvEHvxEdyOhKBWyuRGig" base_Package="_wDpnIHvxEdyOhKBWyuRGig" packageName="featureconfig" nsPrefix="featureconfig" nsURI="http://sdq.ipd.uka.de/FeatureConfig/2.0" basePackage="de.uka.ipd.sdq" prefix="featureconfig"/>
+  <Default:Documentation xmi:id="_Ow_7MT4DEd2Fu_0CQ-Fq-g" base_Comment="_Ow_7MD4DEd2Fu_0CQ-Fq-g"/>
+  <Default:Documentation xmi:id="_CpO-QYMGEd2EZ-q5ZcFTEQ" base_Comment="_CpO-QIMGEd2EZ-q5ZcFTEQ"/>
+  <Default:Documentation xmi:id="_Zz3R0YMGEd2EZ-q5ZcFTEQ" base_Comment="_Zz3R0IMGEd2EZ-q5ZcFTEQ"/>
+  <Default:Documentation xmi:id="_n5QtYKwSEd2RCOCuXmp_aA" base_Comment="_n5HjcKwSEd2RCOCuXmp_aA"/>
+  <Default:Documentation xmi:id="_h5Wj8KwTEd2RCOCuXmp_aA" base_Comment="_h5My8KwTEd2RCOCuXmp_aA"/>
+</xmi:XMI>

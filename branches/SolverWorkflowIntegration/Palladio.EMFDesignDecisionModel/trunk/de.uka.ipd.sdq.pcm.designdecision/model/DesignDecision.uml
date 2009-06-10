@@ -249,9 +249,20 @@ TODO: Maybe use this directly for the Opt4J genotype, thus make it inherit from 
     <packagedElement xmi:type="uml:Realization" xmi:id="_yHAyYC5JEd67XayFxriNGA" supplier="_uKOzwC5JEd67XayFxriNGA" client="_BBEi4PzyEd2sBa2PoI_LqA"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_sBedwFR4Ed68Gcam1yGdWA" name="ConnectorConfigDecision">
       <generalization xmi:id="_8JrQYFR4Ed68Gcam1yGdWA" general="_khi9UPzoEd2sBa2PoI_LqA"/>
+      <ownedAttribute xmi:id="_hGA7EVVPEd6BDYSSadiC_Q" name="featureconfig" visibility="private" association="_hGA7EFVPEd6BDYSSadiC_Q">
+        <type xmi:type="uml:Class" href="FeatureConfig.uml#_2-grAHvyEdyOhKBWyuRGig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hGA7E1VPEd6BDYSSadiC_Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hGA7ElVPEd6BDYSSadiC_Q"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_8mfU4FVMEd68Gcam1yGdWA" name="SoapOrRmi">
       <generalization xmi:id="_-1ZccFVMEd68Gcam1yGdWA" general="_3H9M4PzqEd2sBa2PoI_LqA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hGA7EFVPEd6BDYSSadiC_Q" memberEnd="_hGA7EVVPEd6BDYSSadiC_Q _hGA7FFVPEd6BDYSSadiC_Q">
+      <ownedEnd xmi:id="_hGA7FFVPEd6BDYSSadiC_Q" name="" visibility="private" type="_sBedwFR4Ed68Gcam1yGdWA" association="_hGA7EFVPEd6BDYSSadiC_Q">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hGA7FlVPEd6BDYSSadiC_Q" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hGA7FVVPEd6BDYSSadiC_Q"/>
+      </ownedEnd>
     </packagedElement>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">

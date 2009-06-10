@@ -159,6 +159,9 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uka.ipd.sdq.pcm.designdecision.provider.designdecisionItemProviderAdapterFactory;
 
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
+import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -737,6 +740,9 @@ public class designdecisionEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new designdecisionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new featureconfigItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());

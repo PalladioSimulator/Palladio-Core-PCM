@@ -37,5 +37,7 @@ Export-Package: de.uka.ipd.sdq.pcm.designdecision;
 Require-Bundle: org.eclipse.emf.ecore.xmi;visibility:=reexport,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.edit,
- de.uka.ipd.sdq.pcm.editor
+ de.uka.ipd.sdq.pcm.editor,
+ org.eclipse.emf.ecore.edit;bundle-version="2.4.1",
+ de.uka.ipd.sdq.featureconfig;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

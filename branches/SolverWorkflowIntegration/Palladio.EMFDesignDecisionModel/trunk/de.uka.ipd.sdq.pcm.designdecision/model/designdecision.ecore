@@ -117,6 +117,9 @@
       <details key="documentation" value="geht nicht, da realization beziehung nicht mit exportiert :("/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectorConfigDecision" eSuperTypes="#//DesignDecision"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectorConfigDecision" eSuperTypes="#//DesignDecision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureconfig" ordered="false"
+        eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.featureconfig/model/featureconfig.ecore#//FeatureConfig"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SoapOrRmi" eSuperTypes="#//Enumeration"/>
 </ecore:EPackage>

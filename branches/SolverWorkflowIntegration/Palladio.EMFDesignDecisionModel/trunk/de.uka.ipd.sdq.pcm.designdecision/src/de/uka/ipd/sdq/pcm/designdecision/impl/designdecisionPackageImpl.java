@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision.impl;
 
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
@@ -61,6 +63,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -282,6 +285,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		isInited = true;
 
 		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+		featureconfigPackage.eINSTANCE.eClass();
 		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
@@ -690,6 +695,15 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConnectorConfigDecision_Featureconfig() {
+		return (EReference)connectorConfigDecisionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSoapOrRmi() {
 		return soapOrRmiEClass;
 	}
@@ -784,6 +798,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		discreteDomainEClass = createEClass(DISCRETE_DOMAIN);
 
 		connectorConfigDecisionEClass = createEClass(CONNECTOR_CONFIG_DECISION);
+		createEReference(connectorConfigDecisionEClass, CONNECTOR_CONFIG_DECISION__FEATURECONFIG);
 
 		soapOrRmiEClass = createEClass(SOAP_OR_RMI);
 	}
@@ -816,6 +831,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
 		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		featureconfigPackage thefeatureconfigPackage = (featureconfigPackage)EPackage.Registry.INSTANCE.getEPackage(featureconfigPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -902,6 +918,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		initEClass(discreteDomainEClass, DiscreteDomain.class, "DiscreteDomain", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(connectorConfigDecisionEClass, ConnectorConfigDecision.class, "ConnectorConfigDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConnectorConfigDecision_Featureconfig(), thefeatureconfigPackage.getFeatureConfig(), null, "featureconfig", null, 0, 1, ConnectorConfigDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(soapOrRmiEClass, SoapOrRmi.class, "SoapOrRmi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

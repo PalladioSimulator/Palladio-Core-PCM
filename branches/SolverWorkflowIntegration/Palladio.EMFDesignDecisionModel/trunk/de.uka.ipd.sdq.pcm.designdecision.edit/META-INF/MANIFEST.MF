@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
- org.eclipse.uml2.common.edit;visibility:=reexport
+ org.eclipse.uml2.common.edit;visibility:=reexport,
+ de.uka.ipd.sdq.featureconfig.editor;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

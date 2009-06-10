@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision.presentation;
 
+import de.uka.ipd.sdq.featureconfig.provider.FeatureConfigEditPlugin;
+import de.uka.ipd.sdq.featuremodel.provider.featuremodelEditPlugin;
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
@@ -21,6 +23,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the DesignDecision editor plugin.
@@ -54,6 +57,9 @@ public final class DesignDecisionEditorPlugin extends EMFPlugin {
 	public DesignDecisionEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				EcoreEditPlugin.INSTANCE,
+				FeatureConfigEditPlugin.INSTANCE,
+				featuremodelEditPlugin.INSTANCE,
 				IdentifierEditPlugin.INSTANCE,
 				PalladioComponentModelEditPlugin.INSTANCE,
 				ProbabilityFunctionEditPlugin.INSTANCE,

@@ -758,13 +758,22 @@ public interface designdecisionPackage extends EPackage {
 	int CONNECTOR_CONFIG_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
 
 	/**
+	 * The feature id for the '<em><b>Featureconfig</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_CONFIG_DECISION__FEATURECONFIG = DESIGN_DECISION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Connector Config Decision</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_CONFIG_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 0;
+	int CONNECTOR_CONFIG_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl <em>Soap Or Rmi</em>}' class.
@@ -1228,6 +1237,17 @@ public interface designdecisionPackage extends EPackage {
 	EClass getConnectorConfigDecision();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision#getFeatureconfig <em>Featureconfig</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Featureconfig</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision#getFeatureconfig()
+	 * @see #getConnectorConfigDecision()
+	 * @generated
+	 */
+	EReference getConnectorConfigDecision_Featureconfig();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi <em>Soap Or Rmi</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1636,6 +1656,14 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONNECTOR_CONFIG_DECISION = eINSTANCE.getConnectorConfigDecision();
+
+		/**
+		 * The meta object literal for the '<em><b>Featureconfig</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR_CONFIG_DECISION__FEATURECONFIG = eINSTANCE.getConnectorConfigDecision_Featureconfig();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SoapOrRmiImpl <em>Soap Or Rmi</em>}' class.

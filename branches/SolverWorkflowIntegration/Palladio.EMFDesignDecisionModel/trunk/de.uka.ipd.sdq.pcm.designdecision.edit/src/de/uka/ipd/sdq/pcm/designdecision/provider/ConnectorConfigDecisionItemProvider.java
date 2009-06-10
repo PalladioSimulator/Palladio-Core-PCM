@@ -7,12 +7,14 @@
 package de.uka.ipd.sdq.pcm.designdecision.provider;
 
 
+import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -55,8 +57,31 @@ public class ConnectorConfigDecisionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFeatureconfigPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Featureconfig feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFeatureconfigPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConnectorConfigDecision_featureconfig_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConnectorConfigDecision_featureconfig_feature", "_UI_ConnectorConfigDecision_type"),
+				 designdecisionPackage.Literals.CONNECTOR_CONFIG_DECISION__FEATURECONFIG,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
