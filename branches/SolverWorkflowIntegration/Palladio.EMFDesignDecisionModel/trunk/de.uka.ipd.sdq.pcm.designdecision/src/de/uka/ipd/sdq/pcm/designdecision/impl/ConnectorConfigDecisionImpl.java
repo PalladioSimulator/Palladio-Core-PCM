@@ -154,5 +154,16 @@ public class ConnectorConfigDecisionImpl extends DesignDecisionImpl implements C
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * @generated not
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.ecore.impl.BasicEObjectImpl#toString()
+	 */
+	@Override
+	public String toString(){
+		return "SOAP or RMI";
+		
+	}
 
 } //ConnectorConfigDecisionImpl
