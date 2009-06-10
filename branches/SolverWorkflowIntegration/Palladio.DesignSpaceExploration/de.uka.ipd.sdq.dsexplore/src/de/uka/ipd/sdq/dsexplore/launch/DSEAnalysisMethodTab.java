@@ -255,6 +255,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		
 		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
 				.entrySet().iterator();
+		//FIXME: This seems to call the same apply methods multiple times, which might be the cause for the delay when opening the SimuCom tabs
 		while(it.hasNext()) {
 			it.next().getValue().performApply(configuration);
 		}
