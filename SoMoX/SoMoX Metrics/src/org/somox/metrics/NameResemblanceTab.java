@@ -1,7 +1,5 @@
 package org.somox.metrics;
 
-import java.util.LinkedList;
-
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
@@ -28,6 +26,7 @@ public class NameResemblanceTab extends MetricTab {
 	private Text prefixText;
 	private List prefixList;
 	private List suffixList;
+	private final String DELIMITER = "§";
 
 	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
 
@@ -174,22 +173,22 @@ public class NameResemblanceTab extends MetricTab {
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		String[] prefixes = prefixList.getItems();
-		String[] suffixes = prefixList.getItems();
+		String[] suffixes = suffixList.getItems();
 		
-		java.util.List<String> excludedPrefixes = new LinkedList<String>();
-		java.util.List<String> excludedSuffixes = new LinkedList<String>();
-		
+		StringBuffer buffer = new StringBuffer();
 		for (int i=0;i<prefixes.length;i++) {
-			excludedPrefixes.add(prefixes[i]);
+			buffer.append(prefixes[i]);
+			buffer.append(DELIMITER);
 		}
+		configuration.setAttribute("org.somox.metrics.nameResemblance.excludedPrefixes", buffer.toString());
 		
 
+		buffer = new StringBuffer();
 		for (int i=0;i<suffixes.length;i++) {
-			excludedSuffixes.add(suffixes[i]);
+			buffer.append(suffixes[i]);
+			buffer.append(DELIMITER);
 		}
-		
-		configuration.setAttribute("org.somox.metrics.nameResemblance.excludedPrefixes", excludedPrefixes);
-		configuration.setAttribute("org.somox.metrics.nameResemblance.excludedSuffixes", excludedSuffixes);
+		configuration.setAttribute("org.somox.metrics.nameResemblance.excludedSuffixes", buffer.toString());
 	}
 
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
