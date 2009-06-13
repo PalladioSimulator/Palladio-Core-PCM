@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.designdecision.Enumeration;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.IntegerRange;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
+import de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi;
 
 class DimensionBounds implements Bounds<Double> {
 	
@@ -61,7 +62,7 @@ class DimensionBounds implements Bounds<Double> {
 			upperEnumerationBound = ((EquivalentComponents)domain).getRepositorycomponent().size()-1;
 		} else if (AvailableServers.class.isInstance(domain)){
 			upperEnumerationBound = ((AvailableServers)domain).getResourcecontainer().size()-1;
-		} else if (ConnectorConfigDecision.class.isInstance(domain)){
+		} else if (SoapOrRmi.class.isInstance(domain)){
 			upperEnumerationBound = 1;
 		} else {
 			throw new RuntimeException("Domain of design decision not supported: "+this.problem.getDesigndecision().get(index).getDomain().getClass().getName());

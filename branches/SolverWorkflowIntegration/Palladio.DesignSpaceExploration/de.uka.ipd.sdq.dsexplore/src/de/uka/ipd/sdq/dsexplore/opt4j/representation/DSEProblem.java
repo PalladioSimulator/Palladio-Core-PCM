@@ -75,7 +75,7 @@ public class DSEProblem {
 		determineAllocationDecisions();
 		
 		//Quickfix: Add a Soap or RMI decision. This is not meta modelled. 
-		determineSOAPOrRMIDecisions();
+		//determineSOAPOrRMIDecisions();
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
 

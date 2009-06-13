@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
  */
 public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	
-	private DSEProblem problem;
+	private final DSEProblem problem;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 

@@ -53,12 +53,9 @@ public class Opt4JStarter {
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	public static List<Value<Double>> upperConstraints;
-
-	public static void startOpt4J(IAnalysis perfAnalysisTool,
-			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints)
-			throws CoreException {
-
+	
+	public static void init(IAnalysis perfAnalysisTool, IAnalysis relAnalysisTool, List<Value<Double>> upperConstraints, CostRepository costs, PCMInstance pcmInstance){
+		
 		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
 		Opt4JStarter.relAnalysisTool = relAnalysisTool;
 		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
@@ -69,34 +66,31 @@ public class Opt4JStarter {
 		
 		Opt4JStarter.problem.saveProblem();
 		
+	}
+
+	public static void startOpt4J(IAnalysis perfAnalysisTool,
+			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
+			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints)
+			throws CoreException {
+
+
+		init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+		
+		Collection<Module> modules = new ArrayList<Module>();
 
 		DSEModule dseModule = new DSEModule();
-
-		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
-		ea.setGenerations(maxIterations);
-		ea.setAlpha(individualsPerGeneration);
-		ea.setLambda((int) Math.floor(individualsPerGeneration / 2.0 + 0.5));
-		
-		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
-		sa.setIterations(maxIterations);
-
-
-		/*
-		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
-		 */
-
-		// ArchiveModule am = new ArchiveModule();
-		// am.setType(ArchiveModule.Type.);
-		PopulationTrackerModule p = new PopulationTrackerModule();
-		
-
-		Collection<Module> modules = new ArrayList<Module>();
-		modules.add(ea);
 		modules.add(dseModule);
-		modules.add(p);
-		// modules.add(dtlz);
-		// modules.add(gui);
+		
+		addOptimisationModules(maxIterations, individualsPerGeneration,
+				modules);
+		
+		addPopulationModule(modules);
 
+		runTask(modules);
+	}
+
+	private static void runTask(Collection<Module> modules)
+			throws CoreException {
 		Opt4JStarter.task = new Opt4JTask(false);
 		task.init(modules);
 
@@ -132,7 +126,34 @@ public class Opt4JStarter {
 		}
 	}
 
-	private static void printOutIndividuals(Collection<Individual> individuals,
+	private static void addPopulationModule(Collection<Module> modules) {
+		// ArchiveModule am = new ArchiveModule();
+		// am.setType(ArchiveModule.Type.);
+		PopulationTrackerModule p = new PopulationTrackerModule();
+		
+		modules.add(p);
+		// modules.add(dtlz);
+		// modules.add(gui);
+	}
+
+	private static void addOptimisationModules(int maxIterations,
+			int individualsPerGeneration, Collection<Module> modules) {
+		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
+		ea.setGenerations(maxIterations);
+		ea.setAlpha(individualsPerGeneration);
+		ea.setLambda((int) Math.floor(individualsPerGeneration / 2.0 + 0.5));
+		
+		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
+		sa.setIterations(maxIterations);
+
+
+		/*
+		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
+		 */
+		modules.add(ea);
+	}
+
+	public static void printOutIndividuals(Collection<Individual> individuals,
 			String collectionName) {
 		logger.warn("------------ RESULTS " + collectionName
 				+ " ----------------------");
@@ -195,7 +216,7 @@ public class Opt4JStarter {
 
 	private static String prettyPrintResultLineCSV(String output, Individual ind) {
 		
-		DSEDecoder decoder = task.getInstance(DSEDecoder.class);
+		DSEDecoder decoder = new DSEDecoder();
 		
 		// first objectives
 		Objectives objs = ind.getObjectives();
@@ -273,7 +294,9 @@ public class Opt4JStarter {
 	}
 
 	public static void closeTask(){
-      Opt4JStarter.task.close(); 
+		if (Opt4JStarter.task != null){
+			Opt4JStarter.task.close(); 
+		}
 	}
 	
 	@Deprecated
