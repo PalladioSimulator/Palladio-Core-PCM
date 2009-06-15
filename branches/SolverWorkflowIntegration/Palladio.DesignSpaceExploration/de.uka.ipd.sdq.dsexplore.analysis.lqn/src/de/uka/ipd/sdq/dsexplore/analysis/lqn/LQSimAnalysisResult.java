@@ -69,7 +69,7 @@ public class LQSimAnalysisResult implements IAnalysisResult {
 		// TODO: Can we really assume there is only one task?
 		TaskType task = processor.getTask().get(0);
 		OutputResultType outputResult = task.getResultTask().get(0);
-		String serviceTimeMean = (String)task.getEntry().get(0).getServiceTimeDistribution().get(0).getMean();
+		String serviceTimeMean = (String)task.getEntry().get(0).getResultEntry().get(0).getPhase1ServiceTime();
 		try {
 			responseTime = LQNUtils.convertStringToDouble(serviceTimeMean);
 		}

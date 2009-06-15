@@ -358,7 +358,9 @@ public boolean equals(Object o) {
 
 	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
 	private void saveConnectorConfigToFiles() {
-		EMFHelper.saveToXMIFile(this.connectorConfig, this.connectorConfigFilename);
+		if (this.connectorConfig != null){
+			EMFHelper.saveToXMIFile(this.connectorConfig, this.connectorConfigFilename);
+		}
 	}
 
 	public void setAllocation(Allocation allocation) {
@@ -432,14 +434,19 @@ public boolean equals(Object o) {
 		Allocation a = (Allocation)EcoreUtil.copy(this.allocation);
 		a.setTargetResourceEnvironment_Allocation(re);
 		
-		de.uka.ipd.sdq.featureconfig.Configuration cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
+		//Currently we do not need a connector config for solvers and if simulate linking resources is not checked.
+		de.uka.ipd.sdq.featureconfig.Configuration cfg = null;
+		if (this.connectorConfig != null){
+			 cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
+		}
 			
 		PCMInstance pcm = new PCMInstance(this.repository, s, a, re, this.resourcetype, this.mwRepository,
 				this.storagePath, this.resourceRepository,
 				this.usageModel, appendToFilename("c",this.allocationFileName),
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, appendToFilename("c",this.systemFileName),
-				appendToFilename("c",this.resEnvFileName), this.name+"-c", cfg, appendToFilename("c", this.connectorConfigFilename));
+				appendToFilename("c",this.resEnvFileName), this.name+"-c", cfg, 
+				this.connectorConfigFilename != null ? appendToFilename("c", this.connectorConfigFilename) : null);
 		
 		return pcm;
 
@@ -447,8 +454,13 @@ public boolean equals(Object o) {
 
 	private String appendToFilename(String fileNameSuffix, String fileName) {
 		int indexOfLastDot = fileName.lastIndexOf(".");
-		return fileName.substring(0, indexOfLastDot) + fileNameSuffix
+		
+		if (indexOfLastDot < 1){
+			return fileName + fileNameSuffix;
+		} else {
+			return fileName.substring(0, indexOfLastDot) + fileNameSuffix
 				+ fileName.substring(indexOfLastDot);
+		}
 	}
 
 	public ILaunchConfiguration getLaunchConfiguration() {
