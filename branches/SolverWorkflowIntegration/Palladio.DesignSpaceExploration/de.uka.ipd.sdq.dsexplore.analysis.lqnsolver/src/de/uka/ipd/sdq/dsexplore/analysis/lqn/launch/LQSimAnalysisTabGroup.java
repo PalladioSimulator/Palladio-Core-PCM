@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.launch;
+package de.uka.ipd.sdq.dsexplore.analysis.lqn.launch;
 
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;

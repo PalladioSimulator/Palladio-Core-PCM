@@ -4,14 +4,14 @@
    <extension
          point="de.uka.ipd.sdq.dsexplore.analysis">
       <analysis
-            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.LQNSolverAnalysis"
-            launchConfigContribution="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.launch.LQNAnalysisTabGroup"
+            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqn.LQNSolverAnalysis"
+            launchConfigContribution="de.uka.ipd.sdq.dsexplore.analysis.lqn.launch.LQNAnalysisTabGroup"
             name="LQN Solver Analysis"
             qualityAttribute="de.uka.ipd.sdq.dsexplore.performance">
       </analysis>
       <analysis
-            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.LQSimAnalysis"
-            launchConfigContribution="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.launch.LQSimAnalysisTabGroup"
+            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqn.LQSimAnalysis"
+            launchConfigContribution="de.uka.ipd.sdq.dsexplore.analysis.lqn.launch.LQSimAnalysisTabGroup"
             name="LQN Simulation Analysis"
             qualityAttribute="de.uka.ipd.sdq.dsexplore.performance">
       </analysis>
@@ -19,7 +19,7 @@
    <extension
          point="de.uka.ipd.sdq.dsexplore.analysis">
       <analysis
-            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.Analysis2"
+            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqn.Analysis2"
             name="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.analysis2"
             qualityAttribute="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.analysis2">
       </analysis>

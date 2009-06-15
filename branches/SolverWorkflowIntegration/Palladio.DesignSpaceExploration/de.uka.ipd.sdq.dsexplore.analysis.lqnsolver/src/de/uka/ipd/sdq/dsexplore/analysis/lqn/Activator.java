@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.analysis.lqnsolver;
+package de.uka.ipd.sdq.dsexplore.analysis.lqn;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
