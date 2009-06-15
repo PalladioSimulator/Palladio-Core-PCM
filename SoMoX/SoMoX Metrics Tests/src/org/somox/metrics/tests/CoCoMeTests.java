@@ -289,13 +289,11 @@ public class CoCoMeTests {
 	 */
 	@Test
 	public void dmsTest () throws Exception {
-		ins = new Instability();
 		dms = new DMS();
 		
 		HashSet<String> whitelist = new HashSet<String>();
-		whitelist.add("org.cocome.*");
-		ins.setWhitelist(whitelist);		
-		dms.setInstability(ins);
+		whitelist.add("org.cocome.*");	
+		dms.setWhitelist(whitelist);
 
 		long time1First = System.nanoTime();
 		double distanceFMS = dms.compute(root, elements1, elements2);
