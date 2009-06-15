@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.launch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +28,6 @@ import org.eclipse.swt.widgets.Composite;
 
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LaunchHelper;
-import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 
 /**
  * This class represents the launch configuration tab "Analyis Method". It
@@ -48,16 +46,17 @@ import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
  */
 public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 
-
 	private StackLayout layout;
+	
+	private Composite tabFolderContainer;
 	
 	private Combo methodCombo;
 	
-	private Map<String, IExtension> nameExtensionMap;
+	private Map<String, IConfigurationElement> nameExtensionElementMap;
 	
-	private Map<IExtension, CTabFolder> extensionTabFolderMap;
+	private Map<IConfigurationElement, CTabFolder> extensionElementTabFolderMap;
 	
-	private Map<IExtension, ILaunchConfigurationTabGroup> extensionTabGroupMap;
+	private Map<IConfigurationElement, ILaunchConfigurationTabGroup> extensionElementTabGroupMap;
 
 	private AnalysisMethodListener listener = new AnalysisMethodListener();
 
@@ -77,11 +76,14 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	public void createControl(Composite parent) {
 		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 
-		// Map extensions to their analyis method names
-		nameExtensionMap = new HashMap<String, IExtension>();
+		// Map extension elements to their analyis method names
+		nameExtensionElementMap = new HashMap<String, IConfigurationElement>();
 		for (IExtension ext : extensions) {
-			String name = loadAnalysisMethodName(ext);
-			nameExtensionMap.put(name, ext);
+			IConfigurationElement[] elements = ext.getConfigurationElements();
+			for (IConfigurationElement element : elements) {
+				String name = loadAnalysisMethodName(element);
+				nameExtensionElementMap.put(name, element);	
+			}
 		}
 		
 		Composite container = new Composite(parent, SWT.NONE);
@@ -95,18 +97,18 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		methodCombo.addSelectionListener(listener);
 		methodCombo.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 		
-		Composite tabFolderContainer = new Composite(container, SWT.NONE);
+		tabFolderContainer = new Composite(container, SWT.NONE);
 		layout = new StackLayout();
 		tabFolderContainer.setLayout(layout);
 		tabFolderContainer.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true));
 				
-		// create tab folders from tab groups provided by available analysis extensions
-		extensionTabFolderMap = new HashMap<IExtension, CTabFolder>();
-		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
+		// create tab folders from tab groups provided by available analysis extension elements
+		extensionElementTabFolderMap = new HashMap<IConfigurationElement, CTabFolder>();
+		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
 				.entrySet().iterator();
 		while (it.hasNext()) {
-			Entry<IExtension, ILaunchConfigurationTabGroup> entry = it.next();
-			IExtension extension = entry.getKey();
+			Entry<IConfigurationElement, ILaunchConfigurationTabGroup> entry = it.next();
+			IConfigurationElement element = entry.getKey();
 			ILaunchConfigurationTabGroup tabGroup = entry.getValue();
 			
 			CTabFolder tabFolder = LaunchHelper.createTabFolder(tabGroup,
@@ -114,45 +116,47 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 					getLaunchConfigurationDialog().getMode(),
 					tabFolderContainer, SWT.BORDER | SWT.FLAT);
 			
-			// Map tab folder to their corresponding extension
-			extensionTabFolderMap.put(extension, tabFolder);
+			// Map tab folder to their corresponding extension element
+			extensionElementTabFolderMap.put(element, tabFolder);
 		}
 	}
 
 	/**
-	 * Returns a mapping between analysis extensions and their associated tab
+	 * Returns a mapping between analysis extension elements and their associated tab
 	 * groups.
 	 * <p>
 	 * At first invocation, the method loads all tab groups provided by the
-	 * available analysis extensions. Also creates the tabs associated with each
+	 * available analysis extension elements. Also creates the tabs associated with each
 	 * tab group.
 	 * 
 	 * @return
 	 */
-	private Map<IExtension, ILaunchConfigurationTabGroup> getExtensionTabGroupMap() {
-		if (extensionTabGroupMap == null) {
-			extensionTabGroupMap = new HashMap<IExtension, ILaunchConfigurationTabGroup>();
+	private Map<IConfigurationElement, ILaunchConfigurationTabGroup> getExtensionElementTabGroupMap() {
+		if (extensionElementTabGroupMap == null) {
+			extensionElementTabGroupMap = new HashMap<IConfigurationElement, ILaunchConfigurationTabGroup>();
 			
 			List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 			for (IExtension ext : extensions) {
-			
-				ILaunchConfigurationTabGroup tabGroup = null;
 				try {
-					// Load tab group associated with the current extension
-					tabGroup = (ILaunchConfigurationTabGroup) ExtensionHelper
-							.loadExecutableAttribute(ext, "analysis",
-									"launchConfigContribution");
+					// Obtain all extension elements
+					IConfigurationElement[] elements = ext.getConfigurationElements();
+					for (IConfigurationElement element : elements) {
+						ILaunchConfigurationTabGroup tabGroup = (ILaunchConfigurationTabGroup) ExtensionHelper
+								.loadExecutableAttribute(element, "launchConfigContribution");
+						// create contained tabs
+						tabGroup.createTabs(getLaunchConfigurationDialog(),
+								getLaunchConfigurationDialog().getMode());
+						extensionElementTabGroupMap.put(element, tabGroup);
+					}
+					
 				} catch (CoreException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				tabGroup.createTabs(getLaunchConfigurationDialog(),
-						getLaunchConfigurationDialog().getMode());
-				extensionTabGroupMap.put(ext, tabGroup);
 			}
 		}
 		
-		return extensionTabGroupMap;
+		return extensionElementTabGroupMap;
 	}
 	
 	/**
@@ -161,12 +165,14 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 * 
 	 * @param name
 	 *            the analysis method name specified by the "name"-attribute of
-	 *            the extension
+	 *            the extension element
 	 */
 	private void setVisibleMethodOptions(String name) {
-		IExtension selExt = nameExtensionMap.get(name);
-		CTabFolder selTabFolder = extensionTabFolderMap.get(selExt);
+		IConfigurationElement selElement = nameExtensionElementMap.get(name);
+		CTabFolder selTabFolder = extensionElementTabFolderMap.get(selElement);
 		layout.topControl = selTabFolder;
+		tabFolderContainer.layout();
+		
 	}
 
 	/**
@@ -193,21 +199,13 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 
 	/**
 	 * Loads the name of a single analysis method represented by the passed
-	 * extension.
+	 * extension element.
 	 * 
-	 * @param extension
-	 * @return the analysis method's name; null if the passed extension is not
-	 *         an analysis extension or the name attribute is not set.
+	 * @param extension element
+	 * @return the analysis method's name; null if the name attribute is not set.
 	 */
-	private String loadAnalysisMethodName(IExtension extension) {
-		IConfigurationElement[] elements = extension.getConfigurationElements();
-		for (IConfigurationElement element : elements) {
-			if (element.getName().equals("analysis")) {
-				return element.getAttribute("name");
-			}
-		}
-		
-		return null;
+	private String loadAnalysisMethodName(IConfigurationElement element) {
+		return element.getAttribute("name");
 	}
 	
 
@@ -239,7 +237,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 			methodCombo.select(0);
 		}
 		
-		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
+		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
 				.entrySet().iterator();
 		while(it.hasNext()) {			
 			it.next().getValue().initializeFrom(configuration);
@@ -253,7 +251,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute), methodCombo.getText());
 		
-		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
+		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
 				.entrySet().iterator();
 		//FIXME: This seems to call the same apply methods multiple times, which might be the cause for the delay when opening the SimuCom tabs
 		while(it.hasNext()) {
@@ -266,14 +264,14 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// Set the first discovered analysis extension as default analysis method
+		// Set the first discovered analysis extension element as default analysis method
 		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 		if (extensions.size() > 0) {
 			configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute),
-					loadAnalysisMethodName(extensions.get(0)));
+					loadAnalysisMethodName(extensions.get(0).getConfigurationElements()[0]));
 		}
 		
-		Iterator<Entry<IExtension, ILaunchConfigurationTabGroup>> it = getExtensionTabGroupMap()
+		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
 				.entrySet().iterator();
 		while (it.hasNext()) {
 			it.next().getValue().setDefaults(configuration);
@@ -285,15 +283,15 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 		// Check whether an available analysis method is selected
 		String methodStr = methodCombo.getText();
-		IExtension methodExt = nameExtensionMap.get(methodStr);
-		if (methodExt == null) {
+		IConfigurationElement methodElement = nameExtensionElementMap.get(methodStr);
+		if (methodElement == null) {
 			setErrorMessage("Choose an analysis method.");
 			return false;
 		}
 		
 		// delegate validation to subtabs 
-		ILaunchConfigurationTabGroup tabGroup = getExtensionTabGroupMap()
-				.get(nameExtensionMap.get(methodStr));
+		ILaunchConfigurationTabGroup tabGroup = getExtensionElementTabGroupMap()
+				.get(nameExtensionElementMap.get(methodStr));
 		if (tabGroup != null) {
 			ILaunchConfigurationTab[] tabs = tabGroup.getTabs();
 			for (ILaunchConfigurationTab tab : tabs) {

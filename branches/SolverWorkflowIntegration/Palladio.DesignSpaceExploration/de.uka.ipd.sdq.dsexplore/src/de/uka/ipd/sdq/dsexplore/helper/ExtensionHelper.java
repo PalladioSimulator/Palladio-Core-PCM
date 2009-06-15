@@ -80,6 +80,8 @@ public class ExtensionHelper {
 	}
 	
 	/**
+	 * TODO: Method obsolete!?
+	 * 
 	 * Given an {@link IExtension}, this method returns an instance of the
 	 * executable extension identified by the specified attribute.
 	 * 
@@ -89,19 +91,10 @@ public class ExtensionHelper {
 	 * @return a class instance; null if the passed attribute does not exist.
 	 * @throws CoreException
 	 */
-	public static Object loadExecutableAttribute(IExtension extension,
-			String configurationElement, String attributeName)
-			throws CoreException {
-		IConfigurationElement[] elements = extension.getConfigurationElements();
-		for (IConfigurationElement element : elements) {
-			if (element.getName().equals(configurationElement)) {
-				Object attribute = element
-						.createExecutableExtension(attributeName);
-				return attribute;
-			}
-		}
+	public static Object loadExecutableAttribute(IConfigurationElement element,
+			String attributeName) throws CoreException {
 
-		return null;
+		return element.createExecutableExtension(attributeName);
 	}
 
 	/**

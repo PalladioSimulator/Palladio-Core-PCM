@@ -52,7 +52,7 @@ public class AnalysisProxy implements IAnalysis {
 						// if extension fits to analysis method
 						if (element.getAttribute("name").equals(methodName)) { 
 							// obtain an analysis method instance  
-							ana = (IAnalysis)ExtensionHelper.loadExecutableAttribute(ext, "analysis", "delegate");
+							ana = (IAnalysis)ExtensionHelper.loadExecutableAttribute(element, "delegate");
 							ana.initialise(configuration, mode,launch,monitor);
 							return;
 						}

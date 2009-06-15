@@ -9,6 +9,20 @@
             name="LQN Solver Analysis"
             qualityAttribute="de.uka.ipd.sdq.dsexplore.performance">
       </analysis>
+      <analysis
+            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.LQSimAnalysis"
+            launchConfigContribution="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.launch.LQSimAnalysisTabGroup"
+            name="LQN Simulation Analysis"
+            qualityAttribute="de.uka.ipd.sdq.dsexplore.performance">
+      </analysis>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.dsexplore.analysis">
+      <analysis
+            delegate="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.Analysis2"
+            name="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.analysis2"
+            qualityAttribute="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver.analysis2">
+      </analysis>
    </extension>
 
 </plugin>

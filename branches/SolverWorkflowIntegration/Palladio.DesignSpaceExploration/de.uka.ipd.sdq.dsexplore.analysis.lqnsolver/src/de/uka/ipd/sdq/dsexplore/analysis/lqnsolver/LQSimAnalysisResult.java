@@ -1,16 +1,10 @@
 package de.uka.ipd.sdq.dsexplore.analysis.lqnsolver;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.util.Iterator;
-import java.util.Locale;
 
 import org.apache.log4j.Logger;
-import org.eclipse.debug.internal.ui.actions.expressions.ConvertToWatchExpressionAction;
-import org.eclipse.emf.common.util.EList;
 
-import LqnCore.ActivityDefType;
 import LqnCore.LqnModelType;
 import LqnCore.OutputResultType;
 import LqnCore.ProcessorType;
@@ -23,12 +17,12 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.Pcm2LqnHelper;
 
 /**
- * This class represents the result of a LQN Solver analysis. 
+ * This class represents the result of a LQN simulation analysis. 
  * 
  * @author pmerkle
  *
  */
-public class LQNSolverAnalysisResult implements IAnalysisResult {
+public class LQSimAnalysisResult implements IAnalysisResult {
 	
 	protected static Logger logger = Logger
 			.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -43,7 +37,7 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 
 	private String throughput;
 	
-	public LQNSolverAnalysisResult(LqnModelType model, PCMInstance pcm) throws AnalysisFailedException {
+	public LQSimAnalysisResult(LqnModelType model, PCMInstance pcm) throws AnalysisFailedException {
 		this.model = model;
 		this.pcm = pcm;
 		
@@ -75,21 +69,13 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 		// TODO: Can we really assume there is only one task?
 		TaskType task = processor.getTask().get(0);
 		OutputResultType outputResult = task.getResultTask().get(0);
-		
-		// We add all result service times of the usage scenario to compute the response time
-		// TODO: check whether this works correctly if the usage scenario contains branches
-		EList<ActivityDefType> activities = task.getTaskActivities().getActivity();
-		for (ActivityDefType activity : activities) {
-			EList<OutputResultType> results = activity.getResultActivity();
-			for (OutputResultType outputResultType : results) {
-				try {
-					responseTime += LQNUtils.convertStringToDouble((String) outputResultType.getServiceTime());
-				}
-				catch (ParseException ex) {
-					throw new AnalysisFailedException(
-							"Failed to parse string value.", ex);
-				}
-			}
+		String serviceTimeMean = (String)task.getEntry().get(0).getServiceTimeDistribution().get(0).getMean();
+		try {
+			responseTime = LQNUtils.convertStringToDouble(serviceTimeMean);
+		}
+		catch (ParseException ex) {
+			throw new AnalysisFailedException(
+					"Failed to parse string value.", ex);
 		}
 		
 		utilization = (String) outputResult.getUtilization();
@@ -121,7 +107,7 @@ public class LQNSolverAnalysisResult implements IAnalysisResult {
 	}
 
 	/**
-	 * Not applicable to LQN Solver results. 
+	 * TODO 
 	 * @return -1
 	 */
 	@Override
