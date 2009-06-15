@@ -36,7 +36,8 @@ extends
 		config.setPluginID(getStringAttribute(ConstantsContainer.PLUGIN_ID));
 		
 		config.setSensitivityAnalysisEnabled(
-				hasStringAttribute(ConstantsContainer.VARIABLE_TEXT));
+				hasStringAttribute(ConstantsContainer.VARIABLE_TEXT)
+				&& !getStringAttribute(ConstantsContainer.VARIABLE_TEXT).equals("NO ELEMENT SELECTED"));
 		if (config.isSensitivityAnalysisEnabled()) {
 			SensitivityAnalysisConfiguration sensitivityConfig = 
 				new SensitivityAnalysisConfiguration(getStringAttribute(ConstantsContainer.VARIABLE_TEXT), 
