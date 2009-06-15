@@ -39,6 +39,9 @@ import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private static final String DEFAULT_CONNECTOR_FEATURE_CONFIG = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
+	private static final String TITLE_FEATURE_CONFIG_SECTION = "PCM2EJB Feature Configuration File";
+	private static final String LABEL_SIMULATE_NETWORK = "Simulate linking resources";
+	
 	private Button simulateLinkingResourcesButton;
 	private Button simulateFailuresButton;
 	private Text textFeatureConfig;
@@ -90,7 +93,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				SWT.FILL, SWT.CENTER, true, false);
 		simulateLinkingResourcesButton
 				.setLayoutData(gd_simulateLinkingResourcesButton);
-		simulateLinkingResourcesButton.setText("Simulate linking resources");
+		simulateLinkingResourcesButton.setText(FeatureOptionsTab.LABEL_SIMULATE_NETWORK);
 		simulateLinkingResourcesButton.addSelectionListener(selectionListener);
 
 		// Create reliability section:
@@ -113,7 +116,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		final GridLayout glReposetoryTypeGroup = new GridLayout();
 		glReposetoryTypeGroup.numColumns = 3;
 		featureConfigGroup.setLayout(glReposetoryTypeGroup);
-		featureConfigGroup.setText("PCM2EJB Feature Configuration File");
+		featureConfigGroup.setText(FeatureOptionsTab.TITLE_FEATURE_CONFIG_SECTION);
 		featureConfigGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				true, false));
 		textFeatureConfig = new Text(featureConfigGroup, SWT.SINGLE
@@ -242,6 +245,20 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				this.simulateFailuresButton.getSelection());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				textFeatureConfig.getText());
+	}
+
+	@Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		
+		setErrorMessage(null);
+		
+		//if linking resources shall be simulated, the connector config must be specified
+		if (simulateLinkingResourcesButton.getSelection() && (this.textFeatureConfig.getText() == null || this.textFeatureConfig.getText().equals(""))){
+			setErrorMessage("If \""+FeatureOptionsTab.LABEL_SIMULATE_NETWORK+"\" is checked, a connector config has to be chosen for "+FeatureOptionsTab.TITLE_FEATURE_CONFIG_SECTION);
+			return false;
+		}
+		
+		return super.isValid(launchConfig);
 	}
 
 	/*
