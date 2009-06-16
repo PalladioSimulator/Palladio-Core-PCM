@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl#getIntervals <em>Intervals</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl#getAggregationOn <em>Aggregation On</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.FixedWidthAggregatedMeasurementsImpl#getDataSeries <em>Data Series</em>}</li>
  * </ul>
  * </p>
@@ -52,16 +51,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	 * @ordered
 	 */
 	protected FixedIntervals intervals;
-
-	/**
-	 * The cached value of the '{@link #getAggregationOn() <em>Aggregation On</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAggregationOn()
-	 * @generated
-	 * @ordered
-	 */
-	protected BaseMetricDescription aggregationOn;
 
 	/**
 	 * The cached value of the '{@link #getDataSeries() <em>Data Series</em>}' containment reference list.
@@ -140,44 +129,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BaseMetricDescription getAggregationOn() {
-		if (aggregationOn != null && aggregationOn.eIsProxy()) {
-			InternalEObject oldAggregationOn = (InternalEObject)aggregationOn;
-			aggregationOn = (BaseMetricDescription)eResolveProxy(oldAggregationOn);
-			if (aggregationOn != oldAggregationOn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
-			}
-		}
-		return aggregationOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BaseMetricDescription basicGetAggregationOn() {
-		return aggregationOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAggregationOn(BaseMetricDescription newAggregationOn) {
-		BaseMetricDescription oldAggregationOn = aggregationOn;
-		aggregationOn = newAggregationOn;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<DataSeries> getDataSeries() {
 		if (dataSeries == null) {
 			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS);
@@ -230,9 +181,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 		switch (featureID) {
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				return getIntervals();
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
-				if (resolve) return getAggregationOn();
-				return basicGetAggregationOn();
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return getDataSeries();
 		}
@@ -250,9 +198,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 		switch (featureID) {
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				setIntervals((FixedIntervals)newValue);
-				return;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
-				setAggregationOn((BaseMetricDescription)newValue);
 				return;
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
@@ -273,9 +218,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				setIntervals((FixedIntervals)null);
 				return;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
-				setAggregationOn((BaseMetricDescription)null);
-				return;
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				return;
@@ -293,8 +235,6 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 		switch (featureID) {
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				return intervals != null;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
-				return aggregationOn != null;
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return dataSeries != null && !dataSeries.isEmpty();
 		}

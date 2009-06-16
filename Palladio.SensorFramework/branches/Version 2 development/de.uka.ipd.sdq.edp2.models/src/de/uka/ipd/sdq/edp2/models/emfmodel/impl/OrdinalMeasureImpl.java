@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
  *
  * @generated
  */
-public class OrdinalMeasureImpl extends MeasureImpl implements OrdinalMeasure {
+public class OrdinalMeasureImpl extends Edp2MeasureImpl implements OrdinalMeasure {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

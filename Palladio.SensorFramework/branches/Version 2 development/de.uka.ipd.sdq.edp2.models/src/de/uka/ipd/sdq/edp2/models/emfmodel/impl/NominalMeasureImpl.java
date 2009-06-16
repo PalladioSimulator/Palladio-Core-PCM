@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class NominalMeasureImpl extends MeasureImpl implements NominalMeasure {
+public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasure {
 	/**
 	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
 	 * <!-- begin-user-doc -->

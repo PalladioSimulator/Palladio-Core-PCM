@@ -81,13 +81,13 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 			case EmfmodelPackage.NOMINAL_STATISTICS: return createNominalStatistics();
 			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
 			case EmfmodelPackage.FIXED_INTERVALS: return createFixedIntervals();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
 			case EmfmodelPackage.MEASUREMENT: return createMeasurement();
 			case EmfmodelPackage.EXPERIMENT_GROUP: return createExperimentGroup();
 			case EmfmodelPackage.EXPERIMENT_SETTING: return createExperimentSetting();
 			case EmfmodelPackage.EXPERIMENT_RUN: return createExperimentRun();
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
 			case EmfmodelPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
 			case EmfmodelPackage.CATEGORY_IDENTIFIER: return createCategoryIdentifier();
 			case EmfmodelPackage.NOMINAL_MEASUREMENTS: return createNominalMeasurements();
@@ -116,6 +116,8 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return createCaptureTypeFromString(eDataType, initialValue);
 			case EmfmodelPackage.DATA_TYPE:
@@ -124,14 +126,12 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 				return createScaleFromString(eDataType, initialValue);
 			case EmfmodelPackage.MONOTONIC:
 				return createMonotonicFromString(eDataType, initialValue);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return createEJSMeasureFromString(eDataType, initialValue);
-			case EmfmodelPackage.EJS_UNIT:
-				return createEJSUnitFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:
 				return createEJSDurationMeasureFromString(eDataType, initialValue);
+			case EmfmodelPackage.EJS_UNIT:
+				return createEJSUnitFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -145,6 +145,8 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return convertCaptureTypeToString(eDataType, instanceValue);
 			case EmfmodelPackage.DATA_TYPE:
@@ -153,16 +155,12 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 				return convertScaleToString(eDataType, instanceValue);
 			case EmfmodelPackage.MONOTONIC:
 				return convertMonotonicToString(eDataType, instanceValue);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
-			case EmfmodelPackage.ENUMERATION1:
-				return convertEnumeration1ToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return convertEJSMeasureToString(eDataType, instanceValue);
-			case EmfmodelPackage.EJS_UNIT:
-				return convertEJSUnitToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:
 				return convertEJSDurationMeasureToString(eDataType, instanceValue);
+			case EmfmodelPackage.EJS_UNIT:
+				return convertEJSUnitToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -553,15 +551,6 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertEnumeration1ToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Measure createEJSMeasureFromString(EDataType eDataType, String initialValue) {
 		return (Measure)super.createFromString(eDataType, initialValue);
 	}
@@ -614,11 +603,7 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 */
 	@SuppressWarnings("unchecked")
 	public String convertEJSUnitToString(EDataType eDataType, Object instanceValue) {
-		if (instanceValue == null) {
-			return null;
-		}
-		return ((Unit) instanceValue).toString();
-		
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

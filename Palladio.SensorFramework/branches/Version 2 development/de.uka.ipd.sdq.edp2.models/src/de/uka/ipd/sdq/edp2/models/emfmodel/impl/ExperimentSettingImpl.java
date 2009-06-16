@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 
 import java.util.Collection;
 
@@ -81,7 +81,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Measure> measure;
+	protected EList<Edp2Measure> measure;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,9 +140,9 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Measure> getMeasure() {
+	public EList<Edp2Measure> getMeasure() {
 		if (measure == null) {
-			measure = new EObjectWithInverseResolvingEList.ManyInverse<Measure>(Measure.class, this, EmfmodelPackage.EXPERIMENT_SETTING__MEASURE, EmfmodelPackage.MEASURE__EXPERIMENT_SETTINGS);
+			measure = new EObjectWithInverseResolvingEList.ManyInverse<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_SETTING__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS);
 		}
 		return measure;
 	}
@@ -216,7 +216,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 				return;
 			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
 				getMeasure().clear();
-				getMeasure().addAll((Collection<? extends Measure>)newValue);
+				getMeasure().addAll((Collection<? extends Edp2Measure>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

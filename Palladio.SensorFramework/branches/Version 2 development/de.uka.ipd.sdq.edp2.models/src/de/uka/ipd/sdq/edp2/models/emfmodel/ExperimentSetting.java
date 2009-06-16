@@ -77,8 +77,8 @@ public interface ExperimentSetting extends Propertyable {
 
 	/**
 	 * Returns the value of the '<em><b>Measure</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSettings <em>Experiment Settings</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSettings <em>Experiment Settings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measure</em>' reference list isn't clear,
@@ -87,10 +87,10 @@ public interface ExperimentSetting extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentSetting_Measure()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSettings
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSettings
 	 * @model opposite="experimentSettings" ordered="false"
 	 * @generated
 	 */
-	EList<Measure> getMeasure();
+	EList<Edp2Measure> getMeasure();
 
 } // ExperimentSetting

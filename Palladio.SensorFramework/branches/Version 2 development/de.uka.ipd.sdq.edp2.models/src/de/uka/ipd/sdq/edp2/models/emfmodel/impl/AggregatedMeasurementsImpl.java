@@ -9,10 +9,12 @@ package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationStatistics;
+import de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationCharacterization;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.MetricDescription;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,6 +36,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getFunction <em>Function</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getAggregationStatistics <em>Aggregation Statistics</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getAggregationOn <em>Aggregation On</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregatedMeasurementsImpl#getMetric <em>Metric</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +85,26 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	protected AggregationStatistics aggregationStatistics;
 
 	/**
+	 * The cached value of the '{@link #getAggregationOn() <em>Aggregation On</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected BaseMetricDescription aggregationOn;
+
+	/**
+	 * The cached value of the '{@link #getMetric() <em>Metric</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetric()
+	 * @generated
+	 * @ordered
+	 */
+	protected MetricDescription metric;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,7 +129,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @generated
 	 */
 	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE) return null;
 		return (MeasurementRange)eContainer();
 	}
 
@@ -125,7 +149,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @generated
 	 */
 	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
+		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
 			if (EcoreUtil.isAncestor(this, newMeasurementRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -247,6 +271,82 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BaseMetricDescription getAggregationOn() {
+		if (aggregationOn != null && aggregationOn.eIsProxy()) {
+			InternalEObject oldAggregationOn = (InternalEObject)aggregationOn;
+			aggregationOn = (BaseMetricDescription)eResolveProxy(oldAggregationOn);
+			if (aggregationOn != oldAggregationOn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
+			}
+		}
+		return aggregationOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BaseMetricDescription basicGetAggregationOn() {
+		return aggregationOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAggregationOn(BaseMetricDescription newAggregationOn) {
+		BaseMetricDescription oldAggregationOn = aggregationOn;
+		aggregationOn = newAggregationOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetricDescription getMetric() {
+		if (metric != null && metric.eIsProxy()) {
+			InternalEObject oldMetric = (InternalEObject)metric;
+			metric = (MetricDescription)eResolveProxy(oldMetric);
+			if (metric != oldMetric) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
+			}
+		}
+		return metric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetricDescription basicGetMetric() {
+		return metric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMetric(MetricDescription newMetric) {
+		MetricDescription oldMetric = metric;
+		metric = newMetric;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -281,7 +381,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
 		}
@@ -299,12 +399,18 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange();
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
-				return isValid() ? Boolean.TRUE : Boolean.FALSE;
+				return isValid();
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				if (resolve) return getFunction();
 				return basicGetFunction();
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return getAggregationStatistics();
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+				if (resolve) return getAggregationOn();
+				return basicGetAggregationOn();
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+				if (resolve) return getMetric();
+				return basicGetMetric();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,13 +427,19 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 				setMeasurementRange((MeasurementRange)newValue);
 				return;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
-				setValid(((Boolean)newValue).booleanValue());
+				setValid((Boolean)newValue);
 				return;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				setFunction((AggregationFunctionDescription)newValue);
 				return;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				setAggregationStatistics((AggregationStatistics)newValue);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+				setAggregationOn((BaseMetricDescription)newValue);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+				setMetric((MetricDescription)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,6 +465,12 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				setAggregationStatistics((AggregationStatistics)null);
 				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+				setAggregationOn((BaseMetricDescription)null);
+				return;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+				setMetric((MetricDescription)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -373,6 +491,10 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 				return function != null;
 			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return aggregationStatistics != null;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+				return aggregationOn != null;
+			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+				return metric != null;
 		}
 		return super.eIsSet(featureID);
 	}

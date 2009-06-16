@@ -156,30 +156,6 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
-				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
-				T result = caseBaseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseDescription(baseMetricDescription);
-				if (result == null) result = caseIdentifiable(baseMetricDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.METRIC_DESCRIPTION: {
-				MetricDescription metricDescription = (MetricDescription)theEObject;
-				T result = caseMetricDescription(metricDescription);
-				if (result == null) result = caseDescription(metricDescription);
-				if (result == null) result = caseIdentifiable(metricDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.DESCRIPTION: {
-				Description description = (Description)theEObject;
-				T result = caseDescription(description);
-				if (result == null) result = caseIdentifiable(description);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EmfmodelPackage.MEASUREMENT: {
 				Measurement measurement = (Measurement)theEObject;
 				T result = caseMeasurement(measurement);
@@ -187,9 +163,9 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmfmodelPackage.MEASURE: {
-				Measure measure = (Measure)theEObject;
-				T result = caseMeasure(measure);
+			case EmfmodelPackage.EDP2_MEASURE: {
+				Edp2Measure edp2Measure = (Edp2Measure)theEObject;
+				T result = caseEdp2Measure(edp2Measure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,6 +192,21 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EmfmodelPackage.METRIC_DESCRIPTION: {
+				MetricDescription metricDescription = (MetricDescription)theEObject;
+				T result = caseMetricDescription(metricDescription);
+				if (result == null) result = caseDescription(metricDescription);
+				if (result == null) result = caseIdentifiable(metricDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.DESCRIPTION: {
+				Description description = (Description)theEObject;
+				T result = caseDescription(description);
+				if (result == null) result = caseIdentifiable(description);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: {
 				AggregationFunctionDescription aggregationFunctionDescription = (AggregationFunctionDescription)theEObject;
 				T result = caseAggregationFunctionDescription(aggregationFunctionDescription);
@@ -227,6 +218,15 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.AGGREGATION_STATISTICS: {
 				AggregationStatistics aggregationStatistics = (AggregationStatistics)theEObject;
 				T result = caseAggregationStatistics(aggregationStatistics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
+				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
+				T result = caseBaseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseDescription(baseMetricDescription);
+				if (result == null) result = caseIdentifiable(baseMetricDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -254,7 +254,7 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.NOMINAL_MEASURE: {
 				NominalMeasure nominalMeasure = (NominalMeasure)theEObject;
 				T result = caseNominalMeasure(nominalMeasure);
-				if (result == null) result = caseMeasure(nominalMeasure);
+				if (result == null) result = caseEdp2Measure(nominalMeasure);
 				if (result == null) result = caseIdentifiable(nominalMeasure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -269,7 +269,7 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.ORDINAL_MEASURE: {
 				OrdinalMeasure ordinalMeasure = (OrdinalMeasure)theEObject;
 				T result = caseOrdinalMeasure(ordinalMeasure);
-				if (result == null) result = caseMeasure(ordinalMeasure);
+				if (result == null) result = caseEdp2Measure(ordinalMeasure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -477,6 +477,21 @@ public class EmfmodelSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Edp2 Measure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Edp2 Measure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEdp2Measure(Edp2Measure object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Propertyable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -503,21 +518,6 @@ public class EmfmodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseEStringtoEObjectMapEntry(Map.Entry<String, Object> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Measure</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Measure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMeasure(Measure object) {
 		return null;
 	}
 

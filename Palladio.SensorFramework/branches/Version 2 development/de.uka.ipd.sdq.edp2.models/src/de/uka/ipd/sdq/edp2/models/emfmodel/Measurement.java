@@ -40,12 +40,12 @@ public interface Measurement extends Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' reference.
-	 * @see #setMeasure(Measure)
+	 * @see #setMeasure(Edp2Measure)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasurement_Measure()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Measure getMeasure();
+	Edp2Measure getMeasure();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measurement#getMeasure <em>Measure</em>}' reference.
@@ -55,7 +55,7 @@ public interface Measurement extends Propertyable {
 	 * @see #getMeasure()
 	 * @generated
 	 */
-	void setMeasure(Measure value);
+	void setMeasure(Edp2Measure value);
 
 	/**
 	 * Returns the value of the '<em><b>Experiment Run</b></em>' container reference.

@@ -117,24 +117,12 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createFixedIntervalsAdapter();
 			}
 			@Override
-			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
-				return createBaseMetricDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseMetricDescription(MetricDescription object) {
-				return createMetricDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseDescription(Description object) {
-				return createDescriptionAdapter();
-			}
-			@Override
 			public Adapter caseMeasurement(Measurement object) {
 				return createMeasurementAdapter();
 			}
 			@Override
-			public Adapter caseMeasure(Measure object) {
-				return createMeasureAdapter();
+			public Adapter caseEdp2Measure(Edp2Measure object) {
+				return createEdp2MeasureAdapter();
 			}
 			@Override
 			public Adapter caseExperimentGroup(ExperimentGroup object) {
@@ -149,12 +137,24 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createExperimentRunAdapter();
 			}
 			@Override
+			public Adapter caseMetricDescription(MetricDescription object) {
+				return createMetricDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseDescription(Description object) {
+				return createDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseAggregationFunctionDescription(AggregationFunctionDescription object) {
 				return createAggregationFunctionDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseAggregationStatistics(AggregationStatistics object) {
 				return createAggregationStatisticsAdapter();
+			}
+			@Override
+			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
+				return createBaseMetricDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseLongBinaryMeasurements(LongBinaryMeasurements object) {
@@ -371,6 +371,20 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure <em>Edp2 Measure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure
+	 * @generated
+	 */
+	public Adapter createEdp2MeasureAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Propertyable <em>Propertyable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -395,20 +409,6 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEStringtoEObjectMapEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure <em>Measure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Measure
-	 * @generated
-	 */
-	public Adapter createMeasureAdapter() {
 		return null;
 	}
 

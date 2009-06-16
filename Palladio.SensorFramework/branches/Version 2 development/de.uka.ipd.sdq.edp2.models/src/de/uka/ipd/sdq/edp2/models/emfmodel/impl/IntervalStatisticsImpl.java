@@ -228,9 +228,9 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 			case EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
 				return getArithmethicMean();
 			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
-				return new Double(getVariance());
+				return getVariance();
 			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
-				return new Double(getStandardDeviation());
+				return getStandardDeviation();
 			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
 				return getSum();
 		}
@@ -249,10 +249,10 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 				setArithmethicMean((Measure)newValue);
 				return;
 			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
-				setVariance(((Double)newValue).doubleValue());
+				setVariance((Double)newValue);
 				return;
 			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
-				setStandardDeviation(((Double)newValue).doubleValue());
+				setStandardDeviation((Double)newValue);
 				return;
 			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
 				setSum((Measure)newValue);

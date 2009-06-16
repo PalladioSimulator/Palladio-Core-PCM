@@ -149,7 +149,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public FixedWidthAggregatedMeasurements getAggregatedMeasurements() {
-		if (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS) return null;
 		return (FixedWidthAggregatedMeasurements)eContainer();
 	}
 
@@ -169,7 +169,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public void setAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements) {
-		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
+		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newAggregatedMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -211,7 +211,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public RawMeasurements getRawMeasurements() {
-		if (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS) return null;
 		return (RawMeasurements)eContainer();
 	}
 
@@ -231,7 +231,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public void setRawMeasurements(RawMeasurements newRawMeasurements) {
-		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
+		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newRawMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -320,7 +320,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
 			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:

@@ -184,7 +184,7 @@ public class RatioStatisticsImpl extends IntervalStatisticsImpl implements Ratio
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EmfmodelPackage.RATIO_STATISTICS__COEFFICIENT_OF_VARIATION:
-				return new Double(getCoefficientOfVariation());
+				return getCoefficientOfVariation();
 			case EmfmodelPackage.RATIO_STATISTICS__GEOMETRIC_MEAN:
 				return getGeometricMean();
 			case EmfmodelPackage.RATIO_STATISTICS__HARMONIC_MEAN:
@@ -202,7 +202,7 @@ public class RatioStatisticsImpl extends IntervalStatisticsImpl implements Ratio
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmfmodelPackage.RATIO_STATISTICS__COEFFICIENT_OF_VARIATION:
-				setCoefficientOfVariation(((Double)newValue).doubleValue());
+				setCoefficientOfVariation((Double)newValue);
 				return;
 			case EmfmodelPackage.RATIO_STATISTICS__GEOMETRIC_MEAN:
 				setGeometricMean((Measure)newValue);

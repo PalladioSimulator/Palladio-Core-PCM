@@ -50,8 +50,8 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 
 	/**
 	 * Returns the value of the '<em><b>Measure</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSetting <em>Experiment Setting</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measure</em>' containment reference list isn't clear,
@@ -60,10 +60,10 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_Measure()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSetting
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting
 	 * @model opposite="experimentSetting" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Measure> getMeasure();
+	EList<Edp2Measure> getMeasure();
 
 } // ExperimentGroup

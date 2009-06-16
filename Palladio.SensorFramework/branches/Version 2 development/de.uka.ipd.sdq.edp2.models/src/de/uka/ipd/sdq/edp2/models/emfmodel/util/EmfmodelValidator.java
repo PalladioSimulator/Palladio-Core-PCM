@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.*;
 
 import java.util.Map;
 
+import javax.measure.Measure;
 import javax.measure.quantity.Duration;
 import javax.measure.quantity.Quantity;
 
@@ -147,26 +148,26 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateFixedWidthAggregatedMeasurements((FixedWidthAggregatedMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.FIXED_INTERVALS:
 				return validateFixedIntervals((FixedIntervals)value, diagnostics, context);
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
-				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
-			case EmfmodelPackage.METRIC_DESCRIPTION:
-				return validateMetricDescription((MetricDescription)value, diagnostics, context);
-			case EmfmodelPackage.DESCRIPTION:
-				return validateDescription((Description)value, diagnostics, context);
 			case EmfmodelPackage.MEASUREMENT:
 				return validateMeasurement((Measurement)value, diagnostics, context);
-			case EmfmodelPackage.MEASURE:
-				return validateMeasure((Measure)value, diagnostics, context);
+			case EmfmodelPackage.EDP2_MEASURE:
+				return validateEdp2Measure((Edp2Measure)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_GROUP:
 				return validateExperimentGroup((ExperimentGroup)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_SETTING:
 				return validateExperimentSetting((ExperimentSetting)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_RUN:
 				return validateExperimentRun((ExperimentRun)value, diagnostics, context);
+			case EmfmodelPackage.METRIC_DESCRIPTION:
+				return validateMetricDescription((MetricDescription)value, diagnostics, context);
+			case EmfmodelPackage.DESCRIPTION:
+				return validateDescription((Description)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION:
 				return validateAggregationFunctionDescription((AggregationFunctionDescription)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_STATISTICS:
 				return validateAggregationStatistics((AggregationStatistics)value, diagnostics, context);
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
+				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS:
 				return validateLongBinaryMeasurements((LongBinaryMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.CATEGORY_IDENTIFIER:
@@ -201,6 +202,8 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateObservedNominalMeasurements((ObservedNominalMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.OBSERVED_CATEGORY:
 				return validateObservedCategory((ObservedCategory)value, diagnostics, context);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return validateCaptureType((CaptureType)value, diagnostics, context);
 			case EmfmodelPackage.DATA_TYPE:
@@ -209,14 +212,12 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateScale((Scale)value, diagnostics, context);
 			case EmfmodelPackage.MONOTONIC:
 				return validateMonotonic((Monotonic)value, diagnostics, context);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.EJS_MEASURE:
-				return validateEJSMeasure((javax.measure.Measure)value, diagnostics, context);
+				return validateEJSMeasure((Measure)value, diagnostics, context);
+			case EmfmodelPackage.EJS_DURATION_MEASURE:
+				return validateEJSDurationMeasure((Measure)value, diagnostics, context);
 			case EmfmodelPackage.EJS_UNIT:
 				return validateEJSUnit((Unit)value, diagnostics, context);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
-				return validateEJSDurationMeasure((javax.measure.Measure)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -326,6 +327,15 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateEdp2Measure(Edp2Measure edp2Measure, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(edp2Measure, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validatePropertyable(Propertyable propertyable, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(propertyable, diagnostics, context);
 	}
@@ -337,15 +347,6 @@ public class EmfmodelValidator extends EObjectValidator {
 	 */
 	public boolean validateEStringtoEObjectMapEntry(Map.Entry<?, ?> eStringtoEObjectMapEntry, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint((EObject)eStringtoEObjectMapEntry, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMeasure(Measure measure, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measure, diagnostics, context);
 	}
 
 	/**
@@ -709,7 +710,7 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEJSMeasure(javax.measure.Measure ejsMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEJSMeasure(Measure ejsMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -718,7 +719,7 @@ public class EmfmodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEJSDurationMeasure(javax.measure.Measure ejsDurationMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEJSDurationMeasure(Measure ejsDurationMeasure, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

@@ -14,10 +14,10 @@ import de.uka.ipd.sdq.edp2.DaoRegistry;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
 import de.uka.ipd.sdq.edp2.models.emfmodel.FixedIntervals;
 import de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measurement;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
@@ -132,7 +132,7 @@ public class StorageUtility {
 			}
 		}
 		if (creationSuccesful == false) {
-			Measure measure = rm.getMeasurementRange().getMeasurement().getMeasure();
+			Edp2Measure measure = rm.getMeasurementRange().getMeasurement().getMeasure();
 			assert measure != null;
 			new EmfmodelDataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(measure.getMetric());
 		}

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Measure</b></em>'.
+ * A representation of the model object '<em><b>Edp2 Measure</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSetting <em>Experiment Setting</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSettings <em>Experiment Settings</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getPersistencyKind <em>Persistency Kind</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getMeasuredObject <em>Measured Object</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getMetric <em>Metric</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSettings <em>Experiment Settings</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getPersistencyKind <em>Persistency Kind</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getMeasuredObject <em>Measured Object</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getMetric <em>Metric</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure()
+ * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure()
  * @model abstract="true"
  * @generated
  */
-public interface Measure extends EObject {
+public interface Edp2Measure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Experiment Setting</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure <em>Measure</em>}'.
@@ -50,7 +50,7 @@ public interface Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Setting</em>' container reference.
 	 * @see #setExperimentSetting(ExperimentGroup)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_ExperimentSetting()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_ExperimentSetting()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure
 	 * @model opposite="measure" required="true" transient="false" ordered="false"
 	 * @generated
@@ -58,7 +58,7 @@ public interface Measure extends EObject {
 	ExperimentGroup getExperimentSetting();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getExperimentSetting <em>Experiment Setting</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Experiment Setting</em>' container reference.
@@ -78,7 +78,7 @@ public interface Measure extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Settings</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_ExperimentSettings()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_ExperimentSettings()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getMeasure
 	 * @model opposite="measure" ordered="false"
 	 * @generated
@@ -97,14 +97,14 @@ public interface Measure extends EObject {
 	 * @return the value of the '<em>Persistency Kind</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.PersistenceKindOptions
 	 * @see #setPersistencyKind(PersistenceKindOptions)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_PersistencyKind()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_PersistencyKind()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	PersistenceKindOptions getPersistencyKind();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getPersistencyKind <em>Persistency Kind</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getPersistencyKind <em>Persistency Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Persistency Kind</em>' attribute.
@@ -124,14 +124,14 @@ public interface Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measured Object</em>' attribute.
 	 * @see #setMeasuredObject(String)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_MeasuredObject()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_MeasuredObject()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getMeasuredObject();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getMeasuredObject <em>Measured Object</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getMeasuredObject <em>Measured Object</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Measured Object</em>' attribute.
@@ -150,14 +150,14 @@ public interface Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metric</em>' reference.
 	 * @see #setMetric(MetricDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getMeasure_Metric()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_Metric()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	MetricDescription getMetric();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Measure#getMetric <em>Metric</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getMetric <em>Metric</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Metric</em>' reference.
@@ -166,4 +166,4 @@ public interface Measure extends EObject {
 	 */
 	void setMetric(MetricDescription value);
 
-} // Measure
+} // Edp2Measure

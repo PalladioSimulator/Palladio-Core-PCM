@@ -102,7 +102,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * @generated
 	 */
 	public DataSeries getRawYSeries() {
-		if (eContainerFeatureID != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES) return null;
 		return (DataSeries)eContainer();
 	}
 
@@ -122,7 +122,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * @generated
 	 */
 	public void setRawYSeries(DataSeries newRawYSeries) {
-		if (newRawYSeries != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES && newRawYSeries != null)) {
+		if (newRawYSeries != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES && newRawYSeries != null)) {
 			if (EcoreUtil.isAncestor(this, newRawYSeries))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -174,7 +174,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
 		}
@@ -190,7 +190,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
-				return new Long(getCount());
+				return getCount();
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				return getRawYSeries();
 		}
@@ -206,7 +206,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
-				setCount(((Long)newValue).longValue());
+				setCount((Long)newValue);
 				return;
 			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				setRawYSeries((DataSeries)newValue);

@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getIntervals <em>Intervals</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getAggregationOn <em>Aggregation On</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getDataSeries <em>Data Series</em>}</li>
  * </ul>
  * </p>
@@ -54,32 +53,6 @@ public interface FixedWidthAggregatedMeasurements extends AggregatedMeasurements
 	 * @generated
 	 */
 	void setIntervals(FixedIntervals value);
-
-	/**
-	 * Returns the value of the '<em><b>Aggregation On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregation On</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aggregation On</em>' reference.
-	 * @see #setAggregationOn(BaseMetricDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getFixedWidthAggregatedMeasurements_AggregationOn()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	BaseMetricDescription getAggregationOn();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements#getAggregationOn <em>Aggregation On</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Aggregation On</em>' reference.
-	 * @see #getAggregationOn()
-	 * @generated
-	 */
-	void setAggregationOn(BaseMetricDescription value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Series</b></em>' containment reference list.

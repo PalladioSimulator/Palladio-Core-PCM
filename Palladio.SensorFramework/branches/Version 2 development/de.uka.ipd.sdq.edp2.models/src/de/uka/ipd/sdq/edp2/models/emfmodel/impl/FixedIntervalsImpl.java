@@ -188,7 +188,7 @@ public class FixedIntervalsImpl extends EObjectImpl implements FixedIntervals {
 	 * @generated
 	 */
 	public FixedWidthAggregatedMeasurements getAggregatedMeasurements() {
-		if (eContainerFeatureID != EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS) return null;
 		return (FixedWidthAggregatedMeasurements)eContainer();
 	}
 
@@ -208,7 +208,7 @@ public class FixedIntervalsImpl extends EObjectImpl implements FixedIntervals {
 	 * @generated
 	 */
 	public void setAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements) {
-		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
+		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newAggregatedMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -260,7 +260,7 @@ public class FixedIntervalsImpl extends EObjectImpl implements FixedIntervals {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, FixedWidthAggregatedMeasurements.class, msgs);
 		}
@@ -280,7 +280,7 @@ public class FixedIntervalsImpl extends EObjectImpl implements FixedIntervals {
 			case EmfmodelPackage.FIXED_INTERVALS__WIDTH:
 				return getWidth();
 			case EmfmodelPackage.FIXED_INTERVALS__NUMBER_OF_INTERVALS:
-				return new Long(getNumberOfIntervals());
+				return getNumberOfIntervals();
 			case EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
 		}
@@ -302,7 +302,7 @@ public class FixedIntervalsImpl extends EObjectImpl implements FixedIntervals {
 				setWidth((Measure)newValue);
 				return;
 			case EmfmodelPackage.FIXED_INTERVALS__NUMBER_OF_INTERVALS:
-				setNumberOfIntervals(((Long)newValue).longValue());
+				setNumberOfIntervals((Long)newValue);
 				return;
 			case EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS:
 				setAggregatedMeasurements((FixedWidthAggregatedMeasurements)newValue);

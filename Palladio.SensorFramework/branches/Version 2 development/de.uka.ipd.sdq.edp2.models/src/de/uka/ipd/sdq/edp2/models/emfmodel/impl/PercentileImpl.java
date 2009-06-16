@@ -143,7 +143,7 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EmfmodelPackage.PERCENTILE__PERCENTILE:
-				return new Double(getPercentile());
+				return getPercentile();
 			case EmfmodelPackage.PERCENTILE__VALUE:
 				return getValue();
 		}
@@ -159,7 +159,7 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmfmodelPackage.PERCENTILE__PERCENTILE:
-				setPercentile(((Double)newValue).doubleValue());
+				setPercentile((Double)newValue);
 				return;
 			case EmfmodelPackage.PERCENTILE__VALUE:
 				setValue((Measure)newValue);

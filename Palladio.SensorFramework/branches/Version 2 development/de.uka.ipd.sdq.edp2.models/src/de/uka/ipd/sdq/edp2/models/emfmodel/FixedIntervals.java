@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * The data structure is build up as follows for n=numberOfIntervals different requested measurement intervals:
  * First interval 'lower outlier interval': All measurements in the interval (-\infty, lowerBound).
- * Second to n-th interval 'regular interval': All measurements in the interval [lowerBound+width*(n-1), lowerBound+width*n).
+ * Second to n-th interval 'regular interval i': All measurements in the interval [lowerBound+width*(i-1), lowerBound+width*i).
  * n-th interval 'upper outlier interval': All measurements in the interval [lowerBound+width*n, \infty) = [upperBound+width*n, \infty).
  * 
  * <!-- end-model-doc -->

@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface OrdinalMeasure extends Measure {
+public interface OrdinalMeasure extends Edp2Measure {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

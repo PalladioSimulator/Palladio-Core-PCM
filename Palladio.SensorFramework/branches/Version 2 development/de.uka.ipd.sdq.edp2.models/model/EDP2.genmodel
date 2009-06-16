@@ -6,12 +6,10 @@
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>EDP2.ecore</foreignModel>
   <genPackages prefix="Emfmodel" basePackage="de.uka.ipd.sdq.edp2.models" disposableProviderFactory="true"
-      fileExtensions="edp2,edp2desc,edp2nm" ecorePackage="EDP2.ecore#/">
+      ecorePackage="EDP2.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//PersistenceKindOptions">
-      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/BinaryLong"/>
-      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/BinaryDouble"/>
-      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/XmlJScience"/>
-      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/Emf"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/BinaryPreferred"/>
+      <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//PersistenceKindOptions/JSXmlPreferred"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//CaptureType">
       <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//CaptureType/Identifier"/>
@@ -33,7 +31,6 @@
       <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Monotonic/Yes"/>
       <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//Monotonic/Strong"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//Enumeration1"/>
     <genDataTypes ecoreDataType="EDP2.ecore#//EJSMeasure"/>
     <genDataTypes ecoreDataType="EDP2.ecore#//EJSDurationMeasure"/>
     <genDataTypes ecoreDataType="EDP2.ecore#//EJSUnit"/>
@@ -42,6 +39,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregatedMeasurements/valid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/function"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/aggregationStatistics"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/aggregationOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//AggregatedMeasurements/metric"/>
     </genClasses>
     <genClasses image="false" ecoreClass="EDP2.ecore#//Identifiable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Identifiable/uuid"/>
@@ -60,18 +59,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//EStringtoEObjectMapEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//EStringtoEObjectMapEntry/value"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="EDP2.ecore#//RawMeasurements">
+    <genClasses ecoreClass="EDP2.ecore#//RawMeasurements">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//RawMeasurements/dataSeries"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//RawMeasurements/measurementRange"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="EDP2.ecore#//dataSeries">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/statistics"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/aggregatedMeasurements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//dataSeries/valuesUuid"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//dataSeries/rawMeasurements"/>
-      <genOperations ecoreOperation="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues">
-        <genParameters ecoreParameter="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues/diagnostics"/>
-        <genParameters ecoreParameter="EDP2.ecore#//dataSeries/Statisticsonlyformeasurablevalues/context"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//DataSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//DataSeries/statistics"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//DataSeries/aggregatedMeasurements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//DataSeries/valuesUuid"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//DataSeries/rawMeasurements"/>
+      <genOperations ecoreOperation="EDP2.ecore#//DataSeries/Statisticsonlyformeasurablevalues">
+        <genParameters ecoreParameter="EDP2.ecore#//DataSeries/Statisticsonlyformeasurablevalues/diagnostics"/>
+        <genParameters ecoreParameter="EDP2.ecore#//DataSeries/Statisticsonlyformeasurablevalues/context"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//NominalStatistics">
@@ -80,7 +79,6 @@
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//FixedWidthAggregatedMeasurements">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/intervals"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/aggregationOn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//FixedWidthAggregatedMeasurements/dataSeries"/>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//FixedIntervals">
@@ -94,12 +92,12 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/experimentRun"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/measurementRange"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="EDP2.ecore#//Measure">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/experimentSetting"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/experimentSettings"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Measure/persistencyKind"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Measure/measuredObject"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measure/metric"/>
+    <genClasses image="false" ecoreClass="EDP2.ecore#//Edp2Measure">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/experimentSetting"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/experimentSettings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Edp2Measure/persistencyKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Edp2Measure/measuredObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/metric"/>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//ExperimentGroup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/experimentSettings"/>
@@ -120,12 +118,6 @@
         <genParameters ecoreParameter="EDP2.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor/context"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="EDP2.ecore#//BaseMetricDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/captureType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/dataType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/scale"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/monotnic"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="EDP2.ecore#//MetricDescription"/>
     <genClasses image="false" ecoreClass="EDP2.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Description/name"/>
@@ -135,6 +127,13 @@
     <genClasses ecoreClass="EDP2.ecore#//AggregationStatistics">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregationStatistics/distinctValuesBeforeAggregation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//AggregationStatistics/distinctValuesAfterAggregation"/>
+    </genClasses>
+    <genClasses ecoreClass="EDP2.ecore#//BaseMetricDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/captureType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/monotonic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//BaseMetricDescription/defaultUnit"/>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//LongBinaryMeasurements">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//LongBinaryMeasurements/storageUnit"/>
@@ -155,7 +154,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//DoubleBinaryMeasurements/storageUnit"/>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//OrdinalMeasure">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//OrdinalMeasure/defaultUnitOfMeasurements"/>
       <genOperations ecoreOperation="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf">
         <genParameters ecoreParameter="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf/diagnostics"/>
         <genParameters ecoreParameter="EDP2.ecore#//OrdinalMeasure/PersistencyKindNotEmf/context"/>
@@ -199,5 +197,92 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//ObservedCategory/categoryIdentifier"/>
     </genClasses>
     <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//PrimitiveTypes"/>
+    <nestedGenPackages prefix="Presentation" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//Presentation">
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/JFreeChartView"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/DataReader">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/DataReader/configuration"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/DataReader/dataSource"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataReaderConfiguration"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataSource"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/IDataSourceDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Presentation/IDataSourceDescription/registry"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/IDataSourceDescription/metricDescription"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/RView"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Histogram"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Bar"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/CumulativeDistributionFunction"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Pie"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Line"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Point"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/Boxplot"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/IEditorInput"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/EDP2DataSourceDescription">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/EDP2DataSourceDescription/dataSeries"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/SensorFrameworkDataSourceDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Presentation/SensorFrameworkDataSourceDescription/sam"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/JFreeChartHistogramView"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/HistogramView"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/JFreeChartCumulativeDistributionView"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/JFreeChartLineView"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/State"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/EnhancedHistogram"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataReaderEDP2"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataReaderSensorFramework"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataReaderEDP2Histogram"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataSourceEDP2"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/SimpleDataSource">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Presentation/SimpleDataSource/data"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/SimpleDataSource/description"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/DataSourceSensorFramework"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/DataType"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/OrdinalMeasurementsType"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/NominalMeasurementsType"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/OrdinalIntervalsType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Presentation/OrdinalIntervalsType/allIntervalWidthsEqual"/>
+        <genOperations ecoreOperation="EDP2.ecore#//Presentation/OrdinalIntervalsType/getBeginOfInterval">
+          <genParameters ecoreParameter="EDP2.ecore#//Presentation/OrdinalIntervalsType/getBeginOfInterval/i"/>
+        </genOperations>
+        <genOperations ecoreOperation="EDP2.ecore#//Presentation/OrdinalIntervalsType/getWidthOfInterval">
+          <genParameters ecoreParameter="EDP2.ecore#//Presentation/OrdinalIntervalsType/getWidthOfInterval/I"/>
+        </genOperations>
+        <genOperations ecoreOperation="EDP2.ecore#//Presentation/OrdinalIntervalsType/getNumberOfIntervals"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/ValueCorrelatedSeries"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/IntervalCorrelatedSeries"/>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/JFreeChartPresentationViewFactory">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/JFreeChartPresentationViewFactory/generates"/>
+      </genClasses>
+      <genClasses ecoreClass="EDP2.ecore#//Presentation/ComplexDataSource">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/ComplexDataSource/consistsOf"/>
+      </genClasses>
+      <nestedGenPackages prefix="UI" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//Presentation/UI">
+        <genClasses ecoreClass="EDP2.ecore#//Presentation/UI/PresentationConfiguration"/>
+        <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/UI/PresentationController">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/UI/PresentationController/configuration"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/UI/PresentationController/view"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/UI/PresentationController/propertyPane"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/UI/PresentationController/dataReader"/>
+        </genClasses>
+        <genClasses ecoreClass="EDP2.ecore#//Presentation/UI/PresentationPropertyPane"/>
+        <genClasses ecoreClass="EDP2.ecore#//Presentation/UI/PresentationInput">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Presentation/UI/PresentationInput/dataSourceDescription"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/UI/PresentationType"/>
+        <genClasses image="false" ecoreClass="EDP2.ecore#//Presentation/UI/PresentationView"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="ConfigurationDescription" disposableProviderFactory="true"
+          ecorePackage="EDP2.ecore#//Presentation/ConfigurationDescription"/>
+      <nestedGenPackages prefix="DataAccess" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//Presentation/DataAccess"/>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

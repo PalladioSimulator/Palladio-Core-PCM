@@ -141,9 +141,9 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				return new Long(getDistinctValuesBeforeAggregation());
+				return getDistinctValuesBeforeAggregation();
 			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				return new Long(getDistinctValuesAfterAggregation());
+				return getDistinctValuesAfterAggregation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,10 +157,10 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
-				setDistinctValuesBeforeAggregation(((Long)newValue).longValue());
+				setDistinctValuesBeforeAggregation((Long)newValue);
 				return;
 			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
-				setDistinctValuesAfterAggregation(((Long)newValue).longValue());
+				setDistinctValuesAfterAggregation((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

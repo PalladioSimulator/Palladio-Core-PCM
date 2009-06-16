@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measurement;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 
@@ -52,7 +52,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 * @ordered
 	 */
-	protected Measure measure;
+	protected Edp2Measure measure;
 
 	/**
 	 * The cached value of the '{@link #getMeasurementRange() <em>Measurement Range</em>}' containment reference list.
@@ -88,10 +88,10 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measure getMeasure() {
+	public Edp2Measure getMeasure() {
 		if (measure != null && measure.eIsProxy()) {
 			InternalEObject oldMeasure = (InternalEObject)measure;
-			measure = (Measure)eResolveProxy(oldMeasure);
+			measure = (Edp2Measure)eResolveProxy(oldMeasure);
 			if (measure != oldMeasure) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
@@ -105,7 +105,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measure basicGetMeasure() {
+	public Edp2Measure basicGetMeasure() {
 		return measure;
 	}
 
@@ -114,8 +114,8 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasure(Measure newMeasure) {
-		Measure oldMeasure = measure;
+	public void setMeasure(Edp2Measure newMeasure) {
+		Edp2Measure oldMeasure = measure;
 		measure = newMeasure;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
@@ -127,7 +127,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 */
 	public ExperimentRun getExperimentRun() {
-		if (eContainerFeatureID != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN) return null;
 		return (ExperimentRun)eContainer();
 	}
 
@@ -147,7 +147,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 */
 	public void setExperimentRun(ExperimentRun newExperimentRun) {
-		if (newExperimentRun != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN && newExperimentRun != null)) {
+		if (newExperimentRun != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN && newExperimentRun != null)) {
 			if (EcoreUtil.isAncestor(this, newExperimentRun))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -216,7 +216,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentRun.class, msgs);
 		}
@@ -252,7 +252,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmfmodelPackage.MEASUREMENT__MEASURE:
-				setMeasure((Measure)newValue);
+				setMeasure((Edp2Measure)newValue);
 				return;
 			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
 				setExperimentRun((ExperimentRun)newValue);
@@ -274,7 +274,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EmfmodelPackage.MEASUREMENT__MEASURE:
-				setMeasure((Measure)null);
+				setMeasure((Edp2Measure)null);
 				return;
 			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
 				setExperimentRun((ExperimentRun)null);

@@ -12,10 +12,10 @@ import de.uka.ipd.sdq.edp2.DaoFactory;
 import de.uka.ipd.sdq.edp2.models.emfmodel.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.CaptureType;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryMeasurements;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
 import de.uka.ipd.sdq.edp2.models.emfmodel.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.LongBinaryMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.emfmodel.NominalMeasurements;
@@ -33,11 +33,11 @@ public class EmfmodelDataSeriesFromMetricSwitch extends EmfmodelSwitch<Boolean> 
 	/** RawMeasurements on which the DataSeries should be added. */
 	private RawMeasurements rm;
 	/** The definition of the overall measure. */
-	private Measure measure;
+	private Edp2Measure measure;
 	/** Factory which is used to create the DAOs to access data of the DataSeries. */
 	private DaoFactory daoFactory;
 	
-	public EmfmodelDataSeriesFromMetricSwitch(RawMeasurements rm, Measure measure, DaoFactory daoFactory) {
+	public EmfmodelDataSeriesFromMetricSwitch(RawMeasurements rm, Edp2Measure measure, DaoFactory daoFactory) {
 		this.rm = rm;
 		this.measure = measure;
 		this.daoFactory = daoFactory;

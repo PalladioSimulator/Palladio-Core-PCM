@@ -19,6 +19,8 @@ package de.uka.ipd.sdq.edp2.models.emfmodel;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#isValid <em>Valid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getFunction <em>Function</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationStatistics <em>Aggregation Statistics</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationOn <em>Aggregation On</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getMetric <em>Metric</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,5 +133,55 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * @generated
 	 */
 	void setAggregationStatistics(AggregationStatistics value);
+
+	/**
+	 * Returns the value of the '<em><b>Aggregation On</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Points to the base metric within the measure definition associated with the measurement of an AggregatedMeasurements instance. The data is aggregated on this base metric.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Aggregation On</em>' reference.
+	 * @see #setAggregationOn(BaseMetricDescription)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getAggregatedMeasurements_AggregationOn()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	BaseMetricDescription getAggregationOn();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getAggregationOn <em>Aggregation On</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Aggregation On</em>' reference.
+	 * @see #getAggregationOn()
+	 * @generated
+	 */
+	void setAggregationOn(BaseMetricDescription value);
+
+	/**
+	 * Returns the value of the '<em><b>Metric</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Description of the metric used to express the aggregated data.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Metric</em>' reference.
+	 * @see #setMetric(MetricDescription)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getAggregatedMeasurements_Metric()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	MetricDescription getMetric();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements#getMetric <em>Metric</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metric</em>' reference.
+	 * @see #getMetric()
+	 * @generated
+	 */
+	void setMetric(MetricDescription value);
 
 } // AggregatedMeasurements

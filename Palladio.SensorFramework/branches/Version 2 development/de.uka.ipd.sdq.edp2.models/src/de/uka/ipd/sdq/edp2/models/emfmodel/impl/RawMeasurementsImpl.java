@@ -89,7 +89,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * @generated
 	 */
 	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE) return null;
 		return (MeasurementRange)eContainer();
 	}
 
@@ -109,7 +109,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * @generated
 	 */
 	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
+		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
 			if (EcoreUtil.isAncestor(this, newMeasurementRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -166,7 +166,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
 		}

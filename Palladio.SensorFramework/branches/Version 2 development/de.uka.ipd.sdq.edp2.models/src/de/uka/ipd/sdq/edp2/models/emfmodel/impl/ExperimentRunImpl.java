@@ -212,7 +212,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * @generated
 	 */
 	public ExperimentSetting getExperimentSetting() {
-		if (eContainerFeatureID != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING) return null;
+		if (eContainerFeatureID() != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING) return null;
 		return (ExperimentSetting)eContainer();
 	}
 
@@ -232,7 +232,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * @generated
 	 */
 	public void setExperimentSetting(ExperimentSetting newExperimentSetting) {
-		if (newExperimentSetting != eInternalContainer() || (eContainerFeatureID != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING && newExperimentSetting != null)) {
+		if (newExperimentSetting != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING && newExperimentSetting != null)) {
 			if (EcoreUtil.isAncestor(this, newExperimentSetting))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -316,7 +316,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentSetting.class, msgs);
 		}

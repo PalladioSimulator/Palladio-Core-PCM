@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface NominalMeasure extends Measure, Identifiable {
+public interface NominalMeasure extends Edp2Measure, Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Defined Category Identifiers</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.CategoryIdentifier}.
