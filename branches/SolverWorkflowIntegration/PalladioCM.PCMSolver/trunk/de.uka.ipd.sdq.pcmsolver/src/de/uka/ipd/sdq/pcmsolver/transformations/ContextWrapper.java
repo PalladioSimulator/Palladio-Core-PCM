@@ -1,11 +1,14 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
@@ -20,7 +23,10 @@ import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -30,6 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
@@ -63,7 +70,8 @@ public class ContextWrapper implements Cloneable {
 	private static Logger logger = Logger.getLogger(ContextWrapper.class
 			.getName());
 
-	private AssemblyContext assCtx;
+	//private AssemblyContext assCtx;
+	private EList<AssemblyContext> assCtxList;
 	private AllocationContext allCtx;
 	private ComputedAllocationContext compAllCtx;
 	private ComputedUsageContext compUsgCtx;
@@ -81,8 +89,11 @@ public class ContextWrapper implements Cloneable {
 
 	public ContextWrapper(EntryLevelSystemCall elsa, PCMInstance pcm) {
 		pcmInstance = pcm;
-		assCtx = getFirstAssemblyContext(elsa);
-		allCtx = getNextAllocationContext(assCtx);
+		//assCtx = getFirstAssemblyContext(elsa);
+		//allCtx = getNextAllocationContext(assCtx);
+		assCtxList = getFirstAssemblyContext2(elsa);
+		allCtx = getNextAllocationContext(assCtxList.get(0));
+		
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();
@@ -91,16 +102,22 @@ public class ContextWrapper implements Cloneable {
 	public ContextWrapper(EntryLevelSystemCall elsa, PCMInstance pcm,
 			ComputedUsageContext cuc, ComputedAllocationContext cac) {
 		pcmInstance = pcm;
-		assCtx = getFirstAssemblyContext(elsa);
-		allCtx = getNextAllocationContext(assCtx);
+//		assCtx = getFirstAssemblyContext(elsa);
+//		allCtx = getNextAllocationContext(assCtx);
+		assCtxList = getFirstAssemblyContext2(elsa);
+		allCtx = getNextAllocationContext(assCtxList.get(0));
+		
 		handleComputedContexts(cuc, cac);
 	}
 
 	public ContextWrapper(ExternalCallAction eca, ComputedUsageContext cuc,
 			ComputedAllocationContext cac, ContextWrapper oldContextWrapper) {
 		pcmInstance = oldContextWrapper.getPcmInstance();
-		assCtx = oldContextWrapper.getNextAssemblyContext(eca);
-		allCtx = getNextAllocationContext(assCtx);
+//		assCtx = oldContextWrapper.getNextAssemblyContext(eca);
+//		allCtx = getNextAllocationContext(assCtx);
+		assCtxList = oldContextWrapper.getNextAssemblyContext(eca,true);
+		allCtx = getNextAllocationContext(assCtxList.get(0));
+		
 		handleComputedContexts(cuc, cac);
 	}
 
@@ -110,7 +127,14 @@ public class ContextWrapper implements Cloneable {
 	@Override
 	public Object clone() {
 		ContextWrapper clonedWrapper = new ContextWrapper();
-		clonedWrapper.setAssCtx(assCtx);
+		EList<AssemblyContext> list = new BasicEList<AssemblyContext>();
+		for (AssemblyContext ac : assCtxList){
+			list.add(ac);
+		}
+		
+		
+		clonedWrapper.setAssCtxList(list);
+		//clonedWrapper.setAssCtx(assCtx);
 		clonedWrapper.setAllCtx(allCtx);
 		clonedWrapper.setCompAllCtx(compAllCtx);
 		clonedWrapper.setCompUsgCtx(compUsgCtx);
@@ -122,15 +146,18 @@ public class ContextWrapper implements Cloneable {
 	private void handleComputedContexts(ComputedUsageContext cuc,
 			ComputedAllocationContext cac) {
 		compUsgCtx = cuc;
-		compUsgCtx.setAssemblyContext_ComputedUsageContext(assCtx);
+		compUsgCtx.setAssemblyContext_ComputedUsageContext(getAssCtx());
 		compAllCtx = cac;
 		compAllCtx.setAllocationContext_ComputedAllocationContext(allCtx);
 		readComputedContextsToHashMaps();
 	}
 
 	public ContextWrapper getContextWrapperFor(ExternalCallAction eca) {
-		assCtx = getNextAssemblyContext(eca);
-		allCtx = getNextAllocationContext(assCtx);
+//		assCtx = getNextAssemblyContext(eca);
+//		allCtx = getNextAllocationContext(assCtx);
+		assCtxList = getNextAssemblyContext(eca,true);
+		allCtx = getNextAllocationContext(assCtxList.get(0));
+
 		compUsgCtx = getNextComputedUsageContext(eca);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();
@@ -138,8 +165,11 @@ public class ContextWrapper implements Cloneable {
 	}
 
 	public ContextWrapper getContextWrapperFor(EntryLevelSystemCall elsa) {
-		assCtx = getFirstAssemblyContext(elsa);
-		allCtx = getNextAllocationContext(assCtx);
+//		assCtx = getFirstAssemblyContext(elsa);
+//		allCtx = getNextAllocationContext(assCtx);
+		assCtxList = getFirstAssemblyContext2(elsa);
+		allCtx = getNextAllocationContext(assCtxList.get(0));
+		
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();
@@ -192,51 +222,105 @@ public class ContextWrapper implements Cloneable {
 		return linkResources.get(eca);
 	}
 
+	/**
+	 * Finds the next SEFF for a given external call action and its
+	 * referenced signature. Uses the 
+	 * current assembly context ids from the context wrapper as reference.
+	 * @param eca
+	 * @return
+	 */
 	public ServiceEffectSpecification getNextSEFF(ExternalCallAction eca) {
-		AssemblyContext ac = getNextAssemblyContext(eca);
 		Signature sig = eca.getCalledService_ExternalService();
-		if (ac != null)
-			return getSeff(ac, sig);
-		else
-			return null;
+
+		// get the list of assembly context ids for the called component
+		EList<AssemblyContext> acList = getNextAssemblyContext(eca,false);
+
+		// retrieve the last (most current, most inner nested) assembly context 
+		// from the list of assembly context in the context wrapper
+		AssemblyContext ac = acList.get(acList.size()-1);
+		
+		// it should always result in a basic component, because getNextAssemblyContext
+		// from above returns either a basic component in the current composite component or 
+		// a basic component in the next composite component
+		BasicComponent bc = (BasicComponent)ac.getEncapsulatedComponent_AssemblyContext();
+		EList<ServiceEffectSpecification> seffList = bc
+			.getServiceEffectSpecifications__BasicComponent();
+		for (ServiceEffectSpecification seff : seffList) {
+			if (seff.getDescribedService__SEFF().getServiceName().equals(sig.getServiceName())) {
+				return seff;
+			}
+		}
+		
+		// should not happen:
+		logger.error("Could not find next SEFF " +
+				"for ExternalCallAction "+eca.getCalledService_ExternalService()+"!");
+		return null;
 	}
+
+	
+//	public ServiceEffectSpecification getNextSEFF2(ExternalCallAction eca) {
+//		AssemblyContext ac = getNextAssemblyContext(eca);
+//		Signature sig = eca.getCalledService_ExternalService();
+//		if (ac != null)
+//			return getSeff(ac, sig);
+//		else
+//			return null;
+//	}
 
 	public ServiceEffectSpecification getNextSEFF(EntryLevelSystemCall elsc) {
-		AssemblyContext ac = getFirstAssemblyContext(elsc);
 		Signature sig = elsc.getSignature_EntryLevelSystemCall();
-		if (ac != null)
-			return getSeff(ac, sig);
-		else
-			return null;
-	}
 
-	private ServiceEffectSpecification getSeff(AssemblyContext ac, Signature sig) {
-		RepositoryComponent rc = ac.getEncapsulatedComponent_AssemblyContext();
-		
-		if (rc instanceof BasicComponent){
-			String serviceName = sig.getServiceName();
-			BasicComponent bc = (BasicComponent) rc;
-			EList<ServiceEffectSpecification> seffList = bc
-					.getServiceEffectSpecifications__BasicComponent();
-			for (ServiceEffectSpecification seff : seffList) {
-				if (seff.getDescribedService__SEFF().getServiceName().equals(
-						serviceName)) {
-					return seff;
-				}
+		EList<AssemblyContext> acList = getFirstAssemblyContext2(elsc);
+
+		AssemblyContext ac = acList.get(acList.size()-1);
+		BasicComponent bc = (BasicComponent)ac.getEncapsulatedComponent_AssemblyContext();
+		EList<ServiceEffectSpecification> seffList = bc
+			.getServiceEffectSpecifications__BasicComponent();
+		for (ServiceEffectSpecification seff : seffList) {
+			if (seff.getDescribedService__SEFF().getServiceName().equals(sig.getServiceName())) {
+				return seff;
 			}
-		} else if (rc instanceof CompositeComponent){ 
-			CompositeComponent cc = (CompositeComponent)rc;
-			EList<AssemblyContext> inner = cc.getAssemblyContexts_ComposedStructure();
-			if (inner.size() == 0){
-				logger.error("Empty CompositeComponent "+cc.getEntityName());
-				throw new RuntimeException("Empty CompositeComponent "+cc.getEntityName());
-			}
-			logger.debug("Retrieving inner SEFF of CompositeComponent "+cc.getEntityName());
-			//recursive call of this method for the internals of the CompositeComponent
-			return getSeff(inner.get(0),sig);
 		}
 		return null;
 	}
+	
+//	public ServiceEffectSpecification getNextSEFF2(EntryLevelSystemCall elsc) {
+//		AssemblyContext ac = getFirstAssemblyContext(elsc);
+//		
+//		Signature sig = elsc.getSignature_EntryLevelSystemCall();
+//		if (ac != null)
+//			return getSeff(ac, sig);
+//		else
+//			return null;
+//	}
+
+//	private ServiceEffectSpecification getSeff(AssemblyContext ac, Signature sig) {
+//		RepositoryComponent rc = ac.getEncapsulatedComponent_AssemblyContext();
+//		
+//		if (rc instanceof BasicComponent){
+//			String serviceName = sig.getServiceName();
+//			BasicComponent bc = (BasicComponent) rc;
+//			EList<ServiceEffectSpecification> seffList = bc
+//					.getServiceEffectSpecifications__BasicComponent();
+//			for (ServiceEffectSpecification seff : seffList) {
+//				if (seff.getDescribedService__SEFF().getServiceName().equals(
+//						serviceName)) {
+//					return seff;
+//				}
+//			}
+//		} else if (rc instanceof CompositeComponent){ 
+//			CompositeComponent cc = (CompositeComponent)rc;
+//			EList<AssemblyContext> inner = cc.getAssemblyContexts_ComposedStructure();
+//			if (inner.size() == 0){
+//				logger.error("Empty CompositeComponent "+cc.getEntityName());
+//				throw new RuntimeException("Empty CompositeComponent "+cc.getEntityName());
+//			}
+//			logger.debug("Retrieving inner SEFF of CompositeComponent "+cc.getEntityName());
+//			//recursive call of this method for the internals of the CompositeComponent
+//			return getSeff(inner.get(0),sig);
+//		}
+//		return null;
+//	}
 
 	private ComputedUsageContext getFirstComputedUsageContext(
 			EntryLevelSystemCall elsa) {
@@ -247,18 +331,18 @@ public class ContextWrapper implements Cloneable {
 		ComputedUsageContext cuc = matchVariableUsages(vuList);
 		if (cuc != null) {
 			logger.debug("Reusing existing computed usage context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 			return cuc;
 		} else {
 			logger.debug("Creating new computed usage context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 
 			ComputedUsageContext newCompUsgCtx = ComputedUsageFactory.eINSTANCE
 					.createComputedUsageContext();
 			pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage()
 					.add(newCompUsgCtx);
 
-			newCompUsgCtx.setAssemblyContext_ComputedUsageContext(assCtx);
+			newCompUsgCtx.setAssemblyContext_ComputedUsageContext(getAssCtx());
 
 			Input newInput = ComputedUsageFactory.eINSTANCE.createInput();
 			newCompUsgCtx.setInput_ComputedUsageContext(newInput);
@@ -276,6 +360,34 @@ public class ContextWrapper implements Cloneable {
 		}
 	}
 
+	private EList<AssemblyContext> getFirstAssemblyContext2(EntryLevelSystemCall elsa){
+		String roleId = elsa.getProvidedRole_EntryLevelSystemCall().getId();
+//		Signature serviceToBeCalled = elsa.getSignature_EntryLevelSystemCall();
+//		Interface requiredInterface = (Interface) serviceToBeCalled
+//				.eContainer();
+//		String interfaceId = requiredInterface.getId();
+		ProvidedRole startingRole = elsa.getProvidedRole_EntryLevelSystemCall();
+		
+		AssemblyContext startingAssCtx = null;
+		
+		EList<ProvidedDelegationConnector> pdcList = pcmInstance
+			.getSystem()
+			.getProvidedDelegationConnectors_ComposedStructure();
+		for (ProvidedDelegationConnector pdc : pdcList) {
+			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector()
+					.getId().equals(roleId)){
+				 startingAssCtx = pdc.getAssemblyContext_ProvidedDelegationConnector();
+			}
+		}
+		
+		if (startingAssCtx != null){
+			return getAssCtxs(startingAssCtx, startingRole, new BasicEList<AssemblyContext>());	
+		} else {
+			// "Something is wrong with your ProvidedDelegationConnectors: Are they all bound to proper roles?"
+			return null;
+		}
+	}
+	
 	private AssemblyContext getFirstAssemblyContext(EntryLevelSystemCall elsa) {
 		Signature serviceToBeCalled = elsa.getSignature_EntryLevelSystemCall();
 		Interface requiredInterface = (Interface) serviceToBeCalled
@@ -387,8 +499,8 @@ public class ContextWrapper implements Cloneable {
 			ExternalCallAction eca = eci
 					.getExternalCallAction_ExternalCallInput();
 
-			AssemblyContext nextAssCtx = getNextAssemblyContext(eca);
-			AllocationContext nextAllCtx = getNextAllocationContext(nextAssCtx);
+			EList<AssemblyContext> acList = getNextAssemblyContext(eca,false);
+			AllocationContext nextAllCtx = getNextAllocationContext(acList.get(0));
 			ResourceContainer rc2 = nextAllCtx
 					.getResourceContainer_AllocationContext();
 
@@ -439,11 +551,11 @@ public class ContextWrapper implements Cloneable {
 		ComputedAllocationContext cac = getExistingComputedAllocationContext();
 		if (cac != null) {
 			logger.debug("Reusing existing computed allocation context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 			return cac;
 		} else {
 			logger.debug("Creating new computed allocation context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 			ComputedAllocationContext newCompAllCtx = ComputedAllocationFactory.eINSTANCE
 					.createComputedAllocationContext();
 			pcmInstance.getComputedAllocation()
@@ -482,11 +594,11 @@ public class ContextWrapper implements Cloneable {
 		ComputedUsageContext cuc = getExistingComputedUsageContext(eca);
 		if (cuc != null) {
 			logger.debug("Reusing existing computed usage context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 			return cuc;
 		} else {
 			logger.debug("Creating new computed usage context for "
-					+ assCtx.getEntityName());
+					+ getAssCtx().getEntityName());
 			return createNewComputedUsageContext(eca);
 		}
 	}
@@ -499,7 +611,7 @@ public class ContextWrapper implements Cloneable {
 		pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage().add(
 				newCompUsgCtx);
 
-		newCompUsgCtx.setAssemblyContext_ComputedUsageContext(assCtx);
+		newCompUsgCtx.setAssemblyContext_ComputedUsageContext(getAssCtx());
 
 		Input newInput = ComputedUsageFactory.eINSTANCE.createInput();
 		newCompUsgCtx.setInput_ComputedUsageContext(newInput);
@@ -570,7 +682,7 @@ public class ContextWrapper implements Cloneable {
 				// assCtx already points to the next assCtx after the external
 				// call
 				if (cuc.getAssemblyContext_ComputedUsageContext().getId()
-						.equals(assCtx.getId())
+						.equals(getAssCtx().getId())
 						&& cuc.getInput_ComputedUsageContext()
 								.getParameterChacterisations_Input().size() == 0) {
 					// do not forget to create the external call input to current context:
@@ -618,7 +730,7 @@ public class ContextWrapper implements Cloneable {
 				.getUsageContexts_ComputedUsage();
 		for (ComputedUsageContext cuc : cucList) {
 			if (cuc.getAssemblyContext_ComputedUsageContext().getId().equals(
-					assCtx.getId())) {
+					getAssCtx().getId())) {
 				Input input = cuc.getInput_ComputedUsageContext();
 				EList<VariableUsage> vuList2 = input
 						.getParameterChacterisations_Input();
@@ -713,47 +825,210 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
-	public AssemblyContext getNextAssemblyContext(ExternalCallAction eca) {
+
+	public EList<AssemblyContext> getNextAssemblyContext(ExternalCallAction eca, boolean isCreateContextWrapper){
+		String roleId = eca.getRole_ExternalService().getId();
 		Signature serviceToBeCalled = eca.getCalledService_ExternalService();
 		Interface requiredInterface = (Interface) serviceToBeCalled
 				.eContainer();
+		String interfaceId = requiredInterface.getId();
+		
+		// navigate upwards through the stack of assembly contexts
+		AssemblyConnector matchingAssConn = getMatchingAssConn(roleId, interfaceId, isCreateContextWrapper);
+		
+		if (matchingAssConn != null) {
+			AssemblyContext startingAssCtx = matchingAssConn.getProvidingAssemblyContext_AssemblyConnector();
+			Role startingRole = matchingAssConn.getProvidedRole_AssemblyConnector();
+			
+			// navigate downwards through the possibly nested components (within composite components):
+			if (isCreateContextWrapper){
+				return getAssCtxs(startingAssCtx, startingRole, assCtxList);	
+			} else {
+				
+				AssemblyContext reqAssCtx = matchingAssConn.getRequiringAssemblyContext_AssemblyConnector();
+				EList<AssemblyContext> newAssCtxList = new BasicEList<AssemblyContext>();
 
-		AssemblyConnector matchingAssConn = null;
-		EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
-				.getAssemblyConnectors_ComposedStructure();
+				if (reqAssCtx.getId().equals(getAssCtx().getId())){
+					// in this case the assembly contexts have to be inherited
+					for (AssemblyContext ac : assCtxList) {
+						newAssCtxList.add(ac);
+					}
+					newAssCtxList.remove(newAssCtxList.size()-1);
+				} 				
+				
+				return getAssCtxs(startingAssCtx, startingRole, newAssCtxList);
+			}
+		} else {
+			logger.debug("Found no matching assembly connector for " +
+					"ExternalCallAction ("+eca.getCalledService_ExternalService()+
+					")! Check your model.");
+		}
+		return null;
+
+	}
+	
+	private AssemblyConnector getMatchingAssConn(String roleId, String interfaceId, boolean isCreateContextWrapper) {
+		
+		// navigate upwards through the stack of assembly context
+		// find the matching assembly connector
+		for (int i=assCtxList.size()-1; i >= 0; i--){
+			
+			AssemblyConnector matchingAssConn = findFromAssemblyConnector(roleId,interfaceId,assCtxList.get(i));
+			if (matchingAssConn != null) {
+				if (isCreateContextWrapper) assCtxList.remove(i);	
+				return matchingAssConn;
+			}
+			
+			matchingAssConn = findFromDelegationConnector(roleId,interfaceId,assCtxList.get(i),i);
+			if (matchingAssConn != null) {
+				if (isCreateContextWrapper) {
+					assCtxList.remove(i);
+					assCtxList.remove(i-1);
+				}
+				return matchingAssConn;
+			}
+			
+		}
+		// should not happen with valid models:
+		logger.error("No matching assembly connector found for (Role: "+roleId+", Interface: "+interfaceId+"). Check your model!");
+		throw new UnsupportedOperationException();
+	}
+	
+	private AssemblyConnector findFromAssemblyConnector(String roleId,
+			String interfaceId, AssemblyContext ac) {
+		
+		EList<AssemblyConnector> assConnList = ac
+			.getParentStructure_AssemblyContext()
+			.getAssemblyConnectors_ComposedStructure();
 		for (AssemblyConnector assConn : assConnList) {
-			String myAssId = assCtx.getId();
-			String assId = assConn
-					.getRequiringAssemblyContext_AssemblyConnector()
-					.getId();
-
-			String myIfId = requiredInterface.getId();
-			String ifId = assConn.getRequiredRole_AssemblyConnector()
-					.getRequiredInterface__RequiredRole().getId();
-
 			if (assConn
 					.getRequiringAssemblyContext_AssemblyConnector()
-					.getId().equals(assCtx.getId())
-					&& assConn.getRequiredRole_AssemblyConnector()
-							.getRequiredInterface__RequiredRole().getId()
-							.equals(requiredInterface.getId())) {
-				matchingAssConn = assConn;
+					.getId().equals(ac.getId())
+		     && assConn.getRequiredRole_AssemblyConnector()
+					.getRequiredInterface__RequiredRole().getId()
+					.equals(interfaceId)
+			 && assConn.getRequiredRole_AssemblyConnector()
+			 		.getId().equals(roleId)) {
+				return assConn;
 			}
 		}
-
-		if (matchingAssConn != null) {
-			return matchingAssConn
-					.getProvidingAssemblyContext_AssemblyConnector();
-		} else
-			return null;
+		return null;
 	}
 
+	private AssemblyConnector findFromDelegationConnector(String roleId,
+			String interfaceId, AssemblyContext ac, int i) {
+		EList<RequiredDelegationConnector> reqDelConnList = ac
+		.getParentStructure_AssemblyContext()
+		.getRequiredDelegationConnectors_ComposedStructure();
+
+		for (RequiredDelegationConnector reqConn : reqDelConnList){
+			if (reqConn
+					.getInnerRequiredRole_RequiredDelegationConnector().getId()
+					.equals(roleId) &&
+					reqConn
+					.getInnerRequiredRole_RequiredDelegationConnector()
+					.getRequiredInterface__RequiredRole().getId()
+					.equals(interfaceId)){
+				String outerRoleId = reqConn.getOuterRequiredRole_RequiredDelegationConnector().getId();
+				AssemblyContext compositeComponentAssemblyContext = assCtxList.get(i-1);
+				String compositeComponentAssCtxId = compositeComponentAssemblyContext.getId();
+
+
+				EList<AssemblyConnector> assConnList = compositeComponentAssemblyContext
+				.getParentStructure_AssemblyContext()
+				.getAssemblyConnectors_ComposedStructure();
+
+
+				for (AssemblyConnector assConn : assConnList) {
+					if (assConn
+							.getRequiringAssemblyContext_AssemblyConnector()
+							.getId().equals(compositeComponentAssCtxId)
+							&& assConn.getRequiredRole_AssemblyConnector()
+							.getRequiredInterface__RequiredRole().getId()
+							.equals(interfaceId)
+							&& assConn.getRequiredRole_AssemblyConnector()
+							.getId().equals(outerRoleId)) {
+						return assConn;
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+//	public AssemblyContext getNextAssemblyContext(ExternalCallAction eca) {
+//		String roleId = eca.getRole_ExternalService().getId();
+//		Signature serviceToBeCalled = eca.getCalledService_ExternalService();
+//		Interface requiredInterface = (Interface) serviceToBeCalled
+//				.eContainer();
+//
+//		AssemblyConnector matchingAssConn = null;
+//		EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
+//				.getAssemblyConnectors_ComposedStructure();
+//	
+//		for (AssemblyConnector assConn : assConnList) {
+//			if (assConn
+//					.getRequiringAssemblyContext_AssemblyConnector()
+//					.getId().equals(getAssCtx().getId())
+//		     && assConn.getRequiredRole_AssemblyConnector()
+//					.getRequiredInterface__RequiredRole().getId()
+//					.equals(requiredInterface.getId())
+//			 && assConn.getRequiredRole_AssemblyConnector()
+//			 		.getId().equals(roleId)) {
+//				matchingAssConn = assConn;
+//			}
+//		}
+//		
+//		if (matchingAssConn != null) {
+//			return matchingAssConn
+//					.getProvidingAssemblyContext_AssemblyConnector();
+//		} else 
+//			return null;
+//	}
+
+	/**
+	 * Builds a list of assembly context ids by searching for nested components. Is called recursively.
+	 * @param ac
+	 * @param role
+	 * @param acList
+	 * @return
+	 */
+	public EList<AssemblyContext> getAssCtxs(AssemblyContext ac, Role role, EList<AssemblyContext> acList){
+		RepositoryComponent rc = ac.getEncapsulatedComponent_AssemblyContext();
+		
+		if (rc instanceof BasicComponent){
+			acList.add(ac);
+			return acList;
+		} else if (rc instanceof CompositeComponent){
+			CompositeComponent cc = (CompositeComponent)rc;
+			EList<ProvidedDelegationConnector> pdcList = cc.getProvidedDelegationConnectors_ComposedStructure();
+			for (ProvidedDelegationConnector pdc : pdcList){
+				// traverse down the provided delegation connectors of the composite component
+				if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId()
+						.equals(role.getId())){
+					
+					// add the found assembly context
+					acList.add(ac);
+					
+					// search for more inner assembly contexts by continuing the traversal on provided
+					// delegation connectors:
+					AssemblyContext childAssCtx = pdc.getAssemblyContext_ProvidedDelegationConnector(); 
+					return getAssCtxs(childAssCtx, pdc.getInnerProvidedRole_ProvidedDelegationConnector(), acList);
+				}
+			}
+		} 
+		// should not happen
+		logger.error("The current assembly context contains a child component, " +
+				"which is neither BasicComponent nor CompositeComponent. " +
+				"This is not supported by the PCMSolver!");
+		throw new UnsupportedOperationException();
+	}
+	
+	
 	public AssemblyContext getAssCtx() {
-		return assCtx;
-	}
-
-	public void setAssCtx(AssemblyContext assCtx) {
-		this.assCtx = assCtx;
+		
+		//return assCtx;
+		return assCtxList.get(assCtxList.size()-1);
 	}
 
 	public AllocationContext getAllCtx() {
@@ -788,4 +1063,11 @@ public class ContextWrapper implements Cloneable {
 		this.pcmInstance = pcmInstance;
 	}
 
+	public EList<AssemblyContext> getAssCtxList() {
+		return assCtxList;
+	}
+
+	public void setAssCtxList(EList<AssemblyContext> assCtxList) {
+		this.assCtxList = assCtxList;
+	}
 }

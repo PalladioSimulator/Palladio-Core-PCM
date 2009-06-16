@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 
 import java.util.HashMap;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.ui.internal.ReopenEditorMenu;
 
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
@@ -51,17 +52,18 @@ public class Pcm2LqnHelper {
 			String compName = ict.getEntityName();
 			String ifName = rdseff.getDescribedService__SEFF().getInterface_Signature().getEntityName();
 			String serviceName = rdseff.getDescribedService__SEFF().getServiceName();
+			
 			id = compName+"_"
 				+ifName+"_"
 				+serviceName+"_"
-				+getNumberForId(cw.getAssCtx())
+				+getAssCtxIdString(cw)+
 				+getNumberForId(cw.getCompUsgCtx());
 		} else if (object instanceof AbstractAction){
 			AbstractAction aa = (AbstractAction)object;
 			String actionName = aa.getEntityName();
 			id = className+"_"
 				+ actionName+"_"
-				+getNumberForId(cw.getAssCtx())
+				+getAssCtxIdString(cw)
 				+getNumberForId(cw.getCompUsgCtx())
 				+getNumberForId(object);
 		} else if (object instanceof Loop){
@@ -72,6 +74,15 @@ public class Pcm2LqnHelper {
 		}
 		
 		return id;
+	}
+
+	private static String getAssCtxIdString(ContextWrapper cw) {
+		String assCtxName = "";
+		EList<AssemblyContext> assCtxList = cw.getAssCtxList();
+		for (AssemblyContext ac : assCtxList){
+			assCtxName+=getNumberForId(ac);
+		}
+		return assCtxName;
 	}
 	
 	private static int getNumberForId(Identifier object) {
