@@ -112,7 +112,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			
 			if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
 					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")){
-				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints);
+				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints, monitor);
 			} else {
 				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
 				GivenInstanceEvaluator gie = new GivenInstanceEvaluator(configuration);
@@ -230,3 +230,6 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	}
 	
 }
+
+
+

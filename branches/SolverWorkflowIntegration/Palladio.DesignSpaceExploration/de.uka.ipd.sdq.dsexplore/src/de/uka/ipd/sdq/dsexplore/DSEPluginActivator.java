@@ -12,6 +12,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 
+
 /**
  * The activator class controls the plug-in life cycle
  */
@@ -22,6 +23,8 @@ public class DSEPluginActivator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static DSEPluginActivator plugin;
+
+	//private SimulationDockService service;
 	
 	/**
 	 * The constructor
@@ -36,10 +39,14 @@ public class DSEPluginActivator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
+		
 		super.start(context);
 		plugin = this;
 		
 		PropertyConfigurator.configure(findFile("log4j/log4j.properties"));
+		
+		//service = new DSESimulationDockService(context);
+
 	}
 
 	/*

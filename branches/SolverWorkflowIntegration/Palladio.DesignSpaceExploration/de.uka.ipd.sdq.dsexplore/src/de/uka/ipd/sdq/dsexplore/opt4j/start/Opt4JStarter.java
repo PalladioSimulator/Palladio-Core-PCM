@@ -8,13 +8,17 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.opt4j.common.archive.ArchiveModule;
+import org.opt4j.config.Task.State;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
+import org.opt4j.core.optimizer.Control;
+import org.opt4j.core.optimizer.Optimizer;
 import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.sa.SimulatedAnnealingModule;
@@ -70,7 +74,7 @@ public class Opt4JStarter {
 
 	public static void startOpt4J(IAnalysis perfAnalysisTool,
 			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints)
+			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints, IProgressMonitor monitor)
 			throws CoreException {
 
 
@@ -86,17 +90,22 @@ public class Opt4JStarter {
 		
 		addPopulationModule(modules);
 
-		runTask(modules);
+		runTask(modules, monitor);
 	}
 
-	private static void runTask(Collection<Module> modules)
+	private static void runTask(Collection<Module> modules, IProgressMonitor monitor)
 			throws CoreException {
 		Opt4JStarter.task = new Opt4JTask(false);
 		task.init(modules);
 
 		try {
+			task.open();
+			Optimizer opt = task.getInstance(Optimizer.class);
+			opt.addOptimizerIterationListener(new DSEListener(monitor));
+			
 			task.execute();
-
+			
+			
 		} catch (CoreException e) {
 			throw e;
 		} catch (Exception e) {
@@ -312,4 +321,15 @@ public class Opt4JStarter {
 		}
 
 	}
+	
+	public synchronized static void terminate (){
+		if (task != null && !task.getState().equals(State.DONE)){
+			Control control = task.getInstance(Control.class);
+			control.doTerminate();	
+			logger.warn("Terminating run");
+		} else {
+			logger.warn("Cannot terminate as no task is executing");
+		}
+	}
+	
 }
