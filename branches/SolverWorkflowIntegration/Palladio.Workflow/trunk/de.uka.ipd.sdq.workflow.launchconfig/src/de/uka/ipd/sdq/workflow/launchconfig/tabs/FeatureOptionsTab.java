@@ -276,6 +276,16 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				DEFAULT_CONNECTOR_FEATURE_CONFIG);
 	}
+	
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+	}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
 
 	/** Button SelectionListener - call a WorkspaceResourceDialog */
 	class WorkspaceButtonSelectionListener extends SelectionAdapter {

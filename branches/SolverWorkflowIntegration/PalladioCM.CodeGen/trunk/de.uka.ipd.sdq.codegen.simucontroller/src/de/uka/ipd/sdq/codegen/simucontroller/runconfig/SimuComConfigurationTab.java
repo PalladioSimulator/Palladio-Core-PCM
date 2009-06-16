@@ -51,8 +51,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		final ModifyListener modifyListener = new ModifyListener(){
 
 			public void modifyText(ModifyEvent e) {
-				SimuComConfigurationTab.this.setDirty(true);
-				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+//				SimuComConfigurationTab.this.setDirty(true);
+//				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
 		};
 		

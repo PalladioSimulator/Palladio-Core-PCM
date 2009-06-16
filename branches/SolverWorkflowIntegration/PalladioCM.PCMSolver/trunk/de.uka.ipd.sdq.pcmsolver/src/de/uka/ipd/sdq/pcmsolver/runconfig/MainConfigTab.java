@@ -387,4 +387,14 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	    return true;
 	}
 
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+	}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
+	
 }

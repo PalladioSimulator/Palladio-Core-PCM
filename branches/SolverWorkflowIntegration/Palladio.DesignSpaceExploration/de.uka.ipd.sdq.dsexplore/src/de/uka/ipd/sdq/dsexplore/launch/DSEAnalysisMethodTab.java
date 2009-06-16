@@ -61,7 +61,6 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	private AnalysisMethodListener listener = new AnalysisMethodListener();
 
 	private String qualityAttribute;
-	
 
 	public DSEAnalysisMethodTab(String qualityAttribute) {
 		super();
@@ -73,7 +72,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void createControl(Composite parent) {
+	public void createControl(Composite parent) {	
 		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 
 		// Map extension elements to their analyis method names
@@ -254,7 +253,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
 				.entrySet().iterator();
 		//FIXME: This seems to call the same apply methods multiple times, which might be the cause for the delay when opening the SimuCom tabs
-		while(it.hasNext()) {
+		while(it.hasNext()) {		
 			it.next().getValue().performApply(configuration);
 		}
 	}
@@ -310,14 +309,27 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		setErrorMessage(null);
 		return true;
 	}
+	
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+	}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
 
 	private class AnalysisMethodListener extends SelectionAdapter {
 
 		@Override
 		public void widgetSelected(SelectionEvent e) {
 			String selectedText = ((Combo)e.getSource()).getText();
-			setVisibleMethodOptions(selectedText);
-			updateLaunchConfigurationDialog();
+			IConfigurationElement selElement = nameExtensionElementMap.get(selectedText);
+			if (selElement != layout.topControl) {
+				setVisibleMethodOptions(selectedText);
+				updateLaunchConfigurationDialog();	
+			}
 		}
 		
 	}
