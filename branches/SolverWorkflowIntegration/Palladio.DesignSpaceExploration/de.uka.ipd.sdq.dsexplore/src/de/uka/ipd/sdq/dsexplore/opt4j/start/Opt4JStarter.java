@@ -90,10 +90,11 @@ public class Opt4JStarter {
 		
 		addPopulationModule(modules);
 
-		runTask(modules, monitor);
+		DSEListener listener = new DSEListener(monitor, maxIterations);
+		runTask(modules, listener);
 	}
 
-	private static void runTask(Collection<Module> modules, IProgressMonitor monitor)
+	private static void runTask(Collection<Module> modules, DSEListener listener)
 			throws CoreException {
 		Opt4JStarter.task = new Opt4JTask(false);
 		task.init(modules);
@@ -101,7 +102,7 @@ public class Opt4JStarter {
 		try {
 			task.open();
 			Optimizer opt = task.getInstance(Optimizer.class);
-			opt.addOptimizerIterationListener(new DSEListener(monitor));
+			opt.addOptimizerIterationListener(listener);
 			
 			task.execute();
 			

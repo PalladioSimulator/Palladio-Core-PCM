@@ -15,15 +15,21 @@ public class DSEListener implements OptimizerIterationListener {
 
 	private IProgressMonitor monitor;
 
-	public DSEListener(IProgressMonitor monitor) {
+	public DSEListener(IProgressMonitor monitor, int maxIterations) {
 		this.monitor = monitor;
+		monitor.beginTask("DSE run", maxIterations);
 	}
 
 	@Override
 	public void iterationComplete(Optimizer optimizer, int iteration) {
 		if (this.monitor.isCanceled()){
 			Opt4JStarter.terminate();
+			this.monitor.setTaskName("DSE Run cancelling");
+			this.monitor.done();
+		} else {
+			monitor.worked(1);
 		}
+		
 
 	}
 
