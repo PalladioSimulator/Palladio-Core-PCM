@@ -224,7 +224,7 @@ public class Opt4JStarter {
 		}
 	}
 
-	private static String prettyPrintResultLineCSV(String output, Individual ind) {
+	static String prettyPrintResultLineCSV(String output, Individual ind) {
 		
 		DSEDecoder decoder = new DSEDecoder();
 		
@@ -242,7 +242,7 @@ public class Opt4JStarter {
 		return output;
 	}
 
-	private static String prettyPrintHeadlineCSV(
+	static String prettyPrintHeadlineCSV(
 			Collection<Individual> individuals, String output) {
 		
 		Individual i = individuals.iterator().next();
@@ -332,5 +332,15 @@ public class Opt4JStarter {
 			logger.warn("Cannot terminate as no task is executing");
 		}
 	}
+	
+	public static Collection<Individual> getParetoOptimalIndividuals(){
+		return task.getInstance(Archive.class);
+	}
+	
+	public static Collection<Individual> getAllIndividuals(){
+		return task.getInstance(PopulationTracker.class);
+	}
+	
+
 	
 }
