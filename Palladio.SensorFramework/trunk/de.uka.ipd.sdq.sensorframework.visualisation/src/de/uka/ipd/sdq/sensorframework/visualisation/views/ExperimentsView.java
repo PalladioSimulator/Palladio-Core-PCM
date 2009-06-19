@@ -34,7 +34,6 @@ import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MessageBox;
 
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.IActionBars;
@@ -60,8 +59,8 @@ import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.CSVSettingsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.DialogType;
 
 /**
- * The view shows data obtained from the 'SensorFactory' model. The view is
- * connected to the model using a content provider.
+ * The view shows data obtained from the 'SensorFactory' model. The view is connected to the model
+ * using a content provider.
  * 
  * @author Roman Andrej
  */
@@ -82,8 +81,9 @@ public class ExperimentsView extends ViewPart {
 	private Action deleteDataSet;
 	private Action properties;
 
-	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentsView.log");
-	
+	private static Logger logger = Logger
+			.getLogger("de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentsView.log");
+
 	public ExperimentsView() {
 	}
 
@@ -93,9 +93,7 @@ public class ExperimentsView extends ViewPart {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets
-	 * .Composite)
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets .Composite)
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
@@ -107,23 +105,19 @@ public class ExperimentsView extends ViewPart {
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
-		Transfer[] transfers = new Transfer[] {
-				EditorInputTransfer.getInstance(),
+		Transfer[] transfers = new Transfer[] { EditorInputTransfer.getInstance(),
 				LocalSelectionTransfer.getTransfer() };
-		viewer.addDragSupport(ops, transfers,
-				new TreeDragSourceListener(viewer));
+		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
 		viewer.addDoubleClickListener(new DoubleClickListener());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			/*
 			 * (non-Javadoc)
 			 * 
-			 * @see
-			 * org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged
 			 * (org.eclipse.jface.viewers.SelectionChangedEvent)
 			 */
 			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection selection = (IStructuredSelection) event
-						.getSelection();
+				IStructuredSelection selection = (IStructuredSelection) event.getSelection();
 				Object selectedObject = selection.getFirstElement();
 				setSelectedElement(selectedObject);
 			}
@@ -216,9 +210,8 @@ public class ExperimentsView extends ViewPart {
 				try {
 					SensorFrameworkDataset.singleton().reload();
 				} catch (Exception ex) {
-					MessageDialog.openError(PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getShell(),
-							"Reloading the Sensor Dataset Failed",
+					MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+							.getShell(), "Reloading the Sensor Dataset Failed",
 							"Reloading the Sensor Dataset Failed. Error Message given: "
 									+ ex.getMessage());
 				}
@@ -251,8 +244,8 @@ public class ExperimentsView extends ViewPart {
 		};
 		expandAll.setText("Expand All");
 		expandAll.setToolTipText("Expand All");
-		expandAll.setImageDescriptor(VisualisationPlugin
-				.getImageDescriptor("/icons/expandall.gif"));
+		expandAll
+				.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/expandall.gif"));
 
 		/** New DataSet action. */
 		newDataSet = new Action() {
@@ -261,8 +254,7 @@ public class ExperimentsView extends ViewPart {
 				AddNewDatasourceWizard wizard = new AddNewDatasourceWizard();
 				// Instantiates the wizard container with the wizard and opens
 				// it
-				WizardDialog dialog = new WizardDialog(getSite().getShell(),
-						wizard);
+				WizardDialog dialog = new WizardDialog(getSite().getShell(), wizard);
 				dialog.create();
 				dialog.setTitle(ConfigureDatasourceDialog.ADD_WIZARD_TITLE);
 				dialog.open();
@@ -271,8 +263,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		newDataSet.setText("New Data Source");
 		newDataSet.setToolTipText("New Data Source");
-		newDataSet.setImageDescriptor(VisualisationPlugin
-				.getImageDescriptor("/icons/add_obj.gif"));
+		newDataSet.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/add_obj.gif"));
 
 		/** Open DataSet action */
 		openDataSet = new Action() {
@@ -283,8 +274,7 @@ public class ExperimentsView extends ViewPart {
 
 				// Instantiates the wizard container with the wizard and opens
 				// it
-				WizardDialog dialog = new WizardDialog(getSite().getShell(),
-						wizard);
+				WizardDialog dialog = new WizardDialog(getSite().getShell(), wizard);
 				dialog.create();
 
 				dialog.setTitle(ConfigureDatasourceDialog.OPEN_WISARD_TITLE);
@@ -304,14 +294,13 @@ public class ExperimentsView extends ViewPart {
 
 				// selected element in 'ExperimentView' DAOFactory
 				if (selectedFactory != null) {
-					SensorFrameworkDataset.singleton().removeDataSource(
-							selectedFactory);
+					SensorFrameworkDataset.singleton().removeDataSource(selectedFactory);
 					viewer.refresh();
 				}
 				// selected element in 'ExperimentView' is Experiment
 				if (selectedExperiment != null && selectedFactory != null) {
-					selectedFactory.createExperimentDAO().removeExperiment(
-							selectedExperiment, true);
+					selectedFactory.createExperimentDAO()
+							.removeExperiment(selectedExperiment, true);
 					viewer.refresh();
 				}
 			}
@@ -333,8 +322,7 @@ public class ExperimentsView extends ViewPart {
 				PreferenceManager mgr = new PreferenceManager();
 				IPreferenceNode node = new PreferenceNode("1", page);
 				mgr.addToRoot(node);
-				PreferenceDialog dialog = new PreferenceDialog(getSite()
-						.getShell(), mgr);
+				PreferenceDialog dialog = new PreferenceDialog(getSite().getShell(), mgr);
 				dialog.create();
 				dialog.setMessage(page.getTitle());
 				dialog.open();
@@ -348,7 +336,7 @@ public class ExperimentsView extends ViewPart {
 		saveAsCSV = new Action() {
 			@Override
 			public void run() {
-				saveDataAsCSV();
+				exportSelectedDataToCSV();
 			}
 		};
 		saveAsCSV.setText("Save as CSV");
@@ -358,72 +346,65 @@ public class ExperimentsView extends ViewPart {
 	 * Transform and export the data in the CSV format.
 	 * 
 	 * @author David Scherr
-	 * @param filename
+	 * @param fileName
 	 *            Name of the CSV file.
 	 * @param measurement
 	 *            The collection of measurements of the selected sensor.
 	 * @param isHeader
-	 *            If the value is true, then the CSV file will integrate a
-	 *            superscription.
+	 *            If the value is true, then the CSV file will integrate a superscription.
 	 * @param separator
-	 *            At the moment there are 3 possibilities to separate the CSV
-	 *            data: (1) Semicolon (2) Comma (3) Tabulator. One of these is
-	 *            stored in this parameter as the corresponding character, but
-	 *            still in String format (maybe in the future someone will add a
-	 *            separator with more than one character).
+	 *            At the moment there are 3 possibilities to separate the CSV data: (1) Semicolon
+	 *            (2) Comma (3) Tabulator. One of these is stored in this parameter as the
+	 *            corresponding character, but still in String format (maybe in the future someone
+	 *            will add a separator with more than one character).
 	 */
-	private void exportSensorDataToCSV(String filename,
-			Collection<Measurement> measurement, boolean isHeader,
-			String separator) {
+	private void exportSensorMeasurementToCSV(String fileName, Collection<Measurement> measurement,
+			boolean isHeader, String separator) {
 
 		FileWriter fileWriter;
 		BufferedWriter bufferedWriter;
 		try {
-			fileWriter = new FileWriter(filename);
+			fileWriter = new FileWriter(fileName);
 			bufferedWriter = new BufferedWriter(fileWriter);
 			if (measurement.iterator().next() instanceof StateMeasurement) {
-				// If you have activated the header in the dialog (CSVSettingsDialog),
-				// then you get a superscription of the measurement types.
+				// If you have activated the header in the dialog (CSVSettingsDialog), then you get
+				// a superscription of the measurement types.
 				if (isHeader) {
-					bufferedWriter.append("Event Time" + separator + "State"
-							+ "\n");
+					bufferedWriter.append("Event Time" + separator + "State" + "\n");
 				}
-				// Get each element of Event Time and Sensor State as a pair which will be
-				// save as one CSV line into the buffer.
-				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
-						.hasNext();) {
-					// The instance of the Measurement is known as StateMeasurement and
-					// through the casting you get the special data of this type of Measurement.
+				// Get each element of Event Time and Sensor State as a pair which will be save as
+				// one CSV line into the buffer.
+				for (Iterator<Measurement> iterator = measurement.iterator(); iterator.hasNext();) {
+					// The instance of the Measurement is known as StateMeasurement and through the
+					// casting you get the special data of this type of Measurement.
 					StateMeasurement data = ((StateMeasurement) iterator.next());
-					// Write one pair of data per line with the separator, which
-					// you can choose in the dialog (CSVSettingsDialog).
+					// Write one pair of data per line with the separator, which you can choose in
+					// the dialog (CSVSettingsDialog).
 					bufferedWriter.append(data.getEventTime() + separator
 							+ data.getSensorState().getStateLiteral() + "\n");
 				}
 			} else if (measurement.iterator().next() instanceof TimeSpanMeasurement) {
-				// If you have activated the header in the dialog (CSVSettingsDialog),
-				// then you get a superscription of the measurement types.
+				// If you have activated the header in the dialog (CSVSettingsDialog), then you get
+				// a superscription of the measurement types.
 				if (isHeader) {
-					bufferedWriter.append("Event Time" + separator
-							+ "Time Span" + "\n");
+					bufferedWriter.append("Event Time" + separator + "Time Span" + "\n");
 				}
-				// Get each element of Event Time and Time Span as a pair which will be
-				// save as one CSV line into the buffer.
-				for (Iterator<Measurement> iterator = measurement.iterator(); iterator
-						.hasNext();) {
-					// The instance of the Measurement is known as TimeSpanMeasurement and
-					// through the casting you get the special data of this type of Measurement.
-					TimeSpanMeasurement data = ((TimeSpanMeasurement) iterator
-							.next());
-					// Write one pair of data per line with the separator, which
-					// you can choose in the dialog (CSVSettingsDialog).
-					bufferedWriter.append(data.getEventTime() + separator
-							+ data.getTimeSpan() + "\n");
+				// Get each element of Event Time and Time Span as a pair which will be save as one
+				// CSV line into the buffer.
+				for (Iterator<Measurement> iterator = measurement.iterator(); iterator.hasNext();) {
+					// The instance of the Measurement is known as TimeSpanMeasurement and through
+					// the casting you get the special data of this type of Measurement.
+					TimeSpanMeasurement data = ((TimeSpanMeasurement) iterator.next());
+					// Write one pair of data per line with the separator, which you can choose in
+					// the dialog (CSVSettingsDialog).
+					bufferedWriter.append(data.getEventTime() + separator + data.getTimeSpan()
+							+ "\n");
 				}
 			} else {
-				// The type of measurement is unknown.				
-				logger.log(Level.SEVERE, "It is not possible to export this type of measurement to the CSV format."
-						+ "At the moment only instances of StateMeasurement and TimeSpanMeasurement are suitable.");
+				// The type of measurement is unknown.
+				logger.log(Level.SEVERE, "It is not possible to export this type of measurement "
+						+ "to the CSV format. At the moment only instances of StateMeasurement "
+						+ "and TimeSpanMeasurement are suitable.");
 				throw new IllegalArgumentException();
 			}
 			bufferedWriter.close();
@@ -434,117 +415,132 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Get the Data which are associated with the selected TreeView element and
-	 * open a save dialog with settings for the CSV export.
+	 * @author David Scherr
+	 * 
+	 * @param pathDir
+	 *            Path in which you find the <code>ExperimentRun</code> directory.
+	 * @param sensors
+	 *            Sensors of Measurement.
+	 * @param run
+	 *            <code>ExperimentRun</code> with all measurements.
+	 * @param isHeader
+	 *            If the value is true, then the CSV file will integrate a superscription.
+	 * @param separator
+	 *            At the moment there are 3 possibilities to separate the CSV data: (1) Semicolon
+	 *            (2) Comma (3) Tabulator. One of these is stored in this parameter as the
+	 *            corresponding character, but still in String format (maybe in the future someone
+	 *            will add a separator with more than one character).
+	 */
+	private void exportExperimentRunToCSV(String pathDir, Collection<Sensor> sensors,
+			ExperimentRun run, boolean isHeader, String separator) {
+		SensorAndMeasurements sensorAndMeasurements;
+		String fileName;
+		String pathFile;
+		for (Iterator<Sensor> iterator = sensors.iterator(); iterator.hasNext();) {
+			Sensor sensor = iterator.next();
+			sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
+			fileName = sanitizeFileName(sensor.getSensorName().toString() + ".csv");
+			pathFile = pathDir + File.separatorChar + fileName;
+			exportSensorMeasurementToCSV(pathFile, sensorAndMeasurements.getMeasurements(),
+					isHeader, separator);
+		}
+	}
+
+	/**
+	 * Get the Data which are associated with the selected TreeView element and open a save dialog
+	 * with settings for the CSV export.
 	 * 
 	 * @author David Scherr
 	 */
-	private void saveDataAsCSV() {
-		
+	private void exportSelectedDataToCSV() {
+
 		ISelection selection = viewer.getSelection();
-		IStructuredSelection structuredSelection = (IStructuredSelection) selection;	
+		IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 		Object object = structuredSelection.getFirstElement();
 
 		if (object instanceof FileDAOFactory) {
-			
+
 		} else if (object instanceof ExperimentAndDAO) {
-			
+
 		} else if (object instanceof TreeContainer) {
-			System.out.println(((TreeContainer) object).getElements());
-			CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.DIRECTORY);
-			dialog.open();
-			/*
-			 * Er soll die dem markierten Objekt untergeordneten Experiment Runs speichern.
-			 * Dazu sollte der unten vorhandene Quelltext des Speichervorgangs in eine Methode gepackt
-			 * werden, die nur noch aufgerufen werden muss mit dem Experiment Run als Parameter.
-			 */
-			dialog.dispose();
-			
+			TreeContainer treeContainer = (TreeContainer) object;
+			String dirAllExperimentRuns = treeContainer.getName();
+			CSVSettingsDialog dialog = new CSVSettingsDialog("", dirAllExperimentRuns, "",
+					DialogType.DIRECTORY);
+
+			// If the returned path of the dialog is valid, then continue the export.
+			if (dialog.getValidPath()) {
+				exportAllExperimentRunsToCSV(dialog.getPath(), treeContainer
+						.getElements(), dialog.isHeader(), dialog.getSeparator());
+			}
+
 		} else if (object instanceof TreeObject) {
 			TreeObject treeObject = (TreeObject) object;
 			Object innerObject = treeObject.getObject();
-			
+
 			if (innerObject instanceof Sensor) {
 				// Get the measurement of a special selected sensor of the TreeObject.
 				Sensor sensor = (Sensor) innerObject;
-				SensorAndMeasurements sensorAndMeasurements = treeObject.getRun().getMeasurementsOfSensor(sensor);			
-				String fileName = sanitizeFileName(sensorAndMeasurements.getSensor().getSensorName().toString()+ ".csv");
+				SensorAndMeasurements sensorAndMeasurements = treeObject.getRun()
+						.getMeasurementsOfSensor(sensor);
+				String fileName = sanitizeFileName(sensorAndMeasurements.getSensor()
+						.getSensorName().toString()
+						+ ".csv");
 				// Please note that the dialog type is a FileDialog.
-				CSVSettingsDialog dialog = new CSVSettingsDialog("", fileName, "*.csv", DialogType.FILE);
-				dialog.open();		
-				
-				if (!(dialog.getFilePath().equals(""))) {
-					exportSensorDataToCSV(dialog.getFilePath(), sensorAndMeasurements
-							.getMeasurements(), dialog.isHeader(), dialog
-							.getSeparator());
-				} else {
-					// The Save Dialog is canceled.
-				}
-				dialog.dispose();	
+				CSVSettingsDialog dialog = new CSVSettingsDialog("", fileName, "*.csv",
+						DialogType.FILE);
 
+				if (dialog.getValidPath()) {
+					exportSensorMeasurementToCSV(dialog.getPath(), sensorAndMeasurements
+							.getMeasurements(), dialog.isHeader(), dialog.getSeparator());
+				}
 			} else if (innerObject instanceof ExperimentRun) {
 				// Get the measurements of all sensors of the selected TreeObject.
-				ExperimentRun run = (ExperimentRun) innerObject;				
-				SensorAndMeasurements sensorAndMeasurements;
-				String fileName = "";
-				String filePath = "";
-				boolean isDirValid = false;
+				ExperimentRun run = (ExperimentRun) innerObject;
 				String dirExperiment = sanitizeFileName(run.getExperimentDateTime());
 				// Please note that the dialog type is a DirectoryDialog.
-				CSVSettingsDialog dialog = new CSVSettingsDialog("", "", "*.csv", DialogType.DIRECTORY);
-				
-				// If the directory does already exist and the user doesn't want to overwrite, then you must
-				// choose another directory or cancel the dialog, otherwise you must cancel the dialog.
-				while (!isDirValid) {
-					dialog.open();
-					if (dialog.isCanceled()) {
-						isDirValid = true;
-					} else {
-						// The dialog is not canceled.
-						isDirValid = true;
-						filePath = dialog.getFilePath() + File.separatorChar + dirExperiment;
-						File fileObject = new File(filePath);
-						if (fileObject.exists()) {
-							MessageBox box = new MessageBox(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), SWT.OK | SWT.CANCEL);
-							box.setMessage("The directory already exists! Do you want to overwrite it?");
-			                int boxResult = box.open();							
-			                if (boxResult == SWT.OK) {
-								// Overwrite the existing directory.
-			                	isDirValid = true;
-			                } else if (boxResult == SWT.CANCEL) {
-			                	// Open the directory dialog again, to choose another directory.
-			                	isDirValid = false;
-			                }
-						}
-						if (isDirValid) {
-							new File(filePath).mkdirs();
-							for (Iterator<Sensor> iterator = treeObject.getExperiment().getSensors().iterator(); iterator.hasNext();) {
-								Sensor sensor = iterator.next();
-								sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
-								fileName = sanitizeFileName(sensor.getSensorName().toString() + ".csv");
-								
-								exportSensorDataToCSV(filePath + File.separatorChar + fileName,
-										sensorAndMeasurements.getMeasurements(),
-										dialog.isHeader(), dialog.getSeparator());	
-							}
-						}
-					}
+				CSVSettingsDialog dialog = new CSVSettingsDialog("", dirExperiment, "",
+						DialogType.DIRECTORY);
+
+				if (dialog.getValidPath()) {
+					exportExperimentRunToCSV(dialog.getPath(), treeObject.getExperiment()
+							.getSensors(), run, dialog.isHeader(), dialog.getSeparator());
 				}
-				dialog.dispose();
 			}
 		}
 	}
-	
+
+	private void exportAllExperimentRunsToCSV(String pathDir,
+			Collection<TreeObject> allExperimentRuns, boolean isHeader, String separator) {
+		// Save all Experiments
+		for (Iterator<TreeObject> iterator = allExperimentRuns.iterator(); iterator.hasNext();) {
+			TreeObject treeObject = (TreeObject) iterator.next();
+			Object innerObject = treeObject.getObject();
+
+			// Save all ExperimentRuns
+			if (innerObject instanceof ExperimentRun) {
+				// Get the measurements of all sensors of the selected TreeObject.
+				ExperimentRun run = (ExperimentRun) innerObject;
+				String dirExperiment = sanitizeFileName(run.getExperimentDateTime());
+				String pathAllExperimentRuns = pathDir + File.separatorChar + dirExperiment;
+				new File(pathAllExperimentRuns).mkdirs();
+				exportExperimentRunToCSV(pathAllExperimentRuns, treeObject.getExperiment()
+						.getSensors(), run, isHeader, separator);
+			}
+		}
+	}
+
 	/**
-	 * Some characters are not allowed for file names, e.g. : , ", *, etc. which will be
-	 * replaced by sanitizeFileName().
+	 * Some characters are not allowed for file names, e.g. : , ", *, etc. which will be replaced by
+	 * sanitizeFileName().
 	 * 
 	 * @author David Scherr
-	 * @param fileName The name of the file.
+	 * @param fileName
+	 *            The name of the file.
 	 * @return The sanitized file name, which is free of not allowed characters.
 	 */
 	private String sanitizeFileName(String fileName) {
-		
+
 		// Replace all chars, which can't be a part of a valid windows filename.
 		fileName = fileName.replace('\\', '-');
 		fileName = fileName.replace('/', '-');
@@ -569,15 +565,32 @@ public class ExperimentsView extends ViewPart {
 			selectedFactory = (IDAOFactory) selected;
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(true);
+			saveAsCSV.setEnabled(true);
 		} else if (selected instanceof ExperimentAndDAO) {
 			ExperimentAndDAO experimentAndDAO = (ExperimentAndDAO) selected;
 			selectedExperiment = (Experiment) experimentAndDAO.getExperiment();
 			selectedFactory = experimentAndDAO.getDatasource();
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(false);
+			saveAsCSV.setEnabled(true);
 		} else {
 			deleteDataSet.setEnabled(false);
 			properties.setEnabled(false);
+			saveAsCSV.setEnabled(true);
+
+			if ((selected instanceof TreeContainer)) {
+				if (((TreeContainer) selected).getName().equals("Sensors")) {
+					saveAsCSV.setEnabled(false);
+				}
+			} else if (selected instanceof TreeObject) {
+				if (((TreeObject) selected).getObject() instanceof ExperimentRun) {
+
+				} else {
+					if (((TreeObject) selected).getRun() == null) {
+						saveAsCSV.setEnabled(false);
+					}
+				}
+			}
 		}
 	}
 
