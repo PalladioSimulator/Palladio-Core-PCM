@@ -5,38 +5,48 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * This class demonstrates the DirectoryDialog class
+ * This class demonstrates the DirectoryDialog class.
+ * 
+ * @author David Scherr
  */
 public class CSVDirectoryDialog {
-	private String fileDir;
+	private String pathDir;
 	private boolean isCanceled = false;
 
 	/**
-	 * Runs the application
+	 * Runs the application.
+	 * 
+	 * @param pathDir The full path of the directory.
 	 */
-	public CSVDirectoryDialog(String fileDir) {
+	public CSVDirectoryDialog(String pathDir) {
 		
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		shell.setText("CSV Directory");
 
-		this.fileDir = fileDir;
+		this.pathDir = pathDir;
 		DirectoryDialog dialog = new DirectoryDialog(shell);
-		dialog.setFilterPath(fileDir);
+		dialog.setFilterPath(pathDir);
 		dialog.setText("Directory of Experiment Run");
 		dialog.setMessage("Select a directory");
 		
-		this.fileDir = dialog.open();
+		this.pathDir = dialog.open();
 		
-		if (this.fileDir == null) {
-			this.fileDir = "";
+		if (this.pathDir == null) {
+			this.pathDir = "";
 			isCanceled  = true;
 		}
 	}
 
-	public String getFileDir() {
-		return fileDir;
+	/**
+	 * @return The full path of the directory.
+	 */
+	public String getPathDir() {
+		return pathDir;
 	}
 	
+	/**
+	 * @return {@link CSVSettingsDialog#isSettingsDialogCanceled()}
+	 */
 	public boolean isCanceled() {
 		return isCanceled;
 	}
