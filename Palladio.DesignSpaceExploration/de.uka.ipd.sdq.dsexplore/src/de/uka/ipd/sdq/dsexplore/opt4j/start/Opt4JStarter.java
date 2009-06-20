@@ -11,11 +11,17 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.opt4j.common.archive.ArchiveModule;
+import org.opt4j.common.archive.BoundedArchive;
+import org.opt4j.common.archive.CrowdingArchive;
+import org.opt4j.common.archive.DefaultArchive;
+import org.opt4j.common.archive.PopulationArchive;
 import org.opt4j.config.Task.State;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
+import org.opt4j.core.IndividualCollectionListener;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
+import org.opt4j.core.Population;
 import org.opt4j.core.Value;
 import org.opt4j.core.optimizer.Control;
 import org.opt4j.core.optimizer.Optimizer;
@@ -113,11 +119,13 @@ public class Opt4JStarter {
 					"de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
 		} finally {
 			try {
-			Collection<Individual> archive = task.getInstance(Archive.class);
-			printOutIndividuals(archive, "Archive");
+			Collection<Individual> archive = getArchiveIndividuals();
+			printOutIndividuals(archive, "NGSA2Archive");
 
-			Collection<Individual> allIndividuals = task.getInstance(PopulationTracker.class);
+			PopulationTracker allIndividuals = getAllIndividuals();
 			printOutIndividuals(allIndividuals, "All Individuals");
+			
+			printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "OwnOptimalCandidates");
 			
 			} catch (Exception e){
 				logger.error("Optimisation failed, I could not save the results.");
@@ -332,12 +340,33 @@ public class Opt4JStarter {
 		}
 	}
 	
-	public static Collection<Individual> getParetoOptimalIndividuals(){
-		return task.getInstance(Archive.class);
+	/**
+	 * Returns the instance of {@link Archive} from the Opt4J {@link Task},
+	 *  which is a {@link DefaultArchive} inheriting from 
+	 *  {@link CrowdingArchive} and {@link BoundedArchive}.  
+	 * @return
+	 */
+	public static Archive getArchiveIndividuals(){
+		return (Archive)task.getInstance(Archive.class);
 	}
 	
-	public static Collection<Individual> getAllIndividuals(){
-		return task.getInstance(PopulationTracker.class);
+	/**
+	 * Returns the instance of {@link Population} from the Opt4J {@link Task}, 
+	 * which is a plain {@link IndividualCollection}.  
+	 * @return
+	 */
+	public static Population getPopulationIndividuals(){
+		return (Population)task.getInstance(Population.class);
+	}
+	
+	/**
+	 * Returns the instance of {@link PopulationTracker} from the Opt4J {@link Task}, 
+	 * which is an {@link IndividualCollectionListener} that listens on the 
+	 * {@link Population} instance from the Opt4J {@link Task}.  
+	 * @return
+	 */
+	public static PopulationTracker getAllIndividuals(){
+		return (PopulationTracker)task.getInstance(PopulationTracker.class);
 	}
 	
 
