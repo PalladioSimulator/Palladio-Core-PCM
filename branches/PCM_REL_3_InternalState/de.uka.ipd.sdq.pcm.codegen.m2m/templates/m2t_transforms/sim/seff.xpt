@@ -114,7 +114,7 @@
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 		
 			//first try whether a state variable is used
-			try {
+			/*try {
 				java.lang.reflect.Field stateField = this.getClass().getField("«vc.specification_VariableCharacterisation.specification.specificationString()»");
 				String value = (String)stateField.get(this);
 			    //this is a variable usage where a state is used in the left side 
@@ -122,7 +122,7 @@
 				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy(value,methodBodyStackFrame.copyFrame()));
 				System.out.println("Setting the variable «pu.parameterUsageLHS()».«vc.type.toString()» to the content of a state variable «vc.specification_VariableCharacterisation.specification.specificationString()»:"+value);
 			  
-			} catch (NoSuchFieldException e){
+			} catch (NoSuchFieldException e){*/
 				System.out.println("This setVariableAction for «pu.parameterUsageLHS()» does not involve state.");
 			   //no state used, do regular stuff
 			   «IF pu.namedReference_VariableUsage.isInnerReference()»
@@ -131,10 +131,10 @@
 			   «ELSE»
 				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
 					ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»"));
-			} catch (Exception e) {
+			/*} catch (Exception e) {
 			  // TODO Auto-generated catch block
 			  e.printStackTrace();
-			} 
+			} */
 		
 
 			«ENDIF»
@@ -146,7 +146,12 @@
 	//SetStateAction
 	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
-			this.«pu.namedReference_VariableUsage.referenceName» = "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1, "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1);;
+			this.myDefaultComponentStackFrame
+			.addValue(
+				"«pu.namedReference_VariableUsage.referenceName».«vc.type.toString()»",
+				ctx.evaluate("«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1, "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1)));
+		
+			//this.«pu.namedReference_VariableUsage.referenceName» = "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".substring(1, "«pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length()-1);;
 		«ENDFOREACH»
 	«ENDFOREACH»
 «ENDDEFINE»
