@@ -40,6 +40,8 @@ public class DSEOptionsTab extends FileNamesInputTab {
 
 	private Text maxCost;
 
+	private Text textGivenInstances;
+
 
 	@Override
 	public void createControl(Composite parent) {
@@ -111,6 +113,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		this.textCostModel = new Text(container, SWT.SINGLE | SWT.BORDER);
 		this.createFileInputSection(container, modifyListener, "Cost Model File", DSEConstantsContainer.COST_MODEL_EXTENSION, textCostModel);
 		
+		/**
+		 * Add given instances input section
+		 */
+		this.textGivenInstances = new Text(container, SWT.SINGLE | SWT.BORDER);
+		this.createFileInputSection(container, modifyListener, "Predefined instances", DSEConstantsContainer.CSV_EXTENSION, textGivenInstances);
+
 	}
 
 	@Override
@@ -172,6 +180,13 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.COST_FILE, e.getMessage());
 		}
+		try {
+			this.textGivenInstances.setText(configuration.getAttribute(
+					DSEConstantsContainer.PREDEFINED_INSTANCES, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.PREDEFINED_INSTANCES, e.getMessage());
+		}
+		
 
 	}
 
@@ -198,6 +213,9 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.COST_FILE, 
 				this.textCostModel.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.PREDEFINED_INSTANCES, 
+				this.textGivenInstances.getText());
 	}
 
 	@Override
@@ -277,7 +295,7 @@ public class DSEOptionsTab extends FileNamesInputTab {
 			setErrorMessage("Cost model is missing!");
 			return false;
 		}
-
+		
 		return true;
 	}
 	

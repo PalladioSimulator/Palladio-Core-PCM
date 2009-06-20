@@ -70,7 +70,7 @@ public class DSEProblem {
 		
 		determineAllocationDecisions();
 		
-		determineSOAPOrRMIDecisions();
+		//determineSOAPOrRMIDecisions();
 		
 		this.bounds = new DimensionBounds(this.pcmProblem);
 

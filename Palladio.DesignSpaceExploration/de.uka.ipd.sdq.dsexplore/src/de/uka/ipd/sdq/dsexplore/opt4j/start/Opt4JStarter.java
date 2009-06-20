@@ -8,13 +8,17 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.opt4j.common.archive.ArchiveModule;
+import org.opt4j.config.Task.State;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
+import org.opt4j.core.optimizer.Control;
+import org.opt4j.core.optimizer.Optimizer;
 import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.sa.SimulatedAnnealingModule;
@@ -53,12 +57,9 @@ public class Opt4JStarter {
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	public static List<Value<Double>> upperConstraints;
-
-	public static void startOpt4J(IAnalysis perfAnalysisTool,
-			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints)
-			throws CoreException {
-
+	
+	public static void init(IAnalysis perfAnalysisTool, IAnalysis relAnalysisTool, List<Value<Double>> upperConstraints, CostRepository costs, PCMInstance pcmInstance){
+		
 		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
 		Opt4JStarter.relAnalysisTool = relAnalysisTool;
 		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
@@ -69,40 +70,42 @@ public class Opt4JStarter {
 		
 		Opt4JStarter.problem.saveProblem();
 		
+	}
+
+	public static void startOpt4J(IAnalysis perfAnalysisTool,
+			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
+			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints, IProgressMonitor monitor)
+			throws CoreException {
+
+
+		init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+		
+		Collection<Module> modules = new ArrayList<Module>();
 
 		DSEModule dseModule = new DSEModule();
-
-		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
-		ea.setGenerations(maxIterations);
-		ea.setAlpha(individualsPerGeneration);
-		ea.setLambda((int) Math.floor(individualsPerGeneration / 2.0 + 0.5));
-		
-		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
-		sa.setIterations(maxIterations);
-
-
-		/*
-		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
-		 */
-
-		// ArchiveModule am = new ArchiveModule();
-		// am.setType(ArchiveModule.Type.);
-		PopulationTrackerModule p = new PopulationTrackerModule();
-		
-
-		Collection<Module> modules = new ArrayList<Module>();
-		modules.add(ea);
 		modules.add(dseModule);
-		modules.add(p);
-		// modules.add(dtlz);
-		// modules.add(gui);
+		
+		addOptimisationModules(maxIterations, individualsPerGeneration,
+				modules);
+		
+		addPopulationModule(modules);
 
+		runTask(modules, monitor);
+	}
+
+	private static void runTask(Collection<Module> modules, IProgressMonitor monitor)
+			throws CoreException {
 		Opt4JStarter.task = new Opt4JTask(false);
 		task.init(modules);
 
 		try {
+			task.open();
+			Optimizer opt = task.getInstance(Optimizer.class);
+			opt.addOptimizerIterationListener(new DSEListener(monitor));
+			
 			task.execute();
-
+			
+			
 		} catch (CoreException e) {
 			throw e;
 		} catch (Exception e) {
@@ -132,7 +135,34 @@ public class Opt4JStarter {
 		}
 	}
 
-	private static void printOutIndividuals(Collection<Individual> individuals,
+	private static void addPopulationModule(Collection<Module> modules) {
+		// ArchiveModule am = new ArchiveModule();
+		// am.setType(ArchiveModule.Type.);
+		PopulationTrackerModule p = new PopulationTrackerModule();
+		
+		modules.add(p);
+		// modules.add(dtlz);
+		// modules.add(gui);
+	}
+
+	private static void addOptimisationModules(int maxIterations,
+			int individualsPerGeneration, Collection<Module> modules) {
+		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
+		ea.setGenerations(maxIterations);
+		ea.setAlpha(individualsPerGeneration);
+		ea.setLambda((int) Math.floor(individualsPerGeneration / 2.0 + 0.5));
+		
+		SimulatedAnnealingModule sa = new SimulatedAnnealingModule();
+		sa.setIterations(maxIterations);
+
+
+		/*
+		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
+		 */
+		modules.add(ea);
+	}
+
+	public static void printOutIndividuals(Collection<Individual> individuals,
 			String collectionName) {
 		logger.warn("------------ RESULTS " + collectionName
 				+ " ----------------------");
@@ -193,9 +223,9 @@ public class Opt4JStarter {
 		}
 	}
 
-	private static String prettyPrintResultLineCSV(String output, Individual ind) {
+	static String prettyPrintResultLineCSV(String output, Individual ind) {
 		
-		DSEDecoder decoder = task.getInstance(DSEDecoder.class);
+		DSEDecoder decoder = new DSEDecoder();
 		
 		// first objectives
 		Objectives objs = ind.getObjectives();
@@ -211,7 +241,7 @@ public class Opt4JStarter {
 		return output;
 	}
 
-	private static String prettyPrintHeadlineCSV(
+	static String prettyPrintHeadlineCSV(
 			Collection<Individual> individuals, String output) {
 		
 		Individual i = individuals.iterator().next();
@@ -273,7 +303,9 @@ public class Opt4JStarter {
 	}
 
 	public static void closeTask(){
-      Opt4JStarter.task.close(); 
+		if (Opt4JStarter.task != null){
+			Opt4JStarter.task.close(); 
+		}
 	}
 	
 	@Deprecated
@@ -289,4 +321,25 @@ public class Opt4JStarter {
 		}
 
 	}
+	
+	public synchronized static void terminate (){
+		if (task != null && !task.getState().equals(State.DONE)){
+			Control control = task.getInstance(Control.class);
+			control.doTerminate();	
+			logger.warn("Terminating run");
+		} else {
+			logger.warn("Cannot terminate as no task is executing");
+		}
+	}
+	
+	public static Collection<Individual> getParetoOptimalIndividuals(){
+		return task.getInstance(Archive.class);
+	}
+	
+	public static Collection<Individual> getAllIndividuals(){
+		return task.getInstance(PopulationTracker.class);
+	}
+	
+
+	
 }

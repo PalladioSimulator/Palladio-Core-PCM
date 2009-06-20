@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.GivenInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
@@ -109,7 +110,15 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			upperConstraints.add(new DoubleValue(maxCost));
 			upperConstraints.add(new DoubleValue(maxPOFOD));
 			
-		    Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints);
+			if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
+					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")){
+				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints, monitor);
+			} else {
+				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+				GivenInstanceEvaluator gie = new GivenInstanceEvaluator(configuration);
+				gie.start();
+				
+			}
 		    
 		  		
 			} finally {
@@ -221,3 +230,6 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	}
 	
 }
+
+
+

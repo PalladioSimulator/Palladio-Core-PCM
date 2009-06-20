@@ -29,5 +29,16 @@
             type="de.uka.ipd.sdq.dsexplore.launchDSE">
       </launchConfigurationTabGroup>
    </extension>
+   
+    <!--extension
+       point="org.eclipse.ui.views">
+	<view
+          allowMultiple="false"
+          class="de.uka.ipd.sdq.dsexplore.launch.DSEDockStatusViewPart"
+          icon="icons/screen_blue_small.gif"
+          id="de.uka.ipd.sdq.dsexplore.DockStatusViewPart"
+          name="DSE Status">
+    </view>
+ </extension-->
 
 </plugin>
