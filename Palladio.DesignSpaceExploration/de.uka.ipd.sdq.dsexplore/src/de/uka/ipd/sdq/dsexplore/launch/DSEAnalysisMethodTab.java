@@ -29,7 +29,6 @@ import org.eclipse.swt.widgets.Composite;
 
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LaunchHelper;
-import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 
 /**
  * This class represents the launch configuration tab "Analyis Method". It

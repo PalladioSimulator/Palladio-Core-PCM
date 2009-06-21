@@ -18,8 +18,7 @@ Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,
  de.uka.ipd.sdq.dsexplore.helper,
- de.uka.ipd.sdq.dsexplore.launch,
- de.uka.ipd.sdq.dsexplore.qualityAttributes
+ de.uka.ipd.sdq.dsexplore.launch
 Bundle-ClassPath: .,
  log4j/
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

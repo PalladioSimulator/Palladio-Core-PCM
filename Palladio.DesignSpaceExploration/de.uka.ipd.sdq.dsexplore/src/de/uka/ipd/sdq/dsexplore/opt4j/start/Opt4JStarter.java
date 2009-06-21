@@ -125,7 +125,7 @@ public class Opt4JStarter {
 			PopulationTracker allIndividuals = getAllIndividuals();
 			printOutIndividuals(allIndividuals, "All Individuals");
 			
-			printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "OwnOptimalCandidates");
+			printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
 			
 			} catch (Exception e){
 				logger.error("Optimisation failed, I could not save the results.");
