@@ -316,8 +316,7 @@ public class ExperimentsView extends ViewPart {
 			@Override
 			public void run() {
 
-				IPreferencePage page = new DAOFactoryPreferencePage(
-						selectedFactory);
+				IPreferencePage page = new DAOFactoryPreferencePage(selectedFactory);
 				page.setTitle("General Information");
 				PreferenceManager mgr = new PreferenceManager();
 				IPreferenceNode node = new PreferenceNode("1", page);
@@ -343,7 +342,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Transform and export the data in the CSV format.
+	 * Export the measurement of one sensor to a CSV file.
 	 * 
 	 * @author David Scherr
 	 * @param fileName
@@ -415,8 +414,9 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * @author David Scherr
+	 * Export an experiment run to a folder with CSV files.
 	 * 
+	 * @author David Scherr
 	 * @param pathDir
 	 *            Path in which you find the <code>ExperimentRun</code> directory.
 	 * @param sensors
@@ -448,7 +448,7 @@ public class ExperimentsView extends ViewPart {
 
 	/**
 	 * Get the Data which are associated with the selected TreeView element and open a save dialog
-	 * with settings for the CSV export.
+	 * with settings for the export to CSV files.
 	 * 
 	 * @author David Scherr
 	 */
@@ -470,8 +470,8 @@ public class ExperimentsView extends ViewPart {
 
 			// If the returned path of the dialog is valid, then continue the export.
 			if (dialog.getValidPath()) {
-				exportAllExperimentRunsToCSV(dialog.getPath(), treeContainer
-						.getElements(), dialog.isHeader(), dialog.getSeparator());
+				exportAllExperimentRunsToCSV(dialog.getPath(), treeContainer.getElements(), dialog
+						.isHeader(), dialog.getSeparator());
 			}
 
 		} else if (object instanceof TreeObject) {
@@ -510,6 +510,23 @@ public class ExperimentsView extends ViewPart {
 		}
 	}
 
+	/**
+	 * Export all experiment runs to the corresponding folders which contains sub-folders with the
+	 * CSV files.
+	 * 
+	 * @author David Scherr
+	 * @param pathDir
+	 *            Path in which you find the directory of all Experiment Runs.
+	 * @param allExperimentRuns
+	 *            Collection of the TreeObjects, which contains Experiment Runs.
+	 * @param isHeader
+	 *            If the value is true, then the CSV file will integrate a superscription.
+	 * @param separator
+	 *            At the moment there are 3 possibilities to separate the CSV data: (1) Semicolon
+	 *            (2) Comma (3) Tabulator. One of these is stored in this parameter as the
+	 *            corresponding character, but still in String format (maybe in the future someone
+	 *            will add a separator with more than one character).
+	 */
 	private void exportAllExperimentRunsToCSV(String pathDir,
 			Collection<TreeObject> allExperimentRuns, boolean isHeader, String separator) {
 		// Save all Experiments
