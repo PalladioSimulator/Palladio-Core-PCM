@@ -414,7 +414,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Export an experiment run to a folder with CSV files.
+	 * Export an experiment run to a corresponding folder with all subordinated runs as CSV files.
 	 * 
 	 * @author David Scherr
 	 * @param pathDir
@@ -512,7 +512,7 @@ public class ExperimentsView extends ViewPart {
 
 	/**
 	 * Export all experiment runs to the corresponding folders which contains sub-folders with the
-	 * CSV files.
+	 * particular runs as CSV files.
 	 * 
 	 * @author David Scherr
 	 * @param pathDir
@@ -548,28 +548,28 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	/**
-	 * Some characters are not allowed for file names, e.g. : , ", *, etc. which will be replaced by
-	 * sanitizeFileName().
+	 * Some characters are not allowed for file and directory names, e.g. : , ", *, etc. which will
+	 * be replaced by sanitizeFileName().
 	 * 
 	 * @author David Scherr
-	 * @param fileName
-	 *            The name of the file.
+	 * @param fileOrDirName
+	 *            The name of a file or directory.
 	 * @return The sanitized file name, which is free of not allowed characters.
 	 */
-	private String sanitizeFileName(String fileName) {
+	private String sanitizeFileName(String fileOrDirName) {
 
 		// Replace all chars, which can't be a part of a valid windows filename.
-		fileName = fileName.replace('\\', '-');
-		fileName = fileName.replace('/', '-');
-		fileName = fileName.replace(':', '-');
-		fileName = fileName.replace('*', '+');
-		fileName = fileName.replace('?', '!');
-		fileName = fileName.replace('"', ' ');
-		fileName = fileName.replace('<', '(');
-		fileName = fileName.replace('>', ')');
-		fileName = fileName.replace('|', ',');
+		fileOrDirName = fileOrDirName.replace('\\', '-');
+		fileOrDirName = fileOrDirName.replace('/', '-');
+		fileOrDirName = fileOrDirName.replace(':', '-');
+		fileOrDirName = fileOrDirName.replace('*', '+');
+		fileOrDirName = fileOrDirName.replace('?', '!');
+		fileOrDirName = fileOrDirName.replace('"', ' ');
+		fileOrDirName = fileOrDirName.replace('<', '(');
+		fileOrDirName = fileOrDirName.replace('>', ')');
+		fileOrDirName = fileOrDirName.replace('|', ',');
 
-		return fileName;
+		return fileOrDirName;
 	}
 
 	/** Set a instance of, in viewer selected element. */
