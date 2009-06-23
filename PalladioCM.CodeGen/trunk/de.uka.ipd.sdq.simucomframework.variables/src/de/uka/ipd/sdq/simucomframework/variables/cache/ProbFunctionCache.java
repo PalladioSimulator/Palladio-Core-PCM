@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -63,14 +64,23 @@ public class ProbFunctionCache {
 				sum += sample.getProbability();
 			}
 			if (Math.abs(sum - 1) > 10e-10 ){
+				//Get the problematic PDF as a string so the user can find it. 
+				String sampleString = "...PDF[";
+				for (ContinuousSample continuousSample : samples) {
+					sampleString += "("+continuousSample.getValue()+";"+continuousSample.getProbability()+")";
+				} 
+				sampleString += "]";
+				
+				// Adjust wrong PDFs
 				double delta = (1 - sum) / countNonZeroContiniousSamples(samples);
 				for(ContinuousSample sample : samples) {
 					if (sample.getProbability() > 0)
 						sample.setProbability(sample.getProbability()+delta);
 				}
-				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+
+				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! "+sampleString);
 			}
-			// Adjust wrong PDFs
+			
 		}
 
 		private double countNonZeroContiniousSamples(EList<ContinuousSample> samples) {
