@@ -582,14 +582,14 @@ public class ExperimentsView extends ViewPart {
 			selectedFactory = (IDAOFactory) selected;
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(true);
-			saveAsCSV.setEnabled(true);
+			saveAsCSV.setEnabled(false);
 		} else if (selected instanceof ExperimentAndDAO) {
 			ExperimentAndDAO experimentAndDAO = (ExperimentAndDAO) selected;
 			selectedExperiment = (Experiment) experimentAndDAO.getExperiment();
 			selectedFactory = experimentAndDAO.getDatasource();
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(false);
-			saveAsCSV.setEnabled(true);
+			saveAsCSV.setEnabled(false);
 		} else {
 			deleteDataSet.setEnabled(false);
 			properties.setEnabled(false);
