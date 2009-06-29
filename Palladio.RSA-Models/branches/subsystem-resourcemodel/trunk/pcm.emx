@@ -12288,7 +12288,7 @@ This lookup occurs before simulation (automatically) and creates appropriate All
             <body>self.requiredRoles_InterfaceRequiringEntity->size() = 0</body>
           </specification>
         </ownedRule>
-        <ownedRule xmi:id="_hUaWwNzaEd2x3811xzuwfA" name="ScopeMustNotBePartOfACircle" constrainedElement="_z-uYMMeOEd2TNKuW7xAQHw">
+        <ownedRule xmi:id="_hUaWwNzaEd2x3811xzuwfA" name="ScopeMustNotBePartOfACycle" constrainedElement="_z-uYMMeOEd2TNKuW7xAQHw">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_hUaWwdzaEd2x3811xzuwfA">
             <language>OCL</language>
             <body>self.isPartOfCycle = false&#xD;&#xA;--not (self.lowerLayer->closure(self.lowerLayer))->includes(self.upperLayer)&#xD;&#xA;</body>
@@ -27881,7 +27881,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
 special ResourceServices instead of Signatures.&#xD;
 A ResourceInterface is referenced by ResourceRequiredRoles and ResourceProvidedRoles. Any entity can either claim to implement the functionality specified in an ResourceInterface or to request that functionality.</body>
         </ownedComment>
-        <ownedRule xmi:id="_szWCcK_bEd2X7vaMffje2A" name="Resource Service Names Have To Be Unique For A ResourceInterface" constrainedElement="_-0xrAK9AEd2ryon4ZsxEcA">
+        <ownedRule xmi:id="_szWCcK_bEd2X7vaMffje2A" name="ResourceServiceNamesHaveToBeUniqueForAResourceInterface" constrainedElement="_-0xrAK9AEd2ryon4ZsxEcA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_szWCca_bEd2X7vaMffje2A">
             <language>OCL</language>
             <body>self.resourceServices_ResourceInterface->isUnique(r : ResourceService |&#xD;&#xA;&#x9;r.serviceName)</body>
@@ -27942,7 +27942,7 @@ to the Controller. Otherwise, the search is being repeated for the next Controll
 ProcessingResourceType is being accessed.&#xD;
 This lookup occurs before simulation (automatically) and creates appropriate AllocationConnectors.</body>
         </ownedComment>
-        <ownedRule xmi:id="_jc74YN8dEd2lfsi_6_QkLw" name="ControllerLayerMustNotBePartOfACircle" constrainedElement="_rnrkAMBXEd2HY5CoyN9fhA">
+        <ownedRule xmi:id="_jc74YN8dEd2lfsi_6_QkLw" name="ControllerLayerMustNotBePartOfACycle" constrainedElement="_rnrkAMBXEd2HY5CoyN9fhA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_jdFpYN8dEd2lfsi_6_QkLw">
             <language>OCL</language>
             <body>self.isPartOfCycle = false</body>
