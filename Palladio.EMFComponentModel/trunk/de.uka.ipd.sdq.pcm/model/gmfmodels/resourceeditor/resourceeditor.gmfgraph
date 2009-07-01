@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="resourceenvironment">
+  <figures
+      name="default">
+    <descriptors
+        name="ResourceContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ResourceContainerFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResourceContainerNameFigure"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+  </figures>
+  <nodes
+      name="ResourceContainer"
+      figure="ResourceContainerFigure"/>
+  <labels
+      name="ResourceContainerNameLabel"
+      figure="ResourceContainerFigure"
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+</gmfgraph:Canvas>
