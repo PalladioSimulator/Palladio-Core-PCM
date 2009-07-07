@@ -133,9 +133,9 @@
 	    </path>
 		
 			<echo>starting to create JavaDoc PCM...</echo>		
-			<mkdir dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"/>
+			<mkdir dir="/home/ccontrol/pluginbuilder/test-builderplugin/updateSite/javadoc/"/>
 		    <javadoc 
-		    	destdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"
+		    	destdir="/home/ccontrol/pluginbuilder/test-builderplugin/updateSite/javadoc/"
 		    	author="true" 
 		    	defaultexcludes="yes" 
 		    	use="true" 
