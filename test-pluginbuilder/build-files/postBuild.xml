@@ -120,6 +120,14 @@
 	<!-- ================================================= -->
 	<!-- Added by kelsaka: Creates javadoc for the project -->
 	<!-- ================================================= -->
+	<classpath> <!-- added by matthias: possible javadoc bug workaround  -->
+      <pathelement path="${classpath}"/>
+      <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins">
+        <include name="**/*.jar"/>
+      </fileset>
+    </classpath>
+
+
 	<target name="javadoc-pcm" description="Generate JavaDoc for the project">		
 			<echo>starting to create JavaDoc PCM...</echo>		
 			<mkdir dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"/>
@@ -130,7 +138,8 @@
 		    	use="true" 
 		    	version="true" 
 		    	windowtitle="Palladio Component Model - PCM"
-		    	maxmemory="256m">
+		    	maxmemory="256m"
+		    	classpathref="classpath"> <!-- added by matthias: possible javadoc bug workaround  -->
 		<!--
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
