@@ -120,7 +120,7 @@
 	<!-- ================================================= -->
 	<!-- Added by kelsaka: Creates javadoc for the project -->
 	<!-- ================================================= -->
-	<classpath> <!-- added by matthias: possible javadoc bug workaround asdf  -->
+	<classpath> <!-- added by matthias: possible javadoc bug workaround  -->
       <pathelement path="${classpath}"/>
       <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins">
         <include name="**/*.jar"/>
