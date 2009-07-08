@@ -8,8 +8,8 @@
 «IMPORT allocation»
 
 «DEFINE UserAction FOR Loop»
-   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.loopIteration_Loop.specification.specificationString()»",Integer.class); 
-            iterationCount < maxIterationCount; iterationCount++){
+   for (int iterationCount_«this.id» = 0, maxIterationCount_«this.id» = (Integer)ctx.evaluate("«this.loopIteration_Loop.specification.specificationString()»",Integer.class); 
+            iterationCount_«this.id» < maxIterationCount_«this.id»; iterationCount_«this.id»++){
        «EXPAND m2t_transforms::usage::UserActions FOR this.bodyBehaviour_Loop.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
    } 
 «ENDDEFINE»
