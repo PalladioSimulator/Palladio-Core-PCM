@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework.fork;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
@@ -104,4 +105,18 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 		return this.isTerminated;
 	}
 	
+	public void addTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ForkedBehaviourProcess.addTerminatedObserver has not been implemented yet.");
+	}
+
+	public void fireTerminated() {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ForkedBehaviourProcess.fireTerminated has not been implemented yet.");
+	}
+
+	public void removeTerminatedObserver(IActiveResource o) {
+		// TODO Auto-generated method stub
+		throw new RuntimeException("The method ForkedBehaviourProcess.removeTerminatedObserver has not been implemented yet.");
+	}
 }
