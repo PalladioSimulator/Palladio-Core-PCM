@@ -81,16 +81,20 @@ public class SliceLayerArchitectureQuality implements Metric {
 		
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
-				currentPackage = ((GASTClass)current).getSurroundingPackage();
-				break;
+				if (((GASTClass)current).getSurroundingPackage() != null) {
+					currentPackage = ((GASTClass)current).getSurroundingPackage();
+					break;
+				}
 			}
 		}
 		
 		if (currentPackage == null) {
 			for (ModelElement current : elements2) {
 				if (current instanceof GASTClass) {
-					currentPackage = ((GASTClass)current).getSurroundingPackage();
-					break;
+					if (((GASTClass)current).getSurroundingPackage() != null) {
+						currentPackage = ((GASTClass)current).getSurroundingPackage();
+						break;
+					}
 				}
 			}
 		}
@@ -107,9 +111,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 			for (ModelElement current : elements1) {
 				if (current instanceof GASTClass) {
 					if (!((GASTClass) current).isInner()) {
-						if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
-							prefixFound = false;
-							break;
+						if (((GASTClass)current).getSurroundingPackage() != null) {
+							if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
+								prefixFound = false;
+								break;
+							}
 						}
 					}
 				}
@@ -132,9 +138,11 @@ public class SliceLayerArchitectureQuality implements Metric {
 			for (ModelElement current : elements2) {
 				if (current instanceof GASTClass) {
 					if (!((GASTClass) current).isInner()) {
-						if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
-							prefixFound = false;
-							break;
+						if (((GASTClass)current).getSurroundingPackage() != null) {
+							if (!((GASTClass) current).getSurroundingPackage().getQualifiedName().contains(prefix)) {
+								prefixFound = false;
+								break;
+							}
 						}
 					}
 				}

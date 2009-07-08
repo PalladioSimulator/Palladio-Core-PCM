@@ -88,7 +88,18 @@ public class NameResemblance implements Metric {
 							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 							}
-							int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+							int res = -1;
+							Map<String,Integer> tempMap = resemblancePuffer.get(((GASTClass)current).getQualifiedName());
+							if (tempMap != null) {
+								if (tempMap.containsKey(((GASTClass)current).getQualifiedName())) {
+									res = tempMap.get(((GASTClass)current).getQualifiedName());
+								} else {
+									tempMap.put(((GASTClass)current).getQualifiedName(), -1);
+								}
+							} else {
+								resemblancePuffer.put(((GASTClass)current).getQualifiedName(), new HashMap<String,Integer>());
+								resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),-1);
+							}
 							if (res == -1) {
 								if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName())) {
 									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);
@@ -111,7 +122,18 @@ public class NameResemblance implements Metric {
 						if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 							resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 						}
-						int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+						int res = -1;
+						Map<String,Integer> tempMap = resemblancePuffer.get(((GASTClass)current).getQualifiedName());
+						if (tempMap != null) {
+							if (tempMap.containsKey(((GASTClass)current).getQualifiedName())) {
+								res = tempMap.get(((GASTClass)current).getQualifiedName());
+							} else {
+								tempMap.put(((GASTClass)current).getQualifiedName(), -1);
+							}
+						} else {
+							resemblancePuffer.put(((GASTClass)current).getQualifiedName(), new HashMap<String,Integer>());
+							resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),-1);
+						}
 						if (res == -1) {
 							if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName())) {
 								resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);
@@ -142,7 +164,18 @@ public class NameResemblance implements Metric {
 							if (!resemblanceMap.containsKey(((GASTClass) currentCheck).getSimpleName())) {
 								resemblanceMap.put(((GASTClass)currentCheck).getSimpleName(), false);
 							}
-							int res = resemblancePuffer.get(((GASTClass)current).getQualifiedName()).get(((GASTClass)currentCheck).getQualifiedName());
+							int res = -1;
+							Map<String,Integer> tempMap = resemblancePuffer.get(((GASTClass)current).getQualifiedName());
+							if (tempMap != null) {
+								if (tempMap.containsKey(((GASTClass)current).getQualifiedName())) {
+									res = tempMap.get(((GASTClass)current).getQualifiedName());
+								} else {
+									tempMap.put(((GASTClass)current).getQualifiedName(), -1);
+								}
+							} else {
+								resemblancePuffer.put(((GASTClass)current).getQualifiedName(), new HashMap<String,Integer>());
+								resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),-1);
+							}
 							if (res == -1) {
 								if (checkResemblance(((GASTClass)current).getSimpleName(), ((GASTClass)currentCheck).getSimpleName())) {
 									resemblancePuffer.get(((GASTClass)current).getQualifiedName()).put((((GASTClass)currentCheck).getQualifiedName()),1);

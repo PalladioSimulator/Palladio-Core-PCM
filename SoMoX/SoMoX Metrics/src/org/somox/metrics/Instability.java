@@ -68,7 +68,7 @@ public class Instability implements Metric {
 	 * @param blacklist The String-Set with names that need to be blacklisted. Strings ending with ".*"
 	 * are used to blacklist whole Packages, other Strings are used to blacklist single classes
 	 */
-	public void setBlacklist (HashSet<String> blacklist) {
+	public void setBlacklist (Set<String> blacklist) {
 		blacklistIndicator = true;
 		for (String current : blacklist) {
 			if (current.endsWith(".*")) {
@@ -102,7 +102,7 @@ public class Instability implements Metric {
 	 * @param whitelist The String-Set with names that need to be whitelisted. Strings ending with ".*"
 	 * are used to whitelist whole Packages, other Strings are used to whitelist single classes
 	 */
-	public void setWhitelist (HashSet<String> whitelist) {
+	public void setWhitelist (Set<String> whitelist) {
 		blacklistIndicator = false;
 		for (String current : whitelist) {
 			if (current.endsWith(".*")) {

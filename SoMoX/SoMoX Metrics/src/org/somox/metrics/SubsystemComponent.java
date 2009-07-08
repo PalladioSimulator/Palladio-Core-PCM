@@ -50,7 +50,7 @@ public class SubsystemComponent implements Metric {
 	 * 
 	 * @param blacklist The String-Set with names that need to be blacklisted.
 	 */
-	public void setBlacklist (HashSet<String> blacklist) {
+	public void setBlacklist (Set<String> blacklist) {
 		blacklistIndicator = true;
 		for (String current : blacklist) {
 			if (current.endsWith(".*")) {
@@ -83,7 +83,7 @@ public class SubsystemComponent implements Metric {
 	 * 
 	 * @param whitelist The String-Set with names that need to be whitelisted.
 	 */
-	public void setWhitelist (HashSet<String> whitelist) {
+	public void setWhitelist (Set<String> whitelist) {
 		blacklistIndicator = false;
 		for (String current : whitelist) {
 			if (current.endsWith(".*")) {

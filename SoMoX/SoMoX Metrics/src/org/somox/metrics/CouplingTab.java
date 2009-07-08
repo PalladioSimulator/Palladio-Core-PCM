@@ -39,6 +39,14 @@ public class CouplingTab extends MetricTab {
 	}
 	
 	public void setRoot (Root root) {
+		if (this.root != root) {
+			checkboxTreeViewer.getTree().dispose();
+			checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			checkboxTreeViewer.setContentProvider(new CheckboxContentProvider());
+			checkboxTreeViewer.setLabelProvider(new CheckboxLabelProvider());
+			Tree tree = checkboxTreeViewer.getTree();
+			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		}
 		this.root = root;
 		checkboxTreeViewer.setInput(this.root);
 			

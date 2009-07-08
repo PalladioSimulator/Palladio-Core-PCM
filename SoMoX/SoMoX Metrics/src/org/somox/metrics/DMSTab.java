@@ -15,11 +15,21 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Tree;
+import org.somox.analyzer.BlackboardListener;
+
+import de.fzi.gast.core.Root;
+import de.fzi.gast.types.GASTClass;
 
 public class DMSTab extends MetricTab {
 	
+	private final String DELIMITER = "§";
+	
 	protected Composite control;
 	private Group group;
+	
+	protected CheckboxTreeViewer checkboxTreeViewer;
+	private Root root;
+	private Button btnBlacklist, btnWhitelist;
 
 	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
 
@@ -27,6 +37,23 @@ public class DMSTab extends MetricTab {
 
 	public boolean canSave() {
 		return true;
+	}
+	
+	public void setRoot (Root root) {
+		if (this.root != root) {
+			checkboxTreeViewer.getTree().dispose();
+			checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			checkboxTreeViewer.setContentProvider(new CheckboxContentProvider());
+			checkboxTreeViewer.setLabelProvider(new CheckboxLabelProvider());
+			Tree tree = checkboxTreeViewer.getTree();
+			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		}
+		this.root = root;
+		//checkboxTreeViewer.setInput(this.root);
+			
+		if (this.root != null) {
+			checkboxTreeViewer.setGrayed(this.root, true);
+		}
 	}
 
 	/**
@@ -39,20 +66,31 @@ public class DMSTab extends MetricTab {
 			group = new Group(control, SWT.NONE);
 			group.setLayout(new FillLayout(SWT.VERTICAL));
 			{
-				Button btnBlacklist = new Button(group, SWT.RADIO);
+				btnBlacklist = new Button(group, SWT.RADIO);
 				btnBlacklist.setSelection(true);
 				btnBlacklist.setText("Blacklist");
 			}
 			{
-				Button btnWhitelist = new Button(group, SWT.RADIO);
+				btnWhitelist = new Button(group, SWT.RADIO);
 				btnWhitelist.setText("Whitelist");
 			}
 		}
 		{
-			CheckboxTreeViewer checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			checkboxTreeViewer = new CheckboxTreeViewer(control, SWT.BORDER);
+			checkboxTreeViewer.setContentProvider(new CheckboxContentProvider());
+			checkboxTreeViewer.setLabelProvider(new CheckboxLabelProvider());
 			Tree tree = checkboxTreeViewer.getTree();
 			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		}
+		
+		this.getModelAnalyzerTabGroupBlackboard().addBlackboardListener(new BlackboardListener() {
+
+			public void blackboardChanged() {
+				DMSTab.this.setRoot(DMSTab.this.getModelAnalyzerTabGroupBlackboard().getRoot());
+			}
+			
+		});
+		this.setRoot(this.getModelAnalyzerTabGroupBlackboard().getRoot());
 	}
 
 	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {
@@ -95,7 +133,32 @@ public class DMSTab extends MetricTab {
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-
+		Object [] checked = checkboxTreeViewer.getCheckedElements();
+		String [] wildcards = new String [checked.length];
+		int i=0;
+		for (Object current : checked) {
+			if (current instanceof GASTClass) {
+				wildcards[i] = ((GASTClass)current).getQualifiedName();
+			} else if (current instanceof de.fzi.gast.core.Package) {
+				wildcards[i] = ((de.fzi.gast.core.Package)current).getQualifiedName() + ".*";
+			}
+			i++;
+		}
+		
+		StringBuffer buffer = new StringBuffer();
+		for (i=0;i<wildcards.length;i++) {
+			buffer.append(wildcards[i]);
+			buffer.append(DELIMITER);
+		}
+		configuration.setAttribute("org.somox.metrics.dms.wildcards", buffer.toString());
+		
+		boolean blacklistIndicator = true;
+		
+		if (btnWhitelist.getSelection()) {
+			blacklistIndicator = false;
+		}
+		
+		configuration.setAttribute("org.somox.metrics.dms.blacklistIndicator", blacklistIndicator);
 	}
 
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {

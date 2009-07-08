@@ -1,6 +1,7 @@
 package org.somox.metrics;
 
 import java.util.List;
+import java.util.Set;
 
 import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
@@ -15,18 +16,32 @@ public class DMS implements Metric {
 	protected Instability instability;
 	protected Abstractness abstractness;
 	
+	public DMS () {
+		abstractness = new Abstractness();
+		instability = new Instability();
+	}
 	
 	/**
-	 * Setter-method for a Instability-Object
-	 * 
-	 * This method is necessary, so that a black- or whitelist can be added to the Instability-object
-	 * 
-	 * @param instability a Instability-object with set black- or whitelist
+	 * Delegate for the setBlacklist method in Instability
 	 */
-	public void setInstability (Instability instability) {
-		this.instability = instability;
+	public void setBlacklist (Set<String> blacklist) {
+		instability.setBlacklist(blacklist);
 	}
-
+	
+	/**
+	 * Delegate for the setBlacklistIndicator method in Instability
+	 */
+	public void setBlacklistIndicator (boolean blacklistIndicator) {
+		instability.setBlacklistIndicator(blacklistIndicator);
+	}
+	
+	/**
+	 * Delegate for the setWhitelist method in Instability
+	 */
+	public void setWhitelist (Set<String> whitelist) {
+		instability.setWhitelist(whitelist);
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -57,7 +72,5 @@ public class DMS implements Metric {
 	 * {@inheritDoc}
 	 */
 	public void initialize(Root root) {
-		abstractness = new Abstractness();
-		instability = new Instability();
 	}
 }

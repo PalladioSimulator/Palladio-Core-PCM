@@ -24,11 +24,15 @@ public class PackageMapping implements Metric {
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
 				if (packageName == null) {
-					packageName = ((GASTClass)current).getSurroundingPackage().getQualifiedName();
+					if (((GASTClass)current).getSurroundingPackage() != null) {
+						packageName = ((GASTClass)current).getSurroundingPackage().getQualifiedName();
+					}
 				} else {
-					if (!((GASTClass)current).getSurroundingPackage().getQualifiedName().equals(packageName)) {
-						samePackage = false;
-						break;
+					if (((GASTClass)current).getSurroundingPackage() != null) {
+						if (!((GASTClass)current).getSurroundingPackage().getQualifiedName().equals(packageName)) {
+							samePackage = false;
+							break;
+						}
 					}
 				}
 			}
@@ -37,11 +41,15 @@ public class PackageMapping implements Metric {
 			for (ModelElement current : elements2) {
 				if (current instanceof GASTClass) {					
 					if (packageName == null) {
-						packageName = ((GASTClass)current).getSurroundingPackage().getQualifiedName();
+						if (((GASTClass)current).getSurroundingPackage() != null) {
+							packageName = ((GASTClass)current).getSurroundingPackage().getQualifiedName();
+						}
 					} else {
-						if (!((GASTClass)current).getSurroundingPackage().getQualifiedName().equals(packageName)) {
-							samePackage = false;
-							break;
+						if (((GASTClass)current).getSurroundingPackage() != null) {
+							if (!((GASTClass)current).getSurroundingPackage().getQualifiedName().equals(packageName)) {
+								samePackage = false;
+								break;
+							}
 						}
 					}
 				}
