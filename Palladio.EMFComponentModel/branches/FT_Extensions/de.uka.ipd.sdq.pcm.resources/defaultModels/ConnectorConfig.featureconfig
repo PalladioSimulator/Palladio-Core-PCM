@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.uka.ipd.sdq:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="Connector config">
+  <defaultConfig>
+    <referencedObject href="Connector.featuremodel#/"/>
+    <confignode configState="SELECTED">
+      <origin href="Connector.featuremodel#//@rootFeature/@childrelation/@children.0/@childrelation/@children.1"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin href="Connector.featuremodel#//@rootFeature/@childrelation/@children.0/@childrelation/@children.0"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin href="Connector.featuremodel#//@rootFeature/@childrelation/@children.1/@childrelation/@children.0"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin href="Connector.featuremodel#//@rootFeature/@childrelation/@children.1/@childrelation/@children.1"/>
+    </confignode>
+  </defaultConfig>
+  <configOverrides/>
+</de.uka.ipd.sdq:Configuration>

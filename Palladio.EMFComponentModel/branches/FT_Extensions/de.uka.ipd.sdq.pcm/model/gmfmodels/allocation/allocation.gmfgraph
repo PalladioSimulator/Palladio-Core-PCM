@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2005/GraphicalDefinition" name="pcm">
+  <figures
+      name="Default">
+    <figures
+        xsi:type="gmfgraph:Rectangle"
+        referencingElements="AllocationContext"
+        name="AllocationContextFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="AllocationNameLabel"
+          name="AllocationNameFigure"
+          text="&lt;...>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="AllocationComponentLabel"
+          name="AllocationComponentLabelFigure"/>
+    </figures>
+    <figures
+        xsi:type="gmfgraph:Rectangle"
+        referencingElements="ResourceContainer AllocationCompartment"
+        name="ResourceContainerFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ResContainerNameLabel"
+          name="ResContainerNameFigure"
+          text="&lt;...>"/>
+    </figures>
+  </figures>
+  <nodes
+      name="AllocationContext"
+      figure="AllocationContextFigure"/>
+  <nodes
+      name="ResourceContainer"
+      figure="ResourceContainerFigure"/>
+  <compartments
+      name="AllocationCompartment"
+      figure="ResourceContainerFigure"/>
+  <labels
+      name="AllocationNameLabel"
+      figure="AllocationNameFigure"/>
+  <labels
+      name="ResContainerNameLabel"
+      figure="ResContainerNameFigure"/>
+  <labels
+      name="AllocationComponentLabel"
+      figure="AllocationComponentLabelFigure"/>
+</gmfgraph:Canvas>
