@@ -131,8 +131,6 @@
 	      <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins">
 	        <include name="**/*.jar"/>
 	      </fileset>
-		  <pathelement location="${ant.home}/lib/ant.jar"/>
-
 	    </path>
 		
 			<echo>starting to create JavaDoc PCM...</echo>		
