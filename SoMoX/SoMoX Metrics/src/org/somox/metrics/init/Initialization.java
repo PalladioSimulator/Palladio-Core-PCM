@@ -1,21 +1,17 @@
 package org.somox.metrics.init;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -40,8 +36,7 @@ import de.fzi.gast.variables.provider.variablesItemProviderAdapterFactory;
  *
  */
 public class Initialization {
-	private AdapterFactoryEditingDomain editingDomain;
-
+	//private EditingDomain editingDomain;
 	private ComposedAdapterFactory adapterFactory;
 	
 	private XMLResource resource;
@@ -144,15 +139,15 @@ public class Initialization {
 		// setup resource
 		resource = new XMLResourceImpl(fileURI);
 
-		Map loadOptions = ((XMLResourceImpl)resource).getDefaultLoadOptions();
+		Map<Object, Object> loadOptions = ((XMLResourceImpl)resource).getDefaultLoadOptions();
 		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_USE_PARSER_POOL, new XMLParserPoolImpl());
-		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap());
+		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap<Object,Object>());
 
 		// DIESE ZEILE MACHT VERMUTLICH DEN UNTERSCHIED!
-		((ResourceImpl)resource).setIntrinsicIDToEObjectMap(new HashMap());
+		((ResourceImpl)resource).setIntrinsicIDToEObjectMap(new HashMap<String,EObject>());
 
 		/*
 		 * load GAST
@@ -194,9 +189,9 @@ public class Initialization {
 		adapterFactory.addAdapterFactory(new variablesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		BasicCommandStack commandStack = new BasicCommandStack();
+		//BasicCommandStack commandStack = new BasicCommandStack();
 
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		//editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
 
 }
