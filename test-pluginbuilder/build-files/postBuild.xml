@@ -126,10 +126,13 @@
 	<target name="javadoc-pcm" description="Generate JavaDoc for the project">
 		
 		<path id="classpath"> <!-- added by matthias: possible javadoc bug workaround  -->
-	      <pathelement path="${classpath}"/>
+			<path refid="classpath"/>
+			<pathelement path="${classpath}"/>
 	      <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins">
 	        <include name="**/*.jar"/>
 	      </fileset>
+		  <pathelement location="${ant.home}/lib/ant.jar"/>
+
 	    </path>
 		
 			<echo>starting to create JavaDoc PCM...</echo>		
