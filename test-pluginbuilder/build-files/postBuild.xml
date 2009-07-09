@@ -157,7 +157,7 @@
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
 
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes"> -->
 		    		<!-- <include name="de/uka/ipd/sdq/**/*.java"/> 
 		    		<include name="de/uka/ipd/sdq/**/*.java"/>
 		    		<exclude name="com/**" />
@@ -165,7 +165,7 @@
 		    		<exclude name="net/**" /> -->
 		    		<!-- <include name="de.uka.ipd.sdq.**/*.java" /> --> 
 		    		<!-- <exclude name="" /> -->
-		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
+		    	<!-- <include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
 		    		
 		    		 <include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
@@ -186,8 +186,20 @@
 		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" /> 
 		    		
 		    		
-				</fileset> 
+				</fileset> -->
 		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
+		    	
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    		<include  name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.uka.ipd.sqd**/*.java"/> 
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ca**" />
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ch**" />
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.desmoj**" />
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/LQNMode/**" />
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/org**" />
+		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/uc**" />
+		    	</fileset>
+
+		    	
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
 	</target>
