@@ -179,11 +179,11 @@
 		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.simucomframework.desmoj/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.dialogs/**/*.java" />
-		    		<!-- <include name="de.uka.ipd.sdq.pcm.dialogs/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.dialogs/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.sensorframework.dialogs/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.completions.edit/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.context.edit/**/*.java" />
-		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" /> -->
+		    		<include name="de.uka.ipd.sdq.pcm/**/*.java" /> 
 		    		
 		    		
 				</fileset> 
