@@ -187,7 +187,7 @@
 		    		
 		    		
 				</fileset> -->
-	    		<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="de.uka.ipd.sqd**/*.java"/>
+	    		<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
 		    	
 		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
 		    		<include  name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.uka.ipd.sqd**/*.java"/> 
