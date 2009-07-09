@@ -187,9 +187,9 @@
 		    		
 		    		
 				</fileset> -->
-		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
+	    		<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="de.uka.ipd.sqd**/*.java"/>
 		    	
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
 		    		<include  name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.uka.ipd.sqd**/*.java"/> 
 		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ca**" />
 		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ch**" />
@@ -197,7 +197,7 @@
 		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/LQNMode/**" />
 		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/org**" />
 		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/uc**" />
-		    	</fileset>
+		    	</fileset>-->
 
 		    	
 	    </javadoc>
