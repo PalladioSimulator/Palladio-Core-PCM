@@ -16,8 +16,8 @@ public class CheckboxLabelProvider implements ILabelProvider {
 	public String getText(Object element) {
 		if (element instanceof Root) {
 			return ("Root");
-		} else if (element instanceof Package) {
-			return ((Package) element).getName();
+		} else if (element instanceof de.fzi.gast.core.Package) {
+			return ((de.fzi.gast.core.Package) element).getSimpleName();
 		} else if (element instanceof GASTClass) {
 			return ((GASTClass) element).getSimpleName();
 		}

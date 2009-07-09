@@ -1,5 +1,10 @@
 package org.somox.metrics;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
@@ -49,7 +54,7 @@ public class SubsystemComponentTab extends MetricTab {
 			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		}
 		this.root = root;
-		//checkboxTreeViewer.setInput(this.root);
+		checkboxTreeViewer.setInput(this.root);
 			
 		if (this.root != null) {
 			checkboxTreeViewer.setGrayed(this.root, true);
@@ -121,7 +126,45 @@ public class SubsystemComponentTab extends MetricTab {
 	}
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
-		
+		try {
+			String wildcardString = configuration.getAttribute("org.somox.metrics.subsystemComponent.wildcards","");
+			
+			//Restore selection-state of the radio buttons
+			boolean tempIndicator = configuration.getAttribute("org.somox.metrics.subsystemComponent.blacklistIndicator",true);
+			if (!tempIndicator) {
+				btnBlacklist.setSelection(false);
+				btnWhitelist.setSelection(true);
+			}
+			
+			//Restore check-state
+			StringTokenizer tokenizer = new StringTokenizer(wildcardString, DELIMITER);
+			int tokenCount = tokenizer.countTokens();
+			Set<String> wildcardSet = new HashSet<String>();
+			for (int i = 0; i < tokenCount; i++) {
+				wildcardSet.add(tokenizer.nextToken());
+			}
+			checkboxTreeViewer.expandAll();
+			checkboxTreeViewer.setAllChecked(true);
+			Object [] elements = checkboxTreeViewer.getCheckedElements();
+			checkboxTreeViewer.setAllChecked(false);
+			checkboxTreeViewer.collapseAll();
+			
+			for (Object currentElement : elements) {
+				if (currentElement instanceof de.fzi.gast.core.Package) {
+					if (wildcardSet.contains(((de.fzi.gast.core.Package)currentElement).getQualifiedName()+".*")) {
+						checkboxTreeViewer.setChecked(currentElement, true);
+					}
+				} else if (currentElement instanceof GASTClass){
+					if (wildcardSet.contains(((GASTClass)currentElement).getQualifiedName())) {
+						checkboxTreeViewer.setChecked(currentElement, true);
+					}
+				}
+			}
+			
+			
+		} catch (CoreException e) {
+			
+		}
 	}
 
 	public boolean isValid(ILaunchConfiguration launchConfig) {
@@ -133,6 +176,7 @@ public class SubsystemComponentTab extends MetricTab {
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		System.out.println("APPLY");
 		Object [] checked = checkboxTreeViewer.getCheckedElements();
 		String [] wildcards = new String [checked.length];
 		int i=0;
@@ -158,10 +202,17 @@ public class SubsystemComponentTab extends MetricTab {
 			blacklistIndicator = false;
 		}
 		
+		if (blacklistIndicator == false) {
+			System.out.println("SUBSYS: FALSE");
+		}
+		
 		configuration.setAttribute("org.somox.metrics.subsystemComponent.blacklistIndicator", blacklistIndicator);
 	}
 
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
+		if (checkboxTreeViewer != null) {
+			checkboxTreeViewer.setInput(null);
+		}
 	}
 
 	public void setLaunchConfigurationDialog(ILaunchConfigurationDialog dialog) {

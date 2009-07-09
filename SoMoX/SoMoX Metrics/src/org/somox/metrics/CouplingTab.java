@@ -1,5 +1,10 @@
 package org.somox.metrics;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
@@ -120,7 +125,45 @@ public class CouplingTab extends MetricTab {
 	}
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
-		
+		try {
+			String wildcardString = configuration.getAttribute("org.somox.metrics.coupling.wildcards","");
+			
+			//Restore selection-state of the radio buttons
+			boolean tempIndicator = configuration.getAttribute("org.somox.metrics.coupling.blacklistIndicator",true);
+			if (!tempIndicator) {
+				btnBlacklist.setSelection(false);
+				btnWhitelist.setSelection(true);
+			}
+			
+			//Restore check-state
+			StringTokenizer tokenizer = new StringTokenizer(wildcardString, DELIMITER);
+			int tokenCount = tokenizer.countTokens();
+			Set<String> wildcardSet = new HashSet<String>();
+			for (int i = 0; i < tokenCount; i++) {
+				wildcardSet.add(tokenizer.nextToken());
+			}
+			checkboxTreeViewer.expandAll();
+			checkboxTreeViewer.setAllChecked(true);
+			Object [] elements = checkboxTreeViewer.getCheckedElements();
+			checkboxTreeViewer.setAllChecked(false);
+			checkboxTreeViewer.collapseAll();
+			
+			for (Object currentElement : elements) {
+				if (currentElement instanceof de.fzi.gast.core.Package) {
+					if (wildcardSet.contains(((de.fzi.gast.core.Package)currentElement).getQualifiedName()+".*")) {
+						checkboxTreeViewer.setChecked(currentElement, true);
+					}
+				} else if (currentElement instanceof GASTClass){
+					if (wildcardSet.contains(((GASTClass)currentElement).getQualifiedName())) {
+						checkboxTreeViewer.setChecked(currentElement, true);
+					}
+				}
+			}
+			
+			
+		} catch (CoreException e) {
+			
+		}
 	}
 
 	public boolean isValid(ILaunchConfiguration launchConfig) {
