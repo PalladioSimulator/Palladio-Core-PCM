@@ -173,13 +173,13 @@
 		    		<include name="de.uka.ipd.sdq.branding/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.completions/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" />
-		    		<!-- <include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.context/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes/**/*.java" />	
 		    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.simucomframework.desmoj/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.dialogs/**/*.java" />
-		    		<include name="de.uka.ipd.sdq.pcm.dialogs/**/*.java" />
+		    		<!-- <include name="de.uka.ipd.sdq.pcm.dialogs/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.sensorframework.dialogs/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.completions.edit/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.context.edit/**/*.java" />
