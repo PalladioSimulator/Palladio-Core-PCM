@@ -127,7 +127,7 @@
 		
 		<path id="classpath"> <!-- added by matthias: possible javadoc bug workaround  -->
 			<pathelement path="${classpath}"/>
-	      <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins">
+	      <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/plugins/">
 	        <include name="**/*.jar"/>
 	      </fileset>
 	    </path>
@@ -187,17 +187,16 @@
 		    		
 		    		
 				</fileset> -->
-	    		<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
+	    		<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
 		    	
-		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
-		    		<include  name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.uka.ipd.sqd**/*.java"/> 
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ca**" />
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/ch**" />
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/de.desmoj**" />
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/LQNMode/**" />
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/org**" />
-		    		<exclude name="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/uc**" />
-		    	</fileset>-->
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    		<include  name="de.uka.ipd.sqd.branding/**/*.java"/> 
+		    		<include  name="de.uka.ipd.sqd.dialogs/**/*.java"/> 
+	    			<include  name="de.uka.ipd.sqd.pcmsolver/**/*.java"/> 
+	    			<include  name="de.uka.ipd.sqd.edit/**/*.java"/> 
+	    			<include  name="de.uka.ipd.sqd.editor/**/*.java"/> 
+
+		    	</fileset>
 
 		    	
 	    </javadoc>
