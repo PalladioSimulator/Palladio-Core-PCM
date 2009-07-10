@@ -11,3 +11,4 @@ Require-Bundle: de.uka.ipd.sdq.pcm.stochasticexpressions,
  org.junit,
  de.uka.ipd.sdq.pcm
 Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
