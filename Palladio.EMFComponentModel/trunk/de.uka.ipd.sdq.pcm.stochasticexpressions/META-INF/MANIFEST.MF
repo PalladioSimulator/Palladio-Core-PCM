@@ -11,3 +11,4 @@ Require-Bundle: de.uka.ipd.sdq.stoex,
  org.junit4,
  de.uka.ipd.sdq.errorhandling
 Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
