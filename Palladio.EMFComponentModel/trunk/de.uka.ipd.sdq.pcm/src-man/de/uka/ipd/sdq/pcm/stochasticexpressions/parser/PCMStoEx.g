@@ -298,7 +298,7 @@ real_pdf_sample returns [ContinuousSample s]
 			SEMI 
 			n2=NUMBER 
 			{s.setProbability(Double.parseDouble(n2.getText()));} 
-			RPAREN;
+		 RPAREN;
 			
 stringsample returns [Sample s] 
 	 : 
@@ -464,7 +464,7 @@ EQUAL : '==' ;
 SQUARE_PAREN_L : '[' ;
 SQUARE_PAREN_R : ']' ;
 fragment DIGIT : '0'..'9' ;
-NUMBER : (DIGIT)+ ('.' (DIGIT)+)? Exponent?;
+NUMBER : '-'? (DIGIT)+ ('.' (DIGIT)+)? Exponent?;
 fragment
 Exponent : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 fragment ALPHA : 'a'..'z' | 'A'..'Z' ;
