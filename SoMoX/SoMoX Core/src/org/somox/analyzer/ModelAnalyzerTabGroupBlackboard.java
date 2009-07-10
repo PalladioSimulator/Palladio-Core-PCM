@@ -3,16 +3,17 @@ package org.somox.analyzer;
 import java.io.File;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -29,6 +30,9 @@ import de.fzi.gast.variables.provider.variablesItemProviderAdapterFactory;
 public class ModelAnalyzerTabGroupBlackboard {
 	
 	private Root root;
+	
+	private ComposedAdapterFactory adapterFactory;
+	//private AdapterFactoryEditingDomain editingDomain;
 
 	static int idCounter = 0;
 	private int myId = 0;
@@ -36,6 +40,21 @@ public class ModelAnalyzerTabGroupBlackboard {
 	public ModelAnalyzerTabGroupBlackboard() {
 		idCounter++;
 		myId = idCounter;
+		
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new statementsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new coreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new annotationsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new typesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new functionsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new accessesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new variablesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+		//BasicCommandStack commandStack = new BasicCommandStack();
+
+		//editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
 
 	public int getId() {
@@ -54,7 +73,11 @@ public class ModelAnalyzerTabGroupBlackboard {
 			if (this.somoxAnalyzerInputFile != null) {
 				if (somoxAnalyzerInputFile.endsWith(".gast")) {
 					loadModel();
+				} else {
+					root = null;
 				}
+			} else {
+				root = null;
 			}
 			fireBlackboardChanged();
 		} else if (this.somoxAnalyzerInputFile != null && !this.somoxAnalyzerInputFile.equals(somoxAnalyzerInputFile)) {
@@ -62,7 +85,11 @@ public class ModelAnalyzerTabGroupBlackboard {
 			if (this.somoxAnalyzerInputFile != null) {
 				if (somoxAnalyzerInputFile.endsWith(".gast")) {
 					loadModel();
+				} else {
+					root = null;
 				}
+			} else {
+				root = null;
 			}
 			fireBlackboardChanged();
 		}
@@ -74,37 +101,29 @@ public class ModelAnalyzerTabGroupBlackboard {
 		
 		URI fileURI = URI.createFileURI(new File(platformPath).getAbsolutePath());
 		
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		// setup resource
+		XMLResource resource = new XMLResourceImpl(fileURI);
 
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new statementsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new coreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new annotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new typesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new functionsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new accessesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new variablesItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		Map<Object, Object> loadOptions = ((XMLResourceImpl)resource).getDefaultLoadOptions();
+		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_USE_PARSER_POOL, new XMLParserPoolImpl());
+		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap<Object,Object>());
 
-		BasicCommandStack commandStack = new BasicCommandStack();
+		// DIESE ZEILE MACHT VERMUTLICH DEN UNTERSCHIED!
+		((ResourceImpl)resource).setIntrinsicIDToEObjectMap(new HashMap<String,EObject>());
 
-		AdapterFactoryEditingDomain editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-		
-		// Register the default resource factory -- only needed for stand-alone!
-		editingDomain.getResourceSet().getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-				Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-		//Try to load the resource through the editingDomain.
-		Resource resource = null;
+		/*
+		 * load GAST
+		 */
 		try {
-			resource = editingDomain.getResourceSet().getResource(fileURI, true);
+			resource.load(loadOptions);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		catch (Exception e) {
-			resource = editingDomain.getResourceSet().getResource(fileURI, false);
-		}
-		
-		EList<EObject> contents = resource.getContents();
-		
+		EList<EObject> contents =  resource.getContents();
+
 		for (EObject current : contents) {
 			if (current instanceof Root) {
 				root = (Root)current;
