@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

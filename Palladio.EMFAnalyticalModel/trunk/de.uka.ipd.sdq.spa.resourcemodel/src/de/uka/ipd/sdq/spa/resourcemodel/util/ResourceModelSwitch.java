@@ -6,12 +6,23 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.util;
 
-import de.uka.ipd.sdq.spa.resourcemodel.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
+import de.uka.ipd.sdq.spa.resourcemodel.AlternativeResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.ContentionResource;
+import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
+import de.uka.ipd.sdq.spa.resourcemodel.Option;
+import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
+import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
+import de.uka.ipd.sdq.spa.resourcemodel.Resource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.SequentialResourceUsage;
 
 /**
  * <!-- begin-user-doc -->

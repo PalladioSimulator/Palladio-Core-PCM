@@ -6,15 +6,13 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.spa.resourcemodel.Resource;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.spa.resourcemodel.Resource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 /**
  * <!-- begin-user-doc -->

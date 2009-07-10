@@ -6,8 +6,15 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import static de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage.RESOURCE;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.AlternativeResourceUsage;
@@ -21,13 +28,6 @@ import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelFactory;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.SequentialResourceUsage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

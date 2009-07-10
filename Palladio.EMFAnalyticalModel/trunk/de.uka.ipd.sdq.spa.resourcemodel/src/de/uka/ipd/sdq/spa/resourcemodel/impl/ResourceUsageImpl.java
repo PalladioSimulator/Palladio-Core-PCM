@@ -6,19 +6,16 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -11,5 +11,7 @@ Export-Package: de.uka.ipd.sdq.spa.resourcemodel,
  de.uka.ipd.sdq.spa.resourcemodel.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- de.uka.ipd.sdq.probfunction;visibility:=reexport
-Eclipse-LazyStart: true
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.units
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -6,21 +6,18 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.spa.resourcemodel.AlternativeResourceUsage;
-import de.uka.ipd.sdq.spa.resourcemodel.Option;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.spa.resourcemodel.AlternativeResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.Option;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 /**
  * <!-- begin-user-doc -->

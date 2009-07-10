@@ -6,15 +6,21 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.spa.resourcemodel.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.spa.resourcemodel.AlternativeResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
+import de.uka.ipd.sdq.spa.resourcemodel.Option;
+import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
+import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelFactory;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.SequentialResourceUsage;
 
 /**
  * <!-- begin-user-doc -->
