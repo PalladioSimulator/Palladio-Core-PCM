@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
-import de.uka.ipd.sdq.pcm.qosannotations.performance.*;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.SystemSpecifiedExecutionTime;
