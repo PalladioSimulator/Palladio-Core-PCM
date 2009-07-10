@@ -159,11 +159,12 @@ public class ForkedBehaviourEditPart extends ShapeNodeEditPart {
 	public class BehaviourFigure extends RectangleFigure {
 
 		/**
-		 * @generated
+		 * @generated not
+		 * StB: Set Outline shoud be true for fork behaviours
 		 */
 		public BehaviourFigure() {
 			this.setFill(false);
-			this.setOutline(false);
+			this.setOutline(true);
 		}
 
 		/**
