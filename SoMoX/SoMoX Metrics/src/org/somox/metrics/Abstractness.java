@@ -17,7 +17,7 @@ public class Abstractness implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		double abstractness = 0.0;
 		double abstractClasses = 0.0;
 		double totalClasses = 0.0;

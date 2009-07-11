@@ -17,7 +17,7 @@ public class PackageMapping implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		boolean samePackage = true;
 		String packageName = null;
 

@@ -116,7 +116,7 @@ public class Instability implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		double efferentCoupling = 0.0;
 		double afferentCoupling = 0.0;
 		
@@ -170,8 +170,8 @@ public class Instability implements Metric {
 	 * @param elements1 First part of the composite component
 	 * @param elements2 Second part of the composite component
 	 */
-	private void extractInternClasses(Root root, List<ModelElement> elements1,
-			List<ModelElement> elements2) {
+	private void extractInternClasses(Root root, List<GASTClass> elements1,
+			List<GASTClass> elements2) {
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
 				if (blacklistIndicator) {

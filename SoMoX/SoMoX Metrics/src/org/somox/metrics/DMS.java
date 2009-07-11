@@ -3,8 +3,8 @@ package org.somox.metrics;
 import java.util.List;
 import java.util.Set;
 
-import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
+import de.fzi.gast.types.GASTClass;
 
 /**
  * DMS metric, calculated by using Abstractness and Instability
@@ -45,7 +45,7 @@ public class DMS implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		double abs = abstractness.compute(root, elements1, elements2);
 		double ins = instability.compute(root, elements1, elements2);
 		

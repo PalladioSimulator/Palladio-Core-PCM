@@ -73,7 +73,7 @@ public class NameResemblance implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		HashMap<String, Boolean> resemblanceMap = new HashMap<String, Boolean>();
 		
 		for (ModelElement current : elements1) {

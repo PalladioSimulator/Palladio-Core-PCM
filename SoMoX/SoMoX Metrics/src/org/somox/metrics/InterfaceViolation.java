@@ -48,7 +48,7 @@ public class InterfaceViolation implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
 		double referencesToClasses = 0.0;
 		double referencesToWholeComponent = 0.0;
 		double ifaceViol = 0.0;
@@ -88,8 +88,8 @@ public class InterfaceViolation implements Metric {
 	 * @param elements1 First part of the composite component
 	 * @param elements2 Second part of the composite component
 	 */
-	private void extractLists(Root root, List<ModelElement> elements1,
-			List<ModelElement> elements2) {
+	private void extractLists(Root root, List<GASTClass> elements1,
+			List<GASTClass> elements2) {
 		for (ModelElement current : elements1) {
 			if (current instanceof GASTClass) {
 				componentAClasses.add((GASTClass)current);

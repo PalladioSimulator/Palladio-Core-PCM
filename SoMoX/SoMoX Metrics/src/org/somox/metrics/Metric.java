@@ -2,8 +2,8 @@ package org.somox.metrics;
 
 import java.util.List;
 
-import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
+import de.fzi.gast.types.GASTClass;
 
 /**
  * Interface modelling a Metric
@@ -22,7 +22,7 @@ public interface Metric {
 	 * @param elements2 Second part of the composite component
 	 * @return the computed metric between 0.0 and 1.0
 	 */
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2);
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2);
 	
 	/**
 	 * Initializes the Metric. Must be called before metrics are computed.

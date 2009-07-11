@@ -97,8 +97,8 @@ public class SubsystemComponent implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute(Root root, List<ModelElement> elements1,
-			List<ModelElement> elements2) {
+	public double compute(Root root, List<GASTClass> elements1,
+			List<GASTClass> elements2) {
 		//compute overall prefix
 		Package prefixPackage = computePrefix(root.getPackages());
 		
@@ -128,21 +128,24 @@ public class SubsystemComponent implements Metric {
 		for (ModelElement currentElement : elements1) {
 			if (currentElement instanceof GASTClass) {
 				Package currentPackage = ((GASTClass)currentElement).getSurroundingPackage();
-				if (subLayer == null) {
-					for (Package slicePackage : slices) {
-						if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
-							for (Package layerPackage : layers) {
-								if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
-									subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
-									break;
+
+				if (currentPackage != null) {
+					if (subLayer == null) {
+						for (Package slicePackage : slices) {
+							if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
+								for (Package layerPackage : layers) {
+									if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
+										subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
+										break;
+									}
 								}
+								break;
 							}
-							break;
 						}
-					}
-				} else {
-					if (!currentPackage.getQualifiedName().startsWith(subLayer)) {
-						return 0.0;
+					} else {
+						if (!currentPackage.getQualifiedName().startsWith(subLayer)) {
+							return 0.0;
+						}
 					}
 				}
 			}
@@ -151,23 +154,26 @@ public class SubsystemComponent implements Metric {
 		for (ModelElement currentElement : elements2) {
 			if (currentElement instanceof GASTClass) {
 				Package currentPackage = ((GASTClass)currentElement).getSurroundingPackage();
-				if (subLayer == null) {
-					for (Package slicePackage : slices) {
-						if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
-							for (Package layerPackage : layers) {
-								if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
-									subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
-									break;
+				if (currentPackage != null) {
+					if (subLayer == null) {
+						for (Package slicePackage : slices) {
+							if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName())) {
+								for (Package layerPackage : layers) {
+									if (currentPackage.getQualifiedName().startsWith(slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName())) {
+										subLayer = slicePackage.getQualifiedName() + "." + layerPackage.getSimpleName();
+										break;
+									}
 								}
+								break;
 							}
-							break;
+						}
+					} else {
+						if (!currentPackage.getQualifiedName().startsWith(subLayer)) {
+							return 0.0;
 						}
 					}
-				} else {
-					if (!currentPackage.getQualifiedName().startsWith(subLayer)) {
-						return 0.0;
-					}
 				}
+				
 			}
 		}
 		

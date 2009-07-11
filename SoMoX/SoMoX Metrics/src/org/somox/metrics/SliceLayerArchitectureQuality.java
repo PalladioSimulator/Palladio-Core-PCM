@@ -19,8 +19,8 @@ public class SliceLayerArchitectureQuality implements Metric {
 	/**
 	 * {@inheritDoc}
 	 */
-	public double compute(Root root, List<ModelElement> elements1,
-			List<ModelElement> elements2) {
+	public double compute(Root root, List<GASTClass> elements1,
+			List<GASTClass> elements2) {
 
 		//compute overall prefix
 		de.fzi.gast.core.Package prefixPackage = computePrefix(elements1, elements2);
@@ -74,7 +74,7 @@ public class SliceLayerArchitectureQuality implements Metric {
 	 * @param elements2 second list of elements
 	 * @return the last package in the package-hierarchy in which all elements are included
 	 */
-	private de.fzi.gast.core.Package computePrefix(List<ModelElement> elements1, List<ModelElement> elements2) {
+	private de.fzi.gast.core.Package computePrefix(List<GASTClass> elements1, List<GASTClass> elements2) {
 		String prefix = "";
 		boolean prefixFound = false;
 		de.fzi.gast.core.Package currentPackage = null;
