@@ -14,6 +14,6 @@ public interface IAnalyzerRule {
 	 * @return Overall value for multiple metrics, taking for example
 	 * interdependencies into account. Value: [0..1]
 	 */
-	public double computeOverallMetricValue(Map<MetricID,Double> argAB, Map<MetricID,Double> argBA);
+	public double computeOverallMetricValue(Map<Integer,Double> argAB, Map<Integer,Double> argBA);
 	
 }

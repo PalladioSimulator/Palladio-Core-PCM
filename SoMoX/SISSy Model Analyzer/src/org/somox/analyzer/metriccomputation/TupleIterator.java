@@ -22,8 +22,8 @@ import org.somox.metrics.MetricID;
 import org.somox.metrics.NameResemblance;
 import org.somox.metrics.SubsystemComponent;
 
-import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
+import de.fzi.gast.types.GASTClass;
 
 public class TupleIterator {
 	private LinkedList<Object> metricList;
@@ -144,18 +144,19 @@ public class TupleIterator {
 		}
 	}
 	
-	public double compute (Root root, List<ModelElement> elements1, List<ModelElement> elements2) {
-		Map<MetricID, Double> argAB = new HashMap<MetricID, Double>();
-		Map<MetricID, Double> argBA = new HashMap<MetricID, Double>();
+	public double compute (Root root, List<GASTClass> elements1, List<GASTClass> elements2) {
+		Map<Integer, Double> argAB = new HashMap<Integer, Double>();
+		Map<Integer, Double> argBA = new HashMap<Integer, Double>();
 		
 		for (Object o : metricList) {
 			if (o instanceof Metric) {
-				argAB.put(((Metric)o).getMID(), ((Metric)o).compute(root, elements1, elements2));
-				argBA.put(((Metric)o).getMID(), ((Metric)o).compute(root, elements2, elements1));
+				argAB.put(((Metric)o).getMID().getID(), ((Metric)o).compute(root, elements1, elements2));
+				argBA.put(((Metric)o).getMID().getID(), ((Metric)o).compute(root, elements2, elements1));
 			}
 		}
 		
 		if (argAB.size() != 0 && argBA.size() != 0) {
+
 			TestAnalyzerRule rule = new TestAnalyzerRule();
 			
 			return rule.computeOverallMetricValue(argAB, argBA);
