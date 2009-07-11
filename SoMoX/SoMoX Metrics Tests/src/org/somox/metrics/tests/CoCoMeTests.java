@@ -22,7 +22,6 @@ import org.somox.metrics.SliceLayerArchitectureQuality;
 import org.somox.metrics.SubsystemComponent;
 import org.somox.metrics.init.Initialization;
 
-import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
@@ -50,8 +49,8 @@ public class CoCoMeTests {
 	
 	private static Root root = null;
 	private static List<List<GASTClass>> elements;
-	private static List<ModelElement> elements1;
-	private static List<ModelElement> elements2;
+	private static List<GASTClass> elements1;
+	private static List<GASTClass> elements2;
 	
 	/**
 	 * The absolute or relative path to the GAST model
@@ -355,8 +354,8 @@ public class CoCoMeTests {
 	}
 	
 	private static void extractClassLists () {
-		elements1 = new LinkedList<ModelElement>();
-		elements2 = new LinkedList<ModelElement>();
+		elements1 = new LinkedList<GASTClass>();
+		elements2 = new LinkedList<GASTClass>();
 		
 		if (elements.size() > 0) {
 			int i=0;

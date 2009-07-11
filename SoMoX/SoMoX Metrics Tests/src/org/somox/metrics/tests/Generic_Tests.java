@@ -22,7 +22,6 @@ import org.somox.metrics.SliceLayerArchitectureQuality;
 import org.somox.metrics.SubsystemComponent;
 import org.somox.metrics.init.Initialization;
 
-import de.fzi.gast.core.ModelElement;
 import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
@@ -50,8 +49,8 @@ public class Generic_Tests {
 
 	private static Root root = null;
 	private static List<List<GASTClass>> elements;
-	private static List<ModelElement> elements1;
-	private static List<ModelElement> elements2;
+	private static List<GASTClass> elements1;
+	private static List<GASTClass> elements2;
 	
 	private static final String modelPath = "grischatest.gast";
 	
@@ -75,8 +74,8 @@ public class Generic_Tests {
 		assertTrue("Elements is not null", elements!=null);
 		
 		//reset element lists
-		elements1 = new LinkedList<ModelElement>();
-		elements2 = new LinkedList<ModelElement>();
+		elements1 = new LinkedList<GASTClass>();
+		elements2 = new LinkedList<GASTClass>();
 	}
 	
 	
@@ -255,14 +254,12 @@ public class Generic_Tests {
 	 * in "Instability" can be used. Without using the Setter, an empty blacklist will be used in the DMS
 	 */
 	public double dmsTest () {
-		ins = new Instability();
 		dms = new DMS();
 		
 		HashSet<String> blacklist = new HashSet<String>();
 		blacklist.add("java.*");
-		ins.setBlacklist(blacklist);
 		
-		dms.setInstability(ins);
+		dms.setBlacklist(blacklist);
 
 		long time1First = System.nanoTime();
 		double distanceFMS = dms.compute(root, elements1, elements2);
