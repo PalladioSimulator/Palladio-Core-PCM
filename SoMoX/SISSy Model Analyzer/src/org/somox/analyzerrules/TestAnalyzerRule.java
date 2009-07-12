@@ -33,78 +33,6 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		//loadProperties();
 	}
 	
-//	/**
-//	 * Computes the overall metric score based on Landrys weighting functions
-//	 * 
-//	 * @param argAB The ID for every metric and its calculated score for the components A B
-//	 * @param argBA The ID for every metric and its calculated score for the components B A
-//	 * @return the overall score of the metric
-//	 */
-//	public double computeOverallMetricValue(Map<MetricID, Double> argAB,
-//			Map<MetricID, Double> argBA) {
-//		loadProperties();
-//		
-//		double nameResemblance = argAB.get(new NameResemblance().getMID());
-//		double subsystemComponent = argAB.get(new SubsystemComponent().getMID());
-//		double packageMapping = argAB.get(new PackageMapping().getMID());
-//		double dms = argAB.get(new DMS().getMID());
-//		double slaq = argAB.get(new SliceLayerArchitectureQuality().getMID());
-//		
-//		double couplingAB = argAB.get(new Coupling().getMID());
-//		double couplingBA = argBA.get(new Coupling().getMID());
-//		double coupling = Math.max(couplingAB, couplingBA);
-//		
-//		double interfaceViolationAB = argAB.get(new InterfaceViolation().getMID());
-//		double interfaceViolationBA = argBA.get(new InterfaceViolation().getMID());
-//		double interfaceViolation = Math.max(interfaceViolationAB, interfaceViolationBA);
-//		
-//		double w1=0, w2=0, w3=0;
-//		
-//		double w4 = Double.parseDouble(properties.getProperty("org.somox.packageMapping.weightPackageMapping"));
-//		double w5 = Double.parseDouble(properties.getProperty("org.somox.dms.weightDMS"));
-//		
-//		//determine weight of nameResemblance
-//		if (coupling < 0.2) {
-//			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowCoupling"));
-//		} else if (coupling < 0.7) {
-//			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidCoupling"));
-//		} else {
-//			if (nameResemblance < 0.5) {
-//				w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowNameResemblance"));
-//			} else if (nameResemblance < 0.7) {
-//				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidNameResemblance"));
-//			} else if (nameResemblance < 0.9) {
-//				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighNameResemblance"));
-//			} else {
-//				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighestNameResemblance"));
-//			}
-//		}
-//		
-//		//determine weight of interfaceViolation
-//		if (coupling >=0.5 && interfaceViolation > 0.0) {
-//			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationRelevant"));
-//		} else {
-//			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationIrrelevant"));
-//		}
-//		
-//		//determine weight of subsystemComponent
-//		if (slaq >= 0.5) {
-//			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightHighSLAQ"));
-//		} else {
-//			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightLowSLAQ"));
-//		}
-//		
-//		//compute overall metric score
-//		double sum = nameResemblance + interfaceViolation + subsystemComponent
-//		             + packageMapping + dms;
-//		double score = nameResemblance*(double)w1 + interfaceViolation*(double)w2 
-//		               + subsystemComponent*(double)w3 + packageMapping*(double)w4 - dms*(double)w5;
-//		
-//		score = score/sum;
-//		
-//		return score;
-//	}
-	
 	/**
 	 * Computes the overall metric score based on Landrys weighting functions
 	 * 
@@ -114,6 +42,7 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	 */
 	public double computeOverallMetricValue(Map<Integer, Double> argAB,
 			Map<Integer, Double> argBA) {
+		loadProperties();
 		
 		double nameResemblance = argAB.get((new NameResemblance()).getMID().getID());
 		double subsystemComponent = argAB.get(new SubsystemComponent().getMID().getID());
@@ -131,38 +60,38 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		
 		double w1=0, w2=0, w3=0;
 		
-		double w4 = 60.0;
-		double w5 = 7.0;
+		double w4 = Double.parseDouble(properties.getProperty("org.somox.packageMapping.weightPackageMapping"));
+		double w5 = Double.parseDouble(properties.getProperty("org.somox.dms.weightDMS"));
 		
 		//determine weight of nameResemblance
 		if (coupling < 0.2) {
-			w1 = 0.0;
+			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowCoupling"));
 		} else if (coupling < 0.7) {
-			w1 = 10.0;
+			w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidCoupling"));
 		} else {
 			if (nameResemblance < 0.5) {
-				w1 = 15.0;
+				w1 = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightLowNameResemblance"));
 			} else if (nameResemblance < 0.7) {
-				w1  = 25.0;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightMidNameResemblance"));
 			} else if (nameResemblance < 0.9) {
-				w1  = 40.0;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighNameResemblance"));
 			} else {
-				w1  = 90.0;
+				w1  = Double.parseDouble(properties.getProperty("org.somox.nameResemblance.weightHighestNameResemblance"));
 			}
 		}
 		
 		//determine weight of interfaceViolation
 		if (coupling >=0.5 && interfaceViolation > 0.0) {
-			w2  = 60.0;
+			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationRelevant"));
 		} else {
-			w2  = 0.0;
+			w2  = Double.parseDouble(properties.getProperty("org.somox.interfaceViolation.weightInterfaceViolationIrrelevant"));
 		}
 		
 		//determine weight of subsystemComponent
 		if (slaq >= 0.5) {
-			w3 = 25.0;
+			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightHighSLAQ"));
 		} else {
-			w3 = 0.0;
+			w3 = Double.parseDouble(properties.getProperty("org.somox.subsystemComponent.weightLowSLAQ"));
 		}
 		
 		//compute overall metric score
@@ -174,6 +103,76 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 		
 		return score;
 	}
+//	
+//	/**
+//	 * Computes the overall metric score based on Landrys weighting functions
+//	 * 
+//	 * @param argAB The ID for every metric and its calculated score for the components A B
+//	 * @param argBA The ID for every metric and its calculated score for the components B A
+//	 * @return the overall score of the metric
+//	 */
+//	public double computeOverallMetricValue(Map<Integer, Double> argAB,
+//			Map<Integer, Double> argBA) {
+//		
+//		double nameResemblance = argAB.get((new NameResemblance()).getMID().getID());
+//		double subsystemComponent = argAB.get(new SubsystemComponent().getMID().getID());
+//		double packageMapping = argAB.get(new PackageMapping().getMID().getID());
+//		double dms = argAB.get(new DMS().getMID().getID());
+//		double slaq = argAB.get(new SliceLayerArchitectureQuality().getMID().getID());
+//		
+//		double couplingAB = argAB.get(new Coupling().getMID().getID());
+//		double couplingBA = argBA.get(new Coupling().getMID().getID());
+//		double coupling = Math.max(couplingAB, couplingBA);
+//		
+//		double interfaceViolationAB = argAB.get(new InterfaceViolation().getMID().getID());
+//		double interfaceViolationBA = argBA.get(new InterfaceViolation().getMID().getID());
+//		double interfaceViolation = Math.max(interfaceViolationAB, interfaceViolationBA);
+//		
+//		double w1=0, w2=0, w3=0;
+//		
+//		double w4 = 60.0;
+//		double w5 = 7.0;
+//		
+//		//determine weight of nameResemblance
+//		if (coupling < 0.2) {
+//			w1 = 0.0;
+//		} else if (coupling < 0.7) {
+//			w1 = 10.0;
+//		} else {
+//			if (nameResemblance < 0.5) {
+//				w1 = 15.0;
+//			} else if (nameResemblance < 0.7) {
+//				w1  = 25.0;
+//			} else if (nameResemblance < 0.9) {
+//				w1  = 40.0;
+//			} else {
+//				w1  = 90.0;
+//			}
+//		}
+//		
+//		//determine weight of interfaceViolation
+//		if (coupling >=0.5 && interfaceViolation > 0.0) {
+//			w2  = 60.0;
+//		} else {
+//			w2  = 0.0;
+//		}
+//		
+//		//determine weight of subsystemComponent
+//		if (slaq >= 0.5) {
+//			w3 = 25.0;
+//		} else {
+//			w3 = 0.0;
+//		}
+//		
+//		//compute overall metric score
+//		double sum = w1+w2+w3+w4+w5;
+//		double score = nameResemblance*(double)w1 + interfaceViolation*(double)w2 
+//		               + subsystemComponent*(double)w3 + packageMapping*(double)w4 - dms*(double)w5;
+//		
+//		score = score/sum;
+//		
+//		return score;
+//	}
 
 	private void loadProperties() {
 		this.properties = new Properties();
