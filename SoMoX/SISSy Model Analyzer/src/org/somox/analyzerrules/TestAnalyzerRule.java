@@ -1,14 +1,18 @@
 package org.somox.analyzerrules;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Map;
 import java.util.Properties;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.osgi.framework.Bundle;
 import org.somox.metrics.Coupling;
 import org.somox.metrics.DMS;
 import org.somox.metrics.InterfaceViolation;
-import org.somox.metrics.MetricID;
 import org.somox.metrics.NameResemblance;
 import org.somox.metrics.PackageMapping;
 import org.somox.metrics.SliceLayerArchitectureQuality;
@@ -23,6 +27,11 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	
 	private static final String CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE = "config/SimpleAnalyzer.properties";
 	private Properties properties;
+	
+	
+	public TestAnalyzerRule() {
+		//loadProperties();
+	}
 	
 //	/**
 //	 * Computes the overall metric score based on Landrys weighting functions
@@ -167,10 +176,15 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	}
 
 	private void loadProperties() {
-	    this.properties = new Properties();
+		this.properties = new Properties();
+	    Bundle bundle = Platform.getBundle("org.somox.analyzer.sissymodelanalyzer");
+	    Path path = new Path(CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE);
+	    URL fileURL = FileLocator.find(bundle, path, null);
+	    
 	
 	    try {
-	        properties.load(new FileInputStream(CONFIG_SIMPLE_ANALYZER_PROPERTIES_FILE));
+	    	InputStream in = fileURL.openStream();
+	        properties.load(in);
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
