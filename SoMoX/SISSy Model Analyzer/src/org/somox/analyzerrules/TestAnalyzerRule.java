@@ -43,18 +43,18 @@ public class TestAnalyzerRule implements IAnalyzerRule {
 	public double computeOverallMetricValue(Map<Integer, Double> argAB,
 			Map<Integer, Double> argBA) {
 		
-		double nameResemblance = argAB.get((new NameResemblance()).getMID().getID());
-		double subsystemComponent = argAB.get(new SubsystemComponent().getMID().getID());
-		double packageMapping = argAB.get(new PackageMapping().getMID().getID());
-		double dms = argAB.get(new DMS().getMID().getID());
-		double slaq = argAB.get(new SliceLayerArchitectureQuality().getMID().getID());
+		double nameResemblance = argAB.get((new NameResemblance()).getMID().getID()); //FIXME: avoid new instances > use static access
+		double subsystemComponent = argAB.get(new SubsystemComponent().getMID().getID()); //FIXME: avoid new instances > use static access
+		double packageMapping = argAB.get(new PackageMapping().getMID().getID()); //FIXME: avoid new instances > use static access
+		double dms = argAB.get(new DMS().getMID().getID()); //FIXME: avoid new instances > use static access
+		double slaq = argAB.get(new SliceLayerArchitectureQuality().getMID().getID()); //FIXME: avoid new instances > use static access
 		
-		double couplingAB = argAB.get(new Coupling().getMID().getID());
-		double couplingBA = argBA.get(new Coupling().getMID().getID());
+		double couplingAB = argAB.get(new Coupling().getMID().getID()); //FIXME: avoid new instances > use static access
+		double couplingBA = argBA.get(new Coupling().getMID().getID()); //FIXME: avoid new instances > use static access
 		double coupling = Math.max(couplingAB, couplingBA);
 		
-		double interfaceViolationAB = argAB.get(new InterfaceViolation().getMID().getID());
-		double interfaceViolationBA = argBA.get(new InterfaceViolation().getMID().getID());
+		double interfaceViolationAB = argAB.get(new InterfaceViolation().getMID().getID()); //FIXME: avoid new instances > use static access
+		double interfaceViolationBA = argBA.get(new InterfaceViolation().getMID().getID()); //FIXME: avoid new instances > use static access
 		double interfaceViolation = Math.max(interfaceViolationAB, interfaceViolationBA);
 		
 		double w1=0, w2=0, w3=0;
