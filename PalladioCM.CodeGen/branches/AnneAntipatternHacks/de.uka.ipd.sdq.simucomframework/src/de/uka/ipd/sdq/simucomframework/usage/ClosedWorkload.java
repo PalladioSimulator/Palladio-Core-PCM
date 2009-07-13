@@ -30,7 +30,7 @@ public class ClosedWorkload implements IWorkloadDriver {
 		ClosedWorkloadUser.resetFailureCounters();
 		for (int i=0; i<population; i++) {
 			IUser user = userFactory.createUser();
-			user.startUserLife();
+			user.startUserLife(i*1.0/population);
 		}
 	}
 }

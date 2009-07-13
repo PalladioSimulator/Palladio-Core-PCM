@@ -6,8 +6,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.PassiveResource;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForAcquire;
@@ -23,6 +27,14 @@ public class SimulatedPassiveResource extends SimProcess {
 	private String resourceID;
 
 	private PassiveResource resourceStatus;
+
+	private State idleState;
+
+	private StateSensor stateSensor;
+
+	private ExperimentRun experimentRun;
+
+	private State busyState;
 	
 	public SimulatedPassiveResource(SimuComModel myModel, String resourceID, int capacity)
 	{
@@ -31,6 +43,26 @@ public class SimulatedPassiveResource extends SimProcess {
 			
 		available = capacity;
 		this.resourceID = resourceID;
+		
+		this.idleState = SensorHelper.createOrReuseState(myModel
+				.getDAOFactory(), "Idle");
+		
+		this.busyState = SensorHelper.createOrReuseState(myModel
+				.getDAOFactory(), "Busy");
+		
+		this.stateSensor = SensorHelper.createOrReuseStateSensor(myModel
+				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
+				.getExperimentDatastore().getExperimentName()
+				+ ": Utilisation of Passive Resource" + resourceID, this.idleState);
+		
+		if (!stateSensor.getSensorStates().contains(this.busyState))
+			stateSensor.addSensorState(this.busyState);
+		
+		if (!stateSensor.getSensorStates().contains(this.idleState))
+			stateSensor.addSensorState(this.idleState);
+		
+		this.experimentRun = myModel.getCurrentExperimentRun();
+		
 		logger.debug("Simulated Passive Resource "+resourceID+" created.");
 		
 		myModel.getResourceRegistry().addPassiveResourceToRegistry(this);
@@ -71,6 +103,11 @@ public class SimulatedPassiveResource extends SimProcess {
 			if (associatedQueue.size()==0)
 			{
 				logger.debug("Queue of Passive Resource "+resourceID+" is empty. Resource going to sleep...");
+				
+				experimentRun.addStateMeasurement(stateSensor, idleState, this
+						.getModel().getSimulationControl()
+						.getCurrentSimulationTime());
+				
 				passivate();
 			}
 			else
@@ -81,6 +118,11 @@ public class SimulatedPassiveResource extends SimProcess {
 					SimProcess next = associatedQueue.peek();
 					associatedQueue.remove(next);
 					logger.debug("Simulated Process "+next.getName()+" acquired Passive Resource "+resourceID+". It continues execution now...");
+					
+					experimentRun.addStateMeasurement(stateSensor, busyState, this
+							.getModel().getSimulationControl()
+							.getCurrentSimulationTime());
+					
 					next.scheduleAt(0);
 				}
 				else

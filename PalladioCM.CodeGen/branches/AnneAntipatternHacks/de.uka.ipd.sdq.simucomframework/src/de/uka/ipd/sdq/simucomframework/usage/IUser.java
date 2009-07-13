@@ -13,6 +13,7 @@ public interface IUser extends IScenarioRunner {
 	/**
 	 * Called by the framework to tell the user that he just was born and that
 	 * he is now ready to conquer the world.
+	 * @param i 
 	 */
-	void startUserLife();
+	void startUserLife(double delayFraction);
 }

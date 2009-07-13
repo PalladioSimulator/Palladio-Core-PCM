@@ -124,10 +124,12 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 * 
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
 	 */
-	public void startUserLife() {
+	public void startUserLife(double delayFraction) {
 		logger.debug(this.getName() + " started! I'm alive!!!");
 		USERCOUNT++;
-		this.scheduleAt(0);
+		double thinkTime = (Double) Context.evaluateStatic(this.thinkTime,
+				Double.class, null);
+		this.scheduleAt(thinkTime*delayFraction);
 	}
 
 	/**

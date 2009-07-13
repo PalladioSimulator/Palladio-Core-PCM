@@ -72,7 +72,7 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 	 * 
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
 	 */
-	public void startUserLife() {
+	public void startUserLife(double delayFraction) {
 		this.scheduleAt(0);
 	}
 
