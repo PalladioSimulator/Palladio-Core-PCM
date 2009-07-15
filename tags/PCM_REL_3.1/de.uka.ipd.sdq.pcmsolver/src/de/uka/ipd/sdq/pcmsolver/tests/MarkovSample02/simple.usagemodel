@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_C4ELsFiZEd25ur7DrWap4g" entityName="defaultUsageScenario">
+    <workload_UsageScenario xsi:type="OpenWorkload">
+      <interArrivalTime_OpenWorkload specification="3000"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_C4ELsViZEd25ur7DrWap4g" entityName="MyUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_C4ELsliZEd25ur7DrWap4g" entityName="myUsageStart" successor="_N5HeUFiZEd25ur7DrWap4g"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_C4ELs1iZEd25ur7DrWap4g" entityName="myUsageStop" predecessor="_N5HeUFiZEd25ur7DrWap4g"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_N5HeUFiZEd25ur7DrWap4g" entityName="mySimpleCall" successor="_C4ELs1iZEd25ur7DrWap4g" predecessor="_C4ELsliZEd25ur7DrWap4g">
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="IntPMF[ (0;0.7) (1;0.3) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="param_one"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="simple.system#_TF13UFiYEd25ur7DrWap4g"/>
+        <signature_EntryLevelSystemCall href="simple.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>
