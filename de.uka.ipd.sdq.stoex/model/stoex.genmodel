@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" copyrightText="Copyright 2007-2009, SDQ, IPD, U Karlsruhe"
+    modelDirectory="/de.uka.ipd.sdq.stoex/src" modelPluginID="de.uka.ipd.sdq.stoex"
+    modelName="Stoex" importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0"
+    language="en" usedGenPackages="../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>stoex.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Stoex" basePackage="de.uka.ipd.sdq"
+      disposableProviderFactory="true" ecorePackage="stoex.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//TermOperations/ADD"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//TermOperations/SUB"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//ProductOperations">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//ProductOperations/MULT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//ProductOperations/DIV"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//ProductOperations/MOD"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//CompareOperations">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/GREATER"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/EQUALS"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/LESS"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/NOTEQUAL"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/LESSEQUAL"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//CompareOperations/GREATEREQUAL"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//BooleanOperations">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//BooleanOperations/AND"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//BooleanOperations/OR"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="stoex.ecore#//BooleanOperations/XOR"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//VariableReference"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//AbstractNamedReference">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//AbstractNamedReference/referenceName"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//NamespaceReference">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NamespaceReference/innerReference_NamespaceReference"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//Variable">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference stoex.ecore#//Variable/id_Variable"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Atom"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Unary"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Power"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Product"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Term"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Comparison"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//BooleanExpression"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//IfElse"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Expression"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//TermExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/left"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/right"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//TermExpression/operation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//ProductExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/left"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/right"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//ProductExpression/operation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//ProbabilityFunctionLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProbabilityFunctionLiteral/function_ProbabilityFunctionLiteral"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//Parenthesis">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//Parenthesis/innerExpression"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//NumericLiteral"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//IntLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//IntLiteral/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//DoubleLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//DoubleLiteral/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//CompareExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/left"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/right"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//CompareExpression/operation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//BoolLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//BoolLiteral/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//StringLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//PowerExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/base"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/exponent"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//BooleanOperatorExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//BooleanOperatorExpression/left"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//BooleanOperatorExpression/right"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//BooleanOperatorExpression/operation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//NotExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NotExpression/inner"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//NegativeExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NegativeExpression/inner"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//FunctionLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//FunctionLiteral/id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//FunctionLiteral/parameters_FunctionLiteral"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//IfElseExpression">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/ifExpression"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/elseExpression"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/conditionExpression"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//RandomVariable">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//RandomVariable/specification"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference stoex.ecore#//RandomVariable/expression"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
