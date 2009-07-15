@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resultdecorator"
+    nsURI="http://sdq.ipd.uka.de/ResultDecorator/1.0" nsPrefix="resultdecorator">
+  <eClassifiers xsi:type="ecore:EClass" name="ResultDecoratorRepository" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovidingrequiringentityresults"
+        ordered="false" upperBound="-1" eType="#//repositorydecorator/ComponentResult"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="utilisationresult" ordered="false"
+        upperBound="-1" eType="#//resourceenvironmentdecorator/UtilisationResult"
+        containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="repositorydecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0"
+      nsPrefix="repositorydecorator">
+    <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntityResults"
+        eSuperTypes="#//repositorydecorator/ComponentResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovidingrequiringentity"
+          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/InterfaceProvidingRequiringEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentResult" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResourceDemand"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResponseTime"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationContextResults" eSuperTypes="#//repositorydecorator/ComponentResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationcontext" ordered="false"
+          eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resourceenvironmentdecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0"
+      nsPrefix="resourceenvironmentdecorator">
+    <eClassifiers xsi:type="ecore:EClass" name="LinkingResourceResults" eSuperTypes="#//resourceenvironmentdecorator/UtilisationResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
+          eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UtilisationResult" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResourceUtilisation"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedDemandedTime"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedWaitTime" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerResults" eSuperTypes="#//resourceenvironmentdecorator/UtilisationResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourcecontainer" ordered="false"
+          eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecificationResult"
+        eSuperTypes="#//resourceenvironmentdecorator/UtilisationResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
+          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
