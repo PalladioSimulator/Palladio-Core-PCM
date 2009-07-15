@@ -1,0 +1,1 @@
+This plugin contains the SDQ workflow engine used to run activities which consist of a set of actions.
