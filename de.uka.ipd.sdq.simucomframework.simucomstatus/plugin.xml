@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright 2008, sdq.ipd.uka.de, U KA
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://sdq.ipd.uka.de/SimuComStatus/1.0" 
+       class = "de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage"
+       genModel = "model/SimuComStatus.genmodel" /> 
+  </extension>
+
+</plugin>
