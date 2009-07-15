@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.uka.ipd.sdq:FeatureDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureModel/2.0" name="Example Diagram">
+  <rootFeature name="Root Node">
+    <childrelation xsi:type="de.uka.ipd.sdq:Simple">
+      <mandatoryChildren name="Mand. Feature 1">
+        <childrelation xsi:type="de.uka.ipd.sdq:FeatureGroup" min="2" max="2">
+          <children name="Group Child 1"/>
+          <children name="Group Child 2"/>
+          <children name="Group Child 3"/>
+        </childrelation>
+      </mandatoryChildren>
+      <mandatoryChildren name="Mand. Feature 2"/>
+      <optionalChildren name="Opt. Feature 1"/>
+      <optionalChildren name="Opt. Feature 2"/>
+    </childrelation>
+  </rootFeature>
+</de.uka.ipd.sdq:FeatureDiagram>
