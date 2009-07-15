@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.uka.ipd.sdq:FeatureDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureModel/2.0" name="Connector">
+  <rootFeature name="Connector">
+    <childrelation xsi:type="de.uka.ipd.sdq:FeatureGroup" min="2" max="2">
+      <children name="Protocol">
+        <childrelation xsi:type="de.uka.ipd.sdq:FeatureGroup" min="0" max="2">
+          <children name="RMI"/>
+          <children name="SOAP"/>
+        </childrelation>
+      </children>
+      <children name="Additional Options">
+        <childrelation xsi:type="de.uka.ipd.sdq:Simple">
+          <optionalChildren name="Encryption"/>
+          <optionalChildren name="Authentication"/>
+        </childrelation>
+      </children>
+    </childrelation>
+  </rootFeature>
+</de.uka.ipd.sdq:FeatureDiagram>
