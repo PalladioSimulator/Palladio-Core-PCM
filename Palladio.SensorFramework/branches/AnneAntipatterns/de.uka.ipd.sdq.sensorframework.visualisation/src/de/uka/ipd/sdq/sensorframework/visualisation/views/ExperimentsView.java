@@ -3,9 +3,13 @@ package de.uka.ipd.sdq.sensorframework.visualisation.views;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,6 +63,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.util.CompareSensorsByName;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.CSVSettingsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.DialogType;
@@ -709,11 +714,17 @@ public class ExperimentsView extends ViewPart {
 				bufferedWriterForTime.write("name"+separator+"respTime"+separator+"noOfMeas"+"\n");
 				bufferedWriterForState.write("name"+separator+"util\n");
 			}
+			String line;
+			
+			sensors = sortSensorsByName(sensors);
 			
 			for (Sensor sensor : sensors) {
 				//TODO distinguish between utilisation sensors and response time sensors
 				if (TimeSpanSensor.class.isInstance(sensor)){
-					bufferedWriterForTime.write(getResultLineForTime((TimeSpanSensor)sensor, run, separator)+"\n");
+					line = getResultLineForTime((TimeSpanSensor)sensor, run, separator);
+					if (line != null){
+						bufferedWriterForTime.write(line+"\n");
+					}
 				} else if (StateSensor.class.isInstance(sensor)){
 					bufferedWriterForState.write(getResultLineForState((StateSensor)sensor, run, separator)+"\n");
 				}
@@ -732,6 +743,24 @@ public class ExperimentsView extends ViewPart {
 			e.printStackTrace();
 		}
 		
+	}
+
+	private Collection<Sensor> sortSensorsByName(Collection<Sensor> sensors) {
+		Comparator<Sensor> comp = new CompareSensorsByName();
+		
+		List<Sensor> listOfSensors;
+		
+		if (sensors instanceof List){
+			listOfSensors = (List<Sensor>)sensors;
+		} else {
+			listOfSensors = new ArrayList<Sensor>();
+			listOfSensors.addAll(sensors);
+		}
+				
+		Collections.sort(listOfSensors, comp);
+		
+		return listOfSensors;
+
 	}
 
 	private String getResultLineForState(StateSensor sensor, ExperimentRun run,
@@ -781,11 +810,16 @@ public class ExperimentsView extends ViewPart {
 		
 		double meanValue = getMeanValue(sensorAndMeasurements.getMeasurements());
 		
-		int noOfMeasurements = sensorAndMeasurements.getMeasurements().size();
+		if (!Double.isNaN(meanValue)){
+			
+			int noOfMeasurements = sensorAndMeasurements.getMeasurements().size();
 		
-		String resultLine = name+seperator+meanValue+seperator+noOfMeasurements;
+			String resultLine = name+seperator+meanValue+seperator+noOfMeasurements;
 		
-		return resultLine;
+			return resultLine;
+		} else {
+			return null;
+		}
 	}
 
 	private double getMeanValue(Collection<Measurement> measurements) {
