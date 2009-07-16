@@ -769,7 +769,7 @@ public class ExperimentsView extends ViewPart {
 		//XXX: Assuming here that the initial state was the idle state
 		State idleState = sensor.getInitialState();
 		
-		double utilisation = 1-timeSums.get(idleState);
+		double utilisation = 1-(timeSums.get(idleState)/sum);
 	
 		return name+separator+utilisation;
 	}
