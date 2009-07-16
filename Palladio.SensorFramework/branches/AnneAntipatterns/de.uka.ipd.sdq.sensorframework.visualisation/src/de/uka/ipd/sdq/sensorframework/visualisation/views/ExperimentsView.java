@@ -746,7 +746,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private Collection<Sensor> sortSensorsByName(Collection<Sensor> sensors) {
-		Comparator<Sensor> comp = new CompareSensorsByName();
+		Comparator<Sensor> comp = new CompareSensorsByName(true);
 		
 		List<Sensor> listOfSensors;
 		
