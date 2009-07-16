@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.launchmultiple.LaunchMultiple"
+            id="de.uka.ipd.sdq.launchmultiple.launchMultiple"
+            modes="run"
+            name="Multiple Launches"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.launchmultiple.LaunchMultipleTabGroup"
+            id="de.uka.ipd.sdq.launchmultiple.LaunchMultipleTabGroup"
+            type="de.uka.ipd.sdq.launchmultiple.launchMultiple">
+      </launchConfigurationTabGroup>
+   </extension>
+   
+
+</plugin>
