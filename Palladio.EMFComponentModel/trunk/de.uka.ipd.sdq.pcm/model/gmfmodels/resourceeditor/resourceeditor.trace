@@ -9,4 +9,10 @@
         visualID="5001"
         queryText="true"/>
   </nodeTraces>
+  <nodeTraces
+      visualID="2002"
+      queryText="let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0' and _eClass_.name = 'CommunicationLinkResourceSpecification'"/>
+  <linkTraces
+      visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0' and _eClass_.name = 'LinkingResource')"/>
 </trace:TraceModel>

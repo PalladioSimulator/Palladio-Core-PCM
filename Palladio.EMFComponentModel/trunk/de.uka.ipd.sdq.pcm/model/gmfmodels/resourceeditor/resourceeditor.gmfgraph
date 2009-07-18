@@ -17,10 +17,28 @@
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="LinkingResourceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="StraightLine"/>
+    </descriptors>
+    <descriptors
+        name="CommunicationLinkResourceSpecificationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CommunicationLinkResourceSpecificationFigure"/>
+    </descriptors>
   </figures>
+  <nodes
+      name="CommunicationLinkResourceSpecification"
+      figure="CommunicationLinkResourceSpecificationFigure"/>
   <nodes
       name="ResourceContainer"
       figure="ResourceContainerFigure"/>
+  <connections
+      name="LinkingResource"
+      figure="LinkingResourceFigure"/>
   <labels
       name="ResourceContainerNameLabel"
       figure="ResourceContainerFigure"

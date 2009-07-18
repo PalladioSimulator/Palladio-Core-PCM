@@ -68,6 +68,60 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="2002"
+        editPartClassName="CommunicationLinkResourceSpecificationEditPart"
+        itemSemanticEditPolicyClassName="CommunicationLinkResourceSpecificationItemSemanticEditPolicy"
+        notationViewFactoryClassName="CommunicationLinkResourceSpecificationViewFactory"
+        canonicalEditPolicyClassName="CommunicationLinkResourceSpecificationCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CommunicationLinkResourceSpecificationGraphicalNodeEditPolicy"
+        createCommandClassName="CommunicationLinkResourceSpecificationCreateCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CommunicationLinkResourceSpecificationEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/resourceenvironment/CommunicationLinkResourceSpecification"/>
+      </modelFacet>
+    </topLevelNodes>
+    <links
+        visualID="4001"
+        editPartClassName="LinkingResourceEditPart"
+        itemSemanticEditPolicyClassName="LinkingResourceItemSemanticEditPolicy"
+        notationViewFactoryClassName="LinkingResourceViewFactory"
+        createCommandClassName="LinkingResourceCreateCommand"
+        reorientCommandClassName="LinkingResourceReorientCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="LinkingResourceEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="../../pcm.genmodel#//pcm/resourceenvironment/LinkingResource"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/ResourceEnvironment/linkingresource"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/ResourceEnvironment/linkingresource"/>
+        <sourceMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/LinkingResource/fromResourceContainer_LinkingResource"/>
+        <targetMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
+      </modelFacet>
+    </links>
     <palette>
       <groups
           title="pcm">
@@ -76,6 +130,16 @@
             title="ResourceContainer"
             description="Create new ResourceContainer"
             genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CommunicationLinkResourceSpecifation"
+            description="Create new CommunicationLinkResourceSpecifation"
+            genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="LinkingResource"
+            description="Create new LinkingResource"
+            genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages
@@ -117,6 +181,38 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.1"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.0"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.1"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.0"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
