@@ -24,18 +24,63 @@
           href="resourceeditor.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="resourceeditor.gmfgraph#ResourceContainer"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="MTTF: {0}"
+              editorPattern=""
+              editPattern="">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#MTTFLabel"/>
+            <features
+                href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTF"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="MTTR: {0}">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#MTTRLabel"/>
+            <features
+                href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="Scheduling Policy: {0}">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#SchedulingPolicyLabel"/>
+            <features
+                href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="resourceeditor.gmfgraph#ProcessingResourceSpecification"/>
+          <compartments>
+            <compartment
+                href="resourceeditor.gmfgraph#ProcessingResourceSpecificationCompartment"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0">
+        <compartment
+            href="resourceeditor.gmfgraph#ResourceContainerCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping"
-          editPattern="">
-        <diagramLabel
-            href="resourceeditor.gmfgraph#ResourceContainerNameLabel"/>
-      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>

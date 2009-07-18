@@ -19,8 +19,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="CommunicationLinkResourceSpecifation"
-          description="Create new CommunicationLinkResourceSpecifation">
+          title="CommunicationLinkResourceSpecification"
+          description="Create new CommunicationLinkResourceSpecification">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -30,6 +30,24 @@
           xsi:type="gmftool:CreationTool"
           title="LinkingResource"
           description="Create new LinkingResource">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ProcessingResourceSpecification"
+          description="Create new ProcessingResourceSpecification">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ResourceType"
+          description="Create new ResourceType">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

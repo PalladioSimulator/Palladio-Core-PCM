@@ -21,12 +21,102 @@
         figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
     <domainDiagramElement
         href="../../pcm.genmodel#//pcm/resourceenvironment/ResourceEnvironment"/>
+    <childNodes
+        visualID="3001"
+        editPartClassName="ProcessingResourceSpecificationEditPart"
+        itemSemanticEditPolicyClassName="ProcessingResourceSpecificationItemSemanticEditPolicy"
+        notationViewFactoryClassName="ProcessingResourceSpecificationViewFactory"
+        canonicalEditPolicyClassName="ProcessingResourceSpecificationCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.1"
+        graphicalNodeEditPolicyClassName="ProcessingResourceSpecificationGraphicalNodeEditPolicy"
+        createCommandClassName="ProcessingResourceSpecificationCreateCommand"
+        containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ProcessingResourceSpecificationEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ProcessingResourceSpecificationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessingResourceSpecificationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSchedulingPolicyFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTFFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTRFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActiveResourceTypeFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessingResourceSpecificationFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActiveResourceTypeFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActiveResourceTypeFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureActiveResourceTypeFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTFFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTFFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTFFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTRFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTRFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTRFigure);&#xA;&#xA;&#xA;&#xA;fFigureSchedulingPolicyFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSchedulingPolicyFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSchedulingPolicyFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSchedulingPolicyFigure() {&#xA;&#x9;&#x9;return fFigureSchedulingPolicyFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTFFigure() {&#xA;&#x9;&#x9;return fFigureMTTFFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTRFigure() {&#xA;&#x9;&#x9;return fFigureMTTRFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActiveResourceTypeFigure() {&#xA;&#x9;&#x9;return fFigureActiveResourceTypeFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
+      </modelFacet>
+      <labels
+          visualID="5002"
+          editPartClassName="ProcessingResourceSpecificationMTTFEditPart"
+          itemSemanticEditPolicyClassName="ProcessingResourceSpecificationMTTFItemSemanticEditPolicy"
+          notationViewFactoryClassName="ProcessingResourceSpecificationMTTFViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureMTTFFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="MTTF: {0}"
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification/MTTF"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5003"
+          editPartClassName="ProcessingResourceSpecificationMTTREditPart"
+          itemSemanticEditPolicyClassName="ProcessingResourceSpecificationMTTRItemSemanticEditPolicy"
+          notationViewFactoryClassName="ProcessingResourceSpecificationMTTRViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureMTTRFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="MTTR: {0}">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification/MTTR"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5004"
+          editPartClassName="ProcessingResourceSpecificationSchedulingPolicyEditPart"
+          itemSemanticEditPolicyClassName="ProcessingResourceSpecificationSchedulingPolicyItemSemanticEditPolicy"
+          notationViewFactoryClassName="ProcessingResourceSpecificationSchedulingPolicyViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureSchedulingPolicyFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="Scheduling Policy: {0}">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="2001"
         editPartClassName="ResourceContainerEditPart"
         itemSemanticEditPolicyClassName="ResourceContainerItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceContainerViewFactory"
         canonicalEditPolicyClassName="ResourceContainerCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.0"
         graphicalNodeEditPolicyClassName="ResourceContainerGraphicalNodeEditPolicy"
         createCommandClassName="ResourceContainerCreateCommand">
       <diagramRunTimeClass
@@ -122,6 +212,45 @@
             href="../../pcm.genmodel#//pcm/resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
       </modelFacet>
     </links>
+    <compartments
+        visualID="7001"
+        editPartClassName="ResourceContainerResourceContainerCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ResourceContainerResourceContainerCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ResourceContainerResourceContainerCompartmentViewFactory"
+        canonicalEditPolicyClassName="ResourceContainerResourceContainerCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0"
+        title="ResourceContainerCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.0">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ResourceContainerFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceContainerFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceContainerNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceContainerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceContainerNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceContainerNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceContainerNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceContainerNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceContainerNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="7002"
+        editPartClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentViewFactory"
+        canonicalEditPolicyClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentCanonicalEditPolicy"
+        title="ProcessingResourceSpecificationCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.0">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ProcessingResourceSpecificationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessingResourceSpecificationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSchedulingPolicyFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTFFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTRFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActiveResourceTypeFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessingResourceSpecificationFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActiveResourceTypeFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActiveResourceTypeFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureActiveResourceTypeFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTFFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTFFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTFFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTRFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTRFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTRFigure);&#xA;&#xA;&#xA;&#xA;fFigureSchedulingPolicyFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSchedulingPolicyFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSchedulingPolicyFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSchedulingPolicyFigure() {&#xA;&#x9;&#x9;return fFigureSchedulingPolicyFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTFFigure() {&#xA;&#x9;&#x9;return fFigureMTTFFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTRFigure() {&#xA;&#x9;&#x9;return fFigureMTTRFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActiveResourceTypeFigure() {&#xA;&#x9;&#x9;return fFigureActiveResourceTypeFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
     <palette>
       <groups
           title="pcm">
@@ -132,14 +261,19 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="CommunicationLinkResourceSpecifation"
-            description="Create new CommunicationLinkResourceSpecifation"
+            title="CommunicationLinkResourceSpecification"
+            description="Create new CommunicationLinkResourceSpecification"
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="LinkingResource"
             description="Create new LinkingResource"
             genLinks="//@diagram/@links.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ProcessingResourceSpecification"
+            description="Create new ProcessingResourceSpecification"
+            genNodes="//@diagram/@childNodes.0"/>
       </groups>
     </palette>
     <preferencePages
@@ -178,6 +312,9 @@
   <navigator>
     <childReferences
         child="//@diagram"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.0"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
