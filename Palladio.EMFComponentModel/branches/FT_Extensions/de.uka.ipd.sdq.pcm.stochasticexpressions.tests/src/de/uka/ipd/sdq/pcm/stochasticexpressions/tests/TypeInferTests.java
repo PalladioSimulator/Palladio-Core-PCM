@@ -34,6 +34,14 @@ public class TypeInferTests extends TestCase {
 		Assert.assertEquals(TypeEnum.INT_PMF, visitor.getType(expression));
 	}
 
+	public void testNegativeDoublePDF() throws RecognitionException{
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		Expression expression = parser("DoublePDF[(-1.0;0.2)(2.0;0.4)]");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.DOUBLE_PDF, visitor.getType(expression));
+	}
+
+	
 	public void testDoubleAnyCompare() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("192.0 / file.STRUCTURE < 1");

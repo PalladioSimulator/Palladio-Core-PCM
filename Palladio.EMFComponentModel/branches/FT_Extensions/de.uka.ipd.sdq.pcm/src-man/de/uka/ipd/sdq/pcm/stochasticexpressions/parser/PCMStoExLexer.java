@@ -1,13 +1,11 @@
-// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-13 17:26:14
+package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 
-	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.Lexer;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.RecognitionException;
+// $ANTLR 3.0.1 PCMStoEx.g 2009-07-10 08:05:03
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PCMStoExLexer extends Lexer {
     public static final int INNER=43;
@@ -67,14 +65,14 @@ public class PCMStoExLexer extends Lexer {
     public PCMStoExLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g"; }
+    public String getGrammarFileName() { return "PCMStoEx.g"; }
 
     // $ANTLR start T53
     public final void mT53() throws RecognitionException {
         try {
             int _type = T53;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:5: ( '?' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:7: '?'
+            // PCMStoEx.g:3:5: ( '?' )
+            // PCMStoEx.g:3:7: '?'
             {
             match('?'); 
 
@@ -91,8 +89,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mT54() throws RecognitionException {
         try {
             int _type = T54;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:5: ( ':' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:7: ':'
+            // PCMStoEx.g:4:5: ( ':' )
+            // PCMStoEx.g:4:7: ':'
             {
             match(':'); 
 
@@ -109,8 +107,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mOR() throws RecognitionException {
         try {
             int _type = OR;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:2: ( 'OR' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:4: 'OR'
+            // PCMStoEx.g:375:2: ( 'OR' )
+            // PCMStoEx.g:375:4: 'OR'
             {
             match("OR"); 
 
@@ -128,8 +126,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mXOR() throws RecognitionException {
         try {
             int _type = XOR;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:2: ( 'XOR' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:4: 'XOR'
+            // PCMStoEx.g:379:2: ( 'XOR' )
+            // PCMStoEx.g:379:4: 'XOR'
             {
             match("XOR"); 
 
@@ -147,8 +145,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mAND() throws RecognitionException {
         try {
             int _type = AND;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:2: ( 'AND' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:4: 'AND'
+            // PCMStoEx.g:383:2: ( 'AND' )
+            // PCMStoEx.g:383:4: 'AND'
             {
             match("AND"); 
 
@@ -166,8 +164,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOT() throws RecognitionException {
         try {
             int _type = NOT;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:2: ( 'NOT' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:4: 'NOT'
+            // PCMStoEx.g:387:2: ( 'NOT' )
+            // PCMStoEx.g:387:4: 'NOT'
             {
             match("NOT"); 
 
@@ -185,8 +183,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINTPMF() throws RecognitionException {
         try {
             int _type = INTPMF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:2: ( 'IntPMF' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:4: 'IntPMF'
+            // PCMStoEx.g:391:2: ( 'IntPMF' )
+            // PCMStoEx.g:391:4: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -204,8 +202,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPMF() throws RecognitionException {
         try {
             int _type = DOUBLEPMF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:2: ( 'DoublePMF' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:4: 'DoublePMF'
+            // PCMStoEx.g:395:2: ( 'DoublePMF' )
+            // PCMStoEx.g:395:4: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -223,8 +221,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mENUMPMF() throws RecognitionException {
         try {
             int _type = ENUMPMF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:2: ( 'EnumPMF' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:4: 'EnumPMF'
+            // PCMStoEx.g:399:2: ( 'EnumPMF' )
+            // PCMStoEx.g:399:4: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -242,8 +240,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPDF() throws RecognitionException {
         try {
             int _type = DOUBLEPDF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:2: ( 'DoublePDF' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:4: 'DoublePDF'
+            // PCMStoEx.g:403:2: ( 'DoublePDF' )
+            // PCMStoEx.g:403:4: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -261,8 +259,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOLPMF() throws RecognitionException {
         try {
             int _type = BOOLPMF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:2: ( 'BoolPMF' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:4: 'BoolPMF'
+            // PCMStoEx.g:407:2: ( 'BoolPMF' )
+            // PCMStoEx.g:407:4: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -280,8 +278,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mUNIT() throws RecognitionException {
         try {
             int _type = UNIT;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:2: ( 'unit' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:4: 'unit'
+            // PCMStoEx.g:411:2: ( 'unit' )
+            // PCMStoEx.g:411:4: 'unit'
             {
             match("unit"); 
 
@@ -299,8 +297,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOL() throws RecognitionException {
         try {
             int _type = BOOL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:2: ( '\"bool\"' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:4: '\"bool\"'
+            // PCMStoEx.g:415:2: ( '\"bool\"' )
+            // PCMStoEx.g:415:4: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -318,8 +316,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mFALSE() throws RecognitionException {
         try {
             int _type = FALSE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:2: ( 'false' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:4: 'false'
+            // PCMStoEx.g:419:2: ( 'false' )
+            // PCMStoEx.g:419:4: 'false'
             {
             match("false"); 
 
@@ -337,8 +335,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTRUE() throws RecognitionException {
         try {
             int _type = TRUE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:2: ( 'true' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:4: 'true'
+            // PCMStoEx.g:423:2: ( 'true' )
+            // PCMStoEx.g:423:4: 'true'
             {
             match("true"); 
 
@@ -356,8 +354,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBYTESIZE() throws RecognitionException {
         try {
             int _type = BYTESIZE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:2: ( 'BYTESIZE' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:4: 'BYTESIZE'
+            // PCMStoEx.g:427:2: ( 'BYTESIZE' )
+            // PCMStoEx.g:427:4: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -375,8 +373,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRUCTURE() throws RecognitionException {
         try {
             int _type = STRUCTURE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:2: ( 'STRUCTURE' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:4: 'STRUCTURE'
+            // PCMStoEx.g:431:2: ( 'STRUCTURE' )
+            // PCMStoEx.g:431:4: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -394,8 +392,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER_OF_ELEMENTS() throws RecognitionException {
         try {
             int _type = NUMBER_OF_ELEMENTS;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:2: ( 'NUMBER_OF_ELEMENTS' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:4: 'NUMBER_OF_ELEMENTS'
+            // PCMStoEx.g:435:2: ( 'NUMBER_OF_ELEMENTS' )
+            // PCMStoEx.g:435:4: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -413,8 +411,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTYPE() throws RecognitionException {
         try {
             int _type = TYPE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:2: ( 'TYPE' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:4: 'TYPE'
+            // PCMStoEx.g:439:2: ( 'TYPE' )
+            // PCMStoEx.g:439:4: 'TYPE'
             {
             match("TYPE"); 
 
@@ -432,8 +430,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mVALUE() throws RecognitionException {
         try {
             int _type = VALUE;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:2: ( 'VALUE' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:4: 'VALUE'
+            // PCMStoEx.g:443:2: ( 'VALUE' )
+            // PCMStoEx.g:443:4: 'VALUE'
             {
             match("VALUE"); 
 
@@ -451,8 +449,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINNER() throws RecognitionException {
         try {
             int _type = INNER;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:2: ( 'INNER' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:4: 'INNER'
+            // PCMStoEx.g:447:2: ( 'INNER' )
+            // PCMStoEx.g:447:4: 'INNER'
             {
             match("INNER"); 
 
@@ -470,8 +468,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPLUS() throws RecognitionException {
         try {
             int _type = PLUS;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:7: ( '+' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:9: '+'
+            // PCMStoEx.g:450:7: ( '+' )
+            // PCMStoEx.g:450:9: '+'
             {
             match('+'); 
 
@@ -488,8 +486,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMINUS() throws RecognitionException {
         try {
             int _type = MINUS;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:7: ( '-' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:9: '-'
+            // PCMStoEx.g:451:7: ( '-' )
+            // PCMStoEx.g:451:9: '-'
             {
             match('-'); 
 
@@ -506,8 +504,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMUL() throws RecognitionException {
         try {
             int _type = MUL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:7: ( '*' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:9: '*'
+            // PCMStoEx.g:452:7: ( '*' )
+            // PCMStoEx.g:452:9: '*'
             {
             match('*'); 
 
@@ -524,8 +522,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDIV() throws RecognitionException {
         try {
             int _type = DIV;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:7: ( '/' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:9: '/'
+            // PCMStoEx.g:453:7: ( '/' )
+            // PCMStoEx.g:453:9: '/'
             {
             match('/'); 
 
@@ -542,8 +540,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMOD() throws RecognitionException {
         try {
             int _type = MOD;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:7: ( '%' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:9: '%'
+            // PCMStoEx.g:454:7: ( '%' )
+            // PCMStoEx.g:454:9: '%'
             {
             match('%'); 
 
@@ -560,8 +558,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPOW() throws RecognitionException {
         try {
             int _type = POW;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:7: ( '^' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:9: '^'
+            // PCMStoEx.g:455:7: ( '^' )
+            // PCMStoEx.g:455:9: '^'
             {
             match('^'); 
 
@@ -578,8 +576,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:7: ( '(' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:9: '('
+            // PCMStoEx.g:456:7: ( '(' )
+            // PCMStoEx.g:456:9: '('
             {
             match('('); 
 
@@ -596,8 +594,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mRPAREN() throws RecognitionException {
         try {
             int _type = RPAREN;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:7: ( ')' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:9: ')'
+            // PCMStoEx.g:457:7: ( ')' )
+            // PCMStoEx.g:457:9: ')'
             {
             match(')'); 
 
@@ -614,8 +612,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:7: ( ';' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:9: ';'
+            // PCMStoEx.g:458:7: ( ';' )
+            // PCMStoEx.g:458:9: ';'
             {
             match(';'); 
 
@@ -632,8 +630,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mCOLON() throws RecognitionException {
         try {
             int _type = COLON;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:8: ( ',' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:10: ','
+            // PCMStoEx.g:459:8: ( ',' )
+            // PCMStoEx.g:459:10: ','
             {
             match(','); 
 
@@ -650,8 +648,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDEFINITION() throws RecognitionException {
         try {
             int _type = DEFINITION;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:12: ( '=' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:14: '='
+            // PCMStoEx.g:460:12: ( '=' )
+            // PCMStoEx.g:460:14: '='
             {
             match('='); 
 
@@ -668,8 +666,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mORDERED_DEF() throws RecognitionException {
         try {
             int _type = ORDERED_DEF;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:2: ( 'ordered' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: 'ordered'
+            // PCMStoEx.g:462:2: ( 'ordered' )
+            // PCMStoEx.g:462:4: 'ordered'
             {
             match("ordered"); 
 
@@ -687,8 +685,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mEQUAL() throws RecognitionException {
         try {
             int _type = EQUAL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:7: ( '==' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:9: '=='
+            // PCMStoEx.g:463:7: ( '==' )
+            // PCMStoEx.g:463:9: '=='
             {
             match("=="); 
 
@@ -706,8 +704,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_L() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_L;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:16: ( '[' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:18: '['
+            // PCMStoEx.g:464:16: ( '[' )
+            // PCMStoEx.g:464:18: '['
             {
             match('['); 
 
@@ -724,8 +722,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_R() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_R;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:16: ( ']' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:18: ']'
+            // PCMStoEx.g:465:16: ( ']' )
+            // PCMStoEx.g:465:18: ']'
             {
             match(']'); 
 
@@ -741,8 +739,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start DIGIT
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:16: ( '0' .. '9' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:18: '0' .. '9'
+            // PCMStoEx.g:466:16: ( '0' .. '9' )
+            // PCMStoEx.g:466:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -758,24 +756,42 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // PCMStoEx.g:467:8: ( ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // PCMStoEx.g:467:10: ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+
-            int cnt1=0;
-            loop1:
-            do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+            // PCMStoEx.g:467:10: ( '-' )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>='0' && LA1_0<='9')) ) {
-                    alt1=1;
+            if ( (LA1_0=='-') ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // PCMStoEx.g:467:10: '-'
+                    {
+                    match('-'); 
+
+                    }
+                    break;
+
+            }
+
+            // PCMStoEx.g:467:15: ( DIGIT )+
+            int cnt2=0;
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( ((LA2_0>='0' && LA2_0<='9')) ) {
+                    alt2=1;
                 }
 
 
-                switch (alt1) {
+                switch (alt2) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:11: DIGIT
+            	    // PCMStoEx.g:467:16: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -783,41 +799,41 @@ public class PCMStoExLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt1 >= 1 ) break loop1;
+            	    if ( cnt2 >= 1 ) break loop2;
                         EarlyExitException eee =
-                            new EarlyExitException(1, input);
+                            new EarlyExitException(2, input);
                         throw eee;
                 }
-                cnt1++;
+                cnt2++;
             } while (true);
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:19: ( '.' ( DIGIT )+ )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // PCMStoEx.g:467:24: ( '.' ( DIGIT )+ )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA3_0=='.') ) {
-                alt3=1;
+            if ( (LA4_0=='.') ) {
+                alt4=1;
             }
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:20: '.' ( DIGIT )+
+                    // PCMStoEx.g:467:25: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:24: ( DIGIT )+
-                    int cnt2=0;
-                    loop2:
+                    // PCMStoEx.g:467:29: ( DIGIT )+
+                    int cnt3=0;
+                    loop3:
                     do {
-                        int alt2=2;
-                        int LA2_0 = input.LA(1);
+                        int alt3=2;
+                        int LA3_0 = input.LA(1);
 
-                        if ( ((LA2_0>='0' && LA2_0<='9')) ) {
-                            alt2=1;
+                        if ( ((LA3_0>='0' && LA3_0<='9')) ) {
+                            alt3=1;
                         }
 
 
-                        switch (alt2) {
+                        switch (alt3) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:25: DIGIT
+                    	    // PCMStoEx.g:467:30: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -825,12 +841,12 @@ public class PCMStoExLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt2 >= 1 ) break loop2;
+                    	    if ( cnt3 >= 1 ) break loop3;
                                 EarlyExitException eee =
-                                    new EarlyExitException(2, input);
+                                    new EarlyExitException(3, input);
                                 throw eee;
                         }
-                        cnt2++;
+                        cnt3++;
                     } while (true);
 
 
@@ -839,16 +855,16 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: ( Exponent )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // PCMStoEx.g:467:40: ( Exponent )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0=='E'||LA4_0=='e') ) {
-                alt4=1;
+            if ( (LA5_0=='E'||LA5_0=='e') ) {
+                alt5=1;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: Exponent
+                    // PCMStoEx.g:467:40: Exponent
                     {
                     mExponent(); 
 
@@ -870,8 +886,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start Exponent
     public final void mExponent() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // PCMStoEx.g:469:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // PCMStoEx.g:469:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -883,16 +899,16 @@ public class PCMStoExLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:22: ( '+' | '-' )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // PCMStoEx.g:469:22: ( '+' | '-' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0=='+'||LA5_0=='-') ) {
-                alt5=1;
+            if ( (LA6_0=='+'||LA6_0=='-') ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+                    // PCMStoEx.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -910,21 +926,21 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:33: ( '0' .. '9' )+
-            int cnt6=0;
-            loop6:
+            // PCMStoEx.g:469:33: ( '0' .. '9' )+
+            int cnt7=0;
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA6_0>='0' && LA6_0<='9')) ) {
-                    alt6=1;
+                if ( ((LA7_0>='0' && LA7_0<='9')) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:34: '0' .. '9'
+            	    // PCMStoEx.g:469:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -932,12 +948,12 @@ public class PCMStoExLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt6 >= 1 ) break loop6;
+            	    if ( cnt7 >= 1 ) break loop7;
                         EarlyExitException eee =
-                            new EarlyExitException(6, input);
+                            new EarlyExitException(7, input);
                         throw eee;
                 }
-                cnt6++;
+                cnt7++;
             } while (true);
 
 
@@ -952,8 +968,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start ALPHA
     public final void mALPHA() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:16: ( 'a' .. 'z' | 'A' .. 'Z' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+            // PCMStoEx.g:470:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // PCMStoEx.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -978,8 +994,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOTEQUAL() throws RecognitionException {
         try {
             int _type = NOTEQUAL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:10: ( '<>' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:12: '<>'
+            // PCMStoEx.g:471:10: ( '<>' )
+            // PCMStoEx.g:471:12: '<>'
             {
             match("<>"); 
 
@@ -997,8 +1013,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATER() throws RecognitionException {
         try {
             int _type = GREATER;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:9: ( '>' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:11: '>'
+            // PCMStoEx.g:472:9: ( '>' )
+            // PCMStoEx.g:472:11: '>'
             {
             match('>'); 
 
@@ -1015,8 +1031,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESS() throws RecognitionException {
         try {
             int _type = LESS;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:6: ( '<' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:8: '<'
+            // PCMStoEx.g:473:6: ( '<' )
+            // PCMStoEx.g:473:8: '<'
             {
             match('<'); 
 
@@ -1033,8 +1049,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATEREQUAL() throws RecognitionException {
         try {
             int _type = GREATEREQUAL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:14: ( '>=' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:16: '>='
+            // PCMStoEx.g:474:14: ( '>=' )
+            // PCMStoEx.g:474:16: '>='
             {
             match(">="); 
 
@@ -1052,8 +1068,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESSEQUAL() throws RecognitionException {
         try {
             int _type = LESSEQUAL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:11: ( '<=' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:13: '<='
+            // PCMStoEx.g:475:11: ( '<=' )
+            // PCMStoEx.g:475:13: '<='
             {
             match("<="); 
 
@@ -1071,86 +1087,11 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRING_LITERAL() throws RecognitionException {
         try {
             int _type = STRING_LITERAL;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // PCMStoEx.g:476:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // PCMStoEx.g:476:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:23: ( ALPHA | '_' )+
-            int cnt7=0;
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( ((LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
-            	    {
-            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt7 >= 1 ) break loop7;
-                        EarlyExitException eee =
-                            new EarlyExitException(7, input);
-                        throw eee;
-                }
-                cnt7++;
-            } while (true);
-
-            match('\"'); 
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end STRING_LITERAL
-
-    // $ANTLR start DOT
-    public final void mDOT() throws RecognitionException {
-        try {
-            int _type = DOT;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:4: ( '.' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:6: '.'
-            {
-            match('.'); 
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end DOT
-
-    // $ANTLR start ID
-    public final void mID() throws RecognitionException {
-        try {
-            int _type = ID;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:3: ( ( ALPHA | '_' )+ )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
-            {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
+            // PCMStoEx.g:476:23: ( ALPHA | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -1164,7 +1105,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+            	    // PCMStoEx.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1189,6 +1130,81 @@ public class PCMStoExLexer extends Lexer {
                 cnt8++;
             } while (true);
 
+            match('\"'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end STRING_LITERAL
+
+    // $ANTLR start DOT
+    public final void mDOT() throws RecognitionException {
+        try {
+            int _type = DOT;
+            // PCMStoEx.g:477:4: ( '.' )
+            // PCMStoEx.g:477:6: '.'
+            {
+            match('.'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end DOT
+
+    // $ANTLR start ID
+    public final void mID() throws RecognitionException {
+        try {
+            int _type = ID;
+            // PCMStoEx.g:478:3: ( ( ALPHA | '_' )+ )
+            // PCMStoEx.g:478:4: ( ALPHA | '_' )+
+            {
+            // PCMStoEx.g:478:4: ( ALPHA | '_' )+
+            int cnt9=0;
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( ((LA9_0>='A' && LA9_0<='Z')||LA9_0=='_'||(LA9_0>='a' && LA9_0<='z')) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // PCMStoEx.g:
+            	    {
+            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse =
+            	            new MismatchedSetException(null,input);
+            	        recover(mse);    throw mse;
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt9 >= 1 ) break loop9;
+                        EarlyExitException eee =
+                            new EarlyExitException(9, input);
+                        throw eee;
+                }
+                cnt9++;
+            } while (true);
+
 
             }
 
@@ -1203,8 +1219,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // PCMStoEx.g:481:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // PCMStoEx.g:481:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1231,37 +1247,37 @@ public class PCMStoExLexer extends Lexer {
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // PCMStoEx.g:485:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // PCMStoEx.g:485:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:14: ( options {greedy=false; } : . )*
-            loop9:
+            // PCMStoEx.g:485:14: ( options {greedy=false; } : . )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0=='*') ) {
-                    int LA9_1 = input.LA(2);
+                if ( (LA10_0=='*') ) {
+                    int LA10_1 = input.LA(2);
 
-                    if ( (LA9_1=='/') ) {
-                        alt9=2;
+                    if ( (LA10_1=='/') ) {
+                        alt10=2;
                     }
-                    else if ( ((LA9_1>='\u0000' && LA9_1<='.')||(LA9_1>='0' && LA9_1<='\uFFFE')) ) {
-                        alt9=1;
+                    else if ( ((LA10_1>='\u0000' && LA10_1<='.')||(LA10_1>='0' && LA10_1<='\uFFFE')) ) {
+                        alt10=1;
                     }
 
 
                 }
-                else if ( ((LA9_0>='\u0000' && LA9_0<=')')||(LA9_0>='+' && LA9_0<='\uFFFE')) ) {
-                    alt9=1;
+                else if ( ((LA10_0>='\u0000' && LA10_0<=')')||(LA10_0>='+' && LA10_0<='\uFFFE')) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:42: .
+            	    // PCMStoEx.g:485:42: .
             	    {
             	    matchAny(); 
 
@@ -1269,7 +1285,7 @@ public class PCMStoExLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -1290,25 +1306,25 @@ public class PCMStoExLexer extends Lexer {
     public final void mLINE_COMMENT() throws RecognitionException {
         try {
             int _type = LINE_COMMENT;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
+            // PCMStoEx.g:489:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
+            // PCMStoEx.g:489:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
             {
             match("//"); 
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: (~ ( '\\n' | '\\r' ) )*
-            loop10:
+            // PCMStoEx.g:489:12: (~ ( '\\n' | '\\r' ) )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFE')) ) {
-                    alt10=1;
+                if ( ((LA11_0>='\u0000' && LA11_0<='\t')||(LA11_0>='\u000B' && LA11_0<='\f')||(LA11_0>='\u000E' && LA11_0<='\uFFFE')) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: ~ ( '\\n' | '\\r' )
+            	    // PCMStoEx.g:489:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1325,20 +1341,20 @@ public class PCMStoExLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: ( '\\r' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // PCMStoEx.g:489:26: ( '\\r' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0=='\r') ) {
-                alt11=1;
+            if ( (LA12_0=='\r') ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: '\\r'
+                    // PCMStoEx.g:489:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1347,25 +1363,25 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:32: ( '\\n' | EOF )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // PCMStoEx.g:489:32: ( '\\n' | EOF )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0=='\n') ) {
-                alt12=1;
+            if ( (LA13_0=='\n') ) {
+                alt13=1;
             }
             else {
-                alt12=2;}
-            switch (alt12) {
+                alt13=2;}
+            switch (alt13) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:33: '\\n'
+                    // PCMStoEx.g:489:33: '\\n'
                     {
                     match('\n'); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:38: EOF
+                    // PCMStoEx.g:489:38: EOF
                     {
                     match(EOF); 
 
@@ -1386,80 +1402,80 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR end LINE_COMMENT
 
     public void mTokens() throws RecognitionException {
-        // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:8: ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
-        int alt13=48;
+        // PCMStoEx.g:1:8: ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        int alt14=48;
         switch ( input.LA(1) ) {
         case '?':
             {
-            alt13=1;
+            alt14=1;
             }
             break;
         case ':':
             {
-            alt13=2;
+            alt14=2;
             }
             break;
         case 'O':
             {
-            int LA13_3 = input.LA(2);
+            int LA14_3 = input.LA(2);
 
-            if ( (LA13_3=='R') ) {
-                int LA13_38 = input.LA(3);
+            if ( (LA14_3=='R') ) {
+                int LA14_38 = input.LA(3);
 
-                if ( ((LA13_38>='A' && LA13_38<='Z')||LA13_38=='_'||(LA13_38>='a' && LA13_38<='z')) ) {
-                    alt13=45;
+                if ( ((LA14_38>='A' && LA14_38<='Z')||LA14_38=='_'||(LA14_38>='a' && LA14_38<='z')) ) {
+                    alt14=45;
                 }
                 else {
-                    alt13=3;}
+                    alt14=3;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'X':
             {
-            int LA13_4 = input.LA(2);
+            int LA14_4 = input.LA(2);
 
-            if ( (LA13_4=='O') ) {
-                int LA13_39 = input.LA(3);
+            if ( (LA14_4=='O') ) {
+                int LA14_39 = input.LA(3);
 
-                if ( (LA13_39=='R') ) {
-                    int LA13_69 = input.LA(4);
+                if ( (LA14_39=='R') ) {
+                    int LA14_70 = input.LA(4);
 
-                    if ( ((LA13_69>='A' && LA13_69<='Z')||LA13_69=='_'||(LA13_69>='a' && LA13_69<='z')) ) {
-                        alt13=45;
+                    if ( ((LA14_70>='A' && LA14_70<='Z')||LA14_70=='_'||(LA14_70>='a' && LA14_70<='z')) ) {
+                        alt14=45;
                     }
                     else {
-                        alt13=4;}
+                        alt14=4;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'A':
             {
-            int LA13_5 = input.LA(2);
+            int LA14_5 = input.LA(2);
 
-            if ( (LA13_5=='N') ) {
-                int LA13_40 = input.LA(3);
+            if ( (LA14_5=='N') ) {
+                int LA14_40 = input.LA(3);
 
-                if ( (LA13_40=='D') ) {
-                    int LA13_70 = input.LA(4);
+                if ( (LA14_40=='D') ) {
+                    int LA14_71 = input.LA(4);
 
-                    if ( ((LA13_70>='A' && LA13_70<='Z')||LA13_70=='_'||(LA13_70>='a' && LA13_70<='z')) ) {
-                        alt13=45;
+                    if ( ((LA14_71>='A' && LA14_71<='Z')||LA14_71=='_'||(LA14_71>='a' && LA14_71<='z')) ) {
+                        alt14=45;
                     }
                     else {
-                        alt13=5;}
+                        alt14=5;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'N':
@@ -1467,130 +1483,130 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'O':
                 {
-                int LA13_41 = input.LA(3);
+                int LA14_41 = input.LA(3);
 
-                if ( (LA13_41=='T') ) {
-                    int LA13_71 = input.LA(4);
+                if ( (LA14_41=='T') ) {
+                    int LA14_72 = input.LA(4);
 
-                    if ( ((LA13_71>='A' && LA13_71<='Z')||LA13_71=='_'||(LA13_71>='a' && LA13_71<='z')) ) {
-                        alt13=45;
+                    if ( ((LA14_72>='A' && LA14_72<='Z')||LA14_72=='_'||(LA14_72>='a' && LA14_72<='z')) ) {
+                        alt14=45;
                     }
                     else {
-                        alt13=6;}
+                        alt14=6;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             case 'U':
                 {
-                int LA13_42 = input.LA(3);
+                int LA14_42 = input.LA(3);
 
-                if ( (LA13_42=='M') ) {
-                    int LA13_72 = input.LA(4);
+                if ( (LA14_42=='M') ) {
+                    int LA14_73 = input.LA(4);
 
-                    if ( (LA13_72=='B') ) {
-                        int LA13_90 = input.LA(5);
+                    if ( (LA14_73=='B') ) {
+                        int LA14_91 = input.LA(5);
 
-                        if ( (LA13_90=='E') ) {
-                            int LA13_105 = input.LA(6);
+                        if ( (LA14_91=='E') ) {
+                            int LA14_106 = input.LA(6);
 
-                            if ( (LA13_105=='R') ) {
-                                int LA13_120 = input.LA(7);
+                            if ( (LA14_106=='R') ) {
+                                int LA14_121 = input.LA(7);
 
-                                if ( (LA13_120=='_') ) {
-                                    int LA13_132 = input.LA(8);
+                                if ( (LA14_121=='_') ) {
+                                    int LA14_133 = input.LA(8);
 
-                                    if ( (LA13_132=='O') ) {
-                                        int LA13_141 = input.LA(9);
+                                    if ( (LA14_133=='O') ) {
+                                        int LA14_142 = input.LA(9);
 
-                                        if ( (LA13_141=='F') ) {
-                                            int LA13_149 = input.LA(10);
+                                        if ( (LA14_142=='F') ) {
+                                            int LA14_150 = input.LA(10);
 
-                                            if ( (LA13_149=='_') ) {
-                                                int LA13_154 = input.LA(11);
+                                            if ( (LA14_150=='_') ) {
+                                                int LA14_155 = input.LA(11);
 
-                                                if ( (LA13_154=='E') ) {
-                                                    int LA13_158 = input.LA(12);
+                                                if ( (LA14_155=='E') ) {
+                                                    int LA14_159 = input.LA(12);
 
-                                                    if ( (LA13_158=='L') ) {
-                                                        int LA13_159 = input.LA(13);
+                                                    if ( (LA14_159=='L') ) {
+                                                        int LA14_160 = input.LA(13);
 
-                                                        if ( (LA13_159=='E') ) {
-                                                            int LA13_160 = input.LA(14);
+                                                        if ( (LA14_160=='E') ) {
+                                                            int LA14_161 = input.LA(14);
 
-                                                            if ( (LA13_160=='M') ) {
-                                                                int LA13_161 = input.LA(15);
+                                                            if ( (LA14_161=='M') ) {
+                                                                int LA14_162 = input.LA(15);
 
-                                                                if ( (LA13_161=='E') ) {
-                                                                    int LA13_162 = input.LA(16);
+                                                                if ( (LA14_162=='E') ) {
+                                                                    int LA14_163 = input.LA(16);
 
-                                                                    if ( (LA13_162=='N') ) {
-                                                                        int LA13_163 = input.LA(17);
+                                                                    if ( (LA14_163=='N') ) {
+                                                                        int LA14_164 = input.LA(17);
 
-                                                                        if ( (LA13_163=='T') ) {
-                                                                            int LA13_164 = input.LA(18);
+                                                                        if ( (LA14_164=='T') ) {
+                                                                            int LA14_165 = input.LA(18);
 
-                                                                            if ( (LA13_164=='S') ) {
-                                                                                int LA13_165 = input.LA(19);
+                                                                            if ( (LA14_165=='S') ) {
+                                                                                int LA14_166 = input.LA(19);
 
-                                                                                if ( ((LA13_165>='A' && LA13_165<='Z')||LA13_165=='_'||(LA13_165>='a' && LA13_165<='z')) ) {
-                                                                                    alt13=45;
+                                                                                if ( ((LA14_166>='A' && LA14_166<='Z')||LA14_166=='_'||(LA14_166>='a' && LA14_166<='z')) ) {
+                                                                                    alt14=45;
                                                                                 }
                                                                                 else {
-                                                                                    alt13=18;}
+                                                                                    alt14=18;}
                                                                             }
                                                                             else {
-                                                                                alt13=45;}
+                                                                                alt14=45;}
                                                                         }
                                                                         else {
-                                                                            alt13=45;}
+                                                                            alt14=45;}
                                                                     }
                                                                     else {
-                                                                        alt13=45;}
+                                                                        alt14=45;}
                                                                 }
                                                                 else {
-                                                                    alt13=45;}
+                                                                    alt14=45;}
                                                             }
                                                             else {
-                                                                alt13=45;}
+                                                                alt14=45;}
                                                         }
                                                         else {
-                                                            alt13=45;}
+                                                            alt14=45;}
                                                     }
                                                     else {
-                                                        alt13=45;}
+                                                        alt14=45;}
                                                 }
                                                 else {
-                                                    alt13=45;}
+                                                    alt14=45;}
                                             }
                                             else {
-                                                alt13=45;}
+                                                alt14=45;}
                                         }
                                         else {
-                                            alt13=45;}
+                                            alt14=45;}
                                     }
                                     else {
-                                        alt13=45;}
+                                        alt14=45;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             default:
-                alt13=45;}
+                alt14=45;}
 
             }
             break;
@@ -1599,196 +1615,196 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'n':
                 {
-                int LA13_43 = input.LA(3);
+                int LA14_43 = input.LA(3);
 
-                if ( (LA13_43=='t') ) {
-                    int LA13_73 = input.LA(4);
+                if ( (LA14_43=='t') ) {
+                    int LA14_74 = input.LA(4);
 
-                    if ( (LA13_73=='P') ) {
-                        int LA13_91 = input.LA(5);
+                    if ( (LA14_74=='P') ) {
+                        int LA14_92 = input.LA(5);
 
-                        if ( (LA13_91=='M') ) {
-                            int LA13_106 = input.LA(6);
+                        if ( (LA14_92=='M') ) {
+                            int LA14_107 = input.LA(6);
 
-                            if ( (LA13_106=='F') ) {
-                                int LA13_121 = input.LA(7);
+                            if ( (LA14_107=='F') ) {
+                                int LA14_122 = input.LA(7);
 
-                                if ( ((LA13_121>='A' && LA13_121<='Z')||LA13_121=='_'||(LA13_121>='a' && LA13_121<='z')) ) {
-                                    alt13=45;
+                                if ( ((LA14_122>='A' && LA14_122<='Z')||LA14_122=='_'||(LA14_122>='a' && LA14_122<='z')) ) {
+                                    alt14=45;
                                 }
                                 else {
-                                    alt13=7;}
+                                    alt14=7;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             case 'N':
                 {
-                int LA13_44 = input.LA(3);
+                int LA14_44 = input.LA(3);
 
-                if ( (LA13_44=='N') ) {
-                    int LA13_74 = input.LA(4);
+                if ( (LA14_44=='N') ) {
+                    int LA14_75 = input.LA(4);
 
-                    if ( (LA13_74=='E') ) {
-                        int LA13_92 = input.LA(5);
+                    if ( (LA14_75=='E') ) {
+                        int LA14_93 = input.LA(5);
 
-                        if ( (LA13_92=='R') ) {
-                            int LA13_107 = input.LA(6);
+                        if ( (LA14_93=='R') ) {
+                            int LA14_108 = input.LA(6);
 
-                            if ( ((LA13_107>='A' && LA13_107<='Z')||LA13_107=='_'||(LA13_107>='a' && LA13_107<='z')) ) {
-                                alt13=45;
+                            if ( ((LA14_108>='A' && LA14_108<='Z')||LA14_108=='_'||(LA14_108>='a' && LA14_108<='z')) ) {
+                                alt14=45;
                             }
                             else {
-                                alt13=21;}
+                                alt14=21;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             default:
-                alt13=45;}
+                alt14=45;}
 
             }
             break;
         case 'D':
             {
-            int LA13_8 = input.LA(2);
+            int LA14_8 = input.LA(2);
 
-            if ( (LA13_8=='o') ) {
-                int LA13_45 = input.LA(3);
+            if ( (LA14_8=='o') ) {
+                int LA14_45 = input.LA(3);
 
-                if ( (LA13_45=='u') ) {
-                    int LA13_75 = input.LA(4);
+                if ( (LA14_45=='u') ) {
+                    int LA14_76 = input.LA(4);
 
-                    if ( (LA13_75=='b') ) {
-                        int LA13_93 = input.LA(5);
+                    if ( (LA14_76=='b') ) {
+                        int LA14_94 = input.LA(5);
 
-                        if ( (LA13_93=='l') ) {
-                            int LA13_108 = input.LA(6);
+                        if ( (LA14_94=='l') ) {
+                            int LA14_109 = input.LA(6);
 
-                            if ( (LA13_108=='e') ) {
-                                int LA13_123 = input.LA(7);
+                            if ( (LA14_109=='e') ) {
+                                int LA14_124 = input.LA(7);
 
-                                if ( (LA13_123=='P') ) {
+                                if ( (LA14_124=='P') ) {
                                     switch ( input.LA(8) ) {
                                     case 'D':
                                         {
-                                        int LA13_142 = input.LA(9);
+                                        int LA14_143 = input.LA(9);
 
-                                        if ( (LA13_142=='F') ) {
-                                            int LA13_150 = input.LA(10);
+                                        if ( (LA14_143=='F') ) {
+                                            int LA14_151 = input.LA(10);
 
-                                            if ( ((LA13_150>='A' && LA13_150<='Z')||LA13_150=='_'||(LA13_150>='a' && LA13_150<='z')) ) {
-                                                alt13=45;
+                                            if ( ((LA14_151>='A' && LA14_151<='Z')||LA14_151=='_'||(LA14_151>='a' && LA14_151<='z')) ) {
+                                                alt14=45;
                                             }
                                             else {
-                                                alt13=10;}
+                                                alt14=10;}
                                         }
                                         else {
-                                            alt13=45;}
+                                            alt14=45;}
                                         }
                                         break;
                                     case 'M':
                                         {
-                                        int LA13_143 = input.LA(9);
+                                        int LA14_144 = input.LA(9);
 
-                                        if ( (LA13_143=='F') ) {
-                                            int LA13_151 = input.LA(10);
+                                        if ( (LA14_144=='F') ) {
+                                            int LA14_152 = input.LA(10);
 
-                                            if ( ((LA13_151>='A' && LA13_151<='Z')||LA13_151=='_'||(LA13_151>='a' && LA13_151<='z')) ) {
-                                                alt13=45;
+                                            if ( ((LA14_152>='A' && LA14_152<='Z')||LA14_152=='_'||(LA14_152>='a' && LA14_152<='z')) ) {
+                                                alt14=45;
                                             }
                                             else {
-                                                alt13=8;}
+                                                alt14=8;}
                                         }
                                         else {
-                                            alt13=45;}
+                                            alt14=45;}
                                         }
                                         break;
                                     default:
-                                        alt13=45;}
+                                        alt14=45;}
 
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'E':
             {
-            int LA13_9 = input.LA(2);
+            int LA14_9 = input.LA(2);
 
-            if ( (LA13_9=='n') ) {
-                int LA13_46 = input.LA(3);
+            if ( (LA14_9=='n') ) {
+                int LA14_46 = input.LA(3);
 
-                if ( (LA13_46=='u') ) {
-                    int LA13_76 = input.LA(4);
+                if ( (LA14_46=='u') ) {
+                    int LA14_77 = input.LA(4);
 
-                    if ( (LA13_76=='m') ) {
-                        int LA13_94 = input.LA(5);
+                    if ( (LA14_77=='m') ) {
+                        int LA14_95 = input.LA(5);
 
-                        if ( (LA13_94=='P') ) {
-                            int LA13_109 = input.LA(6);
+                        if ( (LA14_95=='P') ) {
+                            int LA14_110 = input.LA(6);
 
-                            if ( (LA13_109=='M') ) {
-                                int LA13_124 = input.LA(7);
+                            if ( (LA14_110=='M') ) {
+                                int LA14_125 = input.LA(7);
 
-                                if ( (LA13_124=='F') ) {
-                                    int LA13_135 = input.LA(8);
+                                if ( (LA14_125=='F') ) {
+                                    int LA14_136 = input.LA(8);
 
-                                    if ( ((LA13_135>='A' && LA13_135<='Z')||LA13_135=='_'||(LA13_135>='a' && LA13_135<='z')) ) {
-                                        alt13=45;
+                                    if ( ((LA14_136>='A' && LA14_136<='Z')||LA14_136=='_'||(LA14_136>='a' && LA14_136<='z')) ) {
+                                        alt14=45;
                                     }
                                     else {
-                                        alt13=9;}
+                                        alt14=9;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'B':
@@ -1796,191 +1812,191 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'o':
                 {
-                int LA13_47 = input.LA(3);
+                int LA14_47 = input.LA(3);
 
-                if ( (LA13_47=='o') ) {
-                    int LA13_77 = input.LA(4);
+                if ( (LA14_47=='o') ) {
+                    int LA14_78 = input.LA(4);
 
-                    if ( (LA13_77=='l') ) {
-                        int LA13_95 = input.LA(5);
+                    if ( (LA14_78=='l') ) {
+                        int LA14_96 = input.LA(5);
 
-                        if ( (LA13_95=='P') ) {
-                            int LA13_110 = input.LA(6);
+                        if ( (LA14_96=='P') ) {
+                            int LA14_111 = input.LA(6);
 
-                            if ( (LA13_110=='M') ) {
-                                int LA13_125 = input.LA(7);
+                            if ( (LA14_111=='M') ) {
+                                int LA14_126 = input.LA(7);
 
-                                if ( (LA13_125=='F') ) {
-                                    int LA13_136 = input.LA(8);
+                                if ( (LA14_126=='F') ) {
+                                    int LA14_137 = input.LA(8);
 
-                                    if ( ((LA13_136>='A' && LA13_136<='Z')||LA13_136=='_'||(LA13_136>='a' && LA13_136<='z')) ) {
-                                        alt13=45;
+                                    if ( ((LA14_137>='A' && LA14_137<='Z')||LA14_137=='_'||(LA14_137>='a' && LA14_137<='z')) ) {
+                                        alt14=45;
                                     }
                                     else {
-                                        alt13=11;}
+                                        alt14=11;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             case 'Y':
                 {
-                int LA13_48 = input.LA(3);
+                int LA14_48 = input.LA(3);
 
-                if ( (LA13_48=='T') ) {
-                    int LA13_78 = input.LA(4);
+                if ( (LA14_48=='T') ) {
+                    int LA14_79 = input.LA(4);
 
-                    if ( (LA13_78=='E') ) {
-                        int LA13_96 = input.LA(5);
+                    if ( (LA14_79=='E') ) {
+                        int LA14_97 = input.LA(5);
 
-                        if ( (LA13_96=='S') ) {
-                            int LA13_111 = input.LA(6);
+                        if ( (LA14_97=='S') ) {
+                            int LA14_112 = input.LA(6);
 
-                            if ( (LA13_111=='I') ) {
-                                int LA13_126 = input.LA(7);
+                            if ( (LA14_112=='I') ) {
+                                int LA14_127 = input.LA(7);
 
-                                if ( (LA13_126=='Z') ) {
-                                    int LA13_137 = input.LA(8);
+                                if ( (LA14_127=='Z') ) {
+                                    int LA14_138 = input.LA(8);
 
-                                    if ( (LA13_137=='E') ) {
-                                        int LA13_146 = input.LA(9);
+                                    if ( (LA14_138=='E') ) {
+                                        int LA14_147 = input.LA(9);
 
-                                        if ( ((LA13_146>='A' && LA13_146<='Z')||LA13_146=='_'||(LA13_146>='a' && LA13_146<='z')) ) {
-                                            alt13=45;
+                                        if ( ((LA14_147>='A' && LA14_147<='Z')||LA14_147=='_'||(LA14_147>='a' && LA14_147<='z')) ) {
+                                            alt14=45;
                                         }
                                         else {
-                                            alt13=16;}
+                                            alt14=16;}
                                     }
                                     else {
-                                        alt13=45;}
+                                        alt14=45;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
                 }
                 break;
             default:
-                alt13=45;}
+                alt14=45;}
 
             }
             break;
         case 'u':
             {
-            int LA13_11 = input.LA(2);
+            int LA14_11 = input.LA(2);
 
-            if ( (LA13_11=='n') ) {
-                int LA13_49 = input.LA(3);
+            if ( (LA14_11=='n') ) {
+                int LA14_49 = input.LA(3);
 
-                if ( (LA13_49=='i') ) {
-                    int LA13_79 = input.LA(4);
+                if ( (LA14_49=='i') ) {
+                    int LA14_80 = input.LA(4);
 
-                    if ( (LA13_79=='t') ) {
-                        int LA13_97 = input.LA(5);
+                    if ( (LA14_80=='t') ) {
+                        int LA14_98 = input.LA(5);
 
-                        if ( ((LA13_97>='A' && LA13_97<='Z')||LA13_97=='_'||(LA13_97>='a' && LA13_97<='z')) ) {
-                            alt13=45;
+                        if ( ((LA14_98>='A' && LA14_98<='Z')||LA14_98=='_'||(LA14_98>='a' && LA14_98<='z')) ) {
+                            alt14=45;
                         }
                         else {
-                            alt13=12;}
+                            alt14=12;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case '\"':
             {
-            int LA13_12 = input.LA(2);
+            int LA14_12 = input.LA(2);
 
-            if ( (LA13_12=='b') ) {
-                int LA13_50 = input.LA(3);
+            if ( (LA14_12=='b') ) {
+                int LA14_50 = input.LA(3);
 
-                if ( (LA13_50=='o') ) {
-                    int LA13_80 = input.LA(4);
+                if ( (LA14_50=='o') ) {
+                    int LA14_81 = input.LA(4);
 
-                    if ( (LA13_80=='o') ) {
-                        int LA13_98 = input.LA(5);
+                    if ( (LA14_81=='o') ) {
+                        int LA14_99 = input.LA(5);
 
-                        if ( (LA13_98=='l') ) {
-                            int LA13_113 = input.LA(6);
+                        if ( (LA14_99=='l') ) {
+                            int LA14_114 = input.LA(6);
 
-                            if ( (LA13_113=='\"') ) {
-                                alt13=13;
+                            if ( (LA14_114=='\"') ) {
+                                alt14=13;
                             }
-                            else if ( ((LA13_113>='A' && LA13_113<='Z')||LA13_113=='_'||(LA13_113>='a' && LA13_113<='z')) ) {
-                                alt13=43;
+                            else if ( ((LA14_114>='A' && LA14_114<='Z')||LA14_114=='_'||(LA14_114>='a' && LA14_114<='z')) ) {
+                                alt14=43;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 113, input);
+                                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 114, input);
 
                                 throw nvae;
                             }
                         }
-                        else if ( (LA13_98=='\"'||(LA13_98>='A' && LA13_98<='Z')||LA13_98=='_'||(LA13_98>='a' && LA13_98<='k')||(LA13_98>='m' && LA13_98<='z')) ) {
-                            alt13=43;
+                        else if ( (LA14_99=='\"'||(LA14_99>='A' && LA14_99<='Z')||LA14_99=='_'||(LA14_99>='a' && LA14_99<='k')||(LA14_99>='m' && LA14_99<='z')) ) {
+                            alt14=43;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 98, input);
+                                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 99, input);
 
                             throw nvae;
                         }
                     }
-                    else if ( (LA13_80=='\"'||(LA13_80>='A' && LA13_80<='Z')||LA13_80=='_'||(LA13_80>='a' && LA13_80<='n')||(LA13_80>='p' && LA13_80<='z')) ) {
-                        alt13=43;
+                    else if ( (LA14_81=='\"'||(LA14_81>='A' && LA14_81<='Z')||LA14_81=='_'||(LA14_81>='a' && LA14_81<='n')||(LA14_81>='p' && LA14_81<='z')) ) {
+                        alt14=43;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 80, input);
+                            new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 81, input);
 
                         throw nvae;
                     }
                 }
-                else if ( (LA13_50=='\"'||(LA13_50>='A' && LA13_50<='Z')||LA13_50=='_'||(LA13_50>='a' && LA13_50<='n')||(LA13_50>='p' && LA13_50<='z')) ) {
-                    alt13=43;
+                else if ( (LA14_50=='\"'||(LA14_50>='A' && LA14_50<='Z')||LA14_50=='_'||(LA14_50>='a' && LA14_50<='n')||(LA14_50>='p' && LA14_50<='z')) ) {
+                    alt14=43;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 50, input);
+                        new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 50, input);
 
                     throw nvae;
                 }
             }
-            else if ( ((LA13_12>='A' && LA13_12<='Z')||LA13_12=='_'||LA13_12=='a'||(LA13_12>='c' && LA13_12<='z')) ) {
-                alt13=43;
+            else if ( ((LA14_12>='A' && LA14_12<='Z')||LA14_12=='_'||LA14_12=='a'||(LA14_12>='c' && LA14_12<='z')) ) {
+                alt14=43;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 12, input);
+                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 12, input);
 
                 throw nvae;
             }
@@ -1988,204 +2004,210 @@ public class PCMStoExLexer extends Lexer {
             break;
         case 'f':
             {
-            int LA13_13 = input.LA(2);
+            int LA14_13 = input.LA(2);
 
-            if ( (LA13_13=='a') ) {
-                int LA13_52 = input.LA(3);
+            if ( (LA14_13=='a') ) {
+                int LA14_52 = input.LA(3);
 
-                if ( (LA13_52=='l') ) {
-                    int LA13_81 = input.LA(4);
+                if ( (LA14_52=='l') ) {
+                    int LA14_82 = input.LA(4);
 
-                    if ( (LA13_81=='s') ) {
-                        int LA13_99 = input.LA(5);
+                    if ( (LA14_82=='s') ) {
+                        int LA14_100 = input.LA(5);
 
-                        if ( (LA13_99=='e') ) {
-                            int LA13_114 = input.LA(6);
+                        if ( (LA14_100=='e') ) {
+                            int LA14_115 = input.LA(6);
 
-                            if ( ((LA13_114>='A' && LA13_114<='Z')||LA13_114=='_'||(LA13_114>='a' && LA13_114<='z')) ) {
-                                alt13=45;
+                            if ( ((LA14_115>='A' && LA14_115<='Z')||LA14_115=='_'||(LA14_115>='a' && LA14_115<='z')) ) {
+                                alt14=45;
                             }
                             else {
-                                alt13=14;}
+                                alt14=14;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 't':
             {
-            int LA13_14 = input.LA(2);
+            int LA14_14 = input.LA(2);
 
-            if ( (LA13_14=='r') ) {
-                int LA13_53 = input.LA(3);
+            if ( (LA14_14=='r') ) {
+                int LA14_53 = input.LA(3);
 
-                if ( (LA13_53=='u') ) {
-                    int LA13_82 = input.LA(4);
+                if ( (LA14_53=='u') ) {
+                    int LA14_83 = input.LA(4);
 
-                    if ( (LA13_82=='e') ) {
-                        int LA13_100 = input.LA(5);
+                    if ( (LA14_83=='e') ) {
+                        int LA14_101 = input.LA(5);
 
-                        if ( ((LA13_100>='A' && LA13_100<='Z')||LA13_100=='_'||(LA13_100>='a' && LA13_100<='z')) ) {
-                            alt13=45;
+                        if ( ((LA14_101>='A' && LA14_101<='Z')||LA14_101=='_'||(LA14_101>='a' && LA14_101<='z')) ) {
+                            alt14=45;
                         }
                         else {
-                            alt13=15;}
+                            alt14=15;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'S':
             {
-            int LA13_15 = input.LA(2);
+            int LA14_15 = input.LA(2);
 
-            if ( (LA13_15=='T') ) {
-                int LA13_54 = input.LA(3);
+            if ( (LA14_15=='T') ) {
+                int LA14_54 = input.LA(3);
 
-                if ( (LA13_54=='R') ) {
-                    int LA13_83 = input.LA(4);
+                if ( (LA14_54=='R') ) {
+                    int LA14_84 = input.LA(4);
 
-                    if ( (LA13_83=='U') ) {
-                        int LA13_101 = input.LA(5);
+                    if ( (LA14_84=='U') ) {
+                        int LA14_102 = input.LA(5);
 
-                        if ( (LA13_101=='C') ) {
-                            int LA13_116 = input.LA(6);
+                        if ( (LA14_102=='C') ) {
+                            int LA14_117 = input.LA(6);
 
-                            if ( (LA13_116=='T') ) {
-                                int LA13_129 = input.LA(7);
+                            if ( (LA14_117=='T') ) {
+                                int LA14_130 = input.LA(7);
 
-                                if ( (LA13_129=='U') ) {
-                                    int LA13_139 = input.LA(8);
+                                if ( (LA14_130=='U') ) {
+                                    int LA14_140 = input.LA(8);
 
-                                    if ( (LA13_139=='R') ) {
-                                        int LA13_147 = input.LA(9);
+                                    if ( (LA14_140=='R') ) {
+                                        int LA14_148 = input.LA(9);
 
-                                        if ( (LA13_147=='E') ) {
-                                            int LA13_153 = input.LA(10);
+                                        if ( (LA14_148=='E') ) {
+                                            int LA14_154 = input.LA(10);
 
-                                            if ( ((LA13_153>='A' && LA13_153<='Z')||LA13_153=='_'||(LA13_153>='a' && LA13_153<='z')) ) {
-                                                alt13=45;
+                                            if ( ((LA14_154>='A' && LA14_154<='Z')||LA14_154=='_'||(LA14_154>='a' && LA14_154<='z')) ) {
+                                                alt14=45;
                                             }
                                             else {
-                                                alt13=17;}
+                                                alt14=17;}
                                         }
                                         else {
-                                            alt13=45;}
+                                            alt14=45;}
                                     }
                                     else {
-                                        alt13=45;}
+                                        alt14=45;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'T':
             {
-            int LA13_16 = input.LA(2);
+            int LA14_16 = input.LA(2);
 
-            if ( (LA13_16=='Y') ) {
-                int LA13_55 = input.LA(3);
+            if ( (LA14_16=='Y') ) {
+                int LA14_55 = input.LA(3);
 
-                if ( (LA13_55=='P') ) {
-                    int LA13_84 = input.LA(4);
+                if ( (LA14_55=='P') ) {
+                    int LA14_85 = input.LA(4);
 
-                    if ( (LA13_84=='E') ) {
-                        int LA13_102 = input.LA(5);
+                    if ( (LA14_85=='E') ) {
+                        int LA14_103 = input.LA(5);
 
-                        if ( ((LA13_102>='A' && LA13_102<='Z')||LA13_102=='_'||(LA13_102>='a' && LA13_102<='z')) ) {
-                            alt13=45;
+                        if ( ((LA14_103>='A' && LA14_103<='Z')||LA14_103=='_'||(LA14_103>='a' && LA14_103<='z')) ) {
+                            alt14=45;
                         }
                         else {
-                            alt13=19;}
+                            alt14=19;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case 'V':
             {
-            int LA13_17 = input.LA(2);
+            int LA14_17 = input.LA(2);
 
-            if ( (LA13_17=='A') ) {
-                int LA13_56 = input.LA(3);
+            if ( (LA14_17=='A') ) {
+                int LA14_56 = input.LA(3);
 
-                if ( (LA13_56=='L') ) {
-                    int LA13_85 = input.LA(4);
+                if ( (LA14_56=='L') ) {
+                    int LA14_86 = input.LA(4);
 
-                    if ( (LA13_85=='U') ) {
-                        int LA13_103 = input.LA(5);
+                    if ( (LA14_86=='U') ) {
+                        int LA14_104 = input.LA(5);
 
-                        if ( (LA13_103=='E') ) {
-                            int LA13_118 = input.LA(6);
+                        if ( (LA14_104=='E') ) {
+                            int LA14_119 = input.LA(6);
 
-                            if ( ((LA13_118>='A' && LA13_118<='Z')||LA13_118=='_'||(LA13_118>='a' && LA13_118<='z')) ) {
-                                alt13=45;
+                            if ( ((LA14_119>='A' && LA14_119<='Z')||LA14_119=='_'||(LA14_119>='a' && LA14_119<='z')) ) {
+                                alt14=45;
                             }
                             else {
-                                alt13=20;}
+                                alt14=20;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case '+':
             {
-            alt13=22;
+            alt14=22;
             }
             break;
         case '-':
             {
-            alt13=23;
+            int LA14_19 = input.LA(2);
+
+            if ( ((LA14_19>='0' && LA14_19<='9')) ) {
+                alt14=37;
+            }
+            else {
+                alt14=23;}
             }
             break;
         case '*':
             {
-            alt13=24;
+            alt14=24;
             }
             break;
         case '/':
@@ -2193,115 +2215,115 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '/':
                 {
-                alt13=48;
+                alt14=48;
                 }
                 break;
             case '*':
                 {
-                alt13=47;
+                alt14=47;
                 }
                 break;
             default:
-                alt13=25;}
+                alt14=25;}
 
             }
             break;
         case '%':
             {
-            alt13=26;
+            alt14=26;
             }
             break;
         case '^':
             {
-            alt13=27;
+            alt14=27;
             }
             break;
         case '(':
             {
-            alt13=28;
+            alt14=28;
             }
             break;
         case ')':
             {
-            alt13=29;
+            alt14=29;
             }
             break;
         case ';':
             {
-            alt13=30;
+            alt14=30;
             }
             break;
         case ',':
             {
-            alt13=31;
+            alt14=31;
             }
             break;
         case '=':
             {
-            int LA13_28 = input.LA(2);
+            int LA14_28 = input.LA(2);
 
-            if ( (LA13_28=='=') ) {
-                alt13=34;
+            if ( (LA14_28=='=') ) {
+                alt14=34;
             }
             else {
-                alt13=32;}
+                alt14=32;}
             }
             break;
         case 'o':
             {
-            int LA13_29 = input.LA(2);
+            int LA14_29 = input.LA(2);
 
-            if ( (LA13_29=='r') ) {
-                int LA13_62 = input.LA(3);
+            if ( (LA14_29=='r') ) {
+                int LA14_63 = input.LA(3);
 
-                if ( (LA13_62=='d') ) {
-                    int LA13_86 = input.LA(4);
+                if ( (LA14_63=='d') ) {
+                    int LA14_87 = input.LA(4);
 
-                    if ( (LA13_86=='e') ) {
-                        int LA13_104 = input.LA(5);
+                    if ( (LA14_87=='e') ) {
+                        int LA14_105 = input.LA(5);
 
-                        if ( (LA13_104=='r') ) {
-                            int LA13_119 = input.LA(6);
+                        if ( (LA14_105=='r') ) {
+                            int LA14_120 = input.LA(6);
 
-                            if ( (LA13_119=='e') ) {
-                                int LA13_131 = input.LA(7);
+                            if ( (LA14_120=='e') ) {
+                                int LA14_132 = input.LA(7);
 
-                                if ( (LA13_131=='d') ) {
-                                    int LA13_140 = input.LA(8);
+                                if ( (LA14_132=='d') ) {
+                                    int LA14_141 = input.LA(8);
 
-                                    if ( ((LA13_140>='A' && LA13_140<='Z')||LA13_140=='_'||(LA13_140>='a' && LA13_140<='z')) ) {
-                                        alt13=45;
+                                    if ( ((LA14_141>='A' && LA14_141<='Z')||LA14_141=='_'||(LA14_141>='a' && LA14_141<='z')) ) {
+                                        alt14=45;
                                     }
                                     else {
-                                        alt13=33;}
+                                        alt14=33;}
                                 }
                                 else {
-                                    alt13=45;}
+                                    alt14=45;}
                             }
                             else {
-                                alt13=45;}
+                                alt14=45;}
                         }
                         else {
-                            alt13=45;}
+                            alt14=45;}
                     }
                     else {
-                        alt13=45;}
+                        alt14=45;}
                 }
                 else {
-                    alt13=45;}
+                    alt14=45;}
             }
             else {
-                alt13=45;}
+                alt14=45;}
             }
             break;
         case '[':
             {
-            alt13=35;
+            alt14=35;
             }
             break;
         case ']':
             {
-            alt13=36;
+            alt14=36;
             }
             break;
         case '0':
@@ -2315,7 +2337,7 @@ public class PCMStoExLexer extends Lexer {
         case '8':
         case '9':
             {
-            alt13=37;
+            alt14=37;
             }
             break;
         case '<':
@@ -2323,33 +2345,33 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '=':
                 {
-                alt13=42;
+                alt14=42;
                 }
                 break;
             case '>':
                 {
-                alt13=38;
+                alt14=38;
                 }
                 break;
             default:
-                alt13=40;}
+                alt14=40;}
 
             }
             break;
         case '>':
             {
-            int LA13_34 = input.LA(2);
+            int LA14_34 = input.LA(2);
 
-            if ( (LA13_34=='=') ) {
-                alt13=41;
+            if ( (LA14_34=='=') ) {
+                alt14=41;
             }
             else {
-                alt13=39;}
+                alt14=39;}
             }
             break;
         case '.':
             {
-            alt13=44;
+            alt14=44;
             }
             break;
         case 'C':
@@ -2391,7 +2413,7 @@ public class PCMStoExLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt13=45;
+            alt14=45;
             }
             break;
         case '\t':
@@ -2400,348 +2422,348 @@ public class PCMStoExLexer extends Lexer {
         case '\r':
         case ' ':
             {
-            alt13=46;
+            alt14=46;
             }
             break;
         default:
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 14, 0, input);
 
             throw nvae;
         }
 
-        switch (alt13) {
+        switch (alt14) {
             case 1 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:10: T53
+                // PCMStoEx.g:1:10: T53
                 {
                 mT53(); 
 
                 }
                 break;
             case 2 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:14: T54
+                // PCMStoEx.g:1:14: T54
                 {
                 mT54(); 
 
                 }
                 break;
             case 3 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:18: OR
+                // PCMStoEx.g:1:18: OR
                 {
                 mOR(); 
 
                 }
                 break;
             case 4 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:21: XOR
+                // PCMStoEx.g:1:21: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
             case 5 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:25: AND
+                // PCMStoEx.g:1:25: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 6 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:29: NOT
+                // PCMStoEx.g:1:29: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
             case 7 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:33: INTPMF
+                // PCMStoEx.g:1:33: INTPMF
                 {
                 mINTPMF(); 
 
                 }
                 break;
             case 8 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:40: DOUBLEPMF
+                // PCMStoEx.g:1:40: DOUBLEPMF
                 {
                 mDOUBLEPMF(); 
 
                 }
                 break;
             case 9 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:50: ENUMPMF
+                // PCMStoEx.g:1:50: ENUMPMF
                 {
                 mENUMPMF(); 
 
                 }
                 break;
             case 10 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:58: DOUBLEPDF
+                // PCMStoEx.g:1:58: DOUBLEPDF
                 {
                 mDOUBLEPDF(); 
 
                 }
                 break;
             case 11 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:68: BOOLPMF
+                // PCMStoEx.g:1:68: BOOLPMF
                 {
                 mBOOLPMF(); 
 
                 }
                 break;
             case 12 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:76: UNIT
+                // PCMStoEx.g:1:76: UNIT
                 {
                 mUNIT(); 
 
                 }
                 break;
             case 13 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:81: BOOL
+                // PCMStoEx.g:1:81: BOOL
                 {
                 mBOOL(); 
 
                 }
                 break;
             case 14 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:86: FALSE
+                // PCMStoEx.g:1:86: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 15 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:92: TRUE
+                // PCMStoEx.g:1:92: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 16 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:97: BYTESIZE
+                // PCMStoEx.g:1:97: BYTESIZE
                 {
                 mBYTESIZE(); 
 
                 }
                 break;
             case 17 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:106: STRUCTURE
+                // PCMStoEx.g:1:106: STRUCTURE
                 {
                 mSTRUCTURE(); 
 
                 }
                 break;
             case 18 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:116: NUMBER_OF_ELEMENTS
+                // PCMStoEx.g:1:116: NUMBER_OF_ELEMENTS
                 {
                 mNUMBER_OF_ELEMENTS(); 
 
                 }
                 break;
             case 19 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:135: TYPE
+                // PCMStoEx.g:1:135: TYPE
                 {
                 mTYPE(); 
 
                 }
                 break;
             case 20 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:140: VALUE
+                // PCMStoEx.g:1:140: VALUE
                 {
                 mVALUE(); 
 
                 }
                 break;
             case 21 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:146: INNER
+                // PCMStoEx.g:1:146: INNER
                 {
                 mINNER(); 
 
                 }
                 break;
             case 22 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:152: PLUS
+                // PCMStoEx.g:1:152: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
             case 23 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:157: MINUS
+                // PCMStoEx.g:1:157: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
             case 24 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:163: MUL
+                // PCMStoEx.g:1:163: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
             case 25 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:167: DIV
+                // PCMStoEx.g:1:167: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 26 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:171: MOD
+                // PCMStoEx.g:1:171: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 27 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:175: POW
+                // PCMStoEx.g:1:175: POW
                 {
                 mPOW(); 
 
                 }
                 break;
             case 28 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:179: LPAREN
+                // PCMStoEx.g:1:179: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 29 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:186: RPAREN
+                // PCMStoEx.g:1:186: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 30 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:193: SEMI
+                // PCMStoEx.g:1:193: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
             case 31 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:198: COLON
+                // PCMStoEx.g:1:198: COLON
                 {
                 mCOLON(); 
 
                 }
                 break;
             case 32 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:204: DEFINITION
+                // PCMStoEx.g:1:204: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
             case 33 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:215: ORDERED_DEF
+                // PCMStoEx.g:1:215: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
             case 34 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:227: EQUAL
+                // PCMStoEx.g:1:227: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
             case 35 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:233: SQUARE_PAREN_L
+                // PCMStoEx.g:1:233: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
             case 36 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:248: SQUARE_PAREN_R
+                // PCMStoEx.g:1:248: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
             case 37 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:263: NUMBER
+                // PCMStoEx.g:1:263: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
             case 38 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:270: NOTEQUAL
+                // PCMStoEx.g:1:270: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
             case 39 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:279: GREATER
+                // PCMStoEx.g:1:279: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
             case 40 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:287: LESS
+                // PCMStoEx.g:1:287: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
             case 41 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:292: GREATEREQUAL
+                // PCMStoEx.g:1:292: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
             case 42 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:305: LESSEQUAL
+                // PCMStoEx.g:1:305: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
             case 43 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:315: STRING_LITERAL
+                // PCMStoEx.g:1:315: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 44 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:330: DOT
+                // PCMStoEx.g:1:330: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 45 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:334: ID
+                // PCMStoEx.g:1:334: ID
                 {
                 mID(); 
 
                 }
                 break;
             case 46 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:337: WS
+                // PCMStoEx.g:1:337: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 47 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:340: COMMENT
+                // PCMStoEx.g:1:340: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
             case 48 :
-                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:348: LINE_COMMENT
+                // PCMStoEx.g:1:348: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 

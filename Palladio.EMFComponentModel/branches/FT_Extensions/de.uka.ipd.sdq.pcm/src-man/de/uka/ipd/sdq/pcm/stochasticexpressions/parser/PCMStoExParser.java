@@ -1,4 +1,4 @@
-// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-13 17:26:14
+// $ANTLR 3.0.1 PCMStoEx.g 2009-07-10 08:05:03
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import java.util.ArrayList;
@@ -54,7 +54,6 @@ import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
-@SuppressWarnings("unchecked")
 public class PCMStoExParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "OR", "XOR", "GREATER", "LESS", "EQUAL", "NOTEQUAL", "GREATEREQUAL", "LESSEQUAL", "PLUS", "MINUS", "MUL", "DIV", "MOD", "POW", "NOT", "NUMBER", "STRING_LITERAL", "DOT", "ID", "LPAREN", "RPAREN", "COLON", "INTPMF", "SQUARE_PAREN_L", "SQUARE_PAREN_R", "DOUBLEPMF", "ENUMPMF", "ORDERED_DEF", "DOUBLEPDF", "BOOLPMF", "SEMI", "FALSE", "TRUE", "BYTESIZE", "STRUCTURE", "NUMBER_OF_ELEMENTS", "TYPE", "VALUE", "INNER", "UNIT", "BOOL", "DEFINITION", "DIGIT", "Exponent", "ALPHA", "WS", "COMMENT", "LINE_COMMENT", "'?'", "':'"
@@ -116,12 +115,12 @@ public class PCMStoExParser extends Parser {
         
 
     public String[] getTokenNames() { return tokenNames; }
-    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g"; }
+    public String getGrammarFileName() { return "PCMStoEx.g"; }
 
 
 
     // $ANTLR start expression
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:15:1: expression returns [Expression exp] : c= ifelseExpr EOF ;
+    // PCMStoEx.g:15:1: expression returns [Expression exp] : c= ifelseExpr EOF ;
     public final Expression expression() throws RecognitionException {
         Expression exp = null;
 
@@ -129,8 +128,8 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:16:3: (c= ifelseExpr EOF )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:17:3: c= ifelseExpr EOF
+            // PCMStoEx.g:16:3: (c= ifelseExpr EOF )
+            // PCMStoEx.g:17:3: c= ifelseExpr EOF
             {
             pushFollow(FOLLOW_ifelseExpr_in_expression32);
             c=ifelseExpr();
@@ -154,7 +153,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start ifelseExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:20:1: ifelseExpr returns [IfElse ifelseExp] : cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? ;
+    // PCMStoEx.g:20:1: ifelseExpr returns [IfElse ifelseExp] : cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? ;
     public final IfElse ifelseExpr() throws RecognitionException {
         IfElse ifelseExp = null;
 
@@ -166,15 +165,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:21:2: (cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:22:2: cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )?
+            // PCMStoEx.g:21:2: (cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? )
+            // PCMStoEx.g:22:2: cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )?
             {
             pushFollow(FOLLOW_boolAndExpr_in_ifelseExpr57);
             cond=boolAndExpr();
             _fsp--;
 
             ifelseExp = cond;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:23:3: ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )?
+            // PCMStoEx.g:23:3: ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -183,7 +182,7 @@ public class PCMStoExParser extends Parser {
             }
             switch (alt1) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:23:4: '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr
+                    // PCMStoEx.g:23:4: '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr
                     {
                     IfElseExpression newIfelseExp = StoexFactory.eINSTANCE.createIfElseExpression();
                     		  newIfelseExp.setConditionExpression(cond);
@@ -222,7 +221,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolAndExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:29:1: boolAndExpr returns [BooleanExpression boolExp] : b1= boolOrExpr ( AND b2= boolOrExpr )* ;
+    // PCMStoEx.g:29:1: boolAndExpr returns [BooleanExpression boolExp] : b1= boolOrExpr ( AND b2= boolOrExpr )* ;
     public final BooleanExpression boolAndExpr() throws RecognitionException {
         BooleanExpression boolExp = null;
 
@@ -232,15 +231,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:30:2: (b1= boolOrExpr ( AND b2= boolOrExpr )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:31:2: b1= boolOrExpr ( AND b2= boolOrExpr )*
+            // PCMStoEx.g:30:2: (b1= boolOrExpr ( AND b2= boolOrExpr )* )
+            // PCMStoEx.g:31:2: b1= boolOrExpr ( AND b2= boolOrExpr )*
             {
             pushFollow(FOLLOW_boolOrExpr_in_boolAndExpr111);
             b1=boolOrExpr();
             _fsp--;
 
             boolExp = b1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:32:3: ( AND b2= boolOrExpr )*
+            // PCMStoEx.g:32:3: ( AND b2= boolOrExpr )*
             loop2:
             do {
                 int alt2=2;
@@ -253,7 +252,7 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:32:4: AND b2= boolOrExpr
+            	    // PCMStoEx.g:32:4: AND b2= boolOrExpr
             	    {
             	    BooleanOperatorExpression boolExprNew = StoexFactory.eINSTANCE.createBooleanOperatorExpression();
             	    match(input,AND,FOLLOW_AND_in_boolAndExpr122); 
@@ -288,7 +287,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolOrExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:37:1: boolOrExpr returns [BooleanExpression boolExp] : b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* ;
+    // PCMStoEx.g:37:1: boolOrExpr returns [BooleanExpression boolExp] : b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* ;
     public final BooleanExpression boolOrExpr() throws RecognitionException {
         BooleanExpression boolExp = null;
 
@@ -298,15 +297,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:38:2: (b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:39:2: b1= compareExpr ( ( OR | XOR ) b2= compareExpr )*
+            // PCMStoEx.g:38:2: (b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* )
+            // PCMStoEx.g:39:2: b1= compareExpr ( ( OR | XOR ) b2= compareExpr )*
             {
             pushFollow(FOLLOW_compareExpr_in_boolOrExpr160);
             b1=compareExpr();
             _fsp--;
 
             boolExp = b1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:40:3: ( ( OR | XOR ) b2= compareExpr )*
+            // PCMStoEx.g:40:3: ( ( OR | XOR ) b2= compareExpr )*
             loop4:
             do {
                 int alt4=2;
@@ -319,10 +318,10 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:40:5: ( OR | XOR ) b2= compareExpr
+            	    // PCMStoEx.g:40:5: ( OR | XOR ) b2= compareExpr
             	    {
             	    BooleanOperatorExpression boolExprNew = StoexFactory.eINSTANCE.createBooleanOperatorExpression();
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:41:3: ( OR | XOR )
+            	    // PCMStoEx.g:41:3: ( OR | XOR )
             	    int alt3=2;
             	    int LA3_0 = input.LA(1);
 
@@ -340,7 +339,7 @@ public class PCMStoExParser extends Parser {
             	    }
             	    switch (alt3) {
             	        case 1 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:41:4: OR
+            	            // PCMStoEx.g:41:4: OR
             	            {
             	            match(input,OR,FOLLOW_OR_in_boolOrExpr173); 
             	            boolExprNew.setOperation(BooleanOperations.OR);
@@ -348,7 +347,7 @@ public class PCMStoExParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:42:4: XOR
+            	            // PCMStoEx.g:42:4: XOR
             	            {
             	            match(input,XOR,FOLLOW_XOR_in_boolOrExpr181); 
             	            boolExprNew.setOperation(BooleanOperations.XOR);
@@ -388,7 +387,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start compareExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:50:1: compareExpr returns [Comparison comp] : t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? ;
+    // PCMStoEx.g:50:1: compareExpr returns [Comparison comp] : t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? ;
     public final Comparison compareExpr() throws RecognitionException {
         Comparison comp = null;
 
@@ -398,15 +397,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:51:3: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:52:4: t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
+            // PCMStoEx.g:51:3: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
+            // PCMStoEx.g:52:4: t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
             {
             pushFollow(FOLLOW_sumExpr_in_compareExpr231);
             t1=sumExpr();
             _fsp--;
 
             comp = t1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:52:30: ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
+            // PCMStoEx.g:52:30: ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -415,10 +414,10 @@ public class PCMStoExParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:53:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr
+                    // PCMStoEx.g:53:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr
                     {
                     CompareExpression compExp = StoexFactory.eINSTANCE.createCompareExpression();
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:54:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL )
+                    // PCMStoEx.g:54:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL )
                     int alt5=6;
                     switch ( input.LA(1) ) {
                     case GREATER:
@@ -460,7 +459,7 @@ public class PCMStoExParser extends Parser {
 
                     switch (alt5) {
                         case 1 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:54:6: GREATER
+                            // PCMStoEx.g:54:6: GREATER
                             {
                             match(input,GREATER,FOLLOW_GREATER_in_compareExpr248); 
                             compExp.setOperation(CompareOperations.GREATER);
@@ -468,7 +467,7 @@ public class PCMStoExParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:55:6: LESS
+                            // PCMStoEx.g:55:6: LESS
                             {
                             match(input,LESS,FOLLOW_LESS_in_compareExpr258); 
                             compExp.setOperation(CompareOperations.LESS);
@@ -476,7 +475,7 @@ public class PCMStoExParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:56:6: EQUAL
+                            // PCMStoEx.g:56:6: EQUAL
                             {
                             match(input,EQUAL,FOLLOW_EQUAL_in_compareExpr268); 
                             compExp.setOperation(CompareOperations.EQUALS);
@@ -484,7 +483,7 @@ public class PCMStoExParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:57:6: NOTEQUAL
+                            // PCMStoEx.g:57:6: NOTEQUAL
                             {
                             match(input,NOTEQUAL,FOLLOW_NOTEQUAL_in_compareExpr278); 
                             compExp.setOperation(CompareOperations.NOTEQUAL);
@@ -492,7 +491,7 @@ public class PCMStoExParser extends Parser {
                             }
                             break;
                         case 5 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:58:6: GREATEREQUAL
+                            // PCMStoEx.g:58:6: GREATEREQUAL
                             {
                             match(input,GREATEREQUAL,FOLLOW_GREATEREQUAL_in_compareExpr288); 
                             compExp.setOperation(CompareOperations.GREATEREQUAL);
@@ -500,7 +499,7 @@ public class PCMStoExParser extends Parser {
                             }
                             break;
                         case 6 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:59:6: LESSEQUAL
+                            // PCMStoEx.g:59:6: LESSEQUAL
                             {
                             match(input,LESSEQUAL,FOLLOW_LESSEQUAL_in_compareExpr298); 
                             compExp.setOperation(CompareOperations.LESSEQUAL);
@@ -537,7 +536,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start sumExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:63:1: sumExpr returns [Term t] : p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* ;
+    // PCMStoEx.g:63:1: sumExpr returns [Term t] : p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* ;
     public final Term sumExpr() throws RecognitionException {
         Term t = null;
 
@@ -547,15 +546,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:64:3: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:65:2: p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )*
+            // PCMStoEx.g:64:3: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
+            // PCMStoEx.g:65:2: p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )*
             {
             pushFollow(FOLLOW_prodExpr_in_sumExpr345);
             p1=prodExpr();
             _fsp--;
 
             t = p1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:65:26: ( ( PLUS | MINUS ) p2= prodExpr )*
+            // PCMStoEx.g:65:26: ( ( PLUS | MINUS ) p2= prodExpr )*
             loop8:
             do {
                 int alt8=2;
@@ -568,10 +567,10 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:66:4: ( PLUS | MINUS ) p2= prodExpr
+            	    // PCMStoEx.g:66:4: ( PLUS | MINUS ) p2= prodExpr
             	    {
             	    TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:67:4: ( PLUS | MINUS )
+            	    // PCMStoEx.g:67:4: ( PLUS | MINUS )
             	    int alt7=2;
             	    int LA7_0 = input.LA(1);
 
@@ -589,7 +588,7 @@ public class PCMStoExParser extends Parser {
             	    }
             	    switch (alt7) {
             	        case 1 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:67:5: PLUS
+            	            // PCMStoEx.g:67:5: PLUS
             	            {
             	            match(input,PLUS,FOLLOW_PLUS_in_sumExpr363); 
             	            termExp.setOperation(TermOperations.ADD);
@@ -597,7 +596,7 @@ public class PCMStoExParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:68:4: MINUS
+            	            // PCMStoEx.g:68:4: MINUS
             	            {
             	            match(input,MINUS,FOLLOW_MINUS_in_sumExpr371); 
             	            termExp.setOperation(TermOperations.SUB);
@@ -637,7 +636,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start prodExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:74:1: prodExpr returns [Product p] : pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* ;
+    // PCMStoEx.g:74:1: prodExpr returns [Product p] : pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* ;
     public final Product prodExpr() throws RecognitionException {
         Product p = null;
 
@@ -647,15 +646,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:75:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:76:3: pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )*
+            // PCMStoEx.g:75:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
+            // PCMStoEx.g:76:3: pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )*
             {
             pushFollow(FOLLOW_powExpr_in_prodExpr423);
             pw1=powExpr();
             _fsp--;
 
             p = pw1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:77:4: ( ( MUL | DIV | MOD ) pw2= powExpr )*
+            // PCMStoEx.g:77:4: ( ( MUL | DIV | MOD ) pw2= powExpr )*
             loop10:
             do {
                 int alt10=2;
@@ -668,10 +667,10 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:78:4: ( MUL | DIV | MOD ) pw2= powExpr
+            	    // PCMStoEx.g:78:4: ( MUL | DIV | MOD ) pw2= powExpr
             	    {
             	    ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:79:5: ( MUL | DIV | MOD )
+            	    // PCMStoEx.g:79:5: ( MUL | DIV | MOD )
             	    int alt9=3;
             	    switch ( input.LA(1) ) {
             	    case MUL:
@@ -698,7 +697,7 @@ public class PCMStoExParser extends Parser {
 
             	    switch (alt9) {
             	        case 1 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:79:6: MUL
+            	            // PCMStoEx.g:79:6: MUL
             	            {
             	            match(input,MUL,FOLLOW_MUL_in_prodExpr443); 
             	            prodExp.setOperation(ProductOperations.MULT);
@@ -706,7 +705,7 @@ public class PCMStoExParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:80:6: DIV
+            	            // PCMStoEx.g:80:6: DIV
             	            {
             	            match(input,DIV,FOLLOW_DIV_in_prodExpr454); 
             	            prodExp.setOperation(ProductOperations.DIV);
@@ -714,7 +713,7 @@ public class PCMStoExParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:81:6: MOD
+            	            // PCMStoEx.g:81:6: MOD
             	            {
             	            match(input,MOD,FOLLOW_MOD_in_prodExpr465); 
             	            prodExp.setOperation(ProductOperations.MOD);
@@ -754,7 +753,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start powExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:87:1: powExpr returns [Power pw] : a1= unaryExpr ( POW a2= unaryExpr )? ;
+    // PCMStoEx.g:87:1: powExpr returns [Power pw] : a1= unaryExpr ( POW a2= unaryExpr )? ;
     public final Power powExpr() throws RecognitionException {
         Power pw = null;
 
@@ -764,15 +763,15 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:88:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:89:3: a1= unaryExpr ( POW a2= unaryExpr )?
+            // PCMStoEx.g:88:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
+            // PCMStoEx.g:89:3: a1= unaryExpr ( POW a2= unaryExpr )?
             {
             pushFollow(FOLLOW_unaryExpr_in_powExpr522);
             a1=unaryExpr();
             _fsp--;
 
             pw = a1;
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:90:4: ( POW a2= unaryExpr )?
+            // PCMStoEx.g:90:4: ( POW a2= unaryExpr )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -781,7 +780,7 @@ public class PCMStoExParser extends Parser {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:90:5: POW a2= unaryExpr
+                    // PCMStoEx.g:90:5: POW a2= unaryExpr
                     {
                     match(input,POW,FOLLOW_POW_in_powExpr531); 
                     pushFollow(FOLLOW_unaryExpr_in_powExpr537);
@@ -813,7 +812,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start unaryExpr
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:96:1: unaryExpr returns [Unary u] : ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom );
+    // PCMStoEx.g:96:1: unaryExpr returns [Unary u] : ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom );
     public final Unary unaryExpr() throws RecognitionException {
         Unary u = null;
 
@@ -825,7 +824,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:96:29: ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom )
+            // PCMStoEx.g:96:29: ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom )
             int alt12=3;
             switch ( input.LA(1) ) {
             case MINUS:
@@ -862,7 +861,7 @@ public class PCMStoExParser extends Parser {
 
             switch (alt12) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:98:5: MINUS uminus= unaryExpr
+                    // PCMStoEx.g:98:5: MINUS uminus= unaryExpr
                     {
                     match(input,MINUS,FOLLOW_MINUS_in_unaryExpr573); 
                     pushFollow(FOLLOW_unaryExpr_in_unaryExpr579);
@@ -876,7 +875,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:103:5: NOT unot= unaryExpr
+                    // PCMStoEx.g:103:5: NOT unot= unaryExpr
                     {
                     match(input,NOT,FOLLOW_NOT_in_unaryExpr597); 
                     pushFollow(FOLLOW_unaryExpr_in_unaryExpr603);
@@ -890,7 +889,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:108:5: a= atom
+                    // PCMStoEx.g:108:5: a= atom
                     {
                     pushFollow(FOLLOW_atom_in_unaryExpr625);
                     a=atom();
@@ -915,7 +914,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start atom
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:110:1: atom returns [Atom a] : (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) ;
+    // PCMStoEx.g:110:1: atom returns [Atom a] : (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) ;
     public final Atom atom() throws RecognitionException {
         Atom a = null;
 
@@ -936,10 +935,10 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:111:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
+            // PCMStoEx.g:111:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) )
+            // PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
             {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
+            // PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
             int alt13=7;
             switch ( input.LA(1) ) {
             case NUMBER:
@@ -999,7 +998,7 @@ public class PCMStoExParser extends Parser {
 
             switch (alt13) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:114:5: number= NUMBER
+                    // PCMStoEx.g:114:5: number= NUMBER
                     {
                     number=(Token)input.LT(1);
                     match(input,NUMBER,FOLLOW_NUMBER_in_atom660); 
@@ -1022,7 +1021,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:132:5: def= definition
+                    // PCMStoEx.g:132:5: def= definition
                     {
                     pushFollow(FOLLOW_definition_in_atom687);
                     def=definition();
@@ -1033,7 +1032,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:136:5: sl= STRING_LITERAL
+                    // PCMStoEx.g:136:5: sl= STRING_LITERAL
                     {
                     sl=(Token)input.LT(1);
                     match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_atom712); 
@@ -1046,7 +1045,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:144:5: bl= boolean_keywords
+                    // PCMStoEx.g:144:5: bl= boolean_keywords
                     {
                     pushFollow(FOLLOW_boolean_keywords_in_atom739);
                     bl=boolean_keywords();
@@ -1061,7 +1060,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:152:5: id= scoped_id DOT type= characterisation
+                    // PCMStoEx.g:152:5: id= scoped_id DOT type= characterisation
                     {
                     pushFollow(FOLLOW_scoped_id_in_atom767);
                     id=scoped_id();
@@ -1080,7 +1079,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:159:5: fid= ID args= arguments
+                    // PCMStoEx.g:159:5: fid= ID args= arguments
                     {
                     fid=(Token)input.LT(1);
                     match(input,ID,FOLLOW_ID_in_atom802); 
@@ -1096,7 +1095,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:166:5: LPAREN inner= ifelseExpr RPAREN
+                    // PCMStoEx.g:166:5: LPAREN inner= ifelseExpr RPAREN
                     {
                     match(input,LPAREN,FOLLOW_LPAREN_in_atom840); 
                     pushFollow(FOLLOW_ifelseExpr_in_atom850);
@@ -1131,7 +1130,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start arguments
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:177:1: arguments returns [Collection<Expression> parameters] : LPAREN (paramList= expressionList )? RPAREN ;
+    // PCMStoEx.g:177:1: arguments returns [Collection<Expression> parameters] : LPAREN (paramList= expressionList )? RPAREN ;
     public final Collection<Expression> arguments() throws RecognitionException {
         Collection<Expression> parameters = null;
 
@@ -1140,11 +1139,11 @@ public class PCMStoExParser extends Parser {
 
         parameters = new ArrayList<Expression>();
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:179:2: ( LPAREN (paramList= expressionList )? RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:180:2: LPAREN (paramList= expressionList )? RPAREN
+            // PCMStoEx.g:179:2: ( LPAREN (paramList= expressionList )? RPAREN )
+            // PCMStoEx.g:180:2: LPAREN (paramList= expressionList )? RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_arguments902); 
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:180:19: (paramList= expressionList )?
+            // PCMStoEx.g:180:19: (paramList= expressionList )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1153,7 +1152,7 @@ public class PCMStoExParser extends Parser {
             }
             switch (alt14) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:180:19: paramList= expressionList
+                    // PCMStoEx.g:180:19: paramList= expressionList
                     {
                     pushFollow(FOLLOW_expressionList_in_arguments908);
                     paramList=expressionList();
@@ -1183,7 +1182,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start expressionList
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:183:1: expressionList returns [Collection<Expression> parameters] : p1= boolAndExpr ( COLON p2= boolAndExpr )* ;
+    // PCMStoEx.g:183:1: expressionList returns [Collection<Expression> parameters] : p1= boolAndExpr ( COLON p2= boolAndExpr )* ;
     public final Collection<Expression> expressionList() throws RecognitionException {
         Collection<Expression> parameters = null;
 
@@ -1194,15 +1193,15 @@ public class PCMStoExParser extends Parser {
 
         parameters = new ArrayList<Expression>();
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:185:2: (p1= boolAndExpr ( COLON p2= boolAndExpr )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:186:7: p1= boolAndExpr ( COLON p2= boolAndExpr )*
+            // PCMStoEx.g:185:2: (p1= boolAndExpr ( COLON p2= boolAndExpr )* )
+            // PCMStoEx.g:186:7: p1= boolAndExpr ( COLON p2= boolAndExpr )*
             {
             pushFollow(FOLLOW_boolAndExpr_in_expressionList951);
             p1=boolAndExpr();
             _fsp--;
 
             parameters.add(p1);
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:186:46: ( COLON p2= boolAndExpr )*
+            // PCMStoEx.g:186:46: ( COLON p2= boolAndExpr )*
             loop15:
             do {
                 int alt15=2;
@@ -1215,7 +1214,7 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt15) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:186:47: COLON p2= boolAndExpr
+            	    // PCMStoEx.g:186:47: COLON p2= boolAndExpr
             	    {
             	    match(input,COLON,FOLLOW_COLON_in_expressionList956); 
             	    pushFollow(FOLLOW_boolAndExpr_in_expressionList962);
@@ -1248,7 +1247,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start characterisation
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:189:1: characterisation returns [VariableCharacterisationType ct] : type= characterisation_keywords ;
+    // PCMStoEx.g:189:1: characterisation returns [VariableCharacterisationType ct] : type= characterisation_keywords ;
     public final VariableCharacterisationType characterisation() throws RecognitionException {
         VariableCharacterisationType ct = null;
 
@@ -1256,8 +1255,8 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:190:3: (type= characterisation_keywords )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:191:2: type= characterisation_keywords
+            // PCMStoEx.g:190:3: (type= characterisation_keywords )
+            // PCMStoEx.g:191:2: type= characterisation_keywords
             {
             pushFollow(FOLLOW_characterisation_keywords_in_characterisation995);
             type=characterisation_keywords();
@@ -1290,8 +1289,8 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start definition
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
-	public final ProbabilityFunctionLiteral definition() throws RecognitionException {
+    // PCMStoEx.g:205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
+    public final ProbabilityFunctionLiteral definition() throws RecognitionException {
         ProbabilityFunctionLiteral pfl = null;
 
         Sample isample = null;
@@ -1306,7 +1305,7 @@ public class PCMStoExParser extends Parser {
         pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
         	 ProbabilityFunction probFunction = null; 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:207:46: ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
+            // PCMStoEx.g:207:46: ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
             int alt23=5;
             switch ( input.LA(1) ) {
             case INTPMF:
@@ -1343,13 +1342,13 @@ public class PCMStoExParser extends Parser {
 
             switch (alt23) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:211:4: INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
+                    // PCMStoEx.g:211:4: INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
                     {
                     match(input,INTPMF,FOLLOW_INTPMF_in_definition1032); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1043); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:215:5: (isample= numeric_int_sample )+
+                    // PCMStoEx.g:215:5: (isample= numeric_int_sample )+
                     int cnt16=0;
                     loop16:
                     do {
@@ -1363,7 +1362,7 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:216:7: isample= numeric_int_sample
+                    	    // PCMStoEx.g:216:7: isample= numeric_int_sample
                     	    {
                     	    pushFollow(FOLLOW_numeric_int_sample_in_definition1063);
                     	    isample=numeric_int_sample();
@@ -1388,13 +1387,13 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:220:5: DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
+                    // PCMStoEx.g:220:5: DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
                     {
                     match(input,DOUBLEPMF,FOLLOW_DOUBLEPMF_in_definition1093); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1106); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:224:5: (rsample= numeric_real_sample )+
+                    // PCMStoEx.g:224:5: (rsample= numeric_real_sample )+
                     int cnt17=0;
                     loop17:
                     do {
@@ -1408,7 +1407,7 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:225:5: rsample= numeric_real_sample
+                    	    // PCMStoEx.g:225:5: rsample= numeric_real_sample
                     	    {
                     	    pushFollow(FOLLOW_numeric_real_sample_in_definition1124);
                     	    rsample=numeric_real_sample();
@@ -1433,14 +1432,14 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:230:4: ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
+                    // PCMStoEx.g:230:4: ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
                     {
                     match(input,ENUMPMF,FOLLOW_ENUMPMF_in_definition1155); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
                     				   
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:235:4: ( LPAREN ORDERED_DEF RPAREN )?
+                    // PCMStoEx.g:235:4: ( LPAREN ORDERED_DEF RPAREN )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1449,7 +1448,7 @@ public class PCMStoExParser extends Parser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:235:5: LPAREN ORDERED_DEF RPAREN
+                            // PCMStoEx.g:235:5: LPAREN ORDERED_DEF RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition1168); 
                             match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1175); 
@@ -1462,7 +1461,7 @@ public class PCMStoExParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1194); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:240:5: (ssample= stringsample )+
+                    // PCMStoEx.g:240:5: (ssample= stringsample )+
                     int cnt19=0;
                     loop19:
                     do {
@@ -1476,7 +1475,7 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:241:5: ssample= stringsample
+                    	    // PCMStoEx.g:241:5: ssample= stringsample
                     	    {
                     	    pushFollow(FOLLOW_stringsample_in_definition1212);
                     	    ssample=stringsample();
@@ -1501,13 +1500,13 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:245:4: DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
+                    // PCMStoEx.g:245:4: DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
                     {
                     match(input,DOUBLEPDF,FOLLOW_DOUBLEPDF_in_definition1239); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1250); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:249:5: (pdf_sample= real_pdf_sample )+
+                    // PCMStoEx.g:249:5: (pdf_sample= real_pdf_sample )+
                     int cnt20=0;
                     loop20:
                     do {
@@ -1521,7 +1520,7 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:250:7: pdf_sample= real_pdf_sample
+                    	    // PCMStoEx.g:250:7: pdf_sample= real_pdf_sample
                     	    {
                     	    pushFollow(FOLLOW_real_pdf_sample_in_definition1270);
                     	    pdf_sample=real_pdf_sample();
@@ -1546,14 +1545,14 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:254:4: BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
+                    // PCMStoEx.g:254:4: BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
                     {
                     match(input,BOOLPMF,FOLLOW_BOOLPMF_in_definition1298); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
                     				   
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:259:4: ( LPAREN ORDERED_DEF RPAREN )?
+                    // PCMStoEx.g:259:4: ( LPAREN ORDERED_DEF RPAREN )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
@@ -1562,7 +1561,7 @@ public class PCMStoExParser extends Parser {
                     }
                     switch (alt21) {
                         case 1 :
-                            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:259:5: LPAREN ORDERED_DEF RPAREN
+                            // PCMStoEx.g:259:5: LPAREN ORDERED_DEF RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition1311); 
                             match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1318); 
@@ -1575,7 +1574,7 @@ public class PCMStoExParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1337); 
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:264:5: (ssample= boolsample )+
+                    // PCMStoEx.g:264:5: (ssample= boolsample )+
                     int cnt22=0;
                     loop22:
                     do {
@@ -1589,7 +1588,7 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt22) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:265:5: ssample= boolsample
+                    	    // PCMStoEx.g:265:5: ssample= boolsample
                     	    {
                     	    pushFollow(FOLLOW_boolsample_in_definition1355);
                     	    ssample=boolsample();
@@ -1628,7 +1627,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start numeric_int_sample
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:270:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // PCMStoEx.g:270:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_int_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1637,8 +1636,8 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:271:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:272:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // PCMStoEx.g:271:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // PCMStoEx.g:272:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_numeric_int_sample1398); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -1666,7 +1665,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start numeric_real_sample
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:281:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // PCMStoEx.g:281:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_real_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1675,8 +1674,8 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:282:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:283:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // PCMStoEx.g:282:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // PCMStoEx.g:283:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_numeric_real_sample1465); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -1704,7 +1703,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start real_pdf_sample
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:292:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // PCMStoEx.g:292:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final ContinuousSample real_pdf_sample() throws RecognitionException {
         ContinuousSample s = null;
 
@@ -1713,8 +1712,8 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:293:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:294:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // PCMStoEx.g:293:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // PCMStoEx.g:294:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_real_pdf_sample1533); 
             s = ProbfunctionFactory.eINSTANCE.createContinuousSample();
@@ -1742,7 +1741,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start stringsample
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:303:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
+    // PCMStoEx.g:303:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
     public final Sample stringsample() throws RecognitionException {
         Sample s = null;
 
@@ -1750,8 +1749,8 @@ public class PCMStoExParser extends Parser {
         Token n=null;
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:304:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:305:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
+            // PCMStoEx.g:304:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
+            // PCMStoEx.g:305:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_stringsample1598); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -1779,7 +1778,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolsample
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:314:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
+    // PCMStoEx.g:314:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
     public final Sample boolsample() throws RecognitionException {
         Sample s = null;
 
@@ -1788,8 +1787,8 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:315:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:316:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
+            // PCMStoEx.g:315:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
+            // PCMStoEx.g:316:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_boolsample1656); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -1819,15 +1818,15 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolean_keywords
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:325:1: boolean_keywords returns [String keyword] : ( FALSE | TRUE ) ;
+    // PCMStoEx.g:325:1: boolean_keywords returns [String keyword] : ( FALSE | TRUE ) ;
     public final String boolean_keywords() throws RecognitionException {
         String keyword = null;
 
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:326:2: ( ( FALSE | TRUE ) )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:327:3: ( FALSE | TRUE )
+            // PCMStoEx.g:326:2: ( ( FALSE | TRUE ) )
+            // PCMStoEx.g:327:3: ( FALSE | TRUE )
             {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:327:3: ( FALSE | TRUE )
+            // PCMStoEx.g:327:3: ( FALSE | TRUE )
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -1845,7 +1844,7 @@ public class PCMStoExParser extends Parser {
             }
             switch (alt24) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:328:3: FALSE
+                    // PCMStoEx.g:328:3: FALSE
                     {
                     match(input,FALSE,FOLLOW_FALSE_in_boolean_keywords1714); 
                     keyword = "false";
@@ -1853,7 +1852,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:331:3: TRUE
+                    // PCMStoEx.g:331:3: TRUE
                     {
                     match(input,TRUE,FOLLOW_TRUE_in_boolean_keywords1728); 
                     keyword = "true"; 
@@ -1879,16 +1878,16 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start characterisation_keywords
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:335:1: characterisation_keywords returns [String keyword] : ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) ;
+    // PCMStoEx.g:335:1: characterisation_keywords returns [String keyword] : ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) ;
     public final String characterisation_keywords() throws RecognitionException {
         String keyword = null;
 
         keyword = null;
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:336:24: ( ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
+            // PCMStoEx.g:336:24: ( ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) )
+            // PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
             {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
+            // PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
             int alt25=5;
             switch ( input.LA(1) ) {
             case BYTESIZE:
@@ -1925,7 +1924,7 @@ public class PCMStoExParser extends Parser {
 
             switch (alt25) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:3: BYTESIZE
+                    // PCMStoEx.g:337:3: BYTESIZE
                     {
                     match(input,BYTESIZE,FOLLOW_BYTESIZE_in_characterisation_keywords1756); 
                     keyword="BYTESIZE";
@@ -1933,7 +1932,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:338:4: STRUCTURE
+                    // PCMStoEx.g:338:4: STRUCTURE
                     {
                     match(input,STRUCTURE,FOLLOW_STRUCTURE_in_characterisation_keywords1763); 
                     keyword="STRUCTURE";
@@ -1941,7 +1940,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:339:4: NUMBER_OF_ELEMENTS
+                    // PCMStoEx.g:339:4: NUMBER_OF_ELEMENTS
                     {
                     match(input,NUMBER_OF_ELEMENTS,FOLLOW_NUMBER_OF_ELEMENTS_in_characterisation_keywords1770); 
                     keyword="NUMBER_OF_ELEMENTS";
@@ -1949,7 +1948,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:340:4: TYPE
+                    // PCMStoEx.g:340:4: TYPE
                     {
                     match(input,TYPE,FOLLOW_TYPE_in_characterisation_keywords1777); 
                     keyword="TYPE";
@@ -1957,7 +1956,7 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:341:4: VALUE
+                    // PCMStoEx.g:341:4: VALUE
                     {
                     match(input,VALUE,FOLLOW_VALUE_in_characterisation_keywords1784); 
                     keyword="VALUE";
@@ -1983,7 +1982,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start scoped_id
-    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:344:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | INNER ) )* ;
+    // PCMStoEx.g:344:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | INNER ) )* ;
     public final AbstractNamedReference scoped_id() throws RecognitionException {
         AbstractNamedReference ref = null;
 
@@ -1993,13 +1992,13 @@ public class PCMStoExParser extends Parser {
         ref = null;
         		ArrayList<String> nameParts = new ArrayList<String>();
         try {
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:346:59: (id1= ID ( DOT (id2= ID | INNER ) )* )
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:348:2: id1= ID ( DOT (id2= ID | INNER ) )*
+            // PCMStoEx.g:346:59: (id1= ID ( DOT (id2= ID | INNER ) )* )
+            // PCMStoEx.g:348:2: id1= ID ( DOT (id2= ID | INNER ) )*
             {
             id1=(Token)input.LT(1);
             match(input,ID,FOLLOW_ID_in_scoped_id1814); 
             nameParts.add(id1.getText());
-            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:6: ( DOT (id2= ID | INNER ) )*
+            // PCMStoEx.g:349:6: ( DOT (id2= ID | INNER ) )*
             loop27:
             do {
                 int alt27=2;
@@ -2018,10 +2017,10 @@ public class PCMStoExParser extends Parser {
 
                 switch (alt27) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:7: DOT (id2= ID | INNER )
+            	    // PCMStoEx.g:349:7: DOT (id2= ID | INNER )
             	    {
             	    match(input,DOT,FOLLOW_DOT_in_scoped_id1825); 
-            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:11: (id2= ID | INNER )
+            	    // PCMStoEx.g:349:11: (id2= ID | INNER )
             	    int alt26=2;
             	    int LA26_0 = input.LA(1);
 
@@ -2039,7 +2038,7 @@ public class PCMStoExParser extends Parser {
             	    }
             	    switch (alt26) {
             	        case 1 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:12: id2= ID
+            	            // PCMStoEx.g:349:12: id2= ID
             	            {
             	            id2=(Token)input.LT(1);
             	            match(input,ID,FOLLOW_ID_in_scoped_id1830); 
@@ -2048,7 +2047,7 @@ public class PCMStoExParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:53: INNER
+            	            // PCMStoEx.g:349:53: INNER
             	            {
             	            match(input,INNER,FOLLOW_INNER_in_scoped_id1836); 
             	            nameParts.add("INNER");
