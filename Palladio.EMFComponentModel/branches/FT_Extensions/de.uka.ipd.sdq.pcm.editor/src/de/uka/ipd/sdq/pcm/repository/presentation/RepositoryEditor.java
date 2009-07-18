@@ -66,6 +66,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -162,7 +163,7 @@ public class RepositoryEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.

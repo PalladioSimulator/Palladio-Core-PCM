@@ -651,6 +651,15 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExternalCallAction_RetryCount() {
+		return (EAttribute)externalCallActionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProbabilisticBranchTransition() {
 		return probabilisticBranchTransitionEClass;
 	}
@@ -870,6 +879,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE);
+		createEAttribute(externalCallActionEClass, EXTERNAL_CALL_ACTION__RETRY_COUNT);
 
 		probabilisticBranchTransitionEClass = createEClass(PROBABILISTIC_BRANCH_TRANSITION);
 		createEAttribute(probabilisticBranchTransitionEClass, PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY);
@@ -1047,6 +1057,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEReference(getExternalCallAction_InputParameterUsages_ExternalCallAction(), theParameterPackage.getVariableUsage(), null, "inputParameterUsages_ExternalCallAction", null, 0, -1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExternalCallAction_OutputVariableUsages_ExternalCallAction(), theParameterPackage.getVariableUsage(), null, "outputVariableUsages_ExternalCallAction", null, 0, -1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExternalCallAction_Role_ExternalService(), theRepositoryPackage.getRole(), null, "role_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExternalCallAction_RetryCount(), ecorePackage.getEInt(), "retryCount", "0", 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(probabilisticBranchTransitionEClass, ProbabilisticBranchTransition.class, "ProbabilisticBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProbabilisticBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, ProbabilisticBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

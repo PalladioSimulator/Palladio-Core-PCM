@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 

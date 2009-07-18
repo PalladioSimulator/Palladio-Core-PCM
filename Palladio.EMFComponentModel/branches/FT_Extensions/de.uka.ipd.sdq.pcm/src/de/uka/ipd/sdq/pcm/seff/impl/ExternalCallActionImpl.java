@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRole_ExternalService <em>Role External Service</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRetryCount <em>Retry Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +86,26 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * @ordered
 	 */
 	protected Role role_ExternalService;
+
+	/**
+	 * The default value of the '{@link #getRetryCount() <em>Retry Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRetryCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RETRY_COUNT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRetryCount() <em>Retry Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRetryCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected int retryCount = RETRY_COUNT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,6 +231,27 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRetryCount() {
+		return retryCount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRetryCount(int newRetryCount) {
+		int oldRetryCount = retryCount;
+		retryCount = newRetryCount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT, oldRetryCount, retryCount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -239,6 +281,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				if (resolve) return getRole_ExternalService();
 				return basicGetRole_ExternalService();
+			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
+				return new Integer(getRetryCount());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +310,9 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				setRole_ExternalService((Role)newValue);
 				return;
+			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
+				setRetryCount(((Integer)newValue).intValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -290,6 +337,9 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				setRole_ExternalService((Role)null);
 				return;
+			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
+				setRetryCount(RETRY_COUNT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -310,8 +360,26 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 				return outputVariableUsages_ExternalCallAction != null && !outputVariableUsages_ExternalCallAction.isEmpty();
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				return role_ExternalService != null;
+			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
+				return retryCount != RETRY_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (retryCount: ");
+		result.append(retryCount);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExternalCallActionImpl
