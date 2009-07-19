@@ -9,7 +9,9 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
@@ -32,6 +34,7 @@ public class CouplingTab extends MetricTab {
 	protected Composite control;
 	private Group group;
 	protected CheckboxTreeViewer checkboxTreeViewer;
+	protected ICheckStateListener checkStateListener;
 	private Root root;
 	private Button btnBlacklist, btnWhitelist;
 
@@ -64,6 +67,13 @@ public class CouplingTab extends MetricTab {
 	 * @wbp.parser.entryPoint
 	 */
 	public void createControl(Composite parent) {
+		checkStateListener = new ICheckStateListener() {
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				CouplingTab.this.setDirty(true);
+				CouplingTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
 		control = new Composite(parent, SWT.NONE);
 		control.setLayout(new GridLayout(2, false));
 		{
@@ -86,6 +96,8 @@ public class CouplingTab extends MetricTab {
 			Tree tree = checkboxTreeViewer.getTree();
 			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		}
+		
+		checkboxTreeViewer.addCheckStateListener(checkStateListener);
 		
 		this.getModelAnalyzerTabGroupBlackboard().addBlackboardListener(new BlackboardListener() {
 
