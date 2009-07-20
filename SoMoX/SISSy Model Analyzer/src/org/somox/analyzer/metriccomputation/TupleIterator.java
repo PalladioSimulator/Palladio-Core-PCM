@@ -26,7 +26,7 @@ import de.fzi.gast.core.Root;
 import de.fzi.gast.types.GASTClass;
 
 public class TupleIterator {
-	private LinkedList<Object> metricList;
+	private LinkedList<Metric> metricList;
 	private final String DELIMITER = "§";
 	
 	private boolean couplingBlacklistIndicator;
@@ -41,7 +41,7 @@ public class TupleIterator {
 	private Set<String> nameResemblanceSuffixes;
 	
 	public TupleIterator () {
-		metricList = new LinkedList<Object>();
+		metricList = new LinkedList<Metric>();
 	}
 	
 	public void configure (Preferences preferences) {
@@ -110,7 +110,7 @@ public class TupleIterator {
 					Object o = configuration.createExecutableExtension("class");
 
 					if (o instanceof Metric) {
-						metricList.add(o);
+						metricList.add((Metric)o);
 						((Metric)o).initialize(root);
 
 						if (((Metric)o).getMID().equals(new NameResemblance().getMID())) {
@@ -148,11 +148,9 @@ public class TupleIterator {
 		Map<Integer, Double> argAB = new HashMap<Integer, Double>();
 		Map<Integer, Double> argBA = new HashMap<Integer, Double>();
 		
-		for (Object o : metricList) {
-			if (o instanceof Metric) {
-				argAB.put(((Metric)o).getMID().getID(), ((Metric)o).compute(root, elements1, elements2));
-				argBA.put(((Metric)o).getMID().getID(), ((Metric)o).compute(root, elements2, elements1));
-			}
+		for (Metric m : metricList) {
+			argAB.put(((Metric)m).getMID().getID(), ((Metric)m).compute(root, elements1, elements2));
+			argBA.put(((Metric)m).getMID().getID(), ((Metric)m).compute(root, elements2, elements1));
 		}
 		
 		if (argAB.size() != 0 && argBA.size() != 0) {
