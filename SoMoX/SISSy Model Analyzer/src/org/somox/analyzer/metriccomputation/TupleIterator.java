@@ -110,30 +110,31 @@ public class TupleIterator {
 					Object o = configuration.createExecutableExtension("class");
 
 					if (o instanceof Metric) {
-						metricList.add((Metric)o);
-						((Metric)o).initialize(root);
+						Metric m = (Metric)o;
+						metricList.add(m);
+						m.initialize(root);
 
-						if (((Metric)o).getMID().equals(new NameResemblance().getMID())) {
-							((NameResemblance)o).setExcludedPrefixes(nameResemblancePrefixes);
-							((NameResemblance)o).setExcludedSuffixes(nameResemblanceSuffixes);
-						} else if (((Metric)o).getMID().equals(new Coupling().getMID())) {
+						if (m.getMID().equals(new NameResemblance().getMID())) {
+							((NameResemblance)m).setExcludedPrefixes(nameResemblancePrefixes);
+							((NameResemblance)m).setExcludedSuffixes(nameResemblanceSuffixes);
+						} else if (m.getMID().equals(new Coupling().getMID())) {
 							if (couplingBlacklistIndicator) {
-								((Coupling)o).setBlacklist(couplingBlacklist);
+								((Coupling)m).setBlacklist(couplingBlacklist);
 							} else {
-								((Coupling)o).setWhitelist(couplingBlacklist);
+								((Coupling)m).setWhitelist(couplingBlacklist);
 							}
 
-						} else if (((Metric)o).getMID().equals(new DMS().getMID())) {
+						} else if (m.getMID().equals(new DMS().getMID())) {
 							if (dmsBlacklistIndicator) {
-								((DMS)o).setBlacklist(dmsBlacklist);
+								((DMS)m).setBlacklist(dmsBlacklist);
 							} else {
-								((DMS)o).setWhitelist(dmsBlacklist);
+								((DMS)m).setWhitelist(dmsBlacklist);
 							}
-						} else if (((Metric)o).getMID().equals(new SubsystemComponent().getMID())) {
+						} else if (m.getMID().equals(new SubsystemComponent().getMID())) {
 							if (subsystemComponentBlacklistIndicator) {
-								((SubsystemComponent)o).setBlacklist(subsystemComponentBlacklist);
+								((SubsystemComponent)m).setBlacklist(subsystemComponentBlacklist);
 							} else {
-								((SubsystemComponent)o).setWhitelist(subsystemComponentBlacklist);
+								((SubsystemComponent)m).setWhitelist(subsystemComponentBlacklist);
 							}
 						}
 					}
