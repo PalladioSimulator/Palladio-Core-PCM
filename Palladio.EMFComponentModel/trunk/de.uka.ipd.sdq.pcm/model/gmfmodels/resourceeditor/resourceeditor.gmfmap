@@ -76,8 +76,6 @@
     </ownedChild>
   </nodes>
   <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"/>

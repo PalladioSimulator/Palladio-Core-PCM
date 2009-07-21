@@ -26,20 +26,30 @@
     <descriptors
         name="CommunicationLinkResourceSpecificationFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="CommunicationLinkResourceSpecificationFigure">
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CommunicationLinkSpecification"
+          cornerWidth="20"
+          cornerHeight="20">
+        <layout
+            xsi:type="gmfgraph:StackLayout"/>
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="220"
+            green="220"
+            blue="220"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="220"
+            green="220"
+            blue="220"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="Latency"
-            text=""/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="Throughput"/>
+            name="CommunicationLinkSpecification"
+            text="CommunicationLinkSpecification">
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"/>
+        </children>
       </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ProcessingResourceSpecificationFigure">
@@ -106,14 +116,6 @@
   <compartments
       name="ResourceContainerCompartment"
       figure="ResourceContainerFigure"/>
-  <labels
-      name="ThroughputLabel"
-      figure="CommunicationLinkResourceSpecificationFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
-  <labels
-      name="LatencyLabel"
-      figure="CommunicationLinkResourceSpecificationFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
   <labels
       name="SchedulingPolicyLabel"
       figure="ProcessingResourceSpecificationFigure"

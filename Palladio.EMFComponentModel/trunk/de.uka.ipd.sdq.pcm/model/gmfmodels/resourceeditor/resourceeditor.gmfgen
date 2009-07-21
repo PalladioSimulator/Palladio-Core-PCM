@@ -172,8 +172,13 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="CommunicationLinkResourceSpecificationEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure">
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CommunicationLinkResourceSpecificationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CommunicationLinkResourceSpecificationFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CommunicationLinkResourceSpecificationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel communicationLinkSpecification0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;communicationLinkSpecification0.setText(&quot;CommunicationLinkSpecification&quot;);&#xA;&#x9;communicationLinkSpecification0.setForegroundColor(COMMUNICATIONLINKSPECIFICATION0_FORE&#xA;);&#xA;&#xA;this.add(communicationLinkSpecification0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 220, 220, 220);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 220, 220, 220);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color COMMUNICATIONLINKSPECIFICATION0_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 0);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -274,6 +279,10 @@
             title="ProcessingResourceSpecification"
             description="Create new ProcessingResourceSpecification"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ResourceType"
+            description="Create new ResourceType"/>
       </groups>
     </palette>
     <preferencePages
