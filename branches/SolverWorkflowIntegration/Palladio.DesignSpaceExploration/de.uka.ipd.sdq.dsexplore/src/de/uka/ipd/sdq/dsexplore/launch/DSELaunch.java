@@ -32,6 +32,8 @@ import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.GivenInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.PredefinedInstanceEvaluator;
+import de.uka.ipd.sdq.dsexplore.opt4j.start.RandomSearch;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 /**
@@ -113,9 +115,14 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
 					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")){
 				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints, monitor);
-			} else {
+			} else if (configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").toLowerCase().equals("random")){
 				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
-				GivenInstanceEvaluator gie = new GivenInstanceEvaluator(configuration);
+				PredefinedInstanceEvaluator rie = new RandomSearch(maxIterations, individualsPerGeneration);
+				rie.start();
+			} else {
+				//TODO: fix this dependency, GivenInstanceEvaluator will not work without init call. Refactor init part and how to evaluate part in two different classes 
+				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+				PredefinedInstanceEvaluator gie = new GivenInstanceEvaluator(configuration);
 				gie.start();
 				
 			}
