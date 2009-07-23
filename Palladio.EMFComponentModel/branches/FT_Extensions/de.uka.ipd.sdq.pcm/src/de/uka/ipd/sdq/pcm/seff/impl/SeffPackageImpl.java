@@ -961,7 +961,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		forkedBehaviourEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
 		probabilisticBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
-		abstractBranchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		abstractBranchTransitionEClass.getESuperTypes().add(theEntityPackage.getNamedElement());
 		branchActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
 		acquireActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
 		collectionIteratorActionEClass.getESuperTypes().add(this.getAbstractLoopAction());

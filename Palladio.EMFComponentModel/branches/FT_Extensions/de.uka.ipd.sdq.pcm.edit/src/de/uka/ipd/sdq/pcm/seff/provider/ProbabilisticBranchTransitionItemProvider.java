@@ -112,7 +112,7 @@ public class ProbabilisticBranchTransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProbabilisticBranchTransition)object).getId();
+		String label = ((ProbabilisticBranchTransition)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProbabilisticBranchTransition_type") :
 			getString("_UI_ProbabilisticBranchTransition_type") + " " + label;

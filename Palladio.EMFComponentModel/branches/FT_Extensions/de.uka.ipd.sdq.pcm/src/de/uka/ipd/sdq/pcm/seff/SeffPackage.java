@@ -1027,13 +1027,13 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_BRANCH_TRANSITION__ID = IdentifierPackage.IDENTIFIER__ID;
+	int ABSTRACT_BRANCH_TRANSITION__ENTITY_NAME = EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
@@ -1042,7 +1042,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Branch Transition</em>' class.
@@ -1051,16 +1051,16 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROBABILISTIC_BRANCH_TRANSITION__ID = ABSTRACT_BRANCH_TRANSITION__ID;
+	int PROBABILISTIC_BRANCH_TRANSITION__ENTITY_NAME = ABSTRACT_BRANCH_TRANSITION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
@@ -1288,13 +1288,13 @@ public interface SeffPackage extends EPackage {
 	int COLLECTION_ITERATOR_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GUARDED_BRANCH_TRANSITION__ID = ABSTRACT_BRANCH_TRANSITION__ID;
+	int GUARDED_BRANCH_TRANSITION__ENTITY_NAME = ABSTRACT_BRANCH_TRANSITION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
