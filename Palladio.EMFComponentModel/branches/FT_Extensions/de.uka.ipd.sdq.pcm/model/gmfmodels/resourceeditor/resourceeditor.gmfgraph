@@ -17,12 +17,123 @@
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="LinkingResourceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="StraightLine"/>
+    </descriptors>
+    <descriptors
+        name="CommunicationLinkResourceSpecificationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CommunicationLinkSpecification"
+          cornerWidth="20"
+          cornerHeight="20">
+        <layout
+            xsi:type="gmfgraph:StackLayout"/>
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="220"
+            green="220"
+            blue="220"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="220"
+            green="220"
+            blue="220"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CommunicationLinkSpecification"
+            text="CommunicationLinkSpecification">
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"/>
+        </children>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProcessingResourceSpecificationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ProcessingResourceSpecification">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ActiveResourceTypeFigure"
+            text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MTTFFigure"
+            text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MTTRFigure"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SchedulingPolicyFigure"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.3"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.2"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ResourceTypeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ResourceTypeFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResourceTypeLabel"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
+  <nodes
+      name="ResourceType"
+      figure="ResourceTypeFigure"/>
+  <nodes
+      name="ProcessingResourceSpecification"
+      figure="ProcessingResourceSpecificationFigure"/>
+  <nodes
+      name="CommunicationLinkResourceSpecification"
+      figure="CommunicationLinkResourceSpecificationFigure"/>
   <nodes
       name="ResourceContainer"
       figure="ResourceContainerFigure"/>
+  <connections
+      name="LinkingResource"
+      figure="LinkingResourceFigure"/>
+  <compartments
+      name="ProcessingResourceSpecificationCompartment"
+      figure="ProcessingResourceSpecificationFigure"/>
+  <compartments
+      name="ResourceContainerCompartment"
+      figure="ResourceContainerFigure"/>
+  <labels
+      name="SchedulingPolicyLabel"
+      figure="ProcessingResourceSpecificationFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="ResourceContainerNameLabel"
       figure="ResourceContainerFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels
+      name="ResourceTypeLabel"
+      figure="ProcessingResourceSpecificationFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="MTTFLabel"
+      figure="ProcessingResourceSpecificationFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <labels
+      name="MTTRLabel"
+      figure="ProcessingResourceSpecificationFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.2"/>
 </gmfgraph:Canvas>
