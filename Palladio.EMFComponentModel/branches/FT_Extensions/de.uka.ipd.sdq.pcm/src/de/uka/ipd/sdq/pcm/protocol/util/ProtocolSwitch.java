@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.util;
 
-import de.uka.ipd.sdq.pcm.protocol.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
