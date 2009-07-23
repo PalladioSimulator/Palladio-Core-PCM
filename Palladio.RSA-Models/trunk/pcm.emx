@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
   <uml:Model xmi:id="_wQr8YCh8Edue7oeC4NTCGg" name="pcm">
     <eAnnotations xmi:id="_wQr8YSh8Edue7oeC4NTCGg" source="uml2.diagrams">
       <contents xmi:type="notation:Diagram" xmi:id="_V7sscDQ_Edun4NCFPwZksA" type="Freeform" name="Package Overview I">
@@ -19586,6 +19586,16 @@ ExternalCallActions may contain two sets of VariableUsages specifying input para
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vccDkjj9Edy2j_4z2PHNJQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vccDkTj9Edy2j_4z2PHNJQ" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_bOjLAHOkEd6z6tywRVl4hg" name="retryCount" visibility="public">
+          <ownedComment xmi:id="_Q5VOMHOlEd6z6tywRVl4hg" annotatedElement="_bOjLAHOkEd6z6tywRVl4hg">
+            <body>Specifies&amp;nbsp;the&amp;nbsp;number of&amp;nbsp;retries this ExternalCallAction shoul be re-executed&amp;nbsp; in case of failure&#xD;
+occurence.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hPSlcHOkEd6z6tywRVl4hg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </defaultValue>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MWqoAOTDEdq49qz7R-l1Hg" name="ProbabilisticBranchTransition">
         <ownedComment xmi:id="_Pg4MQKc7Ed2mBdDaN9hoZQ" annotatedElement="_MWqoAOTDEdq49qz7R-l1Hg">
@@ -22510,4 +22520,6 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_YIBpwEIyEd6xDqQsjkcxUg" base_Comment="_YH4f0EIyEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_gvgc8EIyEd6xDqQsjkcxUg" base_Property="_a8pGcEIyEd6xDqQsjkcxUg"/>
   <Default:Documentation xmi:id="_uvkeYUIyEd6xDqQsjkcxUg" base_Comment="_uvkeYEIyEd6xDqQsjkcxUg"/>
+  <Ecore:EAttribute xmi:id="_iLeg4HOkEd6z6tywRVl4hg" base_Property="_bOjLAHOkEd6z6tywRVl4hg"/>
+  <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
 </xmi:XMI>
