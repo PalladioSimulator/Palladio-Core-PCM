@@ -2,10 +2,12 @@ package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 
 // $ANTLR 3.0.1 PCMStoEx.g 2009-07-10 08:05:03
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.Lexer;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.RecognitionException;
 
 public class PCMStoExLexer extends Lexer {
     public static final int INNER=43;

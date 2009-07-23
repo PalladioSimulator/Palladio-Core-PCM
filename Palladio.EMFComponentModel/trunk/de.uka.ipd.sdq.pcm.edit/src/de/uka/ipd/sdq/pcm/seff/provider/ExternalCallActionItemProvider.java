@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -69,6 +70,7 @@ public class ExternalCallActionItemProvider
 
 			addCalledService_ExternalServicePropertyDescriptor(object);
 			addRole_ExternalServicePropertyDescriptor(object);
+			addRetryCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,6 +115,28 @@ public class ExternalCallActionItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Retry Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRetryCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExternalCallAction_retryCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalCallAction_retryCount_feature", "_UI_ExternalCallAction_type"),
+				 SeffPackage.Literals.EXTERNAL_CALL_ACTION__RETRY_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -185,6 +209,9 @@ public class ExternalCallActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalCallAction.class)) {
+			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
 			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

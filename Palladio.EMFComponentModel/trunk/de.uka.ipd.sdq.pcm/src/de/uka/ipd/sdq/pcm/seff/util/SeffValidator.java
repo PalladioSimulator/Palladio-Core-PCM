@@ -525,15 +525,7 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProbabilisticBranchTransition(ProbabilisticBranchTransition probabilisticBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(probabilisticBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(probabilisticBranchTransition, diagnostics, context);
 	}
 
 	/**
@@ -542,15 +534,7 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractBranchTransition(AbstractBranchTransition abstractBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(abstractBranchTransition, diagnostics, context);
 	}
 
 	/**
@@ -632,15 +616,7 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGuardedBranchTransition(GuardedBranchTransition guardedBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(guardedBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(guardedBranchTransition, diagnostics, context);
 	}
 
 	/**

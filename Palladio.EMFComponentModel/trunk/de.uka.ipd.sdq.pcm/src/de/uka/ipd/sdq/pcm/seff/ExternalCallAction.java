@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,5 +128,32 @@ public interface ExternalCallAction extends AbstractAction {
 	 * @generated
 	 */
 	void setRole_ExternalService(Role value);
+
+	/**
+	 * Returns the value of the '<em><b>Retry Count</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specifies&nbsp;the&nbsp;number of&nbsp;retries this ExternalCallAction shoul be re-executed&nbsp; in case of failure
+	 * occurence.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Retry Count</em>' attribute.
+	 * @see #setRetryCount(int)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_RetryCount()
+	 * @model default="0" required="true" ordered="false"
+	 * @generated
+	 */
+	int getRetryCount();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Retry Count</em>' attribute.
+	 * @see #getRetryCount()
+	 * @generated
+	 */
+	void setRetryCount(int value);
 
 } // ExternalCallAction

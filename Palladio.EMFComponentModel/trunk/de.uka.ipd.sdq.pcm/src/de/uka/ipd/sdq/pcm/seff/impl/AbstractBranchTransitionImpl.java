@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public abstract class AbstractBranchTransitionImpl extends IdentifierImpl implements AbstractBranchTransition {
+public abstract class AbstractBranchTransitionImpl extends NamedElementImpl implements AbstractBranchTransition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

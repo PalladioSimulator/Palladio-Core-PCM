@@ -119,7 +119,7 @@ public class GuardedBranchTransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GuardedBranchTransition)object).getId();
+		String label = ((GuardedBranchTransition)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GuardedBranchTransition_type") :
 			getString("_UI_GuardedBranchTransition_type") + " " + label;

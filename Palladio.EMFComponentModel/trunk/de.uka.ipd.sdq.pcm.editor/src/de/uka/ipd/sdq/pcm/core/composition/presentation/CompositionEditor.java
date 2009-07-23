@@ -159,7 +159,7 @@ public class CompositionEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.

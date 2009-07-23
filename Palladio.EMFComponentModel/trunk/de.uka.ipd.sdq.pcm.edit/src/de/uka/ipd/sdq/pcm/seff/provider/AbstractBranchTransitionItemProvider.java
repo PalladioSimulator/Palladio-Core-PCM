@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class AbstractBranchTransitionItemProvider
-	extends IdentifierItemProvider
+	extends NamedElementItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -111,7 +112,7 @@ public class AbstractBranchTransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbstractBranchTransition)object).getId();
+		String label = ((AbstractBranchTransition)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractBranchTransition_type") :
 			getString("_UI_AbstractBranchTransition_type") + " " + label;

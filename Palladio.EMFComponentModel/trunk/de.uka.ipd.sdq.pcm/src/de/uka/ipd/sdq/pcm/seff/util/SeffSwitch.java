@@ -256,14 +256,14 @@ public class SeffSwitch<T> {
 				ProbabilisticBranchTransition probabilisticBranchTransition = (ProbabilisticBranchTransition)theEObject;
 				T result = caseProbabilisticBranchTransition(probabilisticBranchTransition);
 				if (result == null) result = caseAbstractBranchTransition(probabilisticBranchTransition);
-				if (result == null) result = caseIdentifier(probabilisticBranchTransition);
+				if (result == null) result = caseNamedElement(probabilisticBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
 				AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition)theEObject;
 				T result = caseAbstractBranchTransition(abstractBranchTransition);
-				if (result == null) result = caseIdentifier(abstractBranchTransition);
+				if (result == null) result = caseNamedElement(abstractBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -305,7 +305,7 @@ public class SeffSwitch<T> {
 				GuardedBranchTransition guardedBranchTransition = (GuardedBranchTransition)theEObject;
 				T result = caseGuardedBranchTransition(guardedBranchTransition);
 				if (result == null) result = caseAbstractBranchTransition(guardedBranchTransition);
-				if (result == null) result = caseIdentifier(guardedBranchTransition);
+				if (result == null) result = caseNamedElement(guardedBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
