@@ -47,13 +47,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -108,13 +108,13 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case LoopActionEditPart.VISUAL_ID:
 			return getLoopAction_2004SemanticChildren(view);
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_2007SemanticChildren(view);
 		case LoopAction2EditPart.VISUAL_ID:
 			return getLoopAction_3006SemanticChildren(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransition_3010SemanticChildren(view);
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013SemanticChildren(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getGuardedBranchTransition_3017SemanticChildren(view);
@@ -126,13 +126,13 @@ public class PalladioComponentModelDiagramUpdater {
 			return getVariableUsageVariableCharacterisation_7030SemanticChildren(view);
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			return getVariableUsageVariableCharacterisation_7031SemanticChildren(view);
-		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(view);
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			return getInternalActionResourceDemand_7006SemanticChildren(view);
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return getBranchActionBranchTransitionCompartment_7007SemanticChildren(view);
-		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourBehaviourCompartment_7009SemanticChildren(view);
 		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
 			return getExternalCallActionInputVariableUsage_7010SemanticChildren(view);
@@ -142,13 +142,13 @@ public class PalladioComponentModelDiagramUpdater {
 			return getForkActionForkedBehaviours_7024SemanticChildren(view);
 		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			return getForkedBehaviourBehaviourCompartment_7026SemanticChildren(view);
-		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(view);
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			return getSetVariableActionVariableSetter_7025SemanticChildren(view);
 		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 			return getVariableUsageVariableCharacterisation_7032SemanticChildren(view);
-		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(view);
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			return getBranchActionBranchTransitionCompartment_7011SemanticChildren(view);
@@ -202,7 +202,7 @@ public class PalladioComponentModelDiagramUpdater {
 					.getBodyBehaviour_Loop();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceDemandingBehaviour4EditPart.VISUAL_ID) {
+			if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 			}
@@ -272,7 +272,7 @@ public class PalladioComponentModelDiagramUpdater {
 					.getBodyBehaviour_Loop();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceDemandingBehaviour4EditPart.VISUAL_ID) {
+			if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 			}
@@ -295,7 +295,7 @@ public class PalladioComponentModelDiagramUpdater {
 					.getBranchBehaviour_BranchTransition();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceDemandingBehaviour5EditPart.VISUAL_ID) {
+			if (visualID == ResourceDemandingBehaviour4EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 			}
@@ -458,12 +458,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalActionEditPart.VISUAL_ID) {
+			if (visualID == InternalAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchActionEditPart.VISUAL_ID) {
+			if (visualID == BranchAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -473,7 +473,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -483,17 +483,17 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
+			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkActionEditPart.VISUAL_ID) {
+			if (visualID == ForkAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == SetVariableActionEditPart.VISUAL_ID) {
+			if (visualID == SetVariableAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -601,12 +601,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalActionEditPart.VISUAL_ID) {
+			if (visualID == InternalAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchActionEditPart.VISUAL_ID) {
+			if (visualID == BranchAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -621,22 +621,22 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
+			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkActionEditPart.VISUAL_ID) {
+			if (visualID == ForkAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == SetVariableActionEditPart.VISUAL_ID) {
+			if (visualID == SetVariableAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -769,12 +769,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalActionEditPart.VISUAL_ID) {
+			if (visualID == InternalAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchActionEditPart.VISUAL_ID) {
+			if (visualID == BranchAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -784,7 +784,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -794,12 +794,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
+			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkActionEditPart.VISUAL_ID) {
+			if (visualID == ForkAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -843,12 +843,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalActionEditPart.VISUAL_ID) {
+			if (visualID == InternalAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchActionEditPart.VISUAL_ID) {
+			if (visualID == BranchAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -858,7 +858,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -868,12 +868,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
+			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkActionEditPart.VISUAL_ID) {
+			if (visualID == ForkAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -977,12 +977,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalActionEditPart.VISUAL_ID) {
+			if (visualID == InternalAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchActionEditPart.VISUAL_ID) {
+			if (visualID == BranchAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -997,22 +997,22 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
+			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkActionEditPart.VISUAL_ID) {
+			if (visualID == ForkAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == SetVariableActionEditPart.VISUAL_ID) {
+			if (visualID == SetVariableAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1179,22 +1179,22 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == BranchAction2EditPart.VISUAL_ID) {
+			if (visualID == BranchActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == InternalAction2EditPart.VISUAL_ID) {
+			if (visualID == InternalActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == CollectionIteratorAction2EditPart.VISUAL_ID) {
+			if (visualID == CollectionIteratorActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == SetVariableAction2EditPart.VISUAL_ID) {
+			if (visualID == SetVariableActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1204,12 +1204,12 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ReleaseAction2EditPart.VISUAL_ID) {
+			if (visualID == ReleaseActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == ForkAction2EditPart.VISUAL_ID) {
+			if (visualID == ForkActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1233,19 +1233,19 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_2003ContainedLinks(view);
 		case LoopActionEditPart.VISUAL_ID:
 			return getLoopAction_2004ContainedLinks(view);
-		case BranchAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_2005ContainedLinks(view);
-		case InternalAction2EditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_2006ContainedLinks(view);
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_2007ContainedLinks(view);
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 			return getSetVariableAction_2008ContainedLinks(view);
 		case AcquireActionEditPart.VISUAL_ID:
 			return getAcquireAction_2012ContainedLinks(view);
-		case ReleaseAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_2010ContainedLinks(view);
-		case ForkAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011ContainedLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3032ContainedLinks(view);
@@ -1263,11 +1263,11 @@ public class PalladioComponentModelDiagramUpdater {
 			return getStopAction_3005ContainedLinks(view);
 		case LoopAction2EditPart.VISUAL_ID:
 			return getLoopAction_3006ContainedLinks(view);
-		case InternalActionEditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
 			return getInternalAction_3007ContainedLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getParametricResourceDemand_3031ContainedLinks(view);
-		case BranchActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
 			return getBranchAction_3009ContainedLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransition_3010ContainedLinks(view);
@@ -1277,17 +1277,17 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_3012ContainedLinks(view);
 		case AcquireAction2EditPart.VISUAL_ID:
 			return getAcquireAction_3026ContainedLinks(view);
-		case ReleaseActionEditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_3020ContainedLinks(view);
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return getForkAction_3023ContainedLinks(view);
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return getForkedBehaviour_3027ContainedLinks(view);
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013ContainedLinks(view);
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014ContainedLinks(view);
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024ContainedLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
 			return getVariableUsage_3036ContainedLinks(view);
@@ -1295,7 +1295,7 @@ public class PalladioComponentModelDiagramUpdater {
 			return getVariableCharacterisation_3037ContainedLinks(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getGuardedBranchTransition_3017ContainedLinks(view);
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3018ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
@@ -1314,19 +1314,19 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_2003IncomingLinks(view);
 		case LoopActionEditPart.VISUAL_ID:
 			return getLoopAction_2004IncomingLinks(view);
-		case BranchAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_2005IncomingLinks(view);
-		case InternalAction2EditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_2006IncomingLinks(view);
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_2007IncomingLinks(view);
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 			return getSetVariableAction_2008IncomingLinks(view);
 		case AcquireActionEditPart.VISUAL_ID:
 			return getAcquireAction_2012IncomingLinks(view);
-		case ReleaseAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_2010IncomingLinks(view);
-		case ForkAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011IncomingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3032IncomingLinks(view);
@@ -1344,11 +1344,11 @@ public class PalladioComponentModelDiagramUpdater {
 			return getStopAction_3005IncomingLinks(view);
 		case LoopAction2EditPart.VISUAL_ID:
 			return getLoopAction_3006IncomingLinks(view);
-		case InternalActionEditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
 			return getInternalAction_3007IncomingLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getParametricResourceDemand_3031IncomingLinks(view);
-		case BranchActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
 			return getBranchAction_3009IncomingLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransition_3010IncomingLinks(view);
@@ -1358,17 +1358,17 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_3012IncomingLinks(view);
 		case AcquireAction2EditPart.VISUAL_ID:
 			return getAcquireAction_3026IncomingLinks(view);
-		case ReleaseActionEditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_3020IncomingLinks(view);
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return getForkAction_3023IncomingLinks(view);
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return getForkedBehaviour_3027IncomingLinks(view);
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013IncomingLinks(view);
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014IncomingLinks(view);
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024IncomingLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
 			return getVariableUsage_3036IncomingLinks(view);
@@ -1376,7 +1376,7 @@ public class PalladioComponentModelDiagramUpdater {
 			return getVariableCharacterisation_3037IncomingLinks(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getGuardedBranchTransition_3017IncomingLinks(view);
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3018IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
@@ -1395,19 +1395,19 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_2003OutgoingLinks(view);
 		case LoopActionEditPart.VISUAL_ID:
 			return getLoopAction_2004OutgoingLinks(view);
-		case BranchAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_2005OutgoingLinks(view);
-		case InternalAction2EditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_2006OutgoingLinks(view);
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_2007OutgoingLinks(view);
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 			return getSetVariableAction_2008OutgoingLinks(view);
 		case AcquireActionEditPart.VISUAL_ID:
 			return getAcquireAction_2012OutgoingLinks(view);
-		case ReleaseAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_2010OutgoingLinks(view);
-		case ForkAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011OutgoingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3032OutgoingLinks(view);
@@ -1425,11 +1425,11 @@ public class PalladioComponentModelDiagramUpdater {
 			return getStopAction_3005OutgoingLinks(view);
 		case LoopAction2EditPart.VISUAL_ID:
 			return getLoopAction_3006OutgoingLinks(view);
-		case InternalActionEditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
 			return getInternalAction_3007OutgoingLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getParametricResourceDemand_3031OutgoingLinks(view);
-		case BranchActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
 			return getBranchAction_3009OutgoingLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransition_3010OutgoingLinks(view);
@@ -1439,17 +1439,17 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallAction_3012OutgoingLinks(view);
 		case AcquireAction2EditPart.VISUAL_ID:
 			return getAcquireAction_3026OutgoingLinks(view);
-		case ReleaseActionEditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_3020OutgoingLinks(view);
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return getForkAction_3023OutgoingLinks(view);
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return getForkedBehaviour_3027OutgoingLinks(view);
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013OutgoingLinks(view);
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014OutgoingLinks(view);
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024OutgoingLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
 			return getVariableUsage_3036OutgoingLinks(view);
@@ -1457,7 +1457,7 @@ public class PalladioComponentModelDiagramUpdater {
 			return getVariableCharacterisation_3037OutgoingLinks(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getGuardedBranchTransition_3017OutgoingLinks(view);
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3018OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;

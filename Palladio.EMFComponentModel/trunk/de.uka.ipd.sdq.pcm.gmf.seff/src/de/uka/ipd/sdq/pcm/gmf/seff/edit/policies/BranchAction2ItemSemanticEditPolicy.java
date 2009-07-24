@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_Abstrac
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -37,10 +38,6 @@ public class BranchAction2ItemSemanticEditPolicy extends
 		CompoundCommand cc = getDestroyEdgesCommand();
 		addDestroyChildNodesCommand(cc);
 		addDestroyShortcutsCommand(cc);
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			req.setElementToDestroy(view);
-		}
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
 	}
@@ -57,7 +54,7 @@ public class BranchAction2ItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
+			case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

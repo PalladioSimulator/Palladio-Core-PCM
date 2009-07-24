@@ -478,7 +478,7 @@
             <diagramLabel
                 href="seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
             <features
-                href="../../../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier/id"/>
+                href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

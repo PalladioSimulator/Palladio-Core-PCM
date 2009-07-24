@@ -38,7 +38,7 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2005;
+	public static final int VISUAL_ID = 3009;
 
 	/**
 	 * @generated
@@ -120,12 +120,12 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 							.getFigureBranchNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+		if (childEditPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureBranchTransitionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane
-					.add(((BranchActionBranchTransitionCompartment2EditPart) childEditPart)
+					.add(((BranchActionBranchTransitionCompartmentEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -137,12 +137,12 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+		if (childEditPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureBranchTransitionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane
-					.remove(((BranchActionBranchTransitionCompartment2EditPart) childEditPart)
+					.remove(((BranchActionBranchTransitionCompartmentEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -174,7 +174,7 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
-		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
+		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			return getPrimaryShape().getFigureBranchTransitionCompartment();
 		}
 		return super.getContentPaneFor(editPart);

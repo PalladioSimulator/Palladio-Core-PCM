@@ -126,8 +126,8 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof GuardedBranchTransitionIdEditPart) {
-			((GuardedBranchTransitionIdEditPart) childEditPart)
+		if (childEditPart instanceof GuardedBranchTransitionEntityNameEditPart) {
+			((GuardedBranchTransitionEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBranchTransitionProbabilityLabel());
 			return true;
@@ -227,7 +227,7 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(GuardedBranchTransitionIdEditPart.VISUAL_ID));
+				.getType(GuardedBranchTransitionEntityNameEditPart.VISUAL_ID));
 	}
 
 	/**

@@ -12,25 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviourBranchCompartment2CanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviourBranchCompartment2ItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviourBehaviourCompartment3CanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
  * @generated
  */
-public class ResourceDemandingBehaviourBranchCompartment2EditPart extends
+public class ResourceDemandingBehaviourBehaviourCompartment3EditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7018;
+	public static final int VISUAL_ID = 7014;
 
 	/**
 	 * @generated
 	 */
-	public ResourceDemandingBehaviourBranchCompartment2EditPart(View view) {
+	public ResourceDemandingBehaviourBehaviourCompartment3EditPart(View view) {
 		super(view);
 	}
 
@@ -38,7 +38,7 @@ public class ResourceDemandingBehaviourBranchCompartment2EditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ResourceDemandingBehaviourBranchCompartment2EditPart_title;
+		return Messages.ResourceDemandingBehaviourBehaviourCompartment3EditPart_title;
 	}
 
 	/**
@@ -58,14 +58,14 @@ public class ResourceDemandingBehaviourBranchCompartment2EditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ResourceDemandingBehaviourBranchCompartment2ItemSemanticEditPolicy());
+				new ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new ResourceDemandingBehaviourBranchCompartment2CanonicalEditPolicy());
+				new ResourceDemandingBehaviourBehaviourCompartment3CanonicalEditPolicy());
 	}
 
 	/**

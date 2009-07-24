@@ -327,8 +327,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2005"
                name="%metatype.name.BranchAction_2005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelperAdvice">
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_3009"/>
             <param name="semanticHint" value="2005"/>
          </specializationType>
@@ -386,8 +385,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"
                name="%metatype.name.ForkAction_2011"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ForkActionEditHelperAdvice">
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"/>
             <param name="semanticHint" value="2011"/>
          </specializationType>
@@ -632,8 +630,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"
                name="%metatype.name.ResourceDemandingBehaviour_3018"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviour4EditHelperAdvice">
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
             <param name="semanticHint" value="3018"/>
          </specializationType>

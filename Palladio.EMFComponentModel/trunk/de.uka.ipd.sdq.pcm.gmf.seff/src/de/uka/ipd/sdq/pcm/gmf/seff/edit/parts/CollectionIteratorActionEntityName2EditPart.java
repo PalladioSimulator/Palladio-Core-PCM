@@ -62,7 +62,7 @@ public class CollectionIteratorActionEntityName2EditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class CollectionIteratorActionEntityName2EditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.CollectionIteratorAction_2007,
+					PalladioComponentModelElementTypes.CollectionIteratorAction_3013,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

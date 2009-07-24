@@ -62,7 +62,7 @@ public class BranchActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5011;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class BranchActionEntityName2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.BranchAction_2005,
+					PalladioComponentModelElementTypes.BranchAction_3009,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

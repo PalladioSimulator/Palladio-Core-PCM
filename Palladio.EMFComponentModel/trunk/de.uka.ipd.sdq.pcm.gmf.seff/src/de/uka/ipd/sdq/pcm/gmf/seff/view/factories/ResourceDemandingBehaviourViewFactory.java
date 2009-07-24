@@ -14,8 +14,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -56,7 +56,7 @@ public class ResourceDemandingBehaviourViewFactory extends
 						eObjectAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
-								.getType(ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID),
+								.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

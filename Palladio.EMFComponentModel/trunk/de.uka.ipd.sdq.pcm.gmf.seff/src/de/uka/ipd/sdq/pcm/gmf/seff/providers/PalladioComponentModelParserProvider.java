@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
@@ -622,24 +623,24 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser guardedBranchTransitionId_5018Parser;
+	private IParser guardedBranchTransitionEntityName_5018Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGuardedBranchTransitionId_5018Parser() {
-		if (guardedBranchTransitionId_5018Parser == null) {
-			guardedBranchTransitionId_5018Parser = createGuardedBranchTransitionId_5018Parser();
+	private IParser getGuardedBranchTransitionEntityName_5018Parser() {
+		if (guardedBranchTransitionEntityName_5018Parser == null) {
+			guardedBranchTransitionEntityName_5018Parser = createGuardedBranchTransitionEntityName_5018Parser();
 		}
-		return guardedBranchTransitionId_5018Parser;
+		return guardedBranchTransitionEntityName_5018Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGuardedBranchTransitionId_5018Parser() {
-		EAttribute[] features = new EAttribute[] { IdentifierPackage.eINSTANCE
-				.getIdentifier_Id(), };
+	protected IParser createGuardedBranchTransitionEntityName_5018Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
@@ -651,31 +652,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		switch (visualID) {
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
 			return getExternalCallActionEntityName_5002Parser();
-		case LoopActionEntityName2EditPart.VISUAL_ID:
+		case LoopActionEntityNameEditPart.VISUAL_ID:
 			return getLoopActionEntityName_5009Parser();
-		case BranchActionEntityName2EditPart.VISUAL_ID:
+		case BranchActionEntityNameEditPart.VISUAL_ID:
 			return getBranchActionEntityName_5011Parser();
-		case InternalActionEntityName2EditPart.VISUAL_ID:
+		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionEntityName_5012Parser();
-		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
 			return getCollectionIteratorActionEntityName_5015Parser();
-		case SetVariableActionEntityName2EditPart.VISUAL_ID:
+		case SetVariableActionEntityNameEditPart.VISUAL_ID:
 			return getSetVariableActionEntityName_5023Parser();
 		case AcquireActionEntityNameEditPart.VISUAL_ID:
 			return getAcquireActionEntityName_5029Parser();
-		case ReleaseActionEntityName2EditPart.VISUAL_ID:
+		case ReleaseActionEntityNameEditPart.VISUAL_ID:
 			return getReleaseActionEntityName_5022Parser();
-		case ForkActionEntityName2EditPart.VISUAL_ID:
+		case ForkActionEntityNameEditPart.VISUAL_ID:
 			return getForkActionEntityName_5024Parser();
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getVariableCharacterisation_3033Parser();
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getVariableCharacterisation_3035Parser();
-		case LoopActionEntityNameEditPart.VISUAL_ID:
+		case LoopActionEntityName2EditPart.VISUAL_ID:
 			return getLoopActionEntityName_5003Parser();
-		case InternalActionEntityNameEditPart.VISUAL_ID:
+		case InternalActionEntityName2EditPart.VISUAL_ID:
 			return getInternalActionEntityName_5005Parser();
-		case BranchActionEntityNameEditPart.VISUAL_ID:
+		case BranchActionEntityName2EditPart.VISUAL_ID:
 			return getBranchActionEntityName_5008Parser();
 		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransitionBranchProbability_5007Parser();
@@ -683,18 +684,18 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getExternalCallActionEntityName_5006Parser();
 		case AcquireActionEntityName2EditPart.VISUAL_ID:
 			return getAcquireActionEntityName_5028Parser();
-		case ReleaseActionEntityNameEditPart.VISUAL_ID:
+		case ReleaseActionEntityName2EditPart.VISUAL_ID:
 			return getReleaseActionEntityName_5020Parser();
-		case ForkActionEntityNameEditPart.VISUAL_ID:
+		case ForkActionEntityName2EditPart.VISUAL_ID:
 			return getForkActionEntityName_5026Parser();
-		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
 			return getCollectionIteratorActionEntityName_5013Parser();
-		case SetVariableActionEntityNameEditPart.VISUAL_ID:
+		case SetVariableActionEntityName2EditPart.VISUAL_ID:
 			return getSetVariableActionEntityName_5027Parser();
 		case VariableCharacterisation3EditPart.VISUAL_ID:
 			return getVariableCharacterisation_3037Parser();
-		case GuardedBranchTransitionIdEditPart.VISUAL_ID:
-			return getGuardedBranchTransitionId_5018Parser();
+		case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
+			return getGuardedBranchTransitionEntityName_5018Parser();
 		}
 		return null;
 	}

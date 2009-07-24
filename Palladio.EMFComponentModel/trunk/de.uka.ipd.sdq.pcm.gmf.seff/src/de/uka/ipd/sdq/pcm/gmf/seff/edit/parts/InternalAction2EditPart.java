@@ -43,7 +43,7 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2006;
+	public static final int VISUAL_ID = 3007;
 
 	/**
 	 * @generated
@@ -78,7 +78,7 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 										.getAdapter(IElementType.class);
 								if (type == PalladioComponentModelElementTypes.ParametricResourceDemand_3031) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(InternalActionResourceDemand2EditPart.VISUAL_ID));
+											.getType(InternalActionResourceDemandEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
@@ -148,11 +148,11 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 							.getFigureInternalActionFigureNameLabel());
 			return true;
 		}
-		if (childEditPart instanceof InternalActionResourceDemand2EditPart) {
+		if (childEditPart instanceof InternalActionResourceDemandEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureInternalActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((InternalActionResourceDemand2EditPart) childEditPart)
+			pane.add(((InternalActionResourceDemandEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -164,11 +164,11 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof InternalActionResourceDemand2EditPart) {
+		if (childEditPart instanceof InternalActionResourceDemandEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureInternalActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((InternalActionResourceDemand2EditPart) childEditPart)
+			pane.remove(((InternalActionResourceDemandEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -200,7 +200,7 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
-		if (editPart instanceof InternalActionResourceDemand2EditPart) {
+		if (editPart instanceof InternalActionResourceDemandEditPart) {
 			return getPrimaryShape().getFigureInternalActionCompartment();
 		}
 		return super.getContentPaneFor(editPart);

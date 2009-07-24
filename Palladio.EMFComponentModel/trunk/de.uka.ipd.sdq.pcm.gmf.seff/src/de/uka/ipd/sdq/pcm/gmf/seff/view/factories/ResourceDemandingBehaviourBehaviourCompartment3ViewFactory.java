@@ -1,5 +1,5 @@
 /*
- *Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
+ * Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
@@ -14,17 +14,17 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ResourceDemandingBehaviourLoopCompartmentViewFactory extends
+public class ResourceDemandingBehaviourBehaviourCompartment3ViewFactory extends
 		BasicNodeViewFactory {
 
 	/**
-	 * @generated 
+	 * @generated
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
@@ -41,7 +41,7 @@ public class ResourceDemandingBehaviourLoopCompartmentViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+					.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -71,5 +71,4 @@ public class ResourceDemandingBehaviourLoopCompartmentViewFactory extends
 			drawerStyle.setCollapsed(false);
 		}
 	}
-
 }

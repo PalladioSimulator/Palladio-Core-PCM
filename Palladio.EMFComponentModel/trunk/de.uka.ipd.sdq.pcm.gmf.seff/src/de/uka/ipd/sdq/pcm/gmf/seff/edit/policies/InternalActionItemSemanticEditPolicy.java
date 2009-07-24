@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -36,6 +37,10 @@ public class InternalActionItemSemanticEditPolicy extends
 		CompoundCommand cc = getDestroyEdgesCommand();
 		addDestroyChildNodesCommand(cc);
 		addDestroyShortcutsCommand(cc);
+		View view = (View) getHost().getModel();
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			req.setElementToDestroy(view);
+		}
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
 	}
@@ -52,7 +57,7 @@ public class InternalActionItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case InternalActionResourceDemandEditPart.VISUAL_ID:
+			case InternalActionResourceDemand2EditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

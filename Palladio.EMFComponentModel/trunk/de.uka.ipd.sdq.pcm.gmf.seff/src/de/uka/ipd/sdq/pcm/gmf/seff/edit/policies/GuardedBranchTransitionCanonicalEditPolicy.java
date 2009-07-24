@@ -13,7 +13,7 @@ import java.util.Set;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -51,7 +51,7 @@ public class GuardedBranchTransitionCanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}

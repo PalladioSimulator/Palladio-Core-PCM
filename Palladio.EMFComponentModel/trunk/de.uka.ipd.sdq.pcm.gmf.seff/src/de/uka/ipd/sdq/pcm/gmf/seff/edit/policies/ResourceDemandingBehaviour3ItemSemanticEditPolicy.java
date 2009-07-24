@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
@@ -56,7 +56,7 @@ public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+			case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
@@ -80,6 +80,9 @@ public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends
 					case ExternalCallAction2EditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
+					case CollectionIteratorAction2EditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
 					case AcquireAction2EditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
@@ -87,12 +90,6 @@ public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					case ForkAction2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					case CollectionIteratorAction2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					case SetVariableAction2EditPart.VISUAL_ID:
 						cmd.add(getDestroyElementCommand(cnode));
 						break;
 					}

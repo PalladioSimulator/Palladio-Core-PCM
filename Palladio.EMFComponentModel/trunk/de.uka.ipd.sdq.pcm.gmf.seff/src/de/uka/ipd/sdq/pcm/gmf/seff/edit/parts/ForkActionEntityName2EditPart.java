@@ -62,7 +62,7 @@ public class ForkActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5024;
+	public static final int VISUAL_ID = 5026;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class ForkActionEntityName2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.ForkAction_2011,
+					PalladioComponentModelElementTypes.ForkAction_3023,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

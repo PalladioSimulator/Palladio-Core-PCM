@@ -62,7 +62,7 @@ public class LoopActionEntityNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5009;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class LoopActionEntityNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.LoopAction_3006,
+					PalladioComponentModelElementTypes.LoopAction_2004,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

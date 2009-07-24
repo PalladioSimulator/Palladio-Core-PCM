@@ -50,38 +50,38 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case LoopActionEditPart.VISUAL_ID:
 				return new LoopActionEditPart(view);
 
-			case LoopActionEntityName2EditPart.VISUAL_ID:
-				return new LoopActionEntityName2EditPart(view);
+			case LoopActionEntityNameEditPart.VISUAL_ID:
+				return new LoopActionEntityNameEditPart(view);
 
-			case LoopIterationsLabel2EditPart.VISUAL_ID:
-				return new LoopIterationsLabel2EditPart(view);
+			case WrappingLabelEditPart.VISUAL_ID:
+				return new WrappingLabelEditPart(view);
 
-			case BranchAction2EditPart.VISUAL_ID:
-				return new BranchAction2EditPart(view);
+			case BranchActionEditPart.VISUAL_ID:
+				return new BranchActionEditPart(view);
 
-			case BranchActionEntityName2EditPart.VISUAL_ID:
-				return new BranchActionEntityName2EditPart(view);
+			case BranchActionEntityNameEditPart.VISUAL_ID:
+				return new BranchActionEntityNameEditPart(view);
 
-			case InternalAction2EditPart.VISUAL_ID:
-				return new InternalAction2EditPart(view);
+			case InternalActionEditPart.VISUAL_ID:
+				return new InternalActionEditPart(view);
 
-			case InternalActionEntityName2EditPart.VISUAL_ID:
-				return new InternalActionEntityName2EditPart(view);
+			case InternalActionEntityNameEditPart.VISUAL_ID:
+				return new InternalActionEntityNameEditPart(view);
 
-			case CollectionIteratorAction2EditPart.VISUAL_ID:
-				return new CollectionIteratorAction2EditPart(view);
+			case CollectionIteratorActionEditPart.VISUAL_ID:
+				return new CollectionIteratorActionEditPart(view);
 
-			case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
-				return new CollectionIteratorActionEntityName2EditPart(view);
+			case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+				return new CollectionIteratorActionEntityNameEditPart(view);
 
-			case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
-				return new CollectionIteratorParameterLabel2EditPart(view);
+			case WrappingLabel2EditPart.VISUAL_ID:
+				return new WrappingLabel2EditPart(view);
 
-			case SetVariableAction2EditPart.VISUAL_ID:
-				return new SetVariableAction2EditPart(view);
+			case SetVariableActionEditPart.VISUAL_ID:
+				return new SetVariableActionEditPart(view);
 
-			case SetVariableActionEntityName2EditPart.VISUAL_ID:
-				return new SetVariableActionEntityName2EditPart(view);
+			case SetVariableActionEntityNameEditPart.VISUAL_ID:
+				return new SetVariableActionEntityNameEditPart(view);
 
 			case AcquireActionEditPart.VISUAL_ID:
 				return new AcquireActionEditPart(view);
@@ -89,23 +89,23 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case AcquireActionEntityNameEditPart.VISUAL_ID:
 				return new AcquireActionEntityNameEditPart(view);
 
-			case ReleaseAction2EditPart.VISUAL_ID:
-				return new ReleaseAction2EditPart(view);
+			case ReleaseActionEditPart.VISUAL_ID:
+				return new ReleaseActionEditPart(view);
 
-			case ReleaseActionEntityName2EditPart.VISUAL_ID:
-				return new ReleaseActionEntityName2EditPart(view);
+			case ReleaseActionEntityNameEditPart.VISUAL_ID:
+				return new ReleaseActionEntityNameEditPart(view);
 
-			case ForkAction2EditPart.VISUAL_ID:
-				return new ForkAction2EditPart(view);
+			case ForkActionEditPart.VISUAL_ID:
+				return new ForkActionEditPart(view);
 
-			case ForkActionEntityName2EditPart.VISUAL_ID:
-				return new ForkActionEntityName2EditPart(view);
+			case ForkActionEntityNameEditPart.VISUAL_ID:
+				return new ForkActionEntityNameEditPart(view);
 
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
-			case WrappingLabelEditPart.VISUAL_ID:
-				return new WrappingLabelEditPart(view);
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return new WrappingLabel3EditPart(view);
 
 			case VariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableCharacterisationEditPart(view);
@@ -113,8 +113,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsage2EditPart.VISUAL_ID:
 				return new VariableUsage2EditPart(view);
 
-			case WrappingLabel2EditPart.VISUAL_ID:
-				return new WrappingLabel2EditPart(view);
+			case WrappingLabel4EditPart.VISUAL_ID:
+				return new WrappingLabel4EditPart(view);
 
 			case VariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableCharacterisation2EditPart(view);
@@ -131,26 +131,26 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case LoopAction2EditPart.VISUAL_ID:
 				return new LoopAction2EditPart(view);
 
-			case LoopActionEntityNameEditPart.VISUAL_ID:
-				return new LoopActionEntityNameEditPart(view);
+			case LoopActionEntityName2EditPart.VISUAL_ID:
+				return new LoopActionEntityName2EditPart(view);
 
-			case LoopIterationsLabelEditPart.VISUAL_ID:
-				return new LoopIterationsLabelEditPart(view);
+			case WrappingLabel5EditPart.VISUAL_ID:
+				return new WrappingLabel5EditPart(view);
 
-			case InternalActionEditPart.VISUAL_ID:
-				return new InternalActionEditPart(view);
+			case InternalAction2EditPart.VISUAL_ID:
+				return new InternalAction2EditPart(view);
 
-			case InternalActionEntityNameEditPart.VISUAL_ID:
-				return new InternalActionEntityNameEditPart(view);
+			case InternalActionEntityName2EditPart.VISUAL_ID:
+				return new InternalActionEntityName2EditPart(view);
 
 			case ParametricResourceDemandEditPart.VISUAL_ID:
 				return new ParametricResourceDemandEditPart(view);
 
-			case BranchActionEditPart.VISUAL_ID:
-				return new BranchActionEditPart(view);
+			case BranchAction2EditPart.VISUAL_ID:
+				return new BranchAction2EditPart(view);
 
-			case BranchActionEntityNameEditPart.VISUAL_ID:
-				return new BranchActionEntityNameEditPart(view);
+			case BranchActionEntityName2EditPart.VISUAL_ID:
+				return new BranchActionEntityName2EditPart(view);
 
 			case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 				return new ProbabilisticBranchTransitionEditPart(view);
@@ -174,44 +174,44 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case AcquireActionEntityName2EditPart.VISUAL_ID:
 				return new AcquireActionEntityName2EditPart(view);
 
-			case ReleaseActionEditPart.VISUAL_ID:
-				return new ReleaseActionEditPart(view);
+			case ReleaseAction2EditPart.VISUAL_ID:
+				return new ReleaseAction2EditPart(view);
 
-			case ReleaseActionEntityNameEditPart.VISUAL_ID:
-				return new ReleaseActionEntityNameEditPart(view);
+			case ReleaseActionEntityName2EditPart.VISUAL_ID:
+				return new ReleaseActionEntityName2EditPart(view);
 
-			case ForkActionEditPart.VISUAL_ID:
-				return new ForkActionEditPart(view);
+			case ForkAction2EditPart.VISUAL_ID:
+				return new ForkAction2EditPart(view);
 
-			case ForkActionEntityNameEditPart.VISUAL_ID:
-				return new ForkActionEntityNameEditPart(view);
+			case ForkActionEntityName2EditPart.VISUAL_ID:
+				return new ForkActionEntityName2EditPart(view);
 
 			case ForkedBehaviourEditPart.VISUAL_ID:
 				return new ForkedBehaviourEditPart(view);
 
-			case CollectionIteratorActionEditPart.VISUAL_ID:
-				return new CollectionIteratorActionEditPart(view);
+			case CollectionIteratorAction2EditPart.VISUAL_ID:
+				return new CollectionIteratorAction2EditPart(view);
 
-			case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
-				return new CollectionIteratorActionEntityNameEditPart(view);
+			case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+				return new CollectionIteratorActionEntityName2EditPart(view);
 
-			case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
-				return new CollectionIteratorParameterLabelEditPart(view);
+			case WrappingLabel6EditPart.VISUAL_ID:
+				return new WrappingLabel6EditPart(view);
 
-			case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviour4EditPart(view);
+			case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviour3EditPart(view);
 
-			case SetVariableActionEditPart.VISUAL_ID:
-				return new SetVariableActionEditPart(view);
+			case SetVariableAction2EditPart.VISUAL_ID:
+				return new SetVariableAction2EditPart(view);
 
-			case SetVariableActionEntityNameEditPart.VISUAL_ID:
-				return new SetVariableActionEntityNameEditPart(view);
+			case SetVariableActionEntityName2EditPart.VISUAL_ID:
+				return new SetVariableActionEntityName2EditPart(view);
 
 			case VariableUsage3EditPart.VISUAL_ID:
 				return new VariableUsage3EditPart(view);
 
-			case WrappingLabel3EditPart.VISUAL_ID:
-				return new WrappingLabel3EditPart(view);
+			case WrappingLabel7EditPart.VISUAL_ID:
+				return new WrappingLabel7EditPart(view);
 
 			case VariableCharacterisation3EditPart.VISUAL_ID:
 				return new VariableCharacterisation3EditPart(view);
@@ -219,11 +219,11 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case GuardedBranchTransitionEditPart.VISUAL_ID:
 				return new GuardedBranchTransitionEditPart(view);
 
-			case GuardedBranchTransitionIdEditPart.VISUAL_ID:
-				return new GuardedBranchTransitionIdEditPart(view);
+			case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
+				return new GuardedBranchTransitionEntityNameEditPart(view);
 
-			case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviour5EditPart(view);
+			case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviour4EditPart(view);
 
 			case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
 				return new ExternalCallActionInputVariableUsageEditPart(view);
@@ -237,8 +237,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisation2EditPart(view);
 
-			case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviourLoopCompartmentEditPart(
+			case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviourBehaviourCompartmentEditPart(
 						view);
 
 			case InternalActionResourceDemandEditPart.VISUAL_ID:
@@ -247,8 +247,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 				return new BranchActionBranchTransitionCompartmentEditPart(view);
 
-			case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviourBranchCompartmentEditPart(
+			case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviourBehaviourCompartment2EditPart(
 						view);
 
 			case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
@@ -263,8 +263,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 				return new ForkedBehaviourBehaviourCompartmentEditPart(view);
 
-			case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviourLoopCompartment2EditPart(
+			case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviourBehaviourCompartment3EditPart(
 						view);
 
 			case SetVariableActionVariableSetterEditPart.VISUAL_ID:
@@ -273,8 +273,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisation3EditPart(view);
 
-			case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviourBranchCompartment2EditPart(
+			case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviourBehaviourCompartment4EditPart(
 						view);
 
 			case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:

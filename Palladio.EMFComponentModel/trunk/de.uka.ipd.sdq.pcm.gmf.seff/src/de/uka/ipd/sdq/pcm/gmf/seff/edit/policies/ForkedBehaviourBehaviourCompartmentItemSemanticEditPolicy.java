@@ -7,12 +7,17 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AcquireAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
@@ -59,7 +64,7 @@ public class ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new InternalActionCreateCommand(req));
+			return getGEFWrapper(new InternalAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.BranchAction_3009 == req
 				.getElementType()) {
@@ -67,7 +72,7 @@ public class ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new BranchActionCreateCommand(req));
+			return getGEFWrapper(new BranchAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ExternalCallAction_3012 == req
 				.getElementType()) {
@@ -83,7 +88,7 @@ public class ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new CollectionIteratorActionCreateCommand(req));
+			return getGEFWrapper(new CollectionIteratorAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.AcquireAction_3026 == req
 				.getElementType()) {
@@ -99,7 +104,7 @@ public class ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new ReleaseActionCreateCommand(req));
+			return getGEFWrapper(new ReleaseAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ForkAction_3023 == req
 				.getElementType()) {
@@ -107,7 +112,7 @@ public class ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new ForkActionCreateCommand(req));
+			return getGEFWrapper(new ForkAction2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

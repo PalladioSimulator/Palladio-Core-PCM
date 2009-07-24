@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -60,8 +60,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
@@ -78,9 +78,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel7EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -166,25 +166,25 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case LoopActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_2004); //$NON-NLS-1$
-		case BranchAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_2005); //$NON-NLS-1$
-		case InternalAction2EditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_2006); //$NON-NLS-1$
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_2007); //$NON-NLS-1$
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_2008); //$NON-NLS-1$
 		case AcquireActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_2012); //$NON-NLS-1$
-		case ReleaseAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_2010); //$NON-NLS-1$
-		case ForkAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_2011); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
@@ -211,13 +211,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case LoopAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_3006); //$NON-NLS-1$
-		case InternalActionEditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_3007); //$NON-NLS-1$
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0?ParametricResourceDemand", PalladioComponentModelElementTypes.ParametricResourceDemand_3031); //$NON-NLS-1$
-		case BranchActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_3009); //$NON-NLS-1$
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
@@ -232,22 +232,22 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case AcquireAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_3026); //$NON-NLS-1$
-		case ReleaseActionEditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_3020); //$NON-NLS-1$
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_3023); //$NON-NLS-1$
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ForkedBehaviour", PalladioComponentModelElementTypes.ForkedBehaviour_3027); //$NON-NLS-1$
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_3013); //$NON-NLS-1$
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014); //$NON-NLS-1$
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_3024); //$NON-NLS-1$
 		case VariableUsage3EditPart.VISUAL_ID:
@@ -259,7 +259,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?GuardedBranchTransition", PalladioComponentModelElementTypes.GuardedBranchTransition_3017); //$NON-NLS-1$
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018); //$NON-NLS-1$
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
@@ -329,19 +329,19 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getExternalCallAction_2003Text(view);
 		case LoopActionEditPart.VISUAL_ID:
 			return getLoopAction_2004Text(view);
-		case BranchAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_2005Text(view);
-		case InternalAction2EditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_2006Text(view);
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_2007Text(view);
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 			return getSetVariableAction_2008Text(view);
 		case AcquireActionEditPart.VISUAL_ID:
 			return getAcquireAction_2012Text(view);
-		case ReleaseAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_2010Text(view);
-		case ForkAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011Text(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3032Text(view);
@@ -359,11 +359,11 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getStopAction_3005Text(view);
 		case LoopAction2EditPart.VISUAL_ID:
 			return getLoopAction_3006Text(view);
-		case InternalActionEditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
 			return getInternalAction_3007Text(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getParametricResourceDemand_3031Text(view);
-		case BranchActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
 			return getBranchAction_3009Text(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return getProbabilisticBranchTransition_3010Text(view);
@@ -373,17 +373,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getExternalCallAction_3012Text(view);
 		case AcquireAction2EditPart.VISUAL_ID:
 			return getAcquireAction_3026Text(view);
-		case ReleaseActionEditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_3020Text(view);
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return getForkAction_3023Text(view);
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return getForkedBehaviour_3027Text(view);
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013Text(view);
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014Text(view);
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024Text(view);
 		case VariableUsage3EditPart.VISUAL_ID:
 			return getVariableUsage_3036Text(view);
@@ -391,7 +391,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getVariableCharacterisation_3037Text(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return getGuardedBranchTransition_3017Text(view);
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3018Text(view);
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return getAbstractActionSuccessor_AbstractAction_4001Text(view);
@@ -478,7 +478,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.LoopAction_2004, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(LoopActionEntityName2EditPart.VISUAL_ID));
+						.getType(LoopActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -500,7 +500,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.BranchAction_2005, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(BranchActionEntityName2EditPart.VISUAL_ID));
+						.getType(BranchActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -522,7 +522,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.InternalAction_2006, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(InternalActionEntityName2EditPart.VISUAL_ID));
+						.getType(InternalActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -544,7 +544,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.CollectionIteratorAction_2007,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(CollectionIteratorActionEntityName2EditPart.VISUAL_ID));
+						.getType(CollectionIteratorActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -566,7 +566,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.SetVariableAction_2008,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(SetVariableActionEntityName2EditPart.VISUAL_ID));
+						.getType(SetVariableActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -610,7 +610,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.ReleaseAction_2010, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(ReleaseActionEntityName2EditPart.VISUAL_ID));
+						.getType(ReleaseActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -632,7 +632,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.ForkAction_2011, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(ForkActionEntityName2EditPart.VISUAL_ID));
+						.getType(ForkActionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -655,7 +655,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.VariableUsage_3032, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrappingLabelEditPart.VISUAL_ID));
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -696,7 +696,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.VariableUsage_3034, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(WrappingLabel4EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -775,7 +775,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.LoopAction_3006, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(LoopActionEntityNameEditPart.VISUAL_ID));
+						.getType(LoopActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -797,7 +797,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.InternalAction_3007, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(InternalActionEntityNameEditPart.VISUAL_ID));
+						.getType(InternalActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -838,7 +838,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.BranchAction_3009, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(BranchActionEntityNameEditPart.VISUAL_ID));
+						.getType(BranchActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -933,7 +933,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.ReleaseAction_3020, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(ReleaseActionEntityNameEditPart.VISUAL_ID));
+						.getType(ReleaseActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -955,7 +955,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.ForkAction_3023, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(ForkActionEntityNameEditPart.VISUAL_ID));
+						.getType(ForkActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -984,7 +984,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.CollectionIteratorAction_3013,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(CollectionIteratorActionEntityNameEditPart.VISUAL_ID));
+						.getType(CollectionIteratorActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -1013,7 +1013,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.SetVariableAction_3024,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(SetVariableActionEntityNameEditPart.VISUAL_ID));
+						.getType(SetVariableActionEntityName2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -1036,7 +1036,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.VariableUsage_3036, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrappingLabel3EditPart.VISUAL_ID));
+						.getType(WrappingLabel7EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -1076,7 +1076,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 				PalladioComponentModelElementTypes.GuardedBranchTransition_3017,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(GuardedBranchTransitionIdEditPart.VISUAL_ID));
+						.getType(GuardedBranchTransitionEntityNameEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {

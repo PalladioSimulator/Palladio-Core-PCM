@@ -38,7 +38,7 @@ public class SetVariableAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 3024;
 
 	/**
 	 * @generated
@@ -120,11 +120,11 @@ public class SetVariableAction2EditPart extends ShapeNodeEditPart {
 							.getFigureSetVariableNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof SetVariableActionVariableSetter2EditPart) {
+		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureSetVariableActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((SetVariableActionVariableSetter2EditPart) childEditPart)
+			pane.add(((SetVariableActionVariableSetterEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -136,12 +136,12 @@ public class SetVariableAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof SetVariableActionVariableSetter2EditPart) {
+		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureSetVariableActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane
-					.remove(((SetVariableActionVariableSetter2EditPart) childEditPart)
+					.remove(((SetVariableActionVariableSetterEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -173,7 +173,7 @@ public class SetVariableAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
-		if (editPart instanceof SetVariableActionVariableSetter2EditPart) {
+		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
 			return getPrimaryShape().getFigureSetVariableActionCompartment();
 		}
 		return super.getContentPaneFor(editPart);
