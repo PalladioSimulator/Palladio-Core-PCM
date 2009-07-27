@@ -63,12 +63,12 @@
     
     
   <!-- #### BELOW: Q-ImPrESS SoMoX Build ################################### -->
-  <project name="Q-ImPrESS SoMoX Build" requiremodification="true">
+  <project name="Q-ImPrESS SoMoX Build (org.somox)" requiremodification="true">
     <modificationset>
       <alwaysbuild username="webmaster-sdq@ipd.uka.de"></alwaysbuild>
     </modificationset>
     <schedule interval="86400"> <!-- in seconds; 86400: 1 day -->    
-      <ant buildfile="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>            
+      <ant buildfile="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>            
     </schedule> 
     <log>
       <merge dir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
