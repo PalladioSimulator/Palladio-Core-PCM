@@ -198,6 +198,7 @@
 		    	</fileset> -->
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
 		    		<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
 		    		<exclude name="com/**" />
 		    		<exclude name="org/**" />
 		    		<exclude name="net/**" />
