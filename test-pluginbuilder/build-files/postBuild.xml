@@ -204,7 +204,7 @@
 <!--		    		<include name="de.uka.ipd.sdq.completions/**/*.java" /> -->
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" /> 
 <!--		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" /> -->
-		    		<include name="de.uka.ipd.sdq.context/**/*.java" />
+<!--		    		<include name="de.uka.ipd.sdq.context/**/*.java" /> -->
 
 
 		    	</fileset>
