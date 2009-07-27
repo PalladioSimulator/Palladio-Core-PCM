@@ -197,7 +197,7 @@
 	    			<include  name="de.uka.ipd.sqd.editor/**/*.java"/>
 		    	</fileset> -->
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
-	    			<include  name="de.uka.ipd.sqd.edit/**/*.java"/> 
+		    		<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
 		    		<exclude name="com/**" />
 		    		<exclude name="org/**" />
 		    		<exclude name="net/**" />
@@ -205,8 +205,6 @@
 		    		<exclude name="edu/**" />
 		    		<exclude name="ca/**" />
 		    		<exclude name="uc/**" />
-		    		<exclude name="de/**" />
-		    		<exclude name="swing2swt/**" />
 		    	</fileset>
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
