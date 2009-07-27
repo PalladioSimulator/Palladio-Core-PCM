@@ -187,15 +187,15 @@
 		    		
 		    		
 				</fileset> -->
-		 		<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
+		 		<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
 		    	
-		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
 		    		<include  name="de.uka.ipd.sqd.branding/**/*.java"/> 
-		    		<include  name="de.uka.ipd.sqd.dialogs/**/*.java"/> 
-	    			<include  name="de.uka.ipd.sqd.pcmsolver/**/*.java"/> 
+		    		<!-- <include  name="de.uka.ipd.sqd.dialogs/**/*.java"/> -->
+	    			<!-- <include  name="de.uka.ipd.sqd.pcmsolver/**/*.java"/> -->
 	    			<include  name="de.uka.ipd.sqd.edit/**/*.java"/> 
-	    			<include  name="de.uka.ipd.sqd.editor/**/*.java"/> 
-		    	</fileset> -->
+	    			<!-- <include  name="de.uka.ipd.sqd.editor/**/*.java"/> -->
+		    	</fileset>
 
 		    	
 	    </javadoc>
