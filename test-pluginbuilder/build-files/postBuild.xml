@@ -200,7 +200,7 @@
 		    		<exclude name="com/**" />
 		    		<exclude name="org/**" />
 		    		<exclude name="net/**" />
-		    		<exclude name="ch/**" />
+		    		<exclude name="ch**" />
 		    		<exclude name="edu/**" />
 		    		<exclude name="ca/**" />
 		    		<exclude name="uc/**" />
