@@ -200,6 +200,11 @@
 		    		<exclude name="com/**" />
 		    		<exclude name="org/**" />
 		    		<exclude name="net/**" />
+		    		<exclude name="ch/**" />
+		    		<exclude name="edu/**" />
+		    		<exclude name="LqnCore/**" />
+		    		<exclude name="scheduler/**" />
+		    		<exclude name="swing2swt/**" />
 		    	</fileset>
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
