@@ -196,8 +196,7 @@
 	    			<include  name="de.uka.ipd.sqd.edit/**/*.java"/> 
 	    			<include  name="de.uka.ipd.sqd.editor/**/*.java"/>
 		    	</fileset> -->
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
-		    		<include  name="de.uka.ipd.sqd.branding/**/*.java"/> 
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java">
 		    		<exclude name="com/**" />
 		    		<exclude name="org/**" />
 		    		<exclude name="net/**" />
