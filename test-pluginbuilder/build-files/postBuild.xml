@@ -199,13 +199,7 @@
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
 		    		<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
-		    		<exclude name="com/**" />
-		    		<exclude name="org/**" />
-		    		<exclude name="net/**" />
-		    		<exclude name="ch/" />
-		    		<exclude name="edu/**" />
-		    		<exclude name="ca/**" />
-		    		<exclude name="uc/**" />
+		    		<include name="de.uka.ipd.sdq.stoex.analyser/**/*.java" />
 		    	</fileset>
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
