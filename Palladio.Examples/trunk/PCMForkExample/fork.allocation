@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_UQI58P_cEduaJLTMDGKSdg">
-  <allocationContexts_Allocation id="_V7-wsP_cEduaJLTMDGKSdg">
-    <resourceContainer_AllocationContext href="fork.resourceenvironment#__4PMsP_bEduaJLTMDGKSdg"/>
-    <assemblyContext_AllocationContext href="fork.system#_4HOHcP_bEduaJLTMDGKSdg"/>
-  </allocationContexts_Allocation>
-  <targetResourceEnvironment_Allocation href="fork.resourceenvironment#/"/>
-  <system_Allocation href="fork.system#_zaD0wP_bEduaJLTMDGKSdg"/>
-</pcm.allocation:Allocation>
