@@ -137,13 +137,13 @@
 		    <javadoc 
 		    	destdir="/home/ccontrol/pluginbuilder/test-builderplugin/updateSite/javadoc/"
 		    	author="true" 
-		    	defaultexcludes="yes" 
-		    	use="true" 
+		    	defaultexcludes="yes"
 		    	version="true" 
 		    	windowtitle="Palladio Component Model - PCM"
 		    	maxmemory="256m"
 		    	classpathref="classpath"
 		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc">
+		    	<!-- use="true" -->
 		<!--
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
@@ -198,11 +198,11 @@
 	    			<include  name="de.uka.ipd.sqd.editor/**/*.java"/>
 		    	</fileset> -->
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
-	    			<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
+	    			<!--<include name="de.uka.ipd.sdq.sensorframework.adapter/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.allocation/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.stoex.analyser/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.branding/**/*.java" />
-		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" />
+		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" /> -->
 <!--		    		<include name="de.uka.ipd.sdq.completions/**/*.java" /> -->
 <!--		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" /> -->
 		    		<include name="de.uka.ipd.sdq.context/**/*.java" /> 
