@@ -9,14 +9,73 @@
         name="ResourceContainerFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="ResourceContainerFigure">
+          outline="false"
+          fill="false"
+          lineWidth="0">
+        <layout
+            xsi:type="gmfgraph:StackLayout"/>
+        <minimumSize
+            dx="250"
+            dy="350"/>
+        <insets/>
         <children
-            xsi:type="gmfgraph:Label"
-            name="ResourceContainerNameFigure"
-            text="ResourceContainer"/>
+            xsi:type="gmfgraph:ScalablePolygon">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <template
+              y="1"/>
+          <template
+              x="1"/>
+          <template
+              x="30"/>
+          <template
+              x="30"
+              y="40"/>
+          <template
+              x="29"
+              y="41"/>
+          <template
+              y="41"/>
+          <template
+              y="1"/>
+          <template
+              x="29"
+              y="1"/>
+          <template
+              x="30"/>
+          <template
+              x="29"
+              y="1"/>
+          <template
+              x="29"
+              y="41"/>
+          <template
+              x="30"
+              y="40"/>
+          <template
+              x="29"
+              y="41"/>
+          <template
+              y="41"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name=""
+            outline="false"
+            fill="false">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <insets
+              top="10"
+              left="3"/>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="ResourceContainerNameFigure"
+              text="ResourceContainer"/>
+        </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.0"/>
     </descriptors>
     <descriptors
         name="LinkingResourceFigure">
@@ -27,26 +86,28 @@
     <descriptors
         name="CommunicationLinkResourceSpecificationFigure">
       <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="CommunicationLinkSpecification"
-          cornerWidth="20"
-          cornerHeight="20">
-        <foregroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="220"
-            green="220"
-            blue="220"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="220"
-            green="220"
-            blue="220"/>
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:StackLayout"/>
+        <insets
+            top="5"
+            left="5"
+            bottom="2"
+            right="5"/>
         <children
             xsi:type="gmfgraph:Label"
             name="CommunicationLinkSpecification"
-            text="CommunicationLinkSpecification">
+            text="«CommunicationLinkSpecification»">
           <foregroundColor
               xsi:type="gmfgraph:RGBColor"/>
+          <border
+              xsi:type="gmfgraph:MarginBorder">
+            <insets
+                top="2"
+                left="3"
+                bottom="1"
+                right="2"/>
+          </border>
         </children>
       </actualFigure>
     </descriptors>
@@ -54,11 +115,15 @@
         name="ProcessingResourceSpecificationFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="ProcessingResourceSpecification">
+          name="ProcessingResourceSpecification"
+          outline="false"
+          fill="false">
+        <insets
+            top="25"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ActiveResourceTypeFigure"
-            text=""/>
+            text="ProcessingResourceSpecification"/>
         <children
             xsi:type="gmfgraph:Label"
             name="MTTFFigure"
@@ -84,7 +149,10 @@
         name="ResourceTypeFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="ResourceTypeFigure">
+          name="ResourceTypeFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <children
             xsi:type="gmfgraph:Label"
             name="ResourceTypeLabel"
@@ -114,7 +182,17 @@
       figure="ProcessingResourceSpecificationFigure"/>
   <compartments
       name="ResourceContainerCompartment"
-      figure="ResourceContainerFigure"/>
+      figure="ResourceContainerFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="3"
+          dy="2"/>
+    </facets>
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="END"/>
+  </compartments>
   <labels
       name="SchedulingPolicyLabel"
       figure="ProcessingResourceSpecificationFigure"
