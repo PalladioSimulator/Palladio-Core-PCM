@@ -143,7 +143,7 @@
 		    	windowtitle="Palladio Component Model - PCM"
 		    	maxmemory="256m"
 		    	classpathref="classpath"
-		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"> <!-- added by matthias: possible javadoc bug workaround  -->
+		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc">
 		<!--
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
@@ -205,7 +205,7 @@
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" />
 <!--		    		<include name="de.uka.ipd.sdq.completions/**/*.java" /> -->
 <!--		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" /> -->
-<!--		    		<include name="de.uka.ipd.sdq.context/**/*.java" /> -->
+		    		<include name="de.uka.ipd.sdq.context/**/*.java" /> 
 
 
 		    	</fileset>
