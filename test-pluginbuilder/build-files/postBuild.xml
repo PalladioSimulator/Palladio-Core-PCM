@@ -203,7 +203,7 @@
 		    		<include name="de.uka.ipd.sdq.stoex.analyser/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.branding/**/*.java" />
 		    		<include name="de.uka.ipd.sdq.pcm.gmf.composite/**/*.java" />
-		    		<include name="de.uka.ipd.sdq.completions/**/*.java" />
+<!--		    		<include name="de.uka.ipd.sdq.completions/**/*.java" /> -->
 <!--		    		<include name="de.uka.ipd.sdq.scheduler.configuration/**/*.java" /> -->
 <!--		    		<include name="de.uka.ipd.sdq.context/**/*.java" /> -->
 
