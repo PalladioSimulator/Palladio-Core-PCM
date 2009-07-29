@@ -20,14 +20,13 @@ public class Activator implements BundleActivator {
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
-		service = new SimulationDockServiceImpl(context);
 		Hashtable properties = new Hashtable();
 		if (System.getProperty("simucom.registerDock") != null)
-			properties.put(RemoteOSGiService.R_OSGi_REGISTRATION, true);
+			properties.put(RemoteOSGiService.R_OSGi_REGISTRATION, true);		
+		
+		service = new SimulationDockServiceImpl(context);
 		// register the service
-		serviceRegistryEntry = context.registerService(SimulationDockService.class.getName(), service, properties);
-		
-		
+		serviceRegistryEntry = context.registerService(SimulationDockService.class.getName(), service, properties);	
 	}
 	
 	/*
