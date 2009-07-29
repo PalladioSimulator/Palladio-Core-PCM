@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.simulationdock;
 
 import java.util.Hashtable;
+import java.util.Map;
 
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
@@ -34,7 +35,7 @@ public class SimulationProgressReportingObserver implements IStatusObserver {
 	}
 
 	private void postEvent(String topic, Hashtable<String,Object> newProperties) {
-		Hashtable<String,Object> properties = new Hashtable<String,Object>();
+		Map<String,Object> properties = new Hashtable<String,Object>();
 		properties.put("DOCK_ID", myDock.getDockId());
 		properties.putAll(newProperties);
 		Event event = new Event(topic, properties);
