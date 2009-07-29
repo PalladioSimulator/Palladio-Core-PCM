@@ -12,7 +12,8 @@
           name="ResourceContainerFigure">
         <children
             xsi:type="gmfgraph:Label"
-            name="ResourceContainerNameFigure"/>
+            name="ResourceContainerNameFigure"
+            text="ResourceContainer"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
@@ -30,8 +31,6 @@
           name="CommunicationLinkSpecification"
           cornerWidth="20"
           cornerHeight="20">
-        <layout
-            xsi:type="gmfgraph:StackLayout"/>
         <foregroundColor
             xsi:type="gmfgraph:RGBColor"
             red="220"
