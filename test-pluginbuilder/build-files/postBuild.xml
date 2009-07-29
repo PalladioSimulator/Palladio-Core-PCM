@@ -142,7 +142,8 @@
 		    	version="true" 
 		    	windowtitle="Palladio Component Model - PCM"
 		    	maxmemory="256m"
-		    	classpathref="classpath"> <!-- added by matthias: possible javadoc bug workaround  -->
+		    	classpathref="classpath"
+		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"> <!-- added by matthias: possible javadoc bug workaround  -->
 		<!--
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
