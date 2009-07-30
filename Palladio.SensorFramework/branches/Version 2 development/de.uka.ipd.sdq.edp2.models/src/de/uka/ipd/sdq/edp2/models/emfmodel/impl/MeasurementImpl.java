@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measurement;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 

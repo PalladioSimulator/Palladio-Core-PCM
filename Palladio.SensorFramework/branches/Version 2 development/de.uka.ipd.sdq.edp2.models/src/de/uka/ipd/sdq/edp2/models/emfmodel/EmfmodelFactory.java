@@ -269,6 +269,24 @@ public interface EmfmodelFactory extends EFactory {
 	ObservedCategory createObservedCategory();
 
 	/**
+	 * Returns a new object of class '<em>Sensor Framework V1 Nominal Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor Framework V1 Nominal Measurements</em>'.
+	 * @generated
+	 */
+	SensorFrameworkV1NominalMeasurements createSensorFrameworkV1NominalMeasurements();
+
+	/**
+	 * Returns a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+	 * @generated
+	 */
+	SensorFrameworkV1DoubleBinaryMeasurements createSensorFrameworkV1DoubleBinaryMeasurements();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

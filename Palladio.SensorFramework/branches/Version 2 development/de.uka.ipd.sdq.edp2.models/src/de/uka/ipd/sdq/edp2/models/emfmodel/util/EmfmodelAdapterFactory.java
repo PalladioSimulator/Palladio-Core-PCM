@@ -137,6 +137,10 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createExperimentRunAdapter();
 			}
 			@Override
+			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
+				return createBaseMetricDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseMetricDescription(MetricDescription object) {
 				return createMetricDescriptionAdapter();
 			}
@@ -151,10 +155,6 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAggregationStatistics(AggregationStatistics object) {
 				return createAggregationStatisticsAdapter();
-			}
-			@Override
-			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
-				return createBaseMetricDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseLongBinaryMeasurements(LongBinaryMeasurements object) {
@@ -223,6 +223,14 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseObservedCategory(ObservedCategory object) {
 				return createObservedCategoryAdapter();
+			}
+			@Override
+			public Adapter caseSensorFrameworkV1NominalMeasurements(SensorFrameworkV1NominalMeasurements object) {
+				return createSensorFrameworkV1NominalMeasurementsAdapter();
+			}
+			@Override
+			public Adapter caseSensorFrameworkV1DoubleBinaryMeasurements(SensorFrameworkV1DoubleBinaryMeasurements object) {
+				return createSensorFrameworkV1DoubleBinaryMeasurementsAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -759,6 +767,34 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObservedCategoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1NominalMeasurements <em>Sensor Framework V1 Nominal Measurements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1NominalMeasurements
+	 * @generated
+	 */
+	public Adapter createSensorFrameworkV1NominalMeasurementsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1DoubleBinaryMeasurements <em>Sensor Framework V1 Double Binary Measurements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1DoubleBinaryMeasurements
+	 * @generated
+	 */
+	public Adapter createSensorFrameworkV1DoubleBinaryMeasurementsAdapter() {
 		return null;
 	}
 

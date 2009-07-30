@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,6 +24,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getExperimentSettings <em>Experiment Settings</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode <em>Storage Node</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure <em>Measure</em>}</li>
  * </ul>
  * </p>
@@ -47,6 +50,60 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * @generated
 	 */
 	EList<ExperimentSetting> getExperimentSettings();
+
+	/**
+	 * Returns the value of the '<em><b>Storage Node</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup <em>Experiment Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Storage Node</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Storage Node</em>' reference.
+	 * @see #setStorageNode(StorageNode)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_StorageNode()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup
+	 * @model opposite="experimentGroup" ordered="false"
+	 * @generated
+	 */
+	StorageNode getStorageNode();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode <em>Storage Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Storage Node</em>' reference.
+	 * @see #getStorageNode()
+	 * @generated
+	 */
+	void setStorageNode(StorageNode value);
+
+	/**
+	 * Returns the value of the '<em><b>Purpose</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Purpose</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Purpose</em>' attribute.
+	 * @see #setPurpose(String)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_Purpose()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getPurpose();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getPurpose <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Purpose</em>' attribute.
+	 * @see #getPurpose()
+	 * @generated
+	 */
+	void setPurpose(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Measure</b></em>' containment reference list.

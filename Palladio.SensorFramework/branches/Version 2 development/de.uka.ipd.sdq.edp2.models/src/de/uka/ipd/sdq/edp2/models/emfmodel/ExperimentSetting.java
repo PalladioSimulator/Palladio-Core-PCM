@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getExperimentName <em>Experiment Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getDescription <em>Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getExperimentRuns <em>Experiment Runs</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getMeasure <em>Measure</em>}</li>
  * </ul>
@@ -32,30 +32,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExperimentSetting extends Propertyable {
 	/**
-	 * Returns the value of the '<em><b>Experiment Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Experiment Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Experiment Name</em>' attribute.
-	 * @see #setExperimentName(String)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentSetting_ExperimentName()
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentSetting_Description()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getExperimentName();
+	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getExperimentName <em>Experiment Name</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Experiment Name</em>' attribute.
-	 * @see #getExperimentName()
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
 	 * @generated
 	 */
-	void setExperimentName(String value);
+	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Experiment Runs</b></em>' containment reference list.

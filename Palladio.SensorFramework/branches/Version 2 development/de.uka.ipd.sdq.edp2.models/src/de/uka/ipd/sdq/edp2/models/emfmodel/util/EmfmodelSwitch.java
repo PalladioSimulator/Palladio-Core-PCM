@@ -192,6 +192,15 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
+				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
+				T result = caseBaseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseDescription(baseMetricDescription);
+				if (result == null) result = caseIdentifiable(baseMetricDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EmfmodelPackage.METRIC_DESCRIPTION: {
 				MetricDescription metricDescription = (MetricDescription)theEObject;
 				T result = caseMetricDescription(metricDescription);
@@ -218,15 +227,6 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.AGGREGATION_STATISTICS: {
 				AggregationStatistics aggregationStatistics = (AggregationStatistics)theEObject;
 				T result = caseAggregationStatistics(aggregationStatistics);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
-				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
-				T result = caseBaseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseDescription(baseMetricDescription);
-				if (result == null) result = caseIdentifiable(baseMetricDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -334,6 +334,22 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.OBSERVED_CATEGORY: {
 				ObservedCategory observedCategory = (ObservedCategory)theEObject;
 				T result = caseObservedCategory(observedCategory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_NOMINAL_MEASUREMENTS: {
+				SensorFrameworkV1NominalMeasurements sensorFrameworkV1NominalMeasurements = (SensorFrameworkV1NominalMeasurements)theEObject;
+				T result = caseSensorFrameworkV1NominalMeasurements(sensorFrameworkV1NominalMeasurements);
+				if (result == null) result = caseNominalMeasurements(sensorFrameworkV1NominalMeasurements);
+				if (result == null) result = caseDataSeries(sensorFrameworkV1NominalMeasurements);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS: {
+				SensorFrameworkV1DoubleBinaryMeasurements sensorFrameworkV1DoubleBinaryMeasurements = (SensorFrameworkV1DoubleBinaryMeasurements)theEObject;
+				T result = caseSensorFrameworkV1DoubleBinaryMeasurements(sensorFrameworkV1DoubleBinaryMeasurements);
+				if (result == null) result = caseDoubleBinaryMeasurements(sensorFrameworkV1DoubleBinaryMeasurements);
+				if (result == null) result = caseDataSeries(sensorFrameworkV1DoubleBinaryMeasurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -893,6 +909,36 @@ public class EmfmodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseObservedCategory(ObservedCategory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sensor Framework V1 Nominal Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sensor Framework V1 Nominal Measurements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensorFrameworkV1NominalMeasurements(SensorFrameworkV1NominalMeasurements object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensorFrameworkV1DoubleBinaryMeasurements(SensorFrameworkV1DoubleBinaryMeasurements object) {
 		return null;
 	}
 

@@ -160,7 +160,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
         upperBound="-1" eType="#//ExperimentSetting" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storageNode" ordered="false"
-        eType="#//Presentation/UI/StorageNode" transient="true" eOpposite="#//Presentation/UI/StorageNode/experimentGroup"/>
+        eType="#//Presentation/UI/StorageNode" eOpposite="#//Presentation/UI/StorageNode/experimentGroup"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" ordered="false"
         upperBound="-1" eType="#//Edp2Measure" containment="true" eOpposite="#//Edp2Measure/experimentSetting"/>
   </eClassifiers>
@@ -168,7 +170,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An experiment setting belongs to an experiment group and consists of a fixed experimental setting, meaning all independent variables are fixed. This includes variables influencing the generation of the test data, for example the duration of a simulation run leading to the generation of the collected data (later stored in an experiment run). Such a set of collected data is stored as an experiment run. For example, an experiment setting allows repeating a single setting to study statistical significance and variance."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="experimentName" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentRuns" ordered="false"
         upperBound="-1" eType="#//ExperimentRun" containment="true" eOpposite="#//ExperimentRun/experimentSetting"/>
@@ -544,7 +546,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="StorageNode" abstract="true">
         <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroup" ordered="false"
-            upperBound="-1" eType="#//ExperimentGroup" transient="true" eOpposite="#//ExperimentGroup/storageNode"/>
+            upperBound="-1" eType="#//ExperimentGroup" eOpposite="#//ExperimentGroup/storageNode"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>

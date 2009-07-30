@@ -10,10 +10,14 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.UIPackage;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Propertyable;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -23,6 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
@@ -37,6 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getAdditionalInformation <em>Additional Information</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getExperimentSettings <em>Experiment Settings</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getStorageNode <em>Storage Node</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getMeasure <em>Measure</em>}</li>
  * </ul>
  * </p>
@@ -63,6 +70,36 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * @ordered
 	 */
 	protected EList<ExperimentSetting> experimentSettings;
+
+	/**
+	 * The cached value of the '{@link #getStorageNode() <em>Storage Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStorageNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected StorageNode storageNode;
+
+	/**
+	 * The default value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PURPOSE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected String purpose = PURPOSE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMeasure() <em>Measure</em>}' containment reference list.
@@ -122,6 +159,87 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StorageNode getStorageNode() {
+		if (storageNode != null && storageNode.eIsProxy()) {
+			InternalEObject oldStorageNode = (InternalEObject)storageNode;
+			storageNode = (StorageNode)eResolveProxy(oldStorageNode);
+			if (storageNode != oldStorageNode) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, oldStorageNode, storageNode));
+			}
+		}
+		return storageNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StorageNode basicGetStorageNode() {
+		return storageNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStorageNode(StorageNode newStorageNode, NotificationChain msgs) {
+		StorageNode oldStorageNode = storageNode;
+		storageNode = newStorageNode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, oldStorageNode, newStorageNode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStorageNode(StorageNode newStorageNode) {
+		if (newStorageNode != storageNode) {
+			NotificationChain msgs = null;
+			if (storageNode != null)
+				msgs = ((InternalEObject)storageNode).eInverseRemove(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
+			if (newStorageNode != null)
+				msgs = ((InternalEObject)newStorageNode).eInverseAdd(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
+			msgs = basicSetStorageNode(newStorageNode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, newStorageNode, newStorageNode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPurpose() {
+		return purpose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPurpose(String newPurpose) {
+		String oldPurpose = purpose;
+		purpose = newPurpose;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE, oldPurpose, purpose));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Edp2Measure> getMeasure() {
 		if (measure == null) {
 			measure = new EObjectContainmentWithInverseEList<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING);
@@ -138,6 +256,10 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				if (storageNode != null)
+					msgs = ((InternalEObject)storageNode).eInverseRemove(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
+				return basicSetStorageNode((StorageNode)otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasure()).basicAdd(otherEnd, msgs);
 		}
@@ -156,6 +278,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return ((InternalEList<?>)getExperimentSettings()).basicRemove(otherEnd, msgs);
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				return basicSetStorageNode(null, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<?>)getMeasure()).basicRemove(otherEnd, msgs);
 		}
@@ -175,6 +299,11 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				else return getAdditionalInformation().map();
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return getExperimentSettings();
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				if (resolve) return getStorageNode();
+				return basicGetStorageNode();
+			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+				return getPurpose();
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return getMeasure();
 		}
@@ -196,6 +325,12 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
 				getExperimentSettings().addAll((Collection<? extends ExperimentSetting>)newValue);
+				return;
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				setStorageNode((StorageNode)newValue);
+				return;
+			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+				setPurpose((String)newValue);
 				return;
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				getMeasure().clear();
@@ -219,6 +354,12 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
 				return;
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				setStorageNode((StorageNode)null);
+				return;
+			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+				setPurpose(PURPOSE_EDEFAULT);
+				return;
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				getMeasure().clear();
 				return;
@@ -238,6 +379,10 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				return additionalInformation != null && !additionalInformation.isEmpty();
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return experimentSettings != null && !experimentSettings.isEmpty();
+			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
+				return storageNode != null;
+			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+				return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return measure != null && !measure.isEmpty();
 		}
@@ -274,6 +419,22 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (purpose: ");
+		result.append(purpose);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExperimentGroupImpl

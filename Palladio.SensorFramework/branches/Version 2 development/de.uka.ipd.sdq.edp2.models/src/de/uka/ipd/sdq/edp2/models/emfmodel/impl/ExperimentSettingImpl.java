@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 
 import java.util.Collection;
 
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentSettingImpl#getExperimentName <em>Experiment Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentSettingImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentSettingImpl#getExperimentRuns <em>Experiment Runs</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentSettingImpl#getMeasure <em>Measure</em>}</li>
  * </ul>
@@ -44,24 +45,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ExperimentSettingImpl extends PropertyableImpl implements ExperimentSetting {
 	/**
-	 * The default value of the '{@link #getExperimentName() <em>Experiment Name</em>}' attribute.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExperimentName()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EXPERIMENT_NAME_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getExperimentName() <em>Experiment Name</em>}' attribute.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExperimentName()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected String experimentName = EXPERIMENT_NAME_EDEFAULT;
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getExperimentRuns() <em>Experiment Runs</em>}' containment reference list.
@@ -107,8 +108,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getExperimentName() {
-		return experimentName;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -116,11 +117,11 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExperimentName(String newExperimentName) {
-		String oldExperimentName = experimentName;
-		experimentName = newExperimentName;
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_NAME, oldExperimentName, experimentName));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -188,8 +189,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_NAME:
-				return getExperimentName();
+			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+				return getDescription();
 			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return getExperimentRuns();
 			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
@@ -207,8 +208,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_NAME:
-				setExperimentName((String)newValue);
+			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				getExperimentRuns().clear();
@@ -230,8 +231,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_NAME:
-				setExperimentName(EXPERIMENT_NAME_EDEFAULT);
+			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				getExperimentRuns().clear();
@@ -251,8 +252,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_NAME:
-				return EXPERIMENT_NAME_EDEFAULT == null ? experimentName != null : !EXPERIMENT_NAME_EDEFAULT.equals(experimentName);
+			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return experimentRuns != null && !experimentRuns.isEmpty();
 			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
@@ -271,8 +272,8 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (experimentName: ");
-		result.append(experimentName);
+		result.append(" (description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

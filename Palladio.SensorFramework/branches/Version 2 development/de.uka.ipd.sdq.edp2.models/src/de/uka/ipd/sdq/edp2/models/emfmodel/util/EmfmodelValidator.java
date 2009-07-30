@@ -158,6 +158,8 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateExperimentSetting((ExperimentSetting)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_RUN:
 				return validateExperimentRun((ExperimentRun)value, diagnostics, context);
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
+				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.METRIC_DESCRIPTION:
 				return validateMetricDescription((MetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.DESCRIPTION:
@@ -166,8 +168,6 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateAggregationFunctionDescription((AggregationFunctionDescription)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_STATISTICS:
 				return validateAggregationStatistics((AggregationStatistics)value, diagnostics, context);
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
-				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS:
 				return validateLongBinaryMeasurements((LongBinaryMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.CATEGORY_IDENTIFIER:
@@ -202,16 +202,20 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateObservedNominalMeasurements((ObservedNominalMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.OBSERVED_CATEGORY:
 				return validateObservedCategory((ObservedCategory)value, diagnostics, context);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
-			case EmfmodelPackage.CAPTURE_TYPE:
-				return validateCaptureType((CaptureType)value, diagnostics, context);
+			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_NOMINAL_MEASUREMENTS:
+				return validateSensorFrameworkV1NominalMeasurements((SensorFrameworkV1NominalMeasurements)value, diagnostics, context);
+			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS:
+				return validateSensorFrameworkV1DoubleBinaryMeasurements((SensorFrameworkV1DoubleBinaryMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.DATA_TYPE:
 				return validateDataType((DataType)value, diagnostics, context);
+			case EmfmodelPackage.CAPTURE_TYPE:
+				return validateCaptureType((CaptureType)value, diagnostics, context);
 			case EmfmodelPackage.SCALE:
 				return validateScale((Scale)value, diagnostics, context);
 			case EmfmodelPackage.MONOTONIC:
 				return validateMonotonic((Monotonic)value, diagnostics, context);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.EJS_MEASURE:
 				return validateEJSMeasure((Measure)value, diagnostics, context);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:
@@ -658,6 +662,40 @@ public class EmfmodelValidator extends EObjectValidator {
 	 */
 	public boolean validateObservedCategory(ObservedCategory observedCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(observedCategory, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSensorFrameworkV1NominalMeasurements(SensorFrameworkV1NominalMeasurements sensorFrameworkV1NominalMeasurements, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(sensorFrameworkV1NominalMeasurements, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSensorFrameworkV1DoubleBinaryMeasurements(SensorFrameworkV1DoubleBinaryMeasurements sensorFrameworkV1DoubleBinaryMeasurements, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataSeries_Statisticsonlyformeasurablevalues(sensorFrameworkV1DoubleBinaryMeasurements, diagnostics, context);
+		return result;
 	}
 
 	/**

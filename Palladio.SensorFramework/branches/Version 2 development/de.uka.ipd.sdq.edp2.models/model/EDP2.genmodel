@@ -102,10 +102,11 @@
     <genClasses ecoreClass="EDP2.ecore#//ExperimentGroup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/experimentSettings"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/storageNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentGroup/purpose"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentGroup/measure"/>
     </genClasses>
     <genClasses ecoreClass="EDP2.ecore#//ExperimentSetting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentSetting/experimentName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentSetting/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentSetting/experimentRuns"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentSetting/measure"/>
     </genClasses>

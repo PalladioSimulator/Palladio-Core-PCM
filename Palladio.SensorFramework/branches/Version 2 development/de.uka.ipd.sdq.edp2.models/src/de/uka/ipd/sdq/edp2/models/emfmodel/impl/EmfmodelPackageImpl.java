@@ -60,10 +60,16 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalMeasure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.OrdinalStatistics;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Percentile;
 import de.uka.ipd.sdq.edp2.models.emfmodel.PersistenceKindOptions;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.PresentationPackage;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.UIPackage;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Propertyable;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RatioStatistics;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Scale;
+import de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1DoubleBinaryMeasurements;
+import de.uka.ipd.sdq.edp2.models.emfmodel.SensorFrameworkV1NominalMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.util.EmfmodelValidator;
 
 /**
@@ -337,6 +343,20 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass sensorFrameworkV1NominalMeasurementsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorFrameworkV1DoubleBinaryMeasurementsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum persistenceKindOptionsEEnum = null;
 
 	/**
@@ -435,12 +455,18 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		isInited = true;
 
 		// Obtain or create and register interdependencies
+		PresentationPackageImpl thePresentationPackage = (PresentationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) instanceof PresentationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) : PresentationPackage.eINSTANCE);
+		UIPackageImpl theUIPackage = (UIPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) instanceof UIPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) : UIPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theEmfmodelPackage.createPackageContents();
+		thePresentationPackage.createPackageContents();
+		theUIPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theEmfmodelPackage.initializePackageContents();
+		thePresentationPackage.initializePackageContents();
+		theUIPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -924,8 +950,26 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentGroup_Measure() {
+	public EReference getExperimentGroup_StorageNode() {
 		return (EReference)experimentGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExperimentGroup_Purpose() {
+		return (EAttribute)experimentGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExperimentGroup_Measure() {
+		return (EReference)experimentGroupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -942,7 +986,7 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExperimentSetting_ExperimentName() {
+	public EAttribute getExperimentSetting_Description() {
 		return (EAttribute)experimentSettingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1500,6 +1544,24 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSensorFrameworkV1NominalMeasurements() {
+		return sensorFrameworkV1NominalMeasurementsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensorFrameworkV1DoubleBinaryMeasurements() {
+		return sensorFrameworkV1DoubleBinaryMeasurementsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPersistenceKindOptions() {
 		return persistenceKindOptionsEEnum;
 	}
@@ -1658,10 +1720,12 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 
 		experimentGroupEClass = createEClass(EXPERIMENT_GROUP);
 		createEReference(experimentGroupEClass, EXPERIMENT_GROUP__EXPERIMENT_SETTINGS);
+		createEReference(experimentGroupEClass, EXPERIMENT_GROUP__STORAGE_NODE);
+		createEAttribute(experimentGroupEClass, EXPERIMENT_GROUP__PURPOSE);
 		createEReference(experimentGroupEClass, EXPERIMENT_GROUP__MEASURE);
 
 		experimentSettingEClass = createEClass(EXPERIMENT_SETTING);
-		createEAttribute(experimentSettingEClass, EXPERIMENT_SETTING__EXPERIMENT_NAME);
+		createEAttribute(experimentSettingEClass, EXPERIMENT_SETTING__DESCRIPTION);
 		createEReference(experimentSettingEClass, EXPERIMENT_SETTING__EXPERIMENT_RUNS);
 		createEReference(experimentSettingEClass, EXPERIMENT_SETTING__MEASURE);
 
@@ -1670,6 +1734,13 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		createEAttribute(experimentRunEClass, EXPERIMENT_RUN__START_TIME);
 		createEAttribute(experimentRunEClass, EXPERIMENT_RUN__DURATION);
 		createEReference(experimentRunEClass, EXPERIMENT_RUN__EXPERIMENT_SETTING);
+
+		baseMetricDescriptionEClass = createEClass(BASE_METRIC_DESCRIPTION);
+		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__CAPTURE_TYPE);
+		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__DATA_TYPE);
+		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__SCALE);
+		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__MONOTONIC);
+		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__DEFAULT_UNIT);
 
 		metricDescriptionEClass = createEClass(METRIC_DESCRIPTION);
 
@@ -1682,13 +1753,6 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		aggregationStatisticsEClass = createEClass(AGGREGATION_STATISTICS);
 		createEAttribute(aggregationStatisticsEClass, AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION);
 		createEAttribute(aggregationStatisticsEClass, AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION);
-
-		baseMetricDescriptionEClass = createEClass(BASE_METRIC_DESCRIPTION);
-		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__CAPTURE_TYPE);
-		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__DATA_TYPE);
-		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__SCALE);
-		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__MONOTONIC);
-		createEAttribute(baseMetricDescriptionEClass, BASE_METRIC_DESCRIPTION__DEFAULT_UNIT);
 
 		longBinaryMeasurementsEClass = createEClass(LONG_BINARY_MEASUREMENTS);
 		createEAttribute(longBinaryMeasurementsEClass, LONG_BINARY_MEASUREMENTS__STORAGE_UNIT);
@@ -1747,12 +1811,16 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		observedCategoryEClass = createEClass(OBSERVED_CATEGORY);
 		createEReference(observedCategoryEClass, OBSERVED_CATEGORY__CATEGORY_IDENTIFIER);
 
+		sensorFrameworkV1NominalMeasurementsEClass = createEClass(SENSOR_FRAMEWORK_V1_NOMINAL_MEASUREMENTS);
+
+		sensorFrameworkV1DoubleBinaryMeasurementsEClass = createEClass(SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS);
+
 		// Create enums
-		persistenceKindOptionsEEnum = createEEnum(PERSISTENCE_KIND_OPTIONS);
-		captureTypeEEnum = createEEnum(CAPTURE_TYPE);
 		dataTypeEEnum = createEEnum(DATA_TYPE);
+		captureTypeEEnum = createEEnum(CAPTURE_TYPE);
 		scaleEEnum = createEEnum(SCALE);
 		monotonicEEnum = createEEnum(MONOTONIC);
+		persistenceKindOptionsEEnum = createEEnum(PERSISTENCE_KIND_OPTIONS);
 
 		// Create data types
 		ejsMeasureEDataType = createEDataType(EJS_MEASURE);
@@ -1784,8 +1852,11 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		PresentationPackage thePresentationPackage = (PresentationPackage)EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI);
+		UIPackage theUIPackage = (UIPackage)EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI);
 
 		// Add subpackages
+		getESubpackages().add(thePresentationPackage);
 
 		// Create type parameters
 
@@ -1802,10 +1873,10 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		experimentSettingEClass.getESuperTypes().add(this.getPropertyable());
 		experimentRunEClass.getESuperTypes().add(this.getIdentifiable());
 		experimentRunEClass.getESuperTypes().add(this.getPropertyable());
+		baseMetricDescriptionEClass.getESuperTypes().add(this.getMetricDescription());
 		metricDescriptionEClass.getESuperTypes().add(this.getDescription());
 		descriptionEClass.getESuperTypes().add(this.getIdentifiable());
 		aggregationFunctionDescriptionEClass.getESuperTypes().add(this.getDescription());
-		baseMetricDescriptionEClass.getESuperTypes().add(this.getMetricDescription());
 		longBinaryMeasurementsEClass.getESuperTypes().add(this.getDataSeries());
 		categoryIdentifierEClass.getESuperTypes().add(this.getIdentifiable());
 		nominalMeasurementsEClass.getESuperTypes().add(this.getDataSeries());
@@ -1818,6 +1889,8 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		ordinalStatisticsEClass.getESuperTypes().add(this.getNominalStatistics());
 		intervalStatisticsEClass.getESuperTypes().add(this.getOrdinalStatistics());
 		ratioStatisticsEClass.getESuperTypes().add(this.getIntervalStatistics());
+		sensorFrameworkV1NominalMeasurementsEClass.getESuperTypes().add(this.getNominalMeasurements());
+		sensorFrameworkV1DoubleBinaryMeasurementsEClass.getESuperTypes().add(this.getDoubleBinaryMeasurements());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(aggregatedMeasurementsEClass, AggregatedMeasurements.class, "AggregatedMeasurements", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1887,10 +1960,12 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 
 		initEClass(experimentGroupEClass, ExperimentGroup.class, "ExperimentGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExperimentGroup_ExperimentSettings(), this.getExperimentSetting(), null, "experimentSettings", null, 0, -1, ExperimentGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getExperimentGroup_StorageNode(), theUIPackage.getStorageNode(), theUIPackage.getStorageNode_ExperimentGroup(), "storageNode", null, 0, 1, ExperimentGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExperimentGroup_Purpose(), ecorePackage.getEString(), "purpose", null, 1, 1, ExperimentGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExperimentGroup_Measure(), this.getEdp2Measure(), this.getEdp2Measure_ExperimentSetting(), "measure", null, 0, -1, ExperimentGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(experimentSettingEClass, ExperimentSetting.class, "ExperimentSetting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExperimentSetting_ExperimentName(), ecorePackage.getEString(), "experimentName", null, 1, 1, ExperimentSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExperimentSetting_Description(), ecorePackage.getEString(), "description", null, 1, 1, ExperimentSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExperimentSetting_ExperimentRuns(), this.getExperimentRun(), this.getExperimentRun_ExperimentSetting(), "experimentRuns", null, 0, -1, ExperimentSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExperimentSetting_Measure(), this.getEdp2Measure(), this.getEdp2Measure_ExperimentSettings(), "measure", null, 0, -1, ExperimentSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1904,6 +1979,13 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(baseMetricDescriptionEClass, BaseMetricDescription.class, "BaseMetricDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBaseMetricDescription_CaptureType(), this.getCaptureType(), "captureType", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBaseMetricDescription_DataType(), this.getDataType(), "dataType", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBaseMetricDescription_Scale(), this.getScale(), "scale", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBaseMetricDescription_Monotonic(), this.getMonotonic(), "monotonic", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBaseMetricDescription_DefaultUnit(), this.getEJSUnit(), "defaultUnit", null, 0, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(metricDescriptionEClass, MetricDescription.class, "MetricDescription", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(descriptionEClass, Description.class, "Description", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1915,13 +1997,6 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		initEClass(aggregationStatisticsEClass, AggregationStatistics.class, "AggregationStatistics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAggregationStatistics_DistinctValuesBeforeAggregation(), ecorePackage.getELong(), "distinctValuesBeforeAggregation", null, 1, 1, AggregationStatistics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getAggregationStatistics_DistinctValuesAfterAggregation(), ecorePackage.getELong(), "distinctValuesAfterAggregation", null, 1, 1, AggregationStatistics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(baseMetricDescriptionEClass, BaseMetricDescription.class, "BaseMetricDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBaseMetricDescription_CaptureType(), this.getCaptureType(), "captureType", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBaseMetricDescription_DataType(), this.getDataType(), "dataType", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBaseMetricDescription_Scale(), this.getScale(), "scale", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBaseMetricDescription_Monotonic(), this.getMonotonic(), "monotonic", null, 1, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBaseMetricDescription_DefaultUnit(), this.getEJSUnit(), "defaultUnit", null, 0, 1, BaseMetricDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(longBinaryMeasurementsEClass, LongBinaryMeasurements.class, "LongBinaryMeasurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLongBinaryMeasurements_StorageUnit(), this.getEJSUnit(), "storageUnit", null, 1, 1, LongBinaryMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1988,19 +2063,19 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		initEClass(observedCategoryEClass, ObservedCategory.class, "ObservedCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObservedCategory_CategoryIdentifier(), this.getCategoryIdentifier(), null, "categoryIdentifier", null, 1, 1, ObservedCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(sensorFrameworkV1NominalMeasurementsEClass, SensorFrameworkV1NominalMeasurements.class, "SensorFrameworkV1NominalMeasurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sensorFrameworkV1DoubleBinaryMeasurementsEClass, SensorFrameworkV1DoubleBinaryMeasurements.class, "SensorFrameworkV1DoubleBinaryMeasurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
-		initEEnum(persistenceKindOptionsEEnum, PersistenceKindOptions.class, "PersistenceKindOptions");
-		addEEnumLiteral(persistenceKindOptionsEEnum, PersistenceKindOptions.BINARY_PREFERRED);
-		addEEnumLiteral(persistenceKindOptionsEEnum, PersistenceKindOptions.JS_XML_PREFERRED);
+		initEEnum(dataTypeEEnum, DataType.class, "DataType");
+		addEEnumLiteral(dataTypeEEnum, DataType.QUANTITATIVE);
+		addEEnumLiteral(dataTypeEEnum, DataType.QUALITATIVE);
 
 		initEEnum(captureTypeEEnum, CaptureType.class, "CaptureType");
 		addEEnumLiteral(captureTypeEEnum, CaptureType.IDENTIFIER);
 		addEEnumLiteral(captureTypeEEnum, CaptureType.NATURAL_NUMBER);
 		addEEnumLiteral(captureTypeEEnum, CaptureType.REAL_NUMBER);
-
-		initEEnum(dataTypeEEnum, DataType.class, "DataType");
-		addEEnumLiteral(dataTypeEEnum, DataType.QUANTITATIVE);
-		addEEnumLiteral(dataTypeEEnum, DataType.QUALITATIVE);
 
 		initEEnum(scaleEEnum, Scale.class, "Scale");
 		addEEnumLiteral(scaleEEnum, Scale.NOMINAL);
@@ -2012,6 +2087,10 @@ public class EmfmodelPackageImpl extends EPackageImpl implements EmfmodelPackage
 		addEEnumLiteral(monotonicEEnum, Monotonic.NO);
 		addEEnumLiteral(monotonicEEnum, Monotonic.YES);
 		addEEnumLiteral(monotonicEEnum, Monotonic.STRONG);
+
+		initEEnum(persistenceKindOptionsEEnum, PersistenceKindOptions.class, "PersistenceKindOptions");
+		addEEnumLiteral(persistenceKindOptionsEEnum, PersistenceKindOptions.BINARY_PREFERRED);
+		addEEnumLiteral(persistenceKindOptionsEEnum, PersistenceKindOptions.JS_XML_PREFERRED);
 
 		// Initialize data types
 		initEDataType(ejsMeasureEDataType, Measure.class, "EJSMeasure", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
