@@ -7,10 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.pcm.diagram.edit.parts,
- de.uka.ipd.sdq.pcm.diagram.part,
- de.uka.ipd.sdq.pcm.diagram.providers,
- de.uka.ipd.sdq.pcm.gmf.resource.edit.parts,
+Export-Package: de.uka.ipd.sdq.pcm.gmf.resource.edit.parts,
  de.uka.ipd.sdq.pcm.gmf.resource.part,
  de.uka.ipd.sdq.pcm.gmf.resource.providers
 Require-Bundle: org.eclipse.core.runtime,
