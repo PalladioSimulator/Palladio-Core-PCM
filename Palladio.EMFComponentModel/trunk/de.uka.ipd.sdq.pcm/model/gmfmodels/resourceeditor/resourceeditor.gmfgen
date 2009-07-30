@@ -2,16 +2,17 @@
 <gmfgen:GenEditorGenerator xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2008/GenModel" diagramFileExtension="resourceenvironment_diagram"
-    domainFileExtension="resourceenvironment">
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.resource"
+    modelID="ResourceEnvironmentModel"
+    diagramFileExtension="resourceenvironment_diagram"
+    domainFileExtension="resourceenvironment"
+    copyrightText="Copyright 2009, SDQ, IPD, Uni Karlsruhe (TH)">
   <diagram
       visualID="1000"
       editPartClassName="ResourceEnvironmentEditPart"
       itemSemanticEditPolicyClassName="ResourceEnvironmentItemSemanticEditPolicy"
-      notationViewFactoryClassName="ResourceEnvironmentViewFactory"
       canonicalEditPolicyClassName="ResourceEnvironmentCanonicalEditPolicy"
-      iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      iconProviderPriority="Low">
     <diagramRunTimeClass
         href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -26,7 +27,6 @@
         visualID="3001"
         editPartClassName="ProcessingResourceSpecificationEditPart"
         itemSemanticEditPolicyClassName="ProcessingResourceSpecificationItemSemanticEditPolicy"
-        notationViewFactoryClassName="ProcessingResourceSpecificationViewFactory"
         canonicalEditPolicyClassName="ProcessingResourceSpecificationCanonicalEditPolicy"
         compartments="//@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="ProcessingResourceSpecificationGraphicalNodeEditPolicy"
@@ -55,7 +55,6 @@
           visualID="5002"
           editPartClassName="ProcessingResourceSpecificationMTTFEditPart"
           itemSemanticEditPolicyClassName="ProcessingResourceSpecificationMTTFItemSemanticEditPolicy"
-          notationViewFactoryClassName="ProcessingResourceSpecificationMTTFViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -65,6 +64,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0"
             viewPattern="MTTF: {0}"
             editorPattern=""
             editPattern="">
@@ -76,7 +76,6 @@
           visualID="5003"
           editPartClassName="ProcessingResourceSpecificationMTTREditPart"
           itemSemanticEditPolicyClassName="ProcessingResourceSpecificationMTTRItemSemanticEditPolicy"
-          notationViewFactoryClassName="ProcessingResourceSpecificationMTTRViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -86,6 +85,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0"
             viewPattern="MTTR: {0}">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification/MTTR"/>
@@ -95,7 +95,6 @@
           visualID="5004"
           editPartClassName="ProcessingResourceSpecificationSchedulingPolicyEditPart"
           itemSemanticEditPolicyClassName="ProcessingResourceSpecificationSchedulingPolicyItemSemanticEditPolicy"
-          notationViewFactoryClassName="ProcessingResourceSpecificationSchedulingPolicyViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -105,6 +104,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0"
             viewPattern="Scheduling Policy: {0}">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
@@ -115,7 +115,6 @@
         visualID="2001"
         editPartClassName="ResourceContainerEditPart"
         itemSemanticEditPolicyClassName="ResourceContainerItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResourceContainerViewFactory"
         canonicalEditPolicyClassName="ResourceContainerCanonicalEditPolicy"
         compartments="//@diagram/@compartments.0"
         graphicalNodeEditPolicyClassName="ResourceContainerGraphicalNodeEditPolicy"
@@ -143,7 +142,6 @@
           visualID="5001"
           editPartClassName="ResourceContainerEntityNameEditPart"
           itemSemanticEditPolicyClassName="ResourceContainerEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ResourceContainerEntityNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -153,6 +151,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0"
             editorPattern="">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
@@ -163,7 +162,6 @@
         visualID="2002"
         editPartClassName="CommunicationLinkResourceSpecificationEditPart"
         itemSemanticEditPolicyClassName="CommunicationLinkResourceSpecificationItemSemanticEditPolicy"
-        notationViewFactoryClassName="CommunicationLinkResourceSpecificationViewFactory"
         canonicalEditPolicyClassName="CommunicationLinkResourceSpecificationCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CommunicationLinkResourceSpecificationGraphicalNodeEditPolicy"
         createCommandClassName="CommunicationLinkResourceSpecificationCreateCommand">
@@ -187,7 +185,6 @@
         visualID="4001"
         editPartClassName="LinkingResourceEditPart"
         itemSemanticEditPolicyClassName="LinkingResourceItemSemanticEditPolicy"
-        notationViewFactoryClassName="LinkingResourceViewFactory"
         createCommandClassName="LinkingResourceCreateCommand"
         reorientCommandClassName="LinkingResourceReorientCommand">
       <diagramRunTimeClass
@@ -218,7 +215,6 @@
         visualID="7001"
         editPartClassName="ResourceContainerResourceContainerCompartmentEditPart"
         itemSemanticEditPolicyClassName="ResourceContainerResourceContainerCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResourceContainerResourceContainerCompartmentViewFactory"
         canonicalEditPolicyClassName="ResourceContainerResourceContainerCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="ResourceContainerCompartment"
@@ -238,7 +234,6 @@
         visualID="7002"
         editPartClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart"
         itemSemanticEditPolicyClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentViewFactory"
         canonicalEditPolicyClassName="ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentCanonicalEditPolicy"
         title="ProcessingResourceSpecificationCompartment"
         canCollapse="false"
@@ -284,38 +279,43 @@
     </palette>
     <preferencePages
         xsi:type="gmfgen:GenStandardPreferencePage"
-        iD="de.uka.ipd.sdq.pcm.diagram.general"
+        iD="de.uka.ipd.sdq.pcm.gmf.resource.general"
         name="PalladioComponentModel Diagram">
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.appearance"
+          iD="de.uka.ipd.sdq.pcm.gmf.resource.appearance"
           name="Appearance"
           kind="Appearance"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.connections"
+          iD="de.uka.ipd.sdq.pcm.gmf.resource.connections"
           name="Connections"
           kind="Connections"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.printing"
+          iD="de.uka.ipd.sdq.pcm.gmf.resource.printing"
           name="Printing"
           kind="Printing"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
+          iD="de.uka.ipd.sdq.pcm.gmf.resource.rulersAndGrid"
           name="Rulers And Grid"
           kind="RulersAndGrid"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.pathmaps"
+          iD="de.uka.ipd.sdq.pcm.gmf.resource.pathmaps"
           name="Pathmaps"
           kind="Pathmaps"/>
     </preferencePages>
   </diagram>
-  <plugin/>
+  <plugin
+      iD="de.uka.ipd.sdq.pcm.gmf.resource"/>
   <editor/>
-  <navigator>
+  <navigator
+      contentExtensionID="de.uka.ipd.sdq.pcm.gmf.resource.resourceContent"
+      linkHelperExtensionID="de.uka.ipd.sdq.pcm.gmf.resource.navigatorLinkHelper"
+      sorterExtensionID="de.uka.ipd.sdq.pcm.gmf.resource.navigatorSorter"
+      actionProviderID="de.uka.ipd.sdq.pcm.gmf.resource.navigatorActionProvider">
     <childReferences
         child="//@diagram"/>
     <childReferences
@@ -379,4 +379,15 @@
   </propertySheet>
   <domainGenModel
       href="../../pcm.genmodel#/"/>
+  <labelParsers
+      extensibleViaService="true">
+    <implementations
+        xsi:type="gmfgen:PredefinedParser"
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.1/@modelFacet //@diagram/@childNodes.0/@labels.2/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+  </labelParsers>
+  <contextMenus
+      context="//@diagram">
+    <items
+        xsi:type="gmfgen:LoadResourceAction"/>
+  </contextMenus>
 </gmfgen:GenEditorGenerator>
