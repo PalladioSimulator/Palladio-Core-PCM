@@ -5542,9 +5542,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_AtO9UOMvEdqaQsPH3rPnBQ" name="Allocation">
         <ownedRule xmi:id="_3KNIsCokEdyENO6Lndj6uA" name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce" constrainedElement="_AtO9UOMvEdqaQsPH3rPnBQ">
+          <ownedComment xmi:id="_fR1wwH2pEd61Z_3XFFo7Qg" annotatedElement="_3KNIsCokEdyENO6Lndj6uA">
+            <body>Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;
+&#xD;
+Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocatde (we could even add a constraint to forbid this), wheras all BasicComponents and CompositeComponents contained in the SubSystem (also transitively over several nested SubSystems) need to be allocated. &#xD;
+&#xD;
+The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. </body>
+          </ownedComment>
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_3KOW0CokEdyENO6Lndj6uA">
             <language>OCL</language>
-            <body>self.system_Allocation.assemblyContexts_ComposedStructure&#xD;&#xA;->union(self.system_Allocation.assemblyContexts_ComposedStructure&#xD;&#xA;.encapsulatedComponent_AssemblyContext.repository_RepositoryComponent&#xD;&#xA;.components__Repository->select(component|component.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)->assemblyContexts_ComposedStructure)&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;assemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
+            <body>-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts_ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts_ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent_AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts_ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_YyuowBG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
@@ -22564,4 +22571,5 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Ecore:EAttribute xmi:id="_iLeg4HOkEd6z6tywRVl4hg" base_Property="_bOjLAHOkEd6z6tywRVl4hg"/>
   <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
   <Default:Documentation xmi:id="_MHpqQH2dEd61Z_3XFFo7Qg" base_Comment="_L-tJoH2dEd61Z_3XFFo7Qg"/>
+  <Default:Documentation xmi:id="_fR1wwX2pEd61Z_3XFFo7Qg" base_Comment="_fR1wwH2pEd61Z_3XFFo7Qg"/>
 </xmi:XMI>
