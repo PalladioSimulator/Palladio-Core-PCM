@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
   <uml:Model xmi:id="_wQr8YCh8Edue7oeC4NTCGg" name="pcm">
     <eAnnotations xmi:id="_wQr8YSh8Edue7oeC4NTCGg" source="uml2.diagrams">
       <contents xmi:type="notation:Diagram" xmi:id="_V7sscDQ_Edun4NCFPwZksA" type="Freeform" name="Package Overview I">
@@ -5089,6 +5089,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_4tSk0apdEd26O59kvcjv0A">
               <language>OCL</language>
               <body>self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_c1Z2cH2cEd61Z_3XFFo7Qg" name="AssemblyConnectorsReferencedInterfacesMustMatch" constrainedElement="_4foMIOJREdqxcra4qpeplw">
+            <ownedComment xmi:id="_L-tJoH2dEd61Z_3XFFo7Qg" annotatedElement="_c1Z2cH2cEd61Z_3XFFo7Qg">
+              <body>The Interfaces references by this Connector must match. This means that either &#xD;
+1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces </body>
+            </ownedComment>
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_c1jncH2cEd61Z_3XFFo7Qg">
+              <language>OCL</language>
+              <body>self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)&#xD;&#xA;</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_6xzqIOJREdqxcra4qpeplw" general="_UkxkoJQAEdqSSImFLKDkSg"/>
@@ -22553,4 +22563,5 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_uvkeYUIyEd6xDqQsjkcxUg" base_Comment="_uvkeYEIyEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_iLeg4HOkEd6z6tywRVl4hg" base_Property="_bOjLAHOkEd6z6tywRVl4hg"/>
   <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
+  <Default:Documentation xmi:id="_MHpqQH2dEd61Z_3XFFo7Qg" base_Comment="_L-tJoH2dEd61Z_3XFFo7Qg"/>
 </xmi:XMI>
