@@ -5545,7 +5545,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <ownedComment xmi:id="_fR1wwH2pEd61Z_3XFFo7Qg" annotatedElement="_3KNIsCokEdyENO6Lndj6uA">
             <body>Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;
 &#xD;
-Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocatde (we could even add a constraint to forbid this), wheras all BasicComponents and CompositeComponents contained in the SubSystem (also transitively over several nested SubSystems) need to be allocated. &#xD;
+Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;
 &#xD;
 The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. </body>
           </ownedComment>
