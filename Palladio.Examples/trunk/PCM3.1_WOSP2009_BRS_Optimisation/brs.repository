@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_eZMtkNo2EdykvZksz029sg" entityName="BRS repository">
+  <components__Repository xsi:type="BasicComponent" id="_jpoagNo4EdyCSNQKlT1LxA" entityName="Scheduler">
+    <providedRoles_InterfaceProvidingEntity id="_Wm_OINo5EdyCSNQKlT1LxA" entityName="Provided_IReporting_Scheduler" providedInterface__ProvidedRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_XOHfkNo5EdyCSNQKlT1LxA" entityName="Required_IReporting_Scheduler1" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_7BsloEUXEd6HAbOR56wSfA" entityName="Required_IReporting_Scheduler2" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_YDYD8EVLEd6KA7GFQHGCjQ" entityName="Required_IReporting_Scheduler3" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_ZBXWMEVLEd6KA7GFQHGCjQ" entityName="Required_IReporting_Scheduler4" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_WnN3oNo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_WnOesNo5EdyCSNQKlT1LxA" successor_AbstractAction="_0QdhwLpDEd2fi_j9dEpB2g"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_WnPFwNo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_fyJOoEUYEd6HAbOR56wSfA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_0QdhwLpDEd2fi_j9dEpB2g" entityName="schedule" predecessor_AbstractAction="_WnOesNo5EdyCSNQKlT1LxA" successor_AbstractAction="_fyJOoEUYEd6HAbOR56wSfA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0.15"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_fyJOoEUYEd6HAbOR56wSfA" entityName="LoadBalancing" predecessor_AbstractAction="_0QdhwLpDEd2fi_j9dEpB2g" successor_AbstractAction="_WnPFwNo5EdyCSNQKlT1LxA">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_ha58MEUYEd6HAbOR56wSfA" successor_AbstractAction="_VExikNo7EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_ha58MUUYEd6HAbOR56wSfA" predecessor_AbstractAction="_VExikNo7EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_VExikNo7EdyCSNQKlT1LxA" predecessor_AbstractAction="_ha58MEUYEd6HAbOR56wSfA" successor_AbstractAction="_ha58MUUYEd6HAbOR56wSfA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_XOHfkNo5EdyCSNQKlT1LxA">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_nVGCsUUYEd6HAbOR56wSfA" successor_AbstractAction="_qZC74EUYEd6HAbOR56wSfA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_nVGCskUYEd6HAbOR56wSfA" predecessor_AbstractAction="_qZC74EUYEd6HAbOR56wSfA"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_qZC74EUYEd6HAbOR56wSfA" predecessor_AbstractAction="_nVGCsUUYEd6HAbOR56wSfA" successor_AbstractAction="_nVGCskUYEd6HAbOR56wSfA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_7BsloEUXEd6HAbOR56wSfA">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_r3DNUEVMEd6KA7GFQHGCjQ" successor_AbstractAction="_wTqikEVMEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_r3DNUUVMEd6KA7GFQHGCjQ" predecessor_AbstractAction="_wTqikEVMEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_wTqikEVMEd6KA7GFQHGCjQ" predecessor_AbstractAction="_r3DNUEVMEd6KA7GFQHGCjQ" successor_AbstractAction="_r3DNUUVMEd6KA7GFQHGCjQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_YDYD8EVLEd6KA7GFQHGCjQ">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_72d3YUVMEd6KA7GFQHGCjQ" successor_AbstractAction="_91uZYEVMEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_72d3YkVMEd6KA7GFQHGCjQ" predecessor_AbstractAction="_91uZYEVMEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_91uZYEVMEd6KA7GFQHGCjQ" predecessor_AbstractAction="_72d3YUVMEd6KA7GFQHGCjQ" successor_AbstractAction="_72d3YkVMEd6KA7GFQHGCjQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_ZBXWMEVLEd6KA7GFQHGCjQ">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_WnPs0No5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_WnPs0do5EdyCSNQKlT1LxA" successor_AbstractAction="_3aWD0LpDEd2fi_j9dEpB2g"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_WnPs0to5EdyCSNQKlT1LxA" predecessor_AbstractAction="_J9faEEUZEd6HAbOR56wSfA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_3aWD0LpDEd2fi_j9dEpB2g" entityName="schedule" predecessor_AbstractAction="_WnPs0do5EdyCSNQKlT1LxA" successor_AbstractAction="_J9faEEUZEd6HAbOR56wSfA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0.15"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_J9faEEUZEd6HAbOR56wSfA" entityName="LoadBalancing" predecessor_AbstractAction="_3aWD0LpDEd2fi_j9dEpB2g" successor_AbstractAction="_WnPs0to5EdyCSNQKlT1LxA">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_LIAFYUUZEd6HAbOR56wSfA" successor_AbstractAction="_aZasANo7EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_LIAFYkUZEd6HAbOR56wSfA" predecessor_AbstractAction="_aZasANo7EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_aZasANo7EdyCSNQKlT1LxA" predecessor_AbstractAction="_LIAFYUUZEd6HAbOR56wSfA" successor_AbstractAction="_LIAFYkUZEd6HAbOR56wSfA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_XOHfkNo5EdyCSNQKlT1LxA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_NhLjQUUZEd6HAbOR56wSfA" successor_AbstractAction="_T6XS4EUZEd6HAbOR56wSfA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_NhLjQkUZEd6HAbOR56wSfA" predecessor_AbstractAction="_T6XS4EUZEd6HAbOR56wSfA"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_T6XS4EUZEd6HAbOR56wSfA" predecessor_AbstractAction="_NhLjQUUZEd6HAbOR56wSfA" successor_AbstractAction="_NhLjQkUZEd6HAbOR56wSfA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_7BsloEUXEd6HAbOR56wSfA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_RGpQcUVNEd6KA7GFQHGCjQ" successor_AbstractAction="_TtFuQEVNEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_RGpQckVNEd6KA7GFQHGCjQ" predecessor_AbstractAction="_TtFuQEVNEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_TtFuQEVNEd6KA7GFQHGCjQ" predecessor_AbstractAction="_RGpQcUVNEd6KA7GFQHGCjQ" successor_AbstractAction="_RGpQckVNEd6KA7GFQHGCjQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_YDYD8EVLEd6KA7GFQHGCjQ"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.25">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_V2LhsUVNEd6KA7GFQHGCjQ" successor_AbstractAction="_XOsMwEVNEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_V2LhskVNEd6KA7GFQHGCjQ" predecessor_AbstractAction="_XOsMwEVNEd6KA7GFQHGCjQ"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_XOsMwEVNEd6KA7GFQHGCjQ" predecessor_AbstractAction="_V2LhsUVNEd6KA7GFQHGCjQ" successor_AbstractAction="_V2LhskVNEd6KA7GFQHGCjQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_ZBXWMEVLEd6KA7GFQHGCjQ"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_k7K64No4EdyCSNQKlT1LxA" entityName="ReportingEngine">
+    <providedRoles_InterfaceProvidingEntity id="_YSFeANo5EdyCSNQKlT1LxA" entityName="Provided_IReporting_ReportingEngine" providedInterface__ProvidedRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_tOgNkNo5EdyCSNQKlT1LxA" entityName="Required_IDB_ReportingEngine" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_gXZbcNo9EdyxgfK4Hy_RFA" entityName="Required_ICache_ReportingEngine" requiredInterface__RequiredRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_YSGFENo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_YSGsINo5EdyCSNQKlT1LxA" successor_AbstractAction="_SyL_cNo8EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_SyL_cNo8EdyxgfK4Hy_RFA" entityName="prepare" predecessor_AbstractAction="_YSGsINo5EdyCSNQKlT1LxA" successor_AbstractAction="_r7-wEPZkEdySh74qedEhsw" failureProbability="3.4E-5">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0.52"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_iFht0PJ-Edyo6LDu0a_xbA" entityName="finalReport" predecessor_AbstractAction="_r7-wEPZkEdySh74qedEhsw"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_r7-wEPZkEdySh74qedEhsw" entityName="branchForDetailLevel" predecessor_AbstractAction="_SyL_cNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_iFht0PJ-Edyo6LDu0a_xbA">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_CAZdQNo8EdyxgfK4Hy_RFA" entityName="finalDetailed" predecessor_AbstractAction="_0owb09o9EdyxgfK4Hy_RFA"/>
+            <steps_Behaviour xsi:type="_1:LoopAction" id="_0owb09o9EdyxgfK4Hy_RFA" predecessor_AbstractAction="_8ysM0No8EdyxgfK4Hy_RFA" successor_AbstractAction="_CAZdQNo8EdyxgfK4Hy_RFA">
+              <bodyBehaviour_Loop>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_Cmor8No-EdyxgfK4Hy_RFA" successor_AbstractAction="_hxjsUNo9EdyxgfK4Hy_RFA"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_C7xOcNo-EdyxgfK4Hy_RFA" entityName="finalDetailedLoop2" predecessor_AbstractAction="_hxjsUNo9EdyxgfK4Hy_RFA"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_hxjsUNo9EdyxgfK4Hy_RFA" predecessor_AbstractAction="_Cmor8No-EdyxgfK4Hy_RFA" successor_AbstractAction="_C7xOcNo-EdyxgfK4Hy_RFA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_gXZbcNo9EdyxgfK4Hy_RFA"/>
+              </bodyBehaviour_Loop>
+              <iterationCount_LoopAction specification="2"/>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_8ysM0No8EdyxgfK4Hy_RFA" entityName="GenReport" predecessor_AbstractAction="_8rbME_ZoEdySh74qedEhsw" successor_AbstractAction="_0owb09o9EdyxgfK4Hy_RFA" failureProbability="0.0037">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="DoublePDF[(0.24;0.3)(0.25;0.4)(0.26;0.3)]"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_dP7wsNo8EdyxgfK4Hy_RFA" entityName="prepareBigReport" predecessor_AbstractAction="_CAY2MNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_8rbME_ZoEdySh74qedEhsw" failureProbability="9.8E-5">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="DoublePDF[(0.3;0.3)(0.31;0.3)(0.32;0.3)(0.33;0.1)]&#xD;&#xA;"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_CAY2MNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_dP7wsNo8EdyxgfK4Hy_RFA"/>
+            <steps_Behaviour xsi:type="_1:LoopAction" id="_8rbME_ZoEdySh74qedEhsw" predecessor_AbstractAction="_dP7wsNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_8ysM0No8EdyxgfK4Hy_RFA">
+              <bodyBehaviour_Loop>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_F113wPZqEdyw3N2eyRVO6Q" predecessor_AbstractAction="_Gp2HkPZqEdyw3N2eyRVO6Q" successor_AbstractAction="_IpiucPZqEdyw3N2eyRVO6Q" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1" role_ExternalService="_tOgNkNo5EdyCSNQKlT1LxA"/>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_Gp2HkPZqEdyw3N2eyRVO6Q" successor_AbstractAction="_F113wPZqEdyw3N2eyRVO6Q"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_IpiucPZqEdyw3N2eyRVO6Q" entityName="finalDetailedLoop1" predecessor_AbstractAction="_F113wPZqEdyw3N2eyRVO6Q"/>
+              </bodyBehaviour_Loop>
+              <iterationCount_LoopAction specification="requestedEntries.VALUE"/>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="isDetailed.VALUE == &quot;t&quot;"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_50GKMNo7EdyxgfK4Hy_RFA" successor_AbstractAction="_bugaMNo8EdyxgfK4Hy_RFA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_bugaMNo8EdyxgfK4Hy_RFA" entityName="prepareSmallReport" predecessor_AbstractAction="_50GKMNo7EdyxgfK4Hy_RFA" successor_AbstractAction="_5bjBo_ZmEdySh74qedEhsw" failureProbability="5.0E-5">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="DoublePDF[(0.09;0.1)(0.1;0.9)]"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_50GxQNo7EdyxgfK4Hy_RFA" entityName="finalNotDetailed" predecessor_AbstractAction="_5bjBo_ZmEdySh74qedEhsw"/>
+            <steps_Behaviour xsi:type="_1:LoopAction" id="_5bjBo_ZmEdySh74qedEhsw" predecessor_AbstractAction="_bugaMNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_50GxQNo7EdyxgfK4Hy_RFA">
+              <bodyBehaviour_Loop>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_CavKMPZnEdySh74qedEhsw" successor_AbstractAction="_C0EQMPZnEdySh74qedEhsw"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_C0EQMPZnEdySh74qedEhsw" predecessor_AbstractAction="_CavKMPZnEdySh74qedEhsw" successor_AbstractAction="_F6sp8PZnEdySh74qedEhsw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" role_ExternalService="_tOgNkNo5EdyCSNQKlT1LxA"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_F6sp8PZnEdySh74qedEhsw" entityName="finalNotDetailedLoop" predecessor_AbstractAction="_C0EQMPZnEdySh74qedEhsw"/>
+              </bodyBehaviour_Loop>
+              <iterationCount_LoopAction specification="requestedEntries.VALUE"/>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="isDetailed.VALUE == &quot;f&quot;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_YSHTMNo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_YSH6QNo5EdyCSNQKlT1LxA" successor_AbstractAction="_j-bYIPRKEdyws6pmQX1FJg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_YSH6Qdo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_Lhg8QNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_Lhg8QNo-EdyxgfK4Hy_RFA" predecessor_AbstractAction="_j-bYIPRKEdyws6pmQX1FJg" successor_AbstractAction="_YSH6Qdo5EdyCSNQKlT1LxA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_gXZbcNo9EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_j-bYIPRKEdyws6pmQX1FJg" entityName="prepareViewing" predecessor_AbstractAction="_YSH6QNo5EdyCSNQKlT1LxA" successor_AbstractAction="_Lhg8QNo-EdyxgfK4Hy_RFA" failureProbability="3.9E-5">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.09;0.15)(0.1;0.4)(0.11;0.3)(0.12;0.15)]&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_nEBdwNo4EdyCSNQKlT1LxA" entityName="CacheInfo">
+    <providedRoles_InterfaceProvidingEntity id="_gEK9cNo9EdyxgfK4Hy_RFA" entityName="Provided_ICache_CacheInfo" providedInterface__ProvidedRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_wNIh4No5EdyCSNQKlT1LxA" entityName="Required_IDB_CacheInfo" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_gEMyoNo9EdyxgfK4Hy_RFA" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_gENZsNo9EdyxgfK4Hy_RFA" successor_AbstractAction="_cOFnQNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_gENZsdo9EdyxgfK4Hy_RFA" predecessor_AbstractAction="_d2S7MNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_cOFnQNo-EdyxgfK4Hy_RFA" entityName="prepareDBAccess" predecessor_AbstractAction="_gENZsNo9EdyxgfK4Hy_RFA" successor_AbstractAction="_d2S7MNo-EdyxgfK4Hy_RFA" failureProbability="1.0E-6">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0.04&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_d2S7MNo-EdyxgfK4Hy_RFA" predecessor_AbstractAction="_cOFnQNo-EdyxgfK4Hy_RFA" successor_AbstractAction="_gENZsdo9EdyxgfK4Hy_RFA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.2" role_ExternalService="_wNIh4No5EdyCSNQKlT1LxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_sQC2sNo4EdyCSNQKlT1LxA" entityName="DB">
+    <providedRoles_InterfaceProvidingEntity id="_uD-dANo5EdyCSNQKlT1LxA" entityName="Provided_IDB_DB" providedInterface__ProvidedRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_uD_EENo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_uD_rINo5EdyCSNQKlT1LxA" successor_AbstractAction="_pBXFcNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_uD_rIdo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_pBXFcNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_pBXFcNo-EdyxgfK4Hy_RFA" entityName="getSmallReportFromDB" predecessor_AbstractAction="_uD_rINo5EdyCSNQKlT1LxA" successor_AbstractAction="_uD_rIdo5EdyCSNQKlT1LxA" failureProbability="5.5E-5">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.07;0.05)(0.08;0.05)(0.09;0.9)] + 0.0000001 * Entries.NUMBER_OF_ELEMENTS"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_uEASMNo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_uEASMdo5EdyCSNQKlT1LxA" successor_AbstractAction="_u8NTQNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_uEA5QNo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_u8NTQNo-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_u8NTQNo-EdyxgfK4Hy_RFA" entityName="getBigReportFromDB" predecessor_AbstractAction="_uEASMdo5EdyCSNQKlT1LxA" successor_AbstractAction="_uEA5QNo5EdyCSNQKlT1LxA" failureProbability="5.0E-5">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.09;0.1)(0.1;0.6)(0.11;0.3)] + 0.000002 * Entries.NUMBER_OF_ELEMENTS&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_z_UAwto-EdyxgfK4Hy_RFA" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_64NyQNo-EdyxgfK4Hy_RFA" successor_AbstractAction="_7MxF8No-EdyxgfK4Hy_RFA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_7MxF8No-EdyxgfK4Hy_RFA" entityName="getCachedDataFromDB" predecessor_AbstractAction="_64NyQNo-EdyxgfK4Hy_RFA" successor_AbstractAction="_-cH94No-EdyxgfK4Hy_RFA" failureProbability="2.1E-5">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.01;0.2)(0.02;0.6)(0.03;0.2)]&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_-cH94No-EdyxgfK4Hy_RFA" predecessor_AbstractAction="_7MxF8No-EdyxgfK4Hy_RFA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_6bAEENo5EdyCSNQKlT1LxA" entityName="WebServer">
+    <providedRoles_InterfaceProvidingEntity id="_7gSRINo5EdyCSNQKlT1LxA" entityName="Provided_IHTTP_WebServer" providedInterface__ProvidedRole="_36kHoNo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_76rHENo5EdyCSNQKlT1LxA" entityName="Required_IReporting_WebServer" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_7gTfQNo5EdyCSNQKlT1LxA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_7gTfQdo5EdyCSNQKlT1LxA" successor_AbstractAction="_P30yANo6EdyCSNQKlT1LxA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_7gTfQto5EdyCSNQKlT1LxA" predecessor_AbstractAction="_P30yANo6EdyCSNQKlT1LxA"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_P30yANo6EdyCSNQKlT1LxA" entityName="branchForRequestType" predecessor_AbstractAction="_7gTfQdo5EdyCSNQKlT1LxA" successor_AbstractAction="_7gTfQto5EdyCSNQKlT1LxA">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_sxjWYdo6EdyCSNQKlT1LxA" successor_AbstractAction="_0ieVANo6EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_tKy80No6EdyCSNQKlT1LxA" predecessor_AbstractAction="_59SX4No6EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_0ieVANo6EdyCSNQKlT1LxA" entityName="acceptReport" predecessor_AbstractAction="_sxjWYdo6EdyCSNQKlT1LxA" successor_AbstractAction="_59SX4No6EdyCSNQKlT1LxA" failureProbability="1.2E-5">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.2&#xD;&#xA;"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_59SX4No6EdyCSNQKlT1LxA" predecessor_AbstractAction="_0ieVANo6EdyCSNQKlT1LxA" successor_AbstractAction="_tKy80No6EdyCSNQKlT1LxA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_76rHENo5EdyCSNQKlT1LxA">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;report&quot;"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_t1v-Udo6EdyCSNQKlT1LxA" successor_AbstractAction="_-GFZQNo6EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_uOiRwNo6EdyCSNQKlT1LxA" predecessor_AbstractAction="__LuysNo6EdyCSNQKlT1LxA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_-GFZQNo6EdyCSNQKlT1LxA" entityName="acceptView" predecessor_AbstractAction="_t1v-Udo6EdyCSNQKlT1LxA" successor_AbstractAction="__LuysNo6EdyCSNQKlT1LxA" failureProbability="5.0E-5">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.12"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__LuysNo6EdyCSNQKlT1LxA" predecessor_AbstractAction="_-GFZQNo6EdyCSNQKlT1LxA" successor_AbstractAction="_uOiRwNo6EdyCSNQKlT1LxA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_76rHENo5EdyCSNQKlT1LxA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;view&quot;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_Mh43oLcKEd2_9rSHIHHezA" entityName="WebServer2">
+    <providedRoles_InterfaceProvidingEntity id="_PAvfsLcKEd2_9rSHIHHezA" entityName="Provided_IHTTP_WebServer2" providedInterface__ProvidedRole="_36kHoNo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_P6QhoLcKEd2_9rSHIHHezA" entityName="Required_IReporting_WebServer2" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_PAvfsbcKEd2_9rSHIHHezA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_PAvfsrcKEd2_9rSHIHHezA" successor_AbstractAction="_wXr2QLcKEd2_9rSHIHHezA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_PAvfs7cKEd2_9rSHIHHezA" predecessor_AbstractAction="_wXr2QLcKEd2_9rSHIHHezA"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_wXr2QLcKEd2_9rSHIHHezA" predecessor_AbstractAction="_PAvfsrcKEd2_9rSHIHHezA" successor_AbstractAction="_PAvfs7cKEd2_9rSHIHHezA">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_0wSOMLcKEd2_9rSHIHHezA" successor_AbstractAction="_2hiJYLcKEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_0wSOMbcKEd2_9rSHIHHezA" predecessor_AbstractAction="_BEbgYLcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_2hiJYLcKEd2_9rSHIHHezA" entityName="acceptReport" predecessor_AbstractAction="_0wSOMLcKEd2_9rSHIHHezA" successor_AbstractAction="_BEbgYLcLEd2_9rSHIHHezA">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.06"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_BEbgYLcLEd2_9rSHIHHezA" predecessor_AbstractAction="_2hiJYLcKEd2_9rSHIHHezA" successor_AbstractAction="_0wSOMbcKEd2_9rSHIHHezA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_P6QhoLcKEd2_9rSHIHHezA">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;report&quot;"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_1eew8bcKEd2_9rSHIHHezA" successor_AbstractAction="_OsnNULcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_1eew8rcKEd2_9rSHIHHezA" predecessor_AbstractAction="_Rzs6ELcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_OsnNULcLEd2_9rSHIHHezA" entityName="acceptView" predecessor_AbstractAction="_1eew8bcKEd2_9rSHIHHezA" successor_AbstractAction="_Rzs6ELcLEd2_9rSHIHHezA">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.03"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_Rzs6ELcLEd2_9rSHIHHezA" predecessor_AbstractAction="_OsnNULcLEd2_9rSHIHHezA" successor_AbstractAction="_1eew8rcKEd2_9rSHIHHezA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_P6QhoLcKEd2_9rSHIHHezA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;view&quot;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_V19EALcKEd2_9rSHIHHezA" entityName="WebServer3">
+    <providedRoles_InterfaceProvidingEntity id="_XXHUwLcKEd2_9rSHIHHezA" entityName="Provided_IHTTP_WebServer3" providedInterface__ProvidedRole="_36kHoNo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_YVZh8LcKEd2_9rSHIHHezA" entityName="Required_IReporting_WebServer3" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_XXQesLcKEd2_9rSHIHHezA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_XXQesbcKEd2_9rSHIHHezA" successor_AbstractAction="_omQr4LcLEd2_9rSHIHHezA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_XXQesrcKEd2_9rSHIHHezA" predecessor_AbstractAction="_omQr4LcLEd2_9rSHIHHezA"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_omQr4LcLEd2_9rSHIHHezA" entityName="branch" predecessor_AbstractAction="_XXQesbcKEd2_9rSHIHHezA" successor_AbstractAction="_XXQesrcKEd2_9rSHIHHezA">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_qh8VcLcLEd2_9rSHIHHezA" successor_AbstractAction="_zZioQLcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_qh8VcbcLEd2_9rSHIHHezA" predecessor_AbstractAction="_2QY5kLcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_zZioQLcLEd2_9rSHIHHezA" entityName="acceptReport" predecessor_AbstractAction="_qh8VcLcLEd2_9rSHIHHezA" successor_AbstractAction="_2QY5kLcLEd2_9rSHIHHezA">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.04"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_2QY5kLcLEd2_9rSHIHHezA" predecessor_AbstractAction="_zZioQLcLEd2_9rSHIHHezA" successor_AbstractAction="_qh8VcbcLEd2_9rSHIHHezA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_YVZh8LcKEd2_9rSHIHHezA">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="isDetailed.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="isDetailed"/>
+              </inputParameterUsages_ExternalCallAction>
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestedEntries.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="requestedEntries"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;report&quot;"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_wOlIIbcLEd2_9rSHIHHezA" successor_AbstractAction="__zpYgLcLEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_wOlIIrcLEd2_9rSHIHHezA" predecessor_AbstractAction="_CGlEcLcMEd2_9rSHIHHezA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="__zpYgLcLEd2_9rSHIHHezA" entityName="acceptView" predecessor_AbstractAction="_wOlIIbcLEd2_9rSHIHHezA" successor_AbstractAction="_CGlEcLcMEd2_9rSHIHHezA">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="0.08"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_CGlEcLcMEd2_9rSHIHHezA" predecessor_AbstractAction="__zpYgLcLEd2_9rSHIHHezA" successor_AbstractAction="_wOlIIrcLEd2_9rSHIHHezA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_YVZh8LcKEd2_9rSHIHHezA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="type.VALUE == &quot;view&quot;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_T2GTIDmCEd6dO791HCSelA" entityName="LocalCache">
+    <providedRoles_InterfaceProvidingEntity id="_VNC38DmCEd6dO791HCSelA" entityName="Provided_ICache_LocalCache" providedInterface__ProvidedRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_VkdSYDmCEd6dO791HCSelA" entityName="Required_IDB_LocalCache" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="123" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_VNe80DmCEd6dO791HCSelA" successor_AbstractAction="_Xm8HgDmCEd6dO791HCSelA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_VNe80TmCEd6dO791HCSelA" predecessor_AbstractAction="_Xm8HgDmCEd6dO791HCSelA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_Xm8HgDmCEd6dO791HCSelA" entityName="getCachedData" predecessor_AbstractAction="_VNe80DmCEd6dO791HCSelA" successor_AbstractAction="_VNe80TmCEd6dO791HCSelA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0.03"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_rpLzcEecEd6KA7GFQHGCjQ" entityName="DB2">
+    <providedRoles_InterfaceProvidingEntity id="_s9X_MEecEd6KA7GFQHGCjQ" entityName="Provided_IDB_DB2" providedInterface__ProvidedRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_s9hJIEecEd6KA7GFQHGCjQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_s9hJIUecEd6KA7GFQHGCjQ" successor_AbstractAction="_tzKXsEecEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_s9hJIkecEd6KA7GFQHGCjQ" predecessor_AbstractAction="_tzKXsEecEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_tzKXsEecEd6KA7GFQHGCjQ" entityName="getSmallReport" predecessor_AbstractAction="_s9hJIUecEd6KA7GFQHGCjQ" successor_AbstractAction="_s9hJIkecEd6KA7GFQHGCjQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.05;0.3)(0.06;0.04)(0.07;0.03)] + 0.0000001 * Entries.NUMBER_OF_ELEMENTS"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_s9q6IEecEd6KA7GFQHGCjQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_s9q6IUecEd6KA7GFQHGCjQ" successor_AbstractAction="__BjWUEecEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_s9q6IkecEd6KA7GFQHGCjQ" predecessor_AbstractAction="__BjWUEecEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="__BjWUEecEd6KA7GFQHGCjQ" entityName="getBigReport" predecessor_AbstractAction="_s9q6IUecEd6KA7GFQHGCjQ" successor_AbstractAction="_s9q6IkecEd6KA7GFQHGCjQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.04;0.1)(0.05;0.9)(0.06;0.2)] + 0.000002 * Entries.NUMBER_OF_ELEMENTS&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_s9q6I0ecEd6KA7GFQHGCjQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_s9q6JEecEd6KA7GFQHGCjQ" successor_AbstractAction="_HbVrwEedEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_s9q6JUecEd6KA7GFQHGCjQ" predecessor_AbstractAction="_HbVrwEedEd6KA7GFQHGCjQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_HbVrwEedEd6KA7GFQHGCjQ" entityName="getCachedData" predecessor_AbstractAction="_s9q6JEecEd6KA7GFQHGCjQ" successor_AbstractAction="_s9q6JUecEd6KA7GFQHGCjQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="DoublePDF[(0.02;0.2)(0.03;0.6)(0.04;0.2)]&#xD;&#xA;"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="CompositeComponent" id="_yqG34FaXEd6HqahvVj4WQQ" entityName="Reporting Server">
+    <assemblyContexts_ComposedStructure id="_EPSl4FaYEd6HqahvVj4WQQ" entityName="Assembly_ReportingEngine &lt;ReportingEngine>" encapsulatedComponent_AssemblyContext="_k7K64No4EdyCSNQKlT1LxA"/>
+    <assemblyContexts_ComposedStructure id="_HwTOgFaYEd6HqahvVj4WQQ" entityName="Assembly_CacheInfo &lt;CacheInfo>" encapsulatedComponent_AssemblyContext="_nEBdwNo4EdyCSNQKlT1LxA"/>
+    <providedDelegationConnectors_ComposedStructure id="_QvySAFaYEd6HqahvVj4WQQ" entityName="ProvDelegation Provided_IReporting_Reporting Server -> Provided_IReporting_ReportingEngine" innerProvidedRole_ProvidedDelegationConnector="_YSFeANo5EdyCSNQKlT1LxA" outerProvidedRole_ProvidedDelegationConnector="_7mKM4FaXEd6HqahvVj4WQQ" assemblyContext_ProvidedDelegationConnector="_EPSl4FaYEd6HqahvVj4WQQ"/>
+    <requiredDelegationConnectors_ComposedStructure id="_LkOzIFaYEd6HqahvVj4WQQ" entityName="ReqDelegation Required_IDB_CacheInfo -> Required_IDB_Reporting Server" innerRequiredRole_RequiredDelegationConnector="_wNIh4No5EdyCSNQKlT1LxA" outerRequiredRole_RequiredDelegationConnector="_8Stw4FaXEd6HqahvVj4WQQ" assemblyContext_RequiredDelegationConnector="_HwTOgFaYEd6HqahvVj4WQQ"/>
+    <requiredDelegationConnectors_ComposedStructure id="_MbqxcFaYEd6HqahvVj4WQQ" entityName="ReqDelegation Required_IDB_ReportingEngine -> Required_IDB_Reporting Server" innerRequiredRole_RequiredDelegationConnector="_tOgNkNo5EdyCSNQKlT1LxA" outerRequiredRole_RequiredDelegationConnector="_8Stw4FaXEd6HqahvVj4WQQ" assemblyContext_RequiredDelegationConnector="_EPSl4FaYEd6HqahvVj4WQQ"/>
+    <assemblyConnectors_ComposedStructure id="_K5w50FaYEd6HqahvVj4WQQ" entityName="Connector Assembly_ReportingEngine &lt;ReportingEngine> -> Assembly_CacheInfo &lt;CacheInfo>" requiringAssemblyContext_AssemblyConnector="_EPSl4FaYEd6HqahvVj4WQQ" providingAssemblyContext_AssemblyConnector="_HwTOgFaYEd6HqahvVj4WQQ" providedRole_AssemblyConnector="_gEK9cNo9EdyxgfK4Hy_RFA" requiredRole_AssemblyConnector="_gXZbcNo9EdyxgfK4Hy_RFA"/>
+    <providedRoles_InterfaceProvidingEntity id="_7mKM4FaXEd6HqahvVj4WQQ" entityName="Provided_IReporting_Reporting Server" providedInterface__ProvidedRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_8Stw4FaXEd6HqahvVj4WQQ" entityName="Required_IDB_Reporting Server" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+  </components__Repository>
+  <interfaces__Repository id="_Ebo4ANo5EdyCSNQKlT1LxA" entityName="IReporting">
+    <signatures__Interface serviceName="report">
+      <parameters__Signature parameterName="isDetailed">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="requestedEntries">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="view"/>
+  </interfaces__Repository>
+  <interfaces__Repository id="_bt-WENo5EdyCSNQKlT1LxA" entityName="IDB">
+    <signatures__Interface serviceName="getSmallReport"/>
+    <signatures__Interface serviceName="getBigReport"/>
+    <signatures__Interface serviceName="getCachedData"/>
+  </interfaces__Repository>
+  <interfaces__Repository id="_36kHoNo5EdyCSNQKlT1LxA" entityName="IHTTP">
+    <signatures__Interface serviceName="processRequest">
+      <parameters__Signature parameterName="type" modifier__Parameter="in">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="isDetailed">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="requestedEntries">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_cooDoNo9EdyxgfK4Hy_RFA" entityName="ICache">
+    <signatures__Interface serviceName="doCacheAccess"/>
+  </interfaces__Repository>
+</Repository>

@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_DQ1vIHq_Ed6J8YwisObTKw" type="PCM Usage Model" name="brs-varying.usagemodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_DT97oHq_Ed6J8YwisObTKw" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_DT97o3q_Ed6J8YwisObTKw" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_DT97pnq_Ed6J8YwisObTKw" type="3001">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_DT97p3q_Ed6J8YwisObTKw"/>
+        <element xmi:type="Start" href="brs-varying.usagemodel#_DQi0Mnq_Ed6J8YwisObTKw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT97qHq_Ed6J8YwisObTKw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_DT97qXq_Ed6J8YwisObTKw" type="3002">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_DT97qnq_Ed6J8YwisObTKw"/>
+        <element xmi:type="Stop" href="brs-varying.usagemodel#_DQi0M3q_Ed6J8YwisObTKw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT97q3q_Ed6J8YwisObTKw" x="10" y="10"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_OwqBYHq_Ed6J8YwisObTKw" type="3008">
+        <children xmi:type="notation:Node" xmi:id="_OwqBY3q_Ed6J8YwisObTKw" type="7009">
+          <children xmi:type="notation:Node" xmi:id="_Q-X2I3q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_Q-X2Jnq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_Q-hnIHq_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_Q-hnI3q_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_Q-hnJnq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_Q-hnJ3q_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_Q-X2IXq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q-hnKHq_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_Q-hnKXq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_Q-hnKnq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_Q-X2Inq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q-hnK3q_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_YGnEIHq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_YGnEI3q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_YGnEJHq_Ed6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_Yry00Hq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_Yry003q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_Yry01Hq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_Y5w_YHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_Y5w_YXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_Yry01Xq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_Yry01nq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_Yry013q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_Yry02Hq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_Yry00Xq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yry00nq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_YGnEJXq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_YGnEJnq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_YGnEIXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_V1U-AHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YGnEInq_Ed6J8YwisObTKw" x="55" y="11"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_Q-hnJHq_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_Q-hnJXq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Q-hnIXq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_Q-X2IHq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q-hnInq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Q-X2JHq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q-X2JXq_Ed6J8YwisObTKw" y="6" width="256" height="171"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bcmvk3q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_bcmvlnq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_bcmvl3q_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_bcmvmnq_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_bcmvnXq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_bcmvnnq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_bcmvkXq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bcmvn3q_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_bcmvoHq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_bcmvoXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_bcmvknq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bcmvonq_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_cm9p4Hq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_cm9p43q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_cm9p5Hq_Ed6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_dGyZcHq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_dGyZc3q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_dGyZdHq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_dUxLEHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_dUxLEXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_dGyZdXq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_dGyZdnq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_dGyZd3q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_dGyZeHq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_dGyZcXq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dGyZcnq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_cm9p5Xq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_cm9p5nq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_cm9p4Xq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_cT7ZIHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cm9p4nq_Ed6J8YwisObTKw" x="55" y="19"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_bcmvm3q_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_bcmvnHq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bcmvmHq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_bcmvkHq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bcmvmXq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bcmvlHq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bcmvlXq_Ed6J8YwisObTKw" x="270" y="11" width="256" height="166"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_f9s8M3q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_f9s8Nnq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_f9s8N3q_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_f9s8Onq_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_f9s8PXq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_f9s8Pnq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_f9s8MXq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f9s8P3q_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_f9s8QHq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_f9s8QXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_f9s8Mnq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f9s8Qnq_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_iteVIHq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_iteVI3q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_iteVJHq_Ed6J8YwisObTKw" type="7002">
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_iteVJXq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_iteVJnq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_iteVIXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_ia4wUHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iteVInq_Ed6J8YwisObTKw" x="43" y="54"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_f9s8O3q_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_f9s8PHq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_f9s8OHq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_f9s8MHq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f9s8OXq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_f9s8NHq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f9s8NXq_Ed6J8YwisObTKw" x="540" y="16" width="201" height="161"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_j4kPQ3q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_j4kPRnq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_j4kPR3q_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_j4kPSnq_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_j4kPTXq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_j4kPTnq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_j4kPQXq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j4kPT3q_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_j4kPUHq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_j4kPUXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_j4kPQnq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j4kPUnq_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_komlEHq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_komlE3q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_komlFHq_Ed6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_s-8k8Hq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_s-8k83q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_s-8k9Hq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_tK1r4Hq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_tK1r4Xq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_uaZ2UHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.1"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_uaZ2UXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_s-8k9Xq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_s-8k9nq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_s-8k93q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_s-8k-Hq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_s-8k8Xq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s-8k8nq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_wUMpgHq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_wUMpg3q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_wUMphHq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_wgGXgHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_wgGXgXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_wUMphXq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_wUMphnq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_wUMph3q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_wUMpiHq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_wUMpgXq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wUMpgnq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_zrPd0Hq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_zrPd03q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_zrPd1Hq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_z4eokHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.2/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_z4eokXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_zrPd1Xq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_zrPd1nq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_zrPd13q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_zrPd2Hq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_zrPd0Xq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.2"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zrPd0nq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_komlFXq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_komlFnq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_komlEXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_kJhcYHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_komlEnq_Ed6J8YwisObTKw" x="15" y="49"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_j4kPS3q_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_j4kPTHq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_j4kPSHq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_j4kPQHq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j4kPSXq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_j4kPRHq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.3"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j4kPRXq_Ed6J8YwisObTKw" x="5" y="186" width="346" height="306"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lQnAQ3q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_lQnARnq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_lQnAR3q_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_lQnASnq_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_lQnATXq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_lQnATnq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_lQnAQXq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQnAT3q_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_lQnAUHq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_lQnAUXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_lQnAQnq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQnAUnq_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_mOBqwHq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_mOBqw3q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_mOBqxHq_Ed6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_3CJIMHq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_3CJIM3q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_3CJINHq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_3NljMHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_3NljMXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_3ZobIHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.1"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_3ZobIXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_3CJINXq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_3CJINnq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_3CJIN3q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_3CJIOHq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3CJIMXq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3CJIMnq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_6VBOMHq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_6VBOM3q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_6VBONHq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_6i__0Hq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_6i__0Xq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_6VBONXq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_6VBONnq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_6VBON3q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_6VBOOHq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_6VBOMXq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6VBOMnq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_8XvT4Hq_Ed6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_8XvT43q_Ed6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_8XvT5Hq_Ed6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_8kFGwHq_Ed6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.2/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_8kFGwXq_Ed6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_8XvT5Xq_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_8XvT5nq_Ed6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_8XvT53q_Ed6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_8XvT6Hq_Ed6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_8XvT4Xq_Ed6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.2"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8XvT4nq_Ed6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_mOBqxXq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_mOBqxnq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_mOBqwXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_l9OOoHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mOBqwnq_Ed6J8YwisObTKw" x="55" y="9"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_lQnAS3q_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_lQnATHq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lQnASHq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_lQnAQHq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQnASXq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lQnARHq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.4"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQnARXq_Ed6J8YwisObTKw" x="360" y="186" width="366" height="301"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-kbN43q_Ed6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_-kbN5nq_Ed6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_-kbN53q_Ed6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_-kbN6nq_Ed6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_-kbN7Xq_Ed6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_-kbN7nq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_-kbN4Xq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-kbN73q_Ed6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_-kbN8Hq_Ed6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_-kbN8Xq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_-kbN4nq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-kbN8nq_Ed6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="__hZzgHq_Ed6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="__hZzg3q_Ed6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="__hZzhHq_Ed6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_BaKE4HrAEd6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_BaKE43rAEd6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_BaKE5HrAEd6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_D-MH4HrAEd6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.5/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_D-MH4XrAEd6J8YwisObTKw"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_EhlI0HrAEd6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.5/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.1"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_EhlI0XrAEd6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_BaKE5XrAEd6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_BaKE5nrAEd6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_BaKE53rAEd6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_BaKE6HrAEd6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_BaKE4XrAEd6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.5/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BaKE4nrAEd6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="__hZzhXq_Ed6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="__hZzhnq_Ed6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="__hZzgXq_Ed6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#__F48MHq_Ed6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="__hZzgnq_Ed6J8YwisObTKw" x="60" y="24"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_-kbN63q_Ed6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_-kbN7Hq_Ed6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_-kbN6Hq_Ed6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_-kbN4Hq_Ed6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-kbN6Xq_Ed6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-kbN5Hq_Ed6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.5"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-kbN5Xq_Ed6J8YwisObTKw" x="5" y="496" width="346" height="221"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_AALaM3rAEd6J8YwisObTKw" type="3009">
+            <children xmi:type="notation:Node" xmi:id="_AALaNnrAEd6J8YwisObTKw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_AALaN3rAEd6J8YwisObTKw" type="3010">
+              <children xmi:type="notation:Node" xmi:id="_AALaOnrAEd6J8YwisObTKw" type="7008">
+                <children xmi:type="notation:Node" xmi:id="_AAVLMHrAEd6J8YwisObTKw" type="3001">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_AAVLMXrAEd6J8YwisObTKw"/>
+                  <element xmi:type="Start" href="brs-varying.usagemodel#_AALaMXrAEd6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AAVLMnrAEd6J8YwisObTKw"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_AAVLM3rAEd6J8YwisObTKw" type="3002">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_AAVLNHrAEd6J8YwisObTKw"/>
+                  <element xmi:type="Stop" href="brs-varying.usagemodel#_AALaMnrAEd6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AAVLNXrAEd6J8YwisObTKw" x="10" y="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_Alg74HrAEd6J8YwisObTKw" type="3003">
+                  <children xmi:type="notation:Node" xmi:id="_Alg743rAEd6J8YwisObTKw" type="5004"/>
+                  <children xmi:type="notation:Node" xmi:id="_Alg75HrAEd6J8YwisObTKw" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_HffrcHrAEd6J8YwisObTKw" type="3012">
+                      <children xmi:type="notation:Node" xmi:id="_Hffrc3rAEd6J8YwisObTKw" type="5012"/>
+                      <children xmi:type="notation:Node" xmi:id="_HffrdHrAEd6J8YwisObTKw" type="7011">
+                        <children xmi:type="notation:Node" xmi:id="_Hw49cHrAEd6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.6/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_Hw49cXrAEd6J8YwisObTKw"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_LOLjsHrAEd6J8YwisObTKw" type="3013">
+                          <element xmi:type="_1:VariableCharacterisation" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.6/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.1"/>
+                          <layoutConstraint xmi:type="notation:Location" xmi:id="_LOLjsXrAEd6J8YwisObTKw"/>
+                        </children>
+                        <styles xmi:type="notation:DrawerStyle" xmi:id="_HffrdXrAEd6J8YwisObTKw"/>
+                        <styles xmi:type="notation:TitleStyle" xmi:id="_HffrdnrAEd6J8YwisObTKw" showTitle="true"/>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_Hffrd3rAEd6J8YwisObTKw"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_HffreHrAEd6J8YwisObTKw"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_HffrcXrAEd6J8YwisObTKw"/>
+                      <element xmi:type="_1:VariableUsage" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.6/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HffrcnrAEd6J8YwisObTKw"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_Alg75XrAEd6J8YwisObTKw"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_Alg75nrAEd6J8YwisObTKw"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_Alg74XrAEd6J8YwisObTKw"/>
+                  <element xmi:type="EntryLevelSystemCall" href="brs-varying.usagemodel#_ASxmEHrAEd6J8YwisObTKw"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Alg74nrAEd6J8YwisObTKw" x="62" y="53"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_AALaO3rAEd6J8YwisObTKw"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_AALaPHrAEd6J8YwisObTKw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_AALaOHrAEd6J8YwisObTKw"/>
+              <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_AALaMHrAEd6J8YwisObTKw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AALaOXrAEd6J8YwisObTKw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_AALaNHrAEd6J8YwisObTKw"/>
+            <element xmi:type="BranchTransition" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.6"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AALaNXrAEd6J8YwisObTKw" x="365" y="496" width="351" height="211"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_OwqBZHq_Ed6J8YwisObTKw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_OwqBZXq_Ed6J8YwisObTKw"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_OwqBYXq_Ed6J8YwisObTKw"/>
+        <element xmi:type="Branch" href="brs-varying.usagemodel#_OwNVcHq_Ed6J8YwisObTKw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OwqBYnq_Ed6J8YwisObTKw" x="20" y="69" width="766" height="801"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_DT97pHq_Ed6J8YwisObTKw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_DT97pXq_Ed6J8YwisObTKw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_DT97oXq_Ed6J8YwisObTKw"/>
+    <element xmi:type="ScenarioBehaviour" href="brs-varying.usagemodel#_DQi0MXq_Ed6J8YwisObTKw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT97onq_Ed6J8YwisObTKw" width="1156" height="786"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_EJ8hYHq_Ed6J8YwisObTKw" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_EJ8hY3q_Ed6J8YwisObTKw" type="5010"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EJ8hYXq_Ed6J8YwisObTKw"/>
+    <element xmi:type="OpenWorkload" href="brs-varying.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EJ8hYnq_Ed6J8YwisObTKw" x="770"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_DQ1vIXq_Ed6J8YwisObTKw"/>
+  <element xmi:type="UsageScenario" href="brs-varying.usagemodel#_DQi0MHq_Ed6J8YwisObTKw"/>
+  <edges xmi:type="notation:Edge" xmi:id="_OO6w0HrAEd6J8YwisObTKw" type="4002" source="_Q-hnJnq_Ed6J8YwisObTKw" target="_YGnEIHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_OO6w0XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_OO6w0nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OO6w03rAEd6J8YwisObTKw" points="[10, 1, -64, -11]$[60, 1, -14, -11]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OO6w1HrAEd6J8YwisObTKw" id="(0.2013889,0.11827957)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_OXZXYHrAEd6J8YwisObTKw" type="4002" source="_YGnEIHq_Ed6J8YwisObTKw" target="_Q-hnKXq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_OXZXYXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_OXZXYnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OXZXY3rAEd6J8YwisObTKw" points="[-29, 3, 30, 7]$[-57, 11, 2, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OXjIYHrAEd6J8YwisObTKw" id="(0.20833333,0.20430107)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Ognk0HrAEd6J8YwisObTKw" type="4002" source="_bcmvnXq_Ed6J8YwisObTKw" target="_cm9p4Hq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ognk0XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ognk0nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ognk03rAEd6J8YwisObTKw" points="[12, 2, -86, -20]$[94, 15, -4, -7]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ognk1HrAEd6J8YwisObTKw" id="(0.45,0.2)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ognk1XrAEd6J8YwisObTKw" id="(0.35416666,0.07526882)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Omkb0HrAEd6J8YwisObTKw" type="4002" source="_cm9p4Hq_Ed6J8YwisObTKw" target="_bcmvoHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Omkb0XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Omkb0nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Omkb03rAEd6J8YwisObTKw" points="[-27, -4, 30, 7]$[-57, 4, 0, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Omkb1HrAEd6J8YwisObTKw" id="(0.1875,0.19354838)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Ou5RYHrAEd6J8YwisObTKw" type="4002" source="_f9s8PXq_Ed6J8YwisObTKw" target="_iteVIHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ou5RYXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ou5RYnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ou5RY3rAEd6J8YwisObTKw" points="[10, 5, -81, -49]$[87, 44, -4, -10]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ou5RZHrAEd6J8YwisObTKw" id="(0.453125,0.2)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_O3hB4HrAEd6J8YwisObTKw" type="4002" source="_iteVIHq_Ed6J8YwisObTKw" target="_f9s8QHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_O3hB4XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_O3hB4nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_O3hB43rAEd6J8YwisObTKw" points="[-15, -18, 19, 29]$[-49, -46, -15, 1]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_O3qy4HrAEd6J8YwisObTKw" id="(0.125,0.36)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PC-D8HrAEd6J8YwisObTKw" type="4002" source="_j4kPTXq_Ed6J8YwisObTKw" target="_komlEHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PC-D8XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PC-D8nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PC-D83rAEd6J8YwisObTKw" points="[10, 5, -102, -59]$[104, 39, -8, -25]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PC-D9HrAEd6J8YwisObTKw" id="(0.4099617,0.11737089)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PJzrwHrAEd6J8YwisObTKw" type="4002" source="_komlEHq_Ed6J8YwisObTKw" target="_j4kPUHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PJzrwXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PJzrwnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PJzrw3rAEd6J8YwisObTKw" points="[-2, -13, 5, 24]$[-6, -22, 1, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PJzrxHrAEd6J8YwisObTKw" id="(0.06896552,0.065727696)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PU0B4HrAEd6J8YwisObTKw" type="4002" source="_lQnATXq_Ed6J8YwisObTKw" target="_mOBqwHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PU0B4XrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PU0B4nrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PU0B43rAEd6J8YwisObTKw" points="[10, 2, -108, -22]$[100, -1, -18, -25]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PU0B5HrAEd6J8YwisObTKw" id="(0.27969348,0.11737089)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PcjBkHrAEd6J8YwisObTKw" type="4002" source="_mOBqwHq_Ed6J8YwisObTKw" target="_lQnAUHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PcjBkXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PcjBknrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PcjBk3rAEd6J8YwisObTKw" points="[-34, -5, 30, 9]$[-79, 1, -15, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PcjBlHrAEd6J8YwisObTKw" id="(0.1302682,0.14084508)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PqYCMHrAEd6J8YwisObTKw" type="4002" source="_AAVLMHrAEd6J8YwisObTKw" target="_Alg74HrAEd6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PqYCMXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PqYCMnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PqYCM3rAEd6J8YwisObTKw" points="[10, 5, -89, -49]$[90, 43, -9, -11]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PqhzMHrAEd6J8YwisObTKw" id="(0.29375,0.10091743)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_PzAZwHrAEd6J8YwisObTKw" type="4002" source="_Alg74HrAEd6J8YwisObTKw" target="_AAVLM3rAEd6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PzAZwXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PzAZwnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PzAZw3rAEd6J8YwisObTKw" points="[-9, -6, 38, 28]$[-62, -34, -15, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PzAZxHrAEd6J8YwisObTKw" id="(0.0625,0.055045873)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P_f9oHrAEd6J8YwisObTKw" type="4002" source="_-kbN7Xq_Ed6J8YwisObTKw" target="__hZzgHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P_f9oXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P_f9onrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P_f9o3rAEd6J8YwisObTKw" points="[10, 3, -89, -34]$[71, 14, -28, -23]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P_f9pHrAEd6J8YwisObTKw" id="(0.2816092,0.21100917)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_QHrCMHrAEd6J8YwisObTKw" type="4002" source="__hZzgHq_Ed6J8YwisObTKw" target="_-kbN8Hq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_QHrCMXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_QHrCMnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QHrCM3rAEd6J8YwisObTKw" points="[-19, -5, 44, 10]$[-69, -16, -6, -1]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QHrCNHrAEd6J8YwisObTKw" id="(0.109195404,0.13761468)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QHrCNXrAEd6J8YwisObTKw" id="(0.2,0.46666667)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_RIhbMHrAEd6J8YwisObTKw" type="4002" source="_DT97pnq_Ed6J8YwisObTKw" target="_OwqBYHq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_RIhbMXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_RIhbMnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RIhbM3rAEd6J8YwisObTKw" points="[10, 6, -95, -61]$[99, 59, -6, -8]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RIhbNHrAEd6J8YwisObTKw" id="(0.12402089,0.009987515)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_RWpWwHrAEd6J8YwisObTKw" type="4002" source="_OwqBYHq_Ed6J8YwisObTKw" target="_DT97qXq_Ed6J8YwisObTKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_RWpWwXrAEd6J8YwisObTKw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_RWpWwnrAEd6J8YwisObTKw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RWpWw3rAEd6J8YwisObTKw" points="[-3, -7, 18, 44]$[-22, -36, -1, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RWpWxHrAEd6J8YwisObTKw" id="(0.03524804,0.009987515)"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_jc4VMFaWEd6HqahvVj4WQQ" type="PCM SEFF Model" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jc4VMVaWEd6HqahvVj4WQQ"/>
+  <element xmi:type="ResourceDemandingSEFF" href="brs.repository#_uD_EENo5EdyCSNQKlT1LxA"/>
+</notation:Diagram>

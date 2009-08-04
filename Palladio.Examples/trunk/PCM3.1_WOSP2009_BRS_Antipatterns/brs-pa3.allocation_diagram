@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_O1tCkWouEd631pecjlFspw" type="allocation" name="brs-pa3.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_O4tTQGouEd631pecjlFspw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_O4tTQ2ouEd631pecjlFspw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_O4tTRGouEd631pecjlFspw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_Yu8toHJHEd6a3YZ2ywNj2Q" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_YvF3kHJHEd6a3YZ2ywNj2Q" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_YvF3kXJHEd6a3YZ2ywNj2Q" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Yu8toXJHEd6a3YZ2ywNj2Q"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_X5wLAHJHEd6a3YZ2ywNj2Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yu8tonJHEd6a3YZ2ywNj2Q" x="19" y="6"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ZrJQIHJHEd6a3YZ2ywNj2Q" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_ZrJQI3JHEd6a3YZ2ywNj2Q" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_ZrJQJHJHEd6a3YZ2ywNj2Q" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_ZrJQIXJHEd6a3YZ2ywNj2Q"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_ZUfqsHJHEd6a3YZ2ywNj2Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZrJQInJHEd6a3YZ2ywNj2Q" x="215" y="58" width="198"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_a6bGsHJHEd6a3YZ2ywNj2Q" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_a6bGs3JHEd6a3YZ2ywNj2Q" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_a6bGtHJHEd6a3YZ2ywNj2Q" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_a6bGsXJHEd6a3YZ2ywNj2Q"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_amAV4HJHEd6a3YZ2ywNj2Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a6bGsnJHEd6a3YZ2ywNj2Q" x="10" y="118" width="206"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_O4tTRWouEd631pecjlFspw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_O4tTRmouEd631pecjlFspw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_O4tTQWouEd631pecjlFspw"/>
+    <element xmi:type="_1:ResourceContainer" href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4tTQmouEd631pecjlFspw" width="556" height="226"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_O4tTR2ouEd631pecjlFspw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_O4tTSmouEd631pecjlFspw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_O4tTS2ouEd631pecjlFspw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_V4GuUGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_V4GuU2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_V4GuVGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_V4GuUWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_Vlf7YGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V4GuUmouEd631pecjlFspw" x="8" y="75" width="119"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_XF-PoGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_XF-Po2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_XF-PpGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_XF-PoWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_W1xQcGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XF-PomouEd631pecjlFspw" x="10" y="156" width="124"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_gN3WQHJHEd6a3YZ2ywNj2Q" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_gN3WQ3JHEd6a3YZ2ywNj2Q" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_gN3WRHJHEd6a3YZ2ywNj2Q" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_gN3WQXJHEd6a3YZ2ywNj2Q"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_fklvwHJHEd6a3YZ2ywNj2Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gN3WQnJHEd6a3YZ2ywNj2Q" x="15" y="22" width="136"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_bDhqUGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_bDhqU2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_bDhqVGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_bDhqUWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_agt4MGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bDhqUmouEd631pecjlFspw" x="165" y="88" width="171"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_O4tTTGouEd631pecjlFspw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_O4tTTWouEd631pecjlFspw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_O4tTSGouEd631pecjlFspw"/>
+    <element xmi:type="_1:ResourceContainer" href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4tTSWouEd631pecjlFspw" x="20" y="275" width="286" height="256"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_O4tTTmouEd631pecjlFspw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_O4tTUWouEd631pecjlFspw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_O4tTUmouEd631pecjlFspw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_R0ZoUGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_R0ZoU2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_R0ZoVGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_R0ZoUWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_RYCccGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R0ZoUmouEd631pecjlFspw" x="13" y="28" width="142"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Syg2YGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_Syg2Y2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_Syg2ZGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Syg2YWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_SXqGYGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Syg2YmouEd631pecjlFspw" x="30" y="112" width="116"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_O4tTU2ouEd631pecjlFspw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_O4tTVGouEd631pecjlFspw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_O4tTT2ouEd631pecjlFspw"/>
+    <element xmi:type="_1:ResourceContainer" href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4tTUGouEd631pecjlFspw" x="645" y="165" width="173" height="241"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_O4tTVWouEd631pecjlFspw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_O4tTWGouEd631pecjlFspw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_O4tTWWouEd631pecjlFspw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_P80boGouEd631pecjlFspw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_P80bo2ouEd631pecjlFspw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_P80bpGouEd631pecjlFspw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_P80boWouEd631pecjlFspw"/>
+        <element xmi:type="AllocationContext" href="brs-pa3.allocation#_Phg_sGouEd631pecjlFspw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P80bomouEd631pecjlFspw" x="25" y="31" width="111"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_O4tTWmouEd631pecjlFspw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_O4tTW2ouEd631pecjlFspw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_O4tTVmouEd631pecjlFspw"/>
+    <element xmi:type="_1:ResourceContainer" href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4tTV2ouEd631pecjlFspw" x="345" y="400" width="159" height="126"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_O1tCkmouEd631pecjlFspw"/>
+  <element xmi:type="Allocation" href="brs-pa3.allocation#_O1tCkGouEd631pecjlFspw"/>
+</notation:Diagram>

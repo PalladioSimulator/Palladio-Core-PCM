@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_8CJgIGoxEd631pecjlFspw" entityName="Business_Reporting_System">
+  <assemblyContexts_ComposedStructure id="_8ug24GoxEd631pecjlFspw" entityName="Assembly_DatabaseWORamp &lt;DatabaseWORamp>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_2eKTIGoxEd631pecjlFspw"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="100000.0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="Entries"/>
+    </configParameterUsages_AssemblyContext>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_spUNkGo0Ed631pecjlFspw" entityName="Assembly_WebServer &lt;WebServer>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_tepTEGo0Ed631pecjlFspw" entityName="Assembly_Scheduler &lt;Scheduler>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_jpoagNo4EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_vSkHwGo0Ed631pecjlFspw" entityName="Assembly_GraphicalReporting &lt;GraphicalReporting>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_LP3icFelEd6zR8NNmb-sJg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_xOQYYGo0Ed631pecjlFspw" entityName="Assembly_OnlineReporting &lt;OnlineReporting>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_M0cTkFelEd6zR8NNmb-sJg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_x-81gGo0Ed631pecjlFspw" entityName="Assembly_CoreReportingEngine &lt;CoreReportingEngine>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_P48uoGo2Ed631pecjlFspw"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_0sYsIGo0Ed631pecjlFspw" entityName="Assembly_CacheInfo &lt;CacheInfo>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_nEBdwNo4EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_5mZIAGo0Ed631pecjlFspw" entityName="Assembly_UserManagement &lt;UserManagement>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_NeaygFhGEd6UHd_VhJH9SQ"/>
+  </assemblyContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_2eN2IGo0Ed631pecjlFspw" entityName="ProvDelegation Provided_IAdmin -> Provided_IAdmin_ReportingEngine" outerProvidedRole_ProvidedDelegationConnector="_ralwoGo0Ed631pecjlFspw" assemblyContext_ProvidedDelegationConnector="_x-81gGo0Ed631pecjlFspw">
+    <innerProvidedRole_ProvidedDelegationConnector href="brs.repository#_WjvysGo2Ed631pecjlFspw"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_2yO-UGo0Ed631pecjlFspw" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebServer" outerProvidedRole_ProvidedDelegationConnector="_quXj0Go0Ed631pecjlFspw" assemblyContext_ProvidedDelegationConnector="_spUNkGo0Ed631pecjlFspw">
+    <innerProvidedRole_ProvidedDelegationConnector href="brs.repository#_7gSRINo5EdyCSNQKlT1LxA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_3sWdMGo0Ed631pecjlFspw" entityName="Connector Assembly_WebServer &lt;WebServer> -> Assembly_Scheduler &lt;Scheduler>" requiringAssemblyContext_AssemblyConnector="_spUNkGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_tepTEGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_Wm_OINo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_76rHENo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_32gewGo0Ed631pecjlFspw" entityName="Connector Assembly_Scheduler &lt;Scheduler> -> Assembly_GraphicalReporting &lt;GraphicalReporting>" requiringAssemblyContext_AssemblyConnector="_tepTEGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_vSkHwGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_QM9ukFelEd6zR8NNmb-sJg"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8cgw8FemEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_3_xIcGo0Ed631pecjlFspw" entityName="Connector Assembly_Scheduler &lt;Scheduler> -> Assembly_OnlineReporting &lt;OnlineReporting>" requiringAssemblyContext_AssemblyConnector="_tepTEGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_xOQYYGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_TnQrMFelEd6zR8NNmb-sJg"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_XOHfkNo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_4La-0Go0Ed631pecjlFspw" entityName="Connector Assembly_GraphicalReporting &lt;GraphicalReporting> -> Assembly_CoreReportingEngine &lt;CoreReportingEngine>" requiringAssemblyContext_AssemblyConnector="_vSkHwGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_x-81gGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_XKu6MGo2Ed631pecjlFspw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_TNCNUFelEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_4ZKf4Go0Ed631pecjlFspw" entityName="Connector Assembly_OnlineReporting &lt;OnlineReporting> -> Assembly_CoreReportingEngine &lt;CoreReportingEngine>" requiringAssemblyContext_AssemblyConnector="_xOQYYGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_x-81gGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_XKu6MGo2Ed631pecjlFspw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_URR4kFelEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_4jBmgGo0Ed631pecjlFspw" entityName="Connector Assembly_CoreReportingEngine &lt;CoreReportingEngine> -> Assembly_CacheInfo &lt;CacheInfo>" requiringAssemblyContext_AssemblyConnector="_x-81gGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_0sYsIGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_gEK9cNo9EdyxgfK4Hy_RFA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_XlnfYGo2Ed631pecjlFspw"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_5MjEoGo0Ed631pecjlFspw" entityName="Connector Assembly_CoreReportingEngine &lt;CoreReportingEngine> -> Assembly_DatabaseWORamp &lt;DatabaseWORamp>" requiringAssemblyContext_AssemblyConnector="_x-81gGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_8ug24GoxEd631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_4lDHIGoxEd631pecjlFspw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_YDMzQGo2Ed631pecjlFspw"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_5WtGMGo0Ed631pecjlFspw" entityName="Connector Assembly_CacheInfo &lt;CacheInfo> -> Assembly_DatabaseWORamp &lt;DatabaseWORamp>" requiringAssemblyContext_AssemblyConnector="_0sYsIGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_8ug24GoxEd631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_4lDHIGoxEd631pecjlFspw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_wNIh4No5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_6-YOoGo0Ed631pecjlFspw" entityName="Connector Assembly_Scheduler &lt;Scheduler> -> Assembly_UserManagement &lt;UserManagement>" requiringAssemblyContext_AssemblyConnector="_tepTEGo0Ed631pecjlFspw" providingAssemblyContext_AssemblyConnector="_5mZIAGo0Ed631pecjlFspw">
+    <providedRole_AssemblyConnector href="brs.repository#_O7tP4FhGEd6UHd_VhJH9SQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_3tnYoFhFEd6UHd_VhJH9SQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_quXj0Go0Ed631pecjlFspw" entityName="Provided_IHTTP">
+    <providedInterface__ProvidedRole href="brs.repository#_36kHoNo5EdyCSNQKlT1LxA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_ralwoGo0Ed631pecjlFspw" entityName="Provided_IAdmin">
+    <providedInterface__ProvidedRole href="brs.repository#_MeXLUFekEd6zR8NNmb-sJg"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>
