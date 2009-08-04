@@ -3,3 +3,5 @@ This example is the final version of the case study in the WOSP 2009 submission 
 The model can be solved with the PCM versiom 3.1 and SimuCom. For the PCM Solver, there seems to be a problem. 
 
 The original sources can be found on the SVN at external\2009AnneCatia\PCM_3.1_workspace\BRS
+
+More information on the optimisation and later a link to the paper can be found at http://palladio-approach.net/_AntipatternGuiltiness
