@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -118,7 +119,7 @@ public class ContextWrapper implements Cloneable {
 		//allCtx = getNextAllocationContext(assCtx);
 		assCtxList = getFirstAssemblyContext2(elsa);
 		allCtx = getNextAllocationContext(assCtxList.get(0));
-		
+	
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();
@@ -156,8 +157,7 @@ public class ContextWrapper implements Cloneable {
 		for (AssemblyContext ac : assCtxList){
 			list.add(ac);
 		}
-		
-		
+
 		clonedWrapper.setAssCtxList(list);
 		//clonedWrapper.setAssCtx(assCtx);
 		clonedWrapper.setAllCtx(allCtx);
@@ -217,7 +217,7 @@ public class ContextWrapper implements Cloneable {
 			CommunicationLinkResourceSpecification clrs) {
 		EList<ExternalCallInput> eciList = compUsgCtx
 				.getExternalCallInput_ComputedUsageContext();
-		long byteSize = 0;
+		
 		for (ExternalCallInput eci : eciList) {
 			if (eci.getExternalCallAction_ExternalCallInput().getId().equals(
 					eca.getId())) {
@@ -652,10 +652,23 @@ public class ContextWrapper implements Cloneable {
 		return newCompUsgCtx;
 	}
 
+	private EList<VariableUsage> getComponentParameters(AssemblyContext context)
+	{
+		ImplementationComponentType component=(ImplementationComponentType)context.getEncapsulatedComponent_AssemblyContext();
+		
+		return component.getComponentParameterUsage_ImplementationComponentType();
+		
+	}
+	
 	private void addComponentParametersToNewContext(
 			ComputedUsageContext newCompUsgCtx) {
-		// TODO: add default component parameters by component developer
 
+		EList<VariableUsage> compParams=getComponentParameters(getAssCtx());
+		for (VariableUsage vu : compParams) {
+			VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx
+					.getInput_ComputedUsageContext(), this, vu);
+		}
+		
 		EList<VariableUsage> confParList = this.getAssCtx()
 				.getConfigParameterUsages_AssemblyContext();
 		for (VariableUsage vu : confParList) {
