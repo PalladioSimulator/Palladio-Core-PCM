@@ -21,6 +21,37 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionCSVPrint;
 import de.uka.ipd.sdq.spa.expression.Expression;
 
+/**
+ * This is an excerpt of Heiko's dissertation (see below for link)
+ * 
+ * The Stochastic Regular Expression (SRE) model is an analytical performance
+ * model in the class of semi-Markov processes [Tri01]. It consists of a
+ * discrete time Markov-chain (DTMC) to model state transitions, but the sojourn
+ * time in each state can follow arbitrary probability distributions instead of
+ * being limited to exponential distributions as in Markov chains. Furthermore,
+ * SREs are hierarchically structured and do not allow cycles in the embedded
+ * DTMC for more accurate predictions. Chapter 6.3.3 will provide the syntax and
+ * semantics of SREs, afterwards Chapter 6.3.4 shows how to compute overall
+ * sojourn times with SREs. Only a partial transformation of PCM instances to
+ * SREs is possible, because of the model’s limited expressiveness. The
+ * transformation is straight-forward, as the control flow modelling of PCM
+ * instances and SREs are closely aligned. Chapter 6.3.5 will describe the
+ * transformation PCM2SRE. While allowing accurate predictions by supporting
+ * arbitrary distribution functions for timing values, SRE are limited to
+ * analysing single-user scenarios. They do not include queues or control flow
+ * forks, and cannot express contention effects due to concurrent requests.
+ * However, they provide a fast method of producing performance predictions
+ * during early development stages, as they are usually more quickly solved than
+ * running a simulation. Chapter 6.3.6 discusses the assumptions underlying SREs
+ * in detail. The SRE model will be used for a performance prediction in a case
+ * study in Chapter 7.3.3.
+ * 
+ * @see Heiko's dissertation, section 6.3 at
+ *      http://docserver.bis.uni-oldenburg.de
+ *      /_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
+ * @author Heiko Koziolek
+ * 
+ */
 public class Pcm2RegExStrategy implements SolverStrategy {
 
 	Expression stoRegEx;

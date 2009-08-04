@@ -25,6 +25,9 @@ import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
  * The central class that controls the PCM Solver process when launched from the
  * eclipse UI.
  * 
+ * @see Heiko's dissertation, chapter 6 at
+ *      http://docserver.bis.uni-oldenburg.de
+ *      /_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
  * @author koziolek, brosch
  * 
  */

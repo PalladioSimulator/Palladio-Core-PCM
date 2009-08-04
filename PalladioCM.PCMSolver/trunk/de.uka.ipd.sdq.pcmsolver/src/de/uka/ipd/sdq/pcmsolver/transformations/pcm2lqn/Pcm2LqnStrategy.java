@@ -32,6 +32,48 @@ import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 
+/**
+ * This is an excerpt of Heiko's dissertation (see below for link)
+ * 
+ * The Layered Queueing Network (LQN) model is a performance model in the class
+ * of extended queueing networks. It is a popular model with widespread use
+ * [BDIS04]. Like the PCM, it specifically targets analysing the performance of
+ * distributed systems. While ordinary queueing networks model software
+ * structures only implicitly via resource demands to service centers, LQNs
+ * model a system as a layered hierarchy of interacting software entities, which
+ * produce demands for the underlying physical resources such as CPUs or hard
+ * disks. Therefore, LQNs reflect the structure of distributed systems more
+ * naturally than ordinary queueing networks. In particular, they model the
+ * routing of jobs in the network more realistically.
+ * 
+ * In the context of this work, a model transformation from PCM instances (with
+ * computed context models) to LQNs has been implemented. The transformation
+ * offers at least two advantages: First, it enables comparing the concepts of
+ * the PCM with concepts of LQNs, which can be considered as a state-of-the-art
+ * performance model. Second, the transformation makes the sophisticated
+ * analytical solvers and simulation tools for LQNs available to the PCM. Other
+ * than SREs, LQNs support concurrent behaviour, different kinds of workloads,
+ * asynchronous interactions, and different scheduling strategies. Therefore, it
+ * is possible to derive performance metrics such as resource utilizations and
+ * throughput from PCM instances, which is not possible with SREs. However, LQNs
+ * are restricted to exponential distributions and mean-values analysis as
+ * discussed later.
+ * 
+ * The chapter 6.4 in Heiko's dissertation will first provide some background
+ * about LQNs and their development in recent years (Chapter 6.4.2). Then, it
+ * will describe the syntax and (informal) semantics of LQNs using the LQN
+ * meta-model and several examples (Chapter 6.4.3). Chapter 6.4.4 briefly
+ * describes two performance solvers for LQNs, before Chapter 6.4.5 presents the
+ * mapping from PCM instances to LQN instances. Finally, Chapter 6.4.6 compares
+ * the PCM model with the LQN model, as well as the existing PCM solvers with
+ * two available LQN solvers.
+ * 
+ * @see Heiko's dissertation, section 6.4 at
+ *      http://docserver.bis.uni-oldenburg.de
+ *      /_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
+ * @author Heiko Koziolek
+ * 
+ */
 public class Pcm2LqnStrategy implements SolverStrategy {
 
 	private static Logger logger = Logger.getLogger(Pcm2LqnStrategy.class.getName());

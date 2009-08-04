@@ -30,11 +30,33 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.spa.expression.Expression;
 
-
-
 /**
+ * The DependencySolver (DS) is a tool to substitute parameter names inside PCM
+ * stochastic expressions with characterisations originating from the usage
+ * model. In the usage model, the domain expert has to specify a variable
+ * characterisation (e.g., a constant or probability distribution) for each
+ * RequiredCharacterisation specified by component developers in Interfaces (see
+ * Chapter 4.1.4 of Heiko's dissertation).
+ * 
+ * The DS propagates these characterisations through all elements of a PCM
+ * instance and inserts them into guard specifications, parametric loop
+ * iterations, parametric resource demands, and parameter usages specified by
+ * the component developer. Then, it solves the resulting stochastic
+ * expressions, so that they become constant values or probability
+ * distributions, and stores them, so that they can be used for a transformation
+ * into a performance model.
+ * 
+ * The subsection on the dependencySolver in Heiko's dissertation first
+ * describes the expected input and produced output of the DS. Then, it
+ * describes the traversal of PCM instances, which depends on the evaluated
+ * parameter characterisations. Finally, it shows the process of solving
+ * dependencies, before giving an example.
+ * 
+ * @see Heiko's dissertation, section 6.2 at
+ *      http://docserver.bis.uni-oldenburg.de
+ *      /_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
  * @author Koziolek
- *
+ * 
  */
 public class DependencySolver {
 

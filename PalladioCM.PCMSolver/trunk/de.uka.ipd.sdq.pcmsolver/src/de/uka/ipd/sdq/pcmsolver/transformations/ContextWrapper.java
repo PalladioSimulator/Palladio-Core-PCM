@@ -65,6 +65,39 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 
+/**
+ * For convenient implementation of model transformations in Java from PCM
+ * instances to performance models, the DS provides a so-called ContextWrapper.
+ * It hides all specified and computed context models from the transformation
+ * and assists the traversal of a PCM instance. A transformation can instantiate
+ * a new ContextWrapper upon visiting an EntryLevelSystemCall or
+ * ExternalCallAction as it is specific for each RDSEFF call.
+ * 
+ * Transformations must instantiate a ContextWrapper initially when visiting the
+ * first EntryLevelSystemCall by calling its constructor and passing a
+ * reference to the current PCM instance, which already includes the specified
+ * contexts as well as the computed contexts from a former run of the DS. Thus,
+ * from an EntryLevelSystemCall and the given PCM instance, the ContextWrapper
+ * can retrieve the called assembly context, allocation context, computed usage
+ * context, and computed allocation context internally. The ContextWrapper also
+ * includes functions to retrieve the RDSEFF called by an EntryLevelSystemCall
+ * or ExternalCallAction, which a transformation needs to continue traversing a
+ * PCM instance. These functions (getNextSEFF) hide the context-dependent
+ * traversal through the model via delegation and assembly connectors from the
+ * transformation.
+ * 
+ * When a model transformation visits RDSEFF actions, it may call the Context-
+ * Wrapper for performance annotations, such as branch probabilities, loop
+ * iteration numbers, or timing values. This information is not contained in the
+ * parameterized RDSEFF, but only in the computed contexts. The ContextWrapper
+ * retrieves the information from the computed contexts given for example an
+ * AbstractBranchTransition or ParametricResourceDemand.
+ * 
+ * @see Heiko's dissertation, section 6.2.4 at
+ *      http://docserver.bis.uni-oldenburg.de/_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
+ * @author Heiko Koziolek
+ * 
+ */
 public class ContextWrapper implements Cloneable {
 
 	private static Logger logger = Logger.getLogger(ContextWrapper.class
