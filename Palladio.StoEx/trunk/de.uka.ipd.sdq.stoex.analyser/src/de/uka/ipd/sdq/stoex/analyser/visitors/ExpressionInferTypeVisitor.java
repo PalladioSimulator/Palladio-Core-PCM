@@ -195,6 +195,11 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of a variable depending on its characterisation
 	 * type. Infers VALUE, DATATYPE, STRUCUTURE to ANY_PMF, while
 	 * NUMBER_OF_ELEMENTS and BYTESIZE to INT_PMF. 
+	 * 
+	 * If later in the {@link ExpressionSolveVisitor} the result is solved and 
+	 * the supposed INT_PMF turns out to be something else, an exception is thrown. 
+	 * If the behaviour is changed here, the exception handling in  
+	 * {@link ExpressionSolveVisitor#extractIPMFFromLiteral} needs to be adjusted, too. 
 	 */
 	public Object caseVariable(Variable var){
 		//logger.debug("Found variable: " + var.getId_Variable());

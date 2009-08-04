@@ -1,10 +1,6 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
@@ -23,10 +19,8 @@ import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -34,7 +28,6 @@ import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -42,17 +35,17 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecifica
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
-import de.uka.ipd.sdq.pcmsolver.handler.ExternalCallActionHandler;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
@@ -61,7 +54,6 @@ import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 
@@ -115,7 +107,7 @@ public class ContextWrapper implements Cloneable {
 	private HashMap<ParametricResourceDemand, ProbabilityDensityFunction> resDemands;
 	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources;
 	private HashMap<ExternalCallAction, CommunicationLinkResourceSpecification> linkResources;
-
+	
 	public ContextWrapper(PCMInstance pcm) {
 		pcmInstance = pcm;
 	}
@@ -502,20 +494,18 @@ public class ContextWrapper implements Cloneable {
 					.put(rd.getParametricResourceDemand_ResourceDemand(), pdf);
 		}
 
+		// Store the mapping which ParametricResourceDemand accesses which Resource in this context.
 		procResources = new HashMap<ParametricResourceDemand, ProcessingResourceSpecification>();
 		for (ResourceDemand rd : rdList) {
 			ParametricResourceDemand prd = rd
 					.getParametricResourceDemand_ResourceDemand();
-			String prtName = prd.getRequiredResource_ParametricResourceDemand()
-					.getEntityName();
+			ProcessingResourceType prt = prd.getRequiredResource_ParametricResourceDemand();
 			EList<ProcessingResourceSpecification> prsList = allCtx
 					.getResourceContainer_AllocationContext()
 					.getActiveResourceSpecifications_ResourceContainer();
 			for (ProcessingResourceSpecification prs : prsList) {
-				String prsName = prs
-						.getActiveResourceType_ActiveResourceSpecification()
-						.getEntityName();
-				if (prsName.equals(prtName)) {
+				ProcessingResourceType prsType = prs.getActiveResourceType_ActiveResourceSpecification();
+				if (prsType.getId().equals(prt.getId())) {
 					procResources.put(prd, prs);
 				}
 			}

@@ -594,8 +594,19 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 */
 	private IProbabilityMassFunction extractIPMFFromLiteral(Expression expr) {
 		ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral)expr;
-		ProbabilityMassFunction pmf = (ProbabilityMassFunction)probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
-		return iProbFuncFactory.transformToPMF(pmf);
+		ProbabilityFunction function = probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
+		if (function instanceof ProbabilityMassFunction){
+			ProbabilityMassFunction pmf = (ProbabilityMassFunction)function;
+			return iProbFuncFactory.transformToPMF(pmf);
+		} else if (function instanceof ProbabilityDensityFunction){
+			String msg = "Could not transform expression to PMF. Note that NUMBER_OF_ELEMENT and BYTESIZE characterisations are assumed to be PMFs and must not be PDFs. Maybe you need to fix your models here.";
+			logger.error(msg);
+			throw new TypeInferenceFailedException(expr, msg);
+		} else {
+			String msg = "Unknown ProbabilityFunction subclass "+function.getClass().getName()+" that cannot be handled by "+this.getClass().getName();
+			logger.error(msg);
+			throw new TypeInferenceFailedException(expr, msg);
+		}
 	}
 
 	/**

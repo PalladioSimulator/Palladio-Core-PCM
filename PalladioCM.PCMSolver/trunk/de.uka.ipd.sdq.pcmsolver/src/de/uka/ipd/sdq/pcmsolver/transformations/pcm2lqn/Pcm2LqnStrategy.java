@@ -354,14 +354,14 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 	private void runDSolver(PCMInstance model) {
 		// TODO: fix this (only uses one usage scenario):
 		UsageModelVisitor visitor = new UsageModelVisitor(model);
-		try {
+		//try {
 			UsageScenario us = (UsageScenario) model.getUsageModel()
 					.getUsageScenario_UsageModel().get(0);
 			visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			logger.error("Usage Scenario caused Exception!" + e.getMessage());
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
 

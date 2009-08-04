@@ -118,12 +118,12 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 		ServiceEffectSpecification seff = contextWrapper.getNextSEFF(elsc);
 		SeffVisitor visitor = new SeffVisitor(contextWrapper);
-		try {
+		//try {
 			visitor.doSwitch((ResourceDemandingSEFF) seff);
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			logger.error("Error while visiting RDSEFF");
 			e.printStackTrace();
-		}
+		}*/
 		
 		doSwitch(elsc.getSuccessor());
 		return elsc;
