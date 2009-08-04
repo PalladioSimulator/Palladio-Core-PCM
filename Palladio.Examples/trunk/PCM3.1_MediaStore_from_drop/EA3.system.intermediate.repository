@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:completions="http://sdq.ipd.uka.de/Completions/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="__EvmWJkyEd2WAdDnbdqm1A" entityName="CompletionsRepository">
+  <components__Repository xsi:type="completions:Completion" id="__JN2gJkyEd2WAdDnbdqm1A" entityName="ConnectorCompletion2">
+    <childComponentContexts_ComposedStructure id="__JzscJkyEd2WAdDnbdqm1A" entityName="BCAssembly InnerBasicComponent1" encapsulatedComponent_ChildComponentContext="__JEFgJkyEd2WAdDnbdqm1A"/>
+    <childComponentContexts_ComposedStructure id="__KQYWpkyEd2WAdDnbdqm1A" entityName="BCAssembly InnerBasicComponent3" encapsulatedComponent_ChildComponentContext="__JzsYJkyEd2WAdDnbdqm1A"/>
+    <childComponentContexts_ComposedStructure id="__KQYbZkyEd2WAdDnbdqm1A" entityName="BCAssembly InnerBasicComponent4" encapsulatedComponent_ChildComponentContext="__JzsYZkyEd2WAdDnbdqm1A"/>
+    <providedDelegationConnectors_ComposedStructure id="__KQYb5kyEd2WAdDnbdqm1A" innerProvidedRole_ProvidedDelegationConnector="__JzsdZkyEd2WAdDnbdqm1A" outerProvidedRole_ProvidedDelegationConnector="__JN2gZkyEd2WAdDnbdqm1A" childComponentContext_ProvidedDelegationConnector="__KQYWpkyEd2WAdDnbdqm1A"/>
+    <requiredDelegationConnectors_ComposedStructure id="__KQYcJkyEd2WAdDnbdqm1A" innerRequiredRole_RequiredDelegationConnector="__KQYXpkyEd2WAdDnbdqm1A" outerRequiredRole_RequiredDelegationConnector="__JN2gpkyEd2WAdDnbdqm1A" childComponentContext_RequiredDelegationConnector="__KQYbZkyEd2WAdDnbdqm1A"/>
+    <requiredDelegationConnectors_ComposedStructure id="__KQYc5kyEd2WAdDnbdqm1A" innerRequiredRole_RequiredDelegationConnector="__JzsdJkyEd2WAdDnbdqm1A" outerRequiredRole_RequiredDelegationConnector="__JzscpkyEd2WAdDnbdqm1A" childComponentContext_RequiredDelegationConnector="__KQYWpkyEd2WAdDnbdqm1A"/>
+    <requiredDelegationConnectors_ComposedStructure id="__KQYdJkyEd2WAdDnbdqm1A" innerRequiredRole_RequiredDelegationConnector="__KQYXJkyEd2WAdDnbdqm1A" outerRequiredRole_RequiredDelegationConnector="__Jzsc5kyEd2WAdDnbdqm1A" childComponentContext_RequiredDelegationConnector="__KQYbZkyEd2WAdDnbdqm1A"/>
+    <compositeAssemblyConnectors_ComposedStructure id="__KQYcZkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="__KQYWpkyEd2WAdDnbdqm1A" providingChildComponentContext_CompositeAssemblyConnector="__JzscJkyEd2WAdDnbdqm1A" providedRole_CompositeAssemblyConnector="__JzsYpkyEd2WAdDnbdqm1A" requiredRole_CompositeAssemblyConnector="__JzsdpkyEd2WAdDnbdqm1A"/>
+    <compositeAssemblyConnectors_ComposedStructure id="__KQYcpkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="__JzscJkyEd2WAdDnbdqm1A" providingChildComponentContext_CompositeAssemblyConnector="__KQYbZkyEd2WAdDnbdqm1A" providedRole_CompositeAssemblyConnector="__KQYXZkyEd2WAdDnbdqm1A" requiredRole_CompositeAssemblyConnector="__JzsY5kyEd2WAdDnbdqm1A"/>
+    <providedRoles_InterfaceProvidingEntity id="__JN2gZkyEd2WAdDnbdqm1A" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__JN2gpkyEd2WAdDnbdqm1A" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__JzscpkyEd2WAdDnbdqm1A" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__Jzsc5kyEd2WAdDnbdqm1A" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="__JEFgJkyEd2WAdDnbdqm1A" entityName="InnerBasicComponent1">
+    <providedRoles_InterfaceProvidingEntity id="__JzsYpkyEd2WAdDnbdqm1A" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__JzsY5kyEd2WAdDnbdqm1A" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__JzsZJkyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="__JzsZpkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsZZkyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsZ5kyEd2WAdDnbdqm1A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/C:/JavaWorkspace/MediaStore/Palladio.resourcetype#_5Jd8Ihy6EdyK8tsgv3Eumw"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="__JzsaJkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsZ5kyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsaZkyEd2WAdDnbdqm1A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/C:/JavaWorkspace/MediaStore/Palladio.resourcetype#_5Jd8Ihy6EdyK8tsgv3Eumw"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__JzsZZkyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsZpkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__JzsaZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsaJkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__JzsZ5kyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsZpkyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsaJkyEd2WAdDnbdqm1A" role_ExternalService="__JzsY5kyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__JzsapkyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="__JzsbJkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__Jzsa5kyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsbZkyEd2WAdDnbdqm1A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/C:/JavaWorkspace/MediaStore/Palladio.resourcetype#_5Jd8Ihy6EdyK8tsgv3Eumw"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="__JzsbpkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsbZkyEd2WAdDnbdqm1A" successor_AbstractAction="__Jzsb5kyEd2WAdDnbdqm1A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="file:/C:/JavaWorkspace/MediaStore/Palladio.resourcetype#_5Jd8Ihy6EdyK8tsgv3Eumw"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__Jzsa5kyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsbJkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__Jzsb5kyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsbpkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__JzsbZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__JzsbJkyEd2WAdDnbdqm1A" successor_AbstractAction="__JzsbpkyEd2WAdDnbdqm1A" role_ExternalService="__JzsY5kyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="__JzsYJkyEd2WAdDnbdqm1A" entityName="InnerBasicComponent3">
+    <providedRoles_InterfaceProvidingEntity id="__JzsdZkyEd2WAdDnbdqm1A" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__JzsdJkyEd2WAdDnbdqm1A" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__JzsdpkyEd2WAdDnbdqm1A" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__J9dYJkyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__J9dYpkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__J9dYZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYUZkyEd2WAdDnbdqm1A" role_ExternalService="__JzsdJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYUpkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYUZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYU5kyEd2WAdDnbdqm1A" role_ExternalService="__JzsdJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__J9dYZkyEd2WAdDnbdqm1A" successor_AbstractAction="__J9dYpkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__KQYU5kyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYUpkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__KQYUZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__J9dYpkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYUpkyEd2WAdDnbdqm1A" role_ExternalService="__JzsdpkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__KQYVJkyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYVpkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYVZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYV5kyEd2WAdDnbdqm1A" role_ExternalService="__JzsdJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYWJkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYV5kyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYWZkyEd2WAdDnbdqm1A" role_ExternalService="__JzsdJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__KQYVZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYVpkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__KQYWZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYWJkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__KQYV5kyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYVpkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYWJkyEd2WAdDnbdqm1A" role_ExternalService="__JzsdpkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="__JzsYZkyEd2WAdDnbdqm1A" entityName="InnerBasicComponent4">
+    <providedRoles_InterfaceProvidingEntity id="__KQYXZkyEd2WAdDnbdqm1A" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__KQYXJkyEd2WAdDnbdqm1A" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="__KQYXpkyEd2WAdDnbdqm1A" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__KQYX5kyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYYZkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYYJkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYYpkyEd2WAdDnbdqm1A" role_ExternalService="__KQYXJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYY5kyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYYpkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYZJkyEd2WAdDnbdqm1A" role_ExternalService="__KQYXJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="__KQYZJkyEd2WAdDnbdqm1A" entityName="ResultSetter" predecessor_AbstractAction="__KQYY5kyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYZZkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__KQYYJkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYYZkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__KQYZZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYZJkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__KQYYpkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYYZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYY5kyEd2WAdDnbdqm1A" role_ExternalService="__KQYXpkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="__KQYZpkyEd2WAdDnbdqm1A">
+      <describedService__SEFF href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYaJkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYZ5kyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYaZkyEd2WAdDnbdqm1A" role_ExternalService="__KQYXJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__KQYapkyEd2WAdDnbdqm1A" entityName="ExternalCall" predecessor_AbstractAction="__KQYaZkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYa5kyEd2WAdDnbdqm1A" role_ExternalService="__KQYXJkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="__KQYa5kyEd2WAdDnbdqm1A" entityName="ResultSetter" predecessor_AbstractAction="__KQYapkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYbJkyEd2WAdDnbdqm1A">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="__KQYZ5kyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYaJkyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="__KQYbJkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYa5kyEd2WAdDnbdqm1A"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="__KQYaZkyEd2WAdDnbdqm1A" predecessor_AbstractAction="__KQYaJkyEd2WAdDnbdqm1A" successor_AbstractAction="__KQYapkyEd2WAdDnbdqm1A" role_ExternalService="__KQYXpkyEd2WAdDnbdqm1A">
+        <calledService_ExternalService href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+</Repository>
