@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -16,6 +17,7 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
@@ -300,6 +302,14 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 */
 	@SuppressWarnings("unchecked")
 	private ProbabilityFunctionLiteral truncPMFFromBoxedPDF(BoxedPDF pdf, FunctionLiteral object) {
+		
+		ISamplePDF samplePDF = null;
+		try {
+			samplePDF = iProbFuncFactory.transformToSamplePDF(iProbFuncFactory.transformToPDF(pdf),1.0);
+		} catch (Exception e) {
+			throw new ExpressionSolvingFailedException(object, e);
+		} 
+		
 		ProbabilityMassFunction pmf = this.probFuncFactory.createProbabilityMassFunction();
 		
 		pmf.setOrderedDomain(true);
@@ -311,27 +321,46 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		if (pdf.getSamples().size() == 0){
 			throw new ExpressionSolvingFailedException("Could not handle Trunc function with empty PDF inside.", object);
 		}
-		ContinuousSample initialCSample = pdf.getSamples().get(0);
-		int lastValue = (int)Math.floor(initialCSample.getValue());
 		
+		Iterator<ContinuousSample> iterateSamples = pdf.getSamples().iterator();
+		ContinuousSample initialCSample = iterateSamples.next();
+		int lowerIntervalBorder = 0;
+		int upperIntervalBorder = 0;
+		ContinuousSample previousSample;
 		
-		for (ContinuousSample cSample : pdf.getSamples()) {
-			int newValue = (int)Math.floor(cSample.getValue());
-			int numberOfIntSamples = newValue - lastValue;
+		//Initial value can be first interval or just the specification of the left border
+		if (initialCSample.getProbability() == 0.0){
+			//Distribution starts at this given value
+			//TODO: This can have a probability, too!
+			lowerIntervalBorder = (int)Math.floor(initialCSample.getValue());
+			upperIntervalBorder = lowerIntervalBorder;
+		} else {
+			//distribution starts at 0, first value needs to be handled normally below
+			//set back iterator to first sample. 
+			iterateSamples = pdf.getSamples().iterator();
+		}
+		
+		for (Iterator<ContinuousSample> iterator = iterateSamples; iterator.hasNext();) {
+			ContinuousSample cSample = (ContinuousSample) iterator.next();
+		
+			int newValue = (int)Math.ceil(cSample.getValue());
+			int numberOfIntSamples = newValue - lowerIntervalBorder;
 			
 			unusedProbability += cSample.getProbability();
 			
-			//if this sample does not exceed the next, we do nothing.
+			//if this sample does not exceed the previous, we do nothing.
 			//Otherwise, we create some integer samples. 
 			if (numberOfIntSamples > 0){
 				for (int i = 0; i < numberOfIntSamples; i++) {
 					Sample sample = this.probFuncFactory.createSample();
 					sample.setProbability(unusedProbability/numberOfIntSamples);
-					sample.setValue(lastValue+i);
+					sample.setValue(lowerIntervalBorder+i);
 					pmf.getSamples().add(sample);
 				}
 				usedProbability += unusedProbability;
 				unusedProbability = 0.0;
+				upperIntervalBorder = lowerIntervalBorder;
+				lowerIntervalBorder = newValue;
 			} 
 		}
 		
@@ -342,12 +371,9 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			ContinuousSample lastCSample = pdf.getSamples().get(pdf.getSamples().size()-1);
 			Sample sample = this.probFuncFactory.createSample();
 			sample.setProbability(1 - usedProbability);
-			sample.setValue((int)Math.ceil(lastCSample.getValue()));
+			sample.setValue(lowerIntervalBorder);
 			pmf.getSamples().add(sample);
 		}
-		
-		
-		
 		
 		logger.debug(pmf);
 		//if no single sample has been written, add one for value 0?
