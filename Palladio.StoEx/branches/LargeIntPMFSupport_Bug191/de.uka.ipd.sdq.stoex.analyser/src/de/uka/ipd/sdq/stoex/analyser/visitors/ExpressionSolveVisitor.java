@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -310,78 +311,34 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			throw new ExpressionSolvingFailedException(object, e);
 		} 
 		
+		if (samplePDF.getLowerDomainBorder() < 0){
+			throw new ExpressionSolvingFailedException("Cannot Trunc a DoublePDF with negative values.",object);
+		}
+		if (samplePDF.getDistance() != 1){
+			throw new ExpressionSolvingFailedException("Bug! Distance of SamplePDF is not 1", object);
+		}
+		
 		ProbabilityMassFunction pmf = this.probFuncFactory.createProbabilityMassFunction();
 		
 		pmf.setOrderedDomain(true);
+		List<Double> probabilities = samplePDF.getValuesAsDouble();
 		
-		double unusedProbability = 0.0;
-		double usedProbability = 0.0;
-		
-		//look at the PDF where the distribution starts
-		if (pdf.getSamples().size() == 0){
-			throw new ExpressionSolvingFailedException("Could not handle Trunc function with empty PDF inside.", object);
-		}
-		
-		Iterator<ContinuousSample> iterateSamples = pdf.getSamples().iterator();
-		ContinuousSample initialCSample = iterateSamples.next();
-		int lowerIntervalBorder = 0;
-		int upperIntervalBorder = 0;
-		ContinuousSample previousSample;
-		
-		//Initial value can be first interval or just the specification of the left border
-		if (initialCSample.getProbability() == 0.0){
-			//Distribution starts at this given value
-			//TODO: This can have a probability, too!
-			lowerIntervalBorder = (int)Math.floor(initialCSample.getValue());
-			upperIntervalBorder = lowerIntervalBorder;
-		} else {
-			//distribution starts at 0, first value needs to be handled normally below
-			//set back iterator to first sample. 
-			iterateSamples = pdf.getSamples().iterator();
-		}
-		
-		for (Iterator<ContinuousSample> iterator = iterateSamples; iterator.hasNext();) {
-			ContinuousSample cSample = (ContinuousSample) iterator.next();
-		
-			int newValue = (int)Math.ceil(cSample.getValue());
-			int numberOfIntSamples = newValue - lowerIntervalBorder;
-			
-			unusedProbability += cSample.getProbability();
-			
-			//if this sample does not exceed the previous, we do nothing.
-			//Otherwise, we create some integer samples. 
-			if (numberOfIntSamples > 0){
-				for (int i = 0; i < numberOfIntSamples; i++) {
-					Sample sample = this.probFuncFactory.createSample();
-					sample.setProbability(unusedProbability/numberOfIntSamples);
-					sample.setValue(lowerIntervalBorder+i);
-					pmf.getSamples().add(sample);
-				}
-				usedProbability += unusedProbability;
-				unusedProbability = 0.0;
-				upperIntervalBorder = lowerIntervalBorder;
-				lowerIntervalBorder = newValue;
-			} 
-		}
-		
-		// We need to fix the right side of the distribution.
-		// If there are still some ContinousSamples that have not been converted so far, we 
-		// add last sample at the next biggest integer.  
-		if (usedProbability < 1 - MathTools.EPSILON_ERROR){
-			ContinuousSample lastCSample = pdf.getSamples().get(pdf.getSamples().size()-1);
+		//TODO: There is a bug in the probfunction stuff
+		// input Trunc(DoublePDF[ (0.2; 0.30000000) (1.7; 0.20000000) (2.7; 0.50000000) ])
+		// results in IntPMF[ (0;1.0899999999999999) (1;0.13333333333333333) (2;0.4266666666666666) (3;0.10000000000000006) ]
+		// not too bad, but wrong. 
+		int numberOfSamples = samplePDF.numberOfSamples();
+		for (int i = 0; i < numberOfSamples; i++){
 			Sample sample = this.probFuncFactory.createSample();
-			sample.setProbability(1 - usedProbability);
-			sample.setValue(lowerIntervalBorder);
+			sample.setProbability(probabilities.get(i));
+			sample.setValue(i);
 			pmf.getSamples().add(sample);
 		}
 		
-		logger.debug(pmf);
-		//if no single sample has been written, add one for value 0?
-		
-		//pmf.getSamples().addAll(samples);
-		
 		ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
 		literal.setFunction_ProbabilityFunctionLiteral(pmf);
+		
+		logger.debug("Trunc result: "+new StoExPrettyPrintVisitor().prettyPrint(literal));
 		
 		return literal;
 	}
