@@ -78,6 +78,15 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 
 	private static Logger logger = Logger
 			.getLogger(ExpressionSolveVisitor.class.getName());
+	
+	/**
+	 * For the Trunc function with a DoublePDF parameter, the DoublePDF is 
+	 * transformed into an IntPMF. Here, a sample is generated for each 
+	 * integer lying in the range of the DoublePDF. This can easily cause an
+	 * OutOfMemoryException, thus, we constraint the maximum number of samples here. 
+	 * Then, only each e.g. third integer value is used if the interval is too large 
+	 */
+	private static final int MAX_NUMBER_OF_SAMPLES_FOR_TRUNC =1000;
 
 	protected IProbabilityFunctionFactory iProbFuncFactory = 
 		IProbabilityFunctionFactory.eINSTANCE;
@@ -304,9 +313,19 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	@SuppressWarnings("unchecked")
 	private ProbabilityFunctionLiteral truncPMFFromBoxedPDF(BoxedPDF pdf, FunctionLiteral object) {
 		
+		List<ContinuousSample> samples = pdf.getSamples();
+		
+		if (samples.size() == 0){
+			throw new ExpressionSolvingFailedException("Cannot handle an empty DoublePDF for Trunc.",object);
+		}
+		double leftBorder = samples.get(0).getProbability() > 0 ? samples.get(0).getValue() : 0;
+		int range = (int)Math.ceil(samples.get(samples.size()-1).getValue() - leftBorder);
+		
+		int distance = range / MAX_NUMBER_OF_SAMPLES_FOR_TRUNC + 1;
+		
 		ISamplePDF samplePDF = null;
 		try {
-			samplePDF = iProbFuncFactory.transformToSamplePDF(iProbFuncFactory.transformToPDF(pdf),1.0);
+			samplePDF = iProbFuncFactory.transformToSamplePDF(iProbFuncFactory.transformToPDF(pdf),distance);
 		} catch (Exception e) {
 			throw new ExpressionSolvingFailedException(object, e);
 		} 
@@ -314,8 +333,8 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		if (samplePDF.getLowerDomainBorder() < 0){
 			throw new ExpressionSolvingFailedException("Cannot Trunc a DoublePDF with negative values.",object);
 		}
-		if (samplePDF.getDistance() != 1){
-			throw new ExpressionSolvingFailedException("Bug! Distance of SamplePDF is not 1", object);
+		if (samplePDF.getDistance() != distance){
+			throw new ExpressionSolvingFailedException("Bug! Distance of SamplePDF is not "+distance, object);
 		}
 		
 		ProbabilityMassFunction pmf = this.probFuncFactory.createProbabilityMassFunction();
@@ -331,7 +350,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		for (int i = 0; i < numberOfSamples; i++){
 			Sample sample = this.probFuncFactory.createSample();
 			sample.setProbability(probabilities.get(i));
-			sample.setValue(i);
+			sample.setValue(i*distance);
 			pmf.getSamples().add(sample);
 		}
 		
