@@ -1,17 +1,24 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
@@ -20,10 +27,12 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
@@ -69,6 +78,15 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 
 	private static Logger logger = Logger
 			.getLogger(ExpressionSolveVisitor.class.getName());
+	
+	/**
+	 * For the Trunc function with a DoublePDF parameter, the DoublePDF is 
+	 * transformed into an IntPMF. Here, a sample is generated for each 
+	 * integer lying in the range of the DoublePDF. This can easily cause an
+	 * OutOfMemoryException, thus, we constraint the maximum number of samples here. 
+	 * Then, only each e.g. third integer value is used if the interval is too large 
+	 */
+	private static final int MAX_NUMBER_OF_SAMPLES_FOR_TRUNC =1000;
 
 	protected IProbabilityFunctionFactory iProbFuncFactory = 
 		IProbabilityFunctionFactory.eINSTANCE;
@@ -231,6 +249,117 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		doubleLiteral.setValue(Math.pow(baseValue, exponentValue));
 		
 		return doubleLiteral;
+	}
+	
+	@Override
+	public Object caseFunctionLiteral(FunctionLiteral object) {
+		for (Expression e : object.getParameters_FunctionLiteral())
+			doSwitch(e);
+		
+		if (object.getId().equals("Exp")) {
+			if (object.getParameters_FunctionLiteral().size() == 1){
+				Expression param = object.getParameters_FunctionLiteral().get(1);
+				Expression solvedParam = (Expression) doSwitch(param);
+				if (solvedParam instanceof DoubleLiteral){
+					ExponentialDistribution exp = this.probFuncFactory.createExponentialDistribution();
+					exp.setRate(((DoubleLiteral)solvedParam).getValue());
+					return exp;
+				} else 
+					throw new ExpressionSolvingFailedException("Function Exp is only supported supported for a single double parameter!", object);
+			}
+			
+		} else if (object.getId().equals("Trunc")) {
+			//Create an equivalent ProbabilityMassFunction or Integer from the given expression.
+			
+			//Trunc must only have one parameter 
+			if (object.getParameters_FunctionLiteral().size() == 1){
+				Expression param = object.getParameters_FunctionLiteral().get(0);
+				Expression solvedParam = (Expression) doSwitch(param);
+				//Parameter for Trunc must can be a DoublePDF or a DoubleLiteral? 
+				if (solvedParam instanceof ProbabilityFunctionLiteral){
+					ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)solvedParam;
+					ProbabilityFunction insideFunction = pfl.getFunction_ProbabilityFunctionLiteral();
+					if (insideFunction instanceof BoxedPDF){
+						//create a ProbabilityMassFunction for this BoxedPDF
+						return truncPMFFromBoxedPDF((BoxedPDF)insideFunction, object);
+					}
+				} else if (solvedParam instanceof DoubleLiteral) {
+						IntLiteral intLit = StoexFactory.eINSTANCE.createIntLiteral();
+						intLit.setValue((int)Math.round(((DoubleLiteral)solvedParam).getValue()));
+				} else
+					throw new ExpressionSolvingFailedException("Function Trunc is only supported supported for a DoublePDF or a single double parameter!", object);
+			}
+		}  else 
+			throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
+		return null;
+	} 
+
+	/**
+	 * Converts a PDF to an IntPMF for the Trunc function. This is just a rough estimates. Especially for small values, it is far from the original. 
+	 * 
+	 * The Boundaries of the PDF are rounded down to the next integer. Then, the possible integer values are evenly distributed with the probability of the respective ContinousSample.
+	 * If no integer value exists between two ContinousSamples, their probabilities are added. 
+	 * 
+	 * In this way, the distribution is changed a lot for small values. For large values, it does not matter. 
+	 * 
+	 * If the range of the whole PDF is too small, the closest surrounding integers is used with probability one.   
+	 *   
+	 * Maybe this should be moved in the probfunction package. 
+	 * 
+	 * @param pdf
+	 * @param object
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	private ProbabilityFunctionLiteral truncPMFFromBoxedPDF(BoxedPDF pdf, FunctionLiteral object) {
+		
+		List<ContinuousSample> samples = pdf.getSamples();
+		
+		if (samples.size() == 0){
+			throw new ExpressionSolvingFailedException("Cannot handle an empty DoublePDF for Trunc.",object);
+		}
+		double leftBorder = samples.get(0).getProbability() > 0 ? samples.get(0).getValue() : 0;
+		int range = (int)Math.ceil(samples.get(samples.size()-1).getValue() - leftBorder);
+		
+		int distance = range / MAX_NUMBER_OF_SAMPLES_FOR_TRUNC + 1;
+		
+		ISamplePDF samplePDF = null;
+		try {
+			samplePDF = iProbFuncFactory.transformToSamplePDF(iProbFuncFactory.transformToPDF(pdf),distance);
+		} catch (Exception e) {
+			throw new ExpressionSolvingFailedException(object, e);
+		} 
+		
+		if (samplePDF.getLowerDomainBorder() < 0){
+			throw new ExpressionSolvingFailedException("Cannot Trunc a DoublePDF with negative values.",object);
+		}
+		if (samplePDF.getDistance() != distance){
+			throw new ExpressionSolvingFailedException("Bug! Distance of SamplePDF is not "+distance, object);
+		}
+		
+		ProbabilityMassFunction pmf = this.probFuncFactory.createProbabilityMassFunction();
+		
+		pmf.setOrderedDomain(true);
+		List<Double> probabilities = samplePDF.getValuesAsDouble();
+		
+		//TODO: There is a bug in the probfunction stuff
+		// input Trunc(DoublePDF[ (0.2; 0.30000000) (1.7; 0.20000000) (2.7; 0.50000000) ])
+		// results in IntPMF[ (0;1.0899999999999999) (1;0.13333333333333333) (2;0.4266666666666666) (3;0.10000000000000006) ]
+		// not too bad, but wrong. 
+		int numberOfSamples = samplePDF.numberOfSamples();
+		for (int i = 0; i < numberOfSamples; i++){
+			Sample sample = this.probFuncFactory.createSample();
+			sample.setProbability(probabilities.get(i));
+			sample.setValue(i*distance);
+			pmf.getSamples().add(sample);
+		}
+		
+		ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
+		literal.setFunction_ProbabilityFunctionLiteral(pmf);
+		
+		logger.debug("Trunc result: "+new StoExPrettyPrintVisitor().prettyPrint(literal));
+		
+		return literal;
 	}
 
 	/**

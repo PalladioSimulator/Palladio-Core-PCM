@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 
 public class ExpressionSolvingFailedException extends RuntimeException {
 
@@ -11,6 +12,10 @@ public class ExpressionSolvingFailedException extends RuntimeException {
 
 	public ExpressionSolvingFailedException(String message, Expression expr) {
 		super("Solving expression "+new StoExPrettyPrintVisitor().prettyPrint(expr)+"failed: "+message);
+	}
+
+	public ExpressionSolvingFailedException(Expression expr, Exception e) {
+		super("Solving expression "+new StoExPrettyPrintVisitor().prettyPrint(expr)+"failed.",e);
 	}
 	
 	
