@@ -136,6 +136,13 @@ public class ContextWrapper implements Cloneable {
 		handleComputedContexts(cuc, cac);
 	}
 
+	/**
+	 * Attention: This constructor modifies the passed ContextWrapper!
+	 * @param eca
+	 * @param cuc
+	 * @param cac
+	 * @param oldContextWrapper IS MODIFIED!
+	 */
 	public ContextWrapper(ExternalCallAction eca, ComputedUsageContext cuc,
 			ComputedAllocationContext cac, ContextWrapper oldContextWrapper) {
 		pcmInstance = oldContextWrapper.getPcmInstance();
@@ -177,6 +184,11 @@ public class ContextWrapper implements Cloneable {
 		readComputedContextsToHashMaps();
 	}
 
+	/**
+	 * FIXME: This method changes the current ContextWrapper this 
+	 * @param eca
+	 * @return this after changing it. 
+	 */
 	public ContextWrapper getContextWrapperFor(ExternalCallAction eca) {
 //		assCtx = getNextAssemblyContext(eca);
 //		allCtx = getNextAllocationContext(assCtx);
@@ -862,6 +874,13 @@ public class ContextWrapper implements Cloneable {
 	}
 
 
+	/**
+	 * FIXME: This method modifies the passed ContextWrapper if 
+	 * isCreateContextWrapper is true, which makes everything very unclear!
+	 * @param eca
+	 * @param isCreateContextWrapper
+	 * @return
+	 */
 	public EList<AssemblyContext> getNextAssemblyContext(ExternalCallAction eca, boolean isCreateContextWrapper){
 		String roleId = eca.getRole_ExternalService().getId();
 		Signature serviceToBeCalled = eca.getCalledService_ExternalService();
@@ -903,18 +922,33 @@ public class ContextWrapper implements Cloneable {
 
 	}
 	
+	/**
+	 * Find the AsemblyConnector that points from the given 
+	 * AssemblyContext ac to the next AssemblyContext used via the given 
+	 * RequiredRole and Interface. 
+	 * There can be RequiredDelegationConnectors in between if ComposedStructures are
+	 * used. 
+	 * 
+	 * @param roleId
+	 * @param interfaceId
+	 * @param isCreateContextWrapper if true, this ContextWrapper is modified and the found AssemblyContext is removed from the internal assCtxList. FIXME: Why does this make sense ever?  
+	 * @return An AssemblyContext that either is a matching Assem
+	 */
 	private AssemblyConnector getMatchingAssConn(String roleId, String interfaceId, boolean isCreateContextWrapper) {
 		
 		// navigate upwards through the stack of assembly context
 		// find the matching assembly connector
 		for (int i=assCtxList.size()-1; i >= 0; i--){
 			
+			//Look for an AssemblyConnector directly attached to ac
 			AssemblyConnector matchingAssConn = findFromAssemblyConnector(roleId,interfaceId,assCtxList.get(i));
 			if (matchingAssConn != null) {
 				if (isCreateContextWrapper) assCtxList.remove(i);	
 				return matchingAssConn;
 			}
 			
+			//If no AssemblyConnector directly attached to ac was found, check for RequiredDelegationConnectors one level up and for an 
+			//AssemblyConnector connecting the parent of ac to something. 
 			matchingAssConn = findFromDelegationConnector(roleId,interfaceId,assCtxList.get(i),i);
 			if (matchingAssConn != null) {
 				if (isCreateContextWrapper) {
@@ -930,6 +964,15 @@ public class ContextWrapper implements Cloneable {
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * Look at all AssemblyConnector in the parent ComposedStructure of AssemblyContext ac
+	 * and return the one
+	 * that has the given roleId, interfaceId and ac on the required side. 
+	 * @param roleId The id of the RequiredRole to match 
+	 * @param interfaceId The id of the Interface to match on the required side
+	 * @param ac The AssemblyContext to match on the required side.
+	 * @return A matching AssemblyContext from the parent ComposedStructure of ac
+	 */
 	private AssemblyConnector findFromAssemblyConnector(String roleId,
 			String interfaceId, AssemblyContext ac) {
 		
@@ -951,6 +994,21 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
+	/**
+	 * Find a matching AssemblyConnector by looking at the 
+	 * RequiredDelegationConnectors of this AssemblyContext ac. 
+	 * Step up the composition one step and find the matching AssemblyConnector 
+	 * and then return that found AssemblyConnector.
+	 * 
+	 * FIXME: If the composition is deeper than 1, this probably does not work. 
+	 * It should be recursive.      
+	 *   
+	 * @param roleId
+	 * @param interfaceId
+	 * @param ac
+	 * @param i
+	 * @return
+	 */
 	private AssemblyConnector findFromDelegationConnector(String roleId,
 			String interfaceId, AssemblyContext ac, int i) {
 		EList<RequiredDelegationConnector> reqDelConnList = ac

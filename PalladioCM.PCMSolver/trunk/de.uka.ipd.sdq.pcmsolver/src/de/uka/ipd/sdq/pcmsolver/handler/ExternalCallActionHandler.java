@@ -67,15 +67,22 @@ public class ExternalCallActionHandler {
 			createInternalAction(timeSpecification, call);
 		} else {
 			//logger.debug("Found Assembly Connector");
+			
+			/* FIXME: This method has to clone the ContextWrapper twice.
+			 * This should be avoidable, but it is totally unclear when the ContextWrapper is modified
+			 * For example, some constructors modify the passed ContextWrapper 
+			 * */ 
 			ContextWrapper oldContextWrapper = (ContextWrapper)visitor.getContextWrapper().clone();
 			ContextWrapper contextWrapper = visitor.getContextWrapper().getContextWrapperFor(call);
 
 			SeffVisitor seffVisitor = new SeffVisitor(contextWrapper);
 			seffVisitor.doSwitch(seff);
 			
-			visitor.setContextWrapper(oldContextWrapper);
+			visitor.setContextWrapper((ContextWrapper)oldContextWrapper.clone());
 			
 			storeOutputParametersToUsageContext(call, seffVisitor);
+			
+			visitor.setContextWrapper(oldContextWrapper);
 		}
 	}
 	
@@ -158,6 +165,11 @@ public class ExternalCallActionHandler {
 		
 	}
 
+	/**
+	 * FIXME: This modifies the visitor.getContextWrapper() because a modifying constructor is called!
+	 * @param call
+	 * @param nextVisitor
+	 */
 	private void storeOutputParametersToUsageContext(ExternalCallAction call, SeffVisitor nextVisitor) {
 		String returnName = call.getCalledService_ExternalService().getServiceName() + ".RETURN";
 
