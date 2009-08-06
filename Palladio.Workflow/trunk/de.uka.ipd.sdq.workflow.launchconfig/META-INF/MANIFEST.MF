@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,
  de.uka.ipd.sdq.workflow;visibility:=reexport,
- org.apache.log4j;bundle-version="1.2.13";visibility:=reexport,
+ org.apache.log4j;bundle-version="1.2.8";visibility:=reexport,
  org.apache.commons.logging;bundle-version="1.0.4"
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: sdq.ipd.uka.de
