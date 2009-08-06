@@ -91,15 +91,15 @@ public class LqnBuilder {
 		if (tt == null) {
 			tt = lqnFactory.createTaskType();
 			tt.setName(id + "_Task");
+			tt.setMultiplicity(new BigInteger("1"));
 
 			tt.setThinkTime("0.0");
 			tt.setActivityGraph(TaskOptionType.YES);
 			
 			//tt.setScheduling(TaskSchedulingType.INF);
 			tt.setScheduling(TaskSchedulingType.FCFS);
-			
-			//Not setting the multiplicity results in infinite multiplicity
-			
+			tt.setMultiplicity(new BigInteger("100"));
+
 			ServiceType st = lqnFactory.createServiceType();
 			st.setName("MyService");
 			tt.getService().add(st);
@@ -123,12 +123,11 @@ public class LqnBuilder {
 		if (tt == null) {
 			tt = lqnFactory.createTaskType();
 			tt.setName(id + "_Task");
-			
+			tt.setMultiplicity(new BigInteger("1"));
+
 			tt.setThinkTime("0.0");
 			tt.setScheduling(TaskSchedulingType.FCFS);
 			tt.setActivityGraph(TaskOptionType.YES);
-			
-			//Not setting the multiplicity results in infinite multiplicity
 
 			ServiceType st = lqnFactory.createServiceType();
 			st.setName("MyService");
