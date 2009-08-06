@@ -15,16 +15,13 @@
             <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_sZ-RsGF7Ed60Nobv0oIepQ" entityName="UploadSCA" successor="_deR4AlBwEd6ActLj8Gdl_A" predecessor="_deR4AVBwEd6ActLj8Gdl_A">
               <inputParameterUsages_EntryLevelSystemCall>
                 <variableCharacterisation_VariableUsage type="BYTESIZE">
-                  <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (500000.0; 0.00000000) (1000000.0; 0.05100000) (2000000.0; 0.13400000) (3000000.0; 0.19300000) (4000000.0; 0.21200000) (5000000.0; 0.22400000) (6000000.0; 0.18600000) ])"/>
+                  <specification_VariableCharacterisation specification="IntPMF[ (500000;0.0) (1000000;0.051) (2000000;0.134) (3000000;0.193) (4000000;0.212) (5000000;0.224) (6000000;0.186) ]"/>
                 </variableCharacterisation_VariableUsage>
                 <variableCharacterisation_VariableUsage type="VALUE">
                   <specification_VariableCharacterisation specification="IntPMF[ (64;0.1) (128;0.5) (192;0.2) (320;0.2) ]"/>
                 </variableCharacterisation_VariableUsage>
                 <variableCharacterisation_VariableUsage type="TYPE">
                   <specification_VariableCharacterisation specification="EnumPMF[ (&quot;constant&quot;;0.3) (&quot;variable&quot;;0.7) ]"/>
-                </variableCharacterisation_VariableUsage>
-                <variableCharacterisation_VariableUsage>
-                  <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (0.1; 0.00000000) (0.2; 0.30000000) (1.7; 0.20000000) (2.7; 0.50000000) ])"/>
                 </variableCharacterisation_VariableUsage>
                 <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
               </inputParameterUsages_EntryLevelSystemCall>

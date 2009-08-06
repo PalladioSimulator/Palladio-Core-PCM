@@ -21,7 +21,7 @@
                 <children xmi:type="notation:Node" xmi:id="_deR4DVBwEd6ActLj8Gdl_A" type="3001">
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_deR4DlBwEd6ActLj8Gdl_A" fontName="Segoe UI"/>
                   <element xmi:type="Start" href="default.usagemodel#_deR4AVBwEd6ActLj8Gdl_A"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_deR4D1BwEd6ActLj8Gdl_A" x="53"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_deR4D1BwEd6ActLj8Gdl_A" x="87" y="7"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_deR4EFBwEd6ActLj8Gdl_A" type="3002">
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_deR4EVBwEd6ActLj8Gdl_A" fontName="Segoe UI"/>
@@ -46,10 +46,6 @@
                           <element xmi:type="_1:VariableCharacterisation" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.2"/>
                           <layoutConstraint xmi:type="notation:Location" xmi:id="_QOye0WbgEd6YwN-1nb9G4w"/>
                         </children>
-                        <children xmi:type="notation:Node" xmi:id="_hX8oEIHPEd6C6OKA0VRcLg" type="3013">
-                          <element xmi:type="_1:VariableCharacterisation" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.3"/>
-                          <layoutConstraint xmi:type="notation:Location" xmi:id="_hX8oEYHPEd6C6OKA0VRcLg"/>
-                        </children>
                         <styles xmi:type="notation:DrawerStyle" xmi:id="_xqIjxWF7Ed60Nobv0oIepQ"/>
                         <styles xmi:type="notation:TitleStyle" xmi:id="_xqIjxmF7Ed60Nobv0oIepQ" showTitle="true"/>
                         <styles xmi:type="notation:SortingStyle" xmi:id="_xqIjx2F7Ed60Nobv0oIepQ"/>
@@ -64,7 +60,7 @@
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_u3n_4WF7Ed60Nobv0oIepQ"/>
                   <element xmi:type="EntryLevelSystemCall" href="default.usagemodel#_sZ-RsGF7Ed60Nobv0oIepQ"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u3n_4mF7Ed60Nobv0oIepQ" x="-142" y="30" width="528" height="166"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u3n_4mF7Ed60Nobv0oIepQ" x="-142" y="42" width="528" height="136"/>
                 </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_deR4C1BwEd6ActLj8Gdl_A"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_deR4DFBwEd6ActLj8Gdl_A"/>
