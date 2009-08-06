@@ -23,6 +23,9 @@
                 <variableCharacterisation_VariableUsage type="TYPE">
                   <specification_VariableCharacterisation specification="EnumPMF[ (&quot;constant&quot;;0.3) (&quot;variable&quot;;0.7) ]"/>
                 </variableCharacterisation_VariableUsage>
+                <variableCharacterisation_VariableUsage>
+                  <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (0.1; 0.00000000) (0.2; 0.30000000) (1.7; 0.20000000) (2.7; 0.50000000) ])"/>
+                </variableCharacterisation_VariableUsage>
                 <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
               </inputParameterUsages_EntryLevelSystemCall>
               <providedRole_EntryLevelSystemCall href="default.system#_TSt4YFBvEd6ActLj8Gdl_A"/>
