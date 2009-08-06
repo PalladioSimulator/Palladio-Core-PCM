@@ -566,6 +566,8 @@ public class ProbabilityFunctionFactoryImpl implements
 				double dif = index == 0 ? samples.get(0).getValue() : samples
 						.get(index).getValue()
 						- samples.get(index - 1).getValue();
+				//FIXME: wrong for testcase if values are smaller that 1 
+				//see de.uka.ipd.sdq.stoex.analyser.tests.ExpressionSolveVisitorTest 
 				newProb = ((samples.get(index).getValue() - currentNewSample + distance) / dif)
 						* samples.get(index).getProbability();
 				index++;

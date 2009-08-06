@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math.util;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -45,7 +46,10 @@ public class MathTools {
 	}
 
 	/**
-	 * Computes thre greatest common divisor (GDC) of two numbers
+	 * Computes something similar to the greatest common 
+	 * divisor (GCD) of two numbers.
+	 * Note that the GCD for two doubles is calculates, which is 
+	 * different to the standard definition of GCD.  
 	 * 
 	 * @param x
 	 *            first number
@@ -54,17 +58,21 @@ public class MathTools {
 	 * @return Returns the GDC of y and x.
 	 */
 	public static double gcd(double x, double y) {
+
 		if (x == 0.0)
 			return y;
 		if (y == 0.0)
 			return x;
+		
+		//if one already divides the other almost without remainder, return the smaller one
+		if (Math.abs(x%y) < EPSILON_ERROR) return y;
+		if (Math.abs(y%x) < EPSILON_ERROR) return x;
+		
 		while (Math.abs(x - y) > EPSILON_ERROR) {
 			if (x > y) {
 				x -= y;
-
 			} else {
 				y -= x;
-
 			}
 		}
 		return x;
