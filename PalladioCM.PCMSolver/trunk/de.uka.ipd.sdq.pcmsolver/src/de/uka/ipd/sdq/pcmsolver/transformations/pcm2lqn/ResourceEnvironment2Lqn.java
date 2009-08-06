@@ -77,10 +77,13 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 		
 		ProcessorType pt = lqnBuilder.addProcessor(id);
 		setSchedulingPolicy(object, pt);
-		String processingRate = object
+		
+		// The speed of the processing resource is already considered in the resource demands,
+		// they are calculated in term of tiem spent on the processor. 
+		/*String processingRate = object
 				.getProcessingRate_ProcessingResourceSpecification()
-				.getSpecification();
-		pt.setSpeedFactor(processingRate);
+				.getSpecification();*/
+		pt.setSpeedFactor("1.0");
 		
 		TaskType tt = lqnBuilder.addTask(id,pt);
 		ActivityPhasesType apt = lqnBuilder.addActivityPhases(id);
