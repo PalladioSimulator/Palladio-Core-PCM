@@ -77,8 +77,14 @@ public class ProbFunctionCache {
 					if (sample.getProbability() > 0)
 						sample.setProbability(sample.getProbability()+delta);
 				}
+				
+				String sampleStringNew = "...PDF[";
+				for (ContinuousSample continuousSample : samples) {
+					sampleStringNew += "("+continuousSample.getValue()+";"+continuousSample.getProbability()+")";
+				} 
+				sampleStringNew += "]";
 
-				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! "+sampleString);
+				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! Was: "+sampleString+", now is: "+sampleStringNew);
 			}
 			
 		}
