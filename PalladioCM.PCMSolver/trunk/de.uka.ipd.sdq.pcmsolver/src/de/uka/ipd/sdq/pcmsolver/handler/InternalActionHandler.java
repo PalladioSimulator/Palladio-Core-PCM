@@ -76,7 +76,11 @@ public class InternalActionHandler{
 	}
 
 	/**
+	 * Create a ResourceDemand in the computed allocation context 
+	 * for the given ParametricResourceDemand and ProcessingResourceSpecification
+	 * The resulting ResourceDemand already takes into account the processing rate.
 	 * @param prd
+	 * @param prs
 	 */
 	private void createActualResourceDemand(ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
 		// TODO: include current branch conditions and loop iterations
@@ -128,6 +132,17 @@ public class InternalActionHandler{
 				.getResourceDemands_ComputedAllocationContext().add(ard);
 	}
 
+	/**
+	 * Get a combined expression for the demanded time: specification / processing rate prs
+	 * 
+	 * As the expressions can be more complex, we added parentheses, resulting in 
+	 * (specification)/((prs)*1.0). This expression is then solved in the ContextWrapper of this.visitor. 
+	 * and finally again printed to a String. 
+	 * 
+	 * @param specification
+	 * @param prs
+	 * @return A String with the solved expression. 
+	 */
 	private String getSolvedSpecification(String specification, ProcessingResourceSpecification prs) {
 
 		// quickly incorporate processing rate

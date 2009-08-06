@@ -105,6 +105,7 @@ public class ContextWrapper implements Cloneable {
 
 	private HashMap<AbstractBranchTransition, Double> branchProbs;
 	private HashMap<AbstractLoopAction, ManagedPMF> loopIters;
+	/** Contains the already solved resource demand in time on the specific processor */
 	private HashMap<ParametricResourceDemand, ProbabilityDensityFunction> resDemands;
 	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources;
 	private HashMap<ExternalCallAction, CommunicationLinkResourceSpecification> linkResources;
@@ -221,6 +222,12 @@ public class ContextWrapper implements Cloneable {
 		return loopIters.get(ala);
 	}
 
+	/**
+	 * Gets the time demanded by prd on its processor in this context. 
+	 * Note that the processing rate has already been taken into account here.  
+	 * @param prd 
+	 * @return A ManagedPDF representing the time demanded by prd
+	 */
 	public ManagedPDF getTimeConsumption(ParametricResourceDemand prd) {
 		return new ManagedPDF(resDemands.get(prd));
 	}
