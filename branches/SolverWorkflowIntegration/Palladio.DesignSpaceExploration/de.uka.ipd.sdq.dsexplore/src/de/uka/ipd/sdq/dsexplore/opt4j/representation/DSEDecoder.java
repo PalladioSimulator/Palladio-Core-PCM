@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.genotype.DoubleGenotype;
@@ -12,6 +15,7 @@ import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
@@ -32,7 +36,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
  */
 public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	
-	private final DSEProblem problem;
+	//private final DSEProblem problem;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -41,26 +45,26 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 	@Inject
 	public DSEDecoder(){
 		//XXX like this you can only set the problem once. Maybe dont save the reference. 
-		this.problem = Opt4JStarter.problem;
+		//this.problem = Opt4JStarter.problem;
 	}
 
 	@Override
 	public PCMPhenotype decode(DoubleGenotype genotype) {
 		
 		//copy PCM Instance
-		PCMInstance pcm = this.problem.getInitialInstance();
+		PCMInstance pcm = Opt4JStarter.problem.getInitialInstance();
 
 		
 		int index = 0;
 		//adjust values as in genotype
 		for (Double doubleGene : genotype) {
 			if (!doubleGene.isNaN() || doubleGene.isInfinite()){
-				applyChange(this.problem.getDesignDecision(index), doubleGene);
+				applyChange(Opt4JStarter.problem.getDesignDecision(index), doubleGene);
 			}  else { // TODO Handle wrong double genes properly, this is not the best way to solve it.
 				logger.warn("A double gene was not applicable for instance "+pcm.getName()+" : "+doubleGene.toString());
 				//set gene back to initial value
 				//XXX: maybe better set back to last value or find out why NaN happens
-				genotype.set(index, this.problem.getInitialGenotype().get(index));
+				genotype.set(index, Opt4JStarter.problem.getInitialGenotype().get(index));
 			}
 			index++;
 		}
@@ -172,8 +176,13 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		logger.debug("Handling a "+designDecision.getClass()+", using component "+componentToBeAssembled.getEntityName());
 	}
 	
-	public String getDecisionString(int index, double gene){
-		DesignDecision designDecision = this.problem.getDesignDecision(index);
+	public static String getDecisionString(int index, double gene){
+		DesignDecision designDecision = Opt4JStarter.problem.getDesignDecision(index);
+		String result = getDecisionString(gene, designDecision);
+		return result;
+	}
+
+	private static String getDecisionString(double gene, DesignDecision designDecision) {
 		String result = "";
 		int intgene = (int)gene;		
 		/**
@@ -192,5 +201,78 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		}
 		return result;
 	}
+	
+	/**
+	 * Calls getDoubleValueFor(String decisionString, DesignDecision designDecision)
+	 * @param index
+	 * @param decisionString
+	 * @return
+	 */
+	public static double getDoubleValueFor(int index, String decisionString){
+		
+		DesignDecision designDecision = Opt4JStarter.problem.getDesignDecision(index); 
+		
+		double value = getDoubleValueFor(decisionString, designDecision);
+		
+		return value;
+		
+	}
+
+	public static double getDoubleValueFor(String decisionString,
+			DesignDecision designDecision) {
+		double value = 0.0;
+		try {
+			value = Double.parseDouble(decisionString);
+			
+		} catch (NumberFormatException e){
+			//No Double, obviously..
+			if (AssembledComponentDecision.class.isInstance(designDecision)){
+				value = getDoubleValueFor((AssembledComponentDecision)designDecision, decisionString);
+			} else if (AllocationDecision.class.isInstance(designDecision)){
+				value = getDoubleValueFor((AllocationDecision)designDecision, decisionString);
+			} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
+				value = getDoubleValueFor((ConnectorConfigDecision)designDecision, decisionString);
+			} else {
+				logger.warn("There was an unrecognised design decision "+designDecision.getClass());
+			}
+		}
+		return value;
+	}
+
+	private static double getDoubleValueFor(ConnectorConfigDecision designDecision,
+			String decisionString) {
+		if (decisionString.equals("SOAP"))
+			return 0;
+		else 
+			return 1;
+	}
+
+	private static double getDoubleValueFor(AllocationDecision designDecision,
+			String decisionString) {
+		List<ResourceContainer> range = ((AvailableServers)designDecision.getDomain()).getResourcecontainer();
+		List<Entity> entities = new ArrayList<Entity>();
+		entities.addAll(range);
+		return getEntityPositionByName(entities, decisionString);
+	}
+
+	private static double getEntityPositionByName(List<Entity> entities,
+			String decisionString) {
+		for (Entity entity : entities) {
+			if (entity.getEntityName().equals(decisionString)){
+				return entities.indexOf(entity);
+			}
+		}
+		return 0;
+	}
+
+	private static double getDoubleValueFor(AssembledComponentDecision designDecision,
+			String decisionString) {
+		List<RepositoryComponent> range = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent();
+		List<Entity> entities = new ArrayList<Entity>();
+		entities.addAll(range);
+		return getEntityPositionByName(entities, decisionString);
+	}
+	
+	
 
 }

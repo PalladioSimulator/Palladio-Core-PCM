@@ -208,6 +208,10 @@ public class DSEProblem {
 	protected DesignDecision getDesignDecision(int index){
 		return this.pcmProblem.getDesigndecision().get(index);
 	}
+	
+	public List<DesignDecision> getDesignDecisions(){
+		return this.pcmProblem.getDesigndecision();
+	}
 
 
 	protected PCMInstance getInitialInstance() {

@@ -7,6 +7,11 @@ import org.opt4j.genotype.DoubleGenotype;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSECreator;
 
+/**
+ * XXX: Make this a strategy how to obtain Genotypes? Not a subtype of PredefinedInstanceEvaluator?
+ * @author Anne
+ *
+ */
 public class RandomSearch extends PredefinedInstanceEvaluator{
 	
 	private DSECreator creator = new DSECreator();
@@ -30,6 +35,9 @@ public class RandomSearch extends PredefinedInstanceEvaluator{
 		return result;
 	}
 
+	/**
+	 * Creates a new random list of genotypes each time.
+	 */
 	@Override
 	protected List<DoubleGenotype> getGenotypes() {
 		return createRandomCandidates(this.numberOfCandidates);

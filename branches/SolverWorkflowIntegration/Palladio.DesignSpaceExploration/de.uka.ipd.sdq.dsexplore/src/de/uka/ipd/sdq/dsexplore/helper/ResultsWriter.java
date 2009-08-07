@@ -20,6 +20,11 @@ import org.opt4j.genotype.DoubleGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
+/**
+ * XXX: Maybe make this a proper label provider for the results? Metamodel results?
+ * @author Anne
+ *
+ */
 public class ResultsWriter {
 	
 	/** Logger for log4j. */

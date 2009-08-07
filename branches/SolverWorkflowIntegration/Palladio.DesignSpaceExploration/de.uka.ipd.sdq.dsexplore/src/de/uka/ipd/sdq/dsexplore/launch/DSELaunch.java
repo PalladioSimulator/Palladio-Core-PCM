@@ -112,6 +112,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			upperConstraints.add(new DoubleValue(maxCost));
 			upperConstraints.add(new DoubleValue(maxPOFOD));
 			
+			//TODO: extract this in a Builder?
 			if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
 					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")){
 				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints, monitor);
