@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.analysis;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
