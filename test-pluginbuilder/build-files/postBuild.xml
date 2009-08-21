@@ -145,9 +145,11 @@
 		    	use="true" 		
 		    	verbose="true"
 		    	excludepackagenames="*"
-		    	failonerror="true"
+		    	packagenames=""
+		    	
 		    	>
 		<!--
+				failonerror="true"
 		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"
 		    	source="${buildDirectory}"  
 		    	excludepackagenames="${build.src.excludes}"
