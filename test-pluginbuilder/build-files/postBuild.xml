@@ -139,11 +139,13 @@
 		    	author="true" 
 		    	defaultexcludes="yes"
 		    	version="true" 
-		    	windowtitle="Palladio Component Model - PCM"
-		    	maxmemory="1500m"
+		    	windowtitle="Palladio Component Model - PCM"		    	
+		    	maxmemory="1536m"
 		    	classpathref="classpath"
 		    	use="true" 		
 		    	verbose="true"
+		    	excludepackagenames="*"
+		    	failonerror="true"
 		    	>
 		<!--
 		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"
