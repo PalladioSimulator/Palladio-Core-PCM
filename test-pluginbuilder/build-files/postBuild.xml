@@ -142,7 +142,9 @@
 		    	windowtitle="Palladio Component Model - PCM"
 		    	maxmemory="256m"
 		    	classpathref="classpath"
-		    	use="true" >
+		    	use="true" 
+		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"
+		    	>
 		<!--
 		    	executable="/usr/lib/jvm/java-6-openjdk/bin/javadoc"
 		    	source="${buildDirectory}"  
