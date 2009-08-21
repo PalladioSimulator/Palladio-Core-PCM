@@ -78,11 +78,12 @@
       <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/org.somox.pluginbuilder" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de">
         <always address="krogmann@ira.uka.de"></always>
       </htmlemail>
-      <!--
       <onsuccess>
-		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder" buildfile="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"> </antpublisher>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder" buildfile="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"> </antpublisher>
       </onsuccess>
-      -->
+      <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/org.somox.pluginbuilder" buildfile="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure>      
     </publishers>
     <bootstrappers>
       <svnbootstrapper username="anonymous" password="anonymous" localworkingcopy="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder"></svnbootstrapper>
