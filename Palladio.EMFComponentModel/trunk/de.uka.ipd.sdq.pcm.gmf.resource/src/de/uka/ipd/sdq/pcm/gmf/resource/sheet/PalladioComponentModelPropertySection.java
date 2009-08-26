@@ -22,6 +22,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+//import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
+
 /**
  * @generated
  */
@@ -100,10 +103,12 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+		 return PalladioComponentModelDiagramEditorPlugin
+	    .getInstance().getItemProvidersAdapterFactory();
+		/*if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
 			return ((AdapterFactoryEditingDomain) getEditingDomain())
 					.getAdapterFactory();
 		}
@@ -112,7 +117,7 @@ public class PalladioComponentModelPropertySection extends
 		if (editingDomain != null) {
 			return ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory();
 		}
-		return null;
+		return null;*/
 	}
 
 }
