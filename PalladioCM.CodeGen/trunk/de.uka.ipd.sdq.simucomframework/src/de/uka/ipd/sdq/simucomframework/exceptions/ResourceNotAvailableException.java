@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.simucomframework.exceptions;
  * @author brosch
  * 
  */
-public class ResourceNotAvailableException extends RuntimeException {
+public class ResourceNotAvailableException extends FailureException {
 
 	/**
 	 * A UID for serialization.

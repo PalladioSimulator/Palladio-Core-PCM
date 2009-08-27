@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.simucomframework.exceptions;
  * @author brosch
  * 
  */
-public class InternalActionFailedException extends RuntimeException {
+public class InternalActionFailedException extends FailureException {
 
 	/**
 	 * A UID for serialization.

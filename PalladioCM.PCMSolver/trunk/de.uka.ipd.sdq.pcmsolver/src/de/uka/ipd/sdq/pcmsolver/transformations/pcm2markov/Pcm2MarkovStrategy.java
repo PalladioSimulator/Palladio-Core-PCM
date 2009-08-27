@@ -231,7 +231,18 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	private void singleTransform(final PCMInstance model) {
 
 		// As a first step, solve parametric dependencies of the PCM instance:
-		runDSolver(model);
+		try {
+			runDSolver(model);
+		} catch (Exception e) {
+
+			// The parametric dependencies could not be solved:
+			logger
+					.error("Solving of parametric dependencies caused exception: "
+							+ e.getMessage());
+			e.printStackTrace();
+			
+			return;
+		}
 
 		// Second, the PCM instance is transformed into a Markov Chain instance:
 		runPcm2Markov(model);
@@ -245,30 +256,20 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 */
 	private void runDSolver(final PCMInstance model) {
 
+		logger.debug("Resolving parametric dependencies.");
 		// Record the time consumed for solving parametric dependencies:
 		long startTime = System.nanoTime();
 
 		// The parametric dependencies are solved by using a visitor:
 		UsageModelVisitor visitor = new UsageModelVisitor(model);
 
-		try {
+		// The dependency solver supports only solving a single
+		// usage scenario (08-2008):
+		UsageScenario us = (UsageScenario) model.getUsageModel()
+				.getUsageScenario_UsageModel().get(0);
 
-			// The dependency solver supports only solving a single
-			// usage scenario (08-2008):
-			UsageScenario us = (UsageScenario) model.getUsageModel()
-					.getUsageScenario_UsageModel().get(0);
-
-			// Solve the PCM instance using the visitor:
-			visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
-
-		} catch (Exception e) {
-
-			// The parametric dependencies could not be solved:
-			logger
-					.error("Solving of parametric dependencies caused exception: "
-							+ e.getMessage());
-			e.printStackTrace();
-		}
+		// Solve the PCM instance using the visitor:
+		visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
 
 		// Let the user know about the time consumed:
 		long stopTime = System.nanoTime();
@@ -285,6 +286,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 */
 	private void runPcm2Markov(final PCMInstance model) {
 
+		logger.debug("Transforming PCM model into analysis model.");
 		// Record the time consumed for creating the Markov Chain instance:
 		long startTime = System.nanoTime();
 

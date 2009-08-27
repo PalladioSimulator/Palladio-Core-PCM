@@ -28,8 +28,17 @@ public class VariableUsageHelper {
 		ctxWrp.getCompUsgCtx().getInput_ComputedUsageContext().getParameterChacterisations_Input().add(newUsage);
 	}
 
-	public static void copySolvedVariableUsageToInput(Input input, ContextWrapper oldContextWrapper, VariableUsage oldUsage) {
-		VariableUsage newUsage = getCopiedSolvedVariableUsage(oldContextWrapper, oldUsage);
+	public static void copySolvedVariableUsageToInput(Input input,ContextWrapper oldContextWrapper, VariableUsage oldUsage) {
+		VariableUsage newUsage = getCopiedSolvedVariableUsage(
+				oldContextWrapper, oldUsage);
+
+		//check if there already exists a variable with the same name
+		String varName = newUsage.getNamedReference_VariableUsage()
+				.getReferenceName();
+		for (VariableUsage usage : input.getParameterChacterisations_Input())
+			if (usage.getNamedReference_VariableUsage().getReferenceName()
+					.equals(varName))
+				throw new RuntimeException("Multiple definition of variable '" + varName + "'.");
 		input.getParameterChacterisations_Input().add(newUsage);
 	}
 	

@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.simucomframework.exceptions;
  * @author brosch
  * 
  */
-public class CommunicationLinkFailedException extends RuntimeException {
+public class CommunicationLinkFailedException extends FailureException {
 
 	/**
 	 * A UID for serialization.

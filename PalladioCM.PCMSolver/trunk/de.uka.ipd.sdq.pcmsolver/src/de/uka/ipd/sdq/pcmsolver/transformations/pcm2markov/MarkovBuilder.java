@@ -5,6 +5,8 @@ import java.util.ListIterator;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.ContentHandler.Validity;
+import org.eclipse.emf.transaction.Transaction;
 
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.MarkovFactory;
@@ -810,6 +812,79 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Incorporates one Markov Chain into another. The specific Markov Chain is
+	 * inserted into the aggregate Markov Chain replacing the failure state.
+	 * 
+	 * @param aggregateChain
+	 *            the Markov Chain which will incorporate the other chain
+	 * @param handlingChain
+	 *            the Markov Chain which will be incorporated into the other
+	 *            chain
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
+	 */
+	public void appendFailureHandlingChain(final MarkovChain aggregateChain, 
+			final MarkovChain handlingChain,
+			final boolean optimize) {
+
+		this.validateChain(aggregateChain);
+		this.validateChain(handlingChain);
+		
+		// Create a copy of the specific Markov Chain to prevent reuse of any
+		// States or Transitions of the specific Markov Chain within the
+		// aggregate Markov Chain (this could lead to problems when one specific
+		// Markov Chain is incorporated several times into the same aggregate
+		// Markov Chain):
+		MarkovChain handlingChainCopy = copyMarkovChain(handlingChain);
+		
+		//find the relevant states
+		State stateAggregateSuccess = findState(aggregateChain, StateType.SUCCESS);
+		State stateAggregateFailure = findState(aggregateChain, StateType.FAILURE);
+
+		State stateHandlingStart = findState(handlingChainCopy, StateType.START);
+		State stateHandlingSuccess = findState(handlingChainCopy, StateType.SUCCESS);
+		
+		// Take over the specific Markov Chain into the aggregate Markov Chain:
+		aggregateChain.getStates().addAll(
+				handlingChainCopy.getStates());
+		aggregateChain.getTransitions().addAll(
+				handlingChainCopy.getTransitions());
+		
+		//find the transitions that lead to the failure state, which is to be replaced
+		//by the handling chain
+		ArrayList<Transition> failureTransitionsAggregate = findTransitionsToState(
+				aggregateChain, stateAggregateFailure);
+		
+		//remove the old failure state 
+		aggregateChain.getStates().remove(stateAggregateFailure);
+		
+		//reassign all transitions that pointed to it on the start state of the handling chain 
+		for (int i = 0; i < failureTransitionsAggregate.size(); i++) {
+			failureTransitionsAggregate.get(i).setToState(
+					stateHandlingStart);
+		}
+		//the start state is an intermediate state now
+		stateHandlingStart.setType(StateType.DEFAULT);
+		
+		//there are two success states now. Remove the handling success state
+		//and reassign the transitons that pointed to it on the success stae of 
+		//the aggregate chain.
+		ArrayList<Transition> transitionsToHandlingSuccess = findTransitionsToState(
+				handlingChainCopy, stateHandlingSuccess);
+		aggregateChain.getStates().remove(stateHandlingSuccess);
+		for (int i = 0; i < transitionsToHandlingSuccess.size(); i++) {
+			transitionsToHandlingSuccess.get(i).setToState(
+					stateAggregateSuccess);
+		}
+		
+		// Optimize the aggregate MarkovChain:
+		if (optimize) {
+			reduceState(aggregateChain, stateHandlingStart);
+		}
+	}
+	
+	/**
 	 * Creates a copy of a Markov Chain. All States and Transitions of the
 	 * original Markov Chain are copied into the new one.
 	 * 
@@ -817,7 +892,7 @@ public class MarkovBuilder {
 	 *            the original Markov Chain
 	 * @return the new Markov Chain
 	 */
-	private MarkovChain copyMarkovChain(final MarkovChain originalMarkovChain) {
+	public MarkovChain copyMarkovChain(final MarkovChain originalMarkovChain) {
 
 		// Create a new Markov Chain instance:
 		MarkovChain newMarkovChain = markovFactory.createMarkovChain();
@@ -1047,13 +1122,13 @@ public class MarkovBuilder {
 		// Assure that the State which will be reduced is contained in the given
 		// Markov Chain:
 		if (!markovChain.getStates().contains(stateToReduce)) {
-			return;
+			throw new MarkovException("Cannot reduce Markov State. The Markov Chain does not contain that state.");
 		}
 
 		// Assure that the State which will be reduced is not the Start, Success
 		// or Failure State:
 		if (!stateToReduce.getType().equals(StateType.DEFAULT)) {
-			return;
+			throw new MarkovException("Cannot reduce Markov State. Only intermediate states can be reduced.");
 		}
 
 		// Find and delete all transitions in the Markov Chain that lead to the
@@ -1106,4 +1181,49 @@ public class MarkovBuilder {
 			}
 		}
 	}
+	
+	public void validateChain(MarkovChain chain){
+
+		for(Transition t : chain.getTransitions()) {
+			if(t.getFromState()==null || t.getToState()==null)
+				throw new MarkovException("Invalid transiton in Markov Chain.");
+		}
+		
+		boolean hasStart=false;
+		boolean hasSuccess=false;
+		boolean hasFailure=false;
+		for(State s : chain.getStates()){
+			if(s.getType()==StateType.START) {
+				if(hasStart)
+					throw new MarkovException("Multiple start states in Markov Chain.");
+				else 
+					hasStart=true;
+			}
+			else if(s.getType()==StateType.SUCCESS) {
+				if(hasSuccess)
+					throw new MarkovException("Multiple success states in Markov Chain.");
+				else 
+					hasSuccess=true;
+			}
+			else if(s.getType()==StateType.FAILURE) {
+				if(hasFailure)
+					throw new MarkovException("Multiple failure states in Markov Chain.");
+				else 
+					hasFailure=true;
+			}
+		}
+		
+		if(!hasStart)
+			throw new MarkovException("No start state in Markov Chain.");
+		
+		if(!hasSuccess)
+			throw new MarkovException("No success state in Markov Chain.");
+		
+		if(!hasFailure)
+			throw new MarkovException("No failure state in Markov Chain.");
+		
+		//TODO: Check for transitions leading to dead ends
+		//TODO: Check for cycles
+	}
+	
 }

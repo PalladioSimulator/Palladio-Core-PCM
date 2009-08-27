@@ -72,14 +72,10 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 						return expr;
 					}
 				}
-				logger.error("Variable Characterisation missing " +
-						"in Usage Context ("+soughtParameterName+")!");
-				return null;
+				throw new RuntimeException("Variable Characterisation missing in Usage Context ("+soughtParameterName+")!");
 			}
 		}
-		logger.error("Variable missing " +
-				"in Usage Context ("+soughtParameterName+")!");
-		return null;
+		throw new RuntimeException("Variable Characterisation missing in Usage Context ("+soughtParameterName+")!");
 	}
 
 	/**
