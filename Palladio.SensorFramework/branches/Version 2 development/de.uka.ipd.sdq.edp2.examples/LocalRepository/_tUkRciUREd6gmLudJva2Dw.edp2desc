@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<de.uka.ipd.sdq.edp2.models:MetricSetDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/0.9.0" xmi:id="_UpQ2tpMtEd6_nryI33MjhQ" uuid="_tUkRciUREd6gmLudJva2Dw" name="Demanded Time (Simulated)" textualDescription="Demanded time determined in a simulation. Consists of the simulation time when the time was demanded and the demanded time itself." repository="_Uli0UJMtEd6_nryI33MjhQ">
+  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:BaseMetricDescription" href="_38mSASUPEd6gmLudJva2Dw.edp2desc#_UpHsypMtEd6_nryI33MjhQ"/>
+  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:BaseMetricDescription" href="_fvNrgCUQEd6gmLudJva2Dw.edp2desc#_UpQ2sZMtEd6_nryI33MjhQ"/>
+</de.uka.ipd.sdq.edp2.models:MetricSetDescription>

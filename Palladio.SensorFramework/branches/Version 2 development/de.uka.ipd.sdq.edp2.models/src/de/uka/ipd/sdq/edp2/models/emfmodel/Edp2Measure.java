@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup <em>Experiment Group</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSettings <em>Experiment Settings</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getPersistencyKind <em>Persistency Kind</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getMeasuredObject <em>Measured Object</em>}</li>
@@ -40,32 +40,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Edp2Measure extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Experiment Setting</b></em>' container reference.
+	 * Returns the value of the '<em><b>Experiment Group</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure <em>Measure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Experiment Setting</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Experiment Group</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Experiment Setting</em>' container reference.
-	 * @see #setExperimentSetting(ExperimentGroup)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_ExperimentSetting()
+	 * @return the value of the '<em>Experiment Group</em>' container reference.
+	 * @see #setExperimentGroup(ExperimentGroup)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getEdp2Measure_ExperimentGroup()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure
 	 * @model opposite="measure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	ExperimentGroup getExperimentSetting();
+	ExperimentGroup getExperimentGroup();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup <em>Experiment Group</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Experiment Setting</em>' container reference.
-	 * @see #getExperimentSetting()
+	 * @param value the new value of the '<em>Experiment Group</em>' container reference.
+	 * @see #getExperimentGroup()
 	 * @generated
 	 */
-	void setExperimentSetting(ExperimentGroup value);
+	void setExperimentGroup(ExperimentGroup value);
 
 	/**
 	 * Returns the value of the '<em><b>Experiment Settings</b></em>' reference list.

@@ -60,6 +60,8 @@ public class PresentationFactoryImpl extends EFactoryImpl implements Presentatio
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case PresentationPackage.DATA_READER_CONFIGURATION: return createDataReaderConfiguration();
+			case PresentationPackage.DATA_SOURCE: return createDataSource();
 			case PresentationPackage.HISTOGRAM: return createHistogram();
 			case PresentationPackage.BAR: return createBar();
 			case PresentationPackage.CUMULATIVE_DISTRIBUTION_FUNCTION: return createCumulativeDistributionFunction();
@@ -69,8 +71,6 @@ public class PresentationFactoryImpl extends EFactoryImpl implements Presentatio
 			case PresentationPackage.BOXPLOT: return createBoxplot();
 			case PresentationPackage.EDP2_DATA_SOURCE_DESCRIPTION: return createEDP2DataSourceDescription();
 			case PresentationPackage.SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION: return createSensorFrameworkDataSourceDescription();
-			case PresentationPackage.DATA_READER_CONFIGURATION: return createDataReaderConfiguration();
-			case PresentationPackage.DATA_SOURCE: return createDataSource();
 			case PresentationPackage.JFREE_CHART_HISTOGRAM_VIEW: return createJFreeChartHistogramView();
 			case PresentationPackage.HISTOGRAM_VIEW: return createHistogramView();
 			case PresentationPackage.JFREE_CHART_CUMULATIVE_DISTRIBUTION_VIEW: return createJFreeChartCumulativeDistributionView();

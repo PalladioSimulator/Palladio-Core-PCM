@@ -85,9 +85,9 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 			case EmfmodelPackage.EXPERIMENT_GROUP: return createExperimentGroup();
 			case EmfmodelPackage.EXPERIMENT_SETTING: return createExperimentSetting();
 			case EmfmodelPackage.EXPERIMENT_RUN: return createExperimentRun();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
 			case EmfmodelPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
 			case EmfmodelPackage.CATEGORY_IDENTIFIER: return createCategoryIdentifier();
 			case EmfmodelPackage.NOMINAL_MEASUREMENTS: return createNominalMeasurements();
@@ -118,16 +118,16 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.DATA_TYPE:
-				return createDataTypeFromString(eDataType, initialValue);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return createCaptureTypeFromString(eDataType, initialValue);
+			case EmfmodelPackage.DATA_TYPE:
+				return createDataTypeFromString(eDataType, initialValue);
 			case EmfmodelPackage.SCALE:
 				return createScaleFromString(eDataType, initialValue);
 			case EmfmodelPackage.MONOTONIC:
 				return createMonotonicFromString(eDataType, initialValue);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return createPersistenceKindOptionsFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return createEJSMeasureFromString(eDataType, initialValue);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:
@@ -147,16 +147,16 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.DATA_TYPE:
-				return convertDataTypeToString(eDataType, instanceValue);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return convertCaptureTypeToString(eDataType, instanceValue);
+			case EmfmodelPackage.DATA_TYPE:
+				return convertDataTypeToString(eDataType, instanceValue);
 			case EmfmodelPackage.SCALE:
 				return convertScaleToString(eDataType, instanceValue);
 			case EmfmodelPackage.MONOTONIC:
 				return convertMonotonicToString(eDataType, instanceValue);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_MEASURE:
 				return convertEJSMeasureToString(eDataType, instanceValue);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:

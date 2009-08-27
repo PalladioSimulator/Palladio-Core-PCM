@@ -97,6 +97,30 @@ public class PresentationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PresentationPackage.DATA_READER: {
+				DataReader dataReader = (DataReader)theEObject;
+				T result = caseDataReader(dataReader);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PresentationPackage.DATA_READER_CONFIGURATION: {
+				DataReaderConfiguration dataReaderConfiguration = (DataReaderConfiguration)theEObject;
+				T result = caseDataReaderConfiguration(dataReaderConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PresentationPackage.DATA_SOURCE: {
+				DataSource dataSource = (DataSource)theEObject;
+				T result = caseDataSource(dataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PresentationPackage.IDATA_SOURCE_DESCRIPTION: {
+				IDataSourceDescription iDataSourceDescription = (IDataSourceDescription)theEObject;
+				T result = caseIDataSourceDescription(iDataSourceDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PresentationPackage.RVIEW: {
 				RView rView = (RView)theEObject;
 				T result = caseRView(rView);
@@ -159,12 +183,6 @@ public class PresentationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PresentationPackage.IDATA_SOURCE_DESCRIPTION: {
-				IDataSourceDescription iDataSourceDescription = (IDataSourceDescription)theEObject;
-				T result = caseIDataSourceDescription(iDataSourceDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PresentationPackage.EDP2_DATA_SOURCE_DESCRIPTION: {
 				EDP2DataSourceDescription edp2DataSourceDescription = (EDP2DataSourceDescription)theEObject;
 				T result = caseEDP2DataSourceDescription(edp2DataSourceDescription);
@@ -174,24 +192,6 @@ public class PresentationSwitch<T> {
 			case PresentationPackage.SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION: {
 				SensorFrameworkDataSourceDescription sensorFrameworkDataSourceDescription = (SensorFrameworkDataSourceDescription)theEObject;
 				T result = caseSensorFrameworkDataSourceDescription(sensorFrameworkDataSourceDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PresentationPackage.DATA_READER: {
-				DataReader dataReader = (DataReader)theEObject;
-				T result = caseDataReader(dataReader);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PresentationPackage.DATA_READER_CONFIGURATION: {
-				DataReaderConfiguration dataReaderConfiguration = (DataReaderConfiguration)theEObject;
-				T result = caseDataReaderConfiguration(dataReaderConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PresentationPackage.DATA_SOURCE: {
-				DataSource dataSource = (DataSource)theEObject;
-				T result = caseDataSource(dataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

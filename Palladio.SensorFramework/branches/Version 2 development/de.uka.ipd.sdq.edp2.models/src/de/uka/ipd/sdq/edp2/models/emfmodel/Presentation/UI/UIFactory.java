@@ -53,51 +53,6 @@ public interface UIFactory extends EFactory {
 	PresentationInput createPresentationInput();
 
 	/**
-	 * Returns a new object of class '<em>Local File Storage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Local File Storage</em>'.
-	 * @generated
-	 */
-	LocalFileStorage createLocalFileStorage();
-
-	/**
-	 * Returns a new object of class '<em>Local Memory Storage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Local Memory Storage</em>'.
-	 * @generated
-	 */
-	LocalMemoryStorage createLocalMemoryStorage();
-
-	/**
-	 * Returns a new object of class '<em>Remote Storage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Remote Storage</em>'.
-	 * @generated
-	 */
-	RemoteStorage createRemoteStorage();
-
-	/**
-	 * Returns a new object of class '<em>Sensor Framework Version1 Storage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor Framework Version1 Storage</em>'.
-	 * @generated
-	 */
-	SensorFrameworkVersion1Storage createSensorFrameworkVersion1Storage();
-
-	/**
-	 * Returns a new object of class '<em>Storage Nodes</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Storage Nodes</em>'.
-	 * @generated
-	 */
-	StorageNodes createStorageNodes();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

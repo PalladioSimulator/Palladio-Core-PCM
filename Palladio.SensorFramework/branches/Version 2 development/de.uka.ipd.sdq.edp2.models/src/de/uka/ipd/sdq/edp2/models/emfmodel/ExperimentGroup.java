@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getExperimentSettings <em>Experiment Settings</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode <em>Storage Node</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository <em>Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getMeasure <em>Measure</em>}</li>
  * </ul>
@@ -52,32 +52,32 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	EList<ExperimentSetting> getExperimentSettings();
 
 	/**
-	 * Returns the value of the '<em><b>Storage Node</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup <em>Experiment Group</em>}'.
+	 * Returns the value of the '<em><b>Repository</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup <em>Experiment Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Storage Node</em>' reference isn't clear,
+	 * If the meaning of the '<em>Repository</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Storage Node</em>' reference.
-	 * @see #setStorageNode(StorageNode)
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_StorageNode()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup
+	 * @return the value of the '<em>Repository</em>' reference.
+	 * @see #setRepository(Repository)
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_Repository()
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup
 	 * @model opposite="experimentGroup" ordered="false"
 	 * @generated
 	 */
-	StorageNode getStorageNode();
+	Repository getRepository();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode <em>Storage Node</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Storage Node</em>' reference.
-	 * @see #getStorageNode()
+	 * @param value the new value of the '<em>Repository</em>' reference.
+	 * @see #getRepository()
 	 * @generated
 	 */
-	void setStorageNode(StorageNode value);
+	void setRepository(Repository value);
 
 	/**
 	 * Returns the value of the '<em><b>Purpose</b></em>' attribute.
@@ -108,7 +108,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	/**
 	 * Returns the value of the '<em><b>Measure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup <em>Experiment Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measure</em>' containment reference list isn't clear,
@@ -117,8 +117,8 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_Measure()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting
-	 * @model opposite="experimentSetting" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup
+	 * @model opposite="experimentGroup" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Edp2Measure> getMeasure();

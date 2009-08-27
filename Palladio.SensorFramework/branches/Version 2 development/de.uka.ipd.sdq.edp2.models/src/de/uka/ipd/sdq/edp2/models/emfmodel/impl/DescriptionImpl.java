@@ -9,10 +9,14 @@ package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Description;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -25,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getTextualDescription <em>Textual Description</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.DescriptionImpl#getRepository <em>Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +75,16 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	 * @ordered
 	 */
 	protected String textualDescription = TEXTUAL_DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepository()
+	 * @generated
+	 * @ordered
+	 */
+	protected Repository repository;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +152,96 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Repository getRepository() {
+		if (repository != null && repository.eIsProxy()) {
+			InternalEObject oldRepository = (InternalEObject)repository;
+			repository = (Repository)eResolveProxy(oldRepository);
+			if (repository != oldRepository) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.DESCRIPTION__REPOSITORY, oldRepository, repository));
+			}
+		}
+		return repository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Repository basicGetRepository() {
+		return repository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRepository(Repository newRepository, NotificationChain msgs) {
+		Repository oldRepository = repository;
+		repository = newRepository;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__REPOSITORY, oldRepository, newRepository);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepository(Repository newRepository) {
+		if (newRepository != repository) {
+			NotificationChain msgs = null;
+			if (repository != null)
+				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+			if (newRepository != null)
+				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+			msgs = basicSetRepository(newRepository, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__REPOSITORY, newRepository, newRepository));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				if (repository != null)
+					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+				return basicSetRepository((Repository)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				return basicSetRepository(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -144,6 +249,9 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 				return getName();
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				return getTextualDescription();
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				if (resolve) return getRepository();
+				return basicGetRepository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +269,9 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 				return;
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				setTextualDescription((String)newValue);
+				return;
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				setRepository((Repository)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +291,9 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				setTextualDescription(TEXTUAL_DESCRIPTION_EDEFAULT);
 				return;
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				setRepository((Repository)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +310,8 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				return TEXTUAL_DESCRIPTION_EDEFAULT == null ? textualDescription != null : !TEXTUAL_DESCRIPTION_EDEFAULT.equals(textualDescription);
+			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+				return repository != null;
 		}
 		return super.eIsSet(featureID);
 	}

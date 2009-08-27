@@ -653,7 +653,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDescription()
 	 * @generated
 	 */
-	int DESCRIPTION = 17;
+	int DESCRIPTION = 15;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.MetricDescriptionImpl <em>Metric Description</em>}' class.
@@ -673,7 +673,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getBaseMetricDescription()
 	 * @generated
 	 */
-	int BASE_METRIC_DESCRIPTION = 15;
+	int BASE_METRIC_DESCRIPTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Additional Information</b></em>' map.
@@ -731,13 +731,13 @@ public interface EmfmodelPackage extends EPackage {
 	int EDP2_MEASURE = 11;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
+	 * The feature id for the '<em><b>Experiment Group</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDP2_MEASURE__EXPERIMENT_SETTING = 0;
+	int EDP2_MEASURE__EXPERIMENT_GROUP = 0;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
@@ -812,13 +812,13 @@ public interface EmfmodelPackage extends EPackage {
 	int EXPERIMENT_GROUP__EXPERIMENT_SETTINGS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Storage Node</b></em>' reference.
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENT_GROUP__STORAGE_NODE = IDENTIFIABLE_FEATURE_COUNT + 2;
+	int EXPERIMENT_GROUP__REPOSITORY = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Purpose</b></em>' attribute.
@@ -983,13 +983,22 @@ public interface EmfmodelPackage extends EPackage {
 	int DESCRIPTION__TEXTUAL_DESCRIPTION = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTION__REPOSITORY = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
+	int DESCRIPTION_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1019,6 +1028,15 @@ public interface EmfmodelPackage extends EPackage {
 	int METRIC_DESCRIPTION__TEXTUAL_DESCRIPTION = DESCRIPTION__TEXTUAL_DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_DESCRIPTION__REPOSITORY = DESCRIPTION__REPOSITORY;
+
+	/**
 	 * The number of structural features of the '<em>Metric Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1035,7 +1053,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationFunctionDescription()
 	 * @generated
 	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION = 18;
+	int AGGREGATION_FUNCTION_DESCRIPTION = 17;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationStatisticsImpl <em>Aggregation Statistics</em>}' class.
@@ -1045,7 +1063,79 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getAggregationStatistics()
 	 * @generated
 	 */
-	int AGGREGATION_STATISTICS = 19;
+	int AGGREGATION_STATISTICS = 18;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FUNCTION_DESCRIPTION__UUID = DESCRIPTION__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FUNCTION_DESCRIPTION__NAME = DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Textual Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FUNCTION_DESCRIPTION__TEXTUAL_DESCRIPTION = DESCRIPTION__TEXTUAL_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FUNCTION_DESCRIPTION__REPOSITORY = DESCRIPTION__REPOSITORY;
+
+	/**
+	 * The number of structural features of the '<em>Aggregation Function Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FUNCTION_DESCRIPTION_FEATURE_COUNT = DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Aggregation Statistics</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_STATISTICS_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -1073,6 +1163,15 @@ public interface EmfmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BASE_METRIC_DESCRIPTION__TEXTUAL_DESCRIPTION = METRIC_DESCRIPTION__TEXTUAL_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_METRIC_DESCRIPTION__REPOSITORY = METRIC_DESCRIPTION__REPOSITORY;
 
 	/**
 	 * The feature id for the '<em><b>Capture Type</b></em>' attribute.
@@ -1127,69 +1226,6 @@ public interface EmfmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BASE_METRIC_DESCRIPTION_FEATURE_COUNT = METRIC_DESCRIPTION_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION__UUID = DESCRIPTION__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION__NAME = DESCRIPTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Textual Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION__TEXTUAL_DESCRIPTION = DESCRIPTION__TEXTUAL_DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>Aggregation Function Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_FUNCTION_DESCRIPTION_FEATURE_COUNT = DESCRIPTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values Before Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Distinct Values After Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Aggregation Statistics</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION_STATISTICS_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.LongBinaryMeasurementsImpl <em>Long Binary Measurements</em>}' class.
@@ -1358,13 +1394,13 @@ public interface EmfmodelPackage extends EPackage {
 	int NOMINAL_MEASURE = 23;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
+	 * The feature id for the '<em><b>Experiment Group</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOMINAL_MEASURE__EXPERIMENT_SETTING = EDP2_MEASURE__EXPERIMENT_SETTING;
+	int NOMINAL_MEASURE__EXPERIMENT_GROUP = EDP2_MEASURE__EXPERIMENT_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
@@ -1513,13 +1549,13 @@ public interface EmfmodelPackage extends EPackage {
 	int ORDINAL_MEASURE = 25;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Setting</b></em>' container reference.
+	 * The feature id for the '<em><b>Experiment Group</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORDINAL_MEASURE__EXPERIMENT_SETTING = EDP2_MEASURE__EXPERIMENT_SETTING;
+	int ORDINAL_MEASURE__EXPERIMENT_GROUP = EDP2_MEASURE__EXPERIMENT_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Settings</b></em>' reference list.
@@ -1723,6 +1759,15 @@ public interface EmfmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int METRIC_SET_DESCRIPTION__TEXTUAL_DESCRIPTION = METRIC_DESCRIPTION__TEXTUAL_DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SET_DESCRIPTION__REPOSITORY = METRIC_DESCRIPTION__REPOSITORY;
 
 	/**
 	 * The feature id for the '<em><b>Subsumed Metrics</b></em>' reference list.
@@ -2289,7 +2334,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getPersistenceKindOptions()
 	 * @generated
 	 */
-	int PERSISTENCE_KIND_OPTIONS = 43;
+	int PERSISTENCE_KIND_OPTIONS = 39;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.CaptureType <em>Capture Type</em>}' enum.
@@ -2309,7 +2354,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 39;
+	int DATA_TYPE = 41;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Scale <em>Scale</em>}' enum.
@@ -2319,7 +2364,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getScale()
 	 * @generated
 	 */
-	int SCALE = 41;
+	int SCALE = 42;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Monotonic <em>Monotonic</em>}' enum.
@@ -2329,7 +2374,7 @@ public interface EmfmodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl#getMonotonic()
 	 * @generated
 	 */
-	int MONOTONIC = 42;
+	int MONOTONIC = 43;
 
 	/**
 	 * The meta object id for the '<em>EJS Measure</em>' data type.
@@ -2782,15 +2827,15 @@ public interface EmfmodelPackage extends EPackage {
 	EClass getEdp2Measure();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting <em>Experiment Setting</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup <em>Experiment Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Experiment Setting</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSetting()
+	 * @return the meta object for the container reference '<em>Experiment Group</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentGroup()
 	 * @see #getEdp2Measure()
 	 * @generated
 	 */
-	EReference getEdp2Measure_ExperimentSetting();
+	EReference getEdp2Measure_ExperimentGroup();
 
 	/**
 	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure#getExperimentSettings <em>Experiment Settings</em>}'.
@@ -2913,15 +2958,15 @@ public interface EmfmodelPackage extends EPackage {
 	EReference getExperimentGroup_ExperimentSettings();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode <em>Storage Node</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Storage Node</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getStorageNode()
+	 * @return the meta object for the reference '<em>Repository</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository()
 	 * @see #getExperimentGroup()
 	 * @generated
 	 */
-	EReference getExperimentGroup_StorageNode();
+	EReference getExperimentGroup_Repository();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getPurpose <em>Purpose</em>}'.
@@ -3148,6 +3193,17 @@ public interface EmfmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDescription_TextualDescription();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Repository</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Description#getRepository()
+	 * @see #getDescription()
+	 * @generated
+	 */
+	EReference getDescription_Repository();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.AggregationFunctionDescription <em>Aggregation Function Description</em>}'.
@@ -4074,12 +4130,12 @@ public interface EmfmodelPackage extends EPackage {
 		EClass EDP2_MEASURE = eINSTANCE.getEdp2Measure();
 
 		/**
-		 * The meta object literal for the '<em><b>Experiment Setting</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Experiment Group</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EDP2_MEASURE__EXPERIMENT_SETTING = eINSTANCE.getEdp2Measure_ExperimentSetting();
+		EReference EDP2_MEASURE__EXPERIMENT_GROUP = eINSTANCE.getEdp2Measure_ExperimentGroup();
 
 		/**
 		 * The meta object literal for the '<em><b>Experiment Settings</b></em>' reference list feature.
@@ -4176,12 +4232,12 @@ public interface EmfmodelPackage extends EPackage {
 		EReference EXPERIMENT_GROUP__EXPERIMENT_SETTINGS = eINSTANCE.getExperimentGroup_ExperimentSettings();
 
 		/**
-		 * The meta object literal for the '<em><b>Storage Node</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPERIMENT_GROUP__STORAGE_NODE = eINSTANCE.getExperimentGroup_StorageNode();
+		EReference EXPERIMENT_GROUP__REPOSITORY = eINSTANCE.getExperimentGroup_Repository();
 
 		/**
 		 * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
@@ -4360,6 +4416,14 @@ public interface EmfmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DESCRIPTION__TEXTUAL_DESCRIPTION = eINSTANCE.getDescription_TextualDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESCRIPTION__REPOSITORY = eINSTANCE.getDescription_Repository();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.AggregationFunctionDescriptionImpl <em>Aggregation Function Description</em>}' class.

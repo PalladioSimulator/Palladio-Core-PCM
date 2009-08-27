@@ -142,7 +142,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes and specifies the measure used. Needs to be subclassed to create concrete Measures which can handle specific data. Measures are attached to ExperimentGroup and referenced from ExperimentSetting to allow modeling that the same Measure is used throughout several experiment settings.&#xD;&#xA;&#xD;&#xA;Characterizes the reading point how the measurements are collected. The Characerization is propertyable if additional context-specific information should be stored for the sensor.&#xD;&#xA;&#xD;&#xA;For example measuring the response time of a request to a system in milliseconds could result in the following values of the attributes: metric='Response Time', measuredObject='System External Requests', and unitOfMeasurements='ms'. Another example is the number of lines of code of the class java.lang.System: metric='LOC', measuredObject='Class java.lang.System', and unitOfMeasurement='Positive Integer'."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSetting" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroup" ordered="false"
         lowerBound="1" eType="#//ExperimentGroup" eOpposite="#//ExperimentGroup/measure"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
         upperBound="-1" eType="#//ExperimentSetting" eOpposite="#//ExperimentSetting/measure"/>
@@ -159,12 +159,12 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
         upperBound="-1" eType="#//ExperimentSetting" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="storageNode" ordered="false"
-        eType="#//Presentation/UI/StorageNode" eOpposite="#//Presentation/UI/StorageNode/experimentGroup"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
+        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/experimentGroup"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" ordered="false"
-        upperBound="-1" eType="#//Edp2Measure" containment="true" eOpposite="#//Edp2Measure/experimentSetting"/>
+        upperBound="-1" eType="#//Edp2Measure" containment="true" eOpposite="#//Edp2Measure/experimentGroup"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExperimentSetting" eSuperTypes="#//Propertyable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -205,9 +205,33 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSetting" ordered="false"
         lowerBound="1" eType="#//ExperimentSetting" eOpposite="#//ExperimentSetting/experimentRuns"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
-    <eLiterals name="Quantitative"/>
-    <eLiterals name="Qualitative" value="1"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Description" abstract="true" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textualDescription" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
+        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/description"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PersistenceKindOptions">
+    <eLiterals name="BinaryPreferred"/>
+    <eLiterals name="JSXmlPreferred" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetricDescription" abstract="true" eSuperTypes="#//Description"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregationFunctionDescription" eSuperTypes="#//Description"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregationStatistics">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinctValuesBeforeAggregation"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of distinct data values before aggregation.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinctValuesAfterAggregation"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of distinct data values after aggregation.&#xD;&#xA;&#xD;&#xA;For example if measurements were aggregated to three different groups the number is three."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BaseMetricDescription" eSuperTypes="#//MetricDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="captureType" ordered="false"
@@ -225,17 +249,14 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetricDescription" abstract="true" eSuperTypes="#//Description"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Description" abstract="true" eSuperTypes="#//Identifiable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textualDescription" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CaptureType">
     <eLiterals name="Identifier"/>
     <eLiterals name="NaturalNumber" value="1"/>
     <eLiterals name="RealNumber" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="Quantitative"/>
+    <eLiterals name="Qualitative" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Scale">
     <eLiterals name="Nominal">
@@ -265,25 +286,6 @@
     <eLiterals name="Strong" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EJSUnit" instanceClassName="javax.measure.unit.Unit"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="PersistenceKindOptions">
-    <eLiterals name="BinaryPreferred"/>
-    <eLiterals name="JSXmlPreferred" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregationFunctionDescription" eSuperTypes="#//Description"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregationStatistics">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinctValuesBeforeAggregation"
-        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The number of distinct data values before aggregation.&#xD;&#xA;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distinctValuesAfterAggregation"
-        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The number of distinct data values after aggregation.&#xD;&#xA;&#xD;&#xA;For example if measurements were aggregated to three different groups the number is three."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LongBinaryMeasurements" eSuperTypes="#//DataSeries">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This class is responsible for long measurements. These are stored in IEEE standardized binary format. All values are stored in the same unit. The actual measurements are stored outside the EMF model, see {@link de.uka.ipd.sdq.sensorframework.storage.Daofactory}."/>
@@ -397,46 +399,59 @@
       eSuperTypes="#//NominalMeasurements"/>
   <eClassifiers xsi:type="ecore:EClass" name="SensorFrameworkV1DoubleBinaryMeasurements"
       eSuperTypes="#//DoubleBinaryMeasurements"/>
-  <eSubpackages name="Presentation" nsURI="http:///EDP2/Presentation.ecore" nsPrefix="EDP2.Presentation">
-    <eClassifiers xsi:type="ecore:EClass" name="JFreeChartView" abstract="true" eSuperTypes="#//Presentation/UI/PresentationView"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RView" abstract="true" eSuperTypes="#//Presentation/UI/PresentationView"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Histogram" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Bar" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CumulativeDistributionFunction" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Pie" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Boxplot" eSuperTypes="#//Presentation/UI/PresentationType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IEditorInput" abstract="true" interface="true">
-      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <details key="interface"/>
-        <details key="persistable"/>
-      </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IDataSourceDescription" abstract="true"
-        interface="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Contains the information to identify a data source and get metainformation/descriptions on that particular source."/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <details key="interface"/>
-        <details key="persistable"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registry" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="specifies information on the registry in which the data source can be found. In the SensorFramework, this would be the either the absolute Path on the file system or the number of the mounted dataset in the singleton of the SF's experiments view."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EDP2DataSourceDescription">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dataSeries" ordered="false"
-          lowerBound="1" eType="#//DataSeries"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SensorFrameworkDataSourceDescription">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sam" ordered="false"
+  <eSubpackages name="Repository" nsURI="http:///EDP2/Repository.ecore" nsPrefix="EDP2.Repository">
+    <eClassifiers xsi:type="ecore:EClass" name="LocalDirectoryRepository" eSuperTypes="#//Repository/Repository">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalMemoryRepository" eSuperTypes="#//Repository/Repository">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RemoteCdoRepository" eSuperTypes="#//Repository/Repository">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalSensorFrameworkRepository" eSuperTypes="#//Repository/Repository">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="importSettings" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Repositories">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableRepositories"
+          ordered="false" upperBound="-1" eType="#//Repository/Repository" containment="true"
+          eOpposite="#//Repository/Repository/repositories"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="commonResourceSet" ordered="false"
+          lowerBound="1" eType="#//Repository/IResourceSet"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"
+        abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="RepositoryStatus">
+      <eLiterals name="OPEN"/>
+      <eLiterals name="CLOSED" value="1"/>
+      <eLiterals name="DELETED" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MeasurementsDaoFactory" instanceClassName="de.uka.ipd.sdq.edp2.MeasurementsDaoFactory"
+        abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaDao" instanceClassName="de.uka.ipd.sdq.edp2.MetaDao"
+        abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Repository" abstract="true" eSuperTypes="#//Identifiable #//Repository/MetaDao">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" ordered="false"
+          lowerBound="1" eType="#//Repository/Repositories" eOpposite="#//Repository/Repositories/availableRepositories"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" ordered="false"
+          lowerBound="1" eType="#//Repository/RepositoryStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="description" ordered="false"
+          upperBound="-1" eType="#//Description" eOpposite="#//Description/repository"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroup" ordered="false"
+          upperBound="-1" eType="#//ExperimentGroup" eOpposite="#//ExperimentGroup/repository"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="PrimitiveTypes" nsURI="http:///EDP2/PrimitiveTypes.ecore" nsPrefix="EDP2.PrimitiveTypes"/>
+  <eSubpackages name="Presentation" nsURI="http:///EDP2/Presentation.ecore" nsPrefix="EDP2.Presentation">
+    <eClassifiers xsi:type="ecore:EClass" name="JFreeChartView" abstract="true" eSuperTypes="#//Presentation/UI/PresentationView"/>
     <eClassifiers xsi:type="ecore:EClass" name="DataReader" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" ordered="false"
           upperBound="-1" eType="#//Presentation/DataReaderConfiguration" containment="true"/>
@@ -455,6 +470,44 @@
           lowerBound="1" eType="#//Presentation/IDataSourceDescription"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="metricDescription" ordered="false"
           lowerBound="1" eType="#//BaseMetricDescription"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IDataSourceDescription" abstract="true"
+        interface="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contains the information to identify a data source and get metainformation/descriptions on that particular source."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="interface"/>
+        <details key="persistable"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="registry" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="specifies information on the registry in which the data source can be found. In the SensorFramework, this would be the either the absolute Path on the file system or the number of the mounted dataset in the singleton of the SF's experiments view."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RView" abstract="true" eSuperTypes="#//Presentation/UI/PresentationView"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Histogram" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Bar" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CumulativeDistributionFunction" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Pie" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Boxplot" eSuperTypes="#//Presentation/UI/PresentationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IEditorInput" abstract="true" interface="true">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="interface"/>
+        <details key="persistable"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EDP2DataSourceDescription">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataSeries" ordered="false"
+          lowerBound="1" eType="#//DataSeries"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SensorFrameworkDataSourceDescription">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sam" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JFreeChartHistogramView" eSuperTypes="#//Presentation/HistogramView"/>
     <eClassifiers xsi:type="ecore:EClass" name="HistogramView"/>
@@ -494,13 +547,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="generates" ordered="false"
           eType="#//Presentation/JFreeChartHistogramView"/>
     </eClassifiers>
-    <eSubpackages name="ConfigurationDescription" nsURI="http:///EDP2/Presentation/ConfigurationDescription.ecore"
-        nsPrefix="EDP2.Presentation.ConfigurationDescription"/>
-    <eSubpackages name="DataAccess" nsURI="http:///EDP2/Presentation/DataAccess.ecore"
-        nsPrefix="EDP2.Presentation.DataAccess"/>
     <eSubpackages name="UI" nsURI="http:///EDP2/Presentation/UI.ecore" nsPrefix="EDP2.Presentation.UI">
-      <eClassifiers xsi:type="ecore:EClass" name="PresentationView" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="PresentationType" abstract="true"/>
       <eClassifiers xsi:type="ecore:EClass" name="PresentationConfiguration">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Title, X-Axis label and unit, Y-Axis label and unit, ...&#xD;&#xA;(Maybe even templates for colors)"/>
@@ -524,31 +571,12 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="dataSourceDescription"
             ordered="false" upperBound="-1" eType="#//Presentation/DataSource" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="LocalFileStorage" eSuperTypes="#//Presentation/UI/StorageNode">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSystemPath" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="LocalMemoryStorage" eSuperTypes="#//Presentation/UI/StorageNode"/>
-      <eClassifiers xsi:type="ecore:EClass" name="RemoteStorage" eSuperTypes="#//Presentation/UI/StorageNode">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SensorFrameworkVersion1Storage"
-          eSuperTypes="#//Presentation/UI/StorageNode">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSystemPath" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="importSettings" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="StorageNodes">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="storagenNode" ordered="false"
-            upperBound="-1" eType="#//Presentation/UI/StorageNode" containment="true"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="StorageNode" abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroup" ordered="false"
-            upperBound="-1" eType="#//ExperimentGroup" eOpposite="#//ExperimentGroup/storageNode"/>
-      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="PresentationType" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="PresentationView" abstract="true"/>
     </eSubpackages>
+    <eSubpackages name="ConfigurationDescription" nsURI="http:///EDP2/Presentation/ConfigurationDescription.ecore"
+        nsPrefix="EDP2.Presentation.ConfigurationDescription"/>
+    <eSubpackages name="DataAccess" nsURI="http:///EDP2/Presentation/DataAccess.ecore"
+        nsPrefix="EDP2.Presentation.DataAccess"/>
   </eSubpackages>
-  <eSubpackages name="PrimitiveTypes" nsURI="http:///EDP2/PrimitiveTypes.ecore" nsPrefix="EDP2.PrimitiveTypes"/>
 </ecore:EPackage>

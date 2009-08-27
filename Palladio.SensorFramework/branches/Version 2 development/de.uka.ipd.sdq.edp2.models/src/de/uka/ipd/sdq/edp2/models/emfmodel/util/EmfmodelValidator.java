@@ -158,16 +158,16 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateExperimentSetting((ExperimentSetting)value, diagnostics, context);
 			case EmfmodelPackage.EXPERIMENT_RUN:
 				return validateExperimentRun((ExperimentRun)value, diagnostics, context);
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
-				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
-			case EmfmodelPackage.METRIC_DESCRIPTION:
-				return validateMetricDescription((MetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.DESCRIPTION:
 				return validateDescription((Description)value, diagnostics, context);
+			case EmfmodelPackage.METRIC_DESCRIPTION:
+				return validateMetricDescription((MetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION:
 				return validateAggregationFunctionDescription((AggregationFunctionDescription)value, diagnostics, context);
 			case EmfmodelPackage.AGGREGATION_STATISTICS:
 				return validateAggregationStatistics((AggregationStatistics)value, diagnostics, context);
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION:
+				return validateBaseMetricDescription((BaseMetricDescription)value, diagnostics, context);
 			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS:
 				return validateLongBinaryMeasurements((LongBinaryMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.CATEGORY_IDENTIFIER:
@@ -206,16 +206,16 @@ public class EmfmodelValidator extends EObjectValidator {
 				return validateSensorFrameworkV1NominalMeasurements((SensorFrameworkV1NominalMeasurements)value, diagnostics, context);
 			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS:
 				return validateSensorFrameworkV1DoubleBinaryMeasurements((SensorFrameworkV1DoubleBinaryMeasurements)value, diagnostics, context);
-			case EmfmodelPackage.DATA_TYPE:
-				return validateDataType((DataType)value, diagnostics, context);
+			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.CAPTURE_TYPE:
 				return validateCaptureType((CaptureType)value, diagnostics, context);
+			case EmfmodelPackage.DATA_TYPE:
+				return validateDataType((DataType)value, diagnostics, context);
 			case EmfmodelPackage.SCALE:
 				return validateScale((Scale)value, diagnostics, context);
 			case EmfmodelPackage.MONOTONIC:
 				return validateMonotonic((Monotonic)value, diagnostics, context);
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
-				return validatePersistenceKindOptions((PersistenceKindOptions)value, diagnostics, context);
 			case EmfmodelPackage.EJS_MEASURE:
 				return validateEJSMeasure((Measure)value, diagnostics, context);
 			case EmfmodelPackage.EJS_DURATION_MEASURE:

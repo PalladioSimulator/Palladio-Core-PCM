@@ -50,6 +50,8 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl;
 
 import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.ValueCorrelatedSeries;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelPackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -353,16 +355,19 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 
 		// Obtain or create and register interdependencies
 		EmfmodelPackageImpl theEmfmodelPackage = (EmfmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) instanceof EmfmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) : EmfmodelPackage.eINSTANCE);
+		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		UIPackageImpl theUIPackage = (UIPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) instanceof UIPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) : UIPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePresentationPackage.createPackageContents();
 		theEmfmodelPackage.createPackageContents();
+		theRepositoryPackage.createPackageContents();
 		theUIPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePresentationPackage.initializePackageContents();
 		theEmfmodelPackage.initializePackageContents();
+		theRepositoryPackage.initializePackageContents();
 		theUIPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -809,6 +814,20 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 		// Create classes and their features
 		jFreeChartViewEClass = createEClass(JFREE_CHART_VIEW);
 
+		dataReaderEClass = createEClass(DATA_READER);
+		createEReference(dataReaderEClass, DATA_READER__CONFIGURATION);
+		createEReference(dataReaderEClass, DATA_READER__DATA_SOURCE);
+
+		dataReaderConfigurationEClass = createEClass(DATA_READER_CONFIGURATION);
+
+		dataSourceEClass = createEClass(DATA_SOURCE);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__DATA);
+		createEReference(dataSourceEClass, DATA_SOURCE__DESCRIPTION);
+		createEReference(dataSourceEClass, DATA_SOURCE__METRIC_DESCRIPTION);
+
+		iDataSourceDescriptionEClass = createEClass(IDATA_SOURCE_DESCRIPTION);
+		createEAttribute(iDataSourceDescriptionEClass, IDATA_SOURCE_DESCRIPTION__REGISTRY);
+
 		rViewEClass = createEClass(RVIEW);
 
 		histogramEClass = createEClass(HISTOGRAM);
@@ -827,25 +846,11 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 
 		iEditorInputEClass = createEClass(IEDITOR_INPUT);
 
-		iDataSourceDescriptionEClass = createEClass(IDATA_SOURCE_DESCRIPTION);
-		createEAttribute(iDataSourceDescriptionEClass, IDATA_SOURCE_DESCRIPTION__REGISTRY);
-
 		edp2DataSourceDescriptionEClass = createEClass(EDP2_DATA_SOURCE_DESCRIPTION);
 		createEReference(edp2DataSourceDescriptionEClass, EDP2_DATA_SOURCE_DESCRIPTION__DATA_SERIES);
 
 		sensorFrameworkDataSourceDescriptionEClass = createEClass(SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION);
 		createEAttribute(sensorFrameworkDataSourceDescriptionEClass, SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION__SAM);
-
-		dataReaderEClass = createEClass(DATA_READER);
-		createEReference(dataReaderEClass, DATA_READER__CONFIGURATION);
-		createEReference(dataReaderEClass, DATA_READER__DATA_SOURCE);
-
-		dataReaderConfigurationEClass = createEClass(DATA_READER_CONFIGURATION);
-
-		dataSourceEClass = createEClass(DATA_SOURCE);
-		createEAttribute(dataSourceEClass, DATA_SOURCE__DATA);
-		createEReference(dataSourceEClass, DATA_SOURCE__DESCRIPTION);
-		createEReference(dataSourceEClass, DATA_SOURCE__METRIC_DESCRIPTION);
 
 		jFreeChartHistogramViewEClass = createEClass(JFREE_CHART_HISTOGRAM_VIEW);
 
@@ -945,6 +950,20 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 		// Initialize classes and features; add operations and parameters
 		initEClass(jFreeChartViewEClass, JFreeChartView.class, "JFreeChartView", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(dataReaderEClass, DataReader.class, "DataReader", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataReader_Configuration(), this.getDataReaderConfiguration(), null, "configuration", null, 0, -1, DataReader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataReader_DataSource(), this.getDataSource(), null, "dataSource", null, 1, 1, DataReader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(dataReaderConfigurationEClass, DataReaderConfiguration.class, "DataReaderConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataSource_Data(), theEmfmodelPackage.getDataType(), "data", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataSource_Description(), this.getIDataSourceDescription(), null, "description", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataSource_MetricDescription(), theEmfmodelPackage.getBaseMetricDescription(), null, "metricDescription", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(iDataSourceDescriptionEClass, IDataSourceDescription.class, "IDataSourceDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIDataSourceDescription_Registry(), ecorePackage.getEString(), "registry", null, 1, 1, IDataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(rViewEClass, RView.class, "RView", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(histogramEClass, Histogram.class, "Histogram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -963,25 +982,11 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 
 		initEClass(iEditorInputEClass, IEditorInput.class, "IEditorInput", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(iDataSourceDescriptionEClass, IDataSourceDescription.class, "IDataSourceDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIDataSourceDescription_Registry(), ecorePackage.getEString(), "registry", null, 1, 1, IDataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(edp2DataSourceDescriptionEClass, EDP2DataSourceDescription.class, "EDP2DataSourceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEDP2DataSourceDescription_DataSeries(), theEmfmodelPackage.getDataSeries(), null, "dataSeries", null, 1, 1, EDP2DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sensorFrameworkDataSourceDescriptionEClass, SensorFrameworkDataSourceDescription.class, "SensorFrameworkDataSourceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSensorFrameworkDataSourceDescription_Sam(), ecorePackage.getEString(), "sam", null, 1, 1, SensorFrameworkDataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(dataReaderEClass, DataReader.class, "DataReader", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataReader_Configuration(), this.getDataReaderConfiguration(), null, "configuration", null, 0, -1, DataReader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDataReader_DataSource(), this.getDataSource(), null, "dataSource", null, 1, 1, DataReader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(dataReaderConfigurationEClass, DataReaderConfiguration.class, "DataReaderConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSource_Data(), theEmfmodelPackage.getDataType(), "data", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDataSource_Description(), this.getIDataSourceDescription(), null, "description", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDataSource_MetricDescription(), theEmfmodelPackage.getBaseMetricDescription(), null, "metricDescription", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(jFreeChartHistogramViewEClass, JFreeChartHistogramView.class, "JFreeChartHistogramView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1044,10 +1049,9 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 	protected void createUMLAnnotations() {
 		String source = "http://www.eclipse.org/uml2/2.0.0/UML";		
 		addAnnotation
-		  (iEditorInputEClass, 
+		  (dataReaderConfigurationEClass, 
 		   source, 
 		   new String[] {
-			 "interface", null,
 			 "persistable", null
 		   });			
 		addAnnotation
@@ -1058,9 +1062,10 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 			 "persistable", null
 		   });			
 		addAnnotation
-		  (dataReaderConfigurationEClass, 
+		  (iEditorInputEClass, 
 		   source, 
 		   new String[] {
+			 "interface", null,
 			 "persistable", null
 		   });	
 	}

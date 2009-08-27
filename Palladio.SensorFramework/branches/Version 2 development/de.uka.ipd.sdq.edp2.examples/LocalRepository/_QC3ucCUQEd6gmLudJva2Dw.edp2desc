@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<de.uka.ipd.sdq.edp2.models:BaseMetricDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/0.9.0" xmi:id="_UpQ2sJMtEd6_nryI33MjhQ" uuid="_QC3ucCUQEd6gmLudJva2Dw" name="Response Time" textualDescription="Response Time, for example of a service call." repository="_Uli0UJMtEd6_nryI33MjhQ" captureType="RealNumber" scale="Interval" defaultUnit="s"/>

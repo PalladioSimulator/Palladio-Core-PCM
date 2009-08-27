@@ -10,11 +10,12 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.UIPackage;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measure;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Propertyable;
 
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -42,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getAdditionalInformation <em>Additional Information</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getExperimentSettings <em>Experiment Settings</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getStorageNode <em>Storage Node</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getRepository <em>Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.ExperimentGroupImpl#getMeasure <em>Measure</em>}</li>
  * </ul>
@@ -72,14 +73,14 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	protected EList<ExperimentSetting> experimentSettings;
 
 	/**
-	 * The cached value of the '{@link #getStorageNode() <em>Storage Node</em>}' reference.
+	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStorageNode()
+	 * @see #getRepository()
 	 * @generated
 	 * @ordered
 	 */
-	protected StorageNode storageNode;
+	protected Repository repository;
 
 	/**
 	 * The default value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
@@ -159,16 +160,16 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StorageNode getStorageNode() {
-		if (storageNode != null && storageNode.eIsProxy()) {
-			InternalEObject oldStorageNode = (InternalEObject)storageNode;
-			storageNode = (StorageNode)eResolveProxy(oldStorageNode);
-			if (storageNode != oldStorageNode) {
+	public Repository getRepository() {
+		if (repository != null && repository.eIsProxy()) {
+			InternalEObject oldRepository = (InternalEObject)repository;
+			repository = (Repository)eResolveProxy(oldRepository);
+			if (repository != oldRepository) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, oldStorageNode, storageNode));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, repository));
 			}
 		}
-		return storageNode;
+		return repository;
 	}
 
 	/**
@@ -176,8 +177,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StorageNode basicGetStorageNode() {
-		return storageNode;
+	public Repository basicGetRepository() {
+		return repository;
 	}
 
 	/**
@@ -185,11 +186,11 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStorageNode(StorageNode newStorageNode, NotificationChain msgs) {
-		StorageNode oldStorageNode = storageNode;
-		storageNode = newStorageNode;
+	public NotificationChain basicSetRepository(Repository newRepository, NotificationChain msgs) {
+		Repository oldRepository = repository;
+		repository = newRepository;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, oldStorageNode, newStorageNode);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, newRepository);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -200,18 +201,18 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStorageNode(StorageNode newStorageNode) {
-		if (newStorageNode != storageNode) {
+	public void setRepository(Repository newRepository) {
+		if (newRepository != repository) {
 			NotificationChain msgs = null;
-			if (storageNode != null)
-				msgs = ((InternalEObject)storageNode).eInverseRemove(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
-			if (newStorageNode != null)
-				msgs = ((InternalEObject)newStorageNode).eInverseAdd(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
-			msgs = basicSetStorageNode(newStorageNode, msgs);
+			if (repository != null)
+				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+			if (newRepository != null)
+				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+			msgs = basicSetRepository(newRepository, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE, newStorageNode, newStorageNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, newRepository, newRepository));
 	}
 
 	/**
@@ -242,7 +243,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 */
 	public EList<Edp2Measure> getMeasure() {
 		if (measure == null) {
-			measure = new EObjectContainmentWithInverseEList<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING);
+			measure = new EObjectContainmentWithInverseEList<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP);
 		}
 		return measure;
 	}
@@ -256,10 +257,10 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				if (storageNode != null)
-					msgs = ((InternalEObject)storageNode).eInverseRemove(this, UIPackage.STORAGE_NODE__EXPERIMENT_GROUP, StorageNode.class, msgs);
-				return basicSetStorageNode((StorageNode)otherEnd, msgs);
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				if (repository != null)
+					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+				return basicSetRepository((Repository)otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasure()).basicAdd(otherEnd, msgs);
 		}
@@ -278,8 +279,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return ((InternalEList<?>)getExperimentSettings()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				return basicSetStorageNode(null, msgs);
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				return basicSetRepository(null, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<?>)getMeasure()).basicRemove(otherEnd, msgs);
 		}
@@ -299,9 +300,9 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				else return getAdditionalInformation().map();
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return getExperimentSettings();
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				if (resolve) return getStorageNode();
-				return basicGetStorageNode();
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				if (resolve) return getRepository();
+				return basicGetRepository();
 			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
 				return getPurpose();
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
@@ -326,8 +327,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				getExperimentSettings().clear();
 				getExperimentSettings().addAll((Collection<? extends ExperimentSetting>)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				setStorageNode((StorageNode)newValue);
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				setRepository((Repository)newValue);
 				return;
 			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
 				setPurpose((String)newValue);
@@ -354,8 +355,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				setStorageNode((StorageNode)null);
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				setRepository((Repository)null);
 				return;
 			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
 				setPurpose(PURPOSE_EDEFAULT);
@@ -379,8 +380,8 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 				return additionalInformation != null && !additionalInformation.isEmpty();
 			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return experimentSettings != null && !experimentSettings.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_GROUP__STORAGE_NODE:
-				return storageNode != null;
+			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+				return repository != null;
 			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
 				return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:

@@ -79,6 +79,22 @@ public class PresentationAdapterFactory extends AdapterFactoryImpl {
 				return createJFreeChartViewAdapter();
 			}
 			@Override
+			public Adapter caseDataReader(DataReader object) {
+				return createDataReaderAdapter();
+			}
+			@Override
+			public Adapter caseDataReaderConfiguration(DataReaderConfiguration object) {
+				return createDataReaderConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseDataSource(DataSource object) {
+				return createDataSourceAdapter();
+			}
+			@Override
+			public Adapter caseIDataSourceDescription(IDataSourceDescription object) {
+				return createIDataSourceDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseRView(RView object) {
 				return createRViewAdapter();
 			}
@@ -115,28 +131,12 @@ public class PresentationAdapterFactory extends AdapterFactoryImpl {
 				return createIEditorInputAdapter();
 			}
 			@Override
-			public Adapter caseIDataSourceDescription(IDataSourceDescription object) {
-				return createIDataSourceDescriptionAdapter();
-			}
-			@Override
 			public Adapter caseEDP2DataSourceDescription(EDP2DataSourceDescription object) {
 				return createEDP2DataSourceDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseSensorFrameworkDataSourceDescription(SensorFrameworkDataSourceDescription object) {
 				return createSensorFrameworkDataSourceDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseDataReader(DataReader object) {
-				return createDataReaderAdapter();
-			}
-			@Override
-			public Adapter caseDataReaderConfiguration(DataReaderConfiguration object) {
-				return createDataReaderConfigurationAdapter();
-			}
-			@Override
-			public Adapter caseDataSource(DataSource object) {
-				return createDataSourceAdapter();
 			}
 			@Override
 			public Adapter caseJFreeChartHistogramView(JFreeChartHistogramView object) {

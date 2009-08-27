@@ -88,7 +88,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getDataReader()
 	 * @generated
 	 */
-	int DATA_READER = 13;
+	int DATA_READER = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.DataReaderConfigurationImpl <em>Data Reader Configuration</em>}' class.
@@ -98,7 +98,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getDataReaderConfiguration()
 	 * @generated
 	 */
-	int DATA_READER_CONFIGURATION = 14;
+	int DATA_READER_CONFIGURATION = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.DataSourceImpl <em>Data Source</em>}' class.
@@ -108,7 +108,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getDataSource()
 	 * @generated
 	 */
-	int DATA_SOURCE = 15;
+	int DATA_SOURCE = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.IDataSourceDescription <em>IData Source Description</em>}' class.
@@ -118,7 +118,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getIDataSourceDescription()
 	 * @generated
 	 */
-	int IDATA_SOURCE_DESCRIPTION = 10;
+	int IDATA_SOURCE_DESCRIPTION = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.RViewImpl <em>RView</em>}' class.
@@ -128,16 +128,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getRView()
 	 * @generated
 	 */
-	int RVIEW = 1;
-
-	/**
-	 * The number of structural features of the '<em>RView</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RVIEW_FEATURE_COUNT = UIPackage.PRESENTATION_VIEW_FEATURE_COUNT + 0;
+	int RVIEW = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.HistogramImpl <em>Histogram</em>}' class.
@@ -147,16 +138,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getHistogram()
 	 * @generated
 	 */
-	int HISTOGRAM = 2;
-
-	/**
-	 * The number of structural features of the '<em>Histogram</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HISTOGRAM_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int HISTOGRAM = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.BarImpl <em>Bar</em>}' class.
@@ -166,16 +148,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getBar()
 	 * @generated
 	 */
-	int BAR = 3;
-
-	/**
-	 * The number of structural features of the '<em>Bar</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BAR_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int BAR = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.CumulativeDistributionFunctionImpl <em>Cumulative Distribution Function</em>}' class.
@@ -185,16 +158,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getCumulativeDistributionFunction()
 	 * @generated
 	 */
-	int CUMULATIVE_DISTRIBUTION_FUNCTION = 4;
-
-	/**
-	 * The number of structural features of the '<em>Cumulative Distribution Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUMULATIVE_DISTRIBUTION_FUNCTION_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int CUMULATIVE_DISTRIBUTION_FUNCTION = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PieImpl <em>Pie</em>}' class.
@@ -204,16 +168,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getPie()
 	 * @generated
 	 */
-	int PIE = 5;
-
-	/**
-	 * The number of structural features of the '<em>Pie</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIE_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int PIE = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.LineImpl <em>Line</em>}' class.
@@ -223,16 +178,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getLine()
 	 * @generated
 	 */
-	int LINE = 6;
-
-	/**
-	 * The number of structural features of the '<em>Line</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINE_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int LINE = 10;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PointImpl <em>Point</em>}' class.
@@ -242,16 +188,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 7;
-
-	/**
-	 * The number of structural features of the '<em>Point</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int POINT = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.BoxplotImpl <em>Boxplot</em>}' class.
@@ -261,16 +198,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getBoxplot()
 	 * @generated
 	 */
-	int BOXPLOT = 8;
-
-	/**
-	 * The number of structural features of the '<em>Boxplot</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOXPLOT_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+	int BOXPLOT = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.IEditorInput <em>IEditor Input</em>}' class.
@@ -280,34 +208,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getIEditorInput()
 	 * @generated
 	 */
-	int IEDITOR_INPUT = 9;
-
-	/**
-	 * The number of structural features of the '<em>IEditor Input</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IEDITOR_INPUT_FEATURE_COUNT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Registry</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDATA_SOURCE_DESCRIPTION__REGISTRY = 0;
-
-	/**
-	 * The number of structural features of the '<em>IData Source Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
+	int IEDITOR_INPUT = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.EDP2DataSourceDescriptionImpl <em>EDP2 Data Source Description</em>}' class.
@@ -317,25 +218,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getEDP2DataSourceDescription()
 	 * @generated
 	 */
-	int EDP2_DATA_SOURCE_DESCRIPTION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Data Series</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDP2_DATA_SOURCE_DESCRIPTION__DATA_SERIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>EDP2 Data Source Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDP2_DATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
+	int EDP2_DATA_SOURCE_DESCRIPTION = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.SensorFrameworkDataSourceDescriptionImpl <em>Sensor Framework Data Source Description</em>}' class.
@@ -345,25 +228,7 @@ public interface PresentationPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.PresentationPackageImpl#getSensorFrameworkDataSourceDescription()
 	 * @generated
 	 */
-	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Sam</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION__SAM = 0;
-
-	/**
-	 * The number of structural features of the '<em>Sensor Framework Data Source Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
+	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -436,6 +301,141 @@ public interface PresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Registry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDATA_SOURCE_DESCRIPTION__REGISTRY = 0;
+
+	/**
+	 * The number of structural features of the '<em>IData Source Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of structural features of the '<em>RView</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RVIEW_FEATURE_COUNT = UIPackage.PRESENTATION_VIEW_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Histogram</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HISTOGRAM_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Cumulative Distribution Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUMULATIVE_DISTRIBUTION_FUNCTION_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Pie</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boxplot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOXPLOT_FEATURE_COUNT = UIPackage.PRESENTATION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>IEditor Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IEDITOR_INPUT_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Series</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDP2_DATA_SOURCE_DESCRIPTION__DATA_SERIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>EDP2 Data Source Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDP2_DATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Sam</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION__SAM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Sensor Framework Data Source Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_FRAMEWORK_DATA_SOURCE_DESCRIPTION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.impl.HistogramViewImpl <em>Histogram View</em>}' class.

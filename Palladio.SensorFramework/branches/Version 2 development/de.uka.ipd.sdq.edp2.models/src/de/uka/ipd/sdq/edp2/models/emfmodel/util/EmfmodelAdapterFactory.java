@@ -137,16 +137,12 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 				return createExperimentRunAdapter();
 			}
 			@Override
-			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
-				return createBaseMetricDescriptionAdapter();
+			public Adapter caseDescription(Description object) {
+				return createDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseMetricDescription(MetricDescription object) {
 				return createMetricDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseDescription(Description object) {
-				return createDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseAggregationFunctionDescription(AggregationFunctionDescription object) {
@@ -155,6 +151,10 @@ public class EmfmodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAggregationStatistics(AggregationStatistics object) {
 				return createAggregationStatisticsAdapter();
+			}
+			@Override
+			public Adapter caseBaseMetricDescription(BaseMetricDescription object) {
+				return createBaseMetricDescriptionAdapter();
 			}
 			@Override
 			public Adapter caseLongBinaryMeasurements(LongBinaryMeasurements object) {

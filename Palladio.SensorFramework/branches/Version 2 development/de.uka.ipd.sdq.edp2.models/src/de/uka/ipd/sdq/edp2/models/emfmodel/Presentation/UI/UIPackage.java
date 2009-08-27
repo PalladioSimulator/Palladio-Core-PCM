@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -67,135 +66,7 @@ public interface UIPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationConfiguration()
 	 * @generated
 	 */
-	int PRESENTATION_CONFIGURATION = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationControllerImpl <em>Presentation Controller</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationControllerImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationController()
-	 * @generated
-	 */
-	int PRESENTATION_CONTROLLER = 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationPropertyPaneImpl <em>Presentation Property Pane</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationPropertyPaneImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationPropertyPane()
-	 * @generated
-	 */
-	int PRESENTATION_PROPERTY_PANE = 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationInputImpl <em>Presentation Input</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationInputImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationInput()
-	 * @generated
-	 */
-	int PRESENTATION_INPUT = 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationTypeImpl <em>Presentation Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationTypeImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationType()
-	 * @generated
-	 */
-	int PRESENTATION_TYPE = 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodeImpl <em>Storage Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodeImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getStorageNode()
-	 * @generated
-	 */
-	int STORAGE_NODE = 11;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalFileStorageImpl <em>Local File Storage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalFileStorageImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getLocalFileStorage()
-	 * @generated
-	 */
-	int LOCAL_FILE_STORAGE = 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalMemoryStorageImpl <em>Local Memory Storage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalMemoryStorageImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getLocalMemoryStorage()
-	 * @generated
-	 */
-	int LOCAL_MEMORY_STORAGE = 7;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.RemoteStorageImpl <em>Remote Storage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.RemoteStorageImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getRemoteStorage()
-	 * @generated
-	 */
-	int REMOTE_STORAGE = 8;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.SensorFrameworkVersion1StorageImpl <em>Sensor Framework Version1 Storage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.SensorFrameworkVersion1StorageImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getSensorFrameworkVersion1Storage()
-	 * @generated
-	 */
-	int SENSOR_FRAMEWORK_VERSION1_STORAGE = 9;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodesImpl <em>Storage Nodes</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodesImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getStorageNodes()
-	 * @generated
-	 */
-	int STORAGE_NODES = 10;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationViewImpl <em>Presentation View</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationViewImpl
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationView()
-	 * @generated
-	 */
-	int PRESENTATION_VIEW = 0;
-
-	/**
-	 * The number of structural features of the '<em>Presentation View</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRESENTATION_VIEW_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Presentation Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRESENTATION_TYPE_FEATURE_COUNT = 0;
+	int PRESENTATION_CONFIGURATION = 0;
 
 	/**
 	 * The number of structural features of the '<em>Presentation Configuration</em>' class.
@@ -205,6 +76,16 @@ public interface UIPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRESENTATION_CONFIGURATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationControllerImpl <em>Presentation Controller</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationControllerImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationController()
+	 * @generated
+	 */
+	int PRESENTATION_CONTROLLER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference.
@@ -252,6 +133,16 @@ public interface UIPackage extends EPackage {
 	int PRESENTATION_CONTROLLER_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationPropertyPaneImpl <em>Presentation Property Pane</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationPropertyPaneImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationPropertyPane()
+	 * @generated
+	 */
+	int PRESENTATION_PROPERTY_PANE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Presentation Property Pane</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +150,16 @@ public interface UIPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRESENTATION_PROPERTY_PANE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationInputImpl <em>Presentation Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationInputImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationInput()
+	 * @generated
+	 */
+	int PRESENTATION_INPUT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Data Source Description</b></em>' containment reference list.
@@ -279,148 +180,42 @@ public interface UIPackage extends EPackage {
 	int PRESENTATION_INPUT_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationTypeImpl <em>Presentation Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationTypeImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationType()
 	 * @generated
-	 * @ordered
 	 */
-	int STORAGE_NODE__EXPERIMENT_GROUP = 0;
+	int PRESENTATION_TYPE = 4;
 
 	/**
-	 * The number of structural features of the '<em>Storage Node</em>' class.
+	 * The number of structural features of the '<em>Presentation Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_NODE_FEATURE_COUNT = 1;
+	int PRESENTATION_TYPE_FEATURE_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationViewImpl <em>Presentation View</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationViewImpl
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getPresentationView()
 	 * @generated
-	 * @ordered
 	 */
-	int LOCAL_FILE_STORAGE__EXPERIMENT_GROUP = STORAGE_NODE__EXPERIMENT_GROUP;
+	int PRESENTATION_VIEW = 5;
 
 	/**
-	 * The feature id for the '<em><b>File System Path</b></em>' attribute.
+	 * The number of structural features of the '<em>Presentation View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_FILE_STORAGE__FILE_SYSTEM_PATH = STORAGE_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Local File Storage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_FILE_STORAGE_FEATURE_COUNT = STORAGE_NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_MEMORY_STORAGE__EXPERIMENT_GROUP = STORAGE_NODE__EXPERIMENT_GROUP;
-
-	/**
-	 * The number of structural features of the '<em>Local Memory Storage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_MEMORY_STORAGE_FEATURE_COUNT = STORAGE_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REMOTE_STORAGE__EXPERIMENT_GROUP = STORAGE_NODE__EXPERIMENT_GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REMOTE_STORAGE__URL = STORAGE_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Remote Storage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REMOTE_STORAGE_FEATURE_COUNT = STORAGE_NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_VERSION1_STORAGE__EXPERIMENT_GROUP = STORAGE_NODE__EXPERIMENT_GROUP;
-
-	/**
-	 * The feature id for the '<em><b>File System Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_VERSION1_STORAGE__FILE_SYSTEM_PATH = STORAGE_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Import Settings</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_VERSION1_STORAGE__IMPORT_SETTINGS = STORAGE_NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Sensor Framework Version1 Storage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR_FRAMEWORK_VERSION1_STORAGE_FEATURE_COUNT = STORAGE_NODE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Storagen Node</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORAGE_NODES__STORAGEN_NODE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Storage Nodes</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORAGE_NODES_FEATURE_COUNT = 1;
+	int PRESENTATION_VIEW_FEATURE_COUNT = 0;
 
 
 	/**
@@ -527,132 +322,6 @@ public interface UIPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPresentationType();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode <em>Storage Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Storage Node</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode
-	 * @generated
-	 */
-	EClass getStorageNode();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup <em>Experiment Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Experiment Group</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNode#getExperimentGroup()
-	 * @see #getStorageNode()
-	 * @generated
-	 */
-	EReference getStorageNode_ExperimentGroup();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalFileStorage <em>Local File Storage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Local File Storage</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalFileStorage
-	 * @generated
-	 */
-	EClass getLocalFileStorage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalFileStorage#getFileSystemPath <em>File System Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File System Path</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalFileStorage#getFileSystemPath()
-	 * @see #getLocalFileStorage()
-	 * @generated
-	 */
-	EAttribute getLocalFileStorage_FileSystemPath();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalMemoryStorage <em>Local Memory Storage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Local Memory Storage</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.LocalMemoryStorage
-	 * @generated
-	 */
-	EClass getLocalMemoryStorage();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.RemoteStorage <em>Remote Storage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Remote Storage</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.RemoteStorage
-	 * @generated
-	 */
-	EClass getRemoteStorage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.RemoteStorage#getUrl <em>Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.RemoteStorage#getUrl()
-	 * @see #getRemoteStorage()
-	 * @generated
-	 */
-	EAttribute getRemoteStorage_Url();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage <em>Sensor Framework Version1 Storage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sensor Framework Version1 Storage</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage
-	 * @generated
-	 */
-	EClass getSensorFrameworkVersion1Storage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage#getFileSystemPath <em>File System Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File System Path</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage#getFileSystemPath()
-	 * @see #getSensorFrameworkVersion1Storage()
-	 * @generated
-	 */
-	EAttribute getSensorFrameworkVersion1Storage_FileSystemPath();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage#getImportSettings <em>Import Settings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Import Settings</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.SensorFrameworkVersion1Storage#getImportSettings()
-	 * @see #getSensorFrameworkVersion1Storage()
-	 * @generated
-	 */
-	EAttribute getSensorFrameworkVersion1Storage_ImportSettings();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNodes <em>Storage Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Storage Nodes</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNodes
-	 * @generated
-	 */
-	EClass getStorageNodes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNodes#getStoragenNode <em>Storagen Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Storagen Node</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.StorageNodes#getStoragenNode()
-	 * @see #getStorageNodes()
-	 * @generated
-	 */
-	EReference getStorageNodes_StoragenNode();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.PresentationView <em>Presentation View</em>}'.
@@ -775,114 +444,6 @@ public interface UIPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PRESENTATION_TYPE = eINSTANCE.getPresentationType();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodeImpl <em>Storage Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodeImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getStorageNode()
-		 * @generated
-		 */
-		EClass STORAGE_NODE = eINSTANCE.getStorageNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Experiment Group</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STORAGE_NODE__EXPERIMENT_GROUP = eINSTANCE.getStorageNode_ExperimentGroup();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalFileStorageImpl <em>Local File Storage</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalFileStorageImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getLocalFileStorage()
-		 * @generated
-		 */
-		EClass LOCAL_FILE_STORAGE = eINSTANCE.getLocalFileStorage();
-
-		/**
-		 * The meta object literal for the '<em><b>File System Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOCAL_FILE_STORAGE__FILE_SYSTEM_PATH = eINSTANCE.getLocalFileStorage_FileSystemPath();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalMemoryStorageImpl <em>Local Memory Storage</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.LocalMemoryStorageImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getLocalMemoryStorage()
-		 * @generated
-		 */
-		EClass LOCAL_MEMORY_STORAGE = eINSTANCE.getLocalMemoryStorage();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.RemoteStorageImpl <em>Remote Storage</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.RemoteStorageImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getRemoteStorage()
-		 * @generated
-		 */
-		EClass REMOTE_STORAGE = eINSTANCE.getRemoteStorage();
-
-		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REMOTE_STORAGE__URL = eINSTANCE.getRemoteStorage_Url();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.SensorFrameworkVersion1StorageImpl <em>Sensor Framework Version1 Storage</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.SensorFrameworkVersion1StorageImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getSensorFrameworkVersion1Storage()
-		 * @generated
-		 */
-		EClass SENSOR_FRAMEWORK_VERSION1_STORAGE = eINSTANCE.getSensorFrameworkVersion1Storage();
-
-		/**
-		 * The meta object literal for the '<em><b>File System Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SENSOR_FRAMEWORK_VERSION1_STORAGE__FILE_SYSTEM_PATH = eINSTANCE.getSensorFrameworkVersion1Storage_FileSystemPath();
-
-		/**
-		 * The meta object literal for the '<em><b>Import Settings</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SENSOR_FRAMEWORK_VERSION1_STORAGE__IMPORT_SETTINGS = eINSTANCE.getSensorFrameworkVersion1Storage_ImportSettings();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodesImpl <em>Storage Nodes</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.StorageNodesImpl
-		 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.UIPackageImpl#getStorageNodes()
-		 * @generated
-		 */
-		EClass STORAGE_NODES = eINSTANCE.getStorageNodes();
-
-		/**
-		 * The meta object literal for the '<em><b>Storagen Node</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STORAGE_NODES__STORAGEN_NODE = eINSTANCE.getStorageNodes_StoragenNode();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Presentation.UI.impl.PresentationViewImpl <em>Presentation View</em>}' class.

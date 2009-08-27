@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.Edp2MeasureImpl#getExperimentSetting <em>Experiment Setting</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.Edp2MeasureImpl#getExperimentGroup <em>Experiment Group</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.Edp2MeasureImpl#getExperimentSettings <em>Experiment Settings</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.Edp2MeasureImpl#getPersistencyKind <em>Persistency Kind</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.impl.Edp2MeasureImpl#getMeasuredObject <em>Measured Object</em>}</li>
@@ -132,8 +132,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExperimentGroup getExperimentSetting() {
-		if (eContainerFeatureID() != EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING) return null;
+	public ExperimentGroup getExperimentGroup() {
+		if (eContainerFeatureID() != EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP) return null;
 		return (ExperimentGroup)eContainer();
 	}
 
@@ -142,8 +142,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExperimentSetting(ExperimentGroup newExperimentSetting, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newExperimentSetting, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING, msgs);
+	public NotificationChain basicSetExperimentGroup(ExperimentGroup newExperimentGroup, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newExperimentGroup, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP, msgs);
 		return msgs;
 	}
 
@@ -152,20 +152,20 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExperimentSetting(ExperimentGroup newExperimentSetting) {
-		if (newExperimentSetting != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING && newExperimentSetting != null)) {
-			if (EcoreUtil.isAncestor(this, newExperimentSetting))
+	public void setExperimentGroup(ExperimentGroup newExperimentGroup) {
+		if (newExperimentGroup != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP && newExperimentGroup != null)) {
+			if (EcoreUtil.isAncestor(this, newExperimentGroup))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newExperimentSetting != null)
-				msgs = ((InternalEObject)newExperimentSetting).eInverseAdd(this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, ExperimentGroup.class, msgs);
-			msgs = basicSetExperimentSetting(newExperimentSetting, msgs);
+			if (newExperimentGroup != null)
+				msgs = ((InternalEObject)newExperimentGroup).eInverseAdd(this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, ExperimentGroup.class, msgs);
+			msgs = basicSetExperimentGroup(newExperimentGroup, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING, newExperimentSetting, newExperimentSetting));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP, newExperimentGroup, newExperimentGroup));
 	}
 
 	/**
@@ -269,10 +269,10 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetExperimentSetting((ExperimentGroup)otherEnd, msgs);
+				return basicSetExperimentGroup((ExperimentGroup)otherEnd, msgs);
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExperimentSettings()).basicAdd(otherEnd, msgs);
 		}
@@ -287,8 +287,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
-				return basicSetExperimentSetting(null, msgs);
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
+				return basicSetExperimentGroup(null, msgs);
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				return ((InternalEList<?>)getExperimentSettings()).basicRemove(otherEnd, msgs);
 		}
@@ -303,7 +303,7 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
 				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, ExperimentGroup.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -317,8 +317,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
-				return getExperimentSetting();
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
+				return getExperimentGroup();
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				return getExperimentSettings();
 			case EmfmodelPackage.EDP2_MEASURE__PERSISTENCY_KIND:
@@ -341,8 +341,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
-				setExperimentSetting((ExperimentGroup)newValue);
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
+				setExperimentGroup((ExperimentGroup)newValue);
 				return;
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
@@ -369,8 +369,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
-				setExperimentSetting((ExperimentGroup)null);
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
+				setExperimentGroup((ExperimentGroup)null);
 				return;
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
@@ -396,8 +396,8 @@ public abstract class Edp2MeasureImpl extends EObjectImpl implements Edp2Measure
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTING:
-				return getExperimentSetting() != null;
+			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP:
+				return getExperimentGroup() != null;
 			case EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS:
 				return experimentSettings != null && !experimentSettings.isEmpty();
 			case EmfmodelPackage.EDP2_MEASURE__PERSISTENCY_KIND:

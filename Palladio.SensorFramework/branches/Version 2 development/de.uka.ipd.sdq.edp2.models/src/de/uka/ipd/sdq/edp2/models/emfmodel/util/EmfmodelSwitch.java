@@ -192,12 +192,10 @@ public class EmfmodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
-				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
-				T result = caseBaseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseMetricDescription(baseMetricDescription);
-				if (result == null) result = caseDescription(baseMetricDescription);
-				if (result == null) result = caseIdentifiable(baseMetricDescription);
+			case EmfmodelPackage.DESCRIPTION: {
+				Description description = (Description)theEObject;
+				T result = caseDescription(description);
+				if (result == null) result = caseIdentifiable(description);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -206,13 +204,6 @@ public class EmfmodelSwitch<T> {
 				T result = caseMetricDescription(metricDescription);
 				if (result == null) result = caseDescription(metricDescription);
 				if (result == null) result = caseIdentifiable(metricDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EmfmodelPackage.DESCRIPTION: {
-				Description description = (Description)theEObject;
-				T result = caseDescription(description);
-				if (result == null) result = caseIdentifiable(description);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,6 +218,15 @@ public class EmfmodelSwitch<T> {
 			case EmfmodelPackage.AGGREGATION_STATISTICS: {
 				AggregationStatistics aggregationStatistics = (AggregationStatistics)theEObject;
 				T result = caseAggregationStatistics(aggregationStatistics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: {
+				BaseMetricDescription baseMetricDescription = (BaseMetricDescription)theEObject;
+				T result = caseBaseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseMetricDescription(baseMetricDescription);
+				if (result == null) result = caseDescription(baseMetricDescription);
+				if (result == null) result = caseIdentifiable(baseMetricDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
