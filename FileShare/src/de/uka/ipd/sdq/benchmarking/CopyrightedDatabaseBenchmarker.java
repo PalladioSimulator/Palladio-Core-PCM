@@ -9,35 +9,40 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.CopyrightedMaterialDatabas
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
 /**
- * @author Michael
- * @deprecated because CSV file names and functionality unchecked
+ * @author Michael Kuperberg
  */
+//* @deprecated because CSV file names and functionality unchecked
 public class CopyrightedDatabaseBenchmarker {
+	
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 * @param args
 	 */
+//	 * @deprecated because CSV file names and functionality unchecked
 	public static void main(String args[]){
 		CopyrightedDatabaseBenchmarker cmdm = new CopyrightedDatabaseBenchmarker();
 		cmdm.isCopyrightedMaterial_measure(20, false, 25000, 350000, 400);
 	}
 	
-	CopyrightedMaterialDatabase cmd;
-	ArrayList<byte[]> datasets;
-	int[] indexesOfChosenDatasets;
-	long[] measurements;
-	Hash ourHasher;
-	Random rd;
+	private CopyrightedMaterialDatabase database;
+	
+	private ArrayList<byte[]> datasets;
+	
+//	private int[] indexesOfChosenDatasets;
+	
+	private long[] measurements;
+	
+	private Hash ourHasher;
+	
+	private Random rd;
 	
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 */
+//	 * @deprecated because CSV file names and functionality unchecked
 	public CopyrightedDatabaseBenchmarker(){
 		//TODO
 	}
 	
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 * @param nrOfRandomDatasets
 	 * @param constantRandomDatasetSize
 	 * @param initialRandomDatasetSize
@@ -45,23 +50,18 @@ public class CopyrightedDatabaseBenchmarker {
 	 * @param nrOfMeasurements
 	 * @return
 	 */
+//	 * @deprecated because CSV file names and functionality unchecked
 	public long[] isCopyrightedMaterial_measure(
 			int nrOfRandomDatasets, 
 			boolean constantRandomDatasetSize,
 			int initialRandomDatasetSize, //TODO needs a list...
 			int maximumRandomDatasetSizeIfVariableSize,
 			int nrOfMeasurements){
-		cmd = CopyrightedMaterialDatabase.getSingleton();
-		datasets = new ArrayList<byte[]>();
-		datasets = Util.initialiseRandomPrimitiveByteArrays(
-				nrOfRandomDatasets, 
+		initialiseStructures(nrOfRandomDatasets, 
 				constantRandomDatasetSize,
 				initialRandomDatasetSize,
-				maximumRandomDatasetSizeIfVariableSize);
-		ourHasher = new Hash();
-		measurements = new long[nrOfMeasurements];
-		indexesOfChosenDatasets = new int[nrOfMeasurements];
-		rd = new Random();
+				maximumRandomDatasetSizeIfVariableSize,
+				nrOfMeasurements);
 		byte[] currDataset = null;
 		byte[] currHash = null;
 		boolean[] results = new boolean[nrOfMeasurements];
@@ -74,7 +74,7 @@ public class CopyrightedDatabaseBenchmarker {
 			currHash = ourHasher.getMessageDigest(currDataset);
 			
 			start = System.nanoTime();
-			results[i] = cmd.isCopyrightedMaterial(currHash);
+			results[i] = database.isCopyrightedMaterial(currHash);
 			stop = System.nanoTime();
 
 			if(results[i]) positiveReturns++;
@@ -100,8 +100,24 @@ public class CopyrightedDatabaseBenchmarker {
 				"median: "+summary[1]+", "+
 				"mean: "+summary[2]+", "+
 				"maximum: "+summary[3]+" " +
-				"(positive returns: "+positiveReturns+").");
+				"(positive query answers: "+positiveReturns+").");
 		return summary;
+	}
+
+	private void initialiseStructures(int nrOfRandomDatasets,
+			boolean constantRandomDatasetSize, int initialRandomDatasetSize,
+			int maximumRandomDatasetSizeIfVariableSize, int nrOfMeasurements) {
+		database = CopyrightedMaterialDatabase.getSingleton();
+		datasets = new ArrayList<byte[]>();
+		datasets = Util.initialiseRandomPrimitiveByteArrays(
+				nrOfRandomDatasets, 
+				constantRandomDatasetSize,
+				initialRandomDatasetSize,
+				maximumRandomDatasetSizeIfVariableSize);
+		ourHasher = new Hash();
+		measurements = new long[nrOfMeasurements];
+//		indexesOfChosenDatasets = new int[nrOfMeasurements];
+		rd = new Random();
 	}
 }
 
