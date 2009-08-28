@@ -10,35 +10,30 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
 /**
  * @author Michael
- * @deprecated because CSV file names and functionality unchecked
  */
+//* @deprecated because CSV file names and functionality unchecked
 public class ExistingDatabaseBenchmarker {
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 * @param args
 	 */
+//	 * @deprecated because CSV file names and functionality unchecked
 	public static void main(String args[]){
 		ExistingDatabaseBenchmarker cmdm = new ExistingDatabaseBenchmarker();
 		cmdm.addNewFileHash_measure(20, false, 25000, 350000, 400);
 		cmdm.existsInDatabase_measure(20, false, 25000, 350000, 400);
 	}
 	
-	ArrayList<byte[]> datasets;
-	ExistingFilesDatabase efd;
-	int[] indexesOfChosenDatasets;
-	long[] measurements;
-	Hash ourHasher;
-	Random rd;
+	private ArrayList<byte[]> datasets;
+	private ExistingFilesDatabase database;
+	private long[] measurements;
+	private Hash ourHasher;
+	private Random rd;
 	
-	/**
-	 * @deprecated because CSV file names and functionality unchecked
-	 */
 	public ExistingDatabaseBenchmarker(){
 		//TODO
 	}
 	
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 * @param nrOfRandomDatasets
 	 * @param constantRandomDatasetSize
 	 * @param initialRandomDatasetSize
@@ -52,7 +47,7 @@ public class ExistingDatabaseBenchmarker {
 			int initialRandomDatasetSize, //TODO needs a list...
 			int maximumRandomDatasetSizeIfVariableSize,
 			int nrOfAdditions){
-		efd = ExistingFilesDatabase.getSingleton();
+		database = ExistingFilesDatabase.getSingleton();
 		datasets = new ArrayList<byte[]>();
 		datasets = Util.initialiseRandomPrimitiveByteArrays(
 				nrOfRandomDatasets, 
@@ -61,7 +56,6 @@ public class ExistingDatabaseBenchmarker {
 				maximumRandomDatasetSizeIfVariableSize);
 		ourHasher = new Hash();
 		measurements = new long[nrOfAdditions];
-		indexesOfChosenDatasets = new int[nrOfAdditions];
 		rd = new Random();
 		byte[] currDataset = null;
 		byte[] currHash = null;
@@ -75,7 +69,7 @@ public class ExistingDatabaseBenchmarker {
 			currHash = ourHasher.getMessageDigest(currDataset);
 			
 			start = System.nanoTime();
-			results[i] = efd.addNewFileHash(currHash);
+			results[i] = database.addNewFileHash(currHash);
 			stop = System.nanoTime();
 
 			if(results[i]) positiveReturns++;
@@ -106,7 +100,6 @@ public class ExistingDatabaseBenchmarker {
 	}
 
 	/**
-	 * @deprecated because CSV file names and functionality unchecked
 	 * @param nrOfRandomDatasets
 	 * @param constantRandomDatasetSize
 	 * @param initialRandomDatasetSize
@@ -120,7 +113,7 @@ public class ExistingDatabaseBenchmarker {
 			int initialRandomDatasetSize, //TODO needs a list...
 			int maximumRandomDatasetSizeIfVariableSize,
 			int nrOfRequests){
-		efd = ExistingFilesDatabase.getSingleton();
+		database = ExistingFilesDatabase.getSingleton();
 		datasets = new ArrayList<byte[]>();
 		datasets = Util.initialiseRandomPrimitiveByteArrays(
 				nrOfRandomDatasets, 
@@ -129,7 +122,6 @@ public class ExistingDatabaseBenchmarker {
 				maximumRandomDatasetSizeIfVariableSize);
 		ourHasher = new Hash();
 		measurements = new long[nrOfRequests];
-		indexesOfChosenDatasets = new int[nrOfRequests];
 		rd = new Random();
 		byte[] currDataset = null;
 		byte[] currHash = null;
@@ -143,7 +135,7 @@ public class ExistingDatabaseBenchmarker {
 			currHash = ourHasher.getMessageDigest(currDataset);
 			
 			start = System.nanoTime();
-			results[i] = efd.existsInDatabase(currHash);
+			results[i] = database.existsInDatabase(currHash);
 			stop = System.nanoTime();
 
 			if(results[i]) positiveReturns++;
