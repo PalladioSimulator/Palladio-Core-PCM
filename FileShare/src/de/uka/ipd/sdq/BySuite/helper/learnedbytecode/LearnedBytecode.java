@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.BySuite.helper.learnedbytecode;
 
-import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThen;
-import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThenElse;
-
 import com.bestcode.mathparser.IMathParser;
 import com.bestcode.mathparser.MathParserFactory;
+
+import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThen;
+import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThenElse;
 
 public class LearnedBytecode {
 	

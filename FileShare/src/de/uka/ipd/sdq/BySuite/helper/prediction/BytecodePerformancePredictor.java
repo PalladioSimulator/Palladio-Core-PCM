@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.BySuite.helper.prediction;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

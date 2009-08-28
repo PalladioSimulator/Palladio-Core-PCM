@@ -17,8 +17,8 @@ public class Hash {
 	private static final String MESSAGE_DIGEST_TYPE_SHA_256 = "SHA-256";
 	private static final String MESSAGE_DIGEST_TYPE_SHA_384 = "SHA-384";
 	private static final String MESSAGE_DIGEST_TYPE_SHA_512 = "SHA-512";
-	
-	private static final String MESSAGE_DIGEST_TYPE_DEFAULT = MESSAGE_DIGEST_TYPE_SHA_512;
+
+	private static final String MESSAGE_DIGEST_TYPE_USED = MESSAGE_DIGEST_TYPE_SHA_512;
 
 	private Logger log;
 	
@@ -45,8 +45,8 @@ public class Hash {
 			this.messageDigestType = MESSAGE_DIGEST_TYPE_SHA_512;
 		} else {
 			log.error("No message digest algorithm called "+messageDigestType+";" +
-					" taking "+MESSAGE_DIGEST_TYPE_DEFAULT+" instead");
-			this.messageDigestType = MESSAGE_DIGEST_TYPE_DEFAULT;
+					" taking "+MESSAGE_DIGEST_TYPE_USED+" instead");
+			this.messageDigestType = MESSAGE_DIGEST_TYPE_USED;
 		}
 	}
 

@@ -131,7 +131,7 @@ public class TestDriver {
 	 */
 	private static final String DEFAULT_UPLOADABLE_FILES_DIRECTORY = "input/testFiles/";
 	
-	private static final int DEFAULT_UPLOADED_FILES_NR = 10*DEFAULT_UPLOADABLE_FILES.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
+	private static final int DEFAULT_UPLOADED_FILES_NR = 5*DEFAULT_UPLOADABLE_FILES.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
 	
 	private static final int DEFAULT_USER_ARRIVAL_DELAY_MS = 5000;
 
@@ -197,12 +197,15 @@ public class TestDriver {
 	
 	public static void main(String args[]) {
 		
+		boolean monitor = false;
+
 		boolean measure = true;
 		if(args!=null && args.length>0){
 			measure = true;
 		}
-		boolean monitor = false;
-		logger.info("Starting TestDriver (measure: "+measure+", " +
+		
+		logger.info("Starting TestDriver " +
+				"(measure: "+measure+", " +
 				"monitor: "+monitor+")");
 		TestDriver.getInstance().start(measure, monitor);		
 		logger.info("Finished TestDriver");
@@ -229,11 +232,10 @@ public class TestDriver {
     				System.out.println("ERROR: re-recording performance " +
     						"for uploadId "+uploadId+"; RETURNING PREMATURELY");
     				return;
-    			}else{
-    				//fileID <--> measurement mapping implicitly given because
-    				//in one upload, the files are processed sequentially
-    				totalMeasurements.put(currKey, measurements);
     			}
+    			//fileID <--> measurement mapping implicitly given because
+				//in one upload, the files are processed sequentially
+				totalMeasurements.put(currKey, measurements);
     			i=keyArray.length; //premature loop exit
     		}
     	}
@@ -242,7 +244,7 @@ public class TestDriver {
     	}
     }
 
-	private boolean generatePermutationOfAllUploadableFiles = true;
+	private boolean generatePermutationOfAllUploadableFiles = false;
 
 	public TestDriver() {	
 		random = new Random(DEFAULT_RANDOM_SEED);
@@ -299,7 +301,8 @@ public class TestDriver {
 			numberOfFilesForUpload = 1;//TODO document higher probability: important for PCM
 		}
 		
-		TestDataStruct testData = generateRandomTestData(numberOfAllFiles,
+		TestDataStruct testData = generateRandomTestData(
+				numberOfAllFiles,
 				numberOfFilesForUpload);
 		return testData;//TODO log this instance!
 	}
@@ -653,11 +656,13 @@ public class TestDriver {
 		
 		//getting singleton to prevent the costs during "real" measurements
 		CopyrightedMaterialDatabase cmd = CopyrightedMaterialDatabase.getSingleton();
-		logger.debug("CopyrightedMaterialDatabase test: "+cmd.isCopyrightedMaterial(new byte[]{1}));
+		logger.debug("CopyrightedMaterialDatabase test call (likely to return false): "+
+				cmd.isCopyrightedMaterial(new byte[]{1}));
 
 		//getting singleton to prevent the costs during "real" measurements
 		ExistingFilesDatabase efd = ExistingFilesDatabase.getSingleton();
-		logger.debug("ExistingFilesDatabase test: "+efd.existsInDatabase(new byte[]{1}));
+		logger.debug("ExistingFilesDatabase test (likely to return false): "+
+				efd.existsInDatabase(new byte[]{1}));
 		
     	if(numberOfOpenUploads>0){
 			logger.error("CANNOT START NEW LOAD WHILE EXECUTING THE PREVIOUS ONE");
@@ -676,6 +681,7 @@ public class TestDriver {
 			}
 			
 			TestDataStruct testData = this.createTestDataStruct(); //default
+			System.err.println(testData); //TODO MK
 			TestDriver.totalMeasurements.put(testData,null);
 			//TestDataStruct testData = createSingleFileTestDataStruct();
 			numberOfOpenUploads++;

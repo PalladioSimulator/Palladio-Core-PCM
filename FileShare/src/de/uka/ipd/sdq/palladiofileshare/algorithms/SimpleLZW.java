@@ -108,7 +108,7 @@ public class SimpleLZW {
 	/**
 	 * @param input
 	 * @return
-	 * @deprecated because untested
+	 * TODO test
 	 */
 	private static final byte[] convertCharArrayToByteArray(char[] input, boolean verbose) {
 		byte[] ret = new byte[input.length * 2];
@@ -240,7 +240,6 @@ public class SimpleLZW {
 					if (windowLength > dictMaxLengthOfElement) {
 						dictMaxLengthOfElement = windowLength;
 					}
-				} else {
 				}
 
 				compressedChar[compressedNextIndex] = (char) prevWindowDictPos;
@@ -544,8 +543,10 @@ public class SimpleLZW {
 						"lzwcompress_inlined");
 				start = System.nanoTime();
 				// TODO can be null if early exit... -> take int case!
-				compressed = SimpleLZW.lzwcompress_inlined(input,
-						1024/*TODO document 256 * 256*/);
+				compressed = SimpleLZW.lzwcompress_inlined(
+						input,
+						1024  /*TODO document 256 * 256*/
+				);
 				// ob = Compress.performAction(input, length, Compress.COMPRESS,
 				// result);
 				stop = System.nanoTime();

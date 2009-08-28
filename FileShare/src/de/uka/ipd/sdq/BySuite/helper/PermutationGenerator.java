@@ -9,8 +9,21 @@ import java.util.Arrays;
  */
 public class PermutationGenerator {
 
+	private static BigInteger getFactorial(int n) {
+		BigInteger fact = BigInteger.ONE;
+		for (int i = n; i > 1; i--) {
+			fact = fact.multiply(new BigInteger(Integer.toString(i)));
+		}
+		return fact;
+	}
+	public static void main(String[] args){
+		PermutationGenerator pg = new PermutationGenerator(20);
+		pg.test(10);
+	}
 	private int[] a;
+
 	private BigInteger numLeft;
+
 	private BigInteger total;
 
 	/**
@@ -29,33 +42,6 @@ public class PermutationGenerator {
 		a = new int[n];
 		total = getFactorial(n);
 		reset();
-	}
-
-	private void reset() {
-		for (int i = 0; i < a.length; i++) {
-			a[i] = i;
-		}
-		numLeft = new BigInteger(total.toString());
-	}
-
-	public BigInteger getNumLeft() {
-		return numLeft;
-	}
-
-	public BigInteger getTotal() {
-		return total;
-	}
-
-	public boolean hasMore() {
-		return numLeft.compareTo(BigInteger.ZERO) == 1;
-	}
-
-	private static BigInteger getFactorial(int n) {
-		BigInteger fact = BigInteger.ONE;
-		for (int i = n; i > 1; i--) {
-			fact = fact.multiply(new BigInteger(Integer.toString(i)));
-		}
-		return fact;
 	}
 
 	public int[] getNext() {
@@ -104,10 +90,24 @@ public class PermutationGenerator {
 		numLeft = numLeft.subtract(BigInteger.ONE);
 		return a;
 	}
+
+	public BigInteger getNumLeft() {
+		return numLeft;
+	}
+
+	public BigInteger getTotal() {
+		return total;
+	}
+
+	public boolean hasMore() {
+		return numLeft.compareTo(BigInteger.ZERO) == 1;
+	}
 	
-	public static void main(String[] args){
-		PermutationGenerator pg = new PermutationGenerator(20);
-		pg.test(10);
+	private void reset() {
+		for (int i = 0; i < a.length; i++) {
+			a[i] = i;
+		}
+		numLeft = new BigInteger(total.toString());
 	}
 
 	private void test(int nrOfPermutationsToPrint) {

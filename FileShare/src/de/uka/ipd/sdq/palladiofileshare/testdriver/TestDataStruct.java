@@ -7,20 +7,20 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 	private int[] inputFileTypes;
 	private long uploadId;
 	
-	/**
-	 * @deprecated because parametrised constructor should be used instead
-	 */
-	public TestDataStruct() {
-		try {
-			Thread.sleep(50);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		this.uploadId = System.currentTimeMillis()-1200000000000L;
-		this.inputFiles = new byte[0][];
-		this.inputFileIds = new String[0];
-		this.inputFileTypes = new int[0];
-	}
+//	/**
+//	 * @deprecated because parametrised constructor should be used instead
+//	 */
+//	public TestDataStruct() {
+//		try {
+//			Thread.sleep(50);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		this.uploadId = System.currentTimeMillis()-1200000000000L;
+//		this.inputFiles = new byte[0][];
+//		this.inputFileIds = new String[0];
+//		this.inputFileTypes = new int[0];
+//	}
 	
 	public TestDataStruct(
 			String[] inputFileIds,
@@ -48,6 +48,16 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 		this.inputFiles = inputFiles;
 		this.inputFileIds = inputFileIds;
 		this.inputFileTypes = inputFileTypes;
+	}
+	
+	public int compareTo(TestDataStruct o) {
+		if(this.uploadId<o.uploadId){
+			return -1;
+		}else if(this.uploadId>o.uploadId){
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 	
 	public String[] getInputFileIds() {
@@ -81,7 +91,7 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 		}
 		this.inputFileIds = inputFileIds;
 	}
-	
+
 	public void setInputFiles(byte[][] inputFiles) {
 		if(inputFiles==null 
 				|| !(
@@ -96,7 +106,7 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 			return;
 		}
 		this.inputFiles = inputFiles;
-	}
+	}	
 
 	public void setInputFileTypes(int[] inputFileTypes) {
 		if(inputFileTypes==null 
@@ -112,8 +122,12 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 			return;
 		}
 		this.inputFileTypes = inputFileTypes;
-	}	
+	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
 	public String toString(){
 		if(!(inputFileIds!=null
 				&& inputFiles!=null
@@ -128,20 +142,10 @@ public class TestDataStruct implements Comparable<TestDataStruct> {
 				this.inputFileIds.length+" elements: [");
 		for(int i=0; i<this.inputFiles.length; i++){
 			sb.append(inputFileIds[i]+"("+inputFiles[i].length+","+
-					inputFileTypes+"),");
+					inputFileTypes[i]+"),");
 		}
 		sb.append("]");
 		return sb.toString();
 		
-	}
-
-	public int compareTo(TestDataStruct o) {
-		if(this.uploadId<o.uploadId){
-			return -1;
-		}else if(this.uploadId>o.uploadId){
-			return 1;
-		}else{
-			return 0;
-		}
 	}	
 }

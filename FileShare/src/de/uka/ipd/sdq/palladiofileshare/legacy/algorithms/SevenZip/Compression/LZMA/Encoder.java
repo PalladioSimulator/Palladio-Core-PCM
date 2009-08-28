@@ -1,10 +1,9 @@
 package de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.Compression.LZMA;
 
-import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.ICodeProgress;
-import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.Compression.LZMA.Base;
-import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.Compression.RangeCoder.BitTreeEncoder;
-
 import java.io.IOException;
+
+import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.ICodeProgress;
+import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip.Compression.RangeCoder.BitTreeEncoder;
 
 public class Encoder
 {

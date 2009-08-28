@@ -31,7 +31,6 @@ public class BenchmarkedBytecode {
 	    	{801,802,803,804,805, 806,807,808,809,810, 811,812,813,814, }  //SDQ LENOVO, UNJITTED
 	    }};
 	
-	@SuppressWarnings("unused")
 	private static String[] opcodeNames = new String[]{
 		"AALOAD",
 		"ALOAD",
@@ -51,7 +50,6 @@ public class BenchmarkedBytecode {
 		"SIPUSH"
 	};
 	
-	@SuppressWarnings("unused")
 	private static int[] opcodeIndexes = new int[]{
 		50,
 		25,

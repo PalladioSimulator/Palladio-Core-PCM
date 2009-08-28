@@ -3,10 +3,7 @@ package de.uka.ipd.sdq.BySuite.helper.prediction;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import java.util.SortedMap;
 import java.util.SortedSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import de.uka.ipd.sdq.BySuite.helper.benchmarkedbytecode.BenchmarkedBytecode;
@@ -84,6 +81,7 @@ public class ComprehensivePredictionResult {
 	}
 	
 	private String platformDesc;
+	
 	private long predResult;
 //	private int nrOfOccuringOpcodes;
 //	private int nrOfOpcodesUsedForPrediction;
@@ -93,6 +91,7 @@ public class ComprehensivePredictionResult {
 //	 * @deprecated because assumption of different weights...
 //	 */
 //	private SortedMap<Double,Integer> opcodePredictionByWeight;
+	
 	private SortedSet<WeightedOpcodeDescription> descList;
 	
 	private boolean computationPerformed = false;
