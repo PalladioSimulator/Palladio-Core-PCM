@@ -16,109 +16,24 @@ public class JITSpeedupQuantifier {
 		jsq.run();
 	}
 	
-	public void run(){
-		JITSpeedupQuantifier durchschuss;
-		durchschuss = new JITSpeedupQuantifier();
-		List<Long> summary = new ArrayList<Long>();
-		List<Long> currReturn;
-		System.out.println("DecimalsComputations_efficient_noinit");
-		currReturn = durchschuss.measureManyDecimalsComputations_efficient_noinit   (3000, 20000, 20000);
-		Collections.sort(currReturn);
-		summary.add(currReturn.get(0));
-		summary.add(currReturn.get(currReturn.size()/2));
-		summary.add(currReturn.get(currReturn.size()-1));
-		
-		System.out.println("DecimalsComputations_inefficient_noinit");
-		currReturn = durchschuss.measureManyDecimalsComputations_inefficient_noinit (3000, 20000, 20000);
-		Collections.sort(currReturn);
-		summary.add(currReturn.get(0));
-		summary.add(currReturn.get(currReturn.size()/2));
-		summary.add(currReturn.get(currReturn.size()-1));
-		
-		System.out.println("FibonacciComputations_efficient_noinit");
-		currReturn = durchschuss.measureManyFibonacciComputations_efficient_noinit  (3000, 20000, 20000);
-		Collections.sort(currReturn);
-		summary.add(currReturn.get(0));
-		summary.add(currReturn.get(currReturn.size()/2));
-		summary.add(currReturn.get(currReturn.size()-1));
-		
-		System.out.println("FibonacciComputations_inefficient_noinit");
-		currReturn = durchschuss.measureManyFibonacciComputations_inefficient_noinit(3000, 20000, 20000);
-		Collections.sort(currReturn);
-		summary.add(currReturn.get(0));
-		summary.add(currReturn.get(currReturn.size()/2));
-		summary.add(currReturn.get(currReturn.size()-1));
+	private long[] currRet;
 
-		printSummaryToCMD(summary);
-		
-		writeCSV(summary);
-	}
+	private long end = 0L;
 
-	private void printSummaryToCMD(List<Long> summary) {
-		System.out.println("\n\n\n");
-		System.out.println("["+summary.get(0)+";"+summary.get(1)+";"+summary.get(2)+"] :");
-		System.out.println("DecimalsComputations_efficient_noinit");
-		System.out.println("["+summary.get(3)+";"+summary.get(4)+";"+summary.get(5)+"] :");
-		System.out.println("DecimalsComputations_inefficient_noinit");
-		System.out.println("["+summary.get(6)+";"+summary.get(7)+";"+summary.get(8)+"] :");
-		System.out.println("FibonacciComputations_efficient_noinit");
-		System.out.println("["+summary.get(9)+";"+summary.get(10)+";"+summary.get(11)+"] :");
-		System.out.println("FibonacciComputations_inefficient_noinit");
-	}
-
-	private void writeCSV(List<Long> summary) {
-		FileOutputStream fos;
-		try {
-			fos = new FileOutputStream("./results/"+
-					this.getClass().getName()+
-					"."+System.nanoTime()+".csv");
-			fos.write(new String("Algo;min;median;max;\n").getBytes());
-			fos.write(new String(
-					"DecimalsComputations_efficient_noinit;"+
-							summary.get(0)+";"+
-							summary.get(1)+";"+
-							summary.get(2)+";\n").getBytes());
-			fos.write(new String(
-					"DecimalsComputations_inefficient_noinit;"+
-							summary.get(3)+";"+
-							summary.get(4)+";"+
-							summary.get(5)+";\n").getBytes());
-			fos.write(new String(
-					"FibonacciComputations_efficient_noinit;"+
-							summary.get(6)+";"+
-							summary.get(7)+";"+
-							summary.get(8)+";\n").getBytes());
-			fos.write(new String(
-					"FibonacciComputations_inefficient_noinit;"+
-							summary.get(9)+";"+
-							summary.get(10)+";"+
-							summary.get(11)+";\n").getBytes());
-			fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	private List<Long> measurements;
 	
-	long[] currRet;
+	private int[] numbers;
 	
-	long end = 0L;
+	private Random rd;
 	
-	List<Long> measurements;
+	private List<Long> resultDummies;
 	
-	int[] numbers;
-	
-	Random rd;
-	
-	List<Long> resultDummies;
-		
-	long start=0L;
+	private long start=0L;
 	
 	public JITSpeedupQuantifier(){
 		rd = new Random();
 	}
-
+	
 	private long[] basicDecimalsComputation_efficient_noinit(int nr) {
 		numbers = new int[nr];
 		start = System.nanoTime();
@@ -184,7 +99,7 @@ public class JITSpeedupQuantifier {
 		end = System.nanoTime();
 		return new long[]{(end - start), numbers[rd.nextInt(nr)]};
 	}
-	
+		
 	private List<Long> measureManyDecimalsComputations_efficient_noinit(
 			int nrOfWarmups, 
 			int nrOfMeasurements, 
@@ -222,7 +137,7 @@ public class JITSpeedupQuantifier {
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
-
+	
 	private List<Long> measureManyDecimalsComputations_inefficient_noinit(
 			int nrOfWarmups, 
 			int nrOfMeasurements, 
@@ -260,7 +175,7 @@ public class JITSpeedupQuantifier {
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
-	
+
 	private List<Long> measureManyFibonacciComputations_efficient_noinit(
 			int nrOfWarmups, 
 			int nrOfMeasurements, 
@@ -298,7 +213,7 @@ public class JITSpeedupQuantifier {
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
-
+	
 	private List<Long> measureManyFibonacciComputations_inefficient_noinit(
 			int nrOfWarmups, 
 			int nrOfMeasurements, 
@@ -335,5 +250,90 @@ public class JITSpeedupQuantifier {
 		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
+	}
+
+	private void printSummaryToCMD(List<Long> summary) {
+		System.out.println("\n\n\n");
+		System.out.println("["+summary.get(0)+";"+summary.get(1)+";"+summary.get(2)+"] :");
+		System.out.println("DecimalsComputations_efficient_noinit");
+		System.out.println("["+summary.get(3)+";"+summary.get(4)+";"+summary.get(5)+"] :");
+		System.out.println("DecimalsComputations_inefficient_noinit");
+		System.out.println("["+summary.get(6)+";"+summary.get(7)+";"+summary.get(8)+"] :");
+		System.out.println("FibonacciComputations_efficient_noinit");
+		System.out.println("["+summary.get(9)+";"+summary.get(10)+";"+summary.get(11)+"] :");
+		System.out.println("FibonacciComputations_inefficient_noinit");
+	}
+	
+	private void run(){
+		JITSpeedupQuantifier durchschuss;
+		durchschuss = new JITSpeedupQuantifier();
+		List<Long> summary = new ArrayList<Long>();
+		List<Long> currReturn;
+		System.out.println("DecimalsComputations_efficient_noinit");
+		currReturn = durchschuss.measureManyDecimalsComputations_efficient_noinit   (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
+		System.out.println("DecimalsComputations_inefficient_noinit");
+		currReturn = durchschuss.measureManyDecimalsComputations_inefficient_noinit (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
+		System.out.println("FibonacciComputations_efficient_noinit");
+		currReturn = durchschuss.measureManyFibonacciComputations_efficient_noinit  (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
+		System.out.println("FibonacciComputations_inefficient_noinit");
+		currReturn = durchschuss.measureManyFibonacciComputations_inefficient_noinit(3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+
+		printSummaryToCMD(summary);
+		
+		writeCSV(summary);
+	}
+
+	private void writeCSV(List<Long> summary) {
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream("./results/"+
+					this.getClass().getName()+
+					"."+System.nanoTime()+".csv");
+			fos.write(new String("Algo;min;median;max;\n").getBytes());
+			fos.write(new String(
+					"DecimalsComputations_efficient_noinit;"+
+							summary.get(0)+";"+
+							summary.get(1)+";"+
+							summary.get(2)+";\n").getBytes());
+			fos.write(new String(
+					"DecimalsComputations_inefficient_noinit;"+
+							summary.get(3)+";"+
+							summary.get(4)+";"+
+							summary.get(5)+";\n").getBytes());
+			fos.write(new String(
+					"FibonacciComputations_efficient_noinit;"+
+							summary.get(6)+";"+
+							summary.get(7)+";"+
+							summary.get(8)+";\n").getBytes());
+			fos.write(new String(
+					"FibonacciComputations_inefficient_noinit;"+
+							summary.get(9)+";"+
+							summary.get(10)+";"+
+							summary.get(11)+";\n").getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
