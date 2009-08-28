@@ -14,6 +14,9 @@ public class BusinessRunner implements Runnable{
 	private int[] uploadFileTypes;
 	private long uploadId;
 	
+	/**
+	 * Default constructor
+	 */
 	public BusinessRunner() {
 		this.businessCore = new BusinessCore(-1L);
 		this.measure = false;
@@ -24,6 +27,15 @@ public class BusinessRunner implements Runnable{
 		this.uploadFileTypes = null;
 	}
 	
+	/**
+	 * Normal constructor
+	 * @param uploadId
+	 * @param uploadFiles
+	 * @param uploadFileIds
+	 * @param uploadFileTypes
+	 * @param measure
+	 * @param monitor
+	 */
 	public BusinessRunner(
 			long uploadId, 
 			byte[][] uploadFiles,
@@ -40,6 +52,9 @@ public class BusinessRunner implements Runnable{
 		this.monitor = monitor;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run() {
 		uploadFiles(
 				this.uploadId,
