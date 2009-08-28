@@ -65,6 +65,11 @@ public class HashBenchmarker {
 			"input byte arrays that form a pool from which parameters " +
 			"for digesting are quasi-randomly chosen.";
 	
+	static{
+		hashSizes = new HashMap<String, Integer>();
+		hashSizes.put("SHA-512", 512/8);
+	}
+
 	/** Expects eight parameters, see helpMessage field or run the class 
 	 * with the wrong number of parameters.
 	 * @param args
@@ -100,16 +105,16 @@ public class HashBenchmarker {
 	 * Logger instance (log4j)
 	 */
 	private Logger log;
-
+	
 	/**
 	 * Random inputs for benchmarks
 	 */
-	byte[][] randomInputData;
+	private byte[][] randomInputData; 
 	
 	/**
 	 * Random number generator
 	 */
-	Random rd; 
+	private Random rd;
 	
 	/**
 	 * Default constructor... relies on "log4j.properties" file to exist.
@@ -118,8 +123,6 @@ public class HashBenchmarker {
 		PropertyConfigurator.configure("config/log4j.properties");//TODO exception handling (also in other classes)
 		log = Logger.getLogger(this.getClass().getCanonicalName());
 		rd = new Random();
-		hashSizes = new HashMap<String, Integer>();
-		hashSizes.put("SHA-512", 512/8);
 	}
 	
 	/** Fills this.randomInputData
@@ -175,51 +178,48 @@ public class HashBenchmarker {
 		MessageDigest md;
 		long L1 = 0L;
 		long L2 = 0L;
-		long L3 = 0L;
 		long L4 = 0L;
-		long L5 = 0L;
 		long L6 = 0L;
 		List<Long> getInstanceMeasurements = new ArrayList<Long>();
 		List<Long> updateTotalMeasurements = new ArrayList<Long>();
 		List<Long> digestMeasurements = new ArrayList<Long>();
 		
 		int[] randomDataUnitsIndexes = new int[nrOfMeasurements/*nrOfChainings*/];
-		byte[][] hashes = new byte[nrOfMeasurements][hashSizes.get(digestAlgorithm)];
 		for(int j=0; j<randomDataUnitsIndexes.length; j++){
 			randomDataUnitsIndexes[j] = rd.nextInt(nrOfDifferentRandomInputs);
 		}
+
 		this.createRandomInputData(inputSize,nrOfDifferentRandomInputs);
 
+		byte[][] hashes = new byte[nrOfMeasurements][hashSizes.get(digestAlgorithm)];
+		
 		for(int n = 0; n<nrOfMeasurements; n++){
 //			log.debug("Starting Measurement "+n);
 			try {
 				L1 = System.nanoTime();
 				md = MessageDigest.getInstance(digestAlgorithm);
 				L2 = System.nanoTime();
-				getInstanceMeasurements.add(L2-L1);
-			
-				
-				L3 = System.nanoTime();
+//				L3 = System.nanoTime();
 //				for(int j=0; j<nrOfChainings; j++){
 //					System.out.print(".");
 					md.update(this.randomInputData[randomDataUnitsIndexes[n]]);
 //				}
 				L4 = System.nanoTime();
-				updateTotalMeasurements.add(L4-L3);
-//				System.out.println(":");
-				
-				L5 = System.nanoTime();
+//				L5 = System.nanoTime();
 				hashes[n] = md.digest();
 				L6 = System.nanoTime();
-				digestMeasurements.add(L6-L5);
+				getInstanceMeasurements.add(L2-L1);
+				updateTotalMeasurements.add(L4-L2);
+				digestMeasurements.add(L6-L4);
 				
-				//flip one byte in each data array :-)
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			}
+			//flip one byte in each data array :-)
 			for(int j=0; j<randomInputData.length; j++){
 				randomInputData[j][rd.nextInt(randomInputData[0].length)] = (new Integer(rd.nextInt(256))).byteValue();
 			}
+
 //			hashesHashes[i] = md.digest(hashes[rd.nextInt(nrOfChainings)]);
 			//TODO only the last measurement is logged...
 //			log.debug((L2-L1)+" ns for MD creation (incl. nanoTime())");
