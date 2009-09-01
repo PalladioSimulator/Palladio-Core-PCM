@@ -96,7 +96,7 @@ fqnAllocationContextClass(Allocation a) :
 fqnAllocationContext(Allocation a) :
 	a.fqnAllocationContextPackage()+"."+a.fqnAllocationContextClass();
 	
-// ------------------- FQNs -------------------
+// ------------------- FQNs (full qualified names) -------------------
 fqn(Entity e) :
   "Should never be called";
 

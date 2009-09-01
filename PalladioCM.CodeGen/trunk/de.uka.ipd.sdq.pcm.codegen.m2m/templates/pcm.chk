@@ -58,6 +58,10 @@ context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The r
 context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced RequiredRole is not required by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
     this.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity.contains(this.requiredRole_AssemblyConnector);  
 
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced Interfaces are not compatible: '+this.providedRole_AssemblyConnector.providedInterface__ProvidedRole.entityName +' and '+ this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole.entityName+'. Make sure to connect the right RequiredRole and ProvidedRole in the system model.':
+	this.providedRole_AssemblyConnector.providedInterface__ProvidedRole == this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole
+	|| this.providedRole_AssemblyConnector.providedInterface__ProvidedRole.ancestorInterfaces_Interface.contains(this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole);
+
 context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
 
