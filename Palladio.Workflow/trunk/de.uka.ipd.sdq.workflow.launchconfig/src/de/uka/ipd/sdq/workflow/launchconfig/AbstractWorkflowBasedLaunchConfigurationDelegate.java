@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.Workflow;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflowExceptionHandler;
 
 /**
@@ -127,13 +128,35 @@ public abstract class
 		myProcess = getProcess(launch);
 		
 		// Configure logging output to the Eclipse console
-		List<LoggerAppenderStruct> loggerList = setupLogging(configuration.getAttribute(VERBOSE_LOGGING, false) ? Level.DEBUG : Level.INFO );
+		List<LoggerAppenderStruct> loggerList = setupLogging(getLogLevel(configuration));
 		for (LoggerAppenderStruct logger : loggerList) {
 			myProcess.addAppender(logger.getAppender());
 		}
 
 		launch.addProcess(myProcess);
 		return loggerList;
+	}
+
+	/**
+	 * Get the log level based on the extended CommonTab in DebugEnabledCommonTab
+	 * @param configuration The configuration passed from the eclipse run dialog
+	 * @return The log level selected by the user
+	 */
+	private Level getLogLevel(ILaunchConfiguration configuration) {
+		try {
+			switch(configuration.getAttribute(DebugEnabledCommonTab.WORKFLOW_ENGINE_DEBUG_LEVEL, 0)) {
+			case 0:
+				return Level.INFO;
+			case 1:
+				return Level.DEBUG;
+			case 2:
+				return Level.ALL;
+			default:
+				return Level.INFO;
+			}
+		} catch (CoreException e) {
+			return Level.INFO;
+		}
 	}
 
 	/**
