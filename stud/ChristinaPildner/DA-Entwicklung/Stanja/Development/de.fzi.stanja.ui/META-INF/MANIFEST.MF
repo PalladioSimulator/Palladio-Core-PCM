@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Stanja UI
+Bundle-SymbolicName: de.fzi.stanja.ui; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fzi.stanja.ui.Activator
+Bundle-Vendor: FZI - Forschungszentrum
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.fzi.stanja.core;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.5.0",
+ org.postgresql.jdbc.jdbc3;bundle-version="0.0.0",
+ org.apache.log4j;bundle-version="1.2.15"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

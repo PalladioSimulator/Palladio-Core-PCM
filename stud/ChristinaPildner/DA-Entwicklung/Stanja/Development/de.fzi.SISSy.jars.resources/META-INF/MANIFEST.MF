@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SISSy4eclipse Jar Resources Plug-in
+Bundle-SymbolicName: de.fzi.SISSy.jars.resources
+Bundle-Version: 0.46.0.qualifier
+Bundle-ClassPath: resources.jar
+Bundle-Vendor: Forschungszentrum Informatik (FZI)
+Eclipse-LazyStart: true

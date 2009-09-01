@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1251217299864
+java.specification.version,sysinfo,,,"1.6",1251217299864
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1251217299864
+java.version,sysinfo,,,"1.6.0_15",1251217299864
+java.vm.info,sysinfo,,,"mixed mode, sharing",1251217299864
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1251217299864
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1251217299864
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1251217299864
+java.vm.specification.version,sysinfo,,,"1.0",1251217299864
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1251217299864
+java.vm.version,sysinfo,,,"14.1-b02",1251217299864
+started,bundle,org.eclipse.jsch.core,1.1.100.I20090430-0408,"org.eclipse.jsch.core",1251217300471
+started,bundle,org.eclipse.team.cvs.core,3.3.200.I20090430-0408,"org.eclipse.team.cvs.core",1251217300472
+started,bundle,org.eclipse.team.ui,3.5.0.I20090430-0408,"org.eclipse.team.ui",1251217300490
+started,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1251217300492
+started,bundle,org.eclipse.team.cvs.ui,3.3.200.I20090521-1750,"org.eclipse.team.cvs.ui",1251217301569
+started,bundle,org.eclipse.mylyn.monitor.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.monitor.ui",1251217301824
+started,bundle,org.eclipse.jdt.apt.core,3.3.200.v20090528-1135,"org.eclipse.jdt.apt.core",1251217306140
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1251217310896
+started,bundle,de.fzi.stanja.ui,1.0.0.qualifier,"de.fzi.stanja.ui",1251217312691
+started,bundle,de.fzi.stanja.sissyconnector,1.0.0.qualifier,"de.fzi.stanja.sissyconnector",1251217329379
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1251217335190
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1251217339047
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1251217359507
+started,bundle,org.eclipse.pde.build,3.5.0.v20090527-1800,"org.eclipse.pde.build",1251217452813

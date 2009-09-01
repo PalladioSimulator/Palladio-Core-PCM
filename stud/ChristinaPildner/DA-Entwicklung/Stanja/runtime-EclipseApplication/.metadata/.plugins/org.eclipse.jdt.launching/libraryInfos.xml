@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Programme\Java" version="1.6.0_15">
+<bootpath>
+<entry path="C:\Programme\Java\jre\lib\resources.jar"/>
+<entry path="C:\Programme\Java\jre\lib\rt.jar"/>
+<entry path="C:\Programme\Java\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Programme\Java\jre\lib\jsse.jar"/>
+<entry path="C:\Programme\Java\jre\lib\jce.jar"/>
+<entry path="C:\Programme\Java\jre\lib\charsets.jar"/>
+<entry path="C:\Programme\Java\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Programme\Java\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Programme\Java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Programme\Java\jre" version="1.6.0_15">
+<bootpath>
+<entry path="C:\Programme\Java\jre\lib\resources.jar"/>
+<entry path="C:\Programme\Java\jre\lib\rt.jar"/>
+<entry path="C:\Programme\Java\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Programme\Java\jre\lib\jsse.jar"/>
+<entry path="C:\Programme\Java\jre\lib\jce.jar"/>
+<entry path="C:\Programme\Java\jre\lib\charsets.jar"/>
+<entry path="C:\Programme\Java\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Programme\Java\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Programme\Java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

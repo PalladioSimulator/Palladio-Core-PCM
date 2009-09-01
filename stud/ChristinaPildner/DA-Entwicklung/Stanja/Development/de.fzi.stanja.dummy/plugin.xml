@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.fzi.stanja.analyzers">
+      <analyzer
+            class="de.fzi.stanja.dummy.DummaAnalyzer"
+            id="de.fzi.stanja.dummy"
+            name="Dummy Analyzer">
+         <policy
+               id="de.fzi.stanja.dummy.policy1"
+               name="de.fzi.stanja.dummy.policy1">
+            <query
+                  id="de.fzi.stanja.dummy.query1"
+                  name="de.fzi.stanja.dummy.query1">
+            </query>
+         </policy>
+      </analyzer>
+   </extension>
+
+</plugin>

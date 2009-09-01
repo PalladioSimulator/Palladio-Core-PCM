@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Sample Action Set"
+            visible="true"
+            id="de.fzi.stanja.ui.actionSet">
+         <menu
+               label="Sample &amp;Menu"
+               id="sampleMenu">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               label="&amp;Sample Action"
+               icon="icons/sample.gif"
+               class="de.fzi.stanja.ui.actions.RunStanja"
+               tooltip="Hello, Eclipse world"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               id="de.fzi.stanja.ui.actions.RunStanja">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Stanja"
+            class="de.fzi.stanja.ui.preferences.StanjaPreferencePage"
+            id="de.fzi.stanja.ui.preferences.StanjaPreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="de.fzi.stanja.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Stanja"
+            id="de.fzi.stanja.ui">
+      </category>
+      <view
+            name="Stanja"
+            icon="icons/sample.gif"
+            category="de.fzi.stanja.ui"
+            class="de.fzi.stanja.ui.views.StanjaView"
+            id="de.fzi.stanja.ui.views.StanjaView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="de.fzi.stanja.ui.views.StanjaView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+</plugin>

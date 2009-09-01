@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dummy
+Bundle-SymbolicName: de.fzi.stanja.dummy;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fzi.stanja.dummy.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.fzi.stanja.core;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

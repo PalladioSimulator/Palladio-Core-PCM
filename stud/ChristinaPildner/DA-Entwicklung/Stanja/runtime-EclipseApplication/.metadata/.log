@@ -1,0 +1,138 @@
+!SESSION 2009-08-25 18:21:20.545 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data E:\DA\DA-Entwicklung\Stanja\Development/../runtime-EclipseApplication -dev file:E:/DA/DA-Entwicklung/Stanja/Development/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2009-08-25 18:21:25.738
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2009-08-25 21:05:56.611 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data E:\DA\DA-Entwicklung\Stanja\Development/../runtime-EclipseApplication -dev file:E:/DA/DA-Entwicklung/Stanja/Development/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 0 2009-08-25 21:06:21.428
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at de.fzi.stanja.sissyconnector.dbaccess.PostGreSqlInteractor.runQuery(PostGreSqlInteractor.java:105)
+	at de.fzi.stanja.sissyconnector.model.SissyAnalyzer.runAnalyzer(SissyAnalyzer.java:28)
+	at de.fzi.stanja.ui.actions.RunStanja.run(RunStanja.java:41)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:251)
+	at org.eclipse.ui.internal.WWinPluginAction.runWithEvent(WWinPluginAction.java:229)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:452)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3880)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3473)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+
+!ENTRY org.eclipse.ui 4 0 2009-08-25 21:09:35.500
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at de.fzi.stanja.sissyconnector.dbaccess.PostGreSqlInteractor.runQuery(PostGreSqlInteractor.java:105)
+	at de.fzi.stanja.sissyconnector.model.SissyAnalyzer.runAnalyzer(SissyAnalyzer.java:28)
+	at de.fzi.stanja.ui.actions.RunStanja.run(RunStanja.java:41)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:251)
+	at org.eclipse.ui.internal.WWinPluginAction.runWithEvent(WWinPluginAction.java:229)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:452)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3880)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3473)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+!SESSION 2009-08-25 21:35:36.549 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data E:\DA\DA-Entwicklung\Stanja\Development/../runtime-EclipseApplication -dev file:E:/DA/DA-Entwicklung/Stanja/Development/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 0 2009-08-25 21:36:53.393
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at de.fzi.stanja.sissyconnector.dbaccess.PostGreSqlInteractor.runQuery(PostGreSqlInteractor.java:105)
+	at de.fzi.stanja.sissyconnector.model.SissyAnalyzer.runAnalyzer(SissyAnalyzer.java:28)
+	at de.fzi.stanja.ui.actions.RunStanja.run(RunStanja.java:41)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:251)
+	at org.eclipse.ui.internal.WWinPluginAction.runWithEvent(WWinPluginAction.java:229)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:452)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3880)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3473)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
