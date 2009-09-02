@@ -34,7 +34,7 @@ public class OrderPreservingCompositeJob extends AbstractCompositeJob implements
 		for (IJob job : myJobs) {
 			if (monitor.isCanceled())
 				throw new UserCanceledException();			
-			logger.info("SDQ Workflow-Engine: Running job "+job.getName());
+			logger.debug("SDQ Workflow-Engine: Running job "+job.getName());
 			myExecutedJobs.push(job);
 			job.execute(subProgressMonitor);
 			subProgressMonitor.worked(1);
