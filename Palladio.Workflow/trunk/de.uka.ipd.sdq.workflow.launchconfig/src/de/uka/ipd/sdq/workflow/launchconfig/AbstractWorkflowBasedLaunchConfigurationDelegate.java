@@ -146,10 +146,16 @@ public abstract class
 		try {
 			switch(configuration.getAttribute(DebugEnabledCommonTab.WORKFLOW_ENGINE_DEBUG_LEVEL, 0)) {
 			case 0:
-				return Level.INFO;
+				return Level.TRACE;
 			case 1:
 				return Level.DEBUG;
 			case 2:
+				return Level.INFO;
+			case 3:
+				return Level.WARN;
+			case 4:
+				return Level.ERROR;
+			case 5:
 				return Level.ALL;
 			default:
 				return Level.INFO;

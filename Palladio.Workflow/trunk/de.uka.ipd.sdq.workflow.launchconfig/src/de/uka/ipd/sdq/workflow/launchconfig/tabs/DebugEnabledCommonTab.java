@@ -47,10 +47,13 @@ public class DebugEnabledCommonTab extends CommonTab {
 		
 		debuglvl = new Combo(debugLevelGrp, SWT.NONE);
 		debuglvl.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		debuglvl.add("INFO", 0);
+		debuglvl.add("TRACE", 0);
 		debuglvl.add("DEBUG", 1);
-		debuglvl.add("ALL", 2);
-		debuglvl.select(0);
+		debuglvl.add("INFO", 2);
+		debuglvl.add("WARNING", 3);
+		debuglvl.add("ERROR", 4);
+		debuglvl.add("ALL", 5);
+		debuglvl.select(2);
 		debuglvl.addModifyListener(modifyListener);
 		
 		super.createControl(myComposite);
@@ -64,9 +67,9 @@ public class DebugEnabledCommonTab extends CommonTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		super.initializeFrom(configuration);
 		try {
-			debuglvl.select(configuration.getAttribute(WORKFLOW_ENGINE_DEBUG_LEVEL, 0));
+			debuglvl.select(configuration.getAttribute(WORKFLOW_ENGINE_DEBUG_LEVEL, 2));
 		} catch (CoreException e) {
-			debuglvl.select(0);
+			debuglvl.select(2);
 		}
 	}
 
@@ -81,6 +84,6 @@ public class DebugEnabledCommonTab extends CommonTab {
 	public void setDefaults(ILaunchConfigurationWorkingCopy config) {
 		super.setDefaults(config);
 		config.setAttribute(WORKFLOW_ENGINE_DEBUG_LEVEL,
-				0);
+				2);
 	}
 }
