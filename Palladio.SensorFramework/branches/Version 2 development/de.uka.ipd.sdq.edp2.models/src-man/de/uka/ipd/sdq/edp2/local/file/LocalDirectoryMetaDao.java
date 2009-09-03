@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.uka.ipd.sdq.edp.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MetaDaoImpl;
@@ -36,6 +37,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**DAO to access the meta data stored in a local directory.
+ * Warning: It is not allowed to reassign a managed repository to another instance of Repositories.
  * @author groenda
  *
  */
@@ -51,14 +53,33 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	
 	public LocalDirectoryMetaDao(final LocalDirectoryRepository repo) {
 		this.managedRepo = repo;
+		// observe changes on the assignment of the repository
+		Adapter reposAdapter = new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg.getFeature().equals(RepositoryPackage.Literals.REPOSITORY__REPOSITORIES)) {
+					if (msg.getEventType() == Notification.SET) {
+						if (msg.getOldValue() != null) {
+							if (isOpen()) {
+								String errMsg = "Repository was reassigned to another instance "
+									+ "of Repositories while it was still open. Data might be corrupted!";
+								logger.log(Level.SEVERE, errMsg);
+								throw new IllegalStateException(errMsg);
+							}
+						}
+					}
+				}
+			}
+		};
+		managedRepo.eAdapters().add(reposAdapter);
 		// observe changes on the ExperimentGroup list
 		Adapter descAdapter = new LocalDirectoryMetaResourceAdapter(repo,
-				RepositoryPackage.Literals.REPOSITORY__DESCRIPTION,
+				RepositoryPackage.Literals.REPOSITORY__DESCRIPTIONS,
 				EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION);
 		managedRepo.eAdapters().add(descAdapter);
 		// observe changes on the Descriptions list
 		Adapter expGroupAdapter = new LocalDirectoryMetaResourceAdapter(repo,
-				RepositoryPackage.Literals.REPOSITORY__EXPERIMENT_GROUP,
+				RepositoryPackage.Literals.REPOSITORY__EXPERIMENT_GROUPS,
 				EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION);
 		managedRepo.eAdapters().add(expGroupAdapter);
 	}
@@ -80,6 +101,9 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			return false;
 		}
 		try {
+			if (managedRepo.getRepositories() == null) {
+				return false;
+			}
 			URI uri = URI.createURI(managedRepo.getUri());
 			File directory = new File(uri.toFileString());
 			if (!directory.isDirectory()) {
@@ -112,7 +136,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			String fileExtension, Class expectedRoot) {
 		assert (directory.isDirectory());
 		
-		ResourceSet resourceSet = new ResourceSetImpl();
+		ResourceSet resourceSet = SerializationUtil.createResourceSet();
 		Resource resource;
 		File[] files = directory.listFiles(new FilenameExtensionFiler(fileExtension));
 		for (File file : files) {
@@ -165,6 +189,8 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			saveExperimentGroups(directory);
 			mmtDaoFactory.setActive(false);
 			// Warning: Cannot clear lists as this would affect data on background storage
+			managedRepo.resetDescriptions();
+			managedRepo.resetExperimentGroups();
 			setClosed();
 		} catch (IllegalArgumentException e) {
 			String msg = "URI is not valid.";
@@ -198,7 +224,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 				/* Find all cross references.
 				 * Delete all cross references which are in the directory of the MetaDao.
 				 */
-				Map<EObject, Collection<Setting>> references = EcoreUtil.CrossReferencer.find(managedRepo.getExperimentGroup());
+				Map<EObject, Collection<Setting>> references = EcoreUtil.CrossReferencer.find(managedRepo.getExperimentGroups());
 				
 //				DataSeries[] referencedDataSeries = null;
 //				// TODO Auto-generated method stub
@@ -264,11 +290,19 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 				logger.log(Level.WARNING, msg);
 				throw new DataNotAccessibleException(msg, null);
 			}
+			if (managedRepo.getRepositories() == null) {
+				String msg = "Every repository must be attached to an instance of Repositories in order to be opened.";
+				logger.log(Level.SEVERE, msg);
+				throw new DataNotAccessibleException(msg, null);
+			}
 			// load descriptions
 			loadDescriptions(directory);
 			// load experiment groups
 			loadExperimentGroups(directory);
-			mmtDaoFactory = new LocalDirectoryMeasurementsDaoFactory(directory);
+			mmtDaoFactory = LocalDirectoryMeasurementsDaoFactory.getRegisteredFactory(directory);
+			if (mmtDaoFactory == null) { // DaoFactory not previously initialized
+				mmtDaoFactory = new LocalDirectoryMeasurementsDaoFactory(directory);
+			}
 			setOpen();
 		} catch (IllegalArgumentException e) {
 			String msg = "URI is not valid.";
@@ -296,7 +330,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 * @param directory The EDP2 data directory.
 	 */
 	private void saveDescriptions(File directory) {
-		for (Description desc : managedRepo.getDescription()) {
+		for (Description desc : managedRepo.getDescriptions()) {
 			saveDescription(directory, desc);
 		}
 	}
@@ -329,7 +363,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 * @param directory The EDP2 data directory.
 	 */
 	private void saveExperimentGroups(File directory) {
-		for (ExperimentGroup eg : managedRepo.getExperimentGroup()) {
+		for (ExperimentGroup eg : managedRepo.getExperimentGroups()) {
 			saveExperimentGroup(directory, eg);
 		}
 	}
@@ -362,6 +396,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 * @param descriptionFile The description file containing the EMF model of the description.
 	 */
 	private void loadDescription(File descriptionFile) {
+		assert (managedRepo.getRepositories() != null);
 		Resource resource = managedRepo.getRepositories()
 				.getCommonResourceSet().createResource(
 						URI.createFileURI(descriptionFile.getAbsolutePath()));
@@ -382,7 +417,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 										return false;
 									}
 								}.doSwitch(resource.getContents().get(0)) == true) {
-						managedRepo.getDescription().add((Description) resource.getContents().get(0));
+						managedRepo.getDescriptions().add((Description) resource.getContents().get(0));
 					} else {
 						errorMessage = "Root model element was not of type Description.";
 					}
@@ -391,7 +426,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 				}
 			}
 		} catch (IOException e) {
-			errorMessage = "Could not load EMF model.";
+			errorMessage = "Could not load EMF model. Reason: " + e.getMessage();
 		}
 		if (errorMessage != null) {
 			logger.log(Level.WARNING, errorMessage + " Filename: " + descriptionFile.getAbsolutePath() + ".");
@@ -436,7 +471,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 									return false;
 								}
 							}.doSwitch(resource.getContents().get(0)) == true) {
-						managedRepo.getExperimentGroup().add((ExperimentGroup) resource.getContents().get(0));
+						managedRepo.getExperimentGroups().add((ExperimentGroup) resource.getContents().get(0));
 					} else {
 						errorMessage = "Root model element was not of type ExperimentGroup.";
 					}

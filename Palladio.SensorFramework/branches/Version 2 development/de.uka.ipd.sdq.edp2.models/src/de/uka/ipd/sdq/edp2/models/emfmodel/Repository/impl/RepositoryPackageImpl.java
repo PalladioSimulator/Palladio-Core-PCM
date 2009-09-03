@@ -357,7 +357,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRepository_Description() {
+	public EReference getRepository_Descriptions() {
 		return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -366,7 +366,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRepository_ExperimentGroup() {
+	public EReference getRepository_ExperimentGroups() {
 		return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -434,8 +434,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(repositoryEClass, REPOSITORY__REPOSITORIES);
 		createEAttribute(repositoryEClass, REPOSITORY__STATUS);
 		createEAttribute(repositoryEClass, REPOSITORY__READ_ONLY);
-		createEReference(repositoryEClass, REPOSITORY__DESCRIPTION);
-		createEReference(repositoryEClass, REPOSITORY__EXPERIMENT_GROUP);
+		createEReference(repositoryEClass, REPOSITORY__DESCRIPTIONS);
+		createEReference(repositoryEClass, REPOSITORY__EXPERIMENT_GROUPS);
 
 		// Create enums
 		repositoryStatusEEnum = createEEnum(REPOSITORY_STATUS);
@@ -507,8 +507,12 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getRepository_Repositories(), this.getRepositories(), this.getRepositories_AvailableRepositories(), "repositories", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRepository_Status(), this.getRepositoryStatus(), "status", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRepository_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_Description(), theEmfmodelPackage.getDescription(), theEmfmodelPackage.getDescription_Repository(), "description", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_ExperimentGroup(), theEmfmodelPackage.getExperimentGroup(), theEmfmodelPackage.getExperimentGroup_Repository(), "experimentGroup", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_Descriptions(), theEmfmodelPackage.getDescription(), theEmfmodelPackage.getDescription_Repository(), "descriptions", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_ExperimentGroups(), theEmfmodelPackage.getExperimentGroup(), theEmfmodelPackage.getExperimentGroup_Repository(), "experimentGroups", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		addEOperation(repositoryEClass, null, "resetExperimentGroups", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		addEOperation(repositoryEClass, null, "resetDescriptions", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(repositoryStatusEEnum, RepositoryStatus.class, "RepositoryStatus");

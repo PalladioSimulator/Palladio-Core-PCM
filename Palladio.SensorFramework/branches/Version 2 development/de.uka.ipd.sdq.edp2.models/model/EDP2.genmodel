@@ -93,7 +93,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//Measurement/measurementRange"/>
     </genClasses>
     <genClasses image="false" ecoreClass="EDP2.ecore#//Edp2Measure">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/experimentSetting"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/experimentGroup"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EDP2.ecore#//Edp2Measure/experimentSettings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Edp2Measure/persistencyKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Edp2Measure/measuredObject"/>
@@ -226,16 +226,18 @@
             ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repositories/commonResourceSet"/>
       </genClasses>
       <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/IResourceSet"/>
-      <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/IMeasurementsDaoFactory"/>
-      <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/IMetaDao"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/MeasurementsDaoFactory"/>
+      <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/MetaDao"/>
       <genClasses image="false" ecoreClass="EDP2.ecore#//Repository/Repository">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repository/repositories"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Repository/Repository/status"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Repository/Repository/readOnly"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repository/description"/>
+            ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repository/descriptions"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repository/experimentGroup"/>
+            ecoreFeature="ecore:EReference EDP2.ecore#//Repository/Repository/experimentGroups"/>
+        <genOperations ecoreOperation="EDP2.ecore#//Repository/Repository/resetExperimentGroups"/>
+        <genOperations ecoreOperation="EDP2.ecore#//Repository/Repository/resetDescriptions"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="PrimitiveTypes" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//PrimitiveTypes"/>

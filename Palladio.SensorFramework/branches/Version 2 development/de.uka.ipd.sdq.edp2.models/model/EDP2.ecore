@@ -160,7 +160,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
         upperBound="-1" eType="#//ExperimentSetting" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
-        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/experimentGroup"/>
+        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/experimentGroups"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" ordered="false"
@@ -211,7 +211,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textualDescription" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
-        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/description"/>
+        eType="#//Repository/Repository" eOpposite="#//Repository/Repository/descriptions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PersistenceKindOptions">
     <eLiterals name="BinaryPreferred"/>
@@ -427,25 +427,20 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"
         abstract="true" interface="true"/>
-    <eClassifiers xsi:type="ecore:EEnum" name="RepositoryStatus">
-      <eLiterals name="OPEN"/>
-      <eLiterals name="CLOSED" value="1"/>
-      <eLiterals name="DELETED" value="2"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MeasurementsDaoFactory" instanceClassName="de.uka.ipd.sdq.edp2.MeasurementsDaoFactory"
         abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="MetaDao" instanceClassName="de.uka.ipd.sdq.edp2.MetaDao"
         abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Repository" abstract="true" eSuperTypes="#//Identifiable #//Repository/MetaDao">
+      <eOperations name="resetExperimentGroups" ordered="false" lowerBound="1"/>
+      <eOperations name="resetDescriptions" ordered="false" lowerBound="1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" ordered="false"
           lowerBound="1" eType="#//Repository/Repositories" eOpposite="#//Repository/Repositories/availableRepositories"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" ordered="false"
-          lowerBound="1" eType="#//Repository/RepositoryStatus"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="description" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" ordered="false"
           upperBound="-1" eType="#//Description" eOpposite="#//Description/repository"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroup" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroups" ordered="false"
           upperBound="-1" eType="#//ExperimentGroup" eOpposite="#//ExperimentGroup/repository"/>
     </eClassifiers>
   </eSubpackages>

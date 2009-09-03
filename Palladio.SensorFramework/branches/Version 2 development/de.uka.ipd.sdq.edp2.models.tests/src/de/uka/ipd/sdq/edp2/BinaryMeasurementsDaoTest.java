@@ -9,7 +9,7 @@ import javax.measure.unit.Unit;
 
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 
 /**
@@ -20,13 +20,13 @@ public abstract class BinaryMeasurementsDaoTest extends MeasurementsDaoTest {
 	
 	/** Binary measurement DAO to test. */
 	@SuppressWarnings("unchecked")
-	protected BinaryMeasurementsDaoImpl<Measure> bmDao = (BinaryMeasurementsDaoImpl<Measure>) dao;
+	protected BinaryMeasurementsDao<Measure> bmDao = (BinaryMeasurementsDao<Measure>) dao;
 	@SuppressWarnings("unchecked")
 	protected Unit unit = SI.SECOND;
 
 	@Test (expected = IllegalStateException.class)
 	public void testGetBinaryMeasurmentsOnlyIfOpen() {
-		bmDao.getBinaryMeasurements();
+		bmDao.getMeasurements();
 	}
 	
 	@Test (expected = IllegalStateException.class)

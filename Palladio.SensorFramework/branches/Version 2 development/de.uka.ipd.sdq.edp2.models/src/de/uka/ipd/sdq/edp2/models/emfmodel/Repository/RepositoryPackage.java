@@ -108,22 +108,22 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY__READ_ONLY = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference list.
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DESCRIPTION = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
+	int REPOSITORY__DESCRIPTIONS = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__EXPERIMENT_GROUP = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
+	int REPOSITORY__EXPERIMENT_GROUPS = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -181,22 +181,22 @@ public interface RepositoryPackage extends EPackage {
 	int LOCAL_DIRECTORY_REPOSITORY__READ_ONLY = REPOSITORY__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference list.
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_DIRECTORY_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+	int LOCAL_DIRECTORY_REPOSITORY__DESCRIPTIONS = REPOSITORY__DESCRIPTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_DIRECTORY_REPOSITORY__EXPERIMENT_GROUP = REPOSITORY__EXPERIMENT_GROUP;
+	int LOCAL_DIRECTORY_REPOSITORY__EXPERIMENT_GROUPS = REPOSITORY__EXPERIMENT_GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -263,22 +263,22 @@ public interface RepositoryPackage extends EPackage {
 	int LOCAL_MEMORY_REPOSITORY__READ_ONLY = REPOSITORY__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference list.
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_MEMORY_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+	int LOCAL_MEMORY_REPOSITORY__DESCRIPTIONS = REPOSITORY__DESCRIPTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_MEMORY_REPOSITORY__EXPERIMENT_GROUP = REPOSITORY__EXPERIMENT_GROUP;
+	int LOCAL_MEMORY_REPOSITORY__EXPERIMENT_GROUPS = REPOSITORY__EXPERIMENT_GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>Domain</b></em>' attribute.
@@ -345,22 +345,22 @@ public interface RepositoryPackage extends EPackage {
 	int REMOTE_CDO_REPOSITORY__READ_ONLY = REPOSITORY__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference list.
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REMOTE_CDO_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+	int REMOTE_CDO_REPOSITORY__DESCRIPTIONS = REPOSITORY__DESCRIPTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REMOTE_CDO_REPOSITORY__EXPERIMENT_GROUP = REPOSITORY__EXPERIMENT_GROUP;
+	int REMOTE_CDO_REPOSITORY__EXPERIMENT_GROUPS = REPOSITORY__EXPERIMENT_GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -427,22 +427,22 @@ public interface RepositoryPackage extends EPackage {
 	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__READ_ONLY = REPOSITORY__READ_ONLY;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference list.
+	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__DESCRIPTION = REPOSITORY__DESCRIPTION;
+	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__DESCRIPTIONS = REPOSITORY__DESCRIPTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Experiment Group</b></em>' reference list.
+	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__EXPERIMENT_GROUP = REPOSITORY__EXPERIMENT_GROUP;
+	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__EXPERIMENT_GROUPS = REPOSITORY__EXPERIMENT_GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -780,26 +780,26 @@ public interface RepositoryPackage extends EPackage {
 	EAttribute getRepository_ReadOnly();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescriptions <em>Descriptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Description</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescription()
+	 * @return the meta object for the reference list '<em>Descriptions</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescriptions()
 	 * @see #getRepository()
 	 * @generated
 	 */
-	EReference getRepository_Description();
+	EReference getRepository_Descriptions();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup <em>Experiment Group</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroups <em>Experiment Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Experiment Group</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup()
+	 * @return the meta object for the reference list '<em>Experiment Groups</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroups()
 	 * @see #getRepository()
 	 * @generated
 	 */
-	EReference getRepository_ExperimentGroup();
+	EReference getRepository_ExperimentGroups();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryStatus <em>Status</em>}'.
@@ -1004,20 +1004,20 @@ public interface RepositoryPackage extends EPackage {
 		EAttribute REPOSITORY__READ_ONLY = eINSTANCE.getRepository_ReadOnly();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Descriptions</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REPOSITORY__DESCRIPTION = eINSTANCE.getRepository_Description();
+		EReference REPOSITORY__DESCRIPTIONS = eINSTANCE.getRepository_Descriptions();
 
 		/**
-		 * The meta object literal for the '<em><b>Experiment Group</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Experiment Groups</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REPOSITORY__EXPERIMENT_GROUP = eINSTANCE.getRepository_ExperimentGroup();
+		EReference REPOSITORY__EXPERIMENT_GROUPS = eINSTANCE.getRepository_ExperimentGroups();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryStatus <em>Status</em>}' enum.

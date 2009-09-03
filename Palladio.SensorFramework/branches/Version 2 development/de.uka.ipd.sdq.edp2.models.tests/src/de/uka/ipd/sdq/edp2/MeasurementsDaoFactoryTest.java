@@ -11,10 +11,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.JScienceXmlMeasurementsDao;
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
 
 /**Unit test for the DaoFactory interface.
  * Reuse this class to test implementations of the DaoInterface.
@@ -84,7 +83,7 @@ public abstract class MeasurementsDaoFactoryTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreateDoubleMeasurementsDao() throws DataNotAccessibleException {
-		BinaryMeasurementsDaoImpl<javax.measure.Measure> bmd = daoFactory.createDoubleMeasurementsDao(uuid);
+		BinaryMeasurementsDao<javax.measure.Measure> bmd = daoFactory.createDoubleMeasurementsDao(uuid);
 		assertNotNull("CreateDoubleMeasurementsDao returned null object.", bmd);
 	}
 
@@ -116,7 +115,7 @@ public abstract class MeasurementsDaoFactoryTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreateLongMeasurementsDao() {
-		BinaryMeasurementsDaoImpl<javax.measure.Measure> bmd = daoFactory.createLongMeasurementsDao(uuid);
+		BinaryMeasurementsDao<javax.measure.Measure> bmd = daoFactory.createLongMeasurementsDao(uuid);
 		assertNotNull("CreateLongMeasurementsDao returned null object.", bmd);
 	}
 
@@ -131,7 +130,7 @@ public abstract class MeasurementsDaoFactoryTest {
 	 */
 	@Test
 	public void testCreateNominalMeasurementsDao() {
-		NominalMeasurementsDaoImpl nmd = daoFactory.createNominalMeasurementsDao(uuid);
+		NominalMeasurementsDao nmd = daoFactory.createNominalMeasurementsDao(uuid);
 		assertNotNull("CreateNominalMeasurementsDao returned null object.", nmd);
 	}
 

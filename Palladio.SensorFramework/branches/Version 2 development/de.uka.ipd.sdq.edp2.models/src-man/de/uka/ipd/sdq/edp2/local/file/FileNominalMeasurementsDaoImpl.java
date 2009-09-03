@@ -8,14 +8,14 @@ import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ObservedNominalMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelFactoryImpl;
 
-/**File-backed implementation of {@link NominalMeasurementsDaoImpl}.
+/**File-backed implementation of {@link NominalMeasurementsDao}.
  * @author groenda
  */
-public class FileNominalMeasurementsDaoImpl extends EmfFileAccessDao implements NominalMeasurementsDaoImpl {
+public class FileNominalMeasurementsDaoImpl extends EmfFileAccessDao implements NominalMeasurementsDao {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(FileNominalMeasurementsDaoImpl.class.getCanonicalName());
 	

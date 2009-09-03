@@ -1,9 +1,9 @@
-package de.uka.ipd.sdq.edp2.impl;
+package de.uka.ipd.sdq.edp.internal;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
@@ -50,7 +50,7 @@ public class EmfmodelDataSeriesFromReferenceSwitch extends EmfmodelSwitch<DataSe
 		DoubleBinaryMeasurements dbm = factory.createDoubleBinaryMeasurements();
 		dbm.setValuesUuid(valuesId);
 		dbm.setStorageUnit(object.getStorageUnit());
-		BinaryMeasurementsDaoImpl bmdao = daoFactory.createDoubleMeasurementsDao(valuesId);
+		BinaryMeasurementsDao bmdao = daoFactory.createDoubleMeasurementsDao(valuesId);
 		bmdao.setUnit(dbm.getStorageUnit());
 		return dbm;
 	}
@@ -62,7 +62,7 @@ public class EmfmodelDataSeriesFromReferenceSwitch extends EmfmodelSwitch<DataSe
 		LongBinaryMeasurements lbm = factory.createLongBinaryMeasurements();
 		lbm.setValuesUuid(valuesId);
 		lbm.setStorageUnit(object.getStorageUnit());
-		BinaryMeasurementsDaoImpl bmdao = daoFactory.createLongMeasurementsDao(valuesId);
+		BinaryMeasurementsDao bmdao = daoFactory.createLongMeasurementsDao(valuesId);
 		bmdao.setUnit(lbm.getStorageUnit());
 		return lbm;
 	}

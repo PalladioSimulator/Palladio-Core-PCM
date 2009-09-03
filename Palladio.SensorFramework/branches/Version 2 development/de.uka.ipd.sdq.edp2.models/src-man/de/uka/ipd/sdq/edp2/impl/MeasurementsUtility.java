@@ -9,8 +9,13 @@ import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.uka.ipd.sdq.edp.internal.EmfmodelAddMeasurementToDataSeriesSwitch;
+import de.uka.ipd.sdq.edp.internal.EmfmodelDataSeriesFromMetricSwitch;
+import de.uka.ipd.sdq.edp.internal.EmfmodelDataSeriesFromReferenceSwitch;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.models.emfmodel.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DataSeries;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Edp2Measure;
@@ -20,9 +25,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.FixedWidthAggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Measurement;
 import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
-import de.uka.ipd.sdq.edp2.impl.EmfmodelAddMeasurementToDataSeriesSwitch;
-import de.uka.ipd.sdq.edp2.impl.EmfmodelDataSeriesFromMetricSwitch;
-import de.uka.ipd.sdq.edp2.impl.EmfmodelDataSeriesFromReferenceSwitch;
+import de.uka.ipd.sdq.edp2.models.emfmodel.util.EmfmodelSwitch;
 
 /**This class provides utility functions to handle measurements.
  * @author groenda
@@ -137,5 +140,96 @@ public class MeasurementsUtility {
 			}
 		}
 		// TODO handle aggregated measurements
+	}
+	
+	/**Requests a DAO for a nominal measurement.
+	 * If the DAO does not exists it is created and opened automatically (if possible).
+	 * @param ds The data series for which the DAO should be created.
+	 * @return DAO for nominal measurements.
+	 */
+	public static NominalMeasurementsDao getNominalMeasurementsDao(final DataSeries ds) {
+		final MeasurementsDaoFactory daoFactory = ds.getRawMeasurements()
+				.getMeasurementRange().getMeasurement().getMeasure()
+				.getExperimentGroup().getRepository()
+				.getMeasurementsDaoFactory();
+		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {
+			return (NominalMeasurementsDao) daoFactory.getDaoRegistry().getMeasurementsDao(ds.getValuesUuid());
+		} else {
+			NominalMeasurementsDao nmd = new EmfmodelSwitch<NominalMeasurementsDao>() {
+				public NominalMeasurementsDao caseNominalMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.NominalMeasurements object) {
+					return daoFactory.createNominalMeasurementsDao(ds.getValuesUuid());
+				};
+				public NominalMeasurementsDao caseJSXmlMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.JSXmlMeasurements object) {
+					String msg = "Tried to request nominal measurements for a data series which should contain ordinal measurements.";
+					logger.log(Level.WARNING, msg);
+					throw new IllegalArgumentException(msg);
+				};
+				public NominalMeasurementsDao caseDoubleBinaryMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryMeasurements object) {
+					String msg = "Tried to request nominal measurements for a data series which should contain ordinal measurements.";
+					logger.log(Level.WARNING, msg);
+					throw new IllegalArgumentException(msg);
+				};
+				public NominalMeasurementsDao caseLongBinaryMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.LongBinaryMeasurements object) {
+					String msg = "Tried to request nominal measurements for a data series which should contain ordinal measurements.";
+					logger.log(Level.WARNING, msg);
+					throw new IllegalArgumentException(msg);
+				};
+			}.doSwitch(ds);
+			if (!nmd.isOpen() && nmd.canOpen()) {
+				try {
+					nmd.open();
+				} catch (DataNotAccessibleException e) {
+					// Do nothing. Could simply not open the DAO.
+				}
+			}
+			return nmd;
+		}
+	}
+	
+	/**Requests a DAO for a ordinal measurement.
+	 * If the DAO does not exists it is created and opened automatically (if possible).
+	 * @param ds The data series for which the DAO should be created.
+	 * @return DAO for ordinal measurements.
+	 */
+	@SuppressWarnings("unchecked")
+	public static OrdinalMeasurementsDao getOrdinalMeasurementsDao(
+			final DataSeries ds) {
+		final MeasurementsDaoFactory daoFactory = ds.getRawMeasurements()
+				.getMeasurementRange().getMeasurement().getMeasure()
+				.getExperimentGroup().getRepository()
+				.getMeasurementsDaoFactory();
+		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {
+			return (OrdinalMeasurementsDao) daoFactory.getDaoRegistry().getMeasurementsDao(ds
+					.getValuesUuid());
+		} else {
+			OrdinalMeasurementsDao omd = new EmfmodelSwitch<OrdinalMeasurementsDao>() {
+				public OrdinalMeasurementsDao caseNominalMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.NominalMeasurements object) {
+					String msg = "Tried to request ordinal measurements for a data series which should contain nominal measurements.";
+					logger.log(Level.WARNING, msg);
+					throw new IllegalArgumentException(msg);
+				};
+				public OrdinalMeasurementsDao caseJSXmlMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.JSXmlMeasurements object) {
+					return daoFactory.createJScienceXmlMeasurementsDao(ds.getValuesUuid());
+				};
+				public OrdinalMeasurementsDao caseDoubleBinaryMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryMeasurements object) {
+					BinaryMeasurementsDao bmd = daoFactory.createDoubleMeasurementsDao(ds.getValuesUuid());
+					bmd.setUnit(object.getStorageUnit());
+					return bmd;
+				};
+				public OrdinalMeasurementsDao caseLongBinaryMeasurements(de.uka.ipd.sdq.edp2.models.emfmodel.LongBinaryMeasurements object) {
+					BinaryMeasurementsDao bmd = daoFactory.createLongMeasurementsDao(ds.getValuesUuid());
+					bmd.setUnit(object.getStorageUnit());
+					return bmd;
+				};
+			}.doSwitch(ds);
+			if (!omd.isOpen() && omd.canOpen()) {
+				try {
+					omd.open();
+				} catch (DataNotAccessibleException e) {
+					// Do nothing. Could simply not open the DAO.
+				}
+			}
+			return omd;
+		}
 	}
 }

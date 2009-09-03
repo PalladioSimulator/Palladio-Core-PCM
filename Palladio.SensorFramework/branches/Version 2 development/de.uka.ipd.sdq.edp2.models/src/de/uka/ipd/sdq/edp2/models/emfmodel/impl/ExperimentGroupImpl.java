@@ -205,9 +205,9 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 		if (newRepository != repository) {
 			NotificationChain msgs = null;
 			if (repository != null)
-				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, Repository.class, msgs);
 			if (newRepository != null)
-				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, Repository.class, msgs);
 			msgs = basicSetRepository(newRepository, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -259,7 +259,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 		switch (featureID) {
 			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
 				if (repository != null)
-					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, Repository.class, msgs);
+					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, Repository.class, msgs);
 				return basicSetRepository((Repository)otherEnd, msgs);
 			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasure()).basicAdd(otherEnd, msgs);

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.impl;
+package de.uka.ipd.sdq.edp.internal;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
 import de.uka.ipd.sdq.edp2.models.emfmodel.CategoryIdentifier;
 import de.uka.ipd.sdq.edp2.models.emfmodel.DoubleBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
@@ -43,7 +43,7 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 			NominalMeasurements object) {
 		ObservedCategory oc = factory.createObservedCategory();
 		oc.setCategoryIdentifier((CategoryIdentifier) measurementToAdd);
-		NominalMeasurementsDaoImpl dao = (NominalMeasurementsDaoImpl) daoRegistry.getMeasurementsDao(object.getValuesUuid());
+		NominalMeasurementsDao dao = (NominalMeasurementsDao) daoRegistry.getMeasurementsDao(object.getValuesUuid());
 		if (!dao.isOpen()) {
 			try {
 				dao.open();
@@ -66,8 +66,8 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 	@Override
 	public Boolean caseDoubleBinaryMeasurements(
 			DoubleBinaryMeasurements object) {
-		BinaryMeasurementsDaoImpl<javax.measure.Measure<Double, Quantity>> bmd = 
-			(BinaryMeasurementsDaoImpl<javax.measure.Measure<Double, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
+		BinaryMeasurementsDao<javax.measure.Measure<Double, Quantity>> bmd = 
+			(BinaryMeasurementsDao<javax.measure.Measure<Double, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
 		if (!bmd.isOpen()) {
 			try {
 				bmd.open();
@@ -76,7 +76,7 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 				return false;
 			}
 		}
-		bmd.getBinaryMeasurements().add((javax.measure.Measure<Double,Quantity>)measurementToAdd);
+		bmd.getMeasurements().add((javax.measure.Measure<Double,Quantity>)measurementToAdd);
 		return true;
 	}
 	
@@ -84,8 +84,8 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 	@Override
 	public Boolean caseLongBinaryMeasurements(
 			LongBinaryMeasurements object) {
-		BinaryMeasurementsDaoImpl<javax.measure.Measure<Long, Quantity>> bmd = 
-			(BinaryMeasurementsDaoImpl<javax.measure.Measure<Long, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
+		BinaryMeasurementsDao<javax.measure.Measure<Long, Quantity>> bmd = 
+			(BinaryMeasurementsDao<javax.measure.Measure<Long, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
 		if (!bmd.isOpen()) {
 			try {
 				bmd.open();
@@ -94,7 +94,7 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 				return false;
 			}
 		}
-		bmd.getBinaryMeasurements().add((javax.measure.Measure<Long, Quantity>)measurementToAdd);
+		bmd.getMeasurements().add((javax.measure.Measure<Long, Quantity>)measurementToAdd);
 		return true;
 	}
 

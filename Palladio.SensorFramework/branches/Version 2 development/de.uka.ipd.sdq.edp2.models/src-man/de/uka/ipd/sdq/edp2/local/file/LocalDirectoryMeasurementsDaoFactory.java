@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.JScienceXmlMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsDaoRegistryImpl;
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
 import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl.BinaryRepresentation;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
@@ -47,7 +47,7 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 	private MeasurementsDaoRegistry daoRegistry;
 
 	/** Map containing the existing FileDaoFactories. */
-	public static ConcurrentMap<String, MeasurementsDaoFactory> existingFileDaoFactories = new ConcurrentHashMap<String, MeasurementsDaoFactory>();
+	private static ConcurrentMap<String, MeasurementsDaoFactory> existingFileDaoFactories = new ConcurrentHashMap<String, MeasurementsDaoFactory>();
 
 	/** Directory which is handled by this instance of the file dao factory. */
 	private File storageDirectory = null;
@@ -80,7 +80,7 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 	 *            The file to convert.
 	 * @return The key for the map.
 	 */
-	public String fileToMapKey(File directory) {
+	private static String fileToMapKey(File directory) {
 		String result = null;
 		try {
 			result = directory.getCanonicalPath();
@@ -130,7 +130,7 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDaoImpl<Measure> createDoubleMeasurementsDao(String uuid) {
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid) {
 		super.createDoubleMeasurementsDao(uuid);
 		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
 		fbmDao.setBinaryRepresentation(BinaryRepresentation.DOUBLE);
@@ -143,7 +143,7 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDaoImpl<Measure> createLongMeasurementsDao(String uuid) {
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid) {
 		super.createLongMeasurementsDao(uuid);
 		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
 		fbmDao.setBinaryRepresentation(BinaryRepresentation.LONG);
@@ -155,7 +155,7 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 	}
 
 	@Override
-	public NominalMeasurementsDaoImpl createNominalMeasurementsDao(String uuid) {
+	public NominalMeasurementsDao createNominalMeasurementsDao(String uuid) {
 		super.createNominalMeasurementsDao(uuid);
 		FileNominalMeasurementsDaoImpl fnmDao = new FileNominalMeasurementsDaoImpl();
 		fnmDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
@@ -190,13 +190,12 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 		}
 	}
 
-//	@Override
-//	public DescriptionsDao createDescriptionsDao(String uuid) {
-//		FileDescriptionsDaoImpl descDao = new FileDescriptionsDaoImpl();
-//		descDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
-//				EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION)));
-//		descDao.setResourceSet(emfResourceSet);
-//		daoRegistry.register(descDao, uuid);
-//		return descDao;
-//	}
+	/**Returns a registered factory for a given location.
+	 * @param directory Local directory for which the factory is requested.
+	 * @return <code>null</code> if there is no factory registered. The registered factory otherwise.
+	 */
+	public static MeasurementsDaoFactory getRegisteredFactory(File directory) {
+		return existingFileDaoFactories.get(fileToMapKey(directory));
+	}
+
 }

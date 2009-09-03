@@ -25,8 +25,8 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.Identifiable;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getStatus <em>Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#isReadOnly <em>Read Only</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescription <em>Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup <em>Experiment Group</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroups <em>Experiment Groups</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,39 +119,55 @@ public interface Repository extends Identifiable, MetaDao {
 	void setReadOnly(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference list.
+	 * Returns the value of the '<em><b>Descriptions</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.Description}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Description#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Descriptions</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage#getRepository_Description()
+	 * @return the value of the '<em>Descriptions</em>' reference list.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage#getRepository_Descriptions()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Description#getRepository
 	 * @model opposite="repository" ordered="false"
 	 * @generated
 	 */
-	EList<Description> getDescription();
+	EList<Description> getDescriptions();
 
 	/**
-	 * Returns the value of the '<em><b>Experiment Group</b></em>' reference list.
+	 * Returns the value of the '<em><b>Experiment Groups</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Experiment Group</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Experiment Groups</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Experiment Group</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage#getRepository_ExperimentGroup()
+	 * @return the value of the '<em>Experiment Groups</em>' reference list.
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage#getRepository_ExperimentGroups()
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup#getRepository
 	 * @model opposite="repository" ordered="false"
 	 * @generated
 	 */
-	EList<ExperimentGroup> getExperimentGroup();
+	EList<ExperimentGroup> getExperimentGroups();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetExperimentGroups();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetDescriptions();
 
 } // Repository

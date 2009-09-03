@@ -21,5 +21,5 @@ public abstract class MetaDaoImpl extends Edp2DaoImpl implements de.uka.ipd.sdq.
 		}
 		return null;
 	}
-
+	
 }

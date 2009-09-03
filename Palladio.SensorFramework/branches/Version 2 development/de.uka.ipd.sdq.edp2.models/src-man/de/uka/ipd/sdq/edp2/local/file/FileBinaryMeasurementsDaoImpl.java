@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.local.file;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,16 +16,15 @@ import org.eclipse.net4j.util.io.ExtendedDataInputStream;
 import org.eclipse.net4j.util.io.ExtendedDataOutputStream;
 import org.eclipse.net4j.util.io.ExtendedIOUtil;
 
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl.BinaryRepresentation;
-import de.uka.ipd.sdq.edp2.models.binary.BinaryMeasurements;
 
-/**File-backed implementation of {@link BinaryMeasurementsDaoImpl}.
+/**File-backed implementation of {@link BinaryMeasurementsDao}.
  * @author groenda
  */
 @SuppressWarnings("unchecked")
-public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccessDao implements BinaryMeasurementsDaoImpl<T> {
+public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccessDao implements BinaryMeasurementsDao<T> {
 	/** Error logger for this class. */
 	protected static final Logger logger = Logger.getLogger(FileBinaryMeasurementsDaoImpl.class.getCanonicalName());
 
@@ -86,7 +86,7 @@ public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccess
 	}
 
 	@Override
-	public BinaryMeasurements<T> getBinaryMeasurements() {
+	public List<T> getMeasurements() {
 		if (!isOpen()) {
 			String msg = "Binary measurements can only be requested if state is open.";
 			logger.log(Level.WARNING, msg);

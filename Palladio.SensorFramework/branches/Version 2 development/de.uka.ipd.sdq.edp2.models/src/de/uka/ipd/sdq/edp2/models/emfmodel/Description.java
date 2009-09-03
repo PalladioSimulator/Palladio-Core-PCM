@@ -82,7 +82,7 @@ public interface Description extends Identifiable {
 
 	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescription <em>Description</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescriptions <em>Descriptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repository</em>' reference isn't clear,
@@ -92,8 +92,8 @@ public interface Description extends Identifiable {
 	 * @return the value of the '<em>Repository</em>' reference.
 	 * @see #setRepository(Repository)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getDescription_Repository()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescription
-	 * @model opposite="description" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getDescriptions
+	 * @model opposite="descriptions" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository();

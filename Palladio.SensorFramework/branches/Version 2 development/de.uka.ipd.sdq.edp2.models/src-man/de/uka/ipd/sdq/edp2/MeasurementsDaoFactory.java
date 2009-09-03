@@ -5,9 +5,8 @@ package de.uka.ipd.sdq.edp2;
 
 import javax.measure.Measure;
 
-import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.JScienceXmlMeasurementsDao;
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
 
 /**Factory for creating DataAccessObjects (DAOs) for measurement data.
  * @author groenda
@@ -20,20 +19,20 @@ public interface MeasurementsDaoFactory {
 	 * @return DAO for the measurements with the specified uuid.
 	 */
 	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDaoImpl<Measure> createDoubleMeasurementsDao(String uuid);
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type long.
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
 	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDaoImpl<Measure> createLongMeasurementsDao(String uuid);
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type nominal measurement.
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	public NominalMeasurementsDaoImpl createNominalMeasurementsDao(String uuid);
+	public NominalMeasurementsDao createNominalMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type nominal measurement.
 	 * @param uuid UUID of the Measurement.

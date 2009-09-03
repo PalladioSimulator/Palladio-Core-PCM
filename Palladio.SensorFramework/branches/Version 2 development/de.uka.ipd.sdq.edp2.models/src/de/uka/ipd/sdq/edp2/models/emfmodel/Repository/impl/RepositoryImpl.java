@@ -40,8 +40,8 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.impl.IdentifiableImpl;
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#isReadOnly <em>Read Only</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getExperimentGroup <em>Experiment Group</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl.RepositoryImpl#getExperimentGroups <em>Experiment Groups</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,24 +89,24 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	protected boolean readOnly = READ_ONLY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' reference list.
+	 * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getDescriptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Description> description;
+	protected EList<Description> descriptions;
 
 	/**
-	 * The cached value of the '{@link #getExperimentGroup() <em>Experiment Group</em>}' reference list.
+	 * The cached value of the '{@link #getExperimentGroups() <em>Experiment Groups</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExperimentGroup()
+	 * @see #getExperimentGroups()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExperimentGroup> experimentGroup;
+	protected EList<ExperimentGroup> experimentGroups;
 
 	/** The DAO to load/access/store the data handled by this repository.
 	 * @generated NOT
@@ -221,11 +221,11 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Description> getDescription() {
-		if (description == null) {
-			description = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTION, EmfmodelPackage.DESCRIPTION__REPOSITORY);
+	public EList<Description> getDescriptions() {
+		if (descriptions == null) {
+			descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, EmfmodelPackage.DESCRIPTION__REPOSITORY);
 		}
-		return description;
+		return descriptions;
 	}
 
 	/**
@@ -233,11 +233,31 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExperimentGroup> getExperimentGroup() {
-		if (experimentGroup == null) {
-			experimentGroup = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY);
+	public EList<ExperimentGroup> getExperimentGroups() {
+		if (experimentGroups == null) {
+			experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY);
 		}
-		return experimentGroup;
+		return experimentGroups;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Resets the experiment groups attribute.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void resetExperimentGroups() {
+		experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Resets the descriptions attribute.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void resetDescriptions() {
+		descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, EmfmodelPackage.DESCRIPTION__REPOSITORY);
 	}
 
 	/**
@@ -253,10 +273,10 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRepositories((Repositories)otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDescription()).basicAdd(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExperimentGroup()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDescriptions()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExperimentGroups()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -271,10 +291,10 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORIES:
 				return basicSetRepositories(null, msgs);
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				return ((InternalEList<?>)getDescription()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				return ((InternalEList<?>)getExperimentGroup()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				return ((InternalEList<?>)getExperimentGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -307,10 +327,10 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 				return getStatus();
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				return isReadOnly();
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				return getDescription();
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				return getExperimentGroup();
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				return getDescriptions();
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				return getExperimentGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -333,13 +353,13 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				setReadOnly((Boolean)newValue);
 				return;
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				getDescription().clear();
-				getDescription().addAll((Collection<? extends Description>)newValue);
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				getDescriptions().clear();
+				getDescriptions().addAll((Collection<? extends Description>)newValue);
 				return;
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				getExperimentGroup().clear();
-				getExperimentGroup().addAll((Collection<? extends ExperimentGroup>)newValue);
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				getExperimentGroups().clear();
+				getExperimentGroups().addAll((Collection<? extends ExperimentGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -362,11 +382,11 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				setReadOnly(READ_ONLY_EDEFAULT);
 				return;
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				getDescription().clear();
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				getDescriptions().clear();
 				return;
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				getExperimentGroup().clear();
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				getExperimentGroups().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -386,10 +406,10 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 				return status != STATUS_EDEFAULT;
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				return readOnly != READ_ONLY_EDEFAULT;
-			case RepositoryPackage.REPOSITORY__DESCRIPTION:
-				return description != null && !description.isEmpty();
-			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUP:
-				return experimentGroup != null && !experimentGroup.isEmpty();
+			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
+				return descriptions != null && !descriptions.isEmpty();
+			case RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS:
+				return experimentGroups != null && !experimentGroups.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

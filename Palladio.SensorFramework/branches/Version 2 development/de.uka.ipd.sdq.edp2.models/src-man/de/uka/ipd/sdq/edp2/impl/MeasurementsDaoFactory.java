@@ -5,6 +5,8 @@ package de.uka.ipd.sdq.edp2.impl;
 
 import javax.measure.Measure;
 
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+
 /**
  * @author groenda
  *
@@ -18,7 +20,7 @@ public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.Meas
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDaoImpl<Measure> createDoubleMeasurementsDao(
+	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(
 			String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
@@ -43,7 +45,7 @@ public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.Meas
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDaoImpl<Measure> createLongMeasurementsDao(String uuid) {
+	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
 		}
@@ -54,7 +56,7 @@ public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.Meas
 	 * @see de.uka.ipd.sdq.edp2.IMeasurementsDaoFactory#createNominalMeasurementsDao(java.lang.String)
 	 */
 	@Override
-	public NominalMeasurementsDaoImpl createNominalMeasurementsDao(String uuid) {
+	public NominalMeasurementsDao createNominalMeasurementsDao(String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
 		}

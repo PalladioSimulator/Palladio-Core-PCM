@@ -23,13 +23,13 @@ public abstract class LongBinaryMeasurementsDaoTest extends BinaryMeasurementsDa
 	public void testDataRetainedIfReopened() throws DataNotAccessibleException {
 		bmDao.setUnit(unit);
 		bmDao.open();
-		BinaryMeasurements<Measure> bmd = bmDao.getBinaryMeasurements();
+		BinaryMeasurements<Measure> bmd = (BinaryMeasurements<Measure>) bmDao.getMeasurements();
 		long testValue = Long.MAX_VALUE;
 		bmd.add(Measure.valueOf(testValue, unit));
 		bmd = null;
 		bmDao.close();
 		bmDao.open();
-		bmd = bmDao.getBinaryMeasurements();
+		bmd = (BinaryMeasurements<Measure>) bmDao.getMeasurements();
 		assertEquals("Test data must be retained if DAO is reopened.", testValue, bmd.get(0).longValue(unit));
 	}
 }

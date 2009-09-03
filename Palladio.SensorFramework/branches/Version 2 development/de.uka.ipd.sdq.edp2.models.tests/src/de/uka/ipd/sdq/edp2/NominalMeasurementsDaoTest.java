@@ -12,7 +12,6 @@ import java.io.IOException;
 import org.junit.Test;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
 
 /**JUnit test for classes with NominalMeasurementsDao interface.
  * Subclass and test for all different types of NominalMeasurementsDaos.
@@ -20,7 +19,7 @@ import de.uka.ipd.sdq.edp2.impl.NominalMeasurementsDaoImpl;
  */
 public abstract class NominalMeasurementsDaoTest extends MeasurementsDaoTest {
 	/** The ExperimentGroupDao under test. */
-	protected NominalMeasurementsDaoImpl onmDao = (NominalMeasurementsDaoImpl) dao;
+	protected NominalMeasurementsDao onmDao = (NominalMeasurementsDao) dao;
 
 	@Test (expected = IllegalStateException.class)
 	public void testGetNominalMeasurementsOnlyIfOpen() {

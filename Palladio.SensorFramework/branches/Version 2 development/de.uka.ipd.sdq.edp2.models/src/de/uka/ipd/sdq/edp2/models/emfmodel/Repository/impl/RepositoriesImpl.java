@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.Repository.impl;
 
+import de.uka.ipd.sdq.edp.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryPackage;
@@ -74,28 +75,8 @@ public class RepositoriesImpl extends EObjectImpl implements Repositories {
 	protected RepositoriesImpl() {
 		super();
 		// DEFAULT: Generate a new resource set by which all EMF resources are managed.
-		commonResourceSet = new ResourceSetImpl();
-		EmfModelXMIResourceFactoryImpl resourceFactoryImpl = new EmfModelXMIResourceFactoryImpl(); 
-		commonResourceSet
-				.getResourceFactoryRegistry()
-				.getExtensionToFactoryMap()
-				.put(
-						EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION,
-					resourceFactoryImpl);
-		commonResourceSet
-				.getResourceFactoryRegistry()
-				.getExtensionToFactoryMap()
-				.put(
-						EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION,
-						resourceFactoryImpl);
-		commonResourceSet
-				.getResourceFactoryRegistry()
-				.getExtensionToFactoryMap()
-				.put(
-						EmfModelXMIResourceFactoryImpl.EDP2_NOMINALMEASUREMENTS_EXTENSION,
-						resourceFactoryImpl);
-		EmfmodelPackageImpl.eINSTANCE.eClass();
-		
+		commonResourceSet = SerializationUtil.createResourceSet();
+		//EmfmodelPackageImpl.eINSTANCE.eClass();
 	}
 
 	/**

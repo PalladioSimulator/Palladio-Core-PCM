@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.uka.ipd.sdq.edp2,
+Export-Package: de.uka.ipd.sdq.edp.internal;x-friends:="de.uka.ipd.sdq.edp2.models.tests",
+ de.uka.ipd.sdq.edp2,
  de.uka.ipd.sdq.edp2.impl,
  de.uka.ipd.sdq.edp2.local.file,
  de.uka.ipd.sdq.edp2.models.binary,
@@ -32,5 +33,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.net4j;bundle-version="2.0.0",
  org.eclipse.emf.databinding;bundle-version="1.1.0",
  org.eclipse.core.databinding.property;bundle-version="1.2.0",
- org.eclipse.core.databinding.beans;bundle-version="1.2.0"
+ org.eclipse.core.databinding.beans;bundle-version="1.2.0",
+ org.apache.commons.codec;bundle-version="1.4.0"
 Bundle-ActivationPolicy: lazy

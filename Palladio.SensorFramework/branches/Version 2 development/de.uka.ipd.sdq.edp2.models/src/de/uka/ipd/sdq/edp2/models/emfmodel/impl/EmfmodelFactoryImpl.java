@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.emfmodel.impl;
 
+import de.uka.ipd.sdq.edp.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.models.emfmodel.*;
 
 import java.io.ByteArrayInputStream;
@@ -571,37 +572,37 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Measure createEJSMeasureFromString(EDataType eDataType, String initialValue) {
-		return (Measure)super.createFromString(eDataType, initialValue);
+		return (Measure) SerializationUtil.readObject(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertEJSMeasureToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		return SerializationUtil.writeObject(instanceValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Measure createEJSDurationMeasureFromString(EDataType eDataType, String initialValue) {
-		return (Measure)super.createFromString(eDataType, initialValue);
+		return (Measure) SerializationUtil.readObject(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertEJSDurationMeasureToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		return SerializationUtil.writeObject(instanceValue);
 	}
 
 	/**
@@ -611,21 +612,17 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 */
 	@SuppressWarnings("unchecked")
 	public Unit createEJSUnitFromString(EDataType eDataType, String initialValue) {
-		//return (Unit)super.createFromString(eDataType, initialValue);
-		if (initialValue == null) {
-			return null;
-		}
-		return Unit.valueOf(initialValue);
+		return (Unit) SerializationUtil.readObject(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	public String convertEJSUnitToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		return SerializationUtil.writeObject(instanceValue);
 	}
 
 	/**

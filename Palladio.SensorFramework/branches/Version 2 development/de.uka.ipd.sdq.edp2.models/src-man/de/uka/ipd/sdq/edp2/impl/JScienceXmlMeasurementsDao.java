@@ -5,14 +5,16 @@ package de.uka.ipd.sdq.edp2.impl;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.edp2.MeasurementsDao;
+import javax.measure.Measure;
 
-/**
+import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+
+/**Access for JScienceXmlMeasurements.
  * @author groenda
  *
  */
-public interface JScienceXmlMeasurementsDao extends MeasurementsDao {
+@SuppressWarnings("unchecked")
+public interface JScienceXmlMeasurementsDao extends OrdinalMeasurementsDao<Measure> {
 
-	@SuppressWarnings("unchecked")
 	public List<javax.measure.Measure> getMeasurements();
 }

@@ -197,9 +197,9 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 		if (newRepository != repository) {
 			NotificationChain msgs = null;
 			if (repository != null)
-				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+				msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, Repository.class, msgs);
 			if (newRepository != null)
-				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+				msgs = ((InternalEObject)newRepository).eInverseAdd(this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, Repository.class, msgs);
 			msgs = basicSetRepository(newRepository, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -217,7 +217,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 		switch (featureID) {
 			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
 				if (repository != null)
-					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTION, Repository.class, msgs);
+					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, Repository.class, msgs);
 				return basicSetRepository((Repository)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

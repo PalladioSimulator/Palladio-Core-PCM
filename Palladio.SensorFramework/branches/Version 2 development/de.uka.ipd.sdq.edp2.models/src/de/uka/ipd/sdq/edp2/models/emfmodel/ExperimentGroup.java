@@ -53,7 +53,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 
 	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup <em>Experiment Group</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroups <em>Experiment Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Repository</em>' reference isn't clear,
@@ -63,8 +63,8 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * @return the value of the '<em>Repository</em>' reference.
 	 * @see #setRepository(Repository)
 	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage#getExperimentGroup_Repository()
-	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroup
-	 * @model opposite="experimentGroup" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository#getExperimentGroups
+	 * @model opposite="experimentGroups" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository();

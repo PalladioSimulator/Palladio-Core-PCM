@@ -2,12 +2,9 @@ import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.emf.common.util.URI;
-
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
 
 /**
  * 
@@ -37,36 +34,19 @@ public class StoreExample {
 	/**Initializes the repository in which the data will be stored.
 	 */
 	private void initializeRepository() {
-		assert (ldRepo == null);
-		// create local directory repository
-		ldRepo = RepositoryFactory.eINSTANCE.createLocalDirectoryRepository();
-		File ldRepoDirectory = new File(DIRECTORY);
-		String pathToRepo = ldRepoDirectory.getAbsolutePath();
-		if (!ldRepoDirectory.exists()) {
-			boolean result = ldRepoDirectory.mkdir();
-			if (result == false) {
-				logger.severe("Could not create directory at location " + pathToRepo);
-			}
-		} else {
-			if (!ldRepoDirectory.isDirectory()) {
-				logger.severe("Directory can't be created. A file of the same name already exists. Location: " + pathToRepo);
-			}
-		}
-			
-		String uriString = URI.createFileURI(pathToRepo).toString();
-		ldRepo.setUri(uriString);
-		logger.info("The repository has been initialized. Location: " + pathToRepo + ".");
-		
-		/* Optional: add repository to a central directory of repositories. 
+		ldRepo = RepositoryManager.initializeLocalDirectoryRepository(new File(DIRECTORY));
+		/* Add repository to a (optional) central directory of repositories. 
 		 * This can be useful to manage more than one repository or have links
-		 * between different existing repositories. */
+		 * between different existing repositories. 
+		 * A repository must be connected to a instance of Repositories in order
+		 * to be opened.*/
 		RepositoryManager.addRepository(RepositoryManager.getCentralRepository(), ldRepo);
 	}
 	
 	
 	private void createExample() {
-		ldRepo.getDescription().addAll(exampleData.createDescriptions());
-		ldRepo.getExperimentGroup().add(exampleData.createExperimentalGroupAndSetting());
+		ldRepo.getDescriptions().addAll(exampleData.createDescriptions());
+		ldRepo.getExperimentGroups().add(exampleData.createExperimentalGroupAndSetting());
 		exampleData.simulateExperimentRun();
 	}
 	
@@ -78,12 +58,14 @@ public class StoreExample {
 	private void openRepository() throws DataNotAccessibleException {
 		/* Attention: Using addRepository() of RepositoryManager already opens
 		 * the DAO. open() is only necessary if you don't use the convenience
-		 * function. 
+		 * function or closed the repository and want to reopen it. 
 		 */
 		if (!ldRepo.isOpen()) {
 			ldRepo.open();
 		}
-		logger.info("Repository is now open.");
+		if (ldRepo.isOpen()) {
+			logger.info("Repository is now open.");
+		}
 	}
 
 	/**Closes the data store behind the repository, as this is a DAO.

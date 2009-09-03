@@ -6,9 +6,14 @@ package de.uka.ipd.sdq.edp2;
 import java.io.File;
 import java.io.IOException;
 
-import org.eclipse.emf.common.util.URI;
+import junit.framework.Assert;
 
+import org.eclipse.emf.common.util.URI;
+import org.junit.Test;
+
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
 
 /**Test {@link LocalDirectoryRepository} classes/elements.
@@ -30,5 +35,5 @@ public class LocalDirectoryRepositoryTest extends RepositoryTest {
 		ldRepo.setUri(URI.createFileURI(tempDir.getAbsolutePath()).toString());
 		repo = ldRepo;
 	}
-
+	
 }
