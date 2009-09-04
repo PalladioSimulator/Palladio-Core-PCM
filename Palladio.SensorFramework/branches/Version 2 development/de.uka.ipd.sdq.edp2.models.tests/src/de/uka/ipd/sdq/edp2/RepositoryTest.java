@@ -3,14 +3,12 @@
  */
 package de.uka.ipd.sdq.edp2;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
 
 import junit.framework.Assert;
 
-import org.eclipse.emf.common.util.URI;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +17,6 @@ import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Description;
 import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
 import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
@@ -36,12 +33,11 @@ public abstract class RepositoryTest extends MetaDaoTest {
 	
 	@Before
 	public void addRepository() throws Exception {
-		initializeRepository();
+		dao = metaDao = repo = initializeRepository();
 		repos.getAvailableRepositories().add(repo);
-		dao = metaDao = repo;
 	}
 	
-	public abstract void initializeRepository() throws Exception;
+	public abstract Repository initializeRepository() throws Exception;
 
 	@Test
 	public void testGetDescription() {
@@ -113,7 +109,7 @@ public abstract class RepositoryTest extends MetaDaoTest {
 
 	@Test (expected=DataNotAccessibleException.class)
 	public void unassignedRepository() throws Exception {
-		initializeRepository();
+		repo = initializeRepository();
 		Assert.assertFalse("A repository must be assigned to a Repositories " +
 				"instance in order to be opened.", repo.canOpen());
 		repo.open();
@@ -143,7 +139,6 @@ public abstract class RepositoryTest extends MetaDaoTest {
 		// reassign
 		Repositories repos2 = RepositoryFactory.eINSTANCE.createRepositories();
 		RepositoryManager.addRepository(repos2, repo);
-		repo.open();
 		Assert.assertTrue("ResourceSet assigned to a repository must match the resource set of the parent Repositories instance.",
 				repos2.getCommonResourceSet().equals(repo
 				.getExperimentGroups().get(0).eResource().getResourceSet()));

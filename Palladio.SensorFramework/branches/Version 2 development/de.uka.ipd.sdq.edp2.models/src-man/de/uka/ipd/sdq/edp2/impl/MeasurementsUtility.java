@@ -83,9 +83,27 @@ public class MeasurementsUtility {
 			logger.log(Level.SEVERE, msg);
 			throw new IllegalStateException(msg);
 		}
+		// Test if Raw Measurements is assigned in the right place
+		String msg = null;
+		if (rm.getMeasurementRange() == null) {
+			msg = "RawMeasurements must be assigned to a measurement range.";
+		} else if (rm.getMeasurementRange().getMeasurement() == null) {
+			msg = "RawMeasurements must be (indirectly) assigned to a measurement.";
+		} else if (rm.getMeasurementRange().getMeasurement().getMeasure() == null) {
+			msg = "RawMeasuremnts must be (indirectly) assigned to a measure (definition).";
+		} else if (rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup() == null) {
+			msg = "RawMeasuremnts must be (indirectly) assigned to an experiment group.";
+		} else if (rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup().getRepository() == null) {
+			msg = "RawMeasuremnts must be (indirectly) assigned to an experiment group which must be assigned to a repository.";
+		}
+		if (msg != null) {
+			logger.log(Level.SEVERE, msg);
+			throw new IllegalStateException(msg);
+		}
+		// 
 		MeasurementsDaoFactory daoFactory = rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
-		/*check if there are already existing RawMeasurements in other MeasurementRanges.
-		 * Copy those types (if existing).
+		/* check if there are already existing RawMeasurements in other MeasurementRanges.
+		 * Option 1: Copy those types (if existing).
 		 */
 		boolean creationSuccesful = false;
 		if (rm.getMeasurementRange() != null &&
@@ -93,7 +111,7 @@ public class MeasurementsUtility {
 				rm.getMeasurementRange().getMeasurement().getMeasurementRange().size() > 1) {
 			Iterator<MeasurementRange> iter = rm.getMeasurementRange().getMeasurement().getMeasurementRange().iterator();
 			MeasurementRange mr;
-			while (iter.hasNext()) {
+			while (iter.hasNext() && !creationSuccesful) {
 				mr = iter.next();
 				if (mr.getRawMeasurements() != null 
 						&& mr.getRawMeasurements().getDataSeries().size() > 0) {
@@ -108,6 +126,7 @@ public class MeasurementsUtility {
 				}
 			}
 		}
+		// Option 2: Create data series from information about the measure definition
 		if (creationSuccesful == false) {
 			Edp2Measure measure = rm.getMeasurementRange().getMeasurement().getMeasure();
 			assert measure != null;

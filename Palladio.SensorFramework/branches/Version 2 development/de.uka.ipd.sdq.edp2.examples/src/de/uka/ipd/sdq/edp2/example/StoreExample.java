@@ -1,3 +1,4 @@
+package de.uka.ipd.sdq.edp2.example;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,13 +44,6 @@ public class StoreExample {
 		RepositoryManager.addRepository(RepositoryManager.getCentralRepository(), ldRepo);
 	}
 	
-	
-	private void createExample() {
-		ldRepo.getDescriptions().addAll(exampleData.createDescriptions());
-		ldRepo.getExperimentGroups().add(exampleData.createExperimentalGroupAndSetting());
-		exampleData.simulateExperimentRun();
-	}
-	
 	/**Opens the data store behind the repository, as this is a DAO.
 	 * Access is only allowed to opened repositories. Repositories may be
 	 * reopened (and the also reclosed).
@@ -68,6 +62,12 @@ public class StoreExample {
 		}
 	}
 
+	private void createExample() {
+		ldRepo.getDescriptions().addAll(exampleData.createDescriptions());
+		ldRepo.getExperimentGroups().add(exampleData.createExperimentalGroupAndSetting());
+		exampleData.simulateExperimentRun();
+	}
+	
 	/**Closes the data store behind the repository, as this is a DAO.
 	 * Access is only allowed to opened repositories. Repositories may be
 	 * reopened (and the also reclosed).
