@@ -76,6 +76,13 @@ public class MeasurementsUtility {
 	 * @param rm Location at which the data series elements are added.
 	 */
 	public static void addDataSeries(RawMeasurements rm) {
+		if (rm.getDataSeries().size() != 0) {
+			String msg = "Adding of a data series on a raw measurement is only allowed once, " +
+					"as this allows to initialize the raw measurement with exactly one data " +
+					"series for each basic metric contained in the correspondig metric definition.";
+			logger.log(Level.SEVERE, msg);
+			throw new IllegalStateException(msg);
+		}
 		MeasurementsDaoFactory daoFactory = rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
 		/*check if there are already existing RawMeasurements in other MeasurementRanges.
 		 * Copy those types (if existing).
