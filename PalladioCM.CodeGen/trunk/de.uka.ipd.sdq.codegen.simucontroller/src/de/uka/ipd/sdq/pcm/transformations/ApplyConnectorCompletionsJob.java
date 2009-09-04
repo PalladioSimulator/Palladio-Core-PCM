@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -53,7 +54,8 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
 		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 		completionRepository.setEntityName("CompletionsRepository");
-		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI("c:/"));
+		String tempDir = SimuControllerPlugin.getDefault().getStateLocation().append("temp").toOSString();
+		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI(tempDir));
 		r.getContents().add(completionRepository);
 		this.blackboard.addPartition(COMPLETION_REPOSITORY_PARTITION, completionRepositoryPartition);
 		
