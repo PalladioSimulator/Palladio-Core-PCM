@@ -14,12 +14,12 @@ import org.junit.Test;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Description;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repositories;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
+import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 
 /**Test instances of {@link Repository} classes/elements.
  * @author groenda

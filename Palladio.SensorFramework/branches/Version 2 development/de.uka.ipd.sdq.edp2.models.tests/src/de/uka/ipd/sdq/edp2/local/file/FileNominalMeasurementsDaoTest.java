@@ -17,13 +17,13 @@ import org.junit.Before;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDaoTest;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.models.emfmodel.CategoryIdentifier;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.emfmodel.NominalMeasure;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ObservedCategory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ObservedNominalMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelFactoryImpl;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedNominalMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelFactoryImpl;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**JUnit test for file-backed NominalMeasurementsDao.

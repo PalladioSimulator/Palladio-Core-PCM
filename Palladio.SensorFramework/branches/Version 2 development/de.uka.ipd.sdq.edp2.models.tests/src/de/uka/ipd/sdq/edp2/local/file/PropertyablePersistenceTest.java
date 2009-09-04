@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 
 
 /**Checks if instances of the class Propertyable are correctly stored and loaded back from disc.

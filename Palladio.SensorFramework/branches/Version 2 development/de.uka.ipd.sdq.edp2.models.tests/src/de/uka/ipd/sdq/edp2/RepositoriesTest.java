@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repositories;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
+import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
+import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**Test {@link Repositories} elements.

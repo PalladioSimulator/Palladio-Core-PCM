@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 
 /**
  * 

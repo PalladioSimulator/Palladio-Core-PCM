@@ -8,9 +8,9 @@ import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.Repository;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.RepositoryFactory;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
+import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 
 /**Test {@link LocalDirectoryRepository} classes/elements.
  * @author groenda

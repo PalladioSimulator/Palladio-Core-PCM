@@ -12,12 +12,12 @@ import org.junit.Test;
 import de.uka.ipd.sdq.edp2.example.ExampleData;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentRun;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Measurement;
-import de.uka.ipd.sdq.edp2.models.emfmodel.MeasurementRange;
-import de.uka.ipd.sdq.edp2.models.emfmodel.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 
 /**Test of the utility class MeasurementsUtility.
  * @author groenda

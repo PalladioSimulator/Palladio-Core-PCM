@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 
 /**Checks if {@link de.uka.ipd.sdq.edp2.Identifiable} classes get 
  * a correct UUID and keep it after (de-)serialization.

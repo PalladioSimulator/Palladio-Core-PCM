@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**Abstract class which provides helper methods to classes testing persistence.
