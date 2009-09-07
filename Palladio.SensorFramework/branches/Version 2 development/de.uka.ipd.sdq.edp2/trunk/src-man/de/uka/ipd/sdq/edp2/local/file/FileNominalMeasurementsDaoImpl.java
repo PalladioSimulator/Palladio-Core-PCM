@@ -9,8 +9,8 @@ import java.util.logging.Logger;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataFactoryImpl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedNominalMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelFactoryImpl;
 
 /**File-backed implementation of {@link NominalMeasurementsDao}.
  * @author groenda
@@ -34,6 +34,6 @@ public class FileNominalMeasurementsDaoImpl extends EmfFileAccessDao implements 
 
 	@Override
 	protected EObject createEmfRootElement() {
-		return EmfmodelFactoryImpl.eINSTANCE.createObservedNominalMeasurements();
+		return ExperimentDataFactoryImpl.eINSTANCE.createObservedNominalMeasurements();
 	}
 }

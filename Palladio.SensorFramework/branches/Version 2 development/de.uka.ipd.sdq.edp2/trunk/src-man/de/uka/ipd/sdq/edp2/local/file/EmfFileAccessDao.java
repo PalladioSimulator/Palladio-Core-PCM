@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.EmfResourceDao;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**
@@ -31,7 +31,7 @@ public abstract class EmfFileAccessDao extends FileAccessDao implements
 	private static final Logger logger = Logger
 			.getLogger(EmfFileAccessDao.class.getCanonicalName());
 	/** Factory for the EDP2 EMFmodel. */
-	protected final static EmfmodelFactory ModelFactory = EmfmodelFactory.eINSTANCE;
+	protected final static ExperimentDataFactory ModelFactory = ExperimentDataFactory.eINSTANCE;
 	/** ResourceSet for the EDP2 EMFModel. */
 	protected ResourceSet resourceSet = null;
 	/** Resource for the EDP2 EMFModel of this instance. */
@@ -193,7 +193,7 @@ public abstract class EmfFileAccessDao extends FileAccessDao implements
 				.put(
 						EmfModelXMIResourceFactoryImpl.EDP2_NOMINALMEASUREMENTS_EXTENSION,
 						resourceFactoryImpl);
-		EmfmodelPackageImpl.eINSTANCE.eClass();
+		ExperimentDataPackageImpl.eINSTANCE.eClass();
 		
 	}
 

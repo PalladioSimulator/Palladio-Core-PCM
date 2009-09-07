@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.edp2.models.Presentation.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
 import de.uka.ipd.sdq.edp2.models.Presentation.Bar;
@@ -356,21 +358,21 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		EmfmodelPackageImpl theEmfmodelPackage = (EmfmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) instanceof EmfmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) : EmfmodelPackage.eINSTANCE);
-		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		UIPackageImpl theUIPackage = (UIPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) instanceof UIPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) : UIPackage.eINSTANCE);
+		ExperimentDataPackageImpl theExperimentDataPackage = (ExperimentDataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) instanceof ExperimentDataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) : ExperimentDataPackage.eINSTANCE);
+		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePresentationPackage.createPackageContents();
-		theEmfmodelPackage.createPackageContents();
-		theRepositoryPackage.createPackageContents();
 		theUIPackage.createPackageContents();
+		theExperimentDataPackage.createPackageContents();
+		theRepositoryPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePresentationPackage.initializePackageContents();
-		theEmfmodelPackage.initializePackageContents();
-		theRepositoryPackage.initializePackageContents();
 		theUIPackage.initializePackageContents();
+		theExperimentDataPackage.initializePackageContents();
+		theRepositoryPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePresentationPackage.freeze();
@@ -919,7 +921,7 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 
 		// Obtain other dependent packages
 		UIPackage theUIPackage = (UIPackage)EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI);
-		EmfmodelPackage theEmfmodelPackage = (EmfmodelPackage)EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI);
+		ExperimentDataPackage theExperimentDataPackage = (ExperimentDataPackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theUIPackage);
@@ -959,9 +961,9 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 		initEClass(dataReaderConfigurationEClass, DataReaderConfiguration.class, "DataReaderConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSource_Data(), theEmfmodelPackage.getDataType(), "data", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDataSource_Data(), theExperimentDataPackage.getDataType(), "data", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDataSource_Description(), this.getIDataSourceDescription(), null, "description", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDataSource_MetricDescription(), theEmfmodelPackage.getBaseMetricDescription(), null, "metricDescription", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataSource_MetricDescription(), theExperimentDataPackage.getBaseMetricDescription(), null, "metricDescription", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iDataSourceDescriptionEClass, IDataSourceDescription.class, "IDataSourceDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIDataSourceDescription_Registry(), ecorePackage.getEString(), "registry", null, 1, 1, IDataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -985,7 +987,7 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 		initEClass(iEditorInputEClass, IEditorInput.class, "IEditorInput", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(edp2DataSourceDescriptionEClass, EDP2DataSourceDescription.class, "EDP2DataSourceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEDP2DataSourceDescription_DataSeries(), theEmfmodelPackage.getDataSeries(), null, "dataSeries", null, 1, 1, EDP2DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEDP2DataSourceDescription_DataSeries(), theExperimentDataPackage.getDataSeries(), null, "dataSeries", null, 1, 1, EDP2DataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sensorFrameworkDataSourceDescriptionEClass, SensorFrameworkDataSourceDescription.class, "SensorFrameworkDataSourceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSensorFrameworkDataSourceDescription_Sam(), ecorePackage.getEString(), "sam", null, 1, 1, SensorFrameworkDataSourceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1036,6 +1038,9 @@ public class PresentationPackageImpl extends EPackageImpl implements Presentatio
 
 		initEClass(jFreeChartPresentationViewFactoryEClass, JFreeChartPresentationViewFactory.class, "JFreeChartPresentationViewFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJFreeChartPresentationViewFactory_Generates(), this.getJFreeChartHistogramView(), null, "generates", null, 0, 1, JFreeChartPresentationViewFactory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Create resource
+		createResource(eNS_URI);
 
 		// Create annotations
 		// http://www.eclipse.org/uml2/2.0.0/UML

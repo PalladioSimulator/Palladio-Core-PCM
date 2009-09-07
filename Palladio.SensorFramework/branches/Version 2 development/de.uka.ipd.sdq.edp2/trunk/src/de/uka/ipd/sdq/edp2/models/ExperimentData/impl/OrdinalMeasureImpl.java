@@ -6,8 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.OrdinalMeasure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
@@ -55,7 +57,7 @@ public class OrdinalMeasureImpl extends Edp2MeasureImpl implements OrdinalMeasur
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.ORDINAL_MEASURE;
+		return ExperimentDataPackage.Literals.ORDINAL_MEASURE;
 	}
 
 	/**
@@ -73,8 +75,8 @@ public class OrdinalMeasureImpl extends Edp2MeasureImpl implements OrdinalMeasur
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 EmfmodelValidator.DIAGNOSTIC_SOURCE,
-						 EmfmodelValidator.ORDINAL_MEASURE__PERSISTENCY_KIND_NOT_EMF,
+						 ExperimentDataValidator.DIAGNOSTIC_SOURCE,
+						 ExperimentDataValidator.ORDINAL_MEASURE__PERSISTENCY_KIND_NOT_EMF,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "PersistencyKindNotEmf", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}

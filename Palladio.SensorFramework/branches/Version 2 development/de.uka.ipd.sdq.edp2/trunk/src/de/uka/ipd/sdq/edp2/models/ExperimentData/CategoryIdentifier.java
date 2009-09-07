@@ -19,7 +19,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getCategoryIdentifier()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getCategoryIdentifier()
  * @model
  * @generated
  */
@@ -34,7 +34,7 @@ public interface CategoryIdentifier extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State Literal</em>' attribute.
 	 * @see #setStateLiteral(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getCategoryIdentifier_StateLiteral()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getCategoryIdentifier_StateLiteral()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

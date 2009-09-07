@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
  * @author groenda
  */
 public abstract class PersistenceTest {
-	protected final static EmfmodelFactory EmfModelFactory = EmfmodelFactory.eINSTANCE;
+	protected final static ExperimentDataFactory experimentDataFactory = ExperimentDataFactory.eINSTANCE;
 	protected static ResourceSet resourceSet = new ResourceSetImpl();
 	protected static File tempFile = null;
 	/** File extension used to store file. Not correct wrt to EDP2 definitions but works for testing.*/
@@ -40,7 +40,7 @@ public abstract class PersistenceTest {
 
 		// Register the package -- only needed for stand-alone!
 		@SuppressWarnings("unused")
-		EmfmodelPackage sp = EmfmodelPackage.eINSTANCE;
+		ExperimentDataPackage sp = ExperimentDataPackage.eINSTANCE;
 	}
 
 	@Before

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedWidthAggregatedMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedWidthAggregatedMeasurements()
  * @model
  * @generated
  */
@@ -37,7 +37,7 @@ public interface FixedWidthAggregatedMeasurements extends AggregatedMeasurements
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intervals</em>' containment reference.
 	 * @see #setIntervals(FixedIntervals)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedWidthAggregatedMeasurements_Intervals()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedWidthAggregatedMeasurements_Intervals()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getAggregatedMeasurements
 	 * @model opposite="aggregatedMeasurements" containment="true" required="true" ordered="false"
 	 * @generated
@@ -65,7 +65,7 @@ public interface FixedWidthAggregatedMeasurements extends AggregatedMeasurements
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Series</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedWidthAggregatedMeasurements_DataSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedWidthAggregatedMeasurements_DataSeries()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries#getAggregatedMeasurements
 	 * @model opposite="aggregatedMeasurements" containment="true" required="true" ordered="false"
 	 * @generated

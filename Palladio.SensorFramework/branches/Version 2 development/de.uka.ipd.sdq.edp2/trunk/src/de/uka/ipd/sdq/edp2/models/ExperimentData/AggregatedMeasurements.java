@@ -24,7 +24,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements()
  * @model abstract="true"
  * @generated
  */
@@ -40,7 +40,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement Range</em>' container reference.
 	 * @see #setMeasurementRange(MeasurementRange)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_MeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_MeasurementRange()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getAggregatedMeasurements
 	 * @model opposite="aggregatedMeasurements" required="true" transient="false" ordered="false"
 	 * @generated
@@ -66,7 +66,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Valid</em>' attribute.
 	 * @see #setValid(boolean)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_Valid()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_Valid()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -92,7 +92,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' reference.
 	 * @see #setFunction(AggregationFunctionDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_Function()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_Function()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -118,7 +118,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregation Statistics</em>' containment reference.
 	 * @see #setAggregationStatistics(AggregationStatistics)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_AggregationStatistics()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_AggregationStatistics()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
@@ -143,7 +143,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Aggregation On</em>' reference.
 	 * @see #setAggregationOn(BaseMetricDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_AggregationOn()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_AggregationOn()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -168,7 +168,7 @@ public interface AggregatedMeasurements extends Identifiable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metric</em>' reference.
 	 * @see #setMetric(MetricDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregatedMeasurements_Metric()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_Metric()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

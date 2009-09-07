@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregationStatistics()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregationStatistics()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface AggregationStatistics extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Distinct Values Before Aggregation</em>' attribute.
 	 * @see #setDistinctValuesBeforeAggregation(long)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregationStatistics_DistinctValuesBeforeAggregation()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregationStatistics_DistinctValuesBeforeAggregation()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface AggregationStatistics extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Distinct Values After Aggregation</em>' attribute.
 	 * @see #setDistinctValuesAfterAggregation(long)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregationStatistics_DistinctValuesAfterAggregation()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregationStatistics_DistinctValuesAfterAggregation()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

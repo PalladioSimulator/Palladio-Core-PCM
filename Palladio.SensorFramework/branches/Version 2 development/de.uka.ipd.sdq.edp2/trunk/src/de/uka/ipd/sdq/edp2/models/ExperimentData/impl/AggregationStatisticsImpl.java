@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationStatistics;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -87,7 +88,7 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.AGGREGATION_STATISTICS;
+		return ExperimentDataPackage.Literals.AGGREGATION_STATISTICS;
 	}
 
 	/**
@@ -108,7 +109,7 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 		long oldDistinctValuesBeforeAggregation = distinctValuesBeforeAggregation;
 		distinctValuesBeforeAggregation = newDistinctValuesBeforeAggregation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION, oldDistinctValuesBeforeAggregation, distinctValuesBeforeAggregation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION, oldDistinctValuesBeforeAggregation, distinctValuesBeforeAggregation));
 	}
 
 	/**
@@ -129,7 +130,7 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 		long oldDistinctValuesAfterAggregation = distinctValuesAfterAggregation;
 		distinctValuesAfterAggregation = newDistinctValuesAfterAggregation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION, oldDistinctValuesAfterAggregation, distinctValuesAfterAggregation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION, oldDistinctValuesAfterAggregation, distinctValuesAfterAggregation));
 	}
 
 	/**
@@ -140,9 +141,9 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
 				return getDistinctValuesBeforeAggregation();
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
 				return getDistinctValuesAfterAggregation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -156,10 +157,10 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
 				setDistinctValuesBeforeAggregation((Long)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
 				setDistinctValuesAfterAggregation((Long)newValue);
 				return;
 		}
@@ -174,10 +175,10 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
 				setDistinctValuesBeforeAggregation(DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT);
 				return;
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
 				setDistinctValuesAfterAggregation(DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT);
 				return;
 		}
@@ -192,9 +193,9 @@ public class AggregationStatisticsImpl extends EObjectImpl implements Aggregatio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_BEFORE_AGGREGATION:
 				return distinctValuesBeforeAggregation != DISTINCT_VALUES_BEFORE_AGGREGATION_EDEFAULT;
-			case EmfmodelPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
+			case ExperimentDataPackage.AGGREGATION_STATISTICS__DISTINCT_VALUES_AFTER_AGGREGATION:
 				return distinctValuesAfterAggregation != DISTINCT_VALUES_AFTER_AGGREGATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

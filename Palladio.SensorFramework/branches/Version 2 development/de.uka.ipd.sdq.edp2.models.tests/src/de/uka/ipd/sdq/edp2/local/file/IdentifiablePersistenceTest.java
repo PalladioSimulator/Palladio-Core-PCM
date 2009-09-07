@@ -22,14 +22,14 @@ public class IdentifiablePersistenceTest extends PersistenceTest {
 	@Test
 	public void testUuidSetOnFirstRequest() {
 		// setup model
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		String uuid = eg.getUuid();
 		Assert.assertNotNull("First request of id should initialize uuid (if uuid unset).", uuid);
 	}
 
 	@Test
 	public void testSetUuid() {
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		eg.getUuid();
 		String newUuid = EcoreUtil.generateUUID();
 		eg.setUuid(newUuid);
@@ -40,7 +40,7 @@ public class IdentifiablePersistenceTest extends PersistenceTest {
 
 	@Test
 	public void testUuidEqualAfterPersistence() throws IOException {
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		String uuid = eg.getUuid();
 		Assert.assertNotNull("Uuid of Identifiable classes must not be null.", uuid);
 		serialize(eg);
@@ -51,7 +51,7 @@ public class IdentifiablePersistenceTest extends PersistenceTest {
 	
 	@Test
 	public void testUuidGeneration() throws IOException {
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		serialize(eg);
 		eg = deserialize();
 		Assert.assertNotNull("UUID of Identifiable classes must not be null.", eg.getUuid());

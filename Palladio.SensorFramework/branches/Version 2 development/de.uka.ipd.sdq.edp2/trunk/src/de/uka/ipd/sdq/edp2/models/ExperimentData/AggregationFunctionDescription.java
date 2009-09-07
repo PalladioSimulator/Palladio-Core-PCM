@@ -13,7 +13,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getAggregationFunctionDescription()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregationFunctionDescription()
  * @model
  * @generated
  */

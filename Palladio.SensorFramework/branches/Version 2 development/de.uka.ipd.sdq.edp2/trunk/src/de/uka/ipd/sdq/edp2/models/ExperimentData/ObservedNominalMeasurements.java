@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getObservedNominalMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getObservedNominalMeasurements()
  * @model
  * @generated
  */
@@ -38,7 +38,7 @@ public interface ObservedNominalMeasurements extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Observed Categories</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getObservedNominalMeasurements_ObservedCategories()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getObservedNominalMeasurements_ObservedCategories()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -54,7 +54,7 @@ public interface ObservedNominalMeasurements extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uuid</em>' attribute.
 	 * @see #setUuid(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getObservedNominalMeasurements_Uuid()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getObservedNominalMeasurements_Uuid()
 	 * @model id="true" required="true" ordered="false"
 	 * @generated
 	 */

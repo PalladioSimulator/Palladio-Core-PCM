@@ -25,7 +25,7 @@ public class PropertyablePersistenceTest extends PersistenceTest {
 		String testValue = "Test if storable; Value";
 
 		// setup model
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		EMap<String, Object> information = eg.getAdditionalInformation();
 		information.put(testKey, testValue);
 
@@ -58,7 +58,7 @@ public class PropertyablePersistenceTest extends PersistenceTest {
 		String testValue = "Test \" <nonsense> <; Value";
 
 		// setup model
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		EMap<String, Object> information = eg.getAdditionalInformation();
 		information.put(testKey, testValue);
 
@@ -85,7 +85,7 @@ public class PropertyablePersistenceTest extends PersistenceTest {
 		Long testValueLong = Long.MAX_VALUE;
 
 		// setup model
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		EMap<String, Object> information = eg.getAdditionalInformation();
 		information.put(testKeyDouble, testValueDouble);
 		information.put(testKeyLong, testValueLong);
@@ -116,7 +116,7 @@ public class PropertyablePersistenceTest extends PersistenceTest {
 		long testValueLong = Long.MIN_VALUE;
 
 		// setup model
-		ExperimentGroup eg = EmfModelFactory.createExperimentGroup();
+		ExperimentGroup eg = experimentDataFactory.createExperimentGroup();
 		EMap<String, Object> information = eg.getAdditionalInformation();
 		information.put("Test Overwrite Value", testValueDouble);
 		information.put("Test Overwrite Value", testValueLong);

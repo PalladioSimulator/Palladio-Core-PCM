@@ -12,19 +12,19 @@ import org.junit.Test;
 import de.uka.ipd.sdq.edp2.example.ExampleData;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 
 /**Test of the utility class MeasurementsUtility.
  * @author groenda
  *
  */
 public class MeasurementsUtilityTest {
-	private static EmfmodelFactory factory = EmfmodelFactory.eINSTANCE;
+	private static ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	
 	@Test (expected = IllegalStateException.class)
 	public void addDataSeriesOnUnassignedRawMeasurements() {

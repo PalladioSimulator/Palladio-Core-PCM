@@ -10,11 +10,5 @@
 
 <plugin>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/SensorFramework/2.0.0"
-            class="sensorframework.SensorframeworkPackage"
-            genModel="model/SensorFramework.genmodel"/>
-   </extension>
 
 </plugin>

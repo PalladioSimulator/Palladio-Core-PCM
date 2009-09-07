@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp.internal;
+package de.uka.ipd.sdq.edp2.intrnal;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,14 +12,14 @@ import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 
 /**Switch class to add a provided measurement to a data series.
  * @author groenda
@@ -28,7 +28,7 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boo
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(EmfmodelAddMeasurementToDataSeriesSwitch.class.getCanonicalName());
 	/** Factory of EDP2 EMF model. */
-	private static final EmfmodelFactory factory = EmfmodelFactory.eINSTANCE;
+	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	/** Registry for the DAOs. */
 	private MeasurementsDaoRegistry daoRegistry;
 	/** Measurement to add. */

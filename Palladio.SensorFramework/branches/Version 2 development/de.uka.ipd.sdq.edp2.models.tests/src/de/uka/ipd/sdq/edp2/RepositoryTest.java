@@ -14,12 +14,12 @@ import org.junit.Test;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 
 /**Test instances of {@link Repository} classes/elements.
  * @author groenda
@@ -43,7 +43,7 @@ public abstract class RepositoryTest extends MetaDaoTest {
 	public void testGetDescription() {
 		Assert.assertEquals("Initial size of descriptions wrong.", 0, repo.getDescriptions().size());
 		// add a description
-		Description desc = EmfmodelFactory.eINSTANCE.createBaseMetricDescription();
+		Description desc = ExperimentDataFactory.eINSTANCE.createBaseMetricDescription();
 		repo.getDescriptions().add(desc);
 		Assert.assertNotNull("Description must be added to a resource upon insertion into the list of descriptions (single value case).", desc.eResource());
 		Assert.assertEquals("Size after adding one element is wrong.", 1, repo.getDescriptions().size());
@@ -55,9 +55,9 @@ public abstract class RepositoryTest extends MetaDaoTest {
 		
 		// add a collection
 		Collection<Description> c = new LinkedList<Description>();
-		c.add(EmfmodelFactory.eINSTANCE.createBaseMetricDescription());
-		c.add(EmfmodelFactory.eINSTANCE.createBaseMetricDescription());
-		c.add(EmfmodelFactory.eINSTANCE.createBaseMetricDescription());
+		c.add(ExperimentDataFactory.eINSTANCE.createBaseMetricDescription());
+		c.add(ExperimentDataFactory.eINSTANCE.createBaseMetricDescription());
+		c.add(ExperimentDataFactory.eINSTANCE.createBaseMetricDescription());
 		repo.getDescriptions().addAll(c);
 		for (Description desc2 : repo.getDescriptions()) {
 			Assert.assertNotNull("Description must be added to a resource upon insertion into the list of descriptions (multi value case).", desc2.eResource());
@@ -73,7 +73,7 @@ public abstract class RepositoryTest extends MetaDaoTest {
 	public void testGetExperimentGroup() {
 		Assert.assertEquals("Initial size of experiment groups wrong.", 0, repo.getExperimentGroups().size());
 		// Add an experiment group
-		ExperimentGroup eg = EmfmodelFactory.eINSTANCE.createExperimentGroup();
+		ExperimentGroup eg = ExperimentDataFactory.eINSTANCE.createExperimentGroup();
 		repo.getExperimentGroups().add(eg);
 		Assert.assertNotNull("Element must be assigned a resource upon insertion into the list of experiment groups (single value case).", eg.eResource());
 		Assert.assertEquals("Size after adding one element is wrong.", 1, repo.getExperimentGroups().size());
@@ -85,9 +85,9 @@ public abstract class RepositoryTest extends MetaDaoTest {
 
 		// Add a collection
 		Collection<ExperimentGroup> c = new LinkedList<ExperimentGroup>();
-		c.add(EmfmodelFactory.eINSTANCE.createExperimentGroup());
-		c.add(EmfmodelFactory.eINSTANCE.createExperimentGroup());
-		c.add(EmfmodelFactory.eINSTANCE.createExperimentGroup());
+		c.add(ExperimentDataFactory.eINSTANCE.createExperimentGroup());
+		c.add(ExperimentDataFactory.eINSTANCE.createExperimentGroup());
+		c.add(ExperimentDataFactory.eINSTANCE.createExperimentGroup());
 		repo.getExperimentGroups().addAll(c);
 		for (ExperimentGroup eg2 : repo.getExperimentGroups()) {
 			Assert.assertNotNull("Element must be assigned a resource upon insertion into the list of experiment groups (single value case).", eg2.eResource());
@@ -120,7 +120,7 @@ public abstract class RepositoryTest extends MetaDaoTest {
 		// assign & open Repository
 		RepositoryManager.addRepository(repos, repo);
 		// create dummy test instance
-		repo.getExperimentGroups().add(EmfmodelFactory.eINSTANCE.createExperimentGroup());
+		repo.getExperimentGroups().add(ExperimentDataFactory.eINSTANCE.createExperimentGroup());
 		// reassign
 		Repositories repos2 = RepositoryFactory.eINSTANCE.createRepositories();
 		RepositoryManager.addRepository(repos2, repo);
@@ -134,7 +134,7 @@ public abstract class RepositoryTest extends MetaDaoTest {
 		// assign & open Repository
 		RepositoryManager.addRepository(repos, repo);
 		// create dummy test instance
-		repo.getExperimentGroups().add(EmfmodelFactory.eINSTANCE.createExperimentGroup());
+		repo.getExperimentGroups().add(ExperimentDataFactory.eINSTANCE.createExperimentGroup());
 		repo.close();
 		// reassign
 		Repositories repos2 = RepositoryFactory.eINSTANCE.createRepositories();

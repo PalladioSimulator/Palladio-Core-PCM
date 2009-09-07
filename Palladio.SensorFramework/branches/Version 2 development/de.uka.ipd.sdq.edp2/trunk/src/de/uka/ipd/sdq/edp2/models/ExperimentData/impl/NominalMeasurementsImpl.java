@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements;
 
@@ -37,7 +38,7 @@ public class NominalMeasurementsImpl extends DataSeriesImpl implements NominalMe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.NOMINAL_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.NOMINAL_MEASUREMENTS;
 	}
 
 } //NominalMeasurementsImpl

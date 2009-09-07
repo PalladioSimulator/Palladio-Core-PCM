@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getObservedCategory()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getObservedCategory()
  * @model
  * @generated
  */
@@ -35,7 +35,7 @@ public interface ObservedCategory extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Category Identifier</em>' reference.
 	 * @see #setCategoryIdentifier(CategoryIdentifier)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getObservedCategory_CategoryIdentifier()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getObservedCategory_CategoryIdentifier()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

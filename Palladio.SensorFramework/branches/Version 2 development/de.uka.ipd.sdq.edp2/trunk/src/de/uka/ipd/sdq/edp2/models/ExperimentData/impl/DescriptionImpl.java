@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
@@ -102,7 +103,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.DESCRIPTION;
+		return ExperimentDataPackage.Literals.DESCRIPTION;
 	}
 
 	/**
@@ -123,7 +124,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DESCRIPTION__NAME, oldName, name));
 	}
 
 	/**
@@ -144,7 +145,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 		String oldTextualDescription = textualDescription;
 		textualDescription = newTextualDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION, oldTextualDescription, textualDescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DESCRIPTION__TEXTUAL_DESCRIPTION, oldTextualDescription, textualDescription));
 	}
 
 	/**
@@ -158,7 +159,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 			repository = (Repository)eResolveProxy(oldRepository);
 			if (repository != oldRepository) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.DESCRIPTION__REPOSITORY, oldRepository, repository));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.DESCRIPTION__REPOSITORY, oldRepository, repository));
 			}
 		}
 		return repository;
@@ -182,7 +183,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 		Repository oldRepository = repository;
 		repository = newRepository;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__REPOSITORY, oldRepository, newRepository);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DESCRIPTION__REPOSITORY, oldRepository, newRepository);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -204,7 +205,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DESCRIPTION__REPOSITORY, newRepository, newRepository));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DESCRIPTION__REPOSITORY, newRepository, newRepository));
 	}
 
 	/**
@@ -215,7 +216,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				if (repository != null)
 					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, Repository.class, msgs);
 				return basicSetRepository((Repository)otherEnd, msgs);
@@ -231,7 +232,7 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				return basicSetRepository(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -245,11 +246,11 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__NAME:
+			case ExperimentDataPackage.DESCRIPTION__NAME:
 				return getName();
-			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				return getTextualDescription();
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				if (resolve) return getRepository();
 				return basicGetRepository();
 		}
@@ -264,13 +265,13 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__NAME:
+			case ExperimentDataPackage.DESCRIPTION__NAME:
 				setName((String)newValue);
 				return;
-			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				setTextualDescription((String)newValue);
 				return;
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				setRepository((Repository)newValue);
 				return;
 		}
@@ -285,13 +286,13 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__NAME:
+			case ExperimentDataPackage.DESCRIPTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				setTextualDescription(TEXTUAL_DESCRIPTION_EDEFAULT);
 				return;
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				setRepository((Repository)null);
 				return;
 		}
@@ -306,11 +307,11 @@ public abstract class DescriptionImpl extends IdentifiableImpl implements Descri
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTION__NAME:
+			case ExperimentDataPackage.DESCRIPTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EmfmodelPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTION__TEXTUAL_DESCRIPTION:
 				return TEXTUAL_DESCRIPTION_EDEFAULT == null ? textualDescription != null : !TEXTUAL_DESCRIPTION_EDEFAULT.equals(textualDescription);
-			case EmfmodelPackage.DESCRIPTION__REPOSITORY:
+			case ExperimentDataPackage.DESCRIPTION__REPOSITORY:
 				return repository != null;
 		}
 		return super.eIsSet(featureID);

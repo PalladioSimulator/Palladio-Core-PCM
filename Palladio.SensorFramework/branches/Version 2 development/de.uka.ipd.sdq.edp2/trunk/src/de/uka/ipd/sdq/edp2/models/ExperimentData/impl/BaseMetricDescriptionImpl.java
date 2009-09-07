@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataType;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Monotonic;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
@@ -154,7 +155,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.BASE_METRIC_DESCRIPTION;
+		return ExperimentDataPackage.Literals.BASE_METRIC_DESCRIPTION;
 	}
 
 	/**
@@ -175,7 +176,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		CaptureType oldCaptureType = captureType;
 		captureType = newCaptureType == null ? CAPTURE_TYPE_EDEFAULT : newCaptureType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE, oldCaptureType, captureType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE, oldCaptureType, captureType));
 	}
 
 	/**
@@ -196,7 +197,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		DataType oldDataType = dataType;
 		dataType = newDataType == null ? DATA_TYPE_EDEFAULT : newDataType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE, oldDataType, dataType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE, oldDataType, dataType));
 	}
 
 	/**
@@ -217,7 +218,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		Scale oldScale = scale;
 		scale = newScale == null ? SCALE_EDEFAULT : newScale;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE, oldScale, scale));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.BASE_METRIC_DESCRIPTION__SCALE, oldScale, scale));
 	}
 
 	/**
@@ -238,7 +239,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		Monotonic oldMonotonic = monotonic;
 		monotonic = newMonotonic == null ? MONOTONIC_EDEFAULT : newMonotonic;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC, oldMonotonic, monotonic));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.BASE_METRIC_DESCRIPTION__MONOTONIC, oldMonotonic, monotonic));
 	}
 
 	/**
@@ -259,7 +260,7 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 		Unit oldDefaultUnit = defaultUnit;
 		defaultUnit = newDefaultUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT, oldDefaultUnit, defaultUnit));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT, oldDefaultUnit, defaultUnit));
 	}
 
 	/**
@@ -270,15 +271,15 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
 				return getCaptureType();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
 				return getDataType();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				return getScale();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
 				return getMonotonic();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
 				return getDefaultUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -292,19 +293,19 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
 				setCaptureType((CaptureType)newValue);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
 				setDataType((DataType)newValue);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				setScale((Scale)newValue);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
 				setMonotonic((Monotonic)newValue);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
 				setDefaultUnit((Unit)newValue);
 				return;
 		}
@@ -319,19 +320,19 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
 				setCaptureType(CAPTURE_TYPE_EDEFAULT);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
 				setDataType(DATA_TYPE_EDEFAULT);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				setScale(SCALE_EDEFAULT);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
 				setMonotonic(MONOTONIC_EDEFAULT);
 				return;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
 				setDefaultUnit(DEFAULT_UNIT_EDEFAULT);
 				return;
 		}
@@ -346,15 +347,15 @@ public class BaseMetricDescriptionImpl extends MetricDescriptionImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__CAPTURE_TYPE:
 				return captureType != CAPTURE_TYPE_EDEFAULT;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DATA_TYPE:
 				return dataType != DATA_TYPE_EDEFAULT;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__SCALE:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__SCALE:
 				return scale != SCALE_EDEFAULT;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__MONOTONIC:
 				return monotonic != MONOTONIC_EDEFAULT;
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION__DEFAULT_UNIT:
 				return DEFAULT_UNIT_EDEFAULT == null ? defaultUnit != null : !DEFAULT_UNIT_EDEFAULT.equals(defaultUnit);
 		}
 		return super.eIsSet(featureID);

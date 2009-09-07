@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
@@ -58,7 +59,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.METRIC_SET_DESCRIPTION;
+		return ExperimentDataPackage.Literals.METRIC_SET_DESCRIPTION;
 	}
 
 	/**
@@ -68,7 +69,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	 */
 	public EList<MetricDescription> getSubsumedMetrics() {
 		if (subsumedMetrics == null) {
-			subsumedMetrics = new EObjectResolvingEList<MetricDescription>(MetricDescription.class, this, EmfmodelPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS);
+			subsumedMetrics = new EObjectResolvingEList<MetricDescription>(MetricDescription.class, this, ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS);
 		}
 		return subsumedMetrics;
 	}
@@ -81,7 +82,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
+			case ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
 				return getSubsumedMetrics();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -96,7 +97,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
+			case ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
 				getSubsumedMetrics().clear();
 				getSubsumedMetrics().addAll((Collection<? extends MetricDescription>)newValue);
 				return;
@@ -112,7 +113,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
+			case ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
 				getSubsumedMetrics().clear();
 				return;
 		}
@@ -127,7 +128,7 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
+			case ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS:
 				return subsumedMetrics != null && !subsumedMetrics.isEmpty();
 		}
 		return super.eIsSet(featureID);

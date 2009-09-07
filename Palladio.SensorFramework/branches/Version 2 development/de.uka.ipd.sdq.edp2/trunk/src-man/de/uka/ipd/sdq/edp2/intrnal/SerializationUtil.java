@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp.internal;
+package de.uka.ipd.sdq.edp2.intrnal;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -15,7 +15,9 @@ import org.apache.commons.codec.binary.Base64;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
+import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**Utility functions to serialize and deserialize data.
@@ -95,6 +97,8 @@ public class SerializationUtil {
 				.put(
 						EmfModelXMIResourceFactoryImpl.EDP2_NOMINALMEASUREMENTS_EXTENSION,
 						resourceFactoryImpl);
+		resourceSet.getPackageRegistry().put(ExperimentDataPackageImpl.eNS_URI, ExperimentDataPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(RepositoryPackage.eNS_URI, RepositoryPackage.eINSTANCE);
 		return resourceSet;
 	}
 }

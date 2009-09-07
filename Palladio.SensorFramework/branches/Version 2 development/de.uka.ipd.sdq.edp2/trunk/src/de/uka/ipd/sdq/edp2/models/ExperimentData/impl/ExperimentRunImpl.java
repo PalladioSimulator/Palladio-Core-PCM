@@ -6,11 +6,13 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Propertyable;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
@@ -137,7 +139,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.EXPERIMENT_RUN;
+		return ExperimentDataPackage.Literals.EXPERIMENT_RUN;
 	}
 
 	/**
@@ -147,7 +149,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 */
 	public EMap<String, Object> getAdditionalInformation() {
 		if (additionalInformation == null) {
-			additionalInformation = new EcoreEMap<String,Object>(EmfmodelPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION);
+			additionalInformation = new EcoreEMap<String,Object>(ExperimentDataPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION);
 		}
 		return additionalInformation;
 	}
@@ -159,7 +161,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 */
 	public EList<Measurement> getMeasurement() {
 		if (measurement == null) {
-			measurement = new EObjectContainmentWithInverseEList<Measurement>(Measurement.class, this, EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT, EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN);
+			measurement = new EObjectContainmentWithInverseEList<Measurement>(Measurement.class, this, ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN);
 		}
 		return measurement;
 	}
@@ -182,7 +184,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		Date oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_RUN__START_TIME, oldStartTime, startTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_RUN__START_TIME, oldStartTime, startTime));
 	}
 
 	/**
@@ -203,7 +205,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		Measure oldDuration = duration;
 		duration = newDuration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_RUN__DURATION, oldDuration, duration));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_RUN__DURATION, oldDuration, duration));
 	}
 
 	/**
@@ -212,7 +214,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * @generated
 	 */
 	public ExperimentSetting getExperimentSetting() {
-		if (eContainerFeatureID() != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING) return null;
 		return (ExperimentSetting)eContainer();
 	}
 
@@ -222,7 +224,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * @generated
 	 */
 	public NotificationChain basicSetExperimentSetting(ExperimentSetting newExperimentSetting, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newExperimentSetting, EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newExperimentSetting, ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING, msgs);
 		return msgs;
 	}
 
@@ -232,19 +234,19 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * @generated
 	 */
 	public void setExperimentSetting(ExperimentSetting newExperimentSetting) {
-		if (newExperimentSetting != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING && newExperimentSetting != null)) {
+		if (newExperimentSetting != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING && newExperimentSetting != null)) {
 			if (EcoreUtil.isAncestor(this, newExperimentSetting))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newExperimentSetting != null)
-				msgs = ((InternalEObject)newExperimentSetting).eInverseAdd(this, EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentSetting.class, msgs);
+				msgs = ((InternalEObject)newExperimentSetting).eInverseAdd(this, ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentSetting.class, msgs);
 			msgs = basicSetExperimentSetting(newExperimentSetting, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING, newExperimentSetting, newExperimentSetting));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING, newExperimentSetting, newExperimentSetting));
 	}
 
 	/**
@@ -262,8 +264,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 EmfmodelValidator.DIAGNOSTIC_SOURCE,
-						 EmfmodelValidator.EXPERIMENT_RUN__EXACTLY_ONE_DATA_COLLECTION_PER_SENSOR,
+						 ExperimentDataValidator.DIAGNOSTIC_SOURCE,
+						 ExperimentDataValidator.EXPERIMENT_RUN__EXACTLY_ONE_DATA_COLLECTION_PER_SENSOR,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneDataCollectionPerSensor", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
@@ -281,9 +283,9 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasurement()).basicAdd(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetExperimentSetting((ExperimentSetting)otherEnd, msgs);
@@ -299,11 +301,11 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				return ((InternalEList<?>)getMeasurement()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return basicSetExperimentSetting(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -317,8 +319,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentSetting.class, msgs);
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentSetting.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -331,16 +333,16 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				if (coreType) return getAdditionalInformation();
 				else return getAdditionalInformation().map();
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				return getMeasurement();
-			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
+			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				return getStartTime();
-			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:
 				return getDuration();
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return getExperimentSetting();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -355,20 +357,20 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				((EStructuralFeature.Setting)getAdditionalInformation()).set(newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				getMeasurement().clear();
 				getMeasurement().addAll((Collection<? extends Measurement>)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
+			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime((Date)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:
 				setDuration((Measure)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				setExperimentSetting((ExperimentSetting)newValue);
 				return;
 		}
@@ -383,19 +385,19 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				getMeasurement().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
+			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:
 				setDuration(DURATION_EDEFAULT);
 				return;
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				setExperimentSetting((ExperimentSetting)null);
 				return;
 		}
@@ -410,15 +412,15 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT:
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
 				return measurement != null && !measurement.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_RUN__START_TIME:
+			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
-			case EmfmodelPackage.EXPERIMENT_RUN__DURATION:
+			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:
 				return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
-			case EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
+			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return getExperimentSetting() != null;
 		}
 		return super.eIsSet(featureID);
@@ -433,7 +435,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Propertyable.class) {
 			switch (derivedFeatureID) {
-				case EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION: return EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION;
+				case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION: return ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION;
 				default: return -1;
 			}
 		}
@@ -449,7 +451,7 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Propertyable.class) {
 			switch (baseFeatureID) {
-				case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION: return EmfmodelPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION;
+				case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION: return ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION;
 				default: return -1;
 			}
 		}

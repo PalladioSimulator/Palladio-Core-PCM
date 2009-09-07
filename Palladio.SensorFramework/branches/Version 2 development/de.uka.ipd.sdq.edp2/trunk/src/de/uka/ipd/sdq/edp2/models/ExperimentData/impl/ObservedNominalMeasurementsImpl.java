@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
@@ -89,7 +90,7 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.OBSERVED_NOMINAL_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.OBSERVED_NOMINAL_MEASUREMENTS;
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	 */
 	public EList<ObservedCategory> getObservedCategories() {
 		if (observedCategories == null) {
-			observedCategories = new EObjectContainmentEList<ObservedCategory>(ObservedCategory.class, this, EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES);
+			observedCategories = new EObjectContainmentEList<ObservedCategory>(ObservedCategory.class, this, ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES);
 		}
 		return observedCategories;
 	}
@@ -122,7 +123,7 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 		String oldUuid = uuid;
 		uuid = newUuid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID, oldUuid, uuid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID, oldUuid, uuid));
 	}
 
 	/**
@@ -133,7 +134,7 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
 				return ((InternalEList<?>)getObservedCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -147,9 +148,9 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
 				return getObservedCategories();
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
 				return getUuid();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -164,11 +165,11 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
 				getObservedCategories().clear();
 				getObservedCategories().addAll((Collection<? extends ObservedCategory>)newValue);
 				return;
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
 				setUuid((String)newValue);
 				return;
 		}
@@ -183,10 +184,10 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
 				getObservedCategories().clear();
 				return;
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
 				setUuid(UUID_EDEFAULT);
 				return;
 		}
@@ -201,9 +202,9 @@ public class ObservedNominalMeasurementsImpl extends EObjectImpl implements Obse
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__OBSERVED_CATEGORIES:
 				return observedCategories != null && !observedCategories.isEmpty();
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS__UUID:
 				return UUID_EDEFAULT == null ? uuid != null : !UUID_EDEFAULT.equals(uuid);
 		}
 		return super.eIsSet(featureID);

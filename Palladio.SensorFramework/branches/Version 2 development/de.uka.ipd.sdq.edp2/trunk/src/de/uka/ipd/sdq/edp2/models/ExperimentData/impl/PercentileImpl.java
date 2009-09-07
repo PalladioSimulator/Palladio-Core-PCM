@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Percentile;
 
@@ -89,7 +90,7 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.PERCENTILE;
+		return ExperimentDataPackage.Literals.PERCENTILE;
 	}
 
 	/**
@@ -110,7 +111,7 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 		double oldPercentile = percentile;
 		percentile = newPercentile;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.PERCENTILE__PERCENTILE, oldPercentile, percentile));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.PERCENTILE__PERCENTILE, oldPercentile, percentile));
 	}
 
 	/**
@@ -131,7 +132,7 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 		Measure oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.PERCENTILE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.PERCENTILE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -142,9 +143,9 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.PERCENTILE__PERCENTILE:
+			case ExperimentDataPackage.PERCENTILE__PERCENTILE:
 				return getPercentile();
-			case EmfmodelPackage.PERCENTILE__VALUE:
+			case ExperimentDataPackage.PERCENTILE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -158,10 +159,10 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.PERCENTILE__PERCENTILE:
+			case ExperimentDataPackage.PERCENTILE__PERCENTILE:
 				setPercentile((Double)newValue);
 				return;
-			case EmfmodelPackage.PERCENTILE__VALUE:
+			case ExperimentDataPackage.PERCENTILE__VALUE:
 				setValue((Measure)newValue);
 				return;
 		}
@@ -176,10 +177,10 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.PERCENTILE__PERCENTILE:
+			case ExperimentDataPackage.PERCENTILE__PERCENTILE:
 				setPercentile(PERCENTILE_EDEFAULT);
 				return;
-			case EmfmodelPackage.PERCENTILE__VALUE:
+			case ExperimentDataPackage.PERCENTILE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -194,9 +195,9 @@ public class PercentileImpl extends EObjectImpl implements Percentile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.PERCENTILE__PERCENTILE:
+			case ExperimentDataPackage.PERCENTILE__PERCENTILE:
 				return percentile != PERCENTILE_EDEFAULT;
-			case EmfmodelPackage.PERCENTILE__VALUE:
+			case ExperimentDataPackage.PERCENTILE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);

@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurement()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurement()
  * @model
  * @generated
  */
@@ -41,7 +41,7 @@ public interface Measurement extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' reference.
 	 * @see #setMeasure(Edp2Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurement_Measure()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurement_Measure()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -68,7 +68,7 @@ public interface Measurement extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Run</em>' container reference.
 	 * @see #setExperimentRun(ExperimentRun)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurement_ExperimentRun()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurement_ExperimentRun()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurement
 	 * @model opposite="measurement" required="true" transient="false" ordered="false"
 	 * @generated
@@ -96,7 +96,7 @@ public interface Measurement extends Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement Range</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurement_MeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurement_MeasurementRange()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getMeasurement
 	 * @model opposite="measurement" containment="true" ordered="false"
 	 * @generated

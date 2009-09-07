@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.local.file.LocalDirectoryMetaDao;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.IdentifiableImpl;
@@ -38,7 +39,6 @@ import de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryImpl#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryImpl#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryImpl#getExperimentGroups <em>Experiment Groups</em>}</li>
@@ -48,26 +48,6 @@ import de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus;
  * @generated
  */
 public abstract class RepositoryImpl extends IdentifiableImpl implements Repository {
-	/**
-	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final RepositoryStatus STATUS_EDEFAULT = RepositoryStatus.OPEN;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected RepositoryStatus status = STATUS_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -179,27 +159,6 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RepositoryStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatus(RepositoryStatus newStatus) {
-		RepositoryStatus oldStatus = status;
-		status = newStatus == null ? STATUS_EDEFAULT : newStatus;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__STATUS, oldStatus, status));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isReadOnly() {
 		return readOnly;
 	}
@@ -223,7 +182,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 */
 	public EList<Description> getDescriptions() {
 		if (descriptions == null) {
-			descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, EmfmodelPackage.DESCRIPTION__REPOSITORY);
+			descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, ExperimentDataPackage.DESCRIPTION__REPOSITORY);
 		}
 		return descriptions;
 	}
@@ -235,7 +194,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 */
 	public EList<ExperimentGroup> getExperimentGroups() {
 		if (experimentGroups == null) {
-			experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY);
+			experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY);
 		}
 		return experimentGroups;
 	}
@@ -323,8 +282,6 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORIES:
 				return getRepositories();
-			case RepositoryPackage.REPOSITORY__STATUS:
-				return getStatus();
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				return isReadOnly();
 			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
@@ -346,9 +303,6 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORIES:
 				setRepositories((Repositories)newValue);
-				return;
-			case RepositoryPackage.REPOSITORY__STATUS:
-				setStatus((RepositoryStatus)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				setReadOnly((Boolean)newValue);
@@ -376,9 +330,6 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 			case RepositoryPackage.REPOSITORY__REPOSITORIES:
 				setRepositories((Repositories)null);
 				return;
-			case RepositoryPackage.REPOSITORY__STATUS:
-				setStatus(STATUS_EDEFAULT);
-				return;
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				setReadOnly(READ_ONLY_EDEFAULT);
 				return;
@@ -402,8 +353,6 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORIES:
 				return getRepositories() != null;
-			case RepositoryPackage.REPOSITORY__STATUS:
-				return status != STATUS_EDEFAULT;
 			case RepositoryPackage.REPOSITORY__READ_ONLY:
 				return readOnly != READ_ONLY_EDEFAULT;
 			case RepositoryPackage.REPOSITORY__DESCRIPTIONS:
@@ -424,9 +373,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (status: ");
-		result.append(status);
-		result.append(", readOnly: ");
+		result.append(" (readOnly: ");
 		result.append(readOnly);
 		result.append(')');
 		return result.toString();

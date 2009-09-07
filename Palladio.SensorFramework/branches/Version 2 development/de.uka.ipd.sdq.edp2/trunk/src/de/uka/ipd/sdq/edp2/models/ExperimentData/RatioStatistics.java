@@ -22,7 +22,7 @@ import javax.measure.Measure;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRatioStatistics()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRatioStatistics()
  * @model
  * @generated
  */
@@ -37,7 +37,7 @@ public interface RatioStatistics extends IntervalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Coefficient Of Variation</em>' attribute.
 	 * @see #setCoefficientOfVariation(double)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRatioStatistics_CoefficientOfVariation()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRatioStatistics_CoefficientOfVariation()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -63,8 +63,8 @@ public interface RatioStatistics extends IntervalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Geometric Mean</em>' attribute.
 	 * @see #setGeometricMean(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRatioStatistics_GeometricMean()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRatioStatistics_GeometricMean()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getGeometricMean();
@@ -89,8 +89,8 @@ public interface RatioStatistics extends IntervalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Harmonic Mean</em>' attribute.
 	 * @see #setHarmonicMean(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRatioStatistics_HarmonicMean()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRatioStatistics_HarmonicMean()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getHarmonicMean();

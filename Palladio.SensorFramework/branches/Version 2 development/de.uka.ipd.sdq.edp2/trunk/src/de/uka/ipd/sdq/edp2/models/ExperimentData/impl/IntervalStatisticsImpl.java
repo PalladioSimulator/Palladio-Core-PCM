@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.IntervalStatistics;
 
@@ -130,7 +131,7 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.INTERVAL_STATISTICS;
+		return ExperimentDataPackage.Literals.INTERVAL_STATISTICS;
 	}
 
 	/**
@@ -151,7 +152,7 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 		Measure oldArithmethicMean = arithmethicMean;
 		arithmethicMean = newArithmethicMean;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN, oldArithmethicMean, arithmethicMean));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN, oldArithmethicMean, arithmethicMean));
 	}
 
 	/**
@@ -172,7 +173,7 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 		double oldVariance = variance;
 		variance = newVariance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE, oldVariance, variance));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.INTERVAL_STATISTICS__VARIANCE, oldVariance, variance));
 	}
 
 	/**
@@ -193,7 +194,7 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 		double oldStandardDeviation = standardDeviation;
 		standardDeviation = newStandardDeviation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION, oldStandardDeviation, standardDeviation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION, oldStandardDeviation, standardDeviation));
 	}
 
 	/**
@@ -214,7 +215,7 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 		Measure oldSum = sum;
 		sum = newSum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.INTERVAL_STATISTICS__SUM, oldSum, sum));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.INTERVAL_STATISTICS__SUM, oldSum, sum));
 	}
 
 	/**
@@ -225,13 +226,13 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
 				return getArithmethicMean();
-			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__VARIANCE:
 				return getVariance();
-			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
 				return getStandardDeviation();
-			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__SUM:
 				return getSum();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -245,16 +246,16 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
 				setArithmethicMean((Measure)newValue);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__VARIANCE:
 				setVariance((Double)newValue);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
 				setStandardDeviation((Double)newValue);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__SUM:
 				setSum((Measure)newValue);
 				return;
 		}
@@ -269,16 +270,16 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
 				setArithmethicMean(ARITHMETHIC_MEAN_EDEFAULT);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__VARIANCE:
 				setVariance(VARIANCE_EDEFAULT);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
 				setStandardDeviation(STANDARD_DEVIATION_EDEFAULT);
 				return;
-			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__SUM:
 				setSum(SUM_EDEFAULT);
 				return;
 		}
@@ -293,13 +294,13 @@ public class IntervalStatisticsImpl extends OrdinalStatisticsImpl implements Int
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__ARITHMETHIC_MEAN:
 				return ARITHMETHIC_MEAN_EDEFAULT == null ? arithmethicMean != null : !ARITHMETHIC_MEAN_EDEFAULT.equals(arithmethicMean);
-			case EmfmodelPackage.INTERVAL_STATISTICS__VARIANCE:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__VARIANCE:
 				return variance != VARIANCE_EDEFAULT;
-			case EmfmodelPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__STANDARD_DEVIATION:
 				return standardDeviation != STANDARD_DEVIATION_EDEFAULT;
-			case EmfmodelPackage.INTERVAL_STATISTICS__SUM:
+			case ExperimentDataPackage.INTERVAL_STATISTICS__SUM:
 				return SUM_EDEFAULT == null ? sum != null : !SUM_EDEFAULT.equals(sum);
 		}
 		return super.eIsSet(featureID);

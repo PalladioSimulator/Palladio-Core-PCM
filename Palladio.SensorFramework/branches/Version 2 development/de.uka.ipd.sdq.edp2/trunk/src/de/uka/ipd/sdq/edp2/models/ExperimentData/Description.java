@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDescription()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDescription()
  * @model abstract="true"
  * @generated
  */
@@ -39,7 +39,7 @@ public interface Description extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDescription_Name()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDescription_Name()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -65,7 +65,7 @@ public interface Description extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Textual Description</em>' attribute.
 	 * @see #setTextualDescription(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDescription_TextualDescription()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDescription_TextualDescription()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -92,7 +92,7 @@ public interface Description extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repository</em>' reference.
 	 * @see #setRepository(Repository)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDescription_Repository()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDescription_Repository()
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.Repository#getDescriptions
 	 * @model opposite="descriptions" ordered="false"
 	 * @generated

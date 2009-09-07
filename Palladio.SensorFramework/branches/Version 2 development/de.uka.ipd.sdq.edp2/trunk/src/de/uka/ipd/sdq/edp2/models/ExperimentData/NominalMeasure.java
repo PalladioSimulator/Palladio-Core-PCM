@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalMeasure()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalMeasure()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface NominalMeasure extends Edp2Measure, Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Defined Category Identifiers</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalMeasure_DefinedCategoryIdentifiers()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalMeasure_DefinedCategoryIdentifiers()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface NominalMeasure extends Edp2Measure, Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Initial State</em>' reference.
 	 * @see #setInitialState(CategoryIdentifier)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalMeasure_InitialState()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalMeasure_InitialState()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

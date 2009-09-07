@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getPercentile()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getPercentile()
  * @model
  * @generated
  */
@@ -38,7 +38,7 @@ public interface Percentile extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Percentile</em>' attribute.
 	 * @see #setPercentile(double)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getPercentile_Percentile()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getPercentile_Percentile()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -64,8 +64,8 @@ public interface Percentile extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getPercentile_Value()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getPercentile_Value()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getValue();

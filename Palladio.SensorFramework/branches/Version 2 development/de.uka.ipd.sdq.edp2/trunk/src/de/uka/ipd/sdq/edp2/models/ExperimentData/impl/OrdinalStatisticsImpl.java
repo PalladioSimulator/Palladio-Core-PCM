@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.OrdinalStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Percentile;
@@ -130,7 +131,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.ORDINAL_STATISTICS;
+		return ExperimentDataPackage.Literals.ORDINAL_STATISTICS;
 	}
 
 	/**
@@ -151,7 +152,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 		Measure oldMinimum = minimum;
 		minimum = newMinimum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
 	}
 
 	/**
@@ -172,7 +173,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 		Measure oldMaximum = maximum;
 		maximum = newMaximum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
 	}
 
 	/**
@@ -193,7 +194,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 		Measure oldMedian = median;
 		median = newMedian;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
 	}
 
 	/**
@@ -203,7 +204,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	 */
 	public EList<Percentile> getPercentiles() {
 		if (percentiles == null) {
-			percentiles = new EObjectContainmentEList<Percentile>(Percentile.class, this, EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES);
+			percentiles = new EObjectContainmentEList<Percentile>(Percentile.class, this, ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES);
 		}
 		return percentiles;
 	}
@@ -216,7 +217,7 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES:
 				return ((InternalEList<?>)getPercentiles()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -230,13 +231,13 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.ORDINAL_STATISTICS__MINIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MINIMUM:
 				return getMinimum();
-			case EmfmodelPackage.ORDINAL_STATISTICS__MAXIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MAXIMUM:
 				return getMaximum();
-			case EmfmodelPackage.ORDINAL_STATISTICS__MEDIAN:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MEDIAN:
 				return getMedian();
-			case EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES:
 				return getPercentiles();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -251,16 +252,16 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.ORDINAL_STATISTICS__MINIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MINIMUM:
 				setMinimum((Measure)newValue);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__MAXIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MAXIMUM:
 				setMaximum((Measure)newValue);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__MEDIAN:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MEDIAN:
 				setMedian((Measure)newValue);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES:
 				getPercentiles().clear();
 				getPercentiles().addAll((Collection<? extends Percentile>)newValue);
 				return;
@@ -276,16 +277,16 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.ORDINAL_STATISTICS__MINIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MINIMUM:
 				setMinimum(MINIMUM_EDEFAULT);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__MAXIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MAXIMUM:
 				setMaximum(MAXIMUM_EDEFAULT);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__MEDIAN:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MEDIAN:
 				setMedian(MEDIAN_EDEFAULT);
 				return;
-			case EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES:
 				getPercentiles().clear();
 				return;
 		}
@@ -300,13 +301,13 @@ public class OrdinalStatisticsImpl extends NominalStatisticsImpl implements Ordi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.ORDINAL_STATISTICS__MINIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MINIMUM:
 				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
-			case EmfmodelPackage.ORDINAL_STATISTICS__MAXIMUM:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MAXIMUM:
 				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
-			case EmfmodelPackage.ORDINAL_STATISTICS__MEDIAN:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__MEDIAN:
 				return MEDIAN_EDEFAULT == null ? median != null : !MEDIAN_EDEFAULT.equals(median);
-			case EmfmodelPackage.ORDINAL_STATISTICS__PERCENTILES:
+			case ExperimentDataPackage.ORDINAL_STATISTICS__PERCENTILES:
 				return percentiles != null && !percentiles.isEmpty();
 		}
 		return super.eIsSet(featureID);

@@ -23,7 +23,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getStatus <em>Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getExperimentGroups <em>Experiment Groups</em>}</li>
@@ -31,7 +30,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
  * </p>
  *
  * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getRepository()
- * @model abstract="true" superTypes="de.uka.ipd.sdq.edp2.models.emfmodel.Identifiable de.uka.ipd.sdq.edp2.models.emfmodel.Repository.MetaDao"
+ * @model abstract="true" superTypes="de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable de.uka.ipd.sdq.edp2.models.Repository.MetaDao"
  * @generated
  */
 public interface Repository extends Identifiable, MetaDao {
@@ -62,35 +61,6 @@ public interface Repository extends Identifiable, MetaDao {
 	 * @generated
 	 */
 	void setRepositories(Repositories value);
-
-	/**
-	 * Returns the value of the '<em><b>Status</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Status</em>' attribute.
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus
-	 * @see #setStatus(RepositoryStatus)
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getRepository_Status()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	RepositoryStatus getStatus();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getStatus <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' attribute.
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus
-	 * @see #getStatus()
-	 * @generated
-	 */
-	void setStatus(RepositoryStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Read Only</b></em>' attribute.

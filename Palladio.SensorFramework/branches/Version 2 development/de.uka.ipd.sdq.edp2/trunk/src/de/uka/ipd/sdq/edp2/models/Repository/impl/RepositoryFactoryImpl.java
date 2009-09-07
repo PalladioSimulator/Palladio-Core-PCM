@@ -32,7 +32,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 */
 	public static RepositoryFactory init() {
 		try {
-			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory("http:///EDP2/Repository.ecore"); 
+			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/EDP2/Repository/0.9.1"); 
 			if (theRepositoryFactory != null) {
 				return theRepositoryFactory;
 			}
@@ -68,36 +68,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.REPOSITORIES: return createRepositories();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case RepositoryPackage.REPOSITORY_STATUS:
-				return createRepositoryStatusFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case RepositoryPackage.REPOSITORY_STATUS:
-				return convertRepositoryStatusToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -149,26 +119,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public Repositories createRepositories() {
 		RepositoriesImpl repositories = new RepositoriesImpl();
 		return repositories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RepositoryStatus createRepositoryStatusFromString(EDataType eDataType, String initialValue) {
-		RepositoryStatus result = RepositoryStatus.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRepositoryStatusToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

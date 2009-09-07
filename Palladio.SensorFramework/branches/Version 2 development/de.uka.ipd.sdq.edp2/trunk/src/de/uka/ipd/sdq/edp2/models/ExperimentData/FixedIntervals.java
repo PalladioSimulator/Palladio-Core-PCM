@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedIntervals()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals()
  * @model
  * @generated
  */
@@ -50,8 +50,8 @@ public interface FixedIntervals extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lower Bound</em>' attribute.
 	 * @see #setLowerBound(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedIntervals_LowerBound()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_LowerBound()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getLowerBound();
@@ -76,8 +76,8 @@ public interface FixedIntervals extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedIntervals_Width()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_Width()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getWidth();
@@ -102,7 +102,7 @@ public interface FixedIntervals extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Intervals</em>' attribute.
 	 * @see #setNumberOfIntervals(long)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedIntervals_NumberOfIntervals()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_NumberOfIntervals()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -129,7 +129,7 @@ public interface FixedIntervals extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregated Measurements</em>' container reference.
 	 * @see #setAggregatedMeasurements(FixedWidthAggregatedMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getFixedIntervals_AggregatedMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_AggregatedMeasurements()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getIntervals
 	 * @model opposite="intervals" required="true" transient="false" ordered="false"
 	 * @generated

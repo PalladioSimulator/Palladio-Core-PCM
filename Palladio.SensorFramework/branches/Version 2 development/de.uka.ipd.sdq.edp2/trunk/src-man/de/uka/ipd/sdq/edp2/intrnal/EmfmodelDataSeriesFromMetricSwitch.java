@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp.internal;
+package de.uka.ipd.sdq.edp2.intrnal;
 
 import java.util.Iterator;
 
@@ -9,11 +9,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
@@ -22,14 +23,13 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.PersistenceKindOptions;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 
 /**EMF switch to create data series based on metric for RawMeasurements.
  * @author groenda
  */
 public class EmfmodelDataSeriesFromMetricSwitch extends EmfmodelSwitch<Boolean> {
 	/** Factory for Emfmodel. */
-	private static final EmfmodelFactory factory = EmfmodelFactory.eINSTANCE;
+	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	/** RawMeasurements on which the DataSeries should be added. */
 	private RawMeasurements rm;
 	/** The definition of the overall measure. */

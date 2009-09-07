@@ -23,7 +23,7 @@ import javax.measure.Measure;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getIntervalStatistics()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getIntervalStatistics()
  * @model
  * @generated
  */
@@ -38,8 +38,8 @@ public interface IntervalStatistics extends OrdinalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Arithmethic Mean</em>' attribute.
 	 * @see #setArithmethicMean(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getIntervalStatistics_ArithmethicMean()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getIntervalStatistics_ArithmethicMean()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getArithmethicMean();
@@ -64,7 +64,7 @@ public interface IntervalStatistics extends OrdinalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variance</em>' attribute.
 	 * @see #setVariance(double)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getIntervalStatistics_Variance()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getIntervalStatistics_Variance()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -90,7 +90,7 @@ public interface IntervalStatistics extends OrdinalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Standard Deviation</em>' attribute.
 	 * @see #setStandardDeviation(double)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getIntervalStatistics_StandardDeviation()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getIntervalStatistics_StandardDeviation()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -116,8 +116,8 @@ public interface IntervalStatistics extends OrdinalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sum</em>' attribute.
 	 * @see #setSum(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getIntervalStatistics_Sum()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getIntervalStatistics_Sum()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getSum();

@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentRun()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun()
  * @model
  * @generated
  */
@@ -51,7 +51,7 @@ public interface ExperimentRun extends Identifiable, Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentRun_Measurement()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Measurement()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getExperimentRun
 	 * @model opposite="experimentRun" containment="true" ordered="false"
 	 * @generated
@@ -67,7 +67,7 @@ public interface ExperimentRun extends Identifiable, Propertyable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Start Time</em>' attribute.
 	 * @see #setStartTime(Date)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentRun_StartTime()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_StartTime()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -92,8 +92,8 @@ public interface ExperimentRun extends Identifiable, Propertyable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration</em>' attribute.
 	 * @see #setDuration(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentRun_Duration()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSDurationMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Duration()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getDuration();
@@ -119,7 +119,7 @@ public interface ExperimentRun extends Identifiable, Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Setting</em>' container reference.
 	 * @see #setExperimentSetting(ExperimentSetting)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentRun_ExperimentSetting()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_ExperimentSetting()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getExperimentRuns
 	 * @model opposite="experimentRuns" required="true" transient="false" ordered="false"
 	 * @generated

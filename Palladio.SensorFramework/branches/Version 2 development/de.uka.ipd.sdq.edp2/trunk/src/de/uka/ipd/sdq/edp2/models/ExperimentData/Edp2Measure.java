@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure()
  * @model abstract="true"
  * @generated
  */
@@ -50,7 +50,7 @@ public interface Edp2Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Group</em>' container reference.
 	 * @see #setExperimentGroup(ExperimentGroup)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure_ExperimentGroup()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure_ExperimentGroup()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup#getMeasure
 	 * @model opposite="measure" required="true" transient="false" ordered="false"
 	 * @generated
@@ -78,7 +78,7 @@ public interface Edp2Measure extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Settings</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure_ExperimentSettings()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure_ExperimentSettings()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getMeasure
 	 * @model opposite="measure" ordered="false"
 	 * @generated
@@ -97,7 +97,7 @@ public interface Edp2Measure extends EObject {
 	 * @return the value of the '<em>Persistency Kind</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.PersistenceKindOptions
 	 * @see #setPersistencyKind(PersistenceKindOptions)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure_PersistencyKind()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure_PersistencyKind()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -124,7 +124,7 @@ public interface Edp2Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measured Object</em>' attribute.
 	 * @see #setMeasuredObject(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure_MeasuredObject()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure_MeasuredObject()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -150,7 +150,7 @@ public interface Edp2Measure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metric</em>' reference.
 	 * @see #setMetric(MetricDescription)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getEdp2Measure_Metric()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getEdp2Measure_Metric()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

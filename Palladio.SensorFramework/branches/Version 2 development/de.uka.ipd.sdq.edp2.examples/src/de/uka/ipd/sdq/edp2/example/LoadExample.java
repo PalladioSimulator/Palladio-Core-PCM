@@ -12,9 +12,9 @@ import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
-import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 
 
 /**Contains an example how data can be loaded with EDP2.

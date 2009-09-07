@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import javax.measure.unit.Unit;
@@ -67,7 +68,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.DOUBLE_BINARY_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.DOUBLE_BINARY_MEASUREMENTS;
 	}
 
 	/**
@@ -88,7 +89,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 		Unit oldStorageUnit = storageUnit;
 		storageUnit = newStorageUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT, oldStorageUnit, storageUnit));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT, oldStorageUnit, storageUnit));
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
+			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
 				return getStorageUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -113,7 +114,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
+			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
 				setStorageUnit((Unit)newValue);
 				return;
 		}
@@ -128,7 +129,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
+			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
 				setStorageUnit(STORAGE_UNIT_EDEFAULT);
 				return;
 		}
@@ -143,7 +144,7 @@ public class DoubleBinaryMeasurementsImpl extends DataSeriesImpl implements Doub
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
+			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS__STORAGE_UNIT:
 				return STORAGE_UNIT_EDEFAULT == null ? storageUnit != null : !STORAGE_UNIT_EDEFAULT.equals(storageUnit);
 		}
 		return super.eIsSet(featureID);

@@ -17,13 +17,13 @@ import org.junit.Before;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDaoTest;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataFactoryImpl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedNominalMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelFactoryImpl;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**JUnit test for file-backed NominalMeasurementsDao.
@@ -64,7 +64,7 @@ public class FileNominalMeasurementsDaoTest extends NominalMeasurementsDaoTest {
 				.getName(), "." + EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION);
 		tempFileEg.deleteOnExit();
 		// Build model
-		EmfmodelFactory ef = EmfmodelFactoryImpl.eINSTANCE;
+		ExperimentDataFactory ef = ExperimentDataFactoryImpl.eINSTANCE;
 		Resource resource = resourceSet.createResource(URI.createFileURI(tempFileEg.getAbsolutePath()));
 		ExperimentGroup eg = ef.createExperimentGroup();
 		NominalMeasure nm = ef.createNominalMeasure();

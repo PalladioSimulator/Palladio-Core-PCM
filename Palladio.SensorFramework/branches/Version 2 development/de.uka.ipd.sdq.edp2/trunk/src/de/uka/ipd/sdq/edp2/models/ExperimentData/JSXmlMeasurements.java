@@ -17,7 +17,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * <!-- end-model-doc -->
  *
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getJSXmlMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getJSXmlMeasurements()
  * @model
  * @generated
  */

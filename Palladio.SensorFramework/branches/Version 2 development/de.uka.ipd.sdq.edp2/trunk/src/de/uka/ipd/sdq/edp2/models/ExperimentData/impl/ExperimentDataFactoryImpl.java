@@ -38,24 +38,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory {
+public class ExperimentDataFactoryImpl extends EFactoryImpl implements ExperimentDataFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EmfmodelFactory init() {
+	public static ExperimentDataFactory init() {
 		try {
-			EmfmodelFactory theEmfmodelFactory = (EmfmodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/EDP2/0.9.0"); 
-			if (theEmfmodelFactory != null) {
-				return theEmfmodelFactory;
+			ExperimentDataFactory theExperimentDataFactory = (ExperimentDataFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1"); 
+			if (theExperimentDataFactory != null) {
+				return theExperimentDataFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new EmfmodelFactoryImpl();
+		return new ExperimentDataFactoryImpl();
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EmfmodelFactoryImpl() {
+	public ExperimentDataFactoryImpl() {
 		super();
 	}
 
@@ -76,36 +76,36 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case EmfmodelPackage.MEASUREMENT_RANGE: return createMeasurementRange();
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
-			case EmfmodelPackage.RAW_MEASUREMENTS: return createRawMeasurements();
-			case EmfmodelPackage.NOMINAL_STATISTICS: return createNominalStatistics();
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
-			case EmfmodelPackage.FIXED_INTERVALS: return createFixedIntervals();
-			case EmfmodelPackage.MEASUREMENT: return createMeasurement();
-			case EmfmodelPackage.EXPERIMENT_GROUP: return createExperimentGroup();
-			case EmfmodelPackage.EXPERIMENT_SETTING: return createExperimentSetting();
-			case EmfmodelPackage.EXPERIMENT_RUN: return createExperimentRun();
-			case EmfmodelPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
-			case EmfmodelPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
-			case EmfmodelPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
-			case EmfmodelPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
-			case EmfmodelPackage.CATEGORY_IDENTIFIER: return createCategoryIdentifier();
-			case EmfmodelPackage.NOMINAL_MEASUREMENTS: return createNominalMeasurements();
-			case EmfmodelPackage.NOMINAL_MEASURE: return createNominalMeasure();
-			case EmfmodelPackage.DOUBLE_BINARY_MEASUREMENTS: return createDoubleBinaryMeasurements();
-			case EmfmodelPackage.ORDINAL_MEASURE: return createOrdinalMeasure();
-			case EmfmodelPackage.JS_XML_MEASUREMENTS: return createJSXmlMeasurements();
-			case EmfmodelPackage.DESCRIPTIONS: return createDescriptions();
-			case EmfmodelPackage.METRIC_SET_DESCRIPTION: return createMetricSetDescription();
-			case EmfmodelPackage.ORDINAL_STATISTICS: return createOrdinalStatistics();
-			case EmfmodelPackage.PERCENTILE: return createPercentile();
-			case EmfmodelPackage.INTERVAL_STATISTICS: return createIntervalStatistics();
-			case EmfmodelPackage.RATIO_STATISTICS: return createRatioStatistics();
-			case EmfmodelPackage.OBSERVED_NOMINAL_MEASUREMENTS: return createObservedNominalMeasurements();
-			case EmfmodelPackage.OBSERVED_CATEGORY: return createObservedCategory();
-			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_NOMINAL_MEASUREMENTS: return createSensorFrameworkV1NominalMeasurements();
-			case EmfmodelPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS: return createSensorFrameworkV1DoubleBinaryMeasurements();
+			case ExperimentDataPackage.MEASUREMENT_RANGE: return createMeasurementRange();
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
+			case ExperimentDataPackage.RAW_MEASUREMENTS: return createRawMeasurements();
+			case ExperimentDataPackage.NOMINAL_STATISTICS: return createNominalStatistics();
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
+			case ExperimentDataPackage.FIXED_INTERVALS: return createFixedIntervals();
+			case ExperimentDataPackage.MEASUREMENT: return createMeasurement();
+			case ExperimentDataPackage.EXPERIMENT_GROUP: return createExperimentGroup();
+			case ExperimentDataPackage.EXPERIMENT_SETTING: return createExperimentSetting();
+			case ExperimentDataPackage.EXPERIMENT_RUN: return createExperimentRun();
+			case ExperimentDataPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
+			case ExperimentDataPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
+			case ExperimentDataPackage.BASE_METRIC_DESCRIPTION: return createBaseMetricDescription();
+			case ExperimentDataPackage.CATEGORY_IDENTIFIER: return createCategoryIdentifier();
+			case ExperimentDataPackage.DESCRIPTIONS: return createDescriptions();
+			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS: return createDoubleBinaryMeasurements();
+			case ExperimentDataPackage.INTERVAL_STATISTICS: return createIntervalStatistics();
+			case ExperimentDataPackage.ORDINAL_STATISTICS: return createOrdinalStatistics();
+			case ExperimentDataPackage.PERCENTILE: return createPercentile();
+			case ExperimentDataPackage.JS_XML_MEASUREMENTS: return createJSXmlMeasurements();
+			case ExperimentDataPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
+			case ExperimentDataPackage.METRIC_SET_DESCRIPTION: return createMetricSetDescription();
+			case ExperimentDataPackage.NOMINAL_MEASURE: return createNominalMeasure();
+			case ExperimentDataPackage.NOMINAL_MEASUREMENTS: return createNominalMeasurements();
+			case ExperimentDataPackage.OBSERVED_CATEGORY: return createObservedCategory();
+			case ExperimentDataPackage.OBSERVED_NOMINAL_MEASUREMENTS: return createObservedNominalMeasurements();
+			case ExperimentDataPackage.ORDINAL_MEASURE: return createOrdinalMeasure();
+			case ExperimentDataPackage.RATIO_STATISTICS: return createRatioStatistics();
+			case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS: return createSensorFrameworkV1DoubleBinaryMeasurements();
+			case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_NOMINAL_MEASUREMENTS: return createSensorFrameworkV1NominalMeasurements();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -119,21 +119,21 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+			case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
 				return createPersistenceKindOptionsFromString(eDataType, initialValue);
-			case EmfmodelPackage.CAPTURE_TYPE:
+			case ExperimentDataPackage.CAPTURE_TYPE:
 				return createCaptureTypeFromString(eDataType, initialValue);
-			case EmfmodelPackage.DATA_TYPE:
-				return createDataTypeFromString(eDataType, initialValue);
-			case EmfmodelPackage.SCALE:
+			case ExperimentDataPackage.SCALE:
 				return createScaleFromString(eDataType, initialValue);
-			case EmfmodelPackage.MONOTONIC:
+			case ExperimentDataPackage.MONOTONIC:
 				return createMonotonicFromString(eDataType, initialValue);
-			case EmfmodelPackage.EJS_MEASURE:
+			case ExperimentDataPackage.DATA_TYPE:
+				return createDataTypeFromString(eDataType, initialValue);
+			case ExperimentDataPackage.EJS_MEASURE:
 				return createEJSMeasureFromString(eDataType, initialValue);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
+			case ExperimentDataPackage.EJS_DURATION_MEASURE:
 				return createEJSDurationMeasureFromString(eDataType, initialValue);
-			case EmfmodelPackage.EJS_UNIT:
+			case ExperimentDataPackage.EJS_UNIT:
 				return createEJSUnitFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -148,21 +148,21 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case EmfmodelPackage.PERSISTENCE_KIND_OPTIONS:
+			case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
 				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
-			case EmfmodelPackage.CAPTURE_TYPE:
+			case ExperimentDataPackage.CAPTURE_TYPE:
 				return convertCaptureTypeToString(eDataType, instanceValue);
-			case EmfmodelPackage.DATA_TYPE:
-				return convertDataTypeToString(eDataType, instanceValue);
-			case EmfmodelPackage.SCALE:
+			case ExperimentDataPackage.SCALE:
 				return convertScaleToString(eDataType, instanceValue);
-			case EmfmodelPackage.MONOTONIC:
+			case ExperimentDataPackage.MONOTONIC:
 				return convertMonotonicToString(eDataType, instanceValue);
-			case EmfmodelPackage.EJS_MEASURE:
+			case ExperimentDataPackage.DATA_TYPE:
+				return convertDataTypeToString(eDataType, instanceValue);
+			case ExperimentDataPackage.EJS_MEASURE:
 				return convertEJSMeasureToString(eDataType, instanceValue);
-			case EmfmodelPackage.EJS_DURATION_MEASURE:
+			case ExperimentDataPackage.EJS_DURATION_MEASURE:
 				return convertEJSDurationMeasureToString(eDataType, instanceValue);
-			case EmfmodelPackage.EJS_UNIT:
+			case ExperimentDataPackage.EJS_UNIT:
 				return convertEJSUnitToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -630,8 +630,8 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EmfmodelPackage getEmfmodelPackage() {
-		return (EmfmodelPackage)getEPackage();
+	public ExperimentDataPackage getExperimentDataPackage() {
+		return (ExperimentDataPackage)getEPackage();
 	}
 
 	/**
@@ -641,8 +641,8 @@ public class EmfmodelFactoryImpl extends EFactoryImpl implements EmfmodelFactory
 	 * @generated
 	 */
 	@Deprecated
-	public static EmfmodelPackage getPackage() {
-		return EmfmodelPackage.eINSTANCE;
+	public static ExperimentDataPackage getPackage() {
+		return ExperimentDataPackage.eINSTANCE;
 	}
 
 } //EmfmodelFactoryImpl

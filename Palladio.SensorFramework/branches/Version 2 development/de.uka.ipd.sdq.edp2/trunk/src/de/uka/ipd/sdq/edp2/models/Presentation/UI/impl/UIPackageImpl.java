@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.edp2.models.Presentation.UI.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
 import de.uka.ipd.sdq.edp2.models.Presentation.PresentationPackage;
@@ -129,21 +131,21 @@ public class UIPackageImpl extends EPackageImpl implements UIPackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		EmfmodelPackageImpl theEmfmodelPackage = (EmfmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) instanceof EmfmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) : EmfmodelPackage.eINSTANCE);
-		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		PresentationPackageImpl thePresentationPackage = (PresentationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) instanceof PresentationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) : PresentationPackage.eINSTANCE);
+		ExperimentDataPackageImpl theExperimentDataPackage = (ExperimentDataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) instanceof ExperimentDataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) : ExperimentDataPackage.eINSTANCE);
+		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUIPackage.createPackageContents();
-		theEmfmodelPackage.createPackageContents();
-		theRepositoryPackage.createPackageContents();
 		thePresentationPackage.createPackageContents();
+		theExperimentDataPackage.createPackageContents();
+		theRepositoryPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theUIPackage.initializePackageContents();
-		theEmfmodelPackage.initializePackageContents();
-		theRepositoryPackage.initializePackageContents();
 		thePresentationPackage.initializePackageContents();
+		theExperimentDataPackage.initializePackageContents();
+		theRepositoryPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUIPackage.freeze();

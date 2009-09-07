@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
@@ -100,7 +101,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.EXPERIMENT_SETTING;
+		return ExperimentDataPackage.Literals.EXPERIMENT_SETTING;
 	}
 
 	/**
@@ -121,7 +122,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_SETTING__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -131,7 +132,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 */
 	public EList<ExperimentRun> getExperimentRuns() {
 		if (experimentRuns == null) {
-			experimentRuns = new EObjectContainmentWithInverseEList<ExperimentRun>(ExperimentRun.class, this, EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, EmfmodelPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING);
+			experimentRuns = new EObjectContainmentWithInverseEList<ExperimentRun>(ExperimentRun.class, this, ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS, ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING);
 		}
 		return experimentRuns;
 	}
@@ -143,7 +144,7 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	 */
 	public EList<Edp2Measure> getMeasure() {
 		if (measure == null) {
-			measure = new EObjectWithInverseResolvingEList.ManyInverse<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_SETTING__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS);
+			measure = new EObjectWithInverseResolvingEList.ManyInverse<Edp2Measure>(Edp2Measure.class, this, ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE, ExperimentDataPackage.EDP2_MEASURE__EXPERIMENT_SETTINGS);
 		}
 		return measure;
 	}
@@ -157,9 +158,9 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExperimentRuns()).basicAdd(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasure()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -173,9 +174,9 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return ((InternalEList<?>)getExperimentRuns()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				return ((InternalEList<?>)getMeasure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -189,11 +190,11 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__DESCRIPTION:
 				return getDescription();
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return getExperimentRuns();
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				return getMeasure();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -208,14 +209,14 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				getExperimentRuns().clear();
 				getExperimentRuns().addAll((Collection<? extends ExperimentRun>)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				getMeasure().clear();
 				getMeasure().addAll((Collection<? extends Edp2Measure>)newValue);
 				return;
@@ -231,13 +232,13 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				getExperimentRuns().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				getMeasure().clear();
 				return;
 		}
@@ -252,11 +253,11 @@ public class ExperimentSettingImpl extends PropertyableImpl implements Experimen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_SETTING__DESCRIPTION:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case EmfmodelPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__EXPERIMENT_RUNS:
 				return experimentRuns != null && !experimentRuns.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_SETTING__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_SETTING__MEASURE:
 				return measure != null && !measure.isEmpty();
 		}
 		return super.eIsSet(featureID);

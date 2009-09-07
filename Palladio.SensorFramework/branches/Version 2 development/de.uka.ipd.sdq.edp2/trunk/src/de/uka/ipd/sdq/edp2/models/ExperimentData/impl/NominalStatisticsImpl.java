@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalStatistics;
 
@@ -72,7 +73,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.NOMINAL_STATISTICS;
+		return ExperimentDataPackage.Literals.NOMINAL_STATISTICS;
 	}
 
 	/**
@@ -93,7 +94,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 		long oldCount = count;
 		count = newCount;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.NOMINAL_STATISTICS__COUNT, oldCount, count));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.NOMINAL_STATISTICS__COUNT, oldCount, count));
 	}
 
 	/**
@@ -102,7 +103,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * @generated
 	 */
 	public DataSeries getRawYSeries() {
-		if (eContainerFeatureID() != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES) return null;
 		return (DataSeries)eContainer();
 	}
 
@@ -112,7 +113,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * @generated
 	 */
 	public NotificationChain basicSetRawYSeries(DataSeries newRawYSeries, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRawYSeries, EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRawYSeries, ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES, msgs);
 		return msgs;
 	}
 
@@ -122,19 +123,19 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	 * @generated
 	 */
 	public void setRawYSeries(DataSeries newRawYSeries) {
-		if (newRawYSeries != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES && newRawYSeries != null)) {
+		if (newRawYSeries != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES && newRawYSeries != null)) {
 			if (EcoreUtil.isAncestor(this, newRawYSeries))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRawYSeries != null)
-				msgs = ((InternalEObject)newRawYSeries).eInverseAdd(this, EmfmodelPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
+				msgs = ((InternalEObject)newRawYSeries).eInverseAdd(this, ExperimentDataPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
 			msgs = basicSetRawYSeries(newRawYSeries, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES, newRawYSeries, newRawYSeries));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES, newRawYSeries, newRawYSeries));
 	}
 
 	/**
@@ -145,7 +146,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRawYSeries((DataSeries)otherEnd, msgs);
@@ -161,7 +162,7 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				return basicSetRawYSeries(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -175,8 +176,8 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.DATA_SERIES__STATISTICS, DataSeries.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -189,9 +190,9 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__COUNT:
 				return getCount();
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				return getRawYSeries();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -205,10 +206,10 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__COUNT:
 				setCount((Long)newValue);
 				return;
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				setRawYSeries((DataSeries)newValue);
 				return;
 		}
@@ -223,10 +224,10 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__COUNT:
 				setCount(COUNT_EDEFAULT);
 				return;
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				setRawYSeries((DataSeries)null);
 				return;
 		}
@@ -241,9 +242,9 @@ public class NominalStatisticsImpl extends EObjectImpl implements NominalStatist
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_STATISTICS__COUNT:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__COUNT:
 				return count != COUNT_EDEFAULT;
-			case EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES:
+			case ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES:
 				return getRawYSeries() != null;
 		}
 		return super.eIsSet(featureID);

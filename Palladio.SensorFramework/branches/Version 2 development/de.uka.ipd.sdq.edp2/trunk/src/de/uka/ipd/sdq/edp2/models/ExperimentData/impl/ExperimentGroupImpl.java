@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
@@ -128,7 +129,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.EXPERIMENT_GROUP;
+		return ExperimentDataPackage.Literals.EXPERIMENT_GROUP;
 	}
 
 	/**
@@ -138,7 +139,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 */
 	public EMap<String, Object> getAdditionalInformation() {
 		if (additionalInformation == null) {
-			additionalInformation = new EcoreEMap<String,Object>(EmfmodelPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION);
+			additionalInformation = new EcoreEMap<String,Object>(ExperimentDataPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION);
 		}
 		return additionalInformation;
 	}
@@ -150,7 +151,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 */
 	public EList<ExperimentSetting> getExperimentSettings() {
 		if (experimentSettings == null) {
-			experimentSettings = new EObjectContainmentEList<ExperimentSetting>(ExperimentSetting.class, this, EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS);
+			experimentSettings = new EObjectContainmentEList<ExperimentSetting>(ExperimentSetting.class, this, ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS);
 		}
 		return experimentSettings;
 	}
@@ -166,7 +167,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			repository = (Repository)eResolveProxy(oldRepository);
 			if (repository != oldRepository) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, repository));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, repository));
 			}
 		}
 		return repository;
@@ -190,7 +191,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 		Repository oldRepository = repository;
 		repository = newRepository;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, newRepository);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY, oldRepository, newRepository);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -212,7 +213,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY, newRepository, newRepository));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY, newRepository, newRepository));
 	}
 
 	/**
@@ -233,7 +234,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 		String oldPurpose = purpose;
 		purpose = newPurpose;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE, oldPurpose, purpose));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.EXPERIMENT_GROUP__PURPOSE, oldPurpose, purpose));
 	}
 
 	/**
@@ -243,7 +244,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	 */
 	public EList<Edp2Measure> getMeasure() {
 		if (measure == null) {
-			measure = new EObjectContainmentWithInverseEList<Edp2Measure>(Edp2Measure.class, this, EmfmodelPackage.EXPERIMENT_GROUP__MEASURE, EmfmodelPackage.EDP2_MEASURE__EXPERIMENT_GROUP);
+			measure = new EObjectContainmentWithInverseEList<Edp2Measure>(Edp2Measure.class, this, ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE, ExperimentDataPackage.EDP2_MEASURE__EXPERIMENT_GROUP);
 		}
 		return measure;
 	}
@@ -257,11 +258,11 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				if (repository != null)
 					msgs = ((InternalEObject)repository).eInverseRemove(this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, Repository.class, msgs);
 				return basicSetRepository((Repository)otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasure()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -275,13 +276,13 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return ((InternalEList<?>)getExperimentSettings()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				return basicSetRepository(null, msgs);
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				return ((InternalEList<?>)getMeasure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -295,17 +296,17 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
 				if (coreType) return getAdditionalInformation();
 				else return getAdditionalInformation().map();
-			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return getExperimentSettings();
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				if (resolve) return getRepository();
 				return basicGetRepository();
-			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__PURPOSE:
 				return getPurpose();
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				return getMeasure();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -320,20 +321,20 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
 				((EStructuralFeature.Setting)getAdditionalInformation()).set(newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
 				getExperimentSettings().addAll((Collection<? extends ExperimentSetting>)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				setRepository((Repository)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__PURPOSE:
 				setPurpose((String)newValue);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				getMeasure().clear();
 				getMeasure().addAll((Collection<? extends Edp2Measure>)newValue);
 				return;
@@ -349,19 +350,19 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				getExperimentSettings().clear();
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				setRepository((Repository)null);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__PURPOSE:
 				setPurpose(PURPOSE_EDEFAULT);
 				return;
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				getMeasure().clear();
 				return;
 		}
@@ -376,15 +377,15 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__EXPERIMENT_SETTINGS:
 				return experimentSettings != null && !experimentSettings.isEmpty();
-			case EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY:
 				return repository != null;
-			case EmfmodelPackage.EXPERIMENT_GROUP__PURPOSE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__PURPOSE:
 				return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
-			case EmfmodelPackage.EXPERIMENT_GROUP__MEASURE:
+			case ExperimentDataPackage.EXPERIMENT_GROUP__MEASURE:
 				return measure != null && !measure.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -399,7 +400,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Propertyable.class) {
 			switch (derivedFeatureID) {
-				case EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION: return EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION;
+				case ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION: return ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION;
 				default: return -1;
 			}
 		}
@@ -415,7 +416,7 @@ public class ExperimentGroupImpl extends IdentifiableImpl implements ExperimentG
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Propertyable.class) {
 			switch (baseFeatureID) {
-				case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION: return EmfmodelPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION;
+				case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION: return ExperimentDataPackage.EXPERIMENT_GROUP__ADDITIONAL_INFORMATION;
 				default: return -1;
 			}
 		}

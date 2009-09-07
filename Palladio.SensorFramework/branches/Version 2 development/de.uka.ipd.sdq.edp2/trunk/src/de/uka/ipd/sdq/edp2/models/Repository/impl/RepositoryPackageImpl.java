@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import de.uka.ipd.sdq.edp2.MetaDao;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
@@ -103,13 +105,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	private EClass repositoryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum repositoryStatusEEnum = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -156,21 +151,21 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		EmfmodelPackageImpl theEmfmodelPackage = (EmfmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) instanceof EmfmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI) : EmfmodelPackage.eINSTANCE);
 		PresentationPackageImpl thePresentationPackage = (PresentationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) instanceof PresentationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PresentationPackage.eNS_URI) : PresentationPackage.eINSTANCE);
 		UIPackageImpl theUIPackage = (UIPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) instanceof UIPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UIPackage.eNS_URI) : UIPackage.eINSTANCE);
+		ExperimentDataPackageImpl theExperimentDataPackage = (ExperimentDataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) instanceof ExperimentDataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI) : ExperimentDataPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theRepositoryPackage.createPackageContents();
-		theEmfmodelPackage.createPackageContents();
 		thePresentationPackage.createPackageContents();
 		theUIPackage.createPackageContents();
+		theExperimentDataPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRepositoryPackage.initializePackageContents();
-		theEmfmodelPackage.initializePackageContents();
 		thePresentationPackage.initializePackageContents();
 		theUIPackage.initializePackageContents();
+		theExperimentDataPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRepositoryPackage.freeze();
@@ -339,7 +334,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRepository_Status() {
+	public EAttribute getRepository_ReadOnly() {
 		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -348,17 +343,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRepository_ReadOnly() {
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRepository_Descriptions() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -367,16 +353,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getRepository_ExperimentGroups() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getRepositoryStatus() {
-		return repositoryStatusEEnum;
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -432,13 +409,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		repositoryEClass = createEClass(REPOSITORY);
 		createEReference(repositoryEClass, REPOSITORY__REPOSITORIES);
-		createEAttribute(repositoryEClass, REPOSITORY__STATUS);
 		createEAttribute(repositoryEClass, REPOSITORY__READ_ONLY);
 		createEReference(repositoryEClass, REPOSITORY__DESCRIPTIONS);
 		createEReference(repositoryEClass, REPOSITORY__EXPERIMENT_GROUPS);
-
-		// Create enums
-		repositoryStatusEEnum = createEEnum(REPOSITORY_STATUS);
 	}
 
 	/**
@@ -465,7 +438,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EmfmodelPackage theEmfmodelPackage = (EmfmodelPackage)EPackage.Registry.INSTANCE.getEPackage(EmfmodelPackage.eNS_URI);
+		ExperimentDataPackage theExperimentDataPackage = (ExperimentDataPackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentDataPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -476,7 +449,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		localMemoryRepositoryEClass.getESuperTypes().add(this.getRepository());
 		remoteCdoRepositoryEClass.getESuperTypes().add(this.getRepository());
 		localSensorFrameworkRepositoryEClass.getESuperTypes().add(this.getRepository());
-		repositoryEClass.getESuperTypes().add(theEmfmodelPackage.getIdentifiable());
+		repositoryEClass.getESuperTypes().add(theExperimentDataPackage.getIdentifiable());
 		repositoryEClass.getESuperTypes().add(this.getMetaDao());
 
 		// Initialize classes and features; add operations and parameters
@@ -505,20 +478,16 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		initEClass(repositoryEClass, Repository.class, "Repository", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRepository_Repositories(), this.getRepositories(), this.getRepositories_AvailableRepositories(), "repositories", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRepository_Status(), this.getRepositoryStatus(), "status", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRepository_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_Descriptions(), theEmfmodelPackage.getDescription(), theEmfmodelPackage.getDescription_Repository(), "descriptions", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_ExperimentGroups(), theEmfmodelPackage.getExperimentGroup(), theEmfmodelPackage.getExperimentGroup_Repository(), "experimentGroups", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_Descriptions(), theExperimentDataPackage.getDescription(), theExperimentDataPackage.getDescription_Repository(), "descriptions", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_ExperimentGroups(), theExperimentDataPackage.getExperimentGroup(), theExperimentDataPackage.getExperimentGroup_Repository(), "experimentGroups", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(repositoryEClass, null, "resetExperimentGroups", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		addEOperation(repositoryEClass, null, "resetDescriptions", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		// Initialize enums and add enum literals
-		initEEnum(repositoryStatusEEnum, RepositoryStatus.class, "RepositoryStatus");
-		addEEnumLiteral(repositoryStatusEEnum, RepositoryStatus.OPEN);
-		addEEnumLiteral(repositoryStatusEEnum, RepositoryStatus.CLOSED);
-		addEEnumLiteral(repositoryStatusEEnum, RepositoryStatus.DELETED);
+		// Create resource
+		createResource(eNS_URI);
 	}
 
 } //RepositoryPackageImpl

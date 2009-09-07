@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -90,7 +91,7 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY;
+		return ExperimentDataPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY;
 	}
 
 	/**
@@ -111,7 +112,7 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY, oldKey, key));
 	}
 
 	/**
@@ -132,7 +133,7 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 		Object oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE, oldValue, value));
 	}
 
 	/**
@@ -143,9 +144,9 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
 				return getTypedKey();
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
 				return getTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -159,10 +160,10 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
 				setTypedKey((String)newValue);
 				return;
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
 				setTypedValue(newValue);
 				return;
 		}
@@ -177,10 +178,10 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
 				setTypedValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -195,9 +196,9 @@ public class EStringtoEObjectMapEntryImpl extends EObjectImpl implements BasicEM
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case EmfmodelPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
+			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);

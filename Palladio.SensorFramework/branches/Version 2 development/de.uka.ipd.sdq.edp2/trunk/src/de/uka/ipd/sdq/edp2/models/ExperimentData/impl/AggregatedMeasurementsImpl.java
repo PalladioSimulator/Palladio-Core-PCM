@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationCharacterization;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationFunctionDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
@@ -120,7 +121,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.AGGREGATED_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.AGGREGATED_MEASUREMENTS;
 	}
 
 	/**
@@ -129,7 +130,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @generated
 	 */
 	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID() != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE) return null;
 		return (MeasurementRange)eContainer();
 	}
 
@@ -139,7 +140,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @generated
 	 */
 	public NotificationChain basicSetMeasurementRange(MeasurementRange newMeasurementRange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
 		return msgs;
 	}
 
@@ -149,19 +150,19 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * @generated
 	 */
 	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
+		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
 			if (EcoreUtil.isAncestor(this, newMeasurementRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMeasurementRange != null)
-				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
+				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
 			msgs = basicSetMeasurementRange(newMeasurementRange, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
 	}
 
 	/**
@@ -182,7 +183,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		boolean oldValid = valid;
 		valid = newValid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID, oldValid, valid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID, oldValid, valid));
 	}
 
 	/**
@@ -196,7 +197,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			function = (AggregationFunctionDescription)eResolveProxy(oldFunction);
 			if (function != oldFunction) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
 			}
 		}
 		return function;
@@ -220,7 +221,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		AggregationFunctionDescription oldFunction = function;
 		function = newFunction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION, oldFunction, function));
 	}
 
 	/**
@@ -241,7 +242,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		AggregationStatistics oldAggregationStatistics = aggregationStatistics;
 		aggregationStatistics = newAggregationStatistics;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, oldAggregationStatistics, newAggregationStatistics);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, oldAggregationStatistics, newAggregationStatistics);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,14 +257,14 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		if (newAggregationStatistics != aggregationStatistics) {
 			NotificationChain msgs = null;
 			if (aggregationStatistics != null)
-				msgs = ((InternalEObject)aggregationStatistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
+				msgs = ((InternalEObject)aggregationStatistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
 			if (newAggregationStatistics != null)
-				msgs = ((InternalEObject)newAggregationStatistics).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
+				msgs = ((InternalEObject)newAggregationStatistics).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, null, msgs);
 			msgs = basicSetAggregationStatistics(newAggregationStatistics, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, newAggregationStatistics, newAggregationStatistics));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS, newAggregationStatistics, newAggregationStatistics));
 	}
 
 	/**
@@ -277,7 +278,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			aggregationOn = (BaseMetricDescription)eResolveProxy(oldAggregationOn);
 			if (aggregationOn != oldAggregationOn) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
 			}
 		}
 		return aggregationOn;
@@ -301,7 +302,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		BaseMetricDescription oldAggregationOn = aggregationOn;
 		aggregationOn = newAggregationOn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON, oldAggregationOn, aggregationOn));
 	}
 
 	/**
@@ -315,7 +316,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 			metric = (MetricDescription)eResolveProxy(oldMetric);
 			if (metric != oldMetric) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
 			}
 		}
 		return metric;
@@ -339,7 +340,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 		MetricDescription oldMetric = metric;
 		metric = newMetric;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC, oldMetric, metric));
 	}
 
 	/**
@@ -350,7 +351,7 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetMeasurementRange((MeasurementRange)otherEnd, msgs);
@@ -366,9 +367,9 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return basicSetMeasurementRange(null, msgs);
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return basicSetAggregationStatistics(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -382,8 +383,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -396,19 +397,19 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return isValid();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				if (resolve) return getFunction();
 				return basicGetFunction();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return getAggregationStatistics();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
 				if (resolve) return getAggregationOn();
 				return basicGetAggregationOn();
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC:
 				if (resolve) return getMetric();
 				return basicGetMetric();
 		}
@@ -423,22 +424,22 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid((Boolean)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				setFunction((AggregationFunctionDescription)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				setAggregationStatistics((AggregationStatistics)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
 				setAggregationOn((BaseMetricDescription)newValue);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC:
 				setMetric((MetricDescription)newValue);
 				return;
 		}
@@ -453,22 +454,22 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)null);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid(VALID_EDEFAULT);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				setFunction((AggregationFunctionDescription)null);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				setAggregationStatistics((AggregationStatistics)null);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
 				setAggregationOn((BaseMetricDescription)null);
 				return;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC:
 				setMetric((MetricDescription)null);
 				return;
 		}
@@ -483,17 +484,17 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange() != null;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__VALID:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return valid != VALID_EDEFAULT;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
 				return function != null;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return aggregationStatistics != null;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_ON:
 				return aggregationOn != null;
-			case EmfmodelPackage.AGGREGATED_MEASUREMENTS__METRIC:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__METRIC:
 				return metric != null;
 		}
 		return super.eIsSet(featureID);

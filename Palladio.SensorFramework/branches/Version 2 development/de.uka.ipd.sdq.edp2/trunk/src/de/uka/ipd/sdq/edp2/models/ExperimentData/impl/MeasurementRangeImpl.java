@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
@@ -125,7 +126,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.MEASUREMENT_RANGE;
+		return ExperimentDataPackage.Literals.MEASUREMENT_RANGE;
 	}
 
 	/**
@@ -146,7 +147,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		RawMeasurements oldRawMeasurements = rawMeasurements;
 		rawMeasurements = newRawMeasurements;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, oldRawMeasurements, newRawMeasurements);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, oldRawMeasurements, newRawMeasurements);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -161,14 +162,14 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		if (newRawMeasurements != rawMeasurements) {
 			NotificationChain msgs = null;
 			if (rawMeasurements != null)
-				msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
 			if (newRawMeasurements != null)
-				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
 			msgs = basicSetRawMeasurements(newRawMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
 	}
 
 	/**
@@ -189,7 +190,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		Measure oldEndTime = endTime;
 		endTime = newEndTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__END_TIME, oldEndTime, endTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME, oldEndTime, endTime));
 	}
 
 	/**
@@ -210,7 +211,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		Measure oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__START_TIME, oldStartTime, startTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME, oldStartTime, startTime));
 	}
 
 	/**
@@ -219,7 +220,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * @generated
 	 */
 	public Measurement getMeasurement() {
-		if (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT) return null;
 		return (Measurement)eContainer();
 	}
 
@@ -229,7 +230,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * @generated
 	 */
 	public NotificationChain basicSetMeasurement(Measurement newMeasurement, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurement, EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newMeasurement, ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT, msgs);
 		return msgs;
 	}
 
@@ -239,19 +240,19 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * @generated
 	 */
 	public void setMeasurement(Measurement newMeasurement) {
-		if (newMeasurement != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT && newMeasurement != null)) {
+		if (newMeasurement != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT && newMeasurement != null)) {
 			if (EcoreUtil.isAncestor(this, newMeasurement))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMeasurement != null)
-				msgs = ((InternalEObject)newMeasurement).eInverseAdd(this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
+				msgs = ((InternalEObject)newMeasurement).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
 			msgs = basicSetMeasurement(newMeasurement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT, newMeasurement, newMeasurement));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT, newMeasurement, newMeasurement));
 	}
 
 	/**
@@ -261,7 +262,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 */
 	public EList<AggregatedMeasurements> getAggregatedMeasurements() {
 		if (aggregatedMeasurements == null) {
-			aggregatedMeasurements = new EObjectContainmentWithInverseEList<AggregatedMeasurements>(AggregatedMeasurements.class, this, EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, EmfmodelPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE);
+			aggregatedMeasurements = new EObjectContainmentWithInverseEList<AggregatedMeasurements>(AggregatedMeasurements.class, this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE);
 		}
 		return aggregatedMeasurements;
 	}
@@ -275,15 +276,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				if (rawMeasurements != null)
-					msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, null, msgs);
+					msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, null, msgs);
 				return basicSetRawMeasurements((RawMeasurements)otherEnd, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetMeasurement((Measurement)otherEnd, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAggregatedMeasurements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -297,11 +298,11 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				return basicSetRawMeasurements(null, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				return basicSetMeasurement(null, msgs);
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<?>)getAggregatedMeasurements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -315,8 +316,8 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -329,15 +330,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				return getRawMeasurements();
-			case EmfmodelPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
 				return getEndTime();
-			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
 				return getStartTime();
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				return getMeasurement();
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -352,19 +353,19 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
 				setEndTime((Measure)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
 				setStartTime((Measure)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				setMeasurement((Measurement)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
 				getAggregatedMeasurements().addAll((Collection<? extends AggregatedMeasurements>)newValue);
 				return;
@@ -380,19 +381,19 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)null);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
 				setEndTime(END_TIME_EDEFAULT);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				setMeasurement((Measurement)null);
 				return;
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
 				return;
 		}
@@ -407,15 +408,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
 				return rawMeasurements != null;
-			case EmfmodelPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
-			case EmfmodelPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
-			case EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
 				return getMeasurement() != null;
-			case EmfmodelPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
 				return aggregatedMeasurements != null && !aggregatedMeasurements.isEmpty();
 		}
 		return super.eIsSet(featureID);

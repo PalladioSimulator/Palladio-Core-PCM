@@ -7,9 +7,11 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
@@ -107,7 +109,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.NOMINAL_MEASURE;
+		return ExperimentDataPackage.Literals.NOMINAL_MEASURE;
 	}
 
 	/**
@@ -128,7 +130,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 		String oldUuid = uuid;
 		uuid = newUuid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.NOMINAL_MEASURE__UUID, oldUuid, uuid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.NOMINAL_MEASURE__UUID, oldUuid, uuid));
 	}
 
 	/**
@@ -138,7 +140,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	 */
 	public EList<CategoryIdentifier> getDefinedCategoryIdentifiers() {
 		if (definedCategoryIdentifiers == null) {
-			definedCategoryIdentifiers = new EObjectContainmentEList<CategoryIdentifier>(CategoryIdentifier.class, this, EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS);
+			definedCategoryIdentifiers = new EObjectContainmentEList<CategoryIdentifier>(CategoryIdentifier.class, this, ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS);
 		}
 		return definedCategoryIdentifiers;
 	}
@@ -154,7 +156,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 			initialState = (CategoryIdentifier)eResolveProxy(oldInitialState);
 			if (initialState != oldInitialState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE, oldInitialState, initialState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE, oldInitialState, initialState));
 			}
 		}
 		return initialState;
@@ -178,7 +180,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 		CategoryIdentifier oldInitialState = initialState;
 		initialState = newInitialState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE, oldInitialState, initialState));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE, oldInitialState, initialState));
 	}
 
 	/**
@@ -196,8 +198,8 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 EmfmodelValidator.DIAGNOSTIC_SOURCE,
-						 EmfmodelValidator.NOMINAL_MEASURE__PERSISTENCE_KIND_ONLY_EMF_ALLOWED,
+						 ExperimentDataValidator.DIAGNOSTIC_SOURCE,
+						 ExperimentDataValidator.NOMINAL_MEASURE__PERSISTENCE_KIND_ONLY_EMF_ALLOWED,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "PersistenceKindOnlyEmfAllowed", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
@@ -214,7 +216,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
+			case ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
 				return ((InternalEList<?>)getDefinedCategoryIdentifiers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -228,11 +230,11 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_MEASURE__UUID:
+			case ExperimentDataPackage.NOMINAL_MEASURE__UUID:
 				return getUuid();
-			case EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
+			case ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
 				return getDefinedCategoryIdentifiers();
-			case EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE:
+			case ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE:
 				if (resolve) return getInitialState();
 				return basicGetInitialState();
 		}
@@ -248,14 +250,14 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_MEASURE__UUID:
+			case ExperimentDataPackage.NOMINAL_MEASURE__UUID:
 				setUuid((String)newValue);
 				return;
-			case EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
+			case ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
 				getDefinedCategoryIdentifiers().clear();
 				getDefinedCategoryIdentifiers().addAll((Collection<? extends CategoryIdentifier>)newValue);
 				return;
-			case EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE:
+			case ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE:
 				setInitialState((CategoryIdentifier)newValue);
 				return;
 		}
@@ -270,13 +272,13 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_MEASURE__UUID:
+			case ExperimentDataPackage.NOMINAL_MEASURE__UUID:
 				setUuid(UUID_EDEFAULT);
 				return;
-			case EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
+			case ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
 				getDefinedCategoryIdentifiers().clear();
 				return;
-			case EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE:
+			case ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE:
 				setInitialState((CategoryIdentifier)null);
 				return;
 		}
@@ -291,11 +293,11 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.NOMINAL_MEASURE__UUID:
+			case ExperimentDataPackage.NOMINAL_MEASURE__UUID:
 				return UUID_EDEFAULT == null ? uuid != null : !UUID_EDEFAULT.equals(uuid);
-			case EmfmodelPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
+			case ExperimentDataPackage.NOMINAL_MEASURE__DEFINED_CATEGORY_IDENTIFIERS:
 				return definedCategoryIdentifiers != null && !definedCategoryIdentifiers.isEmpty();
-			case EmfmodelPackage.NOMINAL_MEASURE__INITIAL_STATE:
+			case ExperimentDataPackage.NOMINAL_MEASURE__INITIAL_STATE:
 				return initialState != null;
 		}
 		return super.eIsSet(featureID);
@@ -310,7 +312,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Identifiable.class) {
 			switch (derivedFeatureID) {
-				case EmfmodelPackage.NOMINAL_MEASURE__UUID: return EmfmodelPackage.IDENTIFIABLE__UUID;
+				case ExperimentDataPackage.NOMINAL_MEASURE__UUID: return ExperimentDataPackage.IDENTIFIABLE__UUID;
 				default: return -1;
 			}
 		}
@@ -326,7 +328,7 @@ public class NominalMeasureImpl extends Edp2MeasureImpl implements NominalMeasur
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Identifiable.class) {
 			switch (baseFeatureID) {
-				case EmfmodelPackage.IDENTIFIABLE__UUID: return EmfmodelPackage.NOMINAL_MEASURE__UUID;
+				case ExperimentDataPackage.IDENTIFIABLE__UUID: return ExperimentDataPackage.NOMINAL_MEASURE__UUID;
 				default: return -1;
 			}
 		}

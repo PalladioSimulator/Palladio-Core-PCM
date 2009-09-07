@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.Repository;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -44,7 +45,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http:///EDP2/Repository.ecore";
+	String eNS_URI = "http://sdq.ipd.uka.de/EDP2/Repository/0.9.1";
 
 	/**
 	 * The package namespace name.
@@ -52,7 +53,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "EDP2.Repository";
+	String eNS_PREFIX = "de.uka.ipd.sdq.edp2.models";
 
 	/**
 	 * The singleton instance of the package.
@@ -79,7 +80,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__UUID = EmfmodelPackage.IDENTIFIABLE__UUID;
+	int REPOSITORY__UUID = ExperimentDataPackage.IDENTIFIABLE__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' container reference.
@@ -88,16 +89,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__REPOSITORIES = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY__STATUS = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
+	int REPOSITORY__REPOSITORIES = ExperimentDataPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -106,7 +98,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__READ_ONLY = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
+	int REPOSITORY__READ_ONLY = ExperimentDataPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Descriptions</b></em>' reference list.
@@ -115,7 +107,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DESCRIPTIONS = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
+	int REPOSITORY__DESCRIPTIONS = ExperimentDataPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Experiment Groups</b></em>' reference list.
@@ -124,7 +116,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__EXPERIMENT_GROUPS = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
+	int REPOSITORY__EXPERIMENT_GROUPS = ExperimentDataPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -133,7 +125,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = EmfmodelPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
+	int REPOSITORY_FEATURE_COUNT = ExperimentDataPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.Repository.impl.LocalDirectoryRepositoryImpl <em>Local Directory Repository</em>}' class.
@@ -162,15 +154,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_DIRECTORY_REPOSITORY__REPOSITORIES = REPOSITORY__REPOSITORIES;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_DIRECTORY_REPOSITORY__STATUS = REPOSITORY__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -246,15 +229,6 @@ public interface RepositoryPackage extends EPackage {
 	int LOCAL_MEMORY_REPOSITORY__REPOSITORIES = REPOSITORY__REPOSITORIES;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_MEMORY_REPOSITORY__STATUS = REPOSITORY__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,15 +302,6 @@ public interface RepositoryPackage extends EPackage {
 	int REMOTE_CDO_REPOSITORY__REPOSITORIES = REPOSITORY__REPOSITORIES;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REMOTE_CDO_REPOSITORY__STATUS = REPOSITORY__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,15 +373,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__REPOSITORIES = REPOSITORY__REPOSITORIES;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY__STATUS = REPOSITORY__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -565,17 +521,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int META_DAO_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus <em>Status</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getRepositoryStatus()
-	 * @generated
-	 */
-	int REPOSITORY_STATUS = 9;
-
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository <em>Local Directory Repository</em>}'.
@@ -759,17 +704,6 @@ public interface RepositoryPackage extends EPackage {
 	EReference getRepository_Repositories();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Status</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.Repository#getStatus()
-	 * @see #getRepository()
-	 * @generated
-	 */
-	EAttribute getRepository_Status();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.Repository.Repository#isReadOnly <em>Read Only</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -801,16 +735,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRepository_ExperimentGroups();
-
-	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Status</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus
-	 * @generated
-	 */
-	EEnum getRepositoryStatus();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -989,14 +913,6 @@ public interface RepositoryPackage extends EPackage {
 		EReference REPOSITORY__REPOSITORIES = eINSTANCE.getRepository_Repositories();
 
 		/**
-		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPOSITORY__STATUS = eINSTANCE.getRepository_Status();
-
-		/**
 		 * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1019,16 +935,6 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY__EXPERIMENT_GROUPS = eINSTANCE.getRepository_ExperimentGroups();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus <em>Status</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus
-		 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getRepositoryStatus()
-		 * @generated
-		 */
-		EEnum REPOSITORY_STATUS = eINSTANCE.getRepositoryStatus();
 
 	}
 

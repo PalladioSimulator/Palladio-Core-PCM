@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
 
@@ -57,7 +58,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.OBSERVED_CATEGORY;
+		return ExperimentDataPackage.Literals.OBSERVED_CATEGORY;
 	}
 
 	/**
@@ -71,7 +72,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 			categoryIdentifier = (CategoryIdentifier)eResolveProxy(oldCategoryIdentifier);
 			if (categoryIdentifier != oldCategoryIdentifier) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER, oldCategoryIdentifier, categoryIdentifier));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER, oldCategoryIdentifier, categoryIdentifier));
 			}
 		}
 		return categoryIdentifier;
@@ -95,7 +96,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 		CategoryIdentifier oldCategoryIdentifier = categoryIdentifier;
 		categoryIdentifier = newCategoryIdentifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER, oldCategoryIdentifier, categoryIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER, oldCategoryIdentifier, categoryIdentifier));
 	}
 
 	/**
@@ -106,7 +107,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
+			case ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
 				if (resolve) return getCategoryIdentifier();
 				return basicGetCategoryIdentifier();
 		}
@@ -121,7 +122,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
+			case ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
 				setCategoryIdentifier((CategoryIdentifier)newValue);
 				return;
 		}
@@ -136,7 +137,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
+			case ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
 				setCategoryIdentifier((CategoryIdentifier)null);
 				return;
 		}
@@ -151,7 +152,7 @@ public class ObservedCategoryImpl extends EObjectImpl implements ObservedCategor
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
+			case ExperimentDataPackage.OBSERVED_CATEGORY__CATEGORY_IDENTIFIER:
 				return categoryIdentifier != null;
 		}
 		return super.eIsSet(featureID);

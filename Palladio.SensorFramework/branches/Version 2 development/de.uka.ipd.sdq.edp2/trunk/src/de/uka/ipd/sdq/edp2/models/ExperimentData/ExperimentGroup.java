@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentGroup()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup()
  * @model
  * @generated
  */
@@ -46,7 +46,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Settings</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentGroup_ExperimentSettings()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup_ExperimentSettings()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repository</em>' reference.
 	 * @see #setRepository(Repository)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentGroup_Repository()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup_Repository()
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.Repository#getExperimentGroups
 	 * @model opposite="experimentGroups" ordered="false"
 	 * @generated
@@ -90,7 +90,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Purpose</em>' attribute.
 	 * @see #setPurpose(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentGroup_Purpose()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup_Purpose()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -117,7 +117,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentGroup_Measure()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup_Measure()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure#getExperimentGroup
 	 * @model opposite="experimentGroup" containment="true" ordered="false"
 	 * @generated

@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Propertyable;
 
@@ -62,7 +63,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.PROPERTYABLE;
+		return ExperimentDataPackage.Literals.PROPERTYABLE;
 	}
 
 	/**
@@ -72,7 +73,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	 */
 	public EMap<String, Object> getAdditionalInformation() {
 		if (additionalInformation == null) {
-			additionalInformation = new EcoreEMap<String,Object>(EmfmodelPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION);
+			additionalInformation = new EcoreEMap<String,Object>(ExperimentDataPackage.Literals.ESTRINGTO_EOBJECT_MAP_ENTRY, EStringtoEObjectMapEntryImpl.class, this, ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION);
 		}
 		return additionalInformation;
 	}
@@ -85,7 +86,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -99,7 +100,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
 				if (coreType) return getAdditionalInformation();
 				else return getAdditionalInformation().map();
 		}
@@ -114,7 +115,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
 				((EStructuralFeature.Setting)getAdditionalInformation()).set(newValue);
 				return;
 		}
@@ -129,7 +130,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
 		}
@@ -144,7 +145,7 @@ public abstract class PropertyableImpl extends EObjectImpl implements Propertyab
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
+			case ExperimentDataPackage.PROPERTYABLE__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
 		}
 		return super.eIsSet(featureID);

@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentSetting()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentSetting()
  * @model
  * @generated
  */
@@ -41,7 +41,7 @@ public interface ExperimentSetting extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentSetting_Description()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentSetting_Description()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -68,7 +68,7 @@ public interface ExperimentSetting extends Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Experiment Runs</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentSetting_ExperimentRuns()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentSetting_ExperimentRuns()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getExperimentSetting
 	 * @model opposite="experimentSetting" containment="true" ordered="false"
 	 * @generated
@@ -86,7 +86,7 @@ public interface ExperimentSetting extends Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measure</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getExperimentSetting_Measure()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentSetting_Measure()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure#getExperimentSettings
 	 * @model opposite="experimentSettings" ordered="false"
 	 * @generated

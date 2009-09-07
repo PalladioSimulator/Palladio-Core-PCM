@@ -24,7 +24,7 @@ import javax.measure.unit.Unit;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDoubleBinaryMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDoubleBinaryMeasurements()
  * @model
  * @generated
  */
@@ -39,8 +39,8 @@ public interface DoubleBinaryMeasurements extends DataSeries {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Storage Unit</em>' attribute.
 	 * @see #setStorageUnit(Unit)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDoubleBinaryMeasurements_StorageUnit()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSUnit" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDoubleBinaryMeasurements_StorageUnit()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit" required="true" ordered="false"
 	 * @generated
 	 */
 	Unit getStorageUnit();

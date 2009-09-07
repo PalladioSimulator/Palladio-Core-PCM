@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
@@ -68,7 +69,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.RAW_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.RAW_MEASUREMENTS;
 	}
 
 	/**
@@ -78,7 +79,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 */
 	public EList<DataSeries> getDataSeries() {
 		if (dataSeries == null) {
-			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS);
+			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES, ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS);
 		}
 		return dataSeries;
 	}
@@ -89,7 +90,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * @generated
 	 */
 	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID() != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE) return null;
 		return (MeasurementRange)eContainer();
 	}
 
@@ -99,7 +100,7 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * @generated
 	 */
 	public NotificationChain basicSetMeasurementRange(MeasurementRange newMeasurementRange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
 		return msgs;
 	}
 
@@ -109,19 +110,19 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * @generated
 	 */
 	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
+		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
 			if (EcoreUtil.isAncestor(this, newMeasurementRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newMeasurementRange != null)
-				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
+				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
 			msgs = basicSetMeasurementRange(newMeasurementRange, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
 	}
 
 	/**
@@ -133,9 +134,9 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetMeasurementRange((MeasurementRange)otherEnd, msgs);
@@ -151,9 +152,9 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return basicSetMeasurementRange(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -167,8 +168,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -181,9 +182,9 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return getDataSeries();
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -198,11 +199,11 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
 				return;
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)newValue);
 				return;
 		}
@@ -217,10 +218,10 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				return;
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				setMeasurementRange((MeasurementRange)null);
 				return;
 		}
@@ -235,9 +236,9 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return dataSeries != null && !dataSeries.isEmpty();
-			case EmfmodelPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
 				return getMeasurementRange() != null;
 		}
 		return super.eIsSet(featureID);

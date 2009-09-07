@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="models"
-    nsURI="http://sdq.ipd.uka.de/EDP2/0.9.0" nsPrefix="de.uka.ipd.sdq.edp2">
+    nsURI="http://sdq.ipd.uka.de/EDP2/0.9.1" nsPrefix="de.uka.ipd.sdq.edp2">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Experiment Data Persistency and Presentation"/>
   </eAnnotations>
@@ -136,7 +136,8 @@
     <eSubpackages name="DataAccess" nsURI="http:///EDP2/Presentation/DataAccess.ecore"
         nsPrefix="EDP2.Presentation.DataAccess"/>
   </eSubpackages>
-  <eSubpackages name="ExperimentData" nsURI="http:///EDP2/ExperimentData.ecore" nsPrefix="EDP2.ExperimentData">
+  <eSubpackages name="ExperimentData" nsURI="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1"
+      nsPrefix="de.uka.ipd.sdq.edp2.models">
     <eClassifiers xsi:type="ecore:EClass" name="AggregatedMeasurements" abstract="true"
         eSuperTypes="#//ExperimentData/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="measurementRange" ordered="false"
@@ -543,7 +544,8 @@
       <eLiterals name="Qualitative" value="1"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="Repository" nsURI="http:///EDP2/Repository.ecore" nsPrefix="EDP2.Repository">
+  <eSubpackages name="Repository" nsURI="http://sdq.ipd.uka.de/EDP2/Repository/0.9.1"
+      nsPrefix="de.uka.ipd.sdq.edp2.models">
     <eClassifiers xsi:type="ecore:EClass" name="LocalDirectoryRepository" eSuperTypes="#//Repository/Repository">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

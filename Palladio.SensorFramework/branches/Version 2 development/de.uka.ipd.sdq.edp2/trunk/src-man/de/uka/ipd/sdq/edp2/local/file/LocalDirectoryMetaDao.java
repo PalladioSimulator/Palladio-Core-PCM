@@ -24,16 +24,16 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import de.uka.ipd.sdq.edp.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MetaDaoImpl;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
+import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**DAO to access the meta data stored in a local directory.
@@ -160,6 +160,9 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 					return false;
 				}
 			} catch (IOException e) {
+				logger.log(Level.WARNING, "File " + directory.getAbsolutePath()
+						+ "did not contain a valid EMF model. Reason: "
+						+ e.getMessage());
 				resourceSet = null;
 				return false;
 			}

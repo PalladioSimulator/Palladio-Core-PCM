@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRawMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRawMeasurements()
  * @model
  * @generated
  */
@@ -41,7 +41,7 @@ public interface RawMeasurements extends Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Series</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRawMeasurements_DataSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRawMeasurements_DataSeries()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries#getRawMeasurements
 	 * @model opposite="rawMeasurements" containment="true" required="true" ordered="false"
 	 * @generated
@@ -59,7 +59,7 @@ public interface RawMeasurements extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement Range</em>' container reference.
 	 * @see #setMeasurementRange(MeasurementRange)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getRawMeasurements_MeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRawMeasurements_MeasurementRange()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getRawMeasurements
 	 * @model opposite="rawMeasurements" required="true" transient="false" ordered="false"
 	 * @generated

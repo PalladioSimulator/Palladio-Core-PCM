@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.uka.ipd.sdq.edp.internal;x-friends:="de.uka.ipd.sdq.edp2.tests",
- de.uka.ipd.sdq.edp2,
+Export-Package: de.uka.ipd.sdq.edp2,
  de.uka.ipd.sdq.edp2.impl,
+ de.uka.ipd.sdq.edp2.intrnal;x-friends:="de.uka.ipd.sdq.edp2.tests",
  de.uka.ipd.sdq.edp2.local.file,
  de.uka.ipd.sdq.edp2.models.ExperimentData,
  de.uka.ipd.sdq.edp2.models.ExperimentData.impl,

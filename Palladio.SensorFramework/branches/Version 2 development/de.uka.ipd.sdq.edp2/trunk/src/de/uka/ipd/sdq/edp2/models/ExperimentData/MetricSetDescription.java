@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMetricSetDescription()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMetricSetDescription()
  * @model
  * @generated
  */
@@ -35,7 +35,7 @@ public interface MetricSetDescription extends MetricDescription {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subsumed Metrics</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMetricSetDescription_SubsumedMetrics()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMetricSetDescription_SubsumedMetrics()
 	 * @model required="true"
 	 * @generated
 	 */

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalStatistics()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalStatistics()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface NominalStatistics extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Count</em>' attribute.
 	 * @see #setCount(long)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalStatistics_Count()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalStatistics_Count()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface NominalStatistics extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw YSeries</em>' container reference.
 	 * @see #setRawYSeries(DataSeries)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getNominalStatistics_RawYSeries()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getNominalStatistics_RawYSeries()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries#getStatistics
 	 * @model opposite="statistics" required="true" transient="false" ordered="false"
 	 * @generated

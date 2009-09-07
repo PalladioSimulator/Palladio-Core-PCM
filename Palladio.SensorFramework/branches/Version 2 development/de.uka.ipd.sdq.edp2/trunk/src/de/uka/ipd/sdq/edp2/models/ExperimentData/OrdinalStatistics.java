@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalStatistics()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalStatistics()
  * @model
  * @generated
  */
@@ -40,8 +40,8 @@ public interface OrdinalStatistics extends NominalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Minimum</em>' attribute.
 	 * @see #setMinimum(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalStatistics_Minimum()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalStatistics_Minimum()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getMinimum();
@@ -66,8 +66,8 @@ public interface OrdinalStatistics extends NominalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maximum</em>' attribute.
 	 * @see #setMaximum(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalStatistics_Maximum()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalStatistics_Maximum()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getMaximum();
@@ -92,8 +92,8 @@ public interface OrdinalStatistics extends NominalStatistics {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Median</em>' attribute.
 	 * @see #setMedian(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalStatistics_Median()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSMeasure" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalStatistics_Median()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" ordered="false"
 	 * @generated
 	 */
 	Measure getMedian();
@@ -118,7 +118,7 @@ public interface OrdinalStatistics extends NominalStatistics {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Percentiles</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalStatistics_Percentiles()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalStatistics_Percentiles()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */

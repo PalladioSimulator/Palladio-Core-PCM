@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measure;
@@ -81,7 +82,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.MEASUREMENT;
+		return ExperimentDataPackage.Literals.MEASUREMENT;
 	}
 
 	/**
@@ -95,7 +96,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 			measure = (Edp2Measure)eResolveProxy(oldMeasure);
 			if (measure != oldMeasure) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmfmodelPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
 			}
 		}
 		return measure;
@@ -119,7 +120,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 		Edp2Measure oldMeasure = measure;
 		measure = newMeasure;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT__MEASURE, oldMeasure, measure));
 	}
 
 	/**
@@ -128,7 +129,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 */
 	public ExperimentRun getExperimentRun() {
-		if (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN) return null;
 		return (ExperimentRun)eContainer();
 	}
 
@@ -138,7 +139,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 */
 	public NotificationChain basicSetExperimentRun(ExperimentRun newExperimentRun, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newExperimentRun, EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newExperimentRun, ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN, msgs);
 		return msgs;
 	}
 
@@ -148,19 +149,19 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 * @generated
 	 */
 	public void setExperimentRun(ExperimentRun newExperimentRun) {
-		if (newExperimentRun != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN && newExperimentRun != null)) {
+		if (newExperimentRun != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN && newExperimentRun != null)) {
 			if (EcoreUtil.isAncestor(this, newExperimentRun))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newExperimentRun != null)
-				msgs = ((InternalEObject)newExperimentRun).eInverseAdd(this, EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentRun.class, msgs);
+				msgs = ((InternalEObject)newExperimentRun).eInverseAdd(this, ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentRun.class, msgs);
 			msgs = basicSetExperimentRun(newExperimentRun, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN, newExperimentRun, newExperimentRun));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN, newExperimentRun, newExperimentRun));
 	}
 
 	/**
@@ -170,7 +171,7 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	 */
 	public EList<MeasurementRange> getMeasurementRange() {
 		if (measurementRange == null) {
-			measurementRange = new EObjectContainmentWithInverseEList<MeasurementRange>(MeasurementRange.class, this, EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE, EmfmodelPackage.MEASUREMENT_RANGE__MEASUREMENT);
+			measurementRange = new EObjectContainmentWithInverseEList<MeasurementRange>(MeasurementRange.class, this, ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE, ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT);
 		}
 		return measurementRange;
 	}
@@ -184,11 +185,11 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetExperimentRun((ExperimentRun)otherEnd, msgs);
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasurementRange()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -202,9 +203,9 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				return basicSetExperimentRun(null, msgs);
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				return ((InternalEList<?>)getMeasurementRange()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -218,8 +219,8 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentRun.class, msgs);
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentRun.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -232,12 +233,12 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__MEASURE:
+			case ExperimentDataPackage.MEASUREMENT__MEASURE:
 				if (resolve) return getMeasure();
 				return basicGetMeasure();
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				return getExperimentRun();
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				return getMeasurementRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -252,13 +253,13 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__MEASURE:
+			case ExperimentDataPackage.MEASUREMENT__MEASURE:
 				setMeasure((Edp2Measure)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				setExperimentRun((ExperimentRun)newValue);
 				return;
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				getMeasurementRange().clear();
 				getMeasurementRange().addAll((Collection<? extends MeasurementRange>)newValue);
 				return;
@@ -274,13 +275,13 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__MEASURE:
+			case ExperimentDataPackage.MEASUREMENT__MEASURE:
 				setMeasure((Edp2Measure)null);
 				return;
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				setExperimentRun((ExperimentRun)null);
 				return;
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				getMeasurementRange().clear();
 				return;
 		}
@@ -295,11 +296,11 @@ public class MeasurementImpl extends PropertyableImpl implements Measurement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.MEASUREMENT__MEASURE:
+			case ExperimentDataPackage.MEASUREMENT__MEASURE:
 				return measure != null;
-			case EmfmodelPackage.MEASUREMENT__EXPERIMENT_RUN:
+			case ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN:
 				return getExperimentRun() != null;
-			case EmfmodelPackage.MEASUREMENT__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE:
 				return measurementRange != null && !measurementRange.isEmpty();
 		}
 		return super.eIsSet(featureID);

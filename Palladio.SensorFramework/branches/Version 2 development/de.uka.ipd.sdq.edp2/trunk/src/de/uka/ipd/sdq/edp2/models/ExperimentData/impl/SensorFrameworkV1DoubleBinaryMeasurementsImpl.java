@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.SensorFrameworkV1DoubleBinaryMeasurements;
 
@@ -37,7 +38,7 @@ public class SensorFrameworkV1DoubleBinaryMeasurementsImpl extends DoubleBinaryM
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS;
 	}
 
 } //SensorFrameworkV1DoubleBinaryMeasurementsImpl

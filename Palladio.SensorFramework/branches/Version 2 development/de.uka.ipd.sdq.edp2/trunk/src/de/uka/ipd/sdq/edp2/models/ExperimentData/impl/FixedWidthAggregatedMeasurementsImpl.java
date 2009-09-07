@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
@@ -78,7 +79,7 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.FIXED_WIDTH_AGGREGATED_MEASUREMENTS;
+		return ExperimentDataPackage.Literals.FIXED_WIDTH_AGGREGATED_MEASUREMENTS;
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 		FixedIntervals oldIntervals = intervals;
 		intervals = newIntervals;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, oldIntervals, newIntervals);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, oldIntervals, newIntervals);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -114,14 +115,14 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 		if (newIntervals != intervals) {
 			NotificationChain msgs = null;
 			if (intervals != null)
-				msgs = ((InternalEObject)intervals).eInverseRemove(this, EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS, FixedIntervals.class, msgs);
+				msgs = ((InternalEObject)intervals).eInverseRemove(this, ExperimentDataPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS, FixedIntervals.class, msgs);
 			if (newIntervals != null)
-				msgs = ((InternalEObject)newIntervals).eInverseAdd(this, EmfmodelPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS, FixedIntervals.class, msgs);
+				msgs = ((InternalEObject)newIntervals).eInverseAdd(this, ExperimentDataPackage.FIXED_INTERVALS__AGGREGATED_MEASUREMENTS, FixedIntervals.class, msgs);
 			msgs = basicSetIntervals(newIntervals, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, newIntervals, newIntervals));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, newIntervals, newIntervals));
 	}
 
 	/**
@@ -131,7 +132,7 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	 */
 	public EList<DataSeries> getDataSeries() {
 		if (dataSeries == null) {
-			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS);
+			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS);
 		}
 		return dataSeries;
 	}
@@ -145,11 +146,11 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				if (intervals != null)
-					msgs = ((InternalEObject)intervals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, null, msgs);
+					msgs = ((InternalEObject)intervals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS, null, msgs);
 				return basicSetIntervals((FixedIntervals)otherEnd, msgs);
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -163,9 +164,9 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				return basicSetIntervals(null, msgs);
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,9 +180,9 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				return getIntervals();
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return getDataSeries();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -196,10 +197,10 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				setIntervals((FixedIntervals)newValue);
 				return;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
 				return;
@@ -215,10 +216,10 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				setIntervals((FixedIntervals)null);
 				return;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				return;
 		}
@@ -233,9 +234,9 @@ public class FixedWidthAggregatedMeasurementsImpl extends AggregatedMeasurements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__INTERVALS:
 				return intervals != null;
-			case EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
+			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES:
 				return dataSeries != null && !dataSeries.isEmpty();
 		}
 		return super.eIsSet(featureID);

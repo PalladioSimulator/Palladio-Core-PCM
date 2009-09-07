@@ -13,7 +13,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getSensorFrameworkV1DoubleBinaryMeasurements()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getSensorFrameworkV1DoubleBinaryMeasurements()
  * @model
  * @generated
  */

@@ -19,7 +19,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp.internal.SerializationUtil;
+import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
 
 /**Test if serialization and deserialization of JScience is compatible with the current EDP2 implementation.
  * @author groenda

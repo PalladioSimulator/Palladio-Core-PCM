@@ -3,10 +3,10 @@
  */
 package de.uka.ipd.sdq.edp2.local.file;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Descriptions;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedNominalMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**EMF switch class to return the file extension required by EDP2.

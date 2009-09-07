@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getPropertyable()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getPropertyable()
  * @model abstract="true"
  * @generated
  */
@@ -38,8 +38,8 @@ public interface Propertyable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additional Information</em>' map.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getPropertyable_AdditionalInformation()
-	 * @model mapType="de.uka.ipd.sdq.edp2.models.emfmodel.EStringtoEObjectMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EJavaObject>"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getPropertyable_AdditionalInformation()
+	 * @model mapType="de.uka.ipd.sdq.edp2.models.ExperimentData.EStringtoEObjectMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EJavaObject>"
 	 * @generated
 	 */
 	EMap<String, Object> getAdditionalInformation();

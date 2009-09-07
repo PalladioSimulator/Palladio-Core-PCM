@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -65,7 +66,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.CATEGORY_IDENTIFIER;
+		return ExperimentDataPackage.Literals.CATEGORY_IDENTIFIER;
 	}
 
 	/**
@@ -86,7 +87,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 		String oldStateLiteral = stateLiteral;
 		stateLiteral = newStateLiteral;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.CATEGORY_IDENTIFIER__STATE_LITERAL, oldStateLiteral, stateLiteral));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.CATEGORY_IDENTIFIER__STATE_LITERAL, oldStateLiteral, stateLiteral));
 	}
 
 	/**
@@ -97,7 +98,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
+			case ExperimentDataPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
 				return getStateLiteral();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -111,7 +112,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
+			case ExperimentDataPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
 				setStateLiteral((String)newValue);
 				return;
 		}
@@ -126,7 +127,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
+			case ExperimentDataPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
 				setStateLiteral(STATE_LITERAL_EDEFAULT);
 				return;
 		}
@@ -141,7 +142,7 @@ public class CategoryIdentifierImpl extends IdentifiableImpl implements Category
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
+			case ExperimentDataPackage.CATEGORY_IDENTIFIER__STATE_LITERAL:
 				return STATE_LITERAL_EDEFAULT == null ? stateLiteral != null : !STATE_LITERAL_EDEFAULT.equals(stateLiteral);
 		}
 		return super.eIsSet(featureID);

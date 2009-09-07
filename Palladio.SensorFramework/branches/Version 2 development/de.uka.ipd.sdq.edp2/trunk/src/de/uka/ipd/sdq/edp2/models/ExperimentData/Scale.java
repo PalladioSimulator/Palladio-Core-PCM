@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Scale</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getScale()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getScale()
  * @model
  * @generated
  */

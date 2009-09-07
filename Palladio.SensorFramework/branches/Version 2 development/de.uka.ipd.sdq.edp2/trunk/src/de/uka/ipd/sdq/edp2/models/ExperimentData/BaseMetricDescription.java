@@ -25,7 +25,7 @@ import javax.measure.unit.Unit;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription()
  * @model
  * @generated
  */
@@ -42,7 +42,7 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * @return the value of the '<em>Capture Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType
 	 * @see #setCaptureType(CaptureType)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription_CaptureType()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription_CaptureType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -71,7 +71,7 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * @return the value of the '<em>Data Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.DataType
 	 * @see #setDataType(DataType)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription_DataType()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription_DataType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -100,7 +100,7 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * @return the value of the '<em>Scale</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Scale
 	 * @see #setScale(Scale)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription_Scale()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription_Scale()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -129,7 +129,7 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * @return the value of the '<em>Monotonic</em>' attribute.
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Monotonic
 	 * @see #setMonotonic(Monotonic)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription_Monotonic()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription_Monotonic()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -155,8 +155,8 @@ public interface BaseMetricDescription extends MetricDescription {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Default Unit</em>' attribute.
 	 * @see #setDefaultUnit(Unit)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getBaseMetricDescription_DefaultUnit()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSUnit" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getBaseMetricDescription_DefaultUnit()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit" ordered="false"
 	 * @generated
 	 */
 	Unit getDefaultUnit();

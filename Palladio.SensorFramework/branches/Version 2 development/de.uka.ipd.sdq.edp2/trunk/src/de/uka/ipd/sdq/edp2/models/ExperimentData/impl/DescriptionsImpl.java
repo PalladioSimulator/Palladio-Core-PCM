@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Descriptions;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import java.util.Collection;
@@ -64,7 +65,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.DESCRIPTIONS;
+		return ExperimentDataPackage.Literals.DESCRIPTIONS;
 	}
 
 	/**
@@ -74,7 +75,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	 */
 	public EList<Description> getDescription() {
 		if (description == null) {
-			description = new EObjectContainmentEList<Description>(Description.class, this, EmfmodelPackage.DESCRIPTIONS__DESCRIPTION);
+			description = new EObjectContainmentEList<Description>(Description.class, this, ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION);
 		}
 		return description;
 	}
@@ -87,7 +88,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTIONS__DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION:
 				return ((InternalEList<?>)getDescription()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -101,7 +102,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTIONS__DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION:
 				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -116,7 +117,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTIONS__DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION:
 				getDescription().clear();
 				getDescription().addAll((Collection<? extends Description>)newValue);
 				return;
@@ -132,7 +133,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTIONS__DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION:
 				getDescription().clear();
 				return;
 		}
@@ -147,7 +148,7 @@ public class DescriptionsImpl extends EObjectImpl implements Descriptions {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DESCRIPTIONS__DESCRIPTION:
+			case ExperimentDataPackage.DESCRIPTIONS__DESCRIPTION:
 				return description != null && !description.isEmpty();
 		}
 		return super.eIsSet(featureID);

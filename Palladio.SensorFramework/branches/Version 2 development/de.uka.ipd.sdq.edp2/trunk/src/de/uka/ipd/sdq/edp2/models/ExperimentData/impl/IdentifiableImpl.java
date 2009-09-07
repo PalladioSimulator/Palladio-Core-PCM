@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 
@@ -71,7 +72,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.IDENTIFIABLE;
+		return ExperimentDataPackage.Literals.IDENTIFIABLE;
 	}
 
 	/**
@@ -92,7 +93,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 		String oldUuid = uuid;
 		uuid = newUuid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.IDENTIFIABLE__UUID, oldUuid, uuid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.IDENTIFIABLE__UUID, oldUuid, uuid));
 	}
 
 	/**
@@ -103,7 +104,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.IDENTIFIABLE__UUID:
+			case ExperimentDataPackage.IDENTIFIABLE__UUID:
 				return getUuid();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -117,7 +118,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.IDENTIFIABLE__UUID:
+			case ExperimentDataPackage.IDENTIFIABLE__UUID:
 				setUuid((String)newValue);
 				return;
 		}
@@ -132,7 +133,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.IDENTIFIABLE__UUID:
+			case ExperimentDataPackage.IDENTIFIABLE__UUID:
 				setUuid(UUID_EDEFAULT);
 				return;
 		}
@@ -147,7 +148,7 @@ public abstract class IdentifiableImpl extends EObjectImpl implements Identifiab
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.IDENTIFIABLE__UUID:
+			case ExperimentDataPackage.IDENTIFIABLE__UUID:
 				return UUID_EDEFAULT == null ? uuid != null : !UUID_EDEFAULT.equals(uuid);
 		}
 		return super.eIsSet(featureID);

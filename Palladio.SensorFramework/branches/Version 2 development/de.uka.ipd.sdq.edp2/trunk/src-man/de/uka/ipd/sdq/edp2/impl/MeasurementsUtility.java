@@ -9,23 +9,23 @@ import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import de.uka.ipd.sdq.edp.internal.EmfmodelAddMeasurementToDataSeriesSwitch;
-import de.uka.ipd.sdq.edp.internal.EmfmodelDataSeriesFromMetricSwitch;
-import de.uka.ipd.sdq.edp.internal.EmfmodelDataSeriesFromReferenceSwitch;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.intrnal.EmfmodelAddMeasurementToDataSeriesSwitch;
+import de.uka.ipd.sdq.edp2.intrnal.EmfmodelDataSeriesFromMetricSwitch;
+import de.uka.ipd.sdq.edp2.intrnal.EmfmodelDataSeriesFromReferenceSwitch;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelFactory;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 
 /**This class provides utility functions to handle measurements.
  * @author groenda
@@ -34,7 +34,7 @@ public class MeasurementsUtility {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(MeasurementsUtility.class.getCanonicalName());
 	/** EMF factory used by this instance. */
-	private static final EmfmodelFactory factory = EmfmodelFactory.eINSTANCE;
+	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 
 	/**Creates a new MeasurementRange and contained elements if there
 	 * are already existing elements in another MeasurementRange.

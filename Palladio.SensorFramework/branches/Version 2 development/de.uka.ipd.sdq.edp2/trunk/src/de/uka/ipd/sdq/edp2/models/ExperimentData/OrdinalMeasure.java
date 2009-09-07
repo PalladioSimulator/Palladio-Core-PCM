@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * <!-- end-model-doc -->
  *
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getOrdinalMeasure()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getOrdinalMeasure()
  * @model
  * @generated
  */

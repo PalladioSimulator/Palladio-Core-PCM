@@ -7,10 +7,12 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
@@ -97,7 +99,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EmfmodelPackage.Literals.DATA_SERIES;
+		return ExperimentDataPackage.Literals.DATA_SERIES;
 	}
 
 	/**
@@ -118,7 +120,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 		NominalStatistics oldStatistics = statistics;
 		statistics = newStatistics;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__STATISTICS, oldStatistics, newStatistics);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DATA_SERIES__STATISTICS, oldStatistics, newStatistics);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -133,14 +135,14 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 		if (newStatistics != statistics) {
 			NotificationChain msgs = null;
 			if (statistics != null)
-				msgs = ((InternalEObject)statistics).eInverseRemove(this, EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES, NominalStatistics.class, msgs);
+				msgs = ((InternalEObject)statistics).eInverseRemove(this, ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES, NominalStatistics.class, msgs);
 			if (newStatistics != null)
-				msgs = ((InternalEObject)newStatistics).eInverseAdd(this, EmfmodelPackage.NOMINAL_STATISTICS__RAW_YSERIES, NominalStatistics.class, msgs);
+				msgs = ((InternalEObject)newStatistics).eInverseAdd(this, ExperimentDataPackage.NOMINAL_STATISTICS__RAW_YSERIES, NominalStatistics.class, msgs);
 			msgs = basicSetStatistics(newStatistics, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__STATISTICS, newStatistics, newStatistics));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DATA_SERIES__STATISTICS, newStatistics, newStatistics));
 	}
 
 	/**
@@ -149,7 +151,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public FixedWidthAggregatedMeasurements getAggregatedMeasurements() {
-		if (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS) return null;
 		return (FixedWidthAggregatedMeasurements)eContainer();
 	}
 
@@ -159,7 +161,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public NotificationChain basicSetAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newAggregatedMeasurements, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newAggregatedMeasurements, ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, msgs);
 		return msgs;
 	}
 
@@ -169,19 +171,19 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public void setAggregatedMeasurements(FixedWidthAggregatedMeasurements newAggregatedMeasurements) {
-		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
+		if (newAggregatedMeasurements != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS && newAggregatedMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newAggregatedMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newAggregatedMeasurements != null)
-				msgs = ((InternalEObject)newAggregatedMeasurements).eInverseAdd(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
+				msgs = ((InternalEObject)newAggregatedMeasurements).eInverseAdd(this, ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
 			msgs = basicSetAggregatedMeasurements(newAggregatedMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, newAggregatedMeasurements, newAggregatedMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS, newAggregatedMeasurements, newAggregatedMeasurements));
 	}
 
 	/**
@@ -202,7 +204,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 		String oldValuesUuid = valuesUuid;
 		valuesUuid = newValuesUuid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__VALUES_UUID, oldValuesUuid, valuesUuid));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DATA_SERIES__VALUES_UUID, oldValuesUuid, valuesUuid));
 	}
 
 	/**
@@ -211,7 +213,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public RawMeasurements getRawMeasurements() {
-		if (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS) return null;
+		if (eContainerFeatureID() != ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS) return null;
 		return (RawMeasurements)eContainer();
 	}
 
@@ -221,7 +223,7 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public NotificationChain basicSetRawMeasurements(RawMeasurements newRawMeasurements, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRawMeasurements, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRawMeasurements, ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS, msgs);
 		return msgs;
 	}
 
@@ -231,19 +233,19 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	 * @generated
 	 */
 	public void setRawMeasurements(RawMeasurements newRawMeasurements) {
-		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID() != EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
+		if (newRawMeasurements != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS && newRawMeasurements != null)) {
 			if (EcoreUtil.isAncestor(this, newRawMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRawMeasurements != null)
-				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
 			msgs = basicSetRawMeasurements(newRawMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
 	}
 
 	/**
@@ -261,8 +263,8 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 EmfmodelValidator.DIAGNOSTIC_SOURCE,
-						 EmfmodelValidator.DATA_SERIES__STATISTICSONLYFORMEASURABLEVALUES,
+						 ExperimentDataValidator.DIAGNOSTIC_SOURCE,
+						 ExperimentDataValidator.DATA_SERIES__STATISTICSONLYFORMEASURABLEVALUES,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Statisticsonlyformeasurablevalues", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
@@ -279,15 +281,15 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				if (statistics != null)
-					msgs = ((InternalEObject)statistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmfmodelPackage.DATA_SERIES__STATISTICS, null, msgs);
+					msgs = ((InternalEObject)statistics).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.DATA_SERIES__STATISTICS, null, msgs);
 				return basicSetStatistics((NominalStatistics)otherEnd, msgs);
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetAggregatedMeasurements((FixedWidthAggregatedMeasurements)otherEnd, msgs);
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRawMeasurements((RawMeasurements)otherEnd, msgs);
@@ -303,11 +305,11 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				return basicSetStatistics(null, msgs);
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return basicSetAggregatedMeasurements(null, msgs);
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return basicSetRawMeasurements(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -321,10 +323,10 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
-				return eInternalContainer().eInverseRemove(this, EmfmodelPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS__DATA_SERIES, FixedWidthAggregatedMeasurements.class, msgs);
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES, RawMeasurements.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -337,13 +339,13 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				return getStatistics();
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
-			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
+			case ExperimentDataPackage.DATA_SERIES__VALUES_UUID:
 				return getValuesUuid();
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return getRawMeasurements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -357,16 +359,16 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				setStatistics((NominalStatistics)newValue);
 				return;
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				setAggregatedMeasurements((FixedWidthAggregatedMeasurements)newValue);
 				return;
-			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
+			case ExperimentDataPackage.DATA_SERIES__VALUES_UUID:
 				setValuesUuid((String)newValue);
 				return;
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)newValue);
 				return;
 		}
@@ -381,16 +383,16 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				setStatistics((NominalStatistics)null);
 				return;
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				setAggregatedMeasurements((FixedWidthAggregatedMeasurements)null);
 				return;
-			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
+			case ExperimentDataPackage.DATA_SERIES__VALUES_UUID:
 				setValuesUuid(VALUES_UUID_EDEFAULT);
 				return;
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)null);
 				return;
 		}
@@ -405,13 +407,13 @@ public abstract class DataSeriesImpl extends EObjectImpl implements DataSeries {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EmfmodelPackage.DATA_SERIES__STATISTICS:
+			case ExperimentDataPackage.DATA_SERIES__STATISTICS:
 				return statistics != null;
-			case EmfmodelPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements() != null;
-			case EmfmodelPackage.DATA_SERIES__VALUES_UUID:
+			case ExperimentDataPackage.DATA_SERIES__VALUES_UUID:
 				return VALUES_UUID_EDEFAULT == null ? valuesUuid != null : !VALUES_UUID_EDEFAULT.equals(valuesUuid);
-			case EmfmodelPackage.DATA_SERIES__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS:
 				return getRawMeasurements() != null;
 		}
 		return super.eIsSet(featureID);

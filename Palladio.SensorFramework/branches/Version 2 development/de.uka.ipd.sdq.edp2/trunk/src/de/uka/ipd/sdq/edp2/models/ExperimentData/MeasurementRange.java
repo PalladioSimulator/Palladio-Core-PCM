@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange()
  * @model
  * @generated
  */
@@ -48,7 +48,7 @@ public interface MeasurementRange extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw Measurements</em>' containment reference.
 	 * @see #setRawMeasurements(RawMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange_RawMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange_RawMeasurements()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementRange
 	 * @model opposite="measurementRange" containment="true" ordered="false"
 	 * @generated
@@ -76,8 +76,8 @@ public interface MeasurementRange extends Propertyable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>End Time</em>' attribute.
 	 * @see #setEndTime(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange_EndTime()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSDurationMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange_EndTime()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getEndTime();
@@ -103,8 +103,8 @@ public interface MeasurementRange extends Propertyable {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Start Time</em>' attribute.
 	 * @see #setStartTime(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange_StartTime()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.emfmodel.EJSDurationMeasure" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange_StartTime()
+	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
 	 * @generated
 	 */
 	Measure getStartTime();
@@ -130,7 +130,7 @@ public interface MeasurementRange extends Propertyable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Measurement</em>' container reference.
 	 * @see #setMeasurement(Measurement)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange_Measurement()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange_Measurement()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getMeasurementRange
 	 * @model opposite="measurementRange" required="true" transient="false" ordered="false"
 	 * @generated
@@ -158,7 +158,7 @@ public interface MeasurementRange extends Propertyable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregated Measurements</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getMeasurementRange_AggregatedMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementRange_AggregatedMeasurements()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementRange
 	 * @model opposite="measurementRange" containment="true" ordered="false"
 	 * @generated

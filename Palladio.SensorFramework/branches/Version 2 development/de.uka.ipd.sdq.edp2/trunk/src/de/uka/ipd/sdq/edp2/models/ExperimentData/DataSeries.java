@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDataSeries()
+ * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDataSeries()
  * @model abstract="true"
  * @generated
  */
@@ -43,7 +43,7 @@ public interface DataSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Statistics</em>' containment reference.
 	 * @see #setStatistics(NominalStatistics)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDataSeries_Statistics()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDataSeries_Statistics()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.NominalStatistics#getRawYSeries
 	 * @model opposite="rawYSeries" containment="true" ordered="false"
 	 * @generated
@@ -71,7 +71,7 @@ public interface DataSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregated Measurements</em>' container reference.
 	 * @see #setAggregatedMeasurements(FixedWidthAggregatedMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDataSeries_AggregatedMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDataSeries_AggregatedMeasurements()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getDataSeries
 	 * @model opposite="dataSeries" required="true" transient="false" ordered="false"
 	 * @generated
@@ -98,7 +98,7 @@ public interface DataSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values Uuid</em>' attribute.
 	 * @see #setValuesUuid(String)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDataSeries_ValuesUuid()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDataSeries_ValuesUuid()
 	 * @model id="true" required="true" ordered="false"
 	 * @generated
 	 */
@@ -125,7 +125,7 @@ public interface DataSeries extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw Measurements</em>' container reference.
 	 * @see #setRawMeasurements(RawMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage#getDataSeries_RawMeasurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDataSeries_RawMeasurements()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getDataSeries
 	 * @model opposite="dataSeries" required="true" transient="false" ordered="false"
 	 * @generated
