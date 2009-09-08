@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.edp2.MetaDao;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 import de.uka.ipd.sdq.edp2.models.Repository.*;
 
+import java.io.File;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -80,6 +81,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createLocalDirectoryRepositoryAdapter();
 			}
 			@Override
+			public Adapter caseFile(File object) {
+				return createFileAdapter();
+			}
+			@Override
 			public Adapter caseLocalMemoryRepository(LocalMemoryRepository object) {
 				return createLocalMemoryRepositoryAdapter();
 			}
@@ -146,6 +151,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLocalDirectoryRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.io.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.io.File
+	 * @generated
+	 */
+	public Adapter createFileAdapter() {
 		return null;
 	}
 

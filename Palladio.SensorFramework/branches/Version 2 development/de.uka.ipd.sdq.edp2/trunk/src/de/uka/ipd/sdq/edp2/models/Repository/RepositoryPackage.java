@@ -70,7 +70,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY = 8;
+	int REPOSITORY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -200,6 +200,25 @@ public interface RepositoryPackage extends EPackage {
 	int LOCAL_DIRECTORY_REPOSITORY_FEATURE_COUNT = REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link java.io.File <em>File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.File
+	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 1;
+
+	/**
+	 * The number of structural features of the '<em>File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.Repository.impl.LocalMemoryRepositoryImpl <em>Local Memory Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,7 +226,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getLocalMemoryRepository()
 	 * @generated
 	 */
-	int LOCAL_MEMORY_REPOSITORY = 1;
+	int LOCAL_MEMORY_REPOSITORY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -280,7 +299,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getRemoteCdoRepository()
 	 * @generated
 	 */
-	int REMOTE_CDO_REPOSITORY = 2;
+	int REMOTE_CDO_REPOSITORY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -353,7 +372,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getLocalSensorFrameworkRepository()
 	 * @generated
 	 */
-	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY = 3;
+	int LOCAL_SENSOR_FRAMEWORK_REPOSITORY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
@@ -435,7 +454,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getRepositories()
 	 * @generated
 	 */
-	int REPOSITORIES = 4;
+	int REPOSITORIES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Available Repositories</b></em>' containment reference list.
@@ -472,7 +491,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getIResourceSet()
 	 * @generated
 	 */
-	int IRESOURCE_SET = 5;
+	int IRESOURCE_SET = 6;
 
 	/**
 	 * The number of structural features of the '<em>IResource Set</em>' class.
@@ -491,7 +510,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getMeasurementsDaoFactory()
 	 * @generated
 	 */
-	int MEASUREMENTS_DAO_FACTORY = 6;
+	int MEASUREMENTS_DAO_FACTORY = 7;
 
 	/**
 	 * The number of structural features of the '<em>Measurements Dao Factory</em>' class.
@@ -510,7 +529,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getMetaDao()
 	 * @generated
 	 */
-	int META_DAO = 7;
+	int META_DAO = 8;
 
 	/**
 	 * The number of structural features of the '<em>Meta Dao</em>' class.
@@ -541,6 +560,17 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLocalDirectoryRepository_Uri();
+
+	/**
+	 * Returns the meta object for class '{@link java.io.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File</em>'.
+	 * @see java.io.File
+	 * @model instanceClass="java.io.File"
+	 * @generated
+	 */
+	EClass getFile();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.Repository.LocalMemoryRepository <em>Local Memory Repository</em>}'.
@@ -774,6 +804,16 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOCAL_DIRECTORY_REPOSITORY__URI = eINSTANCE.getLocalDirectoryRepository_Uri();
+
+		/**
+		 * The meta object literal for the '{@link java.io.File <em>File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.File
+		 * @see de.uka.ipd.sdq.edp2.models.Repository.impl.RepositoryPackageImpl#getFile()
+		 * @generated
+		 */
+		EClass FILE = eINSTANCE.getFile();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.Repository.impl.LocalMemoryRepositoryImpl <em>Local Memory Repository</em>}' class.

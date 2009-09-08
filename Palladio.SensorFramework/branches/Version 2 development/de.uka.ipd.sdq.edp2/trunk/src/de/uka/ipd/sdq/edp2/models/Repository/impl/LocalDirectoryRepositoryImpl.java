@@ -10,9 +10,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.local.file.LocalDirectoryMetaDao;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
+import java.io.File;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,6 +90,16 @@ public class LocalDirectoryRepositoryImpl extends RepositoryImpl implements Loca
 		uri = newUri;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.LOCAL_DIRECTORY_REPOSITORY__URI, oldUri, uri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws DataNotAccessibleException 
+	 * @generated NOT
+	 */
+	public File convertUriStringToFile(String uriString) throws DataNotAccessibleException {
+		return metaDao.convertUriStringToFile(uriString);
 	}
 
 	/**

@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.edp2.models.Repository.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -30,6 +31,7 @@ import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
+import java.io.File;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryStatus;
 
 /**
@@ -45,6 +47,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	private EClass localDirectoryRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +199,15 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 */
 	public EAttribute getLocalDirectoryRepository_Uri() {
 		return (EAttribute)localDirectoryRepositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFile() {
+		return fileEClass;
 	}
 
 	/**
@@ -385,6 +403,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		localDirectoryRepositoryEClass = createEClass(LOCAL_DIRECTORY_REPOSITORY);
 		createEAttribute(localDirectoryRepositoryEClass, LOCAL_DIRECTORY_REPOSITORY__URI);
 
+		fileEClass = createEClass(FILE);
+
 		localMemoryRepositoryEClass = createEClass(LOCAL_MEMORY_REPOSITORY);
 		createEAttribute(localMemoryRepositoryEClass, LOCAL_MEMORY_REPOSITORY__DOMAIN);
 
@@ -454,6 +474,11 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(localDirectoryRepositoryEClass, LocalDirectoryRepository.class, "LocalDirectoryRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalDirectoryRepository_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, LocalDirectoryRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		EOperation op = addEOperation(localDirectoryRepositoryEClass, this.getFile(), "convertUriStringToFile", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "uriString", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(localMemoryRepositoryEClass, LocalMemoryRepository.class, "LocalMemoryRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalMemoryRepository_Domain(), ecorePackage.getEString(), "domain", null, 1, 1, LocalMemoryRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -466,7 +491,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		initEClass(repositoriesEClass, Repositories.class, "Repositories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRepositories_AvailableRepositories(), this.getRepository(), this.getRepository_Repositories(), "availableRepositories", null, 0, -1, Repositories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepositories_CommonResourceSet(), this.getIResourceSet(), null, "commonResourceSet", null, 1, 1, Repositories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepositories_CommonResourceSet(), this.getIResourceSet(), null, "commonResourceSet", null, 1, 1, Repositories.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iResourceSetEClass, ResourceSet.class, "IResourceSet", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -477,8 +502,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(repositoryEClass, Repository.class, "Repository", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRepository_Repositories(), this.getRepositories(), this.getRepositories_AvailableRepositories(), "repositories", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRepository_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_Descriptions(), theExperimentDataPackage.getDescription(), theExperimentDataPackage.getDescription_Repository(), "descriptions", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_ExperimentGroups(), theExperimentDataPackage.getExperimentGroup(), theExperimentDataPackage.getExperimentGroup_Repository(), "experimentGroups", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_Descriptions(), theExperimentDataPackage.getDescription(), theExperimentDataPackage.getDescription_Repository(), "descriptions", null, 0, -1, Repository.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_ExperimentGroups(), theExperimentDataPackage.getExperimentGroup(), theExperimentDataPackage.getExperimentGroup_Repository(), "experimentGroups", null, 0, -1, Repository.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(repositoryEClass, null, "resetExperimentGroups", 1, 1, IS_UNIQUE, !IS_ORDERED);
 

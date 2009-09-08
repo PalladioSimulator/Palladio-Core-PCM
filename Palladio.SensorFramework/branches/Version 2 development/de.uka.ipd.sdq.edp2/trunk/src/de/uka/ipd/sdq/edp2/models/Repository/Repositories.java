@@ -58,7 +58,7 @@ public interface Repositories extends EObject {
 	 * @return the value of the '<em>Common Resource Set</em>' reference.
 	 * @see #setCommonResourceSet(ResourceSet)
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getRepositories_CommonResourceSet()
-	 * @model type="de.uka.ipd.sdq.edp2.models.Repository.IResourceSet" required="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.edp2.models.Repository.IResourceSet" required="true" transient="true" ordered="false"
 	 * @generated
 	 */
 	ResourceSet getCommonResourceSet();

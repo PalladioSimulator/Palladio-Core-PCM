@@ -6,6 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.Repository;
 
+import java.io.File;
+
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -49,5 +53,13 @@ public interface LocalDirectoryRepository extends Repository {
 	 * @generated
 	 */
 	void setUri(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model type="de.uka.ipd.sdq.edp2.models.Repository.File" required="true" ordered="false" uriStringRequired="true" uriStringOrdered="false"
+	 * @generated NOT (at least the exception)
+	 */
+	File convertUriStringToFile(String uriString) throws DataNotAccessibleException;
 
 } // LocalDirectoryRepository

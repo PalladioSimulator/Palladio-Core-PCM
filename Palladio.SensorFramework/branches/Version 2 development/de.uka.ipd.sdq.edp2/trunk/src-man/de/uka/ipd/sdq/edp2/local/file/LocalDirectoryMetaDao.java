@@ -6,12 +6,15 @@ package de.uka.ipd.sdq.edp2.local.file;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Collection;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -103,10 +106,10 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			if (managedRepo.getRepositories() == null) {
 				return false;
 			}
-			URI uri = URI.createURI(managedRepo.getUri());
-			File directory = new File(uri.toFileString());
-			if (!directory.isDirectory()) {
-				//URI does not point to a directory.
+			File directory = null;
+			try {
+				directory = convertUriStringToFile(managedRepo.getUri());
+			} catch (DataNotAccessibleException e) {
 				return false;
 			}
 			if (!checkFilesContainEmfModel(directory, EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION, Description.class)) {
@@ -283,15 +286,8 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	public void open() throws DataNotAccessibleException {
 		super.open();
 		// open directory
-		URI uri;
 		try {
-			uri = URI.createURI(managedRepo.getUri());
-			File directory = new File(uri.toFileString());
-			if (!directory.isDirectory()) {
-				String msg = "URI does not point to a directory.";
-				logger.log(Level.WARNING, msg);
-				throw new DataNotAccessibleException(msg, null);
-			}
+			File directory = convertUriStringToFile(managedRepo.getUri()); 
 			if (managedRepo.getRepositories() == null) {
 				String msg = "Every repository must be attached to an instance of Repositories in order to be opened.";
 				logger.log(Level.SEVERE, msg);
@@ -314,6 +310,41 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		assert (isOpen());
 	}
 
+	/**Converts a supplied URI to a file on the local file system, if possible.
+	 * @param uri The URI to convert.
+	 * @return Local file.
+	 * @throws DataNotAccessibleException For conversion errors. Details are provided in the message.
+	 */
+	public File convertUriStringToFile(String uriString) throws DataNotAccessibleException {
+		URI uri = URI.createURI(uriString);
+		File directory;
+		String fileLocation;
+		if (uri.isPlatform()) {
+			URL urlToFoo = null;
+			try {
+				 urlToFoo = FileLocator.toFileURL(new URL(uri.toString()));
+				 fileLocation = urlToFoo.getFile();
+			} catch (MalformedURLException e) {
+				throw new DataNotAccessibleException("The URI is not well-formed.", e);
+			} catch (IOException e) {
+				throw new DataNotAccessibleException("The URI could not be converted.", e);
+			}
+		} else {
+			fileLocation = uri.toFileString();
+		}
+		if (fileLocation == null) {
+			// URI is valid but does not point to a file
+			throw new DataNotAccessibleException("The URI could not be converted to a local file.", null);
+		} else {
+			directory = new File(fileLocation);
+			if (!directory.isDirectory()) {
+				// URI does not point to a directory.
+				throw new DataNotAccessibleException("The URI does not point to a directory.", null);
+			}
+		}
+		return directory;
+	}
+	
 	/**Loads all descriptions from the description files within the specified directory.
 	 * @param directory The EDP2 data directory
 	 */

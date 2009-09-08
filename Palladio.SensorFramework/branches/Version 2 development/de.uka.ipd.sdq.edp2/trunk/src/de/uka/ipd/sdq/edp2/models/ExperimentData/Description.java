@@ -94,7 +94,7 @@ public interface Description extends Identifiable {
 	 * @see #setRepository(Repository)
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDescription_Repository()
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.Repository#getDescriptions
-	 * @model opposite="descriptions" ordered="false"
+	 * @model opposite="descriptions" transient="true" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository();

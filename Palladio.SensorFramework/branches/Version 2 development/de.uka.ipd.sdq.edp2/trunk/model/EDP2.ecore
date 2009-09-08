@@ -299,7 +299,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="experimentSettings" ordered="false"
           upperBound="-1" eType="#//ExperimentData/ExperimentSetting" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
-          eType="#//Repository/Repository" eOpposite="#//Repository/Repository/experimentGroups"/>
+          eType="#//Repository/Repository" transient="true" eOpposite="#//Repository/Repository/experimentGroups"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="measure" ordered="false"
@@ -353,7 +353,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="textualDescription" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository" ordered="false"
-          eType="#//Repository/Repository" eOpposite="#//Repository/Repository/descriptions"/>
+          eType="#//Repository/Repository" transient="true" eOpposite="#//Repository/Repository/descriptions"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PersistenceKindOptions">
       <eLiterals name="BinaryPreferred"/>
@@ -547,9 +547,14 @@
   <eSubpackages name="Repository" nsURI="http://sdq.ipd.uka.de/EDP2/Repository/0.9.1"
       nsPrefix="de.uka.ipd.sdq.edp2.models">
     <eClassifiers xsi:type="ecore:EClass" name="LocalDirectoryRepository" eSuperTypes="#//Repository/Repository">
+      <eOperations name="convertUriStringToFile" ordered="false" lowerBound="1" eType="#//Repository/File">
+        <eParameters name="uriString" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="File" instanceClassName="java.io.File"
+        abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="LocalMemoryRepository" eSuperTypes="#//Repository/Repository">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -569,7 +574,7 @@
           ordered="false" upperBound="-1" eType="#//Repository/Repository" containment="true"
           eOpposite="#//Repository/Repository/repositories"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="commonResourceSet" ordered="false"
-          lowerBound="1" eType="#//Repository/IResourceSet"/>
+          lowerBound="1" eType="#//Repository/IResourceSet" transient="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"
         abstract="true" interface="true"/>
@@ -585,9 +590,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" ordered="false"
-          upperBound="-1" eType="#//ExperimentData/Description" eOpposite="#//ExperimentData/Description/repository"/>
+          upperBound="-1" eType="#//ExperimentData/Description" transient="true" eOpposite="#//ExperimentData/Description/repository"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="experimentGroups" ordered="false"
-          upperBound="-1" eType="#//ExperimentData/ExperimentGroup" eOpposite="#//ExperimentData/ExperimentGroup/repository"/>
+          upperBound="-1" eType="#//ExperimentData/ExperimentGroup" transient="true"
+          eOpposite="#//ExperimentData/ExperimentGroup/repository"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

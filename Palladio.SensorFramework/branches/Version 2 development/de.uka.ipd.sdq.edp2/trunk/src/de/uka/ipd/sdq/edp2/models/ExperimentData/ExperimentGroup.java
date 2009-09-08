@@ -65,7 +65,7 @@ public interface ExperimentGroup extends Identifiable, Propertyable {
 	 * @see #setRepository(Repository)
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentGroup_Repository()
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.Repository#getExperimentGroups
-	 * @model opposite="experimentGroups" ordered="false"
+	 * @model opposite="experimentGroups" transient="true" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository();

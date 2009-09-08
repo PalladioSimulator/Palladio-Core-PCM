@@ -101,7 +101,7 @@ public interface Repository extends Identifiable, MetaDao {
 	 * @return the value of the '<em>Descriptions</em>' reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getRepository_Descriptions()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Description#getRepository
-	 * @model opposite="repository" ordered="false"
+	 * @model opposite="repository" transient="true" ordered="false"
 	 * @generated
 	 */
 	EList<Description> getDescriptions();
@@ -119,7 +119,7 @@ public interface Repository extends Identifiable, MetaDao {
 	 * @return the value of the '<em>Experiment Groups</em>' reference list.
 	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getRepository_ExperimentGroups()
 	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup#getRepository
-	 * @model opposite="repository" ordered="false"
+	 * @model opposite="repository" transient="true" ordered="false"
 	 * @generated
 	 */
 	EList<ExperimentGroup> getExperimentGroups();
