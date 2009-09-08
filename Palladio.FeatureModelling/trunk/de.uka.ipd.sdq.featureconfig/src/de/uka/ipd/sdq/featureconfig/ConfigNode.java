@@ -90,24 +90,37 @@ public interface ConfigNode extends EObject {
 	 * @generated
 	 */
 	void setConfigState(ConfigState value);
-
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
-	 * in 
-	 * 	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
-	 * 	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)
-	 * 	 else
-	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
-	 * 	 endif
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
+	 * Checks if the RequiresConstraints are valid
+	 * 
+	 * Checks if a RequiresConstraint object with the given ConfigNode as source exists 
+	 * and validates if every required Feature of this Constraint is selected
+	 * 
+	 * @param configNode the current ConfigNode object in the validation process
+	 * @param diagnostics the DiagnosticChain object
+	 * @param context The context map
+	 * @return 
+	 * <code>true</code> if every required Feature is selected, if no RequiredConstraint exists or if the given ConfigNode is not selected
+	 * <code>false</code> else
+     * @generated NOT
 	 */
-	boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean requiresFeaturesChecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
+	
+	/**
+	 * Checks if the ProhibitConstraints are valid
+	 * 
+	 * Checks if a ProhibitsConstraint object with the given ConfigNode as source exists 
+	 * and validates if every prohibited Feature of this Constraint is eliminated
+	 * 
+	 * @param configNode the current ConfigNode object in the validation process
+	 * @param diagnostics the DiagnosticChain object
+	 * @param context The context map
+	 * @return 
+	 * <code>true</code> if every prohibited Feature is eliminated, if no ProhibitsConstraint exists or if the given ConfigNode is not selected
+	 * <code>false</code> else
+     * @generated NOT
+	 */
+	boolean prohibitsFeaturesUnchecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ConfigNode

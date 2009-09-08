@@ -293,7 +293,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			newConfig.setName(featureDiagram.getName() + "_config");
 			
 			FeatureConfig newOverrides = factory.createFeatureConfig();
-			newConfig.setConfigOverrides(newOverrides);
+			newConfig.getConfigOverrides().add(newOverrides);
 			
 			//set reference to default
 			if (defaultRef == null) {
@@ -494,7 +494,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	
 	/**
 	 * Handles the different cases for a loaded *.featuremodel-resource
-	 * 
+	 * http://sdqweb.ipd.uka.de/mediawiki/images/6/61/Check_Cases.png
 	 * @param resource The resource in which the configuration object should be stored
 	 * @return The resource object which stores the (prop. new) overrides config object
 	 */
@@ -503,14 +503,14 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		//Check if featureconfig file is valid (Configuration object can be referenced)
 		Configuration configuration = getConfiguration(resource);
 		
-		FeatureConfig tempOverrides = configuration.getConfigOverrides();
+		EList<FeatureConfig> tempOverrides = configuration.getConfigOverrides();
 		FeatureConfig tempDefault = configuration.getDefaultConfig();
 		
 		//Both FeatureConfigs are null
-		if (tempOverrides == null && tempDefault == null) {
-			
-		}
-		else if (tempOverrides == null && tempDefault != null) {
+		if ( (tempOverrides == null || tempOverrides.isEmpty()) && tempDefault == null) {
+			//TODO: check whether to throw an exception
+		} 
+		else if (tempOverrides == null && tempDefault != null) { //default exists
 			EList<ConfigNode> configList = tempDefault.getConfignode();
 			
 			if (!configList.isEmpty()) {
@@ -520,24 +520,29 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
 			}
 		}
-		else if (tempOverrides != null && tempDefault == null) {
-			EList<ConfigNode> configList = tempOverrides.getConfignode();
+		else if (tempOverrides != null && !tempOverrides.isEmpty() && tempDefault == null) {
+			FeatureConfig featureConfig = tempOverrides.get(0); //assumption: only one feature diagram present
+			EList<ConfigNode> configList = featureConfig.getConfignode();
 			
 			if (!configList.isEmpty()) {
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-				overridesConfig = tempOverrides;
+				overridesConfig = featureConfig;
 			}
 		}
 		else {
 			boolean configPresent = false;
+			EList<ConfigNode> configList;
 			
 			//Check for OverridesConfig
-			EList<ConfigNode> configList = tempOverrides.getConfignode();
-			
-			if (!(configList.isEmpty())) {
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-				overridesConfig = tempOverrides;
-				configPresent = true;
+			if (!tempOverrides.isEmpty()) {
+				FeatureConfig featureConfig = tempOverrides.get(0); //assumption: only one feature diagram present
+				configList = featureConfig.getConfignode();						
+
+				if (!(configList.isEmpty())) {
+					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+					overridesConfig = featureConfig;
+					configPresent = true;
+				}
 			}
 			
 			//Check for DefaultConfig
@@ -617,6 +622,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			parent = editingDomain.getParent(parent);
 		}
 		
+		//FIXME: handle the case when no parent was found
 		return (FeatureDiagram)parent;
 	}
 	
@@ -636,11 +642,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			return correct;
 		}
 		else {
-			FeatureConfig tempOverrides = configuration.getConfigOverrides();
+			EList<FeatureConfig> tempOverrides = configuration.getConfigOverrides();
 			FeatureConfig tempDefault = configuration.getDefaultConfig();
 			
-			if (tempOverrides != null) {
-				EList <ConfigNode> configList = tempOverrides.getConfignode();
+			if (tempOverrides != null && !tempOverrides.isEmpty()) {				
+				EList <ConfigNode> configList = tempOverrides.get(0).getConfignode(); //Assumption: Every config references the same Feature Diagram 
 				if (!(configList.isEmpty())) {
 					Iterator<ConfigNode> configIterator = configList.iterator();
 					while (configIterator.hasNext()) {

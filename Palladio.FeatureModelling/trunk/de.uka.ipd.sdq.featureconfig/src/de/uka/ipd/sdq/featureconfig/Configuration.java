@@ -6,8 +6,10 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import org.eclipse.emf.common.util.EList;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -100,5 +102,29 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+	
+	/**
+	 * Checks if all mandatory Features are selected
+	 * 
+	 * @param configuration The Configuration object
+	 * @param diagnostics The DiagnosticChain object for the validation process
+	 * @param context The context map
+	 * @return <code>true</code> if the validation succeeded
+	 * <code>false</code> else
+     * @generated NOT 
+	 */
+	boolean mandatoryFeaturesChecked (Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context);
+	
+	/**
+	 * Checks if the the number of selected Feature objects in every FeatureGroup is in the Min:Max range of that group
+	 * 
+	 * @param configuration The Configuration object
+	 * @param diagnostics The DiagnosticChain object for the validation process
+	 * @param context The context map
+	 * @return <code>true</code> if the validation succeeded
+	 * <code>false</code> else
+     * @generated NOT
+	 */
+	boolean minMaxCorrect (Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Configuration
