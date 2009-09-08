@@ -22,7 +22,7 @@
 		            fixed="false"
 		            icon="icons/app_simucim.gif"
 		            id="de.uka.ipd.sdq.codegen.simudatavisualization.SimuBenchPerspective"
-		            name="SimuBench"/>
+		            name="PCM Results"/>
 		   </extension>
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
