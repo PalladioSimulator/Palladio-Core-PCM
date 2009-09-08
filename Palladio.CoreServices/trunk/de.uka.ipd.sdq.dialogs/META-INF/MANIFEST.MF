@@ -5,12 +5,10 @@ Bundle-SymbolicName: de.uka.ipd.sdq.dialogs;singleton:=true
 Bundle-Version: 2.0.1.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
- org.eclipse.emf,
  org.eclipse.emf.edit,
  org.eclipse.emf.edit.ui,
  org.eclipse.jface.text,
  org.eclipse.core.runtime,
- org.eclipse.emf.transaction,
  org.eclipse.core.resources,
  org.eclipse.ui.ide
 Export-Package: de.uka.ipd.sdq.dialogs.error,
