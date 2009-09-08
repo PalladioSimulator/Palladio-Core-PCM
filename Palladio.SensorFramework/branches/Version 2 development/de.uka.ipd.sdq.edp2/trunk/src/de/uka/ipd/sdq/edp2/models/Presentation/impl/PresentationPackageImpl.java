@@ -8,8 +8,6 @@ package de.uka.ipd.sdq.edp2.models.Presentation.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
 import de.uka.ipd.sdq.edp2.models.Presentation.Bar;
 import de.uka.ipd.sdq.edp2.models.Presentation.Boxplot;
 import de.uka.ipd.sdq.edp2.models.Presentation.CumulativeDistributionFunction;

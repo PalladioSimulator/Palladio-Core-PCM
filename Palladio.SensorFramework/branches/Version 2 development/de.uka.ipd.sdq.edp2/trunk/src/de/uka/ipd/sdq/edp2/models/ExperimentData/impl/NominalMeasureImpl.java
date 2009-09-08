@@ -8,11 +8,9 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
 import java.util.Collection;

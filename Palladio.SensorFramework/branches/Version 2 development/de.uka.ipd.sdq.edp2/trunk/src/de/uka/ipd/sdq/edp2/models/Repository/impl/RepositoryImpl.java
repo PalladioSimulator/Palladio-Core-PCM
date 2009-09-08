@@ -23,7 +23,6 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.local.file.LocalDirectoryMetaDao;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.IdentifiableImpl;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
@@ -206,7 +205,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 * @generated NOT
 	 */
 	public void resetExperimentGroups() {
-		experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, EmfmodelPackage.EXPERIMENT_GROUP__REPOSITORY);
+		experimentGroups = new EObjectWithInverseResolvingEList<ExperimentGroup>(ExperimentGroup.class, this, RepositoryPackage.REPOSITORY__EXPERIMENT_GROUPS, ExperimentDataPackage.EXPERIMENT_GROUP__REPOSITORY);
 	}
 
 	/**
@@ -216,7 +215,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	 * @generated NOT
 	 */
 	public void resetDescriptions() {
-		descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, EmfmodelPackage.DESCRIPTION__REPOSITORY);
+		descriptions = new EObjectWithInverseResolvingEList<Description>(Description.class, this, RepositoryPackage.REPOSITORY__DESCRIPTIONS, ExperimentDataPackage.DESCRIPTION__REPOSITORY);
 	}
 
 	/**

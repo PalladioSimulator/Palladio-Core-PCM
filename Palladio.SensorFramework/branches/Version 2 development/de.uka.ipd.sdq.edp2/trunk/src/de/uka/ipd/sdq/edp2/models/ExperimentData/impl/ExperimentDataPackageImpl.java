@@ -67,7 +67,6 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 import de.uka.ipd.sdq.edp2.models.Presentation.PresentationPackage;
 import de.uka.ipd.sdq.edp2.models.Presentation.UI.UIPackage;
 import de.uka.ipd.sdq.edp2.models.Presentation.UI.impl.UIPackageImpl;

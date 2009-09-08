@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;

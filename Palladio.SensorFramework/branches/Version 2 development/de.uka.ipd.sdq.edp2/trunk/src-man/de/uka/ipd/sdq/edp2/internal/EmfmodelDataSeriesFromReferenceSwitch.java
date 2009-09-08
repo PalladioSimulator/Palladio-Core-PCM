@@ -1,18 +1,18 @@
-package de.uka.ipd.sdq.edp2.intrnal;
+package de.uka.ipd.sdq.edp2.internal;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 
-public class EmfmodelDataSeriesFromReferenceSwitch extends EmfmodelSwitch<DataSeries> {
+public class EmfmodelDataSeriesFromReferenceSwitch extends ExperimentDataSwitch<DataSeries> {
 	/** Factory for Emfmodel. */
 	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	/** Factory which is used to create the DAOs to access data of the DataSeries. */

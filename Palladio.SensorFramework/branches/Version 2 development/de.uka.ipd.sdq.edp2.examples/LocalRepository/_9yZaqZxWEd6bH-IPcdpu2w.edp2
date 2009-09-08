@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<de.uka.ipd.sdq.edp2.models:ExperimentGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" xmi:id="_9yZaqpxWEd6bH-IPcdpu2w" uuid="_9yZaqZxWEd6bH-IPcdpu2w" repository="_FvW0sJxYEd6P-ZFPHZQB_A" purpose="Exemplary use of EDP2">
+  <experimentSettings xmi:id="_9yZaq5xWEd6bH-IPcdpu2w" description="Experiment Setting #1" measure="_9yZarJxWEd6bH-IPcdpu2w _9yZarZxWEd6bH-IPcdpu2w">
+    <experimentRuns xmi:id="_9yikkZxWEd6bH-IPcdpu2w" uuid="_9yikkJxWEd6bH-IPcdpu2w" startTime="2009-09-08T11:06:59.561+0200">
+      <measurement xmi:id="_9yikkpxWEd6bH-IPcdpu2w" measure="_9yZarJxWEd6bH-IPcdpu2w">
+        <measurementRange xmi:id="_9yikk5xWEd6bH-IPcdpu2w">
+          <rawMeasurements xmi:id="_9yiklZxWEd6bH-IPcdpu2w" uuid="_9yiklJxWEd6bH-IPcdpu2w">
+            <dataSeries xsi:type="de.uka.ipd.sdq.edp2.models:DoubleBinaryMeasurements" xmi:id="_9ysVkJxWEd6bH-IPcdpu2w" valuesUuid="_9yiklpxWEd6bH-IPcdpu2w" storageUnit="rO0ABXNyABtqYXZheC5tZWFzdXJlLnVuaXQuQmFzZVVuaXQAAAAAAAAAAQIAAUwAB19zeW1ib2x0&#xD;&#xA;ABJMamF2YS9sYW5nL1N0cmluZzt4cgAXamF2YXgubWVhc3VyZS51bml0LlVuaXTNyN4WeM1SZwIA&#xD;&#xA;AHhwdAABcw==&#xD;&#xA;"/>
+            <dataSeries xsi:type="de.uka.ipd.sdq.edp2.models:DoubleBinaryMeasurements" xmi:id="_9ysVkpxWEd6bH-IPcdpu2w" valuesUuid="_9ysVkZxWEd6bH-IPcdpu2w" storageUnit="rO0ABXNyABtqYXZheC5tZWFzdXJlLnVuaXQuQmFzZVVuaXQAAAAAAAAAAQIAAUwAB19zeW1ib2x0&#xD;&#xA;ABJMamF2YS9sYW5nL1N0cmluZzt4cgAXamF2YXgubWVhc3VyZS51bml0LlVuaXTNyN4WeM1SZwIA&#xD;&#xA;AHhwdAABcw==&#xD;&#xA;"/>
+          </rawMeasurements>
+        </measurementRange>
+      </measurement>
+    </experimentRuns>
+  </experimentSettings>
+  <measure xsi:type="de.uka.ipd.sdq.edp2.models:OrdinalMeasure" xmi:id="_9yZarJxWEd6bH-IPcdpu2w" experimentSettings="_9yZaq5xWEd6bH-IPcdpu2w" measuredObject="Service Call A">
+    <metric xsi:type="de.uka.ipd.sdq.edp2.models:MetricSetDescription" href="_MenvIiUREd6gmLudJva2Dw.edp2desc#_9yZapZxWEd6bH-IPcdpu2w"/>
+  </measure>
+  <measure xsi:type="de.uka.ipd.sdq.edp2.models:OrdinalMeasure" xmi:id="_9yZarZxWEd6bH-IPcdpu2w" experimentSettings="_9yZaq5xWEd6bH-IPcdpu2w" measuredObject="CPU A">
+    <metric xsi:type="de.uka.ipd.sdq.edp2.models:MetricSetDescription" href="_M3ynoiUSEd6gmLudJva2Dw.edp2desc#_9yZaqJxWEd6bH-IPcdpu2w"/>
+  </measure>
+</de.uka.ipd.sdq.edp2.models:ExperimentGroup>

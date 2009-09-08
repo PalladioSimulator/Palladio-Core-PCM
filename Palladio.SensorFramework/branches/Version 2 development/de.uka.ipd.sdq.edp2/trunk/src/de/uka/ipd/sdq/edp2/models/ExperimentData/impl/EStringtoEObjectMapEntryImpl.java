@@ -7,7 +7,6 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 

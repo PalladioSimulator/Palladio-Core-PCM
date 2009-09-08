@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Monotonic;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
 

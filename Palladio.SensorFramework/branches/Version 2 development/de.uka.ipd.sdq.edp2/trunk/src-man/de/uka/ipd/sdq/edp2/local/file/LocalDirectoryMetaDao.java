@@ -21,14 +21,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MetaDaoImpl;
-import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
+import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
@@ -410,7 +409,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 				if (resource.getContents().size() == 1
 						&& resource.getWarnings().size() == 0
 						&& resource.getErrors().size() == 0) {
-					if (new EmfmodelSwitch<Boolean>() {
+					if (new ExperimentDataSwitch<Boolean>() {
 									@Override
 									public Boolean caseDescription(Description object) {
 										return true;
@@ -464,7 +463,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 				if (resource.getContents().size() == 1
 						&& resource.getWarnings().size() == 0
 						&& resource.getErrors().size() == 0) {
-					if (new EmfmodelSwitch<Boolean>() {
+					if (new ExperimentDataSwitch<Boolean>() {
 								@Override
 								public Boolean caseExperimentGroup(ExperimentGroup object) {
 									return true;

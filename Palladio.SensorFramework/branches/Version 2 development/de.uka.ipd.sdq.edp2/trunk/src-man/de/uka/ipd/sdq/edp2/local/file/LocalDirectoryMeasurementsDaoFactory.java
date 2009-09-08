@@ -178,7 +178,9 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 			try {
 				if (!isActive()) {
 					if (!daoRegistry.getMeasurementsDao(uuid).isDeleted()) {
-						daoRegistry.getMeasurementsDao(uuid).close();
+						if (daoRegistry.getMeasurementsDao(uuid).isOpen()) {
+							daoRegistry.getMeasurementsDao(uuid).close();
+						}
 					}
 					daoRegistry.deregister(uuid);
 				} else {

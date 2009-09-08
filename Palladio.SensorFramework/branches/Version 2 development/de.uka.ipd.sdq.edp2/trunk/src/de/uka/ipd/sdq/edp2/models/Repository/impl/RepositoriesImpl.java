@@ -6,8 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.Repository.impl;
 
-import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EmfmodelPackageImpl;
+import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;

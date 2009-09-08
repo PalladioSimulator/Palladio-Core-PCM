@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.intrnal;
+package de.uka.ipd.sdq.edp2.internal;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

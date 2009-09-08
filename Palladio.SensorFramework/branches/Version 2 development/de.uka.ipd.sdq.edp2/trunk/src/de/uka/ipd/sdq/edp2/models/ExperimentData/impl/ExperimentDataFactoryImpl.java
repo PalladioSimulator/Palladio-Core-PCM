@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
-import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
+import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.*;
 
 import java.io.ByteArrayInputStream;

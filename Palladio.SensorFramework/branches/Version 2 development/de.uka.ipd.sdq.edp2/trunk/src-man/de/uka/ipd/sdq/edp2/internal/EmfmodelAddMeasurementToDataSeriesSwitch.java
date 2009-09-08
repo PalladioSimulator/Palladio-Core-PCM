@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.intrnal;
+package de.uka.ipd.sdq.edp2.internal;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CategoryIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedCategory;
 /**Switch class to add a provided measurement to a data series.
  * @author groenda
  */
-public class EmfmodelAddMeasurementToDataSeriesSwitch extends EmfmodelSwitch<Boolean> {
+public class EmfmodelAddMeasurementToDataSeriesSwitch extends ExperimentDataSwitch<Boolean> {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(EmfmodelAddMeasurementToDataSeriesSwitch.class.getCanonicalName());
 	/** Factory of EDP2 EMF model. */

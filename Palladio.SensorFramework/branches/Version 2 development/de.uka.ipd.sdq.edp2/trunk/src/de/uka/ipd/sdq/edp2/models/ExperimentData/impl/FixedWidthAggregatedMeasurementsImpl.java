@@ -9,7 +9,6 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
 

@@ -3,11 +3,7 @@
  */
 package org.jscience.io;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
@@ -19,7 +15,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
+import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
 
 /**Test if serialization and deserialization of JScience is compatible with the current EDP2 implementation.
  * @author groenda
@@ -27,6 +23,7 @@ import de.uka.ipd.sdq.edp2.intrnal.SerializationUtil;
  */
 public class Serialization {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void deserializationOfMeasure() throws IOException, ClassNotFoundException {
 		 Measure m = Measure.valueOf(15.0, SI.METER);
@@ -37,6 +34,7 @@ public class Serialization {
 		 Assert.assertEquals(m2.getUnit(),m.getUnit());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void deserializationOfNonStandardUnit() throws IOException, ClassNotFoundException {
 		Unit unit = new BaseUnit<Dimensionless>("Threads");

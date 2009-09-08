@@ -13,10 +13,10 @@ import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
-import de.uka.ipd.sdq.edp2.intrnal.EmfmodelAddMeasurementToDataSeriesSwitch;
-import de.uka.ipd.sdq.edp2.intrnal.EmfmodelDataSeriesFromMetricSwitch;
-import de.uka.ipd.sdq.edp2.intrnal.EmfmodelDataSeriesFromReferenceSwitch;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
+import de.uka.ipd.sdq.edp2.internal.EmfmodelAddMeasurementToDataSeriesSwitch;
+import de.uka.ipd.sdq.edp2.internal.DataSeriesFromMetricSwitch;
+import de.uka.ipd.sdq.edp2.internal.EmfmodelDataSeriesFromReferenceSwitch;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
@@ -130,7 +130,7 @@ public class MeasurementsUtility {
 		if (creationSuccesful == false) {
 			Edp2Measure measure = rm.getMeasurementRange().getMeasurement().getMeasure();
 			assert measure != null;
-			new EmfmodelDataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(measure.getMetric());
+			new DataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(measure.getMetric());
 		}
 	}
 
@@ -181,7 +181,7 @@ public class MeasurementsUtility {
 		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {
 			return (NominalMeasurementsDao) daoFactory.getDaoRegistry().getMeasurementsDao(ds.getValuesUuid());
 		} else {
-			NominalMeasurementsDao nmd = new EmfmodelSwitch<NominalMeasurementsDao>() {
+			NominalMeasurementsDao nmd = new ExperimentDataSwitch<NominalMeasurementsDao>() {
 				public NominalMeasurementsDao caseNominalMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements object) {
 					return daoFactory.createNominalMeasurementsDao(ds.getValuesUuid());
 				};
@@ -228,7 +228,7 @@ public class MeasurementsUtility {
 			return (OrdinalMeasurementsDao) daoFactory.getDaoRegistry().getMeasurementsDao(ds
 					.getValuesUuid());
 		} else {
-			OrdinalMeasurementsDao omd = new EmfmodelSwitch<OrdinalMeasurementsDao>() {
+			OrdinalMeasurementsDao omd = new ExperimentDataSwitch<OrdinalMeasurementsDao>() {
 				public OrdinalMeasurementsDao caseNominalMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.NominalMeasurements object) {
 					String msg = "Tried to request ordinal measurements for a data series which should contain nominal measurements.";
 					logger.log(Level.WARNING, msg);

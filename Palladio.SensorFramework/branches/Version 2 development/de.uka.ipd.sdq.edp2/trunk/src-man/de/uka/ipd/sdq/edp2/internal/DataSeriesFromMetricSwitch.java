@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.intrnal;
+package de.uka.ipd.sdq.edp2.internal;
 
 import java.util.Iterator;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelSwitch;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
 /**EMF switch to create data series based on metric for RawMeasurements.
  * @author groenda
  */
-public class EmfmodelDataSeriesFromMetricSwitch extends EmfmodelSwitch<Boolean> {
+public class DataSeriesFromMetricSwitch extends ExperimentDataSwitch<Boolean> {
 	/** Factory for Emfmodel. */
 	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	/** RawMeasurements on which the DataSeries should be added. */
@@ -37,21 +37,27 @@ public class EmfmodelDataSeriesFromMetricSwitch extends EmfmodelSwitch<Boolean> 
 	/** Factory which is used to create the DAOs to access data of the DataSeries. */
 	private MeasurementsDaoFactory daoFactory;
 	
-	public EmfmodelDataSeriesFromMetricSwitch(RawMeasurements rm, Edp2Measure measure, MeasurementsDaoFactory daoFactory) {
+	/**Creates a new instances.
+	 * @param rm Where to add the data series.
+	 * @param measure The definition of the measure which defines the data series.
+	 * @param daoFactory The factory used to create the measurement DAOs.
+	 */
+	public DataSeriesFromMetricSwitch(RawMeasurements rm, Edp2Measure measure, MeasurementsDaoFactory daoFactory) {
 		this.rm = rm;
 		this.measure = measure;
 		this.daoFactory = daoFactory;
 	}
-	
+
 	@Override
 	public Boolean caseMetricSetDescription(MetricSetDescription object) {
 		Iterator<MetricDescription> iter = object.getSubsumedMetrics().iterator();
 		boolean success = true;
 		while (iter.hasNext()) {
-			success &= new EmfmodelDataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(iter.next());
+			success &= new DataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(iter.next());
 		}
 		return success;
 	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public Boolean caseBaseMetricDescription(BaseMetricDescription bmd) {

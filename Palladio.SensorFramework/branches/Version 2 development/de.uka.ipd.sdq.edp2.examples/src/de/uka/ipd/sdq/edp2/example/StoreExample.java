@@ -16,18 +16,28 @@ import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
  */
 public class StoreExample {
 	/** (Relative) name of the directory in which the data of the example will be stored. */
-	public static String DIRECTORY = "LocalRepository";
+	public static String DEFAULT_DIRECTORY = "LocalRepository";
 	/** Logger for this class. */
 	private static Logger logger = Logger.getLogger(StoreExample.class.getCanonicalName());
 	
 	/** Repository which is used to store the data. */
 	private LocalDirectoryRepository ldRepo;
-	/** Helper class used to create all data for the example. */
+	/** Helper class used to process data for the example. */
 	private ExampleData exampleData;
+	/** Directory which is used to store the measurements.*/
+	private String directory;
 	
-	/**Initializes an instance of this class.
+	/**Initializes an instance of this class with the default directory as target.
 	 */
 	public StoreExample() {
+		this(DEFAULT_DIRECTORY);
+	}
+	
+	/**Initializes an instance of this class.
+	 * @param directory Directory to be used to store measurements.
+	 */
+	public StoreExample(String directory) {
+		this.directory = directory;
 		initializeRepository();
 		exampleData = new ExampleData();
 	}
@@ -35,7 +45,7 @@ public class StoreExample {
 	/**Initializes the repository in which the data will be stored.
 	 */
 	private void initializeRepository() {
-		ldRepo = RepositoryManager.initializeLocalDirectoryRepository(new File(DIRECTORY));
+		ldRepo = RepositoryManager.initializeLocalDirectoryRepository(new File(directory));
 		/* Add repository to a (optional) central directory of repositories. 
 		 * This can be useful to manage more than one repository or have links
 		 * between different existing repositories. 

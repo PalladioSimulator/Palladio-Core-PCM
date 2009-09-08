@@ -8,12 +8,10 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.EmfmodelPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NominalStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.EmfmodelValidator;
 
 
 import java.util.Map;
