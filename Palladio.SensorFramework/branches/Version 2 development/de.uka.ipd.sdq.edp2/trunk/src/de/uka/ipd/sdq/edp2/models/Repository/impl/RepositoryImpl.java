@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
+import de.uka.ipd.sdq.edp2.MetaDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.local.file.LocalDirectoryMetaDao;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
@@ -90,7 +91,7 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 	/** The DAO to load/access/store the data handled by this repository.
 	 * @generated NOT
 	 */
-	protected LocalDirectoryMetaDao metaDao;
+	protected MetaDao metaDao;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -380,47 +381,77 @@ public abstract class RepositoryImpl extends IdentifiableImpl implements Reposit
 
 	@Override
 	public MeasurementsDaoFactory getMeasurementsDaoFactory() {
-		return metaDao.getMeasurementsDaoFactory();
+		if (metaDao != null) {
+			return metaDao.getMeasurementsDaoFactory();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
 	public boolean canClose() {
-		return metaDao.canClose();
+		if (metaDao != null) {
+			return metaDao.canClose();
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean canDelete() {
-		return metaDao.canDelete();
+		if (metaDao != null) {
+			return metaDao.canDelete();
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean canOpen() {
-		return metaDao.canOpen();
+		if (metaDao != null) {
+			return metaDao.canOpen();
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public void close() throws DataNotAccessibleException {
-		metaDao.close();
+		if (metaDao != null) {
+			metaDao.close();
+		}
 	}
 
 	@Override
 	public void delete() throws DataNotAccessibleException {
-		metaDao.delete();
+		if (metaDao != null) {
+			metaDao.delete();
+		}
 	}
 
 	@Override
 	public boolean isDeleted() {
-		return metaDao.isDeleted();
+		if (metaDao != null) {
+			return metaDao.isDeleted();
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean isOpen() {
-		return metaDao.isOpen();
+		if (metaDao != null) {
+			return metaDao.isOpen();
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public void open() throws DataNotAccessibleException {
-		metaDao.open();
+		if (metaDao != null) {
+			metaDao.open();
+		}
 	}
 	
 } //RepositoryImpl

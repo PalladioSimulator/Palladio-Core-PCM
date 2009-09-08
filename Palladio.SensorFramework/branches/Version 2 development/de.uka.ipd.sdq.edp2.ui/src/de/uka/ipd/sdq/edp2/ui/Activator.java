@@ -1,15 +1,18 @@
 package de.uka.ipd.sdq.edp2.ui;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
+import org.eclipse.core.runtime.preferences.IScopeContext;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.service.prefs.BackingStoreException;
+import org.osgi.service.prefs.Preferences;
 
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
@@ -23,8 +26,6 @@ public class Activator extends AbstractUIPlugin {
 	/** Logger for this class. */
 	private static Logger logger = Logger.getLogger(Activator.class.getCanonicalName());
 	
-	/** Path to the file containing the settings for the UI plug-in. */
-	private static String PROPERTY_SETTINGS_FILE = "ui_settings.properties";
 	/** Setting: Should there be an initial population or mock-up data of repositories? */
 	private static String SETTING_INITIALLY_POPULATE_REPOSITORY = "populate_repository";
 	
@@ -32,19 +33,22 @@ public class Activator extends AbstractUIPlugin {
 	
 	public Activator() {
 		// initialize
-		Properties properties = new Properties();
-		try {
-			properties.load(new FileInputStream(PROPERTY_SETTINGS_FILE));
-			if (properties.get(SETTING_INITIALLY_POPULATE_REPOSITORY) == Boolean.TRUE) {
-				populateRepository();
+		IScopeContext context = new ConfigurationScope();
+		IEclipsePreferences node = context.getNode("de.uka.ipd.sdq.edp2.ui");
+		Boolean populate = false;
+		if (node != null) {
+			populate = node.getBoolean(SETTING_INITIALLY_POPULATE_REPOSITORY, false);
+			node.putBoolean(SETTING_INITIALLY_POPULATE_REPOSITORY, populate);
+			try {
+				node.flush();
+			} catch (BackingStoreException e) {
+				logger.log(Level.SEVERE, "Could not load/store preferences. ", e);
 			}
-		} catch (FileNotFoundException e) {
-			logger.log(Level.WARNING, "Could not find properties file with settings " +
-					"for the plugin. Expected filename is " + PROPERTY_SETTINGS_FILE + ", lookup path is " + new File(".").getParent());
-		} catch (IOException e) {
-			logger.log(Level.SEVERE, "IO error occured during properties file access. " +
-					"Filename is " + PROPERTY_SETTINGS_FILE + ", error is " + e.getMessage());
 		}
+		if (populate) {
+			populateRepository();
+		}
+		
 		INSTANCE = this;
 	}
 
@@ -57,18 +61,18 @@ public class Activator extends AbstractUIPlugin {
 		
 		LocalDirectoryRepository ldRepo = repoFactory.createLocalDirectoryRepository();
 		ldRepo.setUri(URI.createPlatformPluginURI("/de.uka.ipd.sdq.edp2.examples/LocalRepository", true).toString());
-		repos.getAvailableRepositories().add(ldRepo);
+		RepositoryManager.addRepository(repos, ldRepo);
 		
 		RemoteCdoRepository rcRepo = repoFactory.createRemoteCdoRepository();
 		rcRepo.setUrl("tcp://localhost:2036");
-		repos.getAvailableRepositories().add(rcRepo);
+		RepositoryManager.addRepository(repos, rcRepo);
 		
 		LocalMemoryRepository lmRepo = repoFactory.createLocalMemoryRepository();
 		lmRepo.setDomain("Domain 1");
-		repos.getAvailableRepositories().add(lmRepo);
+		RepositoryManager.addRepository(repos, lmRepo);
 		
 		LocalSensorFrameworkRepository lsfRepo = repoFactory.createLocalSensorFrameworkRepository();
-		repos.getAvailableRepositories().add(lsfRepo);
+		RepositoryManager.addRepository(repos, lsfRepo);
 	}
 
 	/**

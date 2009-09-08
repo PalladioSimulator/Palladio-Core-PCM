@@ -99,7 +99,7 @@ public class LocalDirectoryRepositoryImpl extends RepositoryImpl implements Loca
 	 * @generated NOT
 	 */
 	public File convertUriStringToFile(String uriString) throws DataNotAccessibleException {
-		return metaDao.convertUriStringToFile(uriString);
+		return ((LocalDirectoryMetaDao)metaDao).convertUriStringToFile(uriString);
 	}
 
 	/**
