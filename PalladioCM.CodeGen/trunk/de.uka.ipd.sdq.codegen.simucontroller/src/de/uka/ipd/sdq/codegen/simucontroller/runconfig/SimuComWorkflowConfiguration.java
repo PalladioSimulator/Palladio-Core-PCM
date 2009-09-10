@@ -63,4 +63,16 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 		this.sensitivityAnalysisConfiguration = sensitivityConfig;
 		
 	}
+
+	@Override
+	public boolean isValid() {
+		//TODO
+		return true;
+	}
+
+	@Override
+	public void setDefaults() {
+		// TODO Auto-generated method stub
+		
+	}
 }
