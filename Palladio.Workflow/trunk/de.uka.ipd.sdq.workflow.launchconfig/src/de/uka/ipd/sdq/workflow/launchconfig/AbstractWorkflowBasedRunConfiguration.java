@@ -1,21 +1,32 @@
 package de.uka.ipd.sdq.workflow.launchconfig;
 
+import de.uka.ipd.sdq.workflow.AbstractJobConfiguration;
+import de.uka.ipd.sdq.workflow.IJobConfiguration;
+
 /**
  * Base class for all configurations used to configure an Eclipse based run (or launch)
  * which internally executes a sequence of jobs (compile, M2M Transforms, simulations, etc.)
  */
-public class AbstractWorkflowBasedRunConfiguration {
+public abstract class AbstractWorkflowBasedRunConfiguration 
+extends AbstractJobConfiguration 
+implements IJobConfiguration {
 
 	protected boolean isInteractive = false;
 	protected boolean isDebug = false;
-	protected boolean isFixed = false;
+	
+	/**
+	 * Constructor 
+	 */
+	public AbstractWorkflowBasedRunConfiguration() {
+		super();
+	}
 	
 	/**
 	 * Returns whether the workflow engine runs in interactive mode. In non-interactive mode it 
 	 * throws an exception upon failing its task. In interactive mode 
 	 * it displays an error message to the user and logs the failure in the OSGi log.
 	 * 
-	 * Non-interactive mode is usefull for batch execution and unit testing. It is the default.
+	 * Non-interactive mode is useful for batch execution and unit testing. It is the default.
 	 * 
 	 * @return Whether the workflow engine runs in interactive (UI-based) mode
 	 */
@@ -53,33 +64,5 @@ public class AbstractWorkflowBasedRunConfiguration {
 	public void setDebug(boolean isDebug) {
 		checkFixed();
 		this.isDebug = isDebug;
-	}
-	
-	/**
-	 * The last method to call by any builder or code creating an configuration for the workflow engine. The
-	 * configuration will be checked and if the check is successfull it cannot be changed any longer.
-	 * 
-	 * If check fails it throws an Exception.
-	 */
-	public void validateAndFreeze() {
-		this.isFixed = true;
-	}
-	
-	/** 
-	 * Get the status of this configuration. If it is frozen, it cannot be changed any longer and hence is
-	 * ready to be passed to the workflow engine.
-	 * 
-	 * @return Whether the configuration can still be changed
-	 */
-	public boolean isFrozen() {
-		return this.isFixed;
-	}
-	
-	/**
-	 * Used in setter methods to check whether the object can still be modified 
-	 */
-	protected void checkFixed() {
-		if (this.isFixed)
-			throw new UnsupportedOperationException("Configuration cannot be changed any longer after fixing it");
 	}
 }
