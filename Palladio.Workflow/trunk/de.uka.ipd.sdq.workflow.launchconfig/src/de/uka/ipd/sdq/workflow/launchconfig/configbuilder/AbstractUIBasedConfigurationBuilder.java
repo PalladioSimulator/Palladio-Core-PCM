@@ -62,5 +62,5 @@ public abstract class AbstractUIBasedConfigurationBuilder
 	/**
 	 * @return Create a new configuration object filled with default values
 	 */
-	abstract protected ConfigurationType createDefaultConfigurationObject();
+	abstract public ConfigurationType createDefaultConfigurationObject();
 }
