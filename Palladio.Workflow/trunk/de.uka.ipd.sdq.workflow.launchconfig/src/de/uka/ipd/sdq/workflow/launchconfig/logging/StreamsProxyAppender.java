@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
+import org.apache.log4j.spi.ThrowableInformation;
 
 
 /**
@@ -45,6 +46,12 @@ public class StreamsProxyAppender extends AppenderSkeleton {
 		String logLine = this.getLayout().format(event);
 		for (IAppenderListener l : appenderListener) {
 			l.textAddedEvent(logLine,event.getLevel());
+			ThrowableInformation throwableInfo = event.getThrowableInformation();
+			if (throwableInfo != null) {
+				for (String m : throwableInfo.getThrowableStrRep()) {
+					l.textAddedEvent(m + "\n", event.getLevel());
+				}
+			}
 		}
 	}
 
