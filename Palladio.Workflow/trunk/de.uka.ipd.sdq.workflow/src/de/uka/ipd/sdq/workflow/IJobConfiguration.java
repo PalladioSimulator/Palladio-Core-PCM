@@ -14,6 +14,11 @@ public interface IJobConfiguration {
 	public boolean isValid();
 	
 	/**
+	 * @return An error message for the user if the configuration is not valid or null if it is valid
+	 */
+	public String getErrorMessage();
+	
+	/**
 	 * Sets usefull default values for the configuration object  
 	 */
 	public void setDefaults();

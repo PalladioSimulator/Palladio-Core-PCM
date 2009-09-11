@@ -43,11 +43,18 @@ implements IJobConfiguration {
 		if (this.isFixed)
 			throw new UnsupportedOperationException("Configuration cannot be changed any longer after fixing it");
 	}
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJobConfiguration#getErrorMessage()
+	 */
+	abstract public String getErrorMessage();
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.workflow.IJobConfiguration#isValid()
 	 */
-	public abstract boolean isValid();
+	public boolean isValid() {
+		return getErrorMessage() == null;
+	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.workflow.IJobConfiguration#setDefaults()
