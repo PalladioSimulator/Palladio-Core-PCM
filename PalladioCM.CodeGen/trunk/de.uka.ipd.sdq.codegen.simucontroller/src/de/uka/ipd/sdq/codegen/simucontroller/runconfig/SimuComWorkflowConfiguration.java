@@ -75,4 +75,10 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getErrorMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
