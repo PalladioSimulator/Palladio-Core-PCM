@@ -11,6 +11,15 @@ import org.eclipse.debug.core.model.IStreamsProxy;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.Log4JBasedStreamsProxy;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 
+/**
+ * An implementation of an IProcess which is able to log to the provided
+ * process console, but otherwise unable to terminate, suspend, etc.
+ * 
+ * Extend this class if you can provide additional control over the running 
+ * process.
+ * 
+ * @author Steffen Becker
+ */
 public class WorkflowProcess extends PlatformObject implements IProcess {
 
 	private ILaunch myLaunch;
