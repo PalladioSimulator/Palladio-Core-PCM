@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.workflow;
 
+import de.uka.ipd.sdq.workflow.exceptions.InvalidWorkflowJobConfiguration;
+
 
 public abstract class AbstractJobConfiguration 
 implements IJobConfiguration {
@@ -21,8 +23,11 @@ implements IJobConfiguration {
 	 * configuration will be checked and if the check is successful it cannot be changed any longer.
 	 * 
 	 * If check fails it throws an Exception.
+	 * @throws InvalidWorkflowJobConfiguration 
 	 */
-	public void validateAndFreeze() {
+	public void validateAndFreeze() throws InvalidWorkflowJobConfiguration {
+		if (!this.isValid())
+			throw new InvalidWorkflowJobConfiguration(this.getErrorMessage());
 		this.isFixed = true;
 	}
 
