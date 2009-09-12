@@ -34,22 +34,7 @@ public abstract class AbstractUIBasedConfigurationBuilder
 	 * @return A configuration object containing the typed configuration options
 	 */
 	public ConfigurationType build() {
-		ConfigurationType newConfiguration = createDefaultConfigurationObject();
-		internalBuild(newConfiguration, attributes);
-		
-		return newConfiguration;
-	}
-
-	/**
-	 * Fills the passed configuration object
-	 * @param objectToFill An existing configuration object whose values will be replaced with the values
-	 * configured in this builder
-	 * @return A configuration object containing the typed configuration options
-	 */
-	public ConfigurationType build(ConfigurationType objectToFill) {
-		internalBuild(objectToFill, attributes);
-		
-		return objectToFill;
+		return internalBuild(attributes);
 	}
 	
 	/** 
@@ -57,10 +42,5 @@ public abstract class AbstractUIBasedConfigurationBuilder
 	 * @param objectToFill The object in which to set the configuration options
 	 * @param attributes The map to use for filling the configuration options
 	 */
-	abstract protected void internalBuild(ConfigurationType objectToFill, Map<String,Object> attributes);
-	
-	/**
-	 * @return Create a new configuration object filled with default values
-	 */
-	abstract public ConfigurationType createDefaultConfigurationObject();
+	abstract protected ConfigurationType internalBuild(Map<String,Object> attributes);
 }

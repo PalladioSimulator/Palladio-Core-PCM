@@ -22,6 +22,7 @@ extends AbstractLaunchConfigurationTab {
 		AbstractJobConfiguration config = builder.build();
 		
 		if (config.isValid()) {
+			this.setErrorMessage(null);
 			return true;
 		} else {
 			String errorMessage = config.getErrorMessage();

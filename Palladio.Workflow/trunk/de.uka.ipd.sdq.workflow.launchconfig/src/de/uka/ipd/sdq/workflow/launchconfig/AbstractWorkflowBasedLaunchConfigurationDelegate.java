@@ -18,6 +18,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.Workflow;
+import de.uka.ipd.sdq.workflow.exceptions.InvalidWorkflowJobConfiguration;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.workflow.launchconfig.logging.StreamsProxyAppender;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
@@ -181,7 +182,13 @@ public abstract class
 			deriveConfiguration(configuration, mode);
 
 		logger.info("Validating workflow configuration");
-		workflowConfiguration.validateAndFreeze();
+		try {
+			workflowConfiguration.validateAndFreeze();
+		} catch (InvalidWorkflowJobConfiguration e) {
+			logger.error("Configuration invalid");
+			logger.error(e.getMessage());
+			return;
+		}
 
 		logger.info("Creating workflow engine");
 		Workflow workflow = createWorkflow(workflowConfiguration,
