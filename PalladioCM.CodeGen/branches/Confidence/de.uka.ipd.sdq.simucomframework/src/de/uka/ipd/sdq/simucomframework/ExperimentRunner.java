@@ -53,5 +53,9 @@ public class ExperimentRunner {
 		}
 		
 		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
+		
+		// TODO pass parameter (like alpha) based on launch config settings
+		model.getSimulationControl().addStopCondition(new PhiMixingConfidenceStopCondition(model, 
+				new RunUpIndependenceVerifier(), 0.05));
 	}
 }
