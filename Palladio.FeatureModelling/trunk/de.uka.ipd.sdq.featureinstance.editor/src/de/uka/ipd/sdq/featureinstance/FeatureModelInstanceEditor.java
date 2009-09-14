@@ -30,6 +30,10 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -45,6 +49,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -54,6 +59,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -149,6 +155,27 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
+	
+	protected void createContextMenuFor(StructuredViewer viewer) {		
+		MenuManager contextMenu = new MenuManager();
+		contextMenu.setRemoveAllWhenShown(true);
+		contextMenu.addMenuListener(new IMenuListener() {
+			public void menuAboutToShow(IMenuManager manager) {
+				FeatureModelInstanceEditor.this.fillContextMenu(manager);
+			}
+		});
+
+		Menu menu= contextMenu.createContextMenu(viewer.getControl());
+		viewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(contextMenu, treeViewer);
+	}
+	
+	protected void fillContextMenu(IMenuManager manager) {
+		manager.add(new Separator("Validate"));
+		
+		((FeatureModelInstanceContributor)getEditorSite().getActionBarContributor()).fillContextMenu(manager);
+	}
+
 
 
 	/**
@@ -514,22 +541,34 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			EList<ConfigNode> configList = tempDefault.getConfignode();
 			
 			if (!configList.isEmpty()) {
+				//Try to reference the Feature Diagram object and create a new overrides from it
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 				String fileName = resource.getURI().trimFileExtension().lastSegment();
+				
+				//start wizard an ask for a new file location
+				//*.featureconfig with only a default config shall only be used as template
 				URI newResourceURI = startFileWizard(fileName, "Only a default configuration was found. Create a new file with a overrides configuration!");
 				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
+			}
+			else {
+				//TODO: check whether to throw an exception
 			}
 		}
 		else if (tempOverrides != null && !tempOverrides.isEmpty() && tempDefault == null) {
 			FeatureConfig featureConfig = tempOverrides.get(0); //assumption: only one feature diagram present
 			EList<ConfigNode> configList = featureConfig.getConfignode();
 			
+			//Try to reference the Feature Diagram object
 			if (!configList.isEmpty()) {
 				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 				overridesConfig = featureConfig;
 			}
+			else {
+				//TODO: check whether to throw an exception
+			}
 		}
 		else {
+			//both configs are present
 			boolean configPresent = false;
 			EList<ConfigNode> configList;
 			
@@ -538,6 +577,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				FeatureConfig featureConfig = tempOverrides.get(0); //assumption: only one feature diagram present
 				configList = featureConfig.getConfignode();						
 
+				//Try to reference the Feature Diagram object
 				if (!(configList.isEmpty())) {
 					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 					overridesConfig = featureConfig;
@@ -549,9 +589,12 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			configList = tempDefault.getConfignode();
 			
 			if (!(configList.isEmpty())) {
+				//if the feature diagram is already referenced, just save the default config
 				if (configPresent) {
 					defaultConfig = tempDefault;
 				}
+				//else, try to reference the feature config object by using the default config
+				//and ask for new save location (see case that only a default config is present)
 				else {
 					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
 					String fileName = resource.getURI().trimFileExtension().lastSegment();
@@ -746,6 +789,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		};
 		
 		treeViewer.addCheckStateListener(listener);
+		createContextMenuFor(treeViewer);
 		
 		//Selects all mandatory Features
 		if (root != null) {

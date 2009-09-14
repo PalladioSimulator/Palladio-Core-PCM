@@ -3,10 +3,13 @@
  */
 package de.uka.ipd.sdq.featureinstance;
 
+import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+import org.eclipse.emf.edit.ui.action.ValidateAction.EclipseResourcesUtil;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
@@ -71,7 +74,25 @@ class InstanceValidateAction extends ValidateAction {
 		for (Diagnostic currentD : d.getChildren()) {
 			errorMsg = errorMsg + currentD.getMessage() + "\n";
 		}
-		
+
+//		EclipseResourcesUtil eclipseResourcesUtil = 
+//			EMFPlugin.IS_RESOURCES_BUNDLE_AVAILABLE ?
+//					new EclipseResourcesUtil() :
+//						null;
+//
+//					if (eclipseResourcesUtil != null)
+//					{
+//						Resource resource = domain.getResourceSet().getResources().get(0);
+//						if (resource != null)
+//						{
+//							eclipseResourcesUtil.deleteMarkers(resource);
+//							for (Diagnostic childDiagnostic : d.getChildren())
+//							{
+//								eclipseResourcesUtil.createMarkers(resource, childDiagnostic);
+//							}
+//						}
+//					}
+
 		errord = new ErrorDisplayDialog(shell,new Throwable(errorMsg));
 		errord.open(); break;
 		}
@@ -110,6 +131,8 @@ public class FeatureModelInstanceContributor extends
 	 * @generated
 	 */
 	protected IEditorPart activeEditorPart;
+	
+	protected InstanceValidateAction myValidate;
 
 	/**
 	 * This keeps track of the current selection provider.
@@ -127,10 +150,15 @@ public class FeatureModelInstanceContributor extends
 	 */
 	public FeatureModelInstanceContributor() {
 		super(ADDITIONS_LAST_STYLE);
-		validateAction = new InstanceValidateAction();
+		validateAction = null;
+		myValidate = new InstanceValidateAction();
 	}
 	
 	
+	public void fillContextMenu(IMenuManager manager)
+	{
+		manager.appendToGroup("Validate", myValidate);
+	}
 	
 	/**
 	 * This adds to the menu bar a menu and some separators for editor additions,
@@ -157,8 +185,8 @@ public class FeatureModelInstanceContributor extends
 	 * @param config the Configuration object
 	 */
 	public void setConfiguration(Configuration config) {
-		if (validateAction instanceof InstanceValidateAction) {
-			((InstanceValidateAction)validateAction).setConfiguration(config);
+		if (myValidate instanceof InstanceValidateAction) {
+			((InstanceValidateAction)myValidate).setConfiguration(config);
 		}
 	}
 	
@@ -168,8 +196,8 @@ public class FeatureModelInstanceContributor extends
 	 * @param shell the Shell object
 	 */
 	public void setShell (Shell shell) {
-		if (validateAction instanceof InstanceValidateAction) {
-			((InstanceValidateAction)validateAction).setShell(shell);
+		if (myValidate instanceof InstanceValidateAction) {
+			((InstanceValidateAction)myValidate).setShell(shell);
 		}
 	}
 
@@ -211,7 +239,7 @@ public class FeatureModelInstanceContributor extends
 	public void selectionChanged(SelectionChangedEvent event) {
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection) {
-			validateAction.updateSelection((IStructuredSelection)selection);
+			myValidate.updateSelection((IStructuredSelection)selection);
 		}
 	}
 
