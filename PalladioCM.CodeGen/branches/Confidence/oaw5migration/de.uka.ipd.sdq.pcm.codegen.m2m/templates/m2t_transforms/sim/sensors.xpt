@@ -1,0 +1,18 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Start a response time measurement
+	double startTime«this.javaVariableName()» = ctx.getModel().getSimulationControl().getCurrentSimulationTime();
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Stop the response time measurement
+	ctx.getModel().getCurrentExperimentRun().addTimeSpanMeasurement(
+			de.uka.ipd.sdq.simucomframework.sensors.SensorHelper.createOrReuseTimeSensor(
+				ctx.getModel().getDAOFactory(),
+				ctx.getModel().getExperimentDatastore(),
+				"Response Time of «this»"),
+			ctx.getModel().getSimulationControl().getCurrentSimulationTime(),
+			ctx.getModel().getSimulationControl().getCurrentSimulationTime()-startTime«this.javaVariableName()»);
+«ENDDEFINE»

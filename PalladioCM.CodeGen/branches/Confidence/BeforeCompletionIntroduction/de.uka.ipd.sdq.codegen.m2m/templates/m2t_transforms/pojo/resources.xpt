@@ -1,0 +1,16 @@
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT resourceenvironment»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+// ----------------------------
+// Templates to generate simulated resources and resource environments
+// ----------------------------
+
+// Generate a hint, which resource is loaded with which load
+«DEFINE ResourceDemand FOR ParametricResourceDemand»
+	// Hint: Here should be an action which has a ResourceDemand of type «this.requiredResource_ParametricResourceDemand.entityName»
+	//       => «this.specification»
+«ENDDEFINE»

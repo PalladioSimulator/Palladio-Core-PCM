@@ -1,0 +1,25 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+
+//-------------------------------
+// In the simulation, generate a time delay
+// according to the specification in the QoS
+// annotations of the system
+//-------------------------------
+«DEFINE DummyMethodBody(System s,RequiredRole r) FOR Signature»
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
+		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
+	«LET s.qosAnnotations_System.specifiedExecutionTimes_QoSAnnotations.select(spet|spet.role_SpecifiedExecutionTime==r && spet.signature_SpecifiedTimeConsumption==this) AS annotations»
+		«IF annotations.size == 1»
+			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«annotations.get(0).specification_SpecifiedExecutionTime.specification.specificationString()»"));
+			logger.info("SystemExternalCall «annotations.get(0).signature_SpecifiedTimeConsumption.serviceName» delaying execution for "+delay);
+			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
+		«ENDIF»
+	«ENDLET»
+	return resultStackFrame;
+«ENDDEFINE»
