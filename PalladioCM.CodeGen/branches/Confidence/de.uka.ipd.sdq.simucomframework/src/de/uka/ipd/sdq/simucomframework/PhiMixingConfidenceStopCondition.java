@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.simucomframework.sensors.SimuComExperimentRunDecorator;
  * Provides a stop condition which determines when to stop based on confidence intervals.
  * 
  * TODO Short description of the algorithm
+ * TODO Consider warm up phase.
  * 
  * @author Philipp Merkle
  * 
@@ -84,6 +85,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 
 		this.model = model;
 		this.verifier = verifier;
+		this.alpha = alpha;
 
 		initialize();
 	}
@@ -122,13 +124,19 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 			totalObs++;
 
 			// batch means for iterations 0, 1(a) and 1(b) are calculated
-			// directly from the buffer. For iterations k >= 2 we do no longer
+			// directly from the buffer. For iterations k > 2 we do no longer
 			// store every observation in buffer because of a given lag. Hence
 			// we need to adjust the current batch mean every observation.
-			if (k >= 2) {
+			if (k > 2 || (k == 2 && kSub == 1)) {
+//				if (batchMeans.isEmpty()) {
+//					computeBatches(3);
+//					// prepare 4th batch mean [Step 7.3]
+//					batchMeans.add(new Pair<Double, Integer>(0.0, 0));
+//				}
+				
 				// add observation to the last batch mean.
 				Pair<Double, Integer> batchMean = batchMeans.get(batchMeans
-						.size());
+						.size()-1);
 				batchMean.setFirst(batchMean.getFirst() + m.getTimeSpan());
 				batchMean.setSecond(batchMean.getSecond() + 1);
 			}
@@ -150,6 +158,8 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 				// sample (=> lag 2), and for "B" (resp. 1) use every 3rd sample
 				// (=> lag 3).
 				if (k > 0 && verifier.verifyIndependence(buffer, lag)) {
+					// TODO Use Log4J
+					System.out.println("Independence test passed.");
 					if (totalObs <= 12000) { // [Step 10]
 						computeBatches(4);
 					}
@@ -161,10 +171,18 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 					// [Step 13]
 					if (checkHalfWidth()) { // TODO
 						confidenceReached = true;
-						System.out.println("Mean: " + ci.getMean() + " ("
+						System.out.println("Confidence reached. Stop "
+								+ "Simulation. (Mean: " + ci.getMean() + ", "
 								+ (1 - alpha) * 100 + "% Confidence Interval: "
-								+ "[" + ci.getLowerBound() + "," 
-								+ ci.getUpperBound() + "]");
+								+ "[" + ci.getLowerBound() + ","
+								+ ci.getUpperBound() + "])");
+					}
+				}
+				else {
+					// for k == 0 we intentionally do not run a independence test
+					if (k > 0) {
+						// TODO Use Log4J
+						System.out.println("Independence test not passed.");
 					}
 				}
 				
@@ -189,7 +207,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 					}
 				} else if (k >= 2) {
 					if (kSub == 0) { // begin kth (a) iteration?
-						if (batchMeans.isEmpty()) {
+						if (batchMeans.isEmpty()) {	// TODO Check, whether obsolete
 							computeBatches(3);
 						} else {
 							assert (batchMeans.size() == 3);
@@ -202,7 +220,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 						demandedSamples = 2000;
 						ignoreObs = (int) Math.pow(2.0, k - 1) - 1;
 						ignoredObs = 0;
-
+						
 						// adjust iteration counter
 						kSub = 1;
 
@@ -236,7 +254,8 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 	 * @param means
 	 */
 	private void mergeAdjacentMeans(List<Pair<Double, Integer>> means) {
-		for (int i = 0; i < means.size(); i++) {
+		assert(means.size() % 2 == 0);
+		for (int i = 0; i < means.size() / 2; i++) {
 			Pair<Double, Integer> mergedMean = null;
 			Double mergedSum = means.get(2 * i).getFirst()
 					+ means.get(2 * i + 1).getFirst();
@@ -245,6 +264,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 			mergedMean = new Pair<Double, Integer>(mergedSum, mergedCount);
 			means.set(i, mergedMean);
 		}
+		means.subList(means.size() / 2, means.size()).clear();
 	}
 
 	/**
@@ -257,7 +277,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 		for (int i = 0; i < buffer.size() / 2; i++) {
 			buffer.set(i, buffer.get(2 * i));
 		}
-		buffer = buffer.subList(0, buffer.size() / 2);
+		buffer.subList(buffer.size() / 2, buffer.size()).clear();
 	}
 
 	/**
@@ -268,6 +288,7 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 	 */
 	private void computeBatches(int batches) {
 		// TODO Ensure buffer.size() / batches is integer
+		assert(buffer.size() % batches == 0);
 		int batchSize = buffer.size() / batches;
 
 		for (int i = 0; i < batches; i++) {
@@ -320,9 +341,9 @@ public class PhiMixingConfidenceStopCondition extends Condition implements
 		double sampleStdDev = Math.sqrt(sampleVariance);
 
 		// calculate and return confidence interval
-		double lowerBound = grandMean + upperQuantile * sampleStdDev
+		double lowerBound = grandMean - upperQuantile * sampleStdDev
 				/ Math.sqrt(batchMeans.size());
-		double upperBound = grandMean - upperQuantile * sampleStdDev
+		double upperBound = grandMean + upperQuantile * sampleStdDev
 				/ Math.sqrt(batchMeans.size());
 		return new ConfidenceInterval(grandMean, lowerBound, upperBound);
 	}

@@ -43,7 +43,9 @@ public class RunUpIndependenceVerifier extends AIndependenceVerifier<Double> {
 
 		double V = 1.0 / (n - 6) * sum;
 
-		System.out.println(V);
+		// TODO Use Log4J
+		System.out.println("Run Up Indepence test: F=" + V);
+		
 		return V >= 1.635 && V <= 12.59; // TODO Adjust values!?
 	}
 
