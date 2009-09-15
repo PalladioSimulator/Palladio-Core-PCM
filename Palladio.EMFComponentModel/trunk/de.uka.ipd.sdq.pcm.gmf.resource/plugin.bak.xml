@@ -29,7 +29,6 @@
       </editor>
    </extension>
    
-   
    <extension point="org.eclipse.ui.contexts" id="ui-context">
       <?gmfgen generated="true"?>
       <context
@@ -45,15 +44,11 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/ResourceenvironmentDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.eclipse.ui.Examples"
   	     class="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
-     <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
-           name="Palldio Modeling">
-     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
@@ -148,6 +143,12 @@
             name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.rulersAndGrid"
             category="de.uka.ipd.sdq.pcm.gmf.resource.general"
             class="de.uka.ipd.sdq.pcm.gmf.resource.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+      <page
+            id="de.uka.ipd.sdq.pcm.gmf.resource.pathmaps"
+            name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.pathmaps"
+            category="de.uka.ipd.sdq.pcm.gmf.resource.general"
+            class="org.eclipse.gmf.runtime.emf.ui.preferences.PathmapsPreferencePage">
       </page>
    </extension>
 
