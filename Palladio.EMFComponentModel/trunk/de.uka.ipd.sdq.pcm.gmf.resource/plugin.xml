@@ -50,6 +50,10 @@
   	     id="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
+     <category
+           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           name="Palladio Modeling">
+     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
