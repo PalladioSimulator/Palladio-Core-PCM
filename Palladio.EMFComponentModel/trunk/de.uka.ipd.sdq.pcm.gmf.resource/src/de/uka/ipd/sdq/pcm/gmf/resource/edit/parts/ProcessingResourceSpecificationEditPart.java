@@ -111,11 +111,6 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureMTTRFigure());
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
@@ -126,6 +121,11 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureMTTFFigure());
 			return true;
 		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTRFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -133,13 +133,13 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
 		return false;
@@ -294,6 +294,7 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		public ProcessingResourceSpecificationFigure() {
 			this.setFill(false);
 			this.setOutline(false);
+			this.setLineWidth(1);
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(25), getMapMode()
 					.DPtoLP(0), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));

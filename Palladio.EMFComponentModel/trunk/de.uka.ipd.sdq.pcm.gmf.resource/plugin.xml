@@ -41,7 +41,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/ResourceenvironmentDiagramFile.gif"
@@ -50,10 +50,6 @@
   	     id="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
-     <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
-           name="Palldio Modeling">
-     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">

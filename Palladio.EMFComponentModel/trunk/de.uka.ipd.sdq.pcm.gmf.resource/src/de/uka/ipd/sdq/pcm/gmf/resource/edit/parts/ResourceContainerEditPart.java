@@ -455,6 +455,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode().DPtoLP(
 					41)));
 			polyline0.setFill(true);
+			polyline0.setLineWidth(1);
 
 			this.add(polyline0);
 			polyline0.setLayoutManager(new StackLayout());
@@ -462,6 +463,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 			RectangleFigure rect0 = new RectangleFigure();
 			rect0.setFill(false);
 			rect0.setOutline(false);
+			rect0.setLineWidth(1);
 
 			rect0.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(3), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));

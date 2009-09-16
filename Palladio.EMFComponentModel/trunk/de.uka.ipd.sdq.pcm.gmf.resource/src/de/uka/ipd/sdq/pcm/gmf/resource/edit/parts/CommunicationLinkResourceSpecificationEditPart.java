@@ -224,8 +224,9 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		 */
 		public CommunicationLinkResourceSpecificationFigure() {
 			this.setLayoutManager(new StackLayout());
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(27),
+					getMapMode().DPtoLP(27)));
+			this.setLineWidth(1);
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode()
 					.DPtoLP(5), getMapMode().DPtoLP(2), getMapMode().DPtoLP(5)));

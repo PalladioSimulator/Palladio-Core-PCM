@@ -45,5 +45,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gef;visibility:=reexport,
  org.eclipse.ui,
  org.eclipse.jface.text,
- org.eclipse.ui.editors
+ org.eclipse.ui.editors,
+ org.eclipse.draw2d;visibility:=reexport
 Eclipse-LazyStart: true
