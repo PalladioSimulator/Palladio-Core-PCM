@@ -86,7 +86,9 @@
     <descriptors
         name="CommunicationLinkResourceSpecificationFigure">
       <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle">
+          xsi:type="gmfgraph:RoundedRectangle"
+          cornerWidth="27"
+          cornerHeight="27">
         <layout
             xsi:type="gmfgraph:StackLayout"/>
         <insets
