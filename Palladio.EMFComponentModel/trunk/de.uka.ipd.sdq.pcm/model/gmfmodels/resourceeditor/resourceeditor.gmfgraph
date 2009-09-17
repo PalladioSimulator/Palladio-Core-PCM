@@ -189,17 +189,7 @@
       figure="ProcessingResourceSpecificationFigure"/>
   <compartments
       name="ResourceContainerCompartment"
-      figure="ResourceContainerFigure">
-    <facets
-        xsi:type="gmfgraph:DefaultSizeFacet">
-      <defaultSize
-          dx="3"
-          dy="2"/>
-    </facets>
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"
-        alignment="END"/>
-  </compartments>
+      figure="ResourceContainerFigure"/>
   <labels
       name="ProcessingRateLabel"
       figure="ProcessingResourceSpecificationFigure"
