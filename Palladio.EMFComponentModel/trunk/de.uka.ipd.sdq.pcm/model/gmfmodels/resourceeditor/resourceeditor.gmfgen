@@ -275,10 +275,6 @@
             title="ProcessingResourceSpecification"
             description="Create new ProcessingResourceSpecification"
             genNodes="//@diagram/@childNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ResourceType"
-            description="Create new ResourceType"/>
       </groups>
     </palette>
     <preferencePages
