@@ -54,7 +54,7 @@ public class ProcessingResourceSpecificationProcessingResourceSpecificationCompa
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		result.setBorder(null);			// custom code
+		result.setBorder(null); // custom code
 		return result;
 	}
 

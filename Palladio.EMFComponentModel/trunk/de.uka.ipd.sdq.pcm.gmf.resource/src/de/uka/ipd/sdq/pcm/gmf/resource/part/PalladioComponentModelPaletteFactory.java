@@ -40,7 +40,6 @@ public class PalladioComponentModelPaletteFactory {
 				.add(createCommunicationLinkResourceSpecification2CreationTool());
 		paletteContainer.add(createLinkingResource3CreationTool());
 		paletteContainer.add(createProcessingResourceSpecification4CreationTool());
-		paletteContainer.add(createResourceType5CreationTool());
 		return paletteContainer;
 	}
 
@@ -112,17 +111,6 @@ public class PalladioComponentModelPaletteFactory {
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createResourceType5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.ResourceType5CreationTool_title,
-				Messages.ResourceType5CreationTool_desc, null, null) {
-		};
-		entry.setId("createResourceType5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

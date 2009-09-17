@@ -126,14 +126,14 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureMTTRFigure());
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
 			((ProcessingResourceSpecificationMTTFEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureMTTFFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTRFigure());
 			return true;
 		}
 		return false;
@@ -146,10 +146,10 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
 		return false;
@@ -284,6 +284,10 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureProcessingRateFigure;
+		/**
+		 * @generated
+		 */
 		private WrappingLabel fFigureSchedulingPolicyFigure;
 		/**
 		 * @generated
@@ -337,6 +341,11 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureSchedulingPolicyFigure);
 
+			fFigureProcessingRateFigure = new WrappingLabel();
+			fFigureProcessingRateFigure.setText("");
+
+			this.add(fFigureProcessingRateFigure);
+
 		}
 
 		/**
@@ -356,6 +365,13 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureProcessingRateFigure() {
+			return fFigureProcessingRateFigure;
 		}
 
 		/**
