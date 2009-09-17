@@ -32,6 +32,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTy
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 /**
  * @generated
