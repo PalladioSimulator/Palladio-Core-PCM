@@ -9423,7 +9423,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_CqmdsU-zEduuPYQnFiBybA" fontName="Sans" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Cqmdsk-zEduuPYQnFiBybA" points="[59, -687, -479, 6544]$[478, -6245, -60, 986]"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9E3h0KRPEd6yvqsRaRhDng" id="(0.45017,0.8431507)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9E3h0KRPEd6yvqsRaRhDng" id="(0.46050224,0.87945205)"/>
           </edges>
           <edges xmi:id="_CqskUE-zEduuPYQnFiBybA" element="_XvtGcOQLEdqeH_WIC9QRew" source="_Cp89cE-zEduuPYQnFiBybA" target="_BWo7cE-zEduuPYQnFiBybA">
             <children xmi:id="_CqskU0-zEduuPYQnFiBybA" type="NameLabel">
@@ -9761,6 +9761,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Np4OsU-zEduuPYQnFiBybA" fontName="Sans" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Np4Osk-zEduuPYQnFiBybA" points="[508, -657, -2212, 2959]$[2182, -2899, -538, 717]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ALMZkKRQEd6yvqsRaRhDng" id="(0.39881718,0.18250377)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xTjvkKRSEd6yvqsRaRhDng" id="(0.5705344,0.9751131)"/>
           </edges>
           <edges xmi:id="_ONtUgE-zEduuPYQnFiBybA" element="_CO_D8OMvEdqaQsPH3rPnBQ" source="_ONi8cE-zEduuPYQnFiBybA" target="_Npvr0E-zEduuPYQnFiBybA">
             <children xmi:id="_ONt7kE-zEduuPYQnFiBybA" type="NameLabel">
@@ -10340,6 +10341,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_OSNYgOMfEdqaQsPH3rPnBQ" name="CommunicationLinkResourceSpecification">
+        <generalization xmi:id="_s4vKEKRSEd6yvqsRaRhDng">
+          <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+        </generalization>
         <ownedAttribute xmi:id="_a8pGcEIyEd6xDqQsjkcxUg" name="failureProbability" visibility="public">
           <ownedComment xmi:id="_uvkeYEIyEd6xDqQsjkcxUg" annotatedElement="_a8pGcEIyEd6xDqQsjkcxUg">
             <body>Specifies the probability that a service call over this communication link fails. The failure could be due to message loss or overload, for example.</body>
