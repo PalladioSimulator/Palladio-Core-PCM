@@ -28,13 +28,14 @@ public class OrderPreservingCompositeJob extends AbstractCompositeJob implements
 	 * be executed.
 	 */ 
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
-		IProgressMonitor subProgressMonitor = new SubProgressMonitor(monitor, 1);
+		IProgressMonitor subProgressMonitor = new ExecutionTimeLoggingProgressMonitor(monitor, 1);
 		subProgressMonitor.beginTask("Composite Job Execution", myJobs.size());
 		
 		for (IJob job : myJobs) {
 			if (monitor.isCanceled())
 				throw new UserCanceledException();			
 			logger.debug("SDQ Workflow-Engine: Running job "+job.getName());
+			subProgressMonitor.subTask(job.getName());
 			myExecutedJobs.push(job);
 			job.execute(subProgressMonitor);
 			subProgressMonitor.worked(1);
