@@ -9445,7 +9445,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             </children>
             <children xmi:id="_CqtLaU-zEduuPYQnFiBybA" type="FromRoleLabel" element="_XvtGceQLEdqeH_WIC9QRew">
               <children xmi:id="_CqtycE-zEduuPYQnFiBybA" type="FromRole" element="_XvtGceQLEdqeH_WIC9QRew"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_CqtLak-zEduuPYQnFiBybA" x="-261" y="1646"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_CqtLak-zEduuPYQnFiBybA" x="-578" y="3617"/>
             </children>
             <children xmi:id="_CqtycU-zEduuPYQnFiBybA" type="ToQualifierLabel" element="_XvtGcuQLEdqeH_WIC9QRew">
               <children xmi:id="_Cqtyc0-zEduuPYQnFiBybA" type="QualifierCompartment" element="_XvtGcuQLEdqeH_WIC9QRew">
@@ -10281,7 +10281,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedEnd xmi:id="_4KITIU-zEduuPYQnFiBybA" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_4KHsEE-zEduuPYQnFiBybA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MrdV4OQLEdqeH_WIC9QRew" name="ResourceEnvironment">
-        <ownedAttribute xmi:id="_XvtGceQLEdqeH_WIC9QRew" name="linkingresource" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" aggregation="composite" association="_XvtGcOQLEdqeH_WIC9QRew">
+        <ownedAttribute xmi:id="_XvtGceQLEdqeH_WIC9QRew" name="linkingResources__ResourceEnvironment" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" aggregation="composite" association="_XvtGcOQLEdqeH_WIC9QRew">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XvtGdOQLEdqeH_WIC9QRew" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XvtGc-QLEdqeH_WIC9QRew"/>
         </ownedAttribute>
@@ -10330,7 +10330,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_X5vv8OMeEdqaQsPH3rPnBQ" name="LinkingResource">
         <generalization xmi:id="_JuCrsOG1Edu65ZdUH81nfw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_vOGnQeMeEdqaQsPH3rPnBQ" name="connectedResourceContainer_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_vOGnQOMeEdqaQsPH3rPnBQ">
+        <ownedAttribute xmi:id="_vOGnQeMeEdqaQsPH3rPnBQ" name="connectedResourceContainers_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_vOGnQOMeEdqaQsPH3rPnBQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WFMP8eQMEdqeH_WIC9QRew" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WFMP8OQMEdqeH_WIC9QRew"/>
         </ownedAttribute>
