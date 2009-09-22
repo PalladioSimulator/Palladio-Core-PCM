@@ -44,20 +44,19 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	private URI scriptURI;
 	private List<IModel> models;
 
-	@SuppressWarnings("unused")
-	private String inPartition;
-	private String outPartition;
+	private ResourceSetPartition  myPartition;
 
 	private Map<String, Object> options;
+	
+	private QVTOTransformationJobConf configuration;
 
 	private URI traceURI;
 
-	public QVTOTransformationJob(QVTOTransformationJobConf conf, MDSDBlackboard blackboard, String inPartition, String outPartition) {
-		this.blackboard = blackboard;
+	public QVTOTransformationJob(QVTOTransformationJobConf conf, ResourceSetPartition partition) {
+		this.configuration = conf;
+		this.myPartition = partition;
 		this.models = conf.getModels();
 		this.options = conf.getOptions();
-		this.inPartition = inPartition;
-		this.outPartition = outPartition;
 		this.scriptURI = URI.createURI(conf.getScriptFile());
 		this.traceURI = URI.createURI(conf.getTraceFile());
 	}
@@ -96,22 +95,31 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 		logger.info("Transformation executed.");
 		System.out.println("Transformation executed.");
 		
+		//logger.debug("Creating PCM Model Partition");
+		//ResourceSetPartition myPartion = new ResourceSetPartition();
+		
+		logger.debug("Initialising PCM EPackages");
+		myPartition.initialiseResourceSetEPackages(configuration.getPartitionResourceSetEPackages());
+		
 		logger.info("Saving models...");
 		System.out.println("Saving models...");
-		ResourceSetPartition pcmPartition = new ResourceSetPartition();
+		//ResourceSetPartition pcmPartition = new ResourceSetPartition();
 		for(IModelTransfTarget outModel : result.getOutModels()) {
 			if(outModel instanceof ModelTransfTarget) {
 				ModelTransfTarget m = (ModelTransfTarget) outModel;
 				try {
 					logger.info("Saving model " + m.getUri());
-					toFile(m.getRoots(), m.getUri());
+					//toFile(m.getRoots(), m.getUri());
+					toFile(m.getRoots(), URI.createFileURI(m.getUri().toString()));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				pcmPartition.loadModel(m.getUri().toString());
+				System.out.println("Loading model: " + URI.createFileURI(m.getUri().toString()));
+				//myPartition.loadModel(URI.createFileURI(m.getUri().toString()));
+				myPartition.loadModel(m.getUri().toString());
 			}
 		}
-		blackboard.addPartition(outPartition, pcmPartition);
+		blackboard.addPartition(configuration.getPartitionId(), myPartition);
 		
 		if(traceURI != null) {
 			logger.info("Saving trace...");
@@ -188,6 +196,10 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	 * .ipd.sdq.workflow.Blackboard)
 	 */
 	public void setBlackboard(MDSDBlackboard blackboard) {
+		logger.debug("Blackboard set.");
+		if (blackboard == null) {
+			logger.debug("Blackboard null!");	
+		}
 		this.blackboard = blackboard;
 	}
 }

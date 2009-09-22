@@ -2,7 +2,10 @@ package de.uka.ipd.sdq.workflow.mdsd.emf;
 
 import java.util.List;
 import java.util.Map;
-import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.IModel;;
+
+import org.eclipse.emf.ecore.EPackage;
+
+import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.IModel;
 
 public class QVTOTransformationJobConf {
 	private Map<String, Object> opts;
@@ -10,6 +13,24 @@ public class QVTOTransformationJobConf {
 	private String scriptFile;
 	private String traceFile;
 	
+	private String partitionId;
+	
+	public String getPartitionId() {
+		return partitionId;
+	}
+	public void setPartitionId(String partitionId) {
+		this.partitionId = partitionId;
+	}
+	
+	public EPackage[] partitionResourceSetEPackages;
+	
+	public EPackage[] getPartitionResourceSetEPackages() {
+		return partitionResourceSetEPackages;
+	}
+	public void setPartitionResourceSetEPackages(
+			EPackage[] partitionResourceSetEPackages) {
+		this.partitionResourceSetEPackages = partitionResourceSetEPackages;
+	}
 	public Map<String, Object> getOptions() {
 		return opts;
 	}

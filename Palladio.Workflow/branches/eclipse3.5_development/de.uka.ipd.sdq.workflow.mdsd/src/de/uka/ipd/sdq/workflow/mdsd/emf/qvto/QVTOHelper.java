@@ -52,13 +52,7 @@ public class QVTOHelper {
 	public static TransfExecutionResult runTransf(URI scriptUri, Map<String, Object> opt, List<IModel> modelsFiles) throws TransformationException {
 		if(opt == null)
 			opt = new HashMap<String, Object>();
-		QvtModule qvtModule;
-		try {
-			qvtModule = TransformationUtil.getQvtModule(scriptUri);
-		} catch (MdaException e) {
-			e.printStackTrace();
-			throw new TransformationException("Script's uri is not valid", e);
-		}
+		QvtModule qvtModule = getQvtModule(scriptUri);
 		final QvtInterpretedTransformation transformation = new QvtInterpretedTransformation(qvtModule);
 		ResourceSetImpl metamodelResourceSet = new ResourceSetImpl();
 		ResourceSet wrappedMetamodelResourceSet = metamodelResourceSet; 
@@ -90,6 +84,18 @@ public class QVTOHelper {
 		}
 		return result;
 	}
+	
+	public static QvtModule getQvtModule(URI scriptURI) throws TransformationException {
+		QvtModule qvtModule;
+		try {
+			qvtModule = TransformationUtil.getQvtModule(scriptURI);
+		} catch (MdaException e) {
+			e.printStackTrace();
+			throw new TransformationException("Script's uri is not valid", e);
+		}
+		return qvtModule;
+	}
+	
 	protected static TransfExecutionResult executeTransformation(final QvtTransformation transformation, final List<IModel> models, final Map<String, Object> inConfigProperties) throws TransformationException {
 		List<IModelTransfTarget> outModels = new ArrayList<IModelTransfTarget>();
 
@@ -124,6 +130,7 @@ public class QVTOHelper {
 				}
 			}
 		} catch (MdaException e1) {
+			e1.printStackTrace();
 			throw new TransformationException("Transformation script malformed");
 		}
 		final List<ModelExtentContents> outExtents = new ArrayList<ModelExtentContents>();

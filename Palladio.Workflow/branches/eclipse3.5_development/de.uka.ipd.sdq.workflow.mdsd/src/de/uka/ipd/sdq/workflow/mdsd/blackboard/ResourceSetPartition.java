@@ -37,6 +37,16 @@ public class ResourceSetPartition {
 	 * Load the model with the given URI into this blackboard partition
 	 * @param modelURI The URI of the model to be loaded
 	 */
+	public void loadModel(URI modelURI) {
+		Resource r;
+		r = rs.getResource(modelURI, true);
+		EcoreUtil.resolveAll(r);
+	}
+	
+	/**
+	 * Load the model with the given URI into this blackboard partition
+	 * @param modelURI The string URI of the model to be loaded
+	 */
 	public void loadModel(String modelURI) {
 		Resource r;
 		if (modelURI.indexOf("://") >= 0) { 
