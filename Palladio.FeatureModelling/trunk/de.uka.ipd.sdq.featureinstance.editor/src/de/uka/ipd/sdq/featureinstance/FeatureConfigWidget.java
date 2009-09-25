@@ -6,6 +6,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -49,7 +51,6 @@ public class FeatureConfigWidget {
 	private Composite parent;
 	private String sourceInput;
 	private String targetInput;
-	private int style;
 	protected AdapterFactoryEditingDomain editingDomain;
 	protected ComposedAdapterFactory adapterFactory;
 	protected CheckboxTreeViewer treeViewer;
@@ -63,10 +64,15 @@ public class FeatureConfigWidget {
 	protected boolean dirtyFlag = false;
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
+	private List<ICheckStateListener> checkStateListeners;
+	private String errorMessage;
+	private InstanceValidateAction validateAction;
 
 	public FeatureConfigWidget(Composite parent) {
 		this.parent = parent;
 		initializeEditingDomain();
+		checkStateListeners = new LinkedList<ICheckStateListener>();
+		validateAction = new InstanceValidateAction();
 	}
 
 	public void setSourceInput(String sourceInput) {
@@ -75,6 +81,12 @@ public class FeatureConfigWidget {
 
 	public void setTargetInput(String targetInput) {
 		this.targetInput = targetInput;
+	}
+	
+	public void validate () {
+		validateAction.setConfiguration(getConfiguration(resource));
+		validateAction.setShell(parent.getShell());
+		validateAction.run();
 	}
 
 	/**
@@ -106,11 +118,16 @@ public class FeatureConfigWidget {
 		boolean valid = checkValid();
 		if (valid) {
 			createResource();
-			createEditor();
+			
+			if (resource == null) {
+				errorMessage = "Resource couldn't be loaded";
+				return false;
+			}
+			
+			return createEditor();
 		} else {
 			return false;
 		}
-		return true;
 	}
 
 	/**
@@ -135,6 +152,7 @@ public class FeatureConfigWidget {
 			return valid;
 			//	      
 		} else {
+			errorMessage = "FeatureDiagram couldn't be referenced";
 			return false;
 		}
 	}
@@ -161,6 +179,7 @@ public class FeatureConfigWidget {
 		// Both FeatureConfigs are null
 		if ((tempOverrides == null || tempOverrides.isEmpty())
 				&& tempDefault == null) {
+			errorMessage = "Model contains no FeatureConfig object";
 			return false;
 		} else if (tempOverrides == null && tempDefault != null) { // default
 																	// exists
@@ -180,6 +199,7 @@ public class FeatureConfigWidget {
 				createNewConfigResource(newResourceURI, featureDiagram,
 						tempDefault);
 			} else {
+				errorMessage = "FeatureConfig objects are empty";
 				return false;
 			}
 		} else if (tempOverrides != null && !tempOverrides.isEmpty()
@@ -200,6 +220,7 @@ public class FeatureConfigWidget {
 						true);
 				doSaveAs(newResourceURI);
 			} else {
+				errorMessage = "FeatureConfig objects are empty";
 				return false;
 			}
 		} else {
@@ -255,6 +276,7 @@ public class FeatureConfigWidget {
 							targetInput, true);
 					doSaveAs(newResourceURI);
 				} else {
+					errorMessage = "FeatureConfig objects are empty";
 					return false;
 				}
 			}
@@ -271,10 +293,12 @@ public class FeatureConfigWidget {
 	public void createViewer(FeatureDiagram root) {
 		if (treeViewer == null) {
 			treeViewer = new CheckboxTreeViewer(parent);
-
 			treeViewer.setContentProvider(new TreeContentProvider());
 			treeViewer.setLabelProvider(new TreeLabelProvider());
-
+			
+			for (ICheckStateListener currentListener : checkStateListeners) {
+				treeViewer.addCheckStateListener(currentListener);
+			}
 		}
 		treeViewer.setInput(root);
 		treeViewer.expandAll();
@@ -306,35 +330,32 @@ public class FeatureConfigWidget {
 
 					// automatically unchecks Feature again, if its a mandatory
 					// Feature and the parent node is selected
-					if ((event.getElement() instanceof Feature)
-							&& (checkMandatory((Feature) event.getElement()))) {
-						if (parent instanceof ChildRelation) {
-							parent = editingDomain.getParent(parent);
-						}
+					if ((event.getElement() instanceof Feature)) {
+						
+						if ((checkMandatory((Feature) event.getElement()))) {
+						treeViewer.setChecked(event.getElement(), true);
+						uncheckInModel((Feature)event.getElement(), true);
+						} 
+						// check if node is NOT the root node
+						else if (parent != null && !(parent instanceof FeatureDiagram)) {
+							if (treeViewer.getGrayed(event.getElement())) {
+								treeViewer.setGrayed(event.getElement(), false);
+							}
 
-						if (treeViewer.getChecked(parent)) {
-							treeViewer.setChecked(event.getElement(), true);
+							// check/uncheck recursively
+							if (event.getChecked()) {
+								uncheckInModel((Feature) event.getElement(), true);
+								checkParents(event.getElement());
+							} else {
+								uncheckInModel((Feature) event.getElement(), false);
+								uncheckParents(event.getElement());
+							}
 						}
-					}
-					// check if node is NOT the root node
-					if (parent != null && !(parent instanceof FeatureDiagram)) {
-						if (treeViewer.getGrayed(event.getElement())) {
-							treeViewer.setGrayed(event.getElement(), false);
+						// make root node readonly
+						else {
+							treeViewer.setChecked(event.getElement(), !(event
+									.getChecked()));
 						}
-
-						// check/uncheck recursively
-						if (event.getChecked()) {
-							uncheckInModel((Feature) event.getElement(), true);
-							checkParents(event.getElement());
-						} else {
-							uncheckInModel((Feature) event.getElement(), false);
-							uncheckParents(event.getElement());
-						}
-					}
-					// make root node readonly
-					else {
-						treeViewer.setChecked(event.getElement(), !(event
-								.getChecked()));
 					}
 				}
 			}
@@ -447,17 +468,12 @@ public class FeatureConfigWidget {
 	 *         (e.g. no *.featureconfig-file)
 	 */
 	private Configuration getConfiguration(Resource resource) {
-		System.out.println("Get Configuration: begin");
-
 		EList<EObject> tempList = resource.getContents();
-		System.out.println("Get Configuration: got contents");
 		Iterator<EObject> tempIterator = tempList.iterator();
 		EObject newResource;
 		if (tempIterator.hasNext()) {
-			System.out.println("Get Configuration: iterator has elements");
 			newResource = tempIterator.next();
 		} else {
-			System.out.println("Get Configuration: contents empty");
 			return null;
 		}
 
@@ -482,6 +498,7 @@ public class FeatureConfigWidget {
 		if (sourceInput == null || targetInput == null
 				|| !sourceInput.endsWith(".featureconfig")
 				|| !targetInput.endsWith(".featureconfig")) {
+			errorMessage = "Empty Source/Target file or wrong file ending";
 			return false;
 		}
 		return true;
@@ -943,6 +960,14 @@ public class FeatureConfigWidget {
 
 	public boolean isSaveAsAllowed() {
 		return true;
+	}
+
+	public void addCheckStateListener(ICheckStateListener iCheckStateListener) {
+		checkStateListeners.add(iCheckStateListener);
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 
 }

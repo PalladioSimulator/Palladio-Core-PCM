@@ -6,10 +6,13 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -20,6 +23,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
@@ -48,6 +52,8 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	private String sourceFile;
 	private String targetFile;
 	private Composite container;
+	private Button modelSaveButton;
+	private boolean editorValid = true;
 
 	/*
 	 * (non-Javadoc)
@@ -68,7 +74,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 						if (sourceFile != null && targetFile != null) {
 							editorWidget.setSourceInput(sourceFile);
 							editorWidget.setTargetInput(targetFile);
-							editorWidget.createPages();
+							editorValid = editorWidget.createPages();
 						}
 					}
 				} else if (e.getSource().equals(textTargetConfig)) {
@@ -78,7 +84,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 						if (sourceFile != null && targetFile != null) {
 							editorWidget.setSourceInput(sourceFile);
 							editorWidget.setTargetInput(targetFile);
-							editorWidget.createPages();
+							editorValid = editorWidget.createPages();
 						}
 					}
 				}
@@ -97,6 +103,14 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 			public void widgetSelected(SelectionEvent e) {
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
+		final ICheckStateListener checkListener = new ICheckStateListener() {
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				if (modelSaveButton != null) {
+					modelSaveButton.setEnabled(true);
+				}
 			}
 		};
 
@@ -154,7 +168,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		workspaceButton.setText("Workspace...");
 		workspaceButton.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textFeatureConfig,
-						ConstantsContainer.RESOURCETYPE_EXTENSION));
+						ConstantsContainer.FEATURECONFIG_EXTENSION));
 		final Button buttonResourceTypeRepository = new Button(
 				featureConfigGroup, SWT.NONE);
 		buttonResourceTypeRepository.setLayoutData(new GridData());
@@ -171,7 +185,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 					 */
 					public void widgetSelected(SelectionEvent e) {
 						textFeatureConfig
-								.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
+								.setText(openFileDialog(ConstantsContainer.FEATURECONFIG_EXTENSION));
 					}
 				});
 		
@@ -189,14 +203,13 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				SWT.CENTER, true, false);
 		gd_textTResourceTypeRepository.widthHint = 200;
 		textTargetConfig.setLayoutData(gd_textTResourceTypeRepository);
-		
 		textTargetConfig.addModifyListener(modifyListener);
 		final Button targetButton = new Button(targetConfigGroup, SWT.NONE);
 		targetButton.setText("Workspace...");
 		targetButton
 				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textTargetConfig,
-						ConstantsContainer.RESOURCETYPE_EXTENSION));
+						ConstantsContainer.FEATURECONFIG_EXTENSION));
 		final Button buttonTResourceTypeRepository = new Button(
 				targetConfigGroup, SWT.NONE);
 		buttonTResourceTypeRepository.setLayoutData(new GridData());
@@ -206,12 +219,70 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 			public void widgetSelected(SelectionEvent e) {
 				textTargetConfig
-						.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
+						.setText(openFileDialog(ConstantsContainer.FEATURECONFIG_EXTENSION));
 			}
 		});
 		
-		// Create target feature configuration section:
-		editorWidget = new FeatureConfigWidget(container);
+		// Create Editor widget
+		final Group editorGroup = new Group(container, SWT.NONE);
+		editorGroup.setText("FeatureConfig Editor:");
+		editorGroup.setLayout(new RowLayout(SWT.VERTICAL));
+		editorWidget = new FeatureConfigWidget(editorGroup);
+		editorWidget.addCheckStateListener(checkListener);
+		modelSaveButton = new Button(editorGroup, SWT.NONE);
+		modelSaveButton.setText("Save featureconfig");
+		modelSaveButton.setEnabled(false);
+		modelSaveButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				editorWidget.doSave(new NullProgressMonitor());
+				modelSaveButton.setEnabled(false);
+			}
+		});
+		Button validateButton = new Button(editorGroup, SWT.NONE);
+		validateButton.setText("Validate");
+		validateButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if (editorWidget != null) {
+					editorWidget.validate();
+				}
+			}
+		});
+	}
+	
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);
+		
+		if (!validateFilePath(textFeatureConfig.getText(),
+				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+			setErrorMessage("Source model file is missing!");
+			return false;
+		}
+		if (!validateFilePath(textTargetConfig.getText(),
+				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+			setErrorMessage("Target model file is missing!");
+			return false;
+		}
+		if (editorWidget != null) {
+			if (!editorValid) {
+				setErrorMessage(editorWidget.getErrorMessage());
+			}
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean validateFilePath(String filePath, String[] extensions){
+		if (filePath.equals(""))
+			return false;
+		String extension = getExtensionFromArray(extensions).replace("*", ""); 
+		if (filePath.contains(extension))
+			return true;
+		return false;
+	}
+	
+	private String getExtensionFromArray(String[] array){
+		return array[0];
 	}
 
 	/**
@@ -288,6 +359,12 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			simulateLinkingResourcesButton.setSelection(true);
 		}
+		try {
+			textTargetConfig.setText(configuration.getAttribute(
+					ConstantsContainer.FEATURE_CONFIG_TARGET, ""));
+		} catch (CoreException e) {
+			simulateLinkingResourcesButton.setSelection(true);
+		}
 	}
 
 	/*
@@ -306,6 +383,8 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				this.simulateFailuresButton.getSelection());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				textFeatureConfig.getText());
+		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG_TARGET,
+				textTargetConfig.getText());
 	}
 
 	/*

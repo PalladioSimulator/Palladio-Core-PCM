@@ -30,6 +30,7 @@ public class ConstantsContainer {
 	public static final String[] SYSTEM_EXTENSION = new String[] { "*.system" };
 	public static final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
 	public static final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
+	public static final String[] FEATURECONFIG_EXTENSION = new String[] { "*.featureconfig" };
 
 	/** Configuration tab*/
 	public static final String PLUGIN_ID = "outpath";
@@ -53,6 +54,7 @@ public class ConstantsContainer {
 	
 	/** Simulation features */
 	public static final String FEATURE_CONFIG = "featureConfig";
+	public static final String FEATURE_CONFIG_TARGET = "featureConfigTarget";
 	public static final String FEATURE_FILE = "featureFile";
 	public static final String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
 	public static final String SIMULATE_FAILURES = "simulateFailures";
