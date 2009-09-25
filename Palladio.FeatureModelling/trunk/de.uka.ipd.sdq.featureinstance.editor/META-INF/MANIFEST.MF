@@ -17,4 +17,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.featureconfig,
  de.uka.ipd.sdq.featureconfig.edit,
  de.uka.ipd.sdq.dialogs,
- de.uka.ipd.sdq.identifier.edit;bundle-version="2.0.0"
+ de.uka.ipd.sdq.identifier.edit;bundle-version="2.0.0",
+ org.eclipse.debug.ui;bundle-version="3.5.0"
+Export-Package: de.uka.ipd.sdq.featureinstance

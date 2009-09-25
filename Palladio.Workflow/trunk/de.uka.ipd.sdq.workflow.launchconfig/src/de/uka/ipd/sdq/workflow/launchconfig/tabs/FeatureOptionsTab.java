@@ -27,6 +27,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 
+import de.uka.ipd.sdq.featureinstance.FeatureConfigWidget;
 import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 
@@ -42,6 +43,11 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	private Button simulateLinkingResourcesButton;
 	private Button simulateFailuresButton;
 	private Text textFeatureConfig;
+	private Text textTargetConfig;
+	private FeatureConfigWidget editorWidget;
+	private String sourceFile;
+	private String targetFile;
+	private Composite container;
 
 	/*
 	 * (non-Javadoc)
@@ -55,6 +61,27 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		final ModifyListener modifyListener = new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
+				if (e.getSource().equals(textFeatureConfig)) {
+					if (sourceFile == null || !sourceFile.equals(textFeatureConfig.getText())) {
+						sourceFile = textFeatureConfig.getText();
+
+						if (sourceFile != null && targetFile != null) {
+							editorWidget.setSourceInput(sourceFile);
+							editorWidget.setTargetInput(targetFile);
+							editorWidget.createPages();
+						}
+					}
+				} else if (e.getSource().equals(textTargetConfig)) {
+					if (targetFile == null || !targetFile.equals(textTargetConfig.getText())) {
+						targetFile = textTargetConfig.getText();
+
+						if (sourceFile != null && targetFile != null) {
+							editorWidget.setSourceInput(sourceFile);
+							editorWidget.setTargetInput(targetFile);
+							editorWidget.createPages();
+						}
+					}
+				}
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
 			}
@@ -74,7 +101,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		};
 
 		// Create the top-level container:
-		Composite container = new Composite(parent, SWT.NONE);
+		container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
 
@@ -125,8 +152,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		textFeatureConfig.addModifyListener(modifyListener);
 		final Button workspaceButton = new Button(featureConfigGroup, SWT.NONE);
 		workspaceButton.setText("Workspace...");
-		workspaceButton
-				.addSelectionListener(new WorkspaceButtonSelectionListener(
+		workspaceButton.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textFeatureConfig,
 						ConstantsContainer.RESOURCETYPE_EXTENSION));
 		final Button buttonResourceTypeRepository = new Button(
@@ -148,6 +174,44 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 								.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
 					}
 				});
+		
+		// Create target feature configuration section:
+		final Group targetConfigGroup = new Group(container, SWT.NONE);
+		final GridLayout glRepositoryTypeGroup = new GridLayout();
+		glRepositoryTypeGroup.numColumns = 3;
+		targetConfigGroup.setLayout(glRepositoryTypeGroup);
+		targetConfigGroup.setText("Target featureconfig file");
+		targetConfigGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
+		textTargetConfig = new Text(targetConfigGroup, SWT.SINGLE
+				| SWT.BORDER);
+		final GridData gd_textTResourceTypeRepository = new GridData(SWT.FILL,
+				SWT.CENTER, true, false);
+		gd_textTResourceTypeRepository.widthHint = 200;
+		textTargetConfig.setLayoutData(gd_textTResourceTypeRepository);
+		
+		textTargetConfig.addModifyListener(modifyListener);
+		final Button targetButton = new Button(targetConfigGroup, SWT.NONE);
+		targetButton.setText("Workspace...");
+		targetButton
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
+						textTargetConfig,
+						ConstantsContainer.RESOURCETYPE_EXTENSION));
+		final Button buttonTResourceTypeRepository = new Button(
+				targetConfigGroup, SWT.NONE);
+		buttonTResourceTypeRepository.setLayoutData(new GridData());
+		buttonTResourceTypeRepository.setText("File System...");
+		buttonTResourceTypeRepository
+		.addSelectionListener(new SelectionAdapter() {
+
+			public void widgetSelected(SelectionEvent e) {
+				textTargetConfig
+						.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
+			}
+		});
+		
+		// Create target feature configuration section:
+		editorWidget = new FeatureConfigWidget(container);
 	}
 
 	/**
@@ -280,7 +344,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		 */
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			field.setText(openResourceDialog(extension));
+			field.setText(openResourceDialog(extension, true));
 		}
 
 		private String getExtensionFromArray(String[] array) {
@@ -294,7 +358,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	 * 
 	 * @return relative path to file in workspace
 	 */
-	private String openResourceDialog(String extension) {
+	private String openResourceDialog(String extension, boolean relativePath) {
 
 		/** Filter from the redundant files. */
 		List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
@@ -314,8 +378,13 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 		if (files.length != 0)
 			file = files[0];
-		if (file != null)
-			return file.getLocation().toOSString();
+		if (file != null) {
+			if (relativePath) {
+				return file.getFullPath().toOSString().substring(1);
+			} else {
+				return file.getLocation().toOSString();
+			}
+		}
 
 		return "";
 	}
