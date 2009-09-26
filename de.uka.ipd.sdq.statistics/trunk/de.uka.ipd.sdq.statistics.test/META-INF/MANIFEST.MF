@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.statistics.test
+Bundle-Version: 1.0.0
+Bundle-Activator: de.uka.ipd.sdq.statistics.test.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
