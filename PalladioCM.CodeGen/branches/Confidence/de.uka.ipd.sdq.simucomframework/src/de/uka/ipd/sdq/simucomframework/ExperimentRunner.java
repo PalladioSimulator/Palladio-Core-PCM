@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm;
+import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 
 /**
  * Helper class to actually perform a simulation run using desmo-j
@@ -54,8 +56,9 @@ public class ExperimentRunner {
 		
 		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
 		
-		// TODO pass parameter (like alpha) based on launch config settings
-		model.getSimulationControl().addStopCondition(new PhiMixingConfidenceStopCondition(model, 
-				new RunUpIndependenceVerifier(), 0.05));
+		// TODO pass parameters (like level) based on launch config settings
+		model.getSimulationControl().addStopCondition(
+				new ConfidenceStopCondition(model, new PhiMixingBatchAlgorithm(),
+						new SampleMeanEstimator(), 0.95, 0.1));
 	}
 }
