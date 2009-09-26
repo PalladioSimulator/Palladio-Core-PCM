@@ -66,10 +66,10 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 	}
 
 	private void initialize() {
-		// TODO Remove log4j initialization --------
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.INFO);
-		//------------------------------------------
+//		// TODO Remove log4j initialization --------
+//		BasicConfigurator.configure();
+//		Logger.getRootLogger().setLevel(Level.INFO);
+//		//------------------------------------------
 		logger = Logger.getLogger(PhiMixingBatchAlgorithm.class);
 
 		qiSamples = new QuasiIndependentSampleSequence();
@@ -199,7 +199,7 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 			qiSamples.offerSample(sample);
 			if (demandedQiSamples == 0) {
 				super.independenceConditionalStateChange(1,
-						new HalfWidthReductionState(), new Iteration1a());
+						new IncreaseBatches(), new Iteration1a());
 			}
 		}
 
@@ -224,7 +224,7 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 			qiSamples.offerSample(sample);
 			if (demandedQiSamples == 0) {
 				super.independenceConditionalStateChange(2,
-						new HalfWidthReductionState(), new Iteration1b());
+						new IncreaseBatches(), new Iteration1b());
 			}
 		}
 
@@ -248,12 +248,12 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 			qiSamples.offerSample(sample);
 			if (demandedQiSamples == 0) {
 				super.independenceConditionalStateChange(3,
-						new HalfWidthReductionState(), new IterationKa());
+						new IncreaseBatches(), new IterationKa());
 			}
 		}
 
 		public void end() {
-			logger.info("End of iteration 1a");
+			logger.info("End of iteration 1b");
 			super.logBatchStatus();
 		}
 
@@ -292,7 +292,7 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 
 			if (demandedQiSamples == 0) {
 				super.independenceConditionalStateChange(2,
-						new HalfWidthReductionState(), new IterationKb());
+						new IncreaseBatches(), new IterationKb());
 			}
 		}
 
@@ -332,7 +332,7 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 
 			if (demandedQiSamples == 0) {
 				super.independenceConditionalStateChange(3,
-						new HalfWidthReductionState(), new IterationKa());
+						new IncreaseBatches(), new IterationKa());
 			}
 		}
 
@@ -343,12 +343,12 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 
 	}
 
-	private class HalfWidthReductionState extends State {
+	private class IncreaseBatches extends State {
 
 		private int demandedSamples;
 
 		public void start() {
-			logger.info("Start of half width reduction.");
+			logger.info("Start increasing batches.");
 
 			if (batches.size() == 30) {
 				mergeAdjacentBatches(batches);
@@ -366,12 +366,12 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 			--demandedSamples;
 
 			if (demandedSamples == 0) {
-				changeState(new HalfWidthReductionState());
+				changeState(new IncreaseBatches());
 			}
 		}
 
 		public void end() {
-			logger.info("End of half width reduction.");
+			logger.info("Stop increasing batches.");
 			super.logBatchStatus();
 		}
 

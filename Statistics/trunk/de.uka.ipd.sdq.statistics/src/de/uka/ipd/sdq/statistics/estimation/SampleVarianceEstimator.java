@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Estimator for the sample variance.
  * 
- * @author pmerkle
+ * @author Philipp Merkle
  *
  */
 public class SampleVarianceEstimator implements IPointEstimator {
