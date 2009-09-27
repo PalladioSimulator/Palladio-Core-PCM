@@ -106,15 +106,18 @@ extends	AbstractWorkflowBasedRunConfiguration {
 
 	public void setUsageModelFile(String usageModelFile) {
 		checkFixed();
+		System.out.println("USAGE!");
 		this.usageModelFile = usageModelFile;
 	}
 
 	public String getFeatureConfigFile() {
+		System.out.println("GETTING FEATURE CONFIG: " + featureConfigFile);
 		return featureConfigFile;
 	}
 
 	public void setFeatureConfigFile(String featureConfigFile) {
 		checkFixed();
+		System.out.println("FEATURE CONFIG: " + featureConfigFile);
 		this.featureConfigFile = featureConfigFile;
 	}
 

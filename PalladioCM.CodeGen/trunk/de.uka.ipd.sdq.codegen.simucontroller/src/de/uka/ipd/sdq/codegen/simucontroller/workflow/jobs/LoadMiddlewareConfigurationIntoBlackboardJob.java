@@ -5,26 +5,25 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
-public class LoadPCMModelsIntoBlackboardJob 
+public class LoadMiddlewareConfigurationIntoBlackboardJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	private Logger logger = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
 	
-	public static final String PCM_MODELS_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition";
-
+	public static final String MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.middleware";
 
 	private MDSDBlackboard blackboard = null;
 	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
-	public LoadPCMModelsIntoBlackboardJob(SimuComWorkflowConfiguration config) {
+	public LoadMiddlewareConfigurationIntoBlackboardJob(SimuComWorkflowConfiguration config) {
 		super();
 		
 		this.configuration  = config;
@@ -32,29 +31,24 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
-		logger.debug("Creating PCM Model Partition");
-		PCMResourceSetPartition myPartion = new PCMResourceSetPartition();
-		this.blackboard.addPartition(PCM_MODELS_PARTITION_ID, myPartion);
+		logger.debug("Creating Middleware Repository Partition");
 		
+		ResourceSetPartition middlewareRepositoryPartition = new ResourceSetPartition();
+		this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 		
-		logger.debug("Initialising PCM EPackages");
-		myPartion.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
-
+		logger.debug("Initialising Middleware EPackages");
+		middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		
-		logger.info("Loading PCM Model Files");
-		for (String modelFile : configuration.getPCMModelFiles()) {
-			System.out.println("Loading model: " + modelFile);
-			myPartion.loadModel(modelFile);
-		}
+		middlewareRepositoryPartition.loadModel(configuration.getMiddlewareFile());
 	}
 
 	public String getName() {
-		return "Load PCM Models into Blackboard";
+		return "Load Middleware Configuration into Blackboard";
 	}
 
 	public void rollback(IProgressMonitor monitor)
 			throws RollbackFailedException {
-		this.blackboard.removePartition(PCM_MODELS_PARTITION_ID);
+		this.blackboard.removePartition(MIDDLEWARE_PARTITION_ID);
 	}
 
 	public void setBlackboard(MDSDBlackboard blackboard) {
