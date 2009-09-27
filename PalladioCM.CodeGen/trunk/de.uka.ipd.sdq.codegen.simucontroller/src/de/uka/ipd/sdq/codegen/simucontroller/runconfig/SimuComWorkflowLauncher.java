@@ -8,8 +8,7 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
-import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
-import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
+import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
@@ -62,7 +61,8 @@ public class SimuComWorkflowLauncher extends
 		IDebugListener listener = null;
 		
 		if (config.isDebug()) {
-			listener = new IDebugListener() {
+			listener = new SimulationDebugListener(launch);
+			/*listener = new IDebugListener() {
 
 				private SimulationDebugTarget target = null;
 
@@ -85,7 +85,7 @@ public class SimuComWorkflowLauncher extends
 					}
 				}
 
-			};
+			};*/
 		}
 		return new SimuComJob(config,listener);
 	}	
