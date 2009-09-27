@@ -84,7 +84,6 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 		}
 
 		logger.info("Starting Transformation...");		
-		System.out.println("Starting Transformation...");
 		TransfExecutionResult result = null;
 		try {
 			result = QVTOHelper.runTransf(scriptURI, options, models);
@@ -93,7 +92,6 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 			throw new JobFailedException("Transformation execution failed", e);
 		}
 		logger.info("Transformation executed.");
-		System.out.println("Transformation executed.");
 		
 		//logger.debug("Creating PCM Model Partition");
 		//ResourceSetPartition myPartion = new ResourceSetPartition();
@@ -102,19 +100,18 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 		myPartition.initialiseResourceSetEPackages(configuration.getPartitionResourceSetEPackages());
 		
 		logger.info("Saving models...");
-		System.out.println("Saving models...");
 		//ResourceSetPartition pcmPartition = new ResourceSetPartition();
 		for(IModelTransfTarget outModel : result.getOutModels()) {
 			if(outModel instanceof ModelTransfTarget) {
 				ModelTransfTarget m = (ModelTransfTarget) outModel;
 				try {
-					logger.info("Saving model " + m.getUri());
+					logger.debug("Saving model " + m.getUri());
 					//toFile(m.getRoots(), m.getUri());
 					toFile(m.getRoots(), URI.createFileURI(m.getUri().toString()));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				System.out.println("Loading model: " + URI.createFileURI(m.getUri().toString()));
+				logger.debug("Loading model: " + URI.createFileURI(m.getUri().toString()));
 				//myPartition.loadModel(URI.createFileURI(m.getUri().toString()));
 				myPartition.loadModel(m.getUri().toString());
 			}
@@ -123,7 +120,6 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 		
 		if(traceURI != null) {
 			logger.info("Saving trace...");
-			System.out.println("Saving trace...");
 			try {
 				result.saveTrace(traceURI);
 			} catch (IOException e) {
@@ -131,9 +127,9 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 			}
 		}
 		
-		System.out.println("Printing transformation console (lenght "+result.getConsoleOutput().length()+")...");
-		System.out.println(result.getConsoleOutput());
-		System.out.println("Transformation job finished.");
+		logger.debug("Printing transformation console (lenght "+result.getConsoleOutput().length()+")...");
+		logger.debug(result.getConsoleOutput());
+		logger.info("Transformation job finished.");
 	}
 
 	/**
