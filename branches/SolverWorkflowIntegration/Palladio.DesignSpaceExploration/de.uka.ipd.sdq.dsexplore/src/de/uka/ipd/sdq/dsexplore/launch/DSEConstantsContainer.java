@@ -32,9 +32,13 @@ public class DSEConstantsContainer {
 	
 	public static final String PERFORMANCE = "de.uka.ipd.sdq.dsexplore.performance";
 	public static final String RELIABILITY = "de.uka.ipd.sdq.dsexplore.reliability";
+	public static final String COST = "de.uka.ipd.sdq.dsexplore.cost";
+	
+	public static final String DESIGN_DECISIONS_ONLY = "designDecisionsOnly";
+	public static final String OPTIMISATION_ONLY = "optimisationOnly";
 	
 
-
+	public static final String NONE = "none";
 	public static final String getAnalysisMethod(String qualityAttribute){
 		return ANALYSIS_METHOD_PREFIX+qualityAttribute;
 	}

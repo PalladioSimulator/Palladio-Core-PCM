@@ -16,6 +16,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.opt4j.config.visualization.Configurator;
 import org.opt4j.core.DoubleValue;
 import org.opt4j.core.Value;
+import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.start.Opt4J;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
@@ -25,10 +26,12 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisProxy;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.dsexplore.helper.GenotypeReader;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.GivenInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
@@ -84,6 +87,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			this.mrtRequirements = getDoubleAttribute(configuration, DSEConstantsContainer.MRT_REQUIREMENTS, "");
 			this.maxCost = getDoubleAttribute(configuration, DSEConstantsContainer.MAX_COST, "");
 			this.individualsPerGeneration  = getIntAttribute(configuration, DSEConstantsContainer.INDIVIDUALS_PER_GENERATION, "");
+			boolean newProblem = !configuration.getAttribute(DSEConstantsContainer.OPTIMISATION_ONLY, false);
+			boolean optimise = !configuration.getAttribute(DSEConstantsContainer.DESIGN_DECISIONS_ONLY, false);
 			
 			logger.debug("\n Launching optimization with \n"+
 					"maximal number of iterations: "+this.maxIterations+"\n"+
@@ -100,32 +105,54 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    //initialise the algorithm and analysis
 		    //HillClimbingAlgorithm algorithm = new HillClimbingAlgorithm(mrtRequirements);
 		    //IAlgorithm algorithm = new FullSearchAlgorithm();
-			IAnalysis perfAnalysisTool = new AnalysisProxy(configuration, mode, launch, monitor, DSEConstantsContainer.PERFORMANCE);
-			IAnalysis relAnalysisTool = new AnalysisProxy(configuration, mode, launch, monitor,DSEConstantsContainer.RELIABILITY);
+		    
+		    ArrayList<Value<Double>> upperConstraints = new ArrayList<Value<Double>>();
+		    
+		    List<IAnalysis> evaluators = new ArrayList<IAnalysis>();
+		    if (!configuration.getAttribute(DSEConstantsContainer.getAnalysisMethod(DSEConstantsContainer.PERFORMANCE), "").equals(DSEConstantsContainer.NONE)){
+		    	evaluators.add(new AnalysisProxy(configuration, mode, launch, monitor, DSEConstantsContainer.PERFORMANCE));
+		    	upperConstraints.add(new DoubleValue(mrtRequirements));
+		    }
+		    if (!configuration.getAttribute(DSEConstantsContainer.getAnalysisMethod(DSEConstantsContainer.RELIABILITY), "").equals(DSEConstantsContainer.NONE)){
+		    	evaluators.add(new AnalysisProxy(configuration, mode, launch, monitor, DSEConstantsContainer.RELIABILITY));
+		    	upperConstraints.add(new DoubleValue(maxPOFOD));
+		    }
+		    CostEvaluator costs = new CostEvaluator();
+		    costs.initialise(configuration, mode, launch, monitor);
+		    evaluators.add(costs);
+		    upperConstraints.add(new DoubleValue(maxCost));
 			
 		    //algorithm.initialise(instances, perfAnalysisTool,configuration);
-			
-			CostRepository costs = getCostModel(configuration);
-		    
-			ArrayList<Value<Double>> upperConstraints = new ArrayList<Value<Double>>();
-			upperConstraints.add(new DoubleValue(mrtRequirements));
-			upperConstraints.add(new DoubleValue(maxCost));
-			upperConstraints.add(new DoubleValue(maxPOFOD));
+
 			
 			//TODO: extract this in a Builder?
-			if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
-					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")){
-				Opt4JStarter.startOpt4J(perfAnalysisTool, relAnalysisTool, pcmInstance, maxIterations, this.individualsPerGeneration, costs, upperConstraints, monitor);
+			if (!optimise){
+				if (newProblem){
+					Opt4JStarter.init(evaluators, upperConstraints, pcmInstance, newProblem);
+				} else {
+					throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, "You cannot choose \"optimisation only\" and \"design decisions only\" at the same time", null));
+				}
+			} else if (!configuration.hasAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES)
+					|| configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").equals("")
+					){
+				Opt4JStarter.initAndStartOpt4J(evaluators, pcmInstance, maxIterations, this.individualsPerGeneration, upperConstraints, monitor, newProblem);
 			} else if (configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "").toLowerCase().equals("random")){
-				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+				Opt4JStarter.init(evaluators, upperConstraints, pcmInstance, newProblem);
 				PredefinedInstanceEvaluator rie = new RandomSearch(maxIterations, individualsPerGeneration);
 				rie.start();
-			} else {
+			} else if (this.maxIterations == 0){
+				//Only evaluate given instances
 				//TODO: fix this dependency, GivenInstanceEvaluator will not work without init call. Refactor init part and how to evaluate part in two different classes 
-				Opt4JStarter.init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+				Opt4JStarter.init(evaluators, upperConstraints, pcmInstance, newProblem);
 				PredefinedInstanceEvaluator gie = new GivenInstanceEvaluator(configuration);
 				gie.start();
 				
+			} else {
+				Opt4JStarter.init(evaluators, upperConstraints, pcmInstance, newProblem);
+				//use predefined instances as initial population
+				String filename = configuration.getAttribute(DSEConstantsContainer.PREDEFINED_INSTANCES, "");
+				List<DoubleGenotype> genotypes = GenotypeReader.getGenotypes(filename);
+				Opt4JStarter.runOpt4JWithPopulation(maxIterations, individualsPerGeneration, monitor, genotypes);
 			}
 		    
 		  		
@@ -159,6 +186,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				
 				try {
 					Opt4JStarter.closeTask();
+					Opt4JStarter.tearDown();
 				} catch (Exception e){
 					e.printStackTrace();
 				}
@@ -166,20 +194,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			}
 	}
 
-	/**
-	 * returns a cost model or throws an exception. 
-	 * @param configuration
-	 * @return a CostRepository which is not null
-	 * @throws CoreException if the model could not be loaded.  
-	 */
-	private CostRepository getCostModel(ILaunchConfiguration configuration) throws CoreException {
-		String costModelFileName = configuration.getAttribute(DSEConstantsContainer.COST_FILE, "");
-		CostRepository cr =  (CostRepository)EMFHelper.loadFromXMIFile(costModelFileName);
-		if (cr == null){
-			throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, "Cost model "+costModelFileName+" could not be loaded.", null));
-		}
-		return cr;
-	}
+
 
 	/**
 	 * Reads an attribute from the configurations and tries to parse it as an integer. 

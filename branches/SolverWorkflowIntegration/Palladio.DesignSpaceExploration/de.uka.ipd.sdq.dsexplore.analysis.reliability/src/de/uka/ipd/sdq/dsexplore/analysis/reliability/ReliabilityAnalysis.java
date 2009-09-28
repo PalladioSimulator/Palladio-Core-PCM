@@ -128,6 +128,11 @@ public class ReliabilityAnalysis implements IAnalysis {
 		return retrieveRealiabilitySolverResults(pcmInstance);
 	}
 
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "POFOD";
+	}
+
 	
 	
 }

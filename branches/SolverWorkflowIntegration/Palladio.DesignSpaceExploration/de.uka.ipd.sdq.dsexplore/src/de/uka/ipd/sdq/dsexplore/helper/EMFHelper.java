@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -177,6 +179,23 @@ public class EMFHelper {
 		resourceSet.getPackageRegistry().put(UsagemodelPackage.eNS_URI,
 				UsagemodelPackage.eINSTANCE);
 		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Entity retrieveEntityByID(List entities, String id) {
+		for (Object entity : entities) {
+			
+			if (((Entity)entity).getId().equals(id)){
+				return (Entity)entity;
+			}
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static int indexOfByID(List entities, String id) {
+		Entity entity = retrieveEntityByID(entities, id);
+		return entities.indexOf(entity);
 	}
 	
 }

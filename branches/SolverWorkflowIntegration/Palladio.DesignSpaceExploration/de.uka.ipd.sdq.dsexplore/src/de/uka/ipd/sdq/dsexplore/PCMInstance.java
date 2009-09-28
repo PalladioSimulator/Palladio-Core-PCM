@@ -72,8 +72,8 @@ public class PCMInstance {
 	private ILaunchConfiguration launchConfiguration;
 
 	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-	private de.uka.ipd.sdq.featureconfig.Configuration connectorConfig;
-	private String connectorConfigFilename;
+	//private de.uka.ipd.sdq.featureconfig.Configuration connectorConfig;
+	//private String connectorConfigFilename;
 
 	public PCMInstance() {
 		super();
@@ -132,8 +132,8 @@ public class PCMInstance {
 		logger.debug("ResourceEnv: " + this.resEnvFileName);
 		
 		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-		this.connectorConfigFilename = configuration.getAttribute(ConstantsContainer.FEATURE_CONFIG, "");
-		this.connectorConfig = ((de.uka.ipd.sdq.featureconfig.Configuration) EMFHelper.loadFromXMIFile(this.connectorConfigFilename));
+		//this.connectorConfigFilename = configuration.getAttribute(ConstantsContainer.FEATURE_CONFIG, "");
+		//this.connectorConfig = ((de.uka.ipd.sdq.featureconfig.Configuration) EMFHelper.loadFromXMIFile(this.connectorConfigFilename));
 	}
 
 	/**
@@ -165,8 +165,8 @@ public class PCMInstance {
 			UsageModel usageModel, String allocationFileName,
 			String repositoryFileName, String resourceRepositoryFileName,
 			String usageModelFileName, String systemFileName,
-			String resourceEnvironmentFileName, String name,
-			de.uka.ipd.sdq.featureconfig.Configuration connectorConfig, String connectorConfigFileName) {
+			String resourceEnvironmentFileName, String name /*,
+			de.uka.ipd.sdq.featureconfig.Configuration connectorConfig, String connectorConfigFileName*/) {
 		super();
 		this.repository = repository;
 		this.system = system;
@@ -186,8 +186,8 @@ public class PCMInstance {
 		this.name = name;
 		
 		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-		this.connectorConfig = connectorConfig;
-		this.connectorConfigFilename = connectorConfigFileName;
+		//this.connectorConfig = connectorConfig;
+		//this.connectorConfigFilename = connectorConfigFileName;
 		
 	}
 
@@ -287,14 +287,14 @@ public boolean equals(Object o) {
 	}
 
 	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-	public Configuration getConnectorConfig(){
-		return this.connectorConfig;
-	}
-	
-	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-	public String getConnectorConfigFilename(){
-		return this.connectorConfigFilename;
-	}
+//	public Configuration getConnectorConfig(){
+//		return this.connectorConfig;
+//	}
+//	
+//	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
+//	public String getConnectorConfigFilename(){
+//		return this.connectorConfigFilename;
+//	}
 
 	public void saveAllocationToFile() {
 		EMFHelper.saveToXMIFile(allocation, allocationFileName);
@@ -353,15 +353,15 @@ public boolean equals(Object o) {
 		saveAllocationToFile();
 		
 		//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-		saveConnectorConfigToFiles();
+		//saveConnectorConfigToFiles();
 	}
 
 	//TODO: Quick fix for changing SoapAndRmi Decisions (i.e. ConnectorConfigDecision)
-	private void saveConnectorConfigToFiles() {
-		if (this.connectorConfig != null){
-			EMFHelper.saveToXMIFile(this.connectorConfig, this.connectorConfigFilename);
-		}
-	}
+//	private void saveConnectorConfigToFiles() {
+//		if (this.connectorConfig != null){
+//			EMFHelper.saveToXMIFile(this.connectorConfig, this.connectorConfigFilename);
+//		}
+//	}
 
 	public void setAllocation(Allocation allocation) {
 		this.allocation = allocation;
@@ -406,8 +406,8 @@ public boolean equals(Object o) {
 				this.usageModel, this.allocationFileName,
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, this.systemFileName,
-				this.resEnvFileName, this.name,
-				this.connectorConfig, this.connectorConfigFilename);
+				this.resEnvFileName, this.name /*,
+				this.connectorConfig, this.connectorConfigFilename*/);
 		return pcm;
 	}
 	
@@ -436,17 +436,17 @@ public boolean equals(Object o) {
 		
 		//Currently we do not need a connector config for solvers and if simulate linking resources is not checked.
 		de.uka.ipd.sdq.featureconfig.Configuration cfg = null;
-		if (this.connectorConfig != null){
-			 cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
-		}
+//		if (this.connectorConfig != null){
+//			 cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
+//		}
 			
 		PCMInstance pcm = new PCMInstance(this.repository, s, a, re, this.resourcetype, this.mwRepository,
 				this.storagePath, this.resourceRepository,
 				this.usageModel, appendToFilename("c",this.allocationFileName),
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, appendToFilename("c",this.systemFileName),
-				appendToFilename("c",this.resEnvFileName), this.name+"-c", cfg, 
-				this.connectorConfigFilename != null ? appendToFilename("c", this.connectorConfigFilename) : null);
+				appendToFilename("c",this.resEnvFileName), this.name+"-c" /*, cfg , 
+				this.connectorConfigFilename != null ? appendToFilename("c", this.connectorConfigFilename) : null*/);
 		
 		return pcm;
 

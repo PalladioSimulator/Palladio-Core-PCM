@@ -1,0 +1,11 @@
+package de.uka.ipd.sdq.dsexplore.launch;
+
+import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart;
+
+public class DSEDockStatusViewPart extends DockStatusViewPart {
+
+	public DSEDockStatusViewPart() {
+		super();
+	}
+
+}

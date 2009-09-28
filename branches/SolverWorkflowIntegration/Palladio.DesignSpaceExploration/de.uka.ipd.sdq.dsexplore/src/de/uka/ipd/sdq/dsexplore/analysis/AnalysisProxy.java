@@ -78,4 +78,10 @@ public class AnalysisProxy implements IAnalysis {
 		return ana.retrieveLastResults(pcmInstance);
 	}
 
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		checkAnalysisExtension();
+		return ana.getQualityAttribute();
+	}
+
 }

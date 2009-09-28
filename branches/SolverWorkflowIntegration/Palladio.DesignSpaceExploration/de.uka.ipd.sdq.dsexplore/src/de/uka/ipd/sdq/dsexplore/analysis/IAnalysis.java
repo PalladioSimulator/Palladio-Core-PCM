@@ -28,9 +28,12 @@ public interface IAnalysis {
 	  * @param mode
 	  * @param launch
 	  * @param monitor
+	 * @throws CoreException 
 	  */
-	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor);
+	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor) throws CoreException;
 
 	public abstract IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException;
+	
+	public abstract String getQualityAttribute() throws CoreException;
 
 }

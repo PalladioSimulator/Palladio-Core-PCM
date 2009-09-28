@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.analysis.IStatisticAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
@@ -64,7 +65,7 @@ public class SimuComAnalysis implements IAnalysis {
 
 		launchSimuCom(pcmInstance);		
 		
-		IAnalysisResult result = retrieveSimuComResults(pcmInstance);
+		IStatisticAnalysisResult result = retrieveSimuComResults(pcmInstance);
 		
 		logger.debug("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		logger.debug("The median value of instance "+pcmInstance.getName()+": "+result.getMedianValue());
@@ -74,9 +75,9 @@ public class SimuComAnalysis implements IAnalysis {
 
 	
 
-	private IAnalysisResult retrieveSimuComResults(PCMInstance pcmInstance)
+	private IStatisticAnalysisResult retrieveSimuComResults(PCMInstance pcmInstance)
 			throws CoreException, AnalysisFailedException {
-		IAnalysisResult result = null;
+		IStatisticAnalysisResult result = null;
 		int selectedDataSourceID = 
 			config.getAttribute(
 					SimuComConfig.DATASOURCE_ID, -1);
@@ -255,5 +256,14 @@ public class SimuComAnalysis implements IAnalysis {
 	public IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException {
 		return this.retrieveSimuComResults(pcmInstance);
 	}
+
+
+
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "mean response time";
+	}
+	
+	
 
 }

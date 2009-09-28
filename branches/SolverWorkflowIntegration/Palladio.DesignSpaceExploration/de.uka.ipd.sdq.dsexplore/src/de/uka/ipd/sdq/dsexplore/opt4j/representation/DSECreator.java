@@ -23,12 +23,14 @@ public class DSECreator implements Creator<DoubleGenotype> {
 	private Random random;
 	
 	private boolean initialGenotypeEvaluated = false;
+	private int numberOfNotEvaluatedPredefinedOnes;
 
 	@Inject
 	public DSECreator(){
 		//XXX like this you can only set the problem once. Maybe dont save the reference. 
 		this.problem = Opt4JStarter.problem;
 		this.random = new Random();
+		this.numberOfNotEvaluatedPredefinedOnes = this.problem.getInitialGenotypeList().size();
 	}
 	
 
@@ -36,8 +38,13 @@ public class DSECreator implements Creator<DoubleGenotype> {
 	public DoubleGenotype create() {
 		
 		if (!initialGenotypeEvaluated){
-			initialGenotypeEvaluated = true;
-			return this.problem.getInitialGenotype();
+			DoubleGenotype genome = this.problem.getInitialGenotypeList().get(this.problem.getInitialGenotypeList().size()-this.numberOfNotEvaluatedPredefinedOnes);
+			numberOfNotEvaluatedPredefinedOnes --;
+			if (numberOfNotEvaluatedPredefinedOnes <= 0){
+				initialGenotypeEvaluated = true;
+			}
+			return genome;
+			
 		}
 		
 		DoubleGenotype genotype = new DoubleGenotype(problem.getBounds());

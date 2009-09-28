@@ -44,7 +44,7 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 
 	@Inject
 	public DSEDecoder(){
-		//XXX like this you can only set the problem once. Maybe dont save the reference. 
+		//XXX like this you can only set the problem once. Maybe don't save the reference. 
 		//this.problem = Opt4JStarter.problem;
 	}
 
@@ -58,14 +58,16 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 		int index = 0;
 		//adjust values as in genotype
 		for (Double doubleGene : genotype) {
-			if (!doubleGene.isNaN() || doubleGene.isInfinite()){
-				applyChange(Opt4JStarter.problem.getDesignDecision(index), doubleGene);
-			}  else { // TODO Handle wrong double genes properly, this is not the best way to solve it.
-				logger.warn("A double gene was not applicable for instance "+pcm.getName()+" : "+doubleGene.toString());
-				//set gene back to initial value
-				//XXX: maybe better set back to last value or find out why NaN happens
-				genotype.set(index, Opt4JStarter.problem.getInitialGenotype().get(index));
+			//Check first if value is NaN or infinite. If it is, use the value from the initialGenotype (thats maybe the last one as it changes?)
+			
+			if (doubleGene.isNaN() || doubleGene.isInfinite()){
+				Double oldGene = Opt4JStarter.problem.getInitialGenotypeList().get(0).get(index);
+				logger.warn("A double gene was not applicable for instance "+pcm.getName()+" : "+doubleGene.toString()+". Setting it to the older value "+oldGene.toString());
+				doubleGene = oldGene;
+				genotype.set(index, oldGene);
 			}
+			applyChange(Opt4JStarter.problem.getDesignDecision(index), doubleGene);
+
 			index++;
 		}
 		
@@ -262,7 +264,7 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 				return entities.indexOf(entity);
 			}
 		}
-		return 0;
+		return Double.NaN;
 	}
 
 	private static double getDoubleValueFor(AssembledComponentDecision designDecision,

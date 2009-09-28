@@ -12,16 +12,10 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
-import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
-import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverJob;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate;
-import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.LqnXmlHandler;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.Pcm2LqnStrategy;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
-import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
-import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
 /**
  * Starts a LQN Solver Analysis for the design space exploration.
@@ -152,6 +146,11 @@ public class LQNSolverAnalysis implements IAnalysis {
 	public IAnalysisResult retrieveLastResults(PCMInstance pcmInstance)
 			throws CoreException, AnalysisFailedException {
 		return retrieveLQNSolverResults(pcmInstance);
+	}
+
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "mean response time";
 	}
 
 	

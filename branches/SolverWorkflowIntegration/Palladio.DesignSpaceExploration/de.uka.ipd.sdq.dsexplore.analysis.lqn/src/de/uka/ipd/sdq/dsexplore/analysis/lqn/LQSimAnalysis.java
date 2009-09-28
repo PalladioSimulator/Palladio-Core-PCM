@@ -131,5 +131,10 @@ public class LQSimAnalysis implements IAnalysis {
 		return retrieveLQSimResults(pcmInstance);
 	}
 
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "mean response time";
+	}
+
 
 }

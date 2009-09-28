@@ -16,6 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcmsolver;bundle-version="3.0.0",
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
- de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0"
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

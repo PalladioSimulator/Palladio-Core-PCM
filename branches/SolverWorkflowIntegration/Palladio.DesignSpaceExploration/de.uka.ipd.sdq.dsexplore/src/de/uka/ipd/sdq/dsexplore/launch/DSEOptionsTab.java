@@ -3,24 +3,24 @@ package de.uka.ipd.sdq.dsexplore.launch;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
-import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
-import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.dsexplore.DSEPluginActivator;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 public class DSEOptionsTab extends FileNamesInputTab {
 	
@@ -42,12 +42,29 @@ public class DSEOptionsTab extends FileNamesInputTab {
 
 	private Text textGivenInstances;
 
+	private Button designDecisionsOnly;
+
+	private Button optimisationOnly;
+
 
 	@Override
 	public void createControl(Composite parent) {
 		final ModifyListener modifyListener = new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
+				DSEOptionsTab.this.setDirty(true);
+				DSEOptionsTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
+		final SelectionListener selectionListener = new SelectionListener() {
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				DSEOptionsTab.this.setDirty(true);
+				DSEOptionsTab.this.updateLaunchConfigurationDialog();
+			}
+
+			public void widgetSelected(SelectionEvent e) {
 				DSEOptionsTab.this.setDirty(true);
 				DSEOptionsTab.this.updateLaunchConfigurationDialog();
 			}
@@ -118,6 +135,31 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		 */
 		this.textGivenInstances = new Text(container, SWT.SINGLE | SWT.BORDER);
 		this.createFileInputSection(container, modifyListener, "Predefined instances", DSEConstantsContainer.CSV_EXTENSION, textGivenInstances);
+		
+		final Group designDecisionOptions = new Group(container, SWT.NONE);
+		final GridLayout gldesignDecisionOptions = new GridLayout();
+		gldesignDecisionOptions.numColumns = 2;
+		designDecisionOptions.setLayout(gldesignDecisionOptions);
+		designDecisionOptions.setText("Design decision options");
+		designDecisionOptions.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
+		
+
+//		simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
+//		final GridData gd_simulateFailuresButton = new GridData(SWT.FILL, SWT.CENTER, true, false);
+//		simulateFailuresButton.setLayoutData(gd_simulateFailuresButton);
+//		simulateFailuresButton.setText("Simulate failures");
+//		simulateFailuresButton.addSelectionListener(selectionListener);
+		
+		designDecisionsOnly = new Button(designDecisionOptions,  SWT.CHECK);
+		designDecisionsOnly.setEnabled(true);
+		designDecisionsOnly.setText("Only determine design decisions, do not optimise");
+		designDecisionsOnly.addSelectionListener(selectionListener);
+
+		optimisationOnly = new Button(designDecisionOptions, SWT.CHECK);
+		optimisationOnly.setEnabled(true);
+		optimisationOnly.setText("Only optimise, using pre-existing design decisions");
+		optimisationOnly.addSelectionListener(selectionListener);
 
 	}
 
@@ -187,6 +229,19 @@ public class DSEOptionsTab extends FileNamesInputTab {
 			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.PREDEFINED_INSTANCES, e.getMessage());
 		}
 		
+		try {
+			this.designDecisionsOnly.setSelection(configuration.getAttribute(
+					DSEConstantsContainer.DESIGN_DECISIONS_ONLY, false));
+		} catch (CoreException e) {
+			this.designDecisionsOnly.setSelection(false);
+		}
+		try {
+			this.optimisationOnly.setSelection(configuration.getAttribute(
+					DSEConstantsContainer.OPTIMISATION_ONLY, false));
+		} catch (CoreException e) {
+			this.optimisationOnly.setSelection(false);
+		}
+		
 
 	}
 
@@ -216,6 +271,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.PREDEFINED_INSTANCES, 
 				this.textGivenInstances.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.DESIGN_DECISIONS_ONLY, 
+				this.designDecisionsOnly.getSelection());
+		configuration.setAttribute(
+				DSEConstantsContainer.OPTIMISATION_ONLY,
+				this.optimisationOnly.getSelection());
 	}
 
 	@Override
@@ -229,6 +290,8 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.INDIVIDUALS_PER_GENERATION,
 				"3");
+		configuration.setAttribute(DSEConstantsContainer.DESIGN_DECISIONS_ONLY, false);
+		configuration.setAttribute(DSEConstantsContainer.OPTIMISATION_ONLY, false);
 	}
 	
 	/* (non-Javadoc)
@@ -293,6 +356,11 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		String extension = DSEConstantsContainer.COST_MODEL_EXTENSION[0].replace("*", "");
 		if (this.textCostModel.getText().equals("") || !this.textCostModel.getText().contains(extension)){
 			setErrorMessage("Cost model is missing!");
+			return false;
+		}
+		
+		if (this.designDecisionsOnly.getSelection() && this.optimisationOnly.getSelection()){
+			setErrorMessage("You cannot choose both \"design decisions only\" and \"optimisation only\", as nothing remains to be done.");
 			return false;
 		}
 		

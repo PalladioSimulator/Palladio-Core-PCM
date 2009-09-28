@@ -19,7 +19,12 @@ public abstract class PredefinedInstanceEvaluator {
 
 	private List<DoubleGenotype> genotypes = new ArrayList<DoubleGenotype>();
 	private DSEDecoder decoder = new DSEDecoder();
-	private DSEEvaluator evaluator = new DSEEvaluator();
+	private DSEEvaluator evaluator;
+
+	public PredefinedInstanceEvaluator() throws CoreException {
+		super();
+		this.evaluator = new DSEEvaluator();
+	}
 
 	/**
 	 * Subclasses should provide genotypes before calling this
@@ -82,14 +87,16 @@ public abstract class PredefinedInstanceEvaluator {
 			
 			List<Exception> exceptionList = new ArrayList<Exception>();
 			
-			ResultsWriter.writeIndividualsToFile(individuals, "allCandidates", 1, exceptionList);
+			ResultsWriter resultsWriter = new ResultsWriter(); 
 			
-			ResultsWriter.writeIndividualsToFile(optimalCandidates, "optimalCandidates", 1, exceptionList);
+			resultsWriter.writeIndividualsToFile(individuals, "allCandidates", 1, exceptionList);
+			
+			resultsWriter.writeIndividualsToFile(optimalCandidates, "optimalCandidates", 1, exceptionList);
 
 			
-			ResultsWriter.printOutIndividuals(individuals, "Predefined instances");
+			resultsWriter.printOutIndividuals(individuals, "Predefined instances");
 			
-			ResultsWriter.printOutIndividuals(optimalCandidates, "Pareto-optimal predefined instances");
+			resultsWriter.printOutIndividuals(optimalCandidates, "Pareto-optimal predefined instances");
 			
 			
 			

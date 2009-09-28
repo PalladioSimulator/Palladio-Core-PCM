@@ -18,7 +18,9 @@ import org.opt4j.core.Value;
 import org.opt4j.genotype.DoubleGenotype;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.PCMPhenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.statistics.estimation.ConfidenceInterval;
 
 /**
  * XXX: Maybe make this a proper label provider for the results? Metamodel results?
@@ -27,17 +29,19 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
  */
 public class ResultsWriter {
 	
+	private List<Objective> objectivesWithConfidence = new ArrayList<Objective>();
+	
 	/** Logger for log4j. */
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
-	public static void writeIndividualsToFile(Collection<Individual> individuals, String filename, int iteration,
+	public void writeIndividualsToFile(Collection<Individual> individuals, String filename, int iteration,
 			List<Exception> exceptionList){
 				String results = addResultsToString(individuals, exceptionList);
 				writeToFile(filename, results, iteration, exceptionList);
 			}
 
-	private static String addResultsToString(Collection<Individual> individuals,
+	private String addResultsToString(Collection<Individual> individuals,
 			List<Exception> exceptionList) {
 		String output = ""; 
 		output = prettyPrintHeadlineCSV(individuals, output);
@@ -75,7 +79,7 @@ public class ResultsWriter {
 		
 	}
 	
-	public static void printOutIndividuals(Collection<Individual> individuals,
+	public void printOutIndividuals(Collection<Individual> individuals,
 			String collectionName) {
 		logger.warn("------------ RESULTS " + collectionName
 				+ " ----------------------");
@@ -136,29 +140,43 @@ public class ResultsWriter {
 		}
 	}
 
-	static String prettyPrintResultLineCSV(String output, Individual ind) {
-		
-		DSEDecoder decoder = new DSEDecoder();
+	private String prettyPrintResultLineCSV(String output, Individual ind) {
 		
 		// first objectives
 		Objectives objs = ind.getObjectives();
 		for (Entry<Objective, Value<?>> entry : objs) { 
 			output += entry.getValue() + ";";
 		}
+		
+		//then confidences if available
+		for (Objective o : this.objectivesWithConfidence) {
+			if (ind.getPhenotype() instanceof PCMPhenotype){
+				PCMPhenotype pi = (PCMPhenotype)ind.getPhenotype();
+				ConfidenceInterval c = pi.getConfidenceIntervalForObjective(o);
+				if (c != null){
+					output += c.getLowerBound()+";"+c.getUpperBound()+";"+c.getLevel()+";"; 
+				} else {
+					output += Double.NaN+";"+Double.NaN+";"+Double.NaN+";";
+				}
+			}
+		}
+		
 		//then genes
 		DoubleGenotype genes = (DoubleGenotype) ind.getGenotype();
 		for (int i = 0; i < genes.size(); i++) {
-			output += decoder.getDecisionString(i, genes.get(i))+";";
+			output += DSEDecoder.getDecisionString(i, genes.get(i))+";";
 		}
 		output += "\n";
 		return output;
 	}
 
-	static String prettyPrintHeadlineCSV(
+	private String prettyPrintHeadlineCSV(
 			Collection<Individual> individuals, String output) {
 		
 		Individual i = individuals.iterator().next();
 		output += printObjectives(i, output);
+		
+		output += printConfidenceIntervalHeadline(i,output);
 		
 		output += Opt4JStarter.problem.toString();
 		
@@ -167,13 +185,31 @@ public class ResultsWriter {
 		return output; 
 	}
 
-	private static void printResultLineNatural(Individual individual) {
+	private String printConfidenceIntervalHeadline(Individual i, String output) {
+		Objectives objs = i.getObjectives();
+		this.objectivesWithConfidence.clear();
+		for (Entry<Objective, Value<?>> entry : objs) {
+		if (i.getPhenotype() instanceof PCMPhenotype){
+			PCMPhenotype pi = (PCMPhenotype)i.getPhenotype();
+			ConfidenceInterval c = pi.getConfidenceIntervalForObjective(entry.getKey());
+			if (c != null){
+				output += "lower bound confidence("+entry.getKey().getName()+");"
+						+ "upper bound confidence("+entry.getKey().getName()+");"
+						+ "alpha("+entry.getKey().getName()+");"; 
+				this.objectivesWithConfidence.add(entry.getKey());
+			}
+		}
+		}
+		return output;
+	}
+
+	private void printResultLineNatural(Individual individual) {
 		logger.warn("Result for individual "
 				+ individual.getGenotype().toString() + " is: "
 				+ individual.getObjectives().toString());
 	}
 
-	private static String printResultLineCSV(String output, Individual ind) {
+	private String printResultLineCSV(String output, Individual ind) {
 		// first objectives
 		Objectives objs = ind.getObjectives();
 		for (Entry<Objective, Value<?>> entry : objs) {
@@ -212,6 +248,7 @@ public class ResultsWriter {
 			output += entry.getKey().getName() + "("
 					+ entry.getKey().getSign() + ");";
 		}
+
 		return output;
 	}
 

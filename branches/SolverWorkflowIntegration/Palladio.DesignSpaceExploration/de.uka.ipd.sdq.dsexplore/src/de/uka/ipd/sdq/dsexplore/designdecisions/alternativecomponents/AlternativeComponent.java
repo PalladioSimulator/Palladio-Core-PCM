@@ -1,10 +1,12 @@
 package de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
@@ -12,10 +14,12 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.dsexplore.helper.EntityComparator;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
@@ -147,7 +151,8 @@ public class AlternativeComponent  {
 		}
 		changedAssemblyContext.setEncapsulatedComponent_AssemblyContext(newComponent);
 		
-		ComponentReplacer componentReplacer = this.alternativeMap.get(changedAssemblyContext).get(newComponent);
+		Map<RepositoryComponent, ComponentReplacer> map =  this.alternativeMap.get(changedAssemblyContext);
+		ComponentReplacer componentReplacer = map.get(newComponent);
 		componentReplacer.replace();
 	}
 
@@ -201,7 +206,9 @@ public class AlternativeComponent  {
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
-		Map<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>>();
+		Comparator<Entity> c = new EntityComparator();
+		
+		Map<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>> alternativeMap = new TreeMap<AssemblyContext, Map<RepositoryComponent,ComponentReplacer>>(c);
 
 		for (AssemblyContext assemblyContext : assemblyContexts) {
 			Map<RepositoryComponent,ComponentReplacer> map = getAlternatives(assemblyContext, repoComponents, s);
@@ -224,7 +231,8 @@ public class AlternativeComponent  {
 	private Map<RepositoryComponent, ComponentReplacer> getAlternatives(
 			AssemblyContext assemblyContext, List<RepositoryComponent> repoComponents, System s) {
 
-		Map<RepositoryComponent, ComponentReplacer> map = new IdentityHashMap<RepositoryComponent, ComponentReplacer>();
+		Comparator<Entity> c = new EntityComparator();
+		Map<RepositoryComponent, ComponentReplacer> map = new TreeMap<RepositoryComponent, ComponentReplacer>(c);
 		for (RepositoryComponent repoComponent : repoComponents) {
 			
 			//if compatible, this returns not null

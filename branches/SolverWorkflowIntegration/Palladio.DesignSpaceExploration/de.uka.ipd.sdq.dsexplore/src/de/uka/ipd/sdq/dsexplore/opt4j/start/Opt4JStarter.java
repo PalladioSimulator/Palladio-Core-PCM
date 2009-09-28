@@ -21,6 +21,7 @@ import org.opt4j.core.Population;
 import org.opt4j.core.Value;
 import org.opt4j.core.optimizer.Control;
 import org.opt4j.core.optimizer.Optimizer;
+import org.opt4j.genotype.DoubleGenotype;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.sa.SimulatedAnnealingModule;
 import org.opt4j.start.Opt4J;
@@ -41,11 +42,7 @@ import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 public class Opt4JStarter {
 	
-	public static IAnalysis perfAnalysisTool = null; 
-	
-	public static IAnalysis relAnalysisTool = null;
-	
-	public static CostEvaluator costEvaluator = null;
+	public static List<IAnalysis> evaluators = null; 
 	
 	public static DSEProblem problem = null;
 	
@@ -57,27 +54,43 @@ public class Opt4JStarter {
 
 	public static List<Value<Double>> upperConstraints;
 	
-	public static void init(IAnalysis perfAnalysisTool, IAnalysis relAnalysisTool, List<Value<Double>> upperConstraints, CostRepository costs, PCMInstance pcmInstance){
+	public static void init(List<IAnalysis> evaluators, List<Value<Double>> upperConstraints, PCMInstance pcmInstance, boolean newProblem) throws CoreException{
 		
-		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
-		Opt4JStarter.relAnalysisTool = relAnalysisTool;
-		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
-		Opt4JStarter.problem = new DSEProblem(pcmInstance);
-		
+		Opt4JStarter.evaluators = evaluators;
 		Opt4JStarter.upperConstraints = upperConstraints;
 		
-		
-		Opt4JStarter.problem.saveProblem();
+		if (newProblem){
+			Opt4JStarter.problem = new DSEProblem(pcmInstance);
+			Opt4JStarter.problem.saveProblem();
+		} else {
+			Opt4JStarter.problem = new DSEProblem(pcmInstance, false);
+		}
 		
 	}
-
-	public static void startOpt4J(IAnalysis perfAnalysisTool,
-			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints, IProgressMonitor monitor)
-			throws CoreException {
-
-
-		init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
+	
+	/**
+	 * Only starts Opt4J, needs can to {@link Opt4JStarter#init(IAnalysis, IAnalysis, List, CostRepository, PCMInstance, boolean)} first.
+	 * @param maxIterations
+	 * @param individualsPerGeneration
+	 * @param monitor
+	 * @param genotypes May be null
+	 * @throws CoreException
+	 */
+	public static void runOpt4JWithPopulation(
+			int maxIterations, int individualsPerGeneration,
+			IProgressMonitor monitor,
+			List<DoubleGenotype> genotypes) throws CoreException {
+		
+		if (Opt4JStarter.evaluators == null
+				||	  Opt4JStarter.problem == null){
+			throw new CoreException(new Status(Status.ERROR,
+					"de.uka.ipd.sdq.dsexplore", 0, "Opt4JStarter has not been properly initialised. Contact developers.", null));
+		}
+		
+		//TODO put initial population in Problem.
+		if (genotypes != null && genotypes.size() > 0){
+			Opt4JStarter.problem.setInitialPopulation(genotypes);
+		}
 		
 		Collection<Module> modules = new ArrayList<Module>();
 
@@ -91,6 +104,28 @@ public class Opt4JStarter {
 
 		DSEListener listener = new DSEListener(monitor, maxIterations);
 		runTask(modules, listener);
+		
+	}
+
+	/**
+	 * inits and starts Opt4J
+	 * @param perfAnalysisTool
+	 * @param relAnalysisTool
+	 * @param pcmInstance
+	 * @param maxIterations
+	 * @param individualsPerGeneration
+	 * @param upperConstraints
+	 * @param monitor
+	 * @param newProblem
+	 * @throws CoreException
+	 */
+	public static void initAndStartOpt4J(List<IAnalysis> evaluators, PCMInstance pcmInstance, int maxIterations,
+			int individualsPerGeneration, List<Value<Double>> upperConstraints, IProgressMonitor monitor, boolean newProblem)
+			throws CoreException {
+		
+		init(evaluators, upperConstraints, pcmInstance, newProblem);
+		runOpt4JWithPopulation(maxIterations, individualsPerGeneration, monitor, null);
+
 	}
 
 	private static void runTask(Collection<Module> modules, DSEListener listener)
@@ -114,13 +149,15 @@ public class Opt4JStarter {
 		} finally {
 			try {
 
+				ResultsWriter resultsWriter = new ResultsWriter(); 
+				
 			Collection<Individual> archive = getArchiveIndividuals();
-			ResultsWriter.printOutIndividuals(archive, "NGSA2Archive");
+			resultsWriter.printOutIndividuals(archive, "NGSA2Archive");
 
 			PopulationTracker allIndividuals = getAllIndividuals();
-			ResultsWriter.printOutIndividuals(allIndividuals, "All Individuals");
+			resultsWriter.printOutIndividuals(allIndividuals, "All Individuals");
 			
-			ResultsWriter.printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
+			resultsWriter.printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
 			
 			} catch (Exception e){
 				logger.error("Optimisation failed, I could not save the results.");
@@ -224,6 +261,18 @@ public class Opt4JStarter {
 	public static PopulationTracker getAllIndividuals(){
 		return (PopulationTracker)task.getInstance(PopulationTracker.class);
 	}
+	
+	public static void tearDown(){
+		evaluators = null;
+		
+		problem = null;
+		
+		task = null;
+		
+		upperConstraints = null;
+	}
+
+
 	
 
 	

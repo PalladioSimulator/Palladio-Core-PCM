@@ -1,0 +1,63 @@
+package de.uka.ipd.sdq.dsexplore.launch;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.osgi.framework.BundleContext;
+
+import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
+import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
+
+public class DSESimulationDockService extends SimulationDockServiceImpl {
+	
+	public DSESimulationDockService(BundleContext context) {
+		super(context);
+		logger.debug("DSE Simulation Dock Started");
+	}
+
+	private String myID = EcoreUtil.generateUUID();
+
+	@Override
+	public String getDockId() {
+		return myID;
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void simulate(SimuComConfig config, byte[] simulationBundle,
+			boolean isRemoteRun) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void step() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void stopSimulation() {
+		Opt4JStarter.terminate();
+
+	}
+
+	@Override
+	public void suspend() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public SimuComStatus getSimuComStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

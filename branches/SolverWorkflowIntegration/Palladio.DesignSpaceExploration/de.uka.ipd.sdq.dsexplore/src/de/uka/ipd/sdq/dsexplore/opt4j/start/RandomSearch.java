@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.start;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.opt4j.genotype.DoubleGenotype;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSECreator;
@@ -17,8 +18,8 @@ public class RandomSearch extends PredefinedInstanceEvaluator{
 	private DSECreator creator = new DSECreator();
 	private int numberOfCandidates = 0;
 
-	public RandomSearch(int noOfIterations, int candidatesPerIteration){
-		
+	public RandomSearch(int noOfIterations, int candidatesPerIteration) throws CoreException{
+		super();
 		this.numberOfCandidates = noOfIterations * candidatesPerIteration;
 		
 		

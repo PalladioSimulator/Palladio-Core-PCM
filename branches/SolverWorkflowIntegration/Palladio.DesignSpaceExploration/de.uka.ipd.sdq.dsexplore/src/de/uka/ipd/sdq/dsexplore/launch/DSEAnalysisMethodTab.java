@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.helper.LaunchHelper;
 
 /**
- * This class represents the launch configuration tab "Analyis Method". It
+ * This class represents the launch configuration tab "Analysis Method". It
  * provides a selection of the concrete analysis method to be used in design
  * exploration runs.
  * <p>
@@ -75,7 +75,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 	public void createControl(Composite parent) {	
 		List<IExtension> extensions = ExtensionHelper.loadAnalysisExtensions(qualityAttribute);
 
-		// Map extension elements to their analyis method names
+		// Map extension elements to their analysis method names
 		nameExtensionElementMap = new HashMap<String, IConfigurationElement>();
 		for (IExtension ext : extensions) {
 			IConfigurationElement[] elements = ext.getConfigurationElements();
@@ -91,6 +91,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		
 		List<String> methodNames = loadAnalysisMethodNames(extensions);
 		Collections.sort(methodNames);
+		methodNames.add(DSEConstantsContainer.NONE);
 		methodCombo = new Combo(container, SWT.READ_ONLY);
 		methodCombo.setItems(methodNames.toArray(methodCombo.getItems()));
 		methodCombo.addSelectionListener(listener);
@@ -268,6 +269,9 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		if (extensions.size() > 0) {
 			configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute),
 					loadAnalysisMethodName(extensions.get(0).getConfigurationElements()[0]));
+		} else {
+			configuration.setAttribute(DSEConstantsContainer.getAnalysisMethod(this.qualityAttribute),
+					DSEConstantsContainer.NONE);
 		}
 		
 		Iterator<Entry<IConfigurationElement, ILaunchConfigurationTabGroup>> it = getExtensionElementTabGroupMap()
@@ -283,7 +287,7 @@ public class DSEAnalysisMethodTab extends AbstractLaunchConfigurationTab {
 		// Check whether an available analysis method is selected
 		String methodStr = methodCombo.getText();
 		IConfigurationElement methodElement = nameExtensionElementMap.get(methodStr);
-		if (methodElement == null) {
+		if (methodElement == null && !methodStr.equals(DSEConstantsContainer.NONE)) {
 			setErrorMessage("Choose an analysis method.");
 			return false;
 		}

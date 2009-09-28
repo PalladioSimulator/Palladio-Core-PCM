@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
 
 /**
  * This class represents the result of a LQN Solver analysis. 
@@ -59,14 +58,6 @@ public class ReliabilityAnalysisResult implements IAnalysisResult {
 
 	}
 
-	/**
-	 * Not applicable to Reliability results. 
-	 * @return -1
-	 */
-	@Override
-	public double getMedianValue()  {
-		return -1;
-	}
 
 	/**
 	 * {@inheritDoc}

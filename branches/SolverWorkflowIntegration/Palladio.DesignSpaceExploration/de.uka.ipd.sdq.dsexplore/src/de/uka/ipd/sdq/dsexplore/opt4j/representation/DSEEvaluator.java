@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
-import org.opt4j.core.DoubleValue;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
 import org.opt4j.core.problem.Evaluator;
 
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.analysis.IStatisticAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.statistics.estimation.ConfidenceInterval;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
@@ -37,17 +41,28 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 	
 	private boolean firstRunSuccessful = false;
 
-	private HashMap<Objective,DSEConstraint> constraints;
+	private Map<Objective,DSEConstraint> constraints;
 	
-	public DSEEvaluator(){
+	/** Logger for log4j. */
+	private static Logger logger = 
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+	
+	public DSEEvaluator() {
 		
-		Objective respTime = new Objective("response time", Objective.Sign.MIN);
-		Objective cost = new Objective("cost", Objective.Sign.MIN);
-		Objective pofod = new Objective("POFOD", Objective.Sign.MIN);
-		
-		this.objectives.add(respTime);
-		this.objectives.add(cost);
-		this.objectives.add(pofod);
+		List <IAnalysis> evaluators = Opt4JStarter.evaluators;
+		for (IAnalysis analysis : evaluators) {
+			try {
+			Objective quality = new Objective(analysis.getQualityAttribute(), Objective.Sign.MIN);
+			this.objectives.add(quality);
+			} catch (CoreException e){
+				logger.error("Could not load quality attribute evaluator "+analysis.getClass());
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+
+/*		Objective cost = new Objective("cost", Objective.Sign.MIN);
+		this.objectives.add(cost);*/
 		
 		this.constraints = new HashMap<Objective,DSEConstraint>();
 		int i = 0;
@@ -72,11 +87,11 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 		Objectives obj = new Objectives();
 		try{
 			
-			retrieveResponseTime(pheno, obj, this.objectives.get(0));
+			for (int i = 0; i < objectives.size() ; i++) {
+				retrieveQuality(pheno, obj, this.objectives.get(i), Opt4JStarter.evaluators.get(i));
+			}
 
-			retrieveCost(pheno, obj, this.objectives.get(1));
-			
-			retrieveReliability(pheno, obj, this.objectives.get(2));
+			//retrieveCost(pheno, obj, this.objectives.get(objectives.size() -1));
 			
 			firstRunSuccessful = true;
 
@@ -95,18 +110,11 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 				//if this is just a failure during the course of the run, ignore it and output it later
 				this.exceptionList.add(new Exception("Evaluation of a candidate failed. Filling objectves with NaN.",e));
 				
-				//Check if response time is there
-				if (obj.size() == 0){
-					addInfeasibleValue(obj,0);
-				}
-				//afterwards (now having one entry for sure) add cost if not there (i.e. if size == 1, not 2). 
-				if (obj.size() == 1){
-					addInfeasibleValue(obj,1);
-				}
-				
-				//afterwards (now having two entries for sure) add reliability if not there (i.e. if size == 2, not 3). 
-				if (obj.size() == 2){
-					addInfeasibleValue(obj,2);
+				for (int i = 0; i < objectives.size(); i++) {
+					//Check if the given quality is there. If not, add a value at that index.
+					if (obj.size() == i){
+						addInfeasibleValue(obj,i);
+					}
 				}
 				
 				return obj;
@@ -114,11 +122,11 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 		}
 	}
 
-	private void retrieveCost(PCMPhenotype pheno, Objectives obj, Objective o) {
+/*	private void retrieveCost(PCMPhenotype pheno, Objectives obj, Objective o) {
 		//retrieve cost
 		double cost = Opt4JStarter.costEvaluator.getTotalCost(pheno.getPcm(), 0);
 		addValueIfValid(obj,o,cost);
-	}
+	}*/
 
 	private void addValueIfValid(Objectives obj, Objective o, double value) {
 		//if (this.constraints.get(o).isValid(new DoubleValue(value))){
@@ -129,23 +137,23 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 		
 	}
 
-	private void retrieveResponseTime(PCMPhenotype pheno, Objectives obj, Objective o)
+	private void retrieveQuality(PCMPhenotype pheno, Objectives obj, Objective o, IAnalysis analysis)
 			throws AnalysisFailedException, CoreException, UserCanceledException, JobFailedException {
 		//retrieve response time
-		IAnalysisResult result = Opt4JStarter.perfAnalysisTool.analyse(pheno.getPcm());
+		IAnalysisResult result = analysis.analyse(pheno.getPcm());
 		addValueIfValid(obj,o,result.getMeanValue());
 		
+		if (result instanceof IStatisticAnalysisResult){
+			IStatisticAnalysisResult statisticResult = (IStatisticAnalysisResult) result;
+			ConfidenceInterval c = statisticResult.getConfidenceInterval();
+			if (c != null){
+				pheno.addConfidence(o, c);
+			}
+		}
 		//Maybe handle a demand too large exception in the simulation separately by setting the objective to infinity. 
 		
 	}
 	
-	private void retrieveReliability(PCMPhenotype pheno, Objectives obj, Objective o)
-			throws AnalysisFailedException, CoreException, UserCanceledException, JobFailedException {
-		//retrieve response time
-		IAnalysisResult result = Opt4JStarter.relAnalysisTool.analyse(pheno.getPcm());
-		addValueIfValid(obj,o,result.getMeanValue());
-	}
-
 	@Override
 	public Collection<Objective> getObjectives() {
 		return objectives;

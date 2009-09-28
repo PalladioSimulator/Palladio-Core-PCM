@@ -40,9 +40,5 @@ public class DummyAnalysisResult implements IAnalysisResult {
 		return 0;
 	}
 
-	@Override
-	public double getMedianValue() throws AnalysisFailedException {
-		return 0;
-	}
-
+	
 }
