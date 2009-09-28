@@ -669,6 +669,12 @@
       <ownedAttribute xmi:id="_PK6xYfjfEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" association="_PK6xYPjfEd23O5YGd3Oe8g">
         <type xmi:type="uml:Class" href="pcm.emx#_wru2gODnEdq8ysXH3gTiEg?pcm/resourceenvironment/ProcessingResourceSpecification?"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_78AvwZuxEd6tVp0qEMtCHg" name="fixedOperatingCost" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ADm3QJuyEd6tVp0qEMtCHg" name="fixedInitialCost" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_PhYwEPhwEd23O5YGd3Oe8g" name="VariableCost" isAbstract="true">
       <generalization xmi:id="_iiqWQPjsEd23O5YGd3Oe8g" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
@@ -757,5 +763,7 @@ At first, we assume that all costs in this repository are actually costs in the 
   <Default:Documentation xmi:id="_oaaYgfkHEd23O5YGd3Oe8g" base_Comment="_oaaYgPkHEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_HMMqsfkIEd23O5YGd3Oe8g" base_Comment="_HMMqsPkIEd23O5YGd3Oe8g"/>
   <Default:Documentation xmi:id="_ZP7V4PkIEd23O5YGd3Oe8g" base_Comment="_ZPyL8PkIEd23O5YGd3Oe8g"/>
-  <Ecore:EAttribute xmi:id="_m_VeoCKpEd64q9HNdQ0aqw" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_EAbrwCKpEd64q9HNdQ0aqw"/>
+  <Ecore:EAttribute xmi:id="_m_VeoCKpEd64q9HNdQ0aqw" isTransient="true" isVolatile="true" base_Property="_EAbrwCKpEd64q9HNdQ0aqw" attributeName=""/>
+  <Ecore:EAttribute xmi:id="_nDvcMJu4Ed6tVp0qEMtCHg" base_Property="_78AvwZuxEd6tVp0qEMtCHg"/>
+  <Ecore:EAttribute xmi:id="_oDheMJu4Ed6tVp0qEMtCHg" base_Property="_ADm3QJuyEd6tVp0qEMtCHg"/>
 </xmi:XMI>
