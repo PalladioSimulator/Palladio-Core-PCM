@@ -146,6 +146,7 @@
 	//SetStateAction
 	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+			//System.out.println("Setting state «this.id» action to «pu.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»");
 			this.myDefaultComponentStackFrame
 			.addValue(
 				"«pu.namedReference_VariableUsage.referenceName».«vc.type.toString()»",

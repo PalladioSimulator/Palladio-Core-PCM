@@ -59,6 +59,7 @@ public class SimulatedPassiveResource extends SimProcess {
 	{
 		if (this.getModel().getSimulationControl().isRunning()){
 			available++;
+			logger.debug("Passive Resource "+this.resourceID+" released.");
 			this.scheduleAt(0);
 		}
 	}
