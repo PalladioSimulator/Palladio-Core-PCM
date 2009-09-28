@@ -65,6 +65,8 @@
 (array.NUMBER_OF_ELEMENTS, x.BYTESIZE), which evaluate to probability
 distributions or constants</li>
 
+    <li>a number of predefined functions (see below)</li>
+
   
 </ul>
 
@@ -80,7 +82,7 @@ distributions or constants</li>
 
       <tr>
 
-        <td style="width: 472px;"><small><font face="Courier New, Courier, Mono"> DoublePDF(unit="s")[(1.0;0.3)(1.5;0.2)(2.0;0.5)]</font></small></td>
+        <td style="width: 472px;"><small><font face="Courier New, Courier, Mono"> DoublePDF[(1.0;0.3)(1.5;0.2)(2.0;0.5)]</font></small></td>
 
 
         <td style="width: 478px;">
@@ -88,10 +90,6 @@ distributions or constants</li>
       <ul>
 
             <li>Specifies a time interval as boxed probability density function</li>
-
-
-            <li>the unit is seconds</li>
-
 
             <li>the probability of the time being between 0 and 1 second is 30 percent (0.3)</li>
 
@@ -117,7 +115,7 @@ distributions or constants</li>
 
       <tr>
 
-        <td style="width: 472px;"><small><font face="Courier New">IntPMF(unit="iterations")[(27;0.1)(28;0.2)(29;0.6)(30;0.1)]</font></small></td>
+        <td style="width: 472px;"><small><font face="Courier New">IntPMF[(27;0.1)(28;0.2)(29;0.6)(30;0.1)]</font></small></td>
 
 
         <td style="width: 478px;">
@@ -125,7 +123,6 @@ distributions or constants</li>
       <ul>
 
             <li>Specifies the number of &nbsp;executing a loop as a probability mass function (PMF)</li>
-        <li>the unit is iterations</li>
         <li>the probability of executing the loop exactly 27 times is 10 percent (0.1)</li>
 
           
@@ -138,13 +135,12 @@ distributions or constants</li>
 
       <tr>
 
-        <td style="width: 472px; font-family: monospace;">DoublePMF(unit="")[(22.3;0.4)(24.8;0.6)]</td>
+        <td style="width: 472px; font-family: monospace;">DoublePMF[(22.3;0.4)(24.8;0.6)]</td>
 
 
         <td style="width: 478px;">
       <ul>
         <li>Specifies a floating point variable charcterisation as a probability mass function (PMF)</li>
-        <li>unit is omitted</li>
         <li>the probability of the variable taking the value 22.3 is 40 percent (0.4)</li>
       </ul>
       </td>
@@ -154,7 +150,7 @@ distributions or constants</li>
 
       <tr>
 
-        <td style="width: 472px; font-family: monospace;">EnumPMF(unit="graphics")[("circle";0.2) ("rectangle";0.3)("triangle";0.5)]</td>
+        <td style="width: 472px; font-family: monospace;">EnumPMF[("circle";0.2) ("rectangle";0.3)("triangle";0.5)]</td>
 
 
         <td style="width: 478px;">
@@ -169,7 +165,7 @@ distributions or constants</li>
 
       <tr>
 
-        <td style="width: 472px; font-family: monospace;">BoolPMF(unit="bool")[(false;0.3)(true;0.7)]</td>
+        <td style="width: 472px; font-family: monospace;">BoolPMF[(false;0.3)(true;0.7)]</td>
 
 
         <td style="width: 478px;">
@@ -212,7 +208,7 @@ distributions or constants</li>
       <ul>
         <li>Characterises the value of the variable "number"</li>
         <li>You can assign a constant or probabilty function to a characterisation</li>
-        <li>For example, number.VALUE = 762.3 or number.VALUE = <span style="font-family: monospace;">DoublePMF(unit="")[(22.3;0.4)(24.8;0.6)]</span></li>
+        <li>For example, number.VALUE = 762.3 or number.VALUE = <span style="font-family: monospace;">DoublePMF[(22.3;0.4)(24.8;0.6)]</span></li>
       </ul>
       </td>
     </tr>
@@ -238,7 +234,7 @@ distributions or constants</li>
       <td>
       <ul>
         <li>Characterises the number of elements in the collection variable "array"</li>
-        <li>For example: &nbsp;array.NUMBER_OF_ELEMENTS = <font face="Courier New" size="2">IntPMF(unit="elements") [(15;0.1)(16;0.9)]</font></li>
+        <li>For example: &nbsp;array.NUMBER_OF_ELEMENTS = <font face="Courier New" size="2">IntPMF[(15;0.1)(16;0.9)]</font></li>
       </ul>
       </td>
     </tr>
@@ -267,20 +263,20 @@ number.VALUE * 15, file.BYTESIZE / 2</td>
       <td><small>
     
       
-        <font face="Courier New, Courier, Mono"> DoublePDF(unit="s")[(1.0;0.3)(1.5;0.2)(2.0;0.5)] * 15<br>
+        <font face="Courier New, Courier, Mono"> DoublePDF[(1.0;0.3)(1.5;0.2)(2.0;0.5)] * 15<br>
       </font>
     
       
         <font face="Courier New, Courier, Mono"><br>
- IntPMF(unit="iterations")[(1124.0;0.3)(1125.5;0.7)] + 2.5<br>
+ IntPMF[(1124.0;0.3)(1125.5;0.7)] + 2.5<br>
       </font>
     
       
         <font face="Courier New, Courier, Mono"><br>
- DoublePDF(unit="s")[(12.0;0.9)(15;0.1)] - </font>
+ DoublePDF[(12.0;0.9)(15;0.1)] - </font>
     
       
-        <font face="Courier New, Courier, Mono"> DoublePDF(unit="s")[(128.0;0.3)(256;0.2)(512.0;0.5)]</font></small></td>
+        <font face="Courier New, Courier, Mono"> DoublePDF[(128.0;0.3)(256;0.2)(512.0;0.5)]</font></small></td>
       <td>
       <ul>
         <li>Arithmetric expressions can also combine probability functions</li>
@@ -305,9 +301,70 @@ blah.VALUE &gt;= 108.3 AND fasel.TYPE == "mytype"</span></td>
 </table>
 
 
-  
+<h2>Predefined Functions</h2>  
 
-  
+A number of predefined functions can be used in the stochastic expressions. There are two types of functions: Predefined probability functions and auxiliary functions. The functions are listed in the following by their keyword in the stochastic expression. 
+
+<h3>Predefined probability functions</h3>
+All functions are evaluated internally with the umontreal.iro.lecuyer.randvar and umontreal.iro.lecuyer.probdist packages. The passed parameters must be double values or be evaluated to double values. 
+
+<ul>
+
+	<li><font face="Courier New, Courier, Mono">Exp</font>:
+	The exponential distribution with one rate parameter lambda &gt; 0. Note that the mean of this function is 1&#47;lambda.</li>
+
+	<li><font face="Courier New, Courier, Mono">Norm</font>:
+	The normal distribution with two parameters mean mu and standard deviation sigma.</li>
+
+	<li><font face="Courier New, Courier, Mono">UniDouble</font>:
+	The (continuous) uniform distribution over the interval &#93;a, b&#91;, where a and b are real numbers with a  &gt; b.</li>
+
+	<li><font face="Courier New, Courier, Mono">UniInt</font>:
+	The uniform distribution over integers, over the interval &#91;i, j &#93;.</li>
+
+	<li><font face="Courier New, Courier, Mono">Pois</font>:
+	The Poisson distribution with one parameter lambda &gt; 0 equal to the mean.</li>
+
+	<li><font face="Courier New, Courier, Mono">Binom</font>:
+	The binomial distribution with parameters n and p. n is a positive integer, and 0 &lt;= p &lt;= 1. </li>
+
+	<li><font face="Courier New, Courier, Mono">Lognorm</font>:
+	The lognormal distribution with parameters mu and sigma. The parameter sigma &gt; 0. </li>
+
+	<li><font face="Courier New, Courier, Mono">LognormMoments</font>:
+	An alternative way of writing the lognormal distribution. The parameters are the mean mu and the coefficient of variance c.</li>
+
+	<li><font face="Courier New, Courier, Mono">Gamma</font>:
+	The gamma distribution with shape parameter alpha &gt; 0 and scale parameter beta &gt; 0. </li>
+
+	<li><font face="Courier New, Courier, Mono">GammaMoments</font>:
+	An alternative way of writing the Gamma distribution. The parameters are the mean mu and the coefficient of variance c.</li>
+
+</ul>
+
+     
+		   
+
+<h3>Auxiliary functions</h3>
+   
+<ul>
+	<li><font face="Courier New, Courier, Mono">Trunc</font>:
+	This function rounds off its argument as defined by java.lang.Math.floor. If the argument is a DoublePDF, this results in an IntPMF. This function is supported by all solvers if the argument is a DoublePDF or a double value. Only the SimuCom simulation supports arbitrary arguments.  </li>
+	<li><font face="Courier New, Courier, Mono">Round</font>:
+	This functions rounds its argument as defined by java.lang.Math.round. If the argument is a DoublePDF, this results in an IntPMF. This function is only supported in the SimuCom simulation.</li>
+</ul>
+
+<h3>Examples</h3>
+<font face="Courier New, Courier, Mono">
+
+<ul>
+	<li>Exp(0.3)</li>
+	<li>Lognorm(0.3,c.VALUE)</font> Note that c.VALUE must evaluate to a double value.<font face="Courier New, Courier, Mono"></li>
+        <li>Trunc(DoublePDF[(12.0;0.9)(15;0.1)])</li>
+</ul>
+
+</font>
+
 <h2>BNF-Grammar</h2>
 
 
@@ -327,22 +384,20 @@ blah.VALUE &gt;= 108.3 AND fasel.TYPE == "mytype"</span></td>
 
   <br>
 
-  definition : "IntPMF" LPAREN ( unit ) RPAREN SQUARE_PAREN_L ( numeric_int_sample )+ SQUARE_PAREN_R<br>
+  definition : "IntPMF" SQUARE_PAREN_L ( numeric_int_sample )+ SQUARE_PAREN_R<br>
 
-  | "DoublePMF" LPAREN ( unit ) RPAREN SQUARE_PAREN_L ( numeric_real_sample )+ SQUARE_PAREN_R<br>
+  | "DoublePMF" SQUARE_PAREN_L ( numeric_real_sample )+ SQUARE_PAREN_R<br>
 
-  | "EnumPMF" LPAREN ( unit )( SEMI ORDERED_DEF|)RPAREN SQUARE_PAREN_L ( stringsample )+ SQUARE_PAREN_R<br>
+  | "EnumPMF" SQUARE_PAREN_L ( stringsample )+ SQUARE_PAREN_R<br>
 
-  | "DoublePDF" LPAREN ( unit ) RPAREN SQUARE_PAREN_L( real_pdf_sample )+ SQUARE_PAREN_R<br>
+  | "DoublePDF" SQUARE_PAREN_L( real_pdf_sample )+ SQUARE_PAREN_R<br>
 
-  | "BoolPMF" LPAREN ( bool_unit )</font></code></font></font></font></font></font><code><font size="2">( SEMI ORDERED_DEF|)RPAREN SQUARE_PAREN_L ( boolsample )+
+  | "BoolPMF" SQUARE_PAREN_L ( boolsample )+
   SQUARE_PAREN_R;</font></code></code></font></p>
 
 
   
 <p align="left"><font face="Courier New" size="2">boolean_keywords: ( "false"| "true");<br>
-
-  unit: "unit" DEFINITION STRING_LITERAL;<br>
 
   numeric_int_sample: LPAREN NUMBER SEMI NUMBER RPAREN;<br>
 
@@ -351,8 +406,6 @@ blah.VALUE &gt;= 108.3 AND fasel.TYPE == "mytype"</span></td>
   stringsample: LPAREN STRING_LITERAL SEMI NUMBER RPAREN;<br>
 
   real_pdf_sample: LPAREN NUMBER SEMI NUMBER RPAREN;<br>
-
-  bool_unit: "unit" EQUAL "\"bool\"";<br>
 
   boolsample: LPAREN boolean_keywords SEMI NUMBER RPAREN</font><font face="Courier New" size="2">;<br>
 
