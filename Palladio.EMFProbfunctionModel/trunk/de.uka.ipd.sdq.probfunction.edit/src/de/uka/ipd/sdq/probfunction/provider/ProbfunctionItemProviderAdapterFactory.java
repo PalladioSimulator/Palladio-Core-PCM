@@ -266,6 +266,52 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.probfunction.LognormalDistribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LognormalDistributionItemProvider lognormalDistributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.probfunction.LognormalDistribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLognormalDistributionAdapter() {
+		if (lognormalDistributionItemProvider == null) {
+			lognormalDistributionItemProvider = new LognormalDistributionItemProvider(this);
+		}
+
+		return lognormalDistributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.probfunction.GammaDistribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GammaDistributionItemProvider gammaDistributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.probfunction.GammaDistribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGammaDistributionAdapter() {
+		if (gammaDistributionItemProvider == null) {
+			gammaDistributionItemProvider = new GammaDistributionItemProvider(this);
+		}
+
+		return gammaDistributionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -372,6 +418,8 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 		if (complexItemProvider != null) complexItemProvider.dispose();
 		if (exponentialDistributionItemProvider != null) exponentialDistributionItemProvider.dispose();
 		if (normalDistributionItemProvider != null) normalDistributionItemProvider.dispose();
+		if (lognormalDistributionItemProvider != null) lognormalDistributionItemProvider.dispose();
+		if (gammaDistributionItemProvider != null) gammaDistributionItemProvider.dispose();
 	}
 
 }

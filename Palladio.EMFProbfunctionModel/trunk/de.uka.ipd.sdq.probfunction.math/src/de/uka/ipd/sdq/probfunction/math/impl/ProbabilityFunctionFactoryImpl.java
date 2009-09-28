@@ -10,6 +10,9 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
@@ -17,6 +20,9 @@ import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
+import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -347,7 +353,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		} else if (pdf instanceof ISamplePDF) {
 			resultPDF = transformSampledToBoxedPDF((ISamplePDF) pdf);
 		} else {
-			throw new UnknownPDFTypeException();
+			throw new UnknownPDFTypeException(pdf);
 		}
 		return resultPDF;
 	}
@@ -378,8 +384,22 @@ public class ProbabilityFunctionFactoryImpl implements
 			ePDF = transformToModelSamplePDF(pdf);
 		} else if (pdf instanceof IBoxedPDF) {
 			ePDF = transformToModelBoxedPDF(pdf);
+		} else if (pdf instanceof IExponentialDistribution){
+			ExponentialDistribution expPDF = eFactory.createExponentialDistribution();
+			expPDF.setRate(((IExponentialDistribution)pdf).getRate());
+			ePDF = expPDF;
+		} else if (pdf instanceof IGammaDistribution){
+			GammaDistribution gamma = eFactory.createGammaDistribution();
+			gamma.setAlpha(((IGammaDistribution)pdf).getAlpha());
+			gamma.setBeta(((IGammaDistribution)pdf).getBeta());
+			ePDF = gamma;
+		} else if (pdf instanceof ILognormalDistribution){
+			LognormalDistribution lognorm = eFactory.createLognormalDistribution();
+			lognorm.setMu(((ILognormalDistribution)pdf).getMu());
+			lognorm.setSigma(((ILognormalDistribution)pdf).getSigma());
+			ePDF = lognorm;
 		} else {
-			throw new UnknownPDFTypeException();
+			throw new UnknownPDFTypeException(pdf);
 		}
 		return ePDF;
 	}
@@ -425,8 +445,14 @@ public class ProbabilityFunctionFactoryImpl implements
 			pdf = transformToSamplePDF(ePDF);
 		} else if (ePDF instanceof BoxedPDF) {
 			pdf = transformToBoxedPDF(ePDF);
+		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.ExponentialDistribution){
+			pdf = new de.uka.ipd.sdq.probfunction.math.impl.ExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
+		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.GammaDistribution){
+			pdf = new de.uka.ipd.sdq.probfunction.math.impl.GammaDistribution(((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getAlpha(),((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getBeta());
+		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.LognormalDistribution){
+			pdf = new de.uka.ipd.sdq.probfunction.math.impl.LognormalDistribution(((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getSigma());
 		} else {
-			throw new UnknownPDFTypeException();
+			throw new UnknownPDFTypeException(ePDF);
 		}
 		return pdf;
 	}
@@ -439,7 +465,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		} else if (pdf instanceof IBoxedPDF) {
 			resultPDF = transformBoxedToSamplePDF((IBoxedPDF) pdf);
 		} else if (pdf != null) {
-			throw new UnknownPDFTypeException();
+			throw new UnknownPDFTypeException(pdf);
 		} else {
 			return null;
 		}
@@ -456,7 +482,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		} else if (pdf instanceof IBoxedPDF) {
 			resultPDF = transformBoxedToSamplePDF((IBoxedPDF) pdf, newDistance);
 		} else if (pdf != null) {
-			throw new UnknownPDFTypeException();
+			throw new UnknownPDFTypeException(pdf);
 		} else {
 			return null;
 		}

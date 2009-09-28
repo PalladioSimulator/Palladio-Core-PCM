@@ -550,6 +550,117 @@ public interface ProbfunctionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.LognormalDistributionImpl <em>Lognormal Distribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.LognormalDistributionImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getLognormalDistribution()
+	 * @generated
+	 */
+	int LOGNORMAL_DISTRIBUTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGNORMAL_DISTRIBUTION__UNIT = CONTINUOUS_PDF__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGNORMAL_DISTRIBUTION__UNIT_SPECIFICATION = CONTINUOUS_PDF__UNIT_SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Mu</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGNORMAL_DISTRIBUTION__MU = CONTINUOUS_PDF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sigma</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGNORMAL_DISTRIBUTION__SIGMA = CONTINUOUS_PDF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Lognormal Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGNORMAL_DISTRIBUTION_FEATURE_COUNT = CONTINUOUS_PDF_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.GammaDistributionImpl <em>Gamma Distribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.GammaDistributionImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getGammaDistribution()
+	 * @generated
+	 */
+	int GAMMA_DISTRIBUTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAMMA_DISTRIBUTION__UNIT = CONTINUOUS_PDF__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAMMA_DISTRIBUTION__UNIT_SPECIFICATION = CONTINUOUS_PDF__UNIT_SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAMMA_DISTRIBUTION__ALPHA = CONTINUOUS_PDF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Beta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAMMA_DISTRIBUTION__BETA = CONTINUOUS_PDF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Gamma Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAMMA_DISTRIBUTION_FEATURE_COUNT = CONTINUOUS_PDF_FEATURE_COUNT + 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.BoxedPDF <em>Boxed PDF</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -814,6 +925,70 @@ public interface ProbfunctionPackage extends EPackage {
 	EAttribute getNormalDistribution_Sigma();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.LognormalDistribution <em>Lognormal Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lognormal Distribution</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.LognormalDistribution
+	 * @generated
+	 */
+	EClass getLognormalDistribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.LognormalDistribution#getMu <em>Mu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mu</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.LognormalDistribution#getMu()
+	 * @see #getLognormalDistribution()
+	 * @generated
+	 */
+	EAttribute getLognormalDistribution_Mu();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.LognormalDistribution#getSigma <em>Sigma</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sigma</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.LognormalDistribution#getSigma()
+	 * @see #getLognormalDistribution()
+	 * @generated
+	 */
+	EAttribute getLognormalDistribution_Sigma();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.GammaDistribution <em>Gamma Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gamma Distribution</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.GammaDistribution
+	 * @generated
+	 */
+	EClass getGammaDistribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.GammaDistribution#getAlpha <em>Alpha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alpha</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.GammaDistribution#getAlpha()
+	 * @see #getGammaDistribution()
+	 * @generated
+	 */
+	EAttribute getGammaDistribution_Alpha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.GammaDistribution#getBeta <em>Beta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Beta</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.GammaDistribution#getBeta()
+	 * @see #getGammaDistribution()
+	 * @generated
+	 */
+	EAttribute getGammaDistribution_Beta();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1056,6 +1231,58 @@ public interface ProbfunctionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NORMAL_DISTRIBUTION__SIGMA = eINSTANCE.getNormalDistribution_Sigma();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.LognormalDistributionImpl <em>Lognormal Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.LognormalDistributionImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getLognormalDistribution()
+		 * @generated
+		 */
+		EClass LOGNORMAL_DISTRIBUTION = eINSTANCE.getLognormalDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Mu</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOGNORMAL_DISTRIBUTION__MU = eINSTANCE.getLognormalDistribution_Mu();
+
+		/**
+		 * The meta object literal for the '<em><b>Sigma</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOGNORMAL_DISTRIBUTION__SIGMA = eINSTANCE.getLognormalDistribution_Sigma();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.GammaDistributionImpl <em>Gamma Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.GammaDistributionImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getGammaDistribution()
+		 * @generated
+		 */
+		EClass GAMMA_DISTRIBUTION = eINSTANCE.getGammaDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAMMA_DISTRIBUTION__ALPHA = eINSTANCE.getGammaDistribution_Alpha();
+
+		/**
+		 * The meta object literal for the '<em><b>Beta</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAMMA_DISTRIBUTION__BETA = eINSTANCE.getGammaDistribution_Beta();
 
 	}
 

@@ -133,6 +133,14 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 				return createNormalDistributionAdapter();
 			}
 			@Override
+			public Adapter caseLognormalDistribution(LognormalDistribution object) {
+				return createLognormalDistributionAdapter();
+			}
+			@Override
+			public Adapter caseGammaDistribution(GammaDistribution object) {
+				return createGammaDistributionAdapter();
+			}
+			@Override
 			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
 				return createUnitCarryingElementAdapter();
 			}
@@ -307,6 +315,34 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNormalDistributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.LognormalDistribution <em>Lognormal Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.LognormalDistribution
+	 * @generated
+	 */
+	public Adapter createLognormalDistributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.GammaDistribution <em>Gamma Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.GammaDistribution
+	 * @generated
+	 */
+	public Adapter createGammaDistributionAdapter() {
 		return null;
 	}
 

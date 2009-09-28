@@ -83,6 +83,8 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 			case ProbfunctionPackage.COMPLEX: return createComplex();
 			case ProbfunctionPackage.EXPONENTIAL_DISTRIBUTION: return createExponentialDistribution();
 			case ProbfunctionPackage.NORMAL_DISTRIBUTION: return createNormalDistribution();
+			case ProbfunctionPackage.LOGNORMAL_DISTRIBUTION: return createLognormalDistribution();
+			case ProbfunctionPackage.GAMMA_DISTRIBUTION: return createGammaDistribution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -166,6 +168,26 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 	public NormalDistribution createNormalDistribution() {
 		NormalDistributionImpl normalDistribution = new NormalDistributionImpl();
 		return normalDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LognormalDistribution createLognormalDistribution() {
+		LognormalDistributionImpl lognormalDistribution = new LognormalDistributionImpl();
+		return lognormalDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GammaDistribution createGammaDistribution() {
+		GammaDistributionImpl gammaDistribution = new GammaDistributionImpl();
+		return gammaDistribution;
 	}
 
 	/**

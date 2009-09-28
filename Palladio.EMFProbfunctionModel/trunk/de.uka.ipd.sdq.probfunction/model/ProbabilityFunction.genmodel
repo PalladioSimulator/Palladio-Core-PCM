@@ -23,7 +23,7 @@
     <details key="OPERATION_BODIES" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/code/rsa-export/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>ProbabilityFunction.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Probfunction" basePackage="de.uka.ipd.sdq"
       disposableProviderFactory="true" ecorePackage="ProbabilityFunction.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="ProbabilityFunction.ecore#//BoxedPDF">
@@ -61,6 +61,14 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="ProbabilityFunction.ecore#//NormalDistribution">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//NormalDistribution/mu"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//NormalDistribution/sigma"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ProbabilityFunction.ecore#//LognormalDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//LognormalDistribution/mu"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//LognormalDistribution/sigma"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ProbabilityFunction.ecore#//GammaDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//GammaDistribution/alpha"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//GammaDistribution/beta"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

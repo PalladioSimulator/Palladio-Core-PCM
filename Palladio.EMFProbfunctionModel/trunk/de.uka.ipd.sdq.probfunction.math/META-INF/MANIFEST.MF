@@ -14,6 +14,7 @@ Require-Bundle: uc.ac.ucl.ee.flanagan,
  org.antlr,
  org.junit4,
  de.uka.ipd.sdq.probfunction,
- de.uka.ipd.sdq.stoex
+ de.uka.ipd.sdq.stoex,
+ ca.umontreal.iro.lecuyer.ssj;bundle-version="2.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

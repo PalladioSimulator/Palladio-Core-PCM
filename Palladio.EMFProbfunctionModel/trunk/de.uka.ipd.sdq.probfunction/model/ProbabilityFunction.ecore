@@ -55,4 +55,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LognormalDistribution" eSuperTypes="#//ContinuousPDF">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mu" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GammaDistribution" eSuperTypes="#//ContinuousPDF">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beta" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -104,6 +104,24 @@ public interface ProbfunctionFactory extends EFactory {
 	NormalDistribution createNormalDistribution();
 
 	/**
+	 * Returns a new object of class '<em>Lognormal Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lognormal Distribution</em>'.
+	 * @generated
+	 */
+	LognormalDistribution createLognormalDistribution();
+
+	/**
+	 * Returns a new object of class '<em>Gamma Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gamma Distribution</em>'.
+	 * @generated
+	 */
+	GammaDistribution createGammaDistribution();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

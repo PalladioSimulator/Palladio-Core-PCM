@@ -194,6 +194,26 @@ public class ProbfunctionSwitch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ProbfunctionPackage.LOGNORMAL_DISTRIBUTION: {
+				LognormalDistribution lognormalDistribution = (LognormalDistribution)theEObject;
+				T1 result = caseLognormalDistribution(lognormalDistribution);
+				if (result == null) result = caseContinuousPDF(lognormalDistribution);
+				if (result == null) result = caseProbabilityDensityFunction(lognormalDistribution);
+				if (result == null) result = caseProbabilityFunction(lognormalDistribution);
+				if (result == null) result = caseUnitCarryingElement(lognormalDistribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProbfunctionPackage.GAMMA_DISTRIBUTION: {
+				GammaDistribution gammaDistribution = (GammaDistribution)theEObject;
+				T1 result = caseGammaDistribution(gammaDistribution);
+				if (result == null) result = caseContinuousPDF(gammaDistribution);
+				if (result == null) result = caseProbabilityDensityFunction(gammaDistribution);
+				if (result == null) result = caseProbabilityFunction(gammaDistribution);
+				if (result == null) result = caseUnitCarryingElement(gammaDistribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -360,6 +380,36 @@ public class ProbfunctionSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseNormalDistribution(NormalDistribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lognormal Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lognormal Distribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLognormalDistribution(LognormalDistribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gamma Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gamma Distribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGammaDistribution(GammaDistribution object) {
 		return null;
 	}
 

@@ -19,6 +19,8 @@ import de.uka.ipd.sdq.probfunction.Complex;
 import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
@@ -119,6 +121,20 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 	 * @generated
 	 */
 	private EClass normalDistributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lognormalDistributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gammaDistributionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -421,6 +437,60 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLognormalDistribution() {
+		return lognormalDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLognormalDistribution_Mu() {
+		return (EAttribute)lognormalDistributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLognormalDistribution_Sigma() {
+		return (EAttribute)lognormalDistributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGammaDistribution() {
+		return gammaDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGammaDistribution_Alpha() {
+		return (EAttribute)gammaDistributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGammaDistribution_Beta() {
+		return (EAttribute)gammaDistributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProbfunctionFactory getProbfunctionFactory() {
 		return (ProbfunctionFactory)getEFactoryInstance();
 	}
@@ -479,6 +549,14 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		normalDistributionEClass = createEClass(NORMAL_DISTRIBUTION);
 		createEAttribute(normalDistributionEClass, NORMAL_DISTRIBUTION__MU);
 		createEAttribute(normalDistributionEClass, NORMAL_DISTRIBUTION__SIGMA);
+
+		lognormalDistributionEClass = createEClass(LOGNORMAL_DISTRIBUTION);
+		createEAttribute(lognormalDistributionEClass, LOGNORMAL_DISTRIBUTION__MU);
+		createEAttribute(lognormalDistributionEClass, LOGNORMAL_DISTRIBUTION__SIGMA);
+
+		gammaDistributionEClass = createEClass(GAMMA_DISTRIBUTION);
+		createEAttribute(gammaDistributionEClass, GAMMA_DISTRIBUTION__ALPHA);
+		createEAttribute(gammaDistributionEClass, GAMMA_DISTRIBUTION__BETA);
 	}
 
 	/**
@@ -521,6 +599,8 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		continuousPDFEClass.getESuperTypes().add(this.getProbabilityDensityFunction());
 		exponentialDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
 		normalDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
+		lognormalDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
+		gammaDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(boxedPDFEClass, BoxedPDF.class, "BoxedPDF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -559,6 +639,14 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		initEClass(normalDistributionEClass, NormalDistribution.class, "NormalDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNormalDistribution_Mu(), ecorePackage.getEDouble(), "mu", null, 1, 1, NormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getNormalDistribution_Sigma(), ecorePackage.getEDouble(), "sigma", null, 1, 1, NormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(lognormalDistributionEClass, LognormalDistribution.class, "LognormalDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLognormalDistribution_Mu(), ecorePackage.getEDouble(), "mu", null, 1, 1, LognormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLognormalDistribution_Sigma(), ecorePackage.getEDouble(), "sigma", null, 1, 1, LognormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(gammaDistributionEClass, GammaDistribution.class, "GammaDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGammaDistribution_Alpha(), ecorePackage.getEDouble(), "alpha", null, 1, 1, GammaDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getGammaDistribution_Beta(), ecorePackage.getEDouble(), "beta", null, 1, 1, GammaDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

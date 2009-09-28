@@ -2,6 +2,14 @@ package de.uka.ipd.sdq.probfunction.math.exception;
 
 public class ProbabilityFunctionException extends Exception {
 
+	public ProbabilityFunctionException(String string) {
+		super(string);
+	}
+	
+	public ProbabilityFunctionException() {
+		super();
+	}
+
 	/**
 	 * 
 	 */

@@ -7,6 +7,10 @@ import java.util.Locale;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.LognormalDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
@@ -62,6 +66,27 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 			+ rightSeparator + s.getProbability() + ")";
 		}
 		return pmfType + "[" + sampleString + " ]";
+	}
+	
+	public String caseExponentialDistribution(ExponentialDistribution object) {
+		return "Exp("+object.getRate()+")";
+	}
+	
+
+
+	@Override
+	public String caseGammaDistribution(GammaDistribution object) {
+		return "Gamma("+object.getAlpha()+", "+object.getBeta()+")";
+	}
+
+	@Override
+	public String caseLognormalDistribution(LognormalDistribution object) {
+		return "Lognorm("+object.getMu()+", "+object.getSigma()+")";
+	}
+
+	@Override
+	public String caseNormalDistribution(NormalDistribution object) {
+		return "Norm("+object.getMu()+", "+object.getSigma()+")";
 	}
 
 	private String detectType(Sample object) {
