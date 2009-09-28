@@ -141,11 +141,14 @@ public class EvolutionaryAlgorithm extends AbstractOptimizer {
 
 			// evaluate offspring before selecting lames
 			completer.complete(offspring);
-
+			
+			/* Get lame candidates based on Nsga2 */
 			Collection<Individual> lames = selector
 					.getLames(lambda, population);
+			/* Remove these lames */
 			population.removeAll(lames);
 
+			/* removes Pareto-dominated solutions */
 			nextIteration();
 		}
 	}
