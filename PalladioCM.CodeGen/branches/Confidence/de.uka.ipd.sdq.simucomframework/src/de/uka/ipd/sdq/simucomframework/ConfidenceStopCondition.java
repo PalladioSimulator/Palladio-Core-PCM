@@ -121,7 +121,7 @@ public class ConfidenceStopCondition extends Condition implements Observer {
 
 				// construct target confidence interval
 				ConfidenceInterval targetCI = new ConfidenceInterval(ci
-						.getMean(), halfWidth);
+						.getMean(), halfWidth, confidenceLevel);
 
 				if (targetCI.contains(ci)) {
 					logger.info("Requested confidence reached.");

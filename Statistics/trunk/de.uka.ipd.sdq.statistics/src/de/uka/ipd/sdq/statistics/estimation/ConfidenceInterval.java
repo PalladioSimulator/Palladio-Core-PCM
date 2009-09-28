@@ -15,6 +15,8 @@ public class ConfidenceInterval {
 	private double upperBound;
 
 	private double mean;
+	
+	private double level;
 
 	/**
 	 * Constructs a confidence interval around the specified mean, having bounds
@@ -26,13 +28,19 @@ public class ConfidenceInterval {
 	 *            the confidence interval's lower bound
 	 * @param upperBound
 	 *            the confidence interval's upper bound
+	 * @param level 
+	 * 			  the confidence level. Use values between 0 and 1. For instance
+	 *            use 0.95 to estimate the 95% confidence interval.
+	 * @param noOfObservations
+	 * 			  the number of observations this confidence interval is constructed from           
 	 */
-	public ConfidenceInterval(double mean, double lowerBound, double upperBound) {
+	public ConfidenceInterval(double mean, double lowerBound, double upperBound, double level) {
 		this.mean = mean;
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
+		this.level = level;
 	}
-
+	
 	/**
 	 * Constructs a confidence interval around the specified mean having width
 	 * (2 * mean * halfWidth).
@@ -43,8 +51,8 @@ public class ConfidenceInterval {
 	 *            the relative half-width. Use values between 0 and 1. For
 	 *            instance use 0.1 in order to specify a 10% half-width.
 	 */
-	public ConfidenceInterval(double mean, double halfWidth) {
-		this(mean, mean - mean * halfWidth, mean + mean * halfWidth);
+	public ConfidenceInterval(double mean, double halfWidth, double level) {
+		this(mean, mean - mean * halfWidth, mean + mean * halfWidth, level);
 	}
 
 	public double getLowerBound() {
@@ -69,6 +77,11 @@ public class ConfidenceInterval {
 
 	public void setMean(double mean) {
 		this.mean = mean;
+	}
+	
+
+	public double getLevel() {
+		return level;
 	}
 
 	/**

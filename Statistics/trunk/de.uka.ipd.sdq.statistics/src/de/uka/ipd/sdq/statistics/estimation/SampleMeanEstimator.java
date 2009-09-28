@@ -32,7 +32,7 @@ public class SampleMeanEstimator implements IPointEstimator, IConfidenceEstimato
 		double upperBound = mean + upperQuantile * stdDev
 				/ Math.sqrt(samples.size());
 
-		return new ConfidenceInterval(mean, lowerBound, upperBound);
+		return new ConfidenceInterval(mean, lowerBound, upperBound, level);
 	}
 
 	@Override
