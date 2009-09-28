@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.FunctionParametersNotAcceptedException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.FunctionUnknownException;
+import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 
 /**
  * Function library of functions available in stoex in simucom
@@ -33,6 +34,10 @@ public class FunctionLib {
 		myFunctions.put("UniInt",new UniIntDistFunction());
 		myFunctions.put("Trunc",new TruncFunction());
 		myFunctions.put("Round",new RoundFunction());
+		myFunctions.put(ProbfunctionHelper.LOGNORM,new LogNormDistFunction());
+		myFunctions.put(ProbfunctionHelper.LOGNORM2,new LogNormDistFunctionFromMoments());
+		myFunctions.put(ProbfunctionHelper.GAMMA,new GammaDistFunction());
+		myFunctions.put(ProbfunctionHelper.GAMMA2,new GammaDistFunctionFromMoments());
 	}
 
 	/**
