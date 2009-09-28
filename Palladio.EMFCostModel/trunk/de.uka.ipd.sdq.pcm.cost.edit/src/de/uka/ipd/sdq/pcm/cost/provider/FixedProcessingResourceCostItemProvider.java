@@ -24,6 +24,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost} object.
@@ -61,6 +63,8 @@ public class FixedProcessingResourceCostItemProvider
 			super.getPropertyDescriptors(object);
 
 			addProcessingresourcespecificationPropertyDescriptor(object);
+			addFixedOperatingCostPropertyDescriptor(object);
+			addFixedInitialCostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +92,50 @@ public class FixedProcessingResourceCostItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Fixed Operating Cost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFixedOperatingCostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FixedProcessingResourceCost_fixedOperatingCost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FixedProcessingResourceCost_fixedOperatingCost_feature", "_UI_FixedProcessingResourceCost_type"),
+				 costPackage.Literals.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fixed Initial Cost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFixedInitialCostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FixedProcessingResourceCost_fixedInitialCost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FixedProcessingResourceCost_fixedInitialCost_feature", "_UI_FixedProcessingResourceCost_type"),
+				 costPackage.Literals.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns FixedProcessingResourceCost.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +155,7 @@ public class FixedProcessingResourceCostItemProvider
 	@Override
 	public String getText(Object object) {
 		FixedProcessingResourceCost fixedProcessingResourceCost = (FixedProcessingResourceCost)object;
-		return getString("_UI_FixedProcessingResourceCost_type") + " " + fixedProcessingResourceCost.getOperatingCost();
+		return getString("_UI_FixedProcessingResourceCost_type") + " " + fixedProcessingResourceCost.getInitialCost();
 	}
 
 	/**
@@ -120,6 +168,13 @@ public class FixedProcessingResourceCostItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(FixedProcessingResourceCost.class)) {
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST:
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

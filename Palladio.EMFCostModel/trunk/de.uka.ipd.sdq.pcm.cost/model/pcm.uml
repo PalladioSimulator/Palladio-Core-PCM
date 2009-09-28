@@ -214,6 +214,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <body>self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;</body>
             </specification>
           </ownedRule>
+          <ownedRule xmi:id="_c1Z2cH2cEd61Z_3XFFo7Qg" name="AssemblyConnectorsReferencedInterfacesMustMatch" constrainedElement="_4foMIOJREdqxcra4qpeplw">
+            <ownedComment xmi:id="_L-tJoH2dEd61Z_3XFFo7Qg" annotatedElement="_c1Z2cH2cEd61Z_3XFFo7Qg">
+              <body>The Interfaces references by this Connector must match. This means that either &#xD;
+1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces </body>
+            </ownedComment>
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_c1jncH2cEd61Z_3XFFo7Qg">
+              <language>OCL</language>
+              <body>self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)&#xD;&#xA;</body>
+            </specification>
+          </ownedRule>
           <generalization xmi:id="_6xzqIOJREdqxcra4qpeplw" general="_UkxkoJQAEdqSSImFLKDkSg"/>
           <generalization xmi:id="_Fn1AUOM1EdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_vUZ9QeJSEdqxcra4qpeplw" name="requiringAssemblyContext_AssemblyConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_vUZ9QOJSEdqxcra4qpeplw"/>
@@ -337,9 +347,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_AtO9UOMvEdqaQsPH3rPnBQ" name="Allocation">
         <ownedRule xmi:id="_3KNIsCokEdyENO6Lndj6uA" name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce" constrainedElement="_AtO9UOMvEdqaQsPH3rPnBQ">
+          <ownedComment xmi:id="_fR1wwH2pEd61Z_3XFFo7Qg" annotatedElement="_3KNIsCokEdyENO6Lndj6uA">
+            <body>Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;
+&#xD;
+Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;
+&#xD;
+The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. </body>
+          </ownedComment>
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_3KOW0CokEdyENO6Lndj6uA">
             <language>OCL</language>
-            <body>self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
+            <body>-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts_ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts_ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent_AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts_ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_YyuowBG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
@@ -707,13 +724,13 @@ the internal structure depends on the way the component is realised. In general,
         <ownedRule xmi:id="_eTrlAKU6EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_eTrlAaU6EdqWue6EZILF7w">
             <language>OCL</language>
-            <body>-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif</body>
+            <body>-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
           </specification>
         </ownedRule>
         <ownedRule xmi:id="_nGrEoKU6EdqWue6EZILF7w" name="RequireSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_nGrEoaU6EdqWue6EZILF7w">
             <language>OCL</language>
-            <body>-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif</body>
+            <body>-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_q7ASUAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
@@ -1047,6 +1064,26 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
+        <ownedAttribute xmi:id="_1lj7QEIxEd6xDqQsjkcxUg" name="MTTR" visibility="public">
+          <ownedComment xmi:id="_ON0DYEIyEd6xDqQsjkcxUg" annotatedElement="_1lj7QEIxEd6xDqQsjkcxUg">
+            <body>The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown of this physical resource to its repair or replacement.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_8jR7UEIxEd6xDqQsjkcxUg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+            <body>0.0</body>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_wPsp0EIxEd6xDqQsjkcxUg" name="MTTF" visibility="public">
+          <ownedComment xmi:id="_YH4f0EIyEd6xDqQsjkcxUg" annotatedElement="_wPsp0EIxEd6xDqQsjkcxUg">
+            <body>The Mean Time To Failure (MTTF) of a physical resource is the expected timespan from the start of its usage until breakdown.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Pr-qgEIyEd6xDqQsjkcxUg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+            <body>0.0</body>
+          </defaultValue>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_CRHygBmtEdyaJvvdhGgDYg" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg"/>
         <ownedAttribute xmi:id="_CPbWweDoEdq8ysXH3gTiEg" name="activeResourceType_ActiveResourceSpecification" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_CPbWwODoEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lbQGIeD6Edq8ysXH3gTiEg" value="1"/>
@@ -1073,6 +1110,16 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_OSNYgOMfEdqaQsPH3rPnBQ" name="CommunicationLinkResourceSpecification">
+        <ownedAttribute xmi:id="_a8pGcEIyEd6xDqQsjkcxUg" name="failureProbability" visibility="public">
+          <ownedComment xmi:id="_uvkeYEIyEd6xDqQsjkcxUg" annotatedElement="_a8pGcEIyEd6xDqQsjkcxUg">
+            <body>Specifies the probability that a service call over this communication link fails. The failure could be due to message loss or overload, for example.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_gQQ8MEIyEd6xDqQsjkcxUg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+            <body>0.0</body>
+          </defaultValue>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_TBcu0eMfEdqaQsPH3rPnBQ" name="communicationLinkResourceType_CommunicationLinkResourceSpecification" type="__zoEgOMdEdqaQsPH3rPnBQ" association="_TBcu0OMfEdqaQsPH3rPnBQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rQP_seMgEdqaQsPH3rPnBQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rQP_sOMgEdqaQsPH3rPnBQ" value="1"/>
@@ -1769,17 +1816,20 @@ InternalActions provide an abstraction from the complete behaviour (i.e., contro
         </ownedComment>
         <generalization xmi:id="_0j8F4ODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="public">
+          <ownedComment xmi:id="_Zdak0EIxEd6xDqQsjkcxUg" annotatedElement="_sbTYkODmEdq8ysXH3gTiEg">
+            <body>Specifies the probability that during the execution of this InternalAction, a software failure occurs, and causes the control flow to abort the currently executed RDSEFF.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
           <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_CSKwsOfvEdu3wqV8TelBYw">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-            <body>0</body>
+            <body>0.0</body>
           </defaultValue>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_75L1IODhEdq8ysXH3gTiEg" name="ForkAction">
         <ownedComment xmi:id="_LNyXsKdBEd2mBdDaN9hoZQ" annotatedElement="_75L1IODhEdq8ysXH3gTiEg">
           <body>Fork Action Splits the RDSEFF control flow with an AND-semantic, meaning that it invokes several ForkedBehaviours concurrently.  ForkActions&#xD;
-allow both asynchronously and synchronously forked behaviours. Synchronously ForkedBehaviours execute concurrently and the control flow waits for each of these behaviours to terminate before continuing. Each ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour. Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages. Asynchronously ForkedBehaviours also execute concurrently, but the control flow does not wait for them to terminate and continues immediately after their invocation with the successor action of the ForkAction. Therefore, there is no need for a SynchronisationPoint in this case. It is furthermore not possible to refer to results or output parameters of asynchronously ForkedBehaviours in the rest of the RDSEFF, as it is unclear when these results will be available.</body>
+allow both asynchronously and synchronously forked behaviours. Synchronously ForkedBehaviours execute concurrently and the control flow waits for each of these behaviours to terminate before continuing. Each ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour. Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages. Asynchronously ForkedBehaviours also execute concurrently, but the control flow does not wait for them to terminate and continues immediately after their invocation with the successor action of the ForkAction. Therefore, there is no need for a SynchronisationPoint in this case. It is furthermore not possible to refer to results or output parameters of asynchronously ForkedBehaviours in the rest of the RDSEFF, as it is unclear when these results will be available. The same Fork Action can contain asynchronous and synchronousForkedbehaviours at the same time. In that case, all forked behaviours are started. The control flow waits for all synchronous behaviours to finish execution and only then continues. </body>
         </ownedComment>
         <generalization xmi:id="_8w6HUODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_i6cW8eTDEdq49qz7R-l1Hg" name="asynchronousForkedBehaviours_ForkAction" type="_4IiqUDj4Edy2j_4z2PHNJQ" aggregation="composite" association="_i6cW8OTDEdq49qz7R-l1Hg">
@@ -1810,6 +1860,16 @@ ExternalCallActions may contain two sets of VariableUsages specifying input para
         <ownedAttribute xmi:id="_vcSSkTj9Edy2j_4z2PHNJQ" name="role_ExternalService" type="_9CubEJJIEdqSSImFLKDkSg" association="_vcSSkDj9Edy2j_4z2PHNJQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vccDkjj9Edy2j_4z2PHNJQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vccDkTj9Edy2j_4z2PHNJQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_bOjLAHOkEd6z6tywRVl4hg" name="retryCount" visibility="public">
+          <ownedComment xmi:id="_Q5VOMHOlEd6z6tywRVl4hg" annotatedElement="_bOjLAHOkEd6z6tywRVl4hg">
+            <body>Specifies&amp;nbsp;the&amp;nbsp;number of&amp;nbsp;retries this ExternalCallAction shoul be re-executed&amp;nbsp; in case of failure&#xD;
+occurence.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hPSlcHOkEd6z6tywRVl4hg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </defaultValue>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MWqoAOTDEdq49qz7R-l1Hg" name="ProbabilisticBranchTransition">
@@ -1964,9 +2024,7 @@ A ResourceDemandingBehaviour contains a chain of AbstractActions. Each action in
         <ownedComment xmi:id="_9b1jYKdDEd2mBdDaN9hoZQ" annotatedElement="_eX2J0InoEducPr8SMhBkpQ">
           <body>Two types of branch transitions exist which correspond to the two types of branches. The types cannot be mixed. Either all branch transitions of one BranchAction are probabilistic or guarded.</body>
         </ownedComment>
-        <generalization xmi:id="_KZmV4InsEducPr8SMhBkpQ">
-          <general xmi:type="uml:Class" href="identifier.uml#_UMp04JMWEdqSSImFLKDkSg"/>
-        </generalization>
+        <generalization xmi:id="_V5EgsERoEd6SiulQ94Od9w" general="_X0NSMHDEEdur9cZft9T4NQ"/>
         <ownedAttribute xmi:id="_YSp44eTDEdq49qz7R-l1Hg" name="branchBehaviour_BranchTransition" type="_-kKR4OKHEdq6IvzVMFpuzg" aggregation="composite" association="_YSp44OTDEdq49qz7R-l1Hg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YSp45OTDEdq49qz7R-l1Hg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YSp44-TDEdq49qz7R-l1Hg" value="1"/>
@@ -2688,4 +2746,15 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_KW9agLIPEd2cRs6GwUwg9g" base_Comment="_KQQ8oLIPEd2cRs6GwUwg9g"/>
   <Default:Documentation xmi:id="_X7GMkLIdEd2cRs6GwUwg9g" base_Comment="_X68bkLIdEd2cRs6GwUwg9g"/>
   <Default:Documentation xmi:id="_1V8YoLIrEd2cRs6GwUwg9g" base_Comment="_1VfssLIrEd2cRs6GwUwg9g"/>
+  <Default:Documentation xmi:id="_Zdak0UIxEd6xDqQsjkcxUg" base_Comment="_Zdak0EIxEd6xDqQsjkcxUg"/>
+  <Ecore:EAttribute xmi:id="_9OSAIEIxEd6xDqQsjkcxUg" base_Property="_1lj7QEIxEd6xDqQsjkcxUg"/>
+  <Default:Documentation xmi:id="_ON9NUEIyEd6xDqQsjkcxUg" base_Comment="_ON0DYEIyEd6xDqQsjkcxUg"/>
+  <Ecore:EAttribute xmi:id="_QRnuMEIyEd6xDqQsjkcxUg" base_Property="_wPsp0EIxEd6xDqQsjkcxUg"/>
+  <Default:Documentation xmi:id="_YIBpwEIyEd6xDqQsjkcxUg" base_Comment="_YH4f0EIyEd6xDqQsjkcxUg"/>
+  <Ecore:EAttribute xmi:id="_gvgc8EIyEd6xDqQsjkcxUg" base_Property="_a8pGcEIyEd6xDqQsjkcxUg"/>
+  <Default:Documentation xmi:id="_uvkeYUIyEd6xDqQsjkcxUg" base_Comment="_uvkeYEIyEd6xDqQsjkcxUg"/>
+  <Ecore:EAttribute xmi:id="_iLeg4HOkEd6z6tywRVl4hg" base_Property="_bOjLAHOkEd6z6tywRVl4hg"/>
+  <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
+  <Default:Documentation xmi:id="_MHpqQH2dEd61Z_3XFFo7Qg" base_Comment="_L-tJoH2dEd61Z_3XFFo7Qg"/>
+  <Default:Documentation xmi:id="_fR1wwX2pEd61Z_3XFFo7Qg" base_Comment="_fR1wwH2pEd61Z_3XFFo7Qg"/>
 </xmi:XMI>

@@ -121,7 +121,7 @@ public class VariableCostItemProvider
 	@Override
 	public String getText(Object object) {
 		VariableCost variableCost = (VariableCost)object;
-		return getString("_UI_VariableCost_type") + " " + variableCost.getOperatingCost();
+		return getString("_UI_VariableCost_type") + " " + variableCost.getInitialCost();
 	}
 
 	/**

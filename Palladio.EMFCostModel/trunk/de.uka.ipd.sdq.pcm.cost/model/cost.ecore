@@ -39,6 +39,10 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcespecification"
         ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedOperatingCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedInitialCost" ordered="false"
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableCost" abstract="true" eSuperTypes="#//Cost">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixedInitialCost" ordered="false"

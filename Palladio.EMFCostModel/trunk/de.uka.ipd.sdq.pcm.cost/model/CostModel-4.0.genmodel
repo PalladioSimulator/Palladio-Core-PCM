@@ -24,14 +24,16 @@
   </genAnnotations>
   <foreignModel>CostModel.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="cost" basePackage="de.uka.ipd.sdq.pcm"
-      resource="XMI" disposableProviderFactory="true" ecorePackage="cost.ecore#/">
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//ComponentCost">
+      resource="XML" disposableProviderFactory="true" ecorePackage="cost.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//ComponentCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//ComponentCost/componentOperatingCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//ComponentCost/componentInitialCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//ComponentCost/repositoryComponent"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="cost.ecore#//Cost">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="cost.ecore#//Cost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
           createChild="false" ecoreFeature="ecore:EReference cost.ecore#//Cost/annotatedElement"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
@@ -39,25 +41,32 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
           ecoreFeature="ecore:EAttribute cost.ecore#//Cost/initialCost"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedLinkingResourceCost">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedLinkingResourceCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//FixedLinkingResourceCost/linkingresource"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedProcessingResourceCost">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//FixedProcessingResourceCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//FixedProcessingResourceCost/processingresourcespecification"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//FixedProcessingResourceCost/fixedOperatingCost"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//FixedProcessingResourceCost/fixedInitialCost"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="cost.ecore#//VariableCost">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="cost.ecore#//VariableCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableCost/fixedInitialCost"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableCost/fixedOperatingCost"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//VariableLinkingResourceCost">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//VariableLinkingResourceCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableLinkingResourceCost/bandwithInitialFactor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableLinkingResourceCost/bandwidthOperatingFactor"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference cost.ecore#//VariableLinkingResourceCost/linkingresource"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//VariableProcessingResourceCost">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//VariableProcessingResourceCost"
+        labelFeature="#//cost/Cost/initialCost">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableProcessingResourceCost/processingRateInitialFactor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//VariableProcessingResourceCost/processingRateOperatingFactor"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

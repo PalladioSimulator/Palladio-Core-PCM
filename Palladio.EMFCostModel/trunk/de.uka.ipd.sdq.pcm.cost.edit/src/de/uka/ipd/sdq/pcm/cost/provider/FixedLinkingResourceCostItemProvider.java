@@ -107,7 +107,7 @@ public class FixedLinkingResourceCostItemProvider
 	@Override
 	public String getText(Object object) {
 		FixedLinkingResourceCost fixedLinkingResourceCost = (FixedLinkingResourceCost)object;
-		return getString("_UI_FixedLinkingResourceCost_type") + " " + fixedLinkingResourceCost.getOperatingCost();
+		return getString("_UI_FixedLinkingResourceCost_type") + " " + fixedLinkingResourceCost.getInitialCost();
 	}
 
 	/**

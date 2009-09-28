@@ -280,13 +280,31 @@ public interface costPackage extends EPackage {
 	int FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION = COST_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fixed Operating Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST = COST_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fixed Initial Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST = COST_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Fixed Processing Resource Cost</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIXED_PROCESSING_RESOURCE_COST_FEATURE_COUNT = COST_FEATURE_COUNT + 1;
+	int FIXED_PROCESSING_RESOURCE_COST_FEATURE_COUNT = COST_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.cost.impl.VariableCostImpl <em>Variable Cost</em>}' class.
@@ -692,6 +710,28 @@ public interface costPackage extends EPackage {
 	EReference getFixedProcessingResourceCost_Processingresourcespecification();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost#getFixedOperatingCost <em>Fixed Operating Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fixed Operating Cost</em>'.
+	 * @see de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost#getFixedOperatingCost()
+	 * @see #getFixedProcessingResourceCost()
+	 * @generated
+	 */
+	EAttribute getFixedProcessingResourceCost_FixedOperatingCost();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost#getFixedInitialCost <em>Fixed Initial Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fixed Initial Cost</em>'.
+	 * @see de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost#getFixedInitialCost()
+	 * @see #getFixedProcessingResourceCost()
+	 * @generated
+	 */
+	EAttribute getFixedProcessingResourceCost_FixedInitialCost();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.cost.VariableCost <em>Variable Cost</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -955,6 +995,22 @@ public interface costPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION = eINSTANCE.getFixedProcessingResourceCost_Processingresourcespecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Fixed Operating Cost</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST = eINSTANCE.getFixedProcessingResourceCost_FixedOperatingCost();
+
+		/**
+		 * The meta object literal for the '<em><b>Fixed Initial Cost</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST = eINSTANCE.getFixedProcessingResourceCost_FixedInitialCost();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.cost.impl.VariableCostImpl <em>Variable Cost</em>}' class.

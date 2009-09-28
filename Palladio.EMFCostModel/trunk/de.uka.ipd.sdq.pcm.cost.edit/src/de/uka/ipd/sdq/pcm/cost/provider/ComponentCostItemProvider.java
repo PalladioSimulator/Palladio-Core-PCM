@@ -155,7 +155,7 @@ public class ComponentCostItemProvider
 	@Override
 	public String getText(Object object) {
 		ComponentCost componentCost = (ComponentCost)object;
-		return getString("_UI_ComponentCost_type") + " " + componentCost.getOperatingCost();
+		return getString("_UI_ComponentCost_type") + " " + componentCost.getInitialCost();
 	}
 
 	/**

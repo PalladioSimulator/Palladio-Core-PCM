@@ -155,7 +155,7 @@ public class VariableProcessingResourceCostItemProvider
 	@Override
 	public String getText(Object object) {
 		VariableProcessingResourceCost variableProcessingResourceCost = (VariableProcessingResourceCost)object;
-		return getString("_UI_VariableProcessingResourceCost_type") + " " + variableProcessingResourceCost.getOperatingCost();
+		return getString("_UI_VariableProcessingResourceCost_type") + " " + variableProcessingResourceCost.getInitialCost();
 	}
 
 	/**

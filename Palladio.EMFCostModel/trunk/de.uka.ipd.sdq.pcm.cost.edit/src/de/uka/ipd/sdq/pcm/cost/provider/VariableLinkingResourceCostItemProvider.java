@@ -155,7 +155,7 @@ public class VariableLinkingResourceCostItemProvider
 	@Override
 	public String getText(Object object) {
 		VariableLinkingResourceCost variableLinkingResourceCost = (VariableLinkingResourceCost)object;
-		return getString("_UI_VariableLinkingResourceCost_type") + " " + variableLinkingResourceCost.getOperatingCost();
+		return getString("_UI_VariableLinkingResourceCost_type") + " " + variableLinkingResourceCost.getInitialCost();
 	}
 
 	/**

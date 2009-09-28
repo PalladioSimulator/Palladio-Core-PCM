@@ -146,7 +146,7 @@ public class CostItemProvider
 	@Override
 	public String getText(Object object) {
 		Cost cost = (Cost)object;
-		return getString("_UI_Cost_type") + " " + cost.getOperatingCost();
+		return getString("_UI_Cost_type") + " " + cost.getInitialCost();
 	}
 
 	/**

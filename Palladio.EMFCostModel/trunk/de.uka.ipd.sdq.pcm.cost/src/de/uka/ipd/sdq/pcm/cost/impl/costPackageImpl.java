@@ -312,6 +312,24 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFixedProcessingResourceCost_FixedOperatingCost() {
+		return (EAttribute)fixedProcessingResourceCostEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFixedProcessingResourceCost_FixedInitialCost() {
+		return (EAttribute)fixedProcessingResourceCostEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableCost() {
 		return variableCostEClass;
 	}
@@ -467,6 +485,8 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 
 		fixedProcessingResourceCostEClass = createEClass(FIXED_PROCESSING_RESOURCE_COST);
 		createEReference(fixedProcessingResourceCostEClass, FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION);
+		createEAttribute(fixedProcessingResourceCostEClass, FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST);
+		createEAttribute(fixedProcessingResourceCostEClass, FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST);
 
 		variableCostEClass = createEClass(VARIABLE_COST);
 		createEAttribute(variableCostEClass, VARIABLE_COST__FIXED_INITIAL_COST);
@@ -542,6 +562,8 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 
 		initEClass(fixedProcessingResourceCostEClass, FixedProcessingResourceCost.class, "FixedProcessingResourceCost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFixedProcessingResourceCost_Processingresourcespecification(), theResourceenvironmentPackage.getProcessingResourceSpecification(), null, "processingresourcespecification", null, 1, 1, FixedProcessingResourceCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getFixedProcessingResourceCost_FixedOperatingCost(), theEcorePackage.getEDouble(), "fixedOperatingCost", null, 1, 1, FixedProcessingResourceCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getFixedProcessingResourceCost_FixedInitialCost(), theEcorePackage.getEDouble(), "fixedInitialCost", null, 1, 1, FixedProcessingResourceCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(variableCostEClass, VariableCost.class, "VariableCost", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableCost_FixedInitialCost(), ecorePackage.getEDouble(), "fixedInitialCost", null, 1, 1, VariableCost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

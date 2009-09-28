@@ -27,6 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.FixedProcessingResourceCostImpl#getProcessingresourcespecification <em>Processingresourcespecification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.FixedProcessingResourceCostImpl#getFixedOperatingCost <em>Fixed Operating Cost</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.cost.impl.FixedProcessingResourceCostImpl#getFixedInitialCost <em>Fixed Initial Cost</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +44,43 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 	 * @ordered
 	 */
 	protected ProcessingResourceSpecification processingresourcespecification;
+
+	/**
+	 * The default value of the '{@link #getFixedOperatingCost() <em>Fixed Operating Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixedOperatingCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double FIXED_OPERATING_COST_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getFixedOperatingCost() <em>Fixed Operating Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixedOperatingCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected double fixedOperatingCost = FIXED_OPERATING_COST_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getFixedInitialCost() <em>Fixed Initial Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixedInitialCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double FIXED_INITIAL_COST_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getFixedInitialCost() <em>Fixed Initial Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFixedInitialCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected double fixedInitialCost = FIXED_INITIAL_COST_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,12 +144,58 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getFixedOperatingCost() {
+		return fixedOperatingCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFixedOperatingCost(double newFixedOperatingCost) {
+		double oldFixedOperatingCost = fixedOperatingCost;
+		fixedOperatingCost = newFixedOperatingCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST, oldFixedOperatingCost, fixedOperatingCost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getFixedInitialCost() {
+		return fixedInitialCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFixedInitialCost(double newFixedInitialCost) {
+		double oldFixedInitialCost = fixedInitialCost;
+		fixedInitialCost = newFixedInitialCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST, oldFixedInitialCost, fixedInitialCost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case costPackage.FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION:
 				if (resolve) return getProcessingresourcespecification();
 				return basicGetProcessingresourcespecification();
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST:
+				return new Double(getFixedOperatingCost());
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST:
+				return new Double(getFixedInitialCost());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,6 +210,12 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 		switch (featureID) {
 			case costPackage.FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION:
 				setProcessingresourcespecification((ProcessingResourceSpecification)newValue);
+				return;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST:
+				setFixedOperatingCost(((Double)newValue).doubleValue());
+				return;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST:
+				setFixedInitialCost(((Double)newValue).doubleValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,6 +232,12 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 			case costPackage.FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION:
 				setProcessingresourcespecification((ProcessingResourceSpecification)null);
 				return;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST:
+				setFixedOperatingCost(FIXED_OPERATING_COST_EDEFAULT);
+				return;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST:
+				setFixedInitialCost(FIXED_INITIAL_COST_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -155,8 +252,30 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 		switch (featureID) {
 			case costPackage.FIXED_PROCESSING_RESOURCE_COST__PROCESSINGRESOURCESPECIFICATION:
 				return processingresourcespecification != null;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_OPERATING_COST:
+				return fixedOperatingCost != FIXED_OPERATING_COST_EDEFAULT;
+			case costPackage.FIXED_PROCESSING_RESOURCE_COST__FIXED_INITIAL_COST:
+				return fixedInitialCost != FIXED_INITIAL_COST_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (fixedOperatingCost: ");
+		result.append(fixedOperatingCost);
+		result.append(", fixedInitialCost: ");
+		result.append(fixedInitialCost);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
@@ -166,8 +285,7 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 	 */
 	@Override
 	public double getOperatingCost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getFixedOperatingCost();
 	}
 
 	/**
@@ -177,8 +295,7 @@ public class FixedProcessingResourceCostImpl extends CostImpl implements FixedPr
 	 */
 	@Override
 	public double getInitialCost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getFixedInitialCost();
 	}
 
 	@Override

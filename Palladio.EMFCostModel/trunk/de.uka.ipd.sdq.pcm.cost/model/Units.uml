@@ -8,7 +8,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_4AyJkDaUEdypU_bkgRAm2w" name="UnitCarryingElement" isAbstract="true">
       <ownedAttribute xmi:id="_J8G_UTaYEdypU_bkgRAm2w" name="unit" type="_L4VUEDabEdypU_bkgRAm2w" association="_J8G_UDaYEdypU_bkgRAm2w">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J8G_VDaYEdypU_bkgRAm2w" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J8G_UzaYEdypU_bkgRAm2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J8G_UzaYEdypU_bkgRAm2w"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6zypcDakEdypU_bkgRAm2w" name="unitSpecification">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
