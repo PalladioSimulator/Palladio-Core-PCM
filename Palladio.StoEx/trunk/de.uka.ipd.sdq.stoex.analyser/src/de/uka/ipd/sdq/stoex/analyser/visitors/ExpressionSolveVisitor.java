@@ -1,14 +1,18 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import umontreal.iro.lecuyer.probdist.GammaDistFromMoments;
+import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -27,7 +31,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
@@ -55,6 +58,7 @@ import de.uka.ipd.sdq.stoex.analyser.operations.MultOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.NotEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.SubOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
+import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 /**
@@ -252,23 +256,39 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	}
 	
 	@Override
-	public Object caseFunctionLiteral(FunctionLiteral object) {
+	public ProbabilityFunctionLiteral caseFunctionLiteral(FunctionLiteral object) {
 		for (Expression e : object.getParameters_FunctionLiteral())
 			doSwitch(e);
 		
 		if (object.getId().equals("Exp")) {
 			if (object.getParameters_FunctionLiteral().size() == 1){
-				Expression param = object.getParameters_FunctionLiteral().get(1);
+				Expression param = object.getParameters_FunctionLiteral().get(0);
 				Expression solvedParam = (Expression) doSwitch(param);
 				if (solvedParam instanceof DoubleLiteral){
 					ExponentialDistribution exp = this.probFuncFactory.createExponentialDistribution();
 					exp.setRate(((DoubleLiteral)solvedParam).getValue());
-					return exp;
+					ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
+					literal.setFunction_ProbabilityFunctionLiteral(exp);
+					return literal;
 				} else 
 					throw new ExpressionSolvingFailedException("Function Exp is only supported supported for a single double parameter!", object);
 			}
 			
-		} else if (object.getId().equals("Trunc")) {
+		} else	if (ProbfunctionHelper.isFunctionWithTwoParameterID(object.getId())) {
+				if (object.getParameters_FunctionLiteral().size() == 2){
+					Expression firstExp = object.getParameters_FunctionLiteral().get(0);
+					Expression secondExp = object.getParameters_FunctionLiteral().get(1);
+					Expression solvedFirst = (Expression) doSwitch(firstExp);
+					Expression solvedSecond = (Expression) doSwitch(secondExp);
+					if (solvedFirst instanceof DoubleLiteral && solvedSecond instanceof DoubleLiteral){
+						ContinuousPDF lognorm = ProbfunctionHelper.createFunction(solvedFirst, solvedSecond, object.getId(), this.probFuncFactory);
+						ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
+						literal.setFunction_ProbabilityFunctionLiteral(lognorm);
+						return literal;
+					} else 
+						throw new ExpressionSolvingFailedException("Function "+object.getId()+" is only supported supported for two double parameters!", object);
+				}
+		} else	if (object.getId().equals("Trunc")) {
 			//Create an equivalent ProbabilityMassFunction or Integer from the given expression.
 			
 			//Trunc must only have one parameter 
@@ -292,7 +312,9 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		}  else 
 			throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
 		return null;
-	} 
+	}
+
+
 
 	/**
 	 * Converts a PDF to an IntPMF for the Trunc function. This is just a rough estimates. Especially for small values, it is far from the original. 
@@ -437,6 +459,10 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				exprType = resolveActualType(exprType, left);
 			} else if (right instanceof ProbabilityFunctionLiteral){
 				exprType = resolveActualType(exprType, right);
+			} else if (left instanceof FunctionLiteral){
+				exprType = ProbfunctionHelper.isFunctionID(((FunctionLiteral)left).getId()) ? TypeEnum.CONTINOUS_PROBFUNCTION : TypeEnum.AUX_FUNCTION;
+			} else if (right instanceof FunctionLiteral){
+				exprType = ProbfunctionHelper.isFunctionID(((FunctionLiteral)right).getId()) ? TypeEnum.CONTINOUS_PROBFUNCTION : TypeEnum.AUX_FUNCTION;
 			} else 
 				throw new UnsupportedOperationException();
 		}
@@ -503,7 +529,35 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 					throw new UnsupportedOperationException();
 			} else
 				throw new UnsupportedOperationException();
+		case CONTINOUS_PROBFUNCTION:
+			if (left instanceof FunctionLiteral){
+				if (right instanceof IntLiteral) {
+					double rightDouble = ((IntLiteral)right).getValue();
+					return handle(extractIPDFFromLiteral(caseFunctionLiteral((FunctionLiteral) left)),rightDouble, op);
+				} else if (right instanceof DoubleLiteral){
+					double rightDouble = ((DoubleLiteral)right).getValue();
+					return handle(extractIPDFFromLiteral(caseFunctionLiteral((FunctionLiteral) left)),rightDouble, op);
+				}	else throw new UnsupportedOperationException("I can only apply operation "+op.getClass().getName()+" to a function and an number, not more.");
+			} if (right instanceof FunctionLiteral){
+				if (left instanceof IntLiteral){
+					double leftDouble = ((IntLiteral)left).getValue();
+					return handle(extractIPDFFromLiteral(caseFunctionLiteral((FunctionLiteral) right)),leftDouble, op);	
+				} else if (left instanceof DoubleLiteral){
+					double leftDouble = ((DoubleLiteral)left).getValue();
+					return handle(extractIPDFFromLiteral(caseFunctionLiteral((FunctionLiteral) right)),leftDouble, op);
+				} else throw new UnsupportedOperationException("I can only apply operation "+op.getClass().getName()+" to a function and an number, not more.");
+			} else throw new UnsupportedOperationException();
+		case AUX_FUNCTION:
+			//TODO: 
+			throw new UnsupportedOperationException("It is not yet supported to do calculations with auxiliary functions.");
+			
 		}
+		return null;
+
+	}
+
+	private TypeEnum getFunctionType(Expression right) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

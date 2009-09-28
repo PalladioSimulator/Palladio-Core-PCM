@@ -13,4 +13,5 @@ Require-Bundle: de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.pcm
 Export-Package: de.uka.ipd.sdq.stoex.analyser.exceptions,
  de.uka.ipd.sdq.stoex.analyser.operations,
+ de.uka.ipd.sdq.stoex.analyser.probfunction,
  de.uka.ipd.sdq.stoex.analyser.visitors

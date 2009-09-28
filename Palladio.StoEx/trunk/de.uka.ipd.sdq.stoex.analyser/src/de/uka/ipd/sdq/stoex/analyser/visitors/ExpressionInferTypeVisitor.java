@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
+import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 /**
@@ -343,21 +344,21 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		for (Expression e : object.getParameters_FunctionLiteral())
 			doSwitch(e);
 		
-		if (object.getId().equals("UniDouble")) {
+		if (object.getId().equals(ProbfunctionHelper.UNIDOUBLE)) {
 			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
-		} else if (object.getId().equals("Norm")) {
+		} else if (ProbfunctionHelper.isFunctionWithTwoParameterID(object.getId())) {
 			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
-		} else if (object.getId().equals("Exp")) {
+		} else if (object.getId().equals(ProbfunctionHelper.EXP)) {
 			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
-		} else if (object.getId().equals("Pois")) {
+		} else if (object.getId().equals(ProbfunctionHelper.POIS)) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
-		} else if (object.getId().equals("UniInt")) {
+		} else if (object.getId().equals(ProbfunctionHelper.UNIINT)) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else if (object.getId().equals("Trunc")) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else if (object.getId().equals("Round")) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
-		} else if (object.getId().equals("Binom")) {
+		} else if (object.getId().equals(ProbfunctionHelper.BINOM)) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		}  else 
 			throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.stoex.analyser.operations;
 
+import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
@@ -33,4 +34,5 @@ public interface TermProductOperation {
 	public IProbabilityDensityFunction compute(
 			IProbabilityDensityFunction left, double right)
 			throws DomainNotNumbersException;
+	
 }
