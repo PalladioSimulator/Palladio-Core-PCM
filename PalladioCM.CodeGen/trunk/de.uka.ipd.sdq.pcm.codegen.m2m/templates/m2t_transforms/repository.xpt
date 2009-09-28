@@ -30,7 +30,8 @@
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDDEFINE»
 
-«DEFINE ComponentRoot FOR CompositeComponent»
+«DEFINE ComponentRoot FOR ComposedProvidingRequiringEntity»
+	«REM»Handles CompositeComponents and SubSystems«ENDREM»
    	«FILE this.getFileName()»
 		«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
 	    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
