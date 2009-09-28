@@ -67,6 +67,7 @@ import de.uka.ipd.sdq.sensorframework.util.CompareSensorsByName;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.CSVSettingsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.DialogType;
+import de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm;
 
 /**
  * The view shows data obtained from the 'SensorFactory' model. The view is connected to the model
@@ -93,6 +94,7 @@ public class ExperimentsView extends ViewPart {
 	
 	//Anne addition
 	private Action saveSummaryToCSV;
+	private Action calculateStatistics;
 
 	private static Logger logger = Logger
 			.getLogger("de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentsView.log");
@@ -194,6 +196,7 @@ public class ExperimentsView extends ViewPart {
 		
 		//Anne
 		manager.add(saveSummaryToCSV);
+		manager.add(calculateStatistics);
 		
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
@@ -366,6 +369,16 @@ public class ExperimentsView extends ViewPart {
 			}
 		};
 		saveSummaryToCSV.setText("Save experiment summary to CSV");
+		
+		/** Save As CSV action */
+		calculateStatistics = new Action() {
+			@Override
+			public void run() {
+				calculateStatistics();
+			}
+
+		};
+		calculateStatistics.setText("Calculate sensor statistics");
 	}
 
 	/**
@@ -620,8 +633,47 @@ public class ExperimentsView extends ViewPart {
 						saveAsCSV.setEnabled(false);
 					}
 				}
+				//Anne: calculate statistics for the sensor such as confidence interval.
+				if (((TreeObject) selected).getObject() instanceof SensorAndMeasurements){
+					calculateStatistics.setEnabled(true);
+				}
 			}
 		}
+	}
+	
+
+	//FIXME: relocate statistic to a separate plugin to remove dependency from this to simucomframework. 
+	//Fix PhiMixingConfidenceStopCondition and extract statistic code to be used independently
+	private void calculateStatistics() {
+		
+		ISelection selection = viewer.getSelection();
+		IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+		Object object = structuredSelection.getFirstElement();
+		
+		logger.log(Level.WARNING, "Calculate statistics");
+
+		if (object instanceof TreeObject) {
+			TreeObject treeObject = (TreeObject) object;
+			Object innerObject = treeObject.getObject();
+			if (innerObject instanceof TimeSpanSensor) {
+				TimeSpanSensor tss = (TimeSpanSensor)innerObject;
+				
+				SensorAndMeasurements meas = treeObject.getRun().getMeasurementsOfSensor(tss);
+				PhiMixingBatchAlgorithm statisticChecker = new PhiMixingBatchAlgorithm();
+				
+				
+				for (Measurement m : meas.getMeasurements()) {
+					TimeSpanMeasurement t = (TimeSpanMeasurement)m;
+					statisticChecker.offerSample(t.getTimeSpan());
+				}
+				logger.warning("Confidence reached?: "+statisticChecker.hasValidBatches());
+				
+			}
+			
+		}
+		
+		
+		
 	}
 	
 	/** FIXME: copied from exportSelectedDataToCSV()
@@ -673,13 +725,14 @@ public class ExperimentsView extends ViewPart {
 				// Get the measurements of all sensors of the selected TreeObject.
 				ExperimentRun run = (ExperimentRun) innerObject;
 				String dirExperiment = sanitizeFileName(run.getExperimentDateTime());
+				
 				// Please note that the dialog type is a DirectoryDialog.
 				CSVSettingsDialog dialog = new CSVSettingsDialog("", dirExperiment, "",
 						DialogType.DIRECTORY);
 
 				if (dialog.getValidPath()) {
 					writeTimeSummaryReportForExperimentToCSV(dialog.getPath(), treeObject.getExperiment()
-							.getSensors(), run, dialog.isHeader(), dialog.getSeparator());
+							.getSensors(), run, dialog.isHeader(), dialog.getSeparator(), dialog.getWarmup());
 				}
 			}
 		}
@@ -688,7 +741,7 @@ public class ExperimentsView extends ViewPart {
 
 	private void writeTimeSummaryReportForExperimentToCSV(String pathDir,
 			Collection<Sensor> sensors, ExperimentRun run, boolean header,
-			String separator) {
+			String separator, double warmup) {
 		
 		//For each sensor, output sensor name;mean resp time;no of meas
 		
@@ -721,12 +774,12 @@ public class ExperimentsView extends ViewPart {
 			for (Sensor sensor : sensors) {
 				//TODO distinguish between utilisation sensors and response time sensors
 				if (TimeSpanSensor.class.isInstance(sensor)){
-					line = getResultLineForTime((TimeSpanSensor)sensor, run, separator);
+					line = getResultLineForTime((TimeSpanSensor)sensor, run, separator, warmup);
 					if (line != null){
 						bufferedWriterForTime.write(line+"\n");
 					}
 				} else if (StateSensor.class.isInstance(sensor)){
-					bufferedWriterForState.write(getResultLineForState((StateSensor)sensor, run, separator)+"\n");
+					bufferedWriterForState.write(getResultLineForState((StateSensor)sensor, run, separator,warmup)+"\n");
 				}
 			}
 			
@@ -764,7 +817,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private String getResultLineForState(StateSensor sensor, ExperimentRun run,
-			String separator) {
+			String separator, double warmup) {
 		
 		String name = sensor.getSensorName();
 		
@@ -784,6 +837,12 @@ public class ExperimentsView extends ViewPart {
 		//XXX: currently gets the utilization of all busy states, too. 
 		for (Measurement measurement : measurements) {
 			StateMeasurement sm = (StateMeasurement)measurement;
+			
+			//as long as warmup not reached, do nothing
+			if (sm.getEventTime() < warmup){
+				lastChangeTime = sm.getEventTime();
+				continue;
+			}
 	
 			Double oldValue = timeSums.get(lastState);
 			double diff = sm.getEventTime() - lastChangeTime;
@@ -803,15 +862,15 @@ public class ExperimentsView extends ViewPart {
 		return name+separator+utilisation;
 	}
 
-	private String getResultLineForTime(TimeSpanSensor sensor, ExperimentRun run, String seperator) {
+	private String getResultLineForTime(TimeSpanSensor sensor, ExperimentRun run, String seperator, double warmup) {
 		SensorAndMeasurements sensorAndMeasurements = run.getMeasurementsOfSensor(sensor);
 		
 		String name = sensor.getSensorName();
 		
-		double meanValue = getMeanValue(sensorAndMeasurements.getMeasurements());
+		double meanValue = getMeanValue(sensorAndMeasurements.getMeasurements(), warmup);
 		
 		if (!Double.isNaN(meanValue)){
-			
+			//TODO only as many as used w/o warmup
 			int noOfMeasurements = sensorAndMeasurements.getMeasurements().size();
 		
 			String resultLine = name+seperator+meanValue+seperator+noOfMeasurements;
@@ -822,18 +881,28 @@ public class ExperimentsView extends ViewPart {
 		}
 	}
 
-	private double getMeanValue(Collection<Measurement> measurements) {
+	private double getMeanValue(Collection<Measurement> measurements, double warmup) {
 		
 		double sum = 0.0;
+		int noOfMeasurements = 0;
 		for (Measurement measurement : measurements) {
 			if (TimeSpanMeasurement.class.isInstance(measurement)){
 				TimeSpanMeasurement timeMeas = (TimeSpanMeasurement)measurement; 
-				sum += timeMeas.getTimeSpan();
+				
+				//if warmup not yet reached, ignore this
+				if (timeMeas.getEventTime() >= warmup){
+					sum += timeMeas.getTimeSpan();
+					noOfMeasurements ++;
+				} 
+
 			} else {
 				logger.severe("Found a non time span measurement in sensor, ignoring it.");
 			}
 		}
-		return sum / measurements.size();
+		if (noOfMeasurements > 0)
+			return sum / noOfMeasurements;
+		
+		return Double.NaN;
 	}
 
 	/**

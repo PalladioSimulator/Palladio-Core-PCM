@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui,
  de.uka.ipd.sdq.sensorframework.dialogs,
  de.uka.ipd.sdq.pcm.dialogs,
- de.uka.ipd.sdq.pcmbench.tabs
+ de.uka.ipd.sdq.pcmbench.tabs,
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Bundle-ActivationPolicy: lazy

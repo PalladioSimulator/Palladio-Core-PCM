@@ -8,14 +8,18 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.ui.PlatformUI;
+
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.Separator;
 
 /**
@@ -42,6 +46,18 @@ public class CSVSettingsDialog extends Dialog {
 	private Label lblHeader;
 	private String fileExtension = "";
 	private DialogType dialogType;
+	private Text textWarmup;
+	private Label lblWarmup;
+	private String stringWarmup = "0.0";
+
+	public double getWarmup() {
+		try {
+			return Double.parseDouble(this.stringWarmup);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0.0;
+	}
 
 	/**
 	 * Create the dialog.
@@ -180,12 +196,13 @@ public class CSVSettingsDialog extends Dialog {
 	private void createContents() {
 		frmDialog = new Shell(getParent(), SWT.DIALOG_TRIM);
 		frmDialog.setMinimumSize(new Point(100, 100));
-		frmDialog.setSize(245, 220);
+		frmDialog.setSize(245, 320);
 		frmDialog.setText("CSV Settings");
 		frmDialog.setLocation(300, 300);
 		{
 			Group grpSeparator = new Group(frmDialog, SWT.NONE);
-			grpSeparator.setBounds(10, 31, 218, 90);
+			grpSeparator.setBounds(10, 31, 218, 190);
+			
 			{
 				cmbSeparator = new Combo(grpSeparator, SWT.NONE);
 				cmbSeparator.addSelectionListener(new SelectionAdapter() {
@@ -220,6 +237,22 @@ public class CSVSettingsDialog extends Dialog {
 				lblHeader.setBounds(143, 64, 65, 20);
 				lblHeader.setText("Header");
 			}
+			{
+				textWarmup = new Text(grpSeparator, SWT.SINGLE	| SWT.BORDER);
+				textWarmup.addModifyListener(new ModifyListener() {
+
+					public void modifyText(ModifyEvent e) {
+						stringWarmup = textWarmup.getText();
+					}
+				});
+				textWarmup.setBounds(56, 100, 51, 23);
+				textWarmup.setText(this.stringWarmup);
+			}
+			{
+				lblWarmup = new Label(grpSeparator, SWT.NONE);
+				lblWarmup.setBounds(143, 100, 65, 20);
+				lblWarmup.setText("Warmup time to cut away");
+			}
 		}
 		{
 			btnSave = new Button(frmDialog, SWT.NONE);
@@ -236,7 +269,7 @@ public class CSVSettingsDialog extends Dialog {
 					frmDialog.close();
 				}
 			});
-			btnSave.setBounds(10, 152, 75, 25);
+			btnSave.setBounds(10, 252, 75, 25);
 			btnSave.setText("Save As");
 		}
 		{
@@ -248,7 +281,7 @@ public class CSVSettingsDialog extends Dialog {
 					isSettingsDialogCanceled = true;
 				}
 			});
-			btnCancel.setBounds(153, 152, 75, 25);
+			btnCancel.setBounds(153, 252, 75, 25);
 			btnCancel.setText("Cancel");
 		}
 
