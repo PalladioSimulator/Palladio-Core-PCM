@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -27,10 +28,12 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -56,14 +59,24 @@ import de.uka.ipd.sdq.pcmsolver.handler.ExternalCallActionHandler;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.LognormalDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.impl.ExponentialDistributionImpl;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 
 public class ContextWrapper implements Cloneable {
 
@@ -453,10 +466,31 @@ public class ContextWrapper implements Cloneable {
 		for (ResourceDemand rd : rdList) {
 			String spec = rd.getSpecification_ResourceDemand()
 					.getSpecification();
-			ProbabilityFunctionLiteral blah = (ProbabilityFunctionLiteral) ExpressionHelper
-					.parseToExpression(spec);
-			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) blah
-					.getFunction_ProbabilityFunctionLiteral();
+			//Expression can be either ProbabilityFunctionLiteral (usually) or FunctionLiteral for Exp() exponential function
+			Expression exp = ExpressionHelper.parseToExpression(spec);
+			ProbabilityDensityFunction pdf;
+			if (exp instanceof ProbabilityFunctionLiteral){
+				ProbabilityFunctionLiteral blah = (ProbabilityFunctionLiteral) exp;
+				pdf = (ProbabilityDensityFunction) blah.getFunction_ProbabilityFunctionLiteral();
+			} else if (exp instanceof FunctionLiteral){
+				//TODO handle other distribution functions
+				FunctionLiteral fl = (FunctionLiteral)exp;
+				Expression innerParam = fl.getParameters_FunctionLiteral().get(0);
+				if (fl.getId().equals("Exp") && innerParam instanceof DoubleLiteral){
+					double rate = ((DoubleLiteral)innerParam).getValue();
+					ExponentialDistribution expo = ProbfunctionFactory.eINSTANCE.createExponentialDistribution();
+					expo.setRate(rate);
+					pdf = expo;
+				} else if (innerParam instanceof DoubleLiteral && fl.getParameters_FunctionLiteral().get(1) instanceof DoubleLiteral){
+					Expression innerParam2 = fl.getParameters_FunctionLiteral().get(1);
+					pdf = ProbfunctionHelper.createFunction(innerParam, innerParam2, fl.getId(), ProbfunctionFactory.eINSTANCE);
+				} else{
+					throw new RuntimeException("Only supported function literals are Exp(), Norm(), Lognorm(), Lognorm2(), Gamma(), Gamma2() with double parameters");
+				}
+ 
+			} else {
+				throw new RuntimeException("Resource demands must be either ProbabilityFunctions or Exp() with a double parameter");
+			}
 			// ManagedPDF pdf = null;
 			// try {
 			// pdf = ManagedPDF.createFromString(spec);
@@ -623,7 +657,6 @@ public class ContextWrapper implements Cloneable {
 					.getInput_ComputedUsageContext(), this, vu);
 		}
 
-		// TODO: add default component parameters by component developer
 		addComponentParametersToNewContext(newCompUsgCtx);
 
 		return newCompUsgCtx;
@@ -631,14 +664,62 @@ public class ContextWrapper implements Cloneable {
 
 	private void addComponentParametersToNewContext(
 			ComputedUsageContext newCompUsgCtx) {
-		// TODO: add default component parameters by component developer
-
 		EList<VariableUsage> confParList = this.getAssCtx()
 				.getConfigParameterUsages_AssemblyContext();
 		for (VariableUsage vu : confParList) {
 			VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx
 					.getInput_ComputedUsageContext(), this, vu);
 		}
+		
+		//Handle variable usages from repository
+		RepositoryComponent component = this.getAssCtx().getEncapsulatedComponent_AssemblyContext();
+		if (component instanceof ImplementationComponentType){
+			ImplementationComponentType implComponent = (ImplementationComponentType)component;
+			List<VariableUsage> repoConfVarList = implComponent.getComponentParameterUsage_ImplementationComponentType();
+			//Intersection: The variable characterisations that are overwritten 
+			List<VariableCharacterisation> overwrittenVariables = new ArrayList<VariableCharacterisation>();
+			//Variable Usages to be added
+			List<VariableUsage> usagesFromRepoToBeAdded = new ArrayList<VariableUsage>();
+			for (VariableUsage repoVariableUsage : repoConfVarList) {
+				for (VariableUsage assemblyVariableUsage : confParList) {
+					List<VariableCharacterisation> common = VariableUsageHelper.getCommonCharacterisationsFromFirst(assemblyVariableUsage, repoVariableUsage);
+					overwrittenVariables.addAll(common);
+				}	
+				// we cannot directly remove the overwritten ones from the model
+				// file, as this might corrupt the original model. Thus, we make
+				// a copy.
+				// Check if any characterisations are not overwritten
+				if (overwrittenVariables.size() < repoVariableUsage
+						.getVariableCharacterisation_VariableUsage().size()) {
+					// if there are characterisations we need
+					VariableUsage newUsage = ParameterFactory.eINSTANCE
+							.createVariableUsage();
+					newUsage.setNamedReference_VariableUsage(repoVariableUsage.getNamedReference_VariableUsage());
+					// create new VariableUsage and add all characterisations of
+					// the current repository variable usage
+					newUsage
+							.getVariableCharacterisation_VariableUsage()
+							.addAll(
+									repoVariableUsage
+											.getVariableCharacterisation_VariableUsage());
+					// then remove again all the ones that are overwritten.
+					newUsage.getVariableCharacterisation_VariableUsage()
+							.removeAll(overwrittenVariables);
+					usagesFromRepoToBeAdded.add(newUsage);
+				}
+					
+				
+			}
+			
+			//now we do the addition again for the variable usages from the repository
+			for (VariableUsage vu : usagesFromRepoToBeAdded) {
+				VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx
+						.getInput_ComputedUsageContext(), this, vu);
+			}
+			
+			
+		}
+		
 
 		UsageModel um = this.getPcmInstance().getUsageModel();
 		EList<UserData> userDataList = um.getUserData_UsageModel();
@@ -1016,6 +1097,9 @@ public class ContextWrapper implements Cloneable {
 					return getAssCtxs(childAssCtx, pdc.getInnerProvidedRole_ProvidedDelegationConnector(), acList);
 				}
 			}
+			String message = "Could not handle inner AssemblyContexts of CompositeComponent "+cc.getEntityName()+". Make sure to define the internals properly.";
+			logger.error(message);
+			throw new UnsupportedOperationException(message);
 		} 
 		// should not happen
 		logger.error("The current assembly context contains a child component, " +

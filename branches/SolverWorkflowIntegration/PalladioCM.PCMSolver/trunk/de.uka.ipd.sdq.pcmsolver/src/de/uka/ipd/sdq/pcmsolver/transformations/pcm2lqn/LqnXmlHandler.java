@@ -126,6 +126,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("printInt", "print_int");
 		content = content.replaceAll("underrelaxCoeff", "underrelax_coeff");
 		content = content.replaceAll("hostDemandMean", "host-demand-mean");
+		content = content.replaceAll("hostDemandCvsq", "host-demand-cvsq");
 		content = content.replaceAll("callsMean", "calls-mean");
 		content = content.replaceAll("replyActivity", "reply-activity");
 		content = content.replaceAll("postOR", "post-OR");
@@ -201,6 +202,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("print_int", "printInt");
 		content = content.replaceAll("underrelax_coeff", "underrelaxCoeff");
 		content = content.replaceAll("host-demand-mean", "hostDemandMean");
+		content = content.replaceAll("host-demand-cvsq", "hostDemandCvsq");
 		content = content.replaceAll("calls-mean", "callsMean");
 		content = content.replaceAll("reply-activity", "replyActivity");
 		content = content.replaceAll("post-OR", "postOR");

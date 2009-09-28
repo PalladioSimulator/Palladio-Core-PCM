@@ -38,7 +38,9 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
@@ -46,9 +48,11 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
+import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionSolveVisitor;
 
 public class UsageModel2Lqn extends UsagemodelSwitch {
 
@@ -137,8 +141,21 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 		} else if (DoubleLiteral.class.isInstance(exp)) {
 			DoubleLiteral doubleExp = (DoubleLiteral) exp;
 			interarrivaltime = doubleExp.getValue();
+		} else if(FunctionLiteral.class.isInstance(exp)) {
+			ExpressionSolveVisitor expressionSolveVisitor = new ExpressionSolveVisitor(ExpressionHelper.getTypeAnnotation(exp));
+			Expression result = (Expression) expressionSolveVisitor.doSwitch(exp);
+			if (ProbabilityFunctionLiteral.class.isInstance(result)){
+				ProbabilityFunctionLiteral propFunctionLiteral = (ProbabilityFunctionLiteral)result;
+				ProbabilityFunction probFunc = propFunctionLiteral.getFunction_ProbabilityFunctionLiteral();
+				if (probFunc instanceof ExponentialDistribution){
+					ExponentialDistribution expDistr = (ExponentialDistribution)probFunc;
+					interarrivaltime = 1/expDistr.getRate();
+				}
+			} else {
+				throw new RuntimeException("Only double values, integer values or exponential functions are supported as interarrival time. You provided something else: "+specification);
+			}
 		} else {
-			throw new RuntimeException("Only double values or integer values are supported as interarrival time. You provided something else: "+specification);
+			throw new RuntimeException("Only double values, integer values or exponential functions are supported as interarrival time. You provided something else: "+specification);
 		}
 	
 		String arrivalRate = (1.0 / interarrivaltime)+"";

@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
@@ -129,7 +132,60 @@ public class VariableUsageHelper {
 		input.getParameterChacterisations_Input().add(newUsage);
 	}
 
+	/**
+	 * Returns all characterisation from the first argument that are also specified in the second argument. 
+	 * @param vu1
+	 * @param vu2
+	 * @return A list that is not null, but may be empty. 
+	 */
+	public static List<VariableCharacterisation> getCommonCharacterisationsFromFirst(VariableUsage vu1, VariableUsage vu2){
+		if (vu1 == vu2){
+			return vu1.getVariableCharacterisation_VariableUsage();
+		}
+		
+		if (describeSameReference(vu1.getNamedReference_VariableUsage(),vu2.getNamedReference_VariableUsage())){
+			return vu1.getVariableCharacterisation_VariableUsage();
+		}
+		
+		List<VariableCharacterisation> characterisations1 = vu1.getVariableCharacterisation_VariableUsage();
+		List<VariableCharacterisation> characterisations2 = vu2.getVariableCharacterisation_VariableUsage();
+		
+		//Return all characterisations that are there in both lists from list 1
+		//or better select all from vu1 that are not in vu2
+		List<VariableCharacterisation> listFrom1ThatAreAlsoIn2 = new ArrayList<VariableCharacterisation>();
+		for (VariableCharacterisation variableCharacterisation1 : characterisations1) {
+			for (VariableCharacterisation variableCharacterisation2 : characterisations2) {
+				if (variableCharacterisation1.getType().equals(variableCharacterisation2.getType())){
+					listFrom1ThatAreAlsoIn2.add(variableCharacterisation1);
+				}
+			}
+		}
+		
+		return listFrom1ThatAreAlsoIn2;
+		
+	}
 
+	private static boolean describeSameReference(
+			AbstractNamedReference ref1,
+			AbstractNamedReference ref2) {
+		
+		if (!ref1.getReferenceName().equals(ref2.getReferenceName())){
+			return false;
+		}
+		
+		if (ref1 instanceof VariableReference 
+				&& ref2 instanceof VariableReference)
+		return true;
+		
+		if (ref1 instanceof NamespaceReference 
+				&& ref2 instanceof NamespaceReference){
+			NamespaceReference nref1 = (NamespaceReference)ref1;
+			NamespaceReference nref2 = (NamespaceReference)ref2;
+			return describeSameReference(nref1.getInnerReference_NamespaceReference(), nref2.getInnerReference_NamespaceReference());
+		}
+		return false;
+		
+	}
 
 
 

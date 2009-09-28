@@ -39,6 +39,10 @@ public class ExpressionHelper {
 		StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
 		String solvedExprString = (String)printer.doSwitch(solvedExpression);
 		
+		if (solvedExpression == null){
+			throw new RuntimeException("Could not print solved expression "+specification);
+		}
+		
 		return solvedExprString;
 	}
 	
@@ -64,5 +68,6 @@ public class ExpressionHelper {
 		inferTypeVisitor.doSwitch(expr);
 		return inferTypeVisitor.getTypeAnnotation();
 	}
+
 	
 }

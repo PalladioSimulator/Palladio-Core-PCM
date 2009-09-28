@@ -23,6 +23,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentSwitch;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
+import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 
 public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 	
@@ -80,7 +82,10 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 		String processingRate = object
 				.getProcessingRate_ProcessingResourceSpecification()
 				.getSpecification();
-		pt.setSpeedFactor(processingRate);
+		
+		String processingRateSolved = ExpressionHelper.getSolvedExpressionAsString(processingRate, null);
+		
+		pt.setSpeedFactor(processingRateSolved);
 		
 		TaskType tt = lqnBuilder.addTask(id,pt);
 		ActivityPhasesType apt = lqnBuilder.addActivityPhases(id);
