@@ -19,5 +19,6 @@ Require-Bundle: de.uka.ipd.sdq.pcm.designdecision.edit;visibility:=reexport,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
