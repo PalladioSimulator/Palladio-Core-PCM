@@ -123,24 +123,20 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	
 	protected Composite comp;
 	
-	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListener = listener;
 	}
 
-	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
 
-	@Override
 	public void removeSelectionChangedListener(
 			ISelectionChangedListener listener) {
 		selectionChangedListener = null;
 		
 	}
 
-	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 		selectionChangedListener.selectionChanged(new SelectionChangedEvent(this, selection));	
@@ -151,7 +147,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		super.firePropertyChange(action);
 	}
 	
-	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -1195,7 +1190,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 class TreeLabelProvider implements ILabelProvider {
 
-	@Override
 	public Image getImage(Object element){
 		ImageDescriptor descriptor = null;
 		if (element instanceof Feature) {
@@ -1208,7 +1202,6 @@ class TreeLabelProvider implements ILabelProvider {
 		return image;
 	}
 
-	@Override
 	public String getText(Object element) {
 		if (element instanceof Feature) {
 			return ((Feature)element).getName();
@@ -1219,21 +1212,17 @@ class TreeLabelProvider implements ILabelProvider {
 		return null;
 	}
 
-	@Override
 	public void addListener(ILabelProviderListener listener) {		
 	}
 
-	@Override
 	public void dispose() {		
 		
 	}
 
-	@Override
 	public boolean isLabelProperty(Object element, String property) {
 		return false;
 	}
 
-	@Override
 	public void removeListener(ILabelProviderListener listener) {
 		
 	}
@@ -1242,7 +1231,6 @@ class TreeLabelProvider implements ILabelProvider {
 
 class TreeContentProvider implements ITreeContentProvider {
 
-	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof Feature) {
 			Object [] children;
@@ -1273,14 +1261,12 @@ class TreeContentProvider implements ITreeContentProvider {
 			return null;
 	}
 
-	@Override
 	public Object getParent(Object element) {
 		if (element instanceof Feature) {
 		}
 		return null;
 	}
 
-	@Override
 	public boolean hasChildren(Object element) {
 		boolean children = true;
 		if (element instanceof Feature) {
@@ -1307,16 +1293,13 @@ class TreeContentProvider implements ITreeContentProvider {
 		return children;
 	}
 
-	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
-	@Override
 	public void dispose() {
 	}
 
-	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 				
 	}

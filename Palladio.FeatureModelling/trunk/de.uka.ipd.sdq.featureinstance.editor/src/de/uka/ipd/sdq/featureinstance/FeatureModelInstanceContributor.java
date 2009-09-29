@@ -232,10 +232,6 @@ public class FeatureModelInstanceContributor extends
 		}
 	}
 
-	@Override
-	/**
-	 * {@inheritDoc}
-	 */
 	public void selectionChanged(SelectionChangedEvent event) {
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection) {

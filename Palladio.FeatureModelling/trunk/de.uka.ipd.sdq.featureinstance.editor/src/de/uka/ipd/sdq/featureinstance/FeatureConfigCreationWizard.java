@@ -74,6 +74,7 @@ class FeatureConfigCreationWizardPage extends WizardNewFileCreationPage {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void createControl(Composite parent) {
 		super.createControl(parent);
 		setFileName(fileName + ".featureconfig");
@@ -117,7 +118,6 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 		this.message = message;
 	}
 
-	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
