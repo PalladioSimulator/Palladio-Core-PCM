@@ -1,0 +1,55 @@
+package de.uka.ipd.sdq.statistics;
+
+import java.util.List;
+
+/**
+ * Implements the "Marginal Confidence Rule" (MCR) for filtering the warm-up
+ * period of a steady state simulation.
+ * 
+ * @author Philipp Merkle
+ * 
+ */
+public class MCRWarmUpFilter {
+
+	private int minIndex = 0;
+
+	public List<Double> filter(List<Double> samples) {
+		int truncatedSamplesSize = samples.size();
+		double truncatedSamplesSum = 0;
+
+		for (int i = 0; i < samples.size(); i++) {
+			truncatedSamplesSum += samples.get(i);
+		}
+
+		double minValue = Double.MAX_VALUE;
+
+		for (int i = 0; i < samples.size() - 1; i++) {
+			int remaining = samples.size() - i;
+			double factor = 1 / Math.pow(remaining, 3.0);
+
+			double truncatedSampleMean = truncatedSamplesSum
+					/ truncatedSamplesSize;
+			double sum = 0;
+			for (int j = i + 1; j < samples.size(); j++) {
+				sum += Math.pow(samples.get(j) - truncatedSampleMean, 2.0);
+			}
+			double d = factor * sum;
+
+			if (d < minValue) {
+//				System.out.println(i + ": " + d);
+				minIndex = i;
+				minValue = d;
+			}
+
+			truncatedSamplesSize--;
+			truncatedSamplesSum -= samples.get(0);
+		}
+
+		// TODO Create new list?
+		return samples.subList(minIndex, samples.size() - 1);
+	}
+
+	public int getTruncationIndex() {
+		return minIndex;
+	}
+}

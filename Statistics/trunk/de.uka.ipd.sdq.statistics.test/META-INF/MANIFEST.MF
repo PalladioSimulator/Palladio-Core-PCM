@@ -5,6 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.statistics.test
 Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.ipd.sdq.statistics.test.Activator
 Require-Bundle: org.eclipse.core.runtime,
- de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0",
+ de.uka.ipd.sdq.sensorframework;bundle-version="1.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
