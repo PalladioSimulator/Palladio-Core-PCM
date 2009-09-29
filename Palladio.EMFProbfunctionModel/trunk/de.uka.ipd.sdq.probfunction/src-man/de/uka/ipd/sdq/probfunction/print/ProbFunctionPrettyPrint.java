@@ -68,6 +68,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 		return pmfType + "[" + sampleString + " ]";
 	}
 	
+	@Override
 	public String caseExponentialDistribution(ExponentialDistribution object) {
 		return "Exp("+object.getRate()+")";
 	}
