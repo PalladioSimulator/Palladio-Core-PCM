@@ -31,86 +31,86 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 		this.internalFunction = internal;
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction div(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public double drawSample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction getCumulativeFunction()
 			throws FunctionNotInTimeDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction getFourierTransform()
 			throws FunctionNotInTimeDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction getInverseFourierTransform()
 			throws FunctionNotInFrequencyDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public double getLowerDomainBorder() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public double greaterThan(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public double lessThan(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction mult(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public double probabilisticEquals(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction scale(double scalar) {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction sub(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public void checkConstrains() throws NegativeDistanceException,
 			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
 			UnitNotSetException, UnitNameNotSetException,
@@ -119,48 +119,38 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 
 	}
 
-	@Override
+	
 	public Object getMedian() throws UnorderedDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
 			UnorderedDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public IUnit getUnit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
+	
 	public boolean hasOrderedDomain() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public boolean isInFrequencyDomain() {
-		return false;
-	}
-
-	@Override
-	public boolean isInTimeDomain() {
-		return true;
-	}
-
-	@Override
+	
 	public double getMu() {
 		return ((LognormalDist)this.internalFunction).getMu();
 	}
 
-	@Override
+	
 	public double getSigma() {
 		return ((LognormalDist)this.internalFunction).getSigma();
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction shiftDomain(double scalar)
 			throws DomainNotNumbersException {
 		double newMean = this.getArithmeticMeanValue() + scalar;
@@ -168,7 +158,7 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 		return new LognormalDistribution(new LognormalDistFromMoments(newMean, newVariance));
 	}
 
-	@Override
+	
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
 		double newMean = this.getArithmeticMeanValue() * scalar;
 		double newVariance = this.getVariance() * scalar * scalar;

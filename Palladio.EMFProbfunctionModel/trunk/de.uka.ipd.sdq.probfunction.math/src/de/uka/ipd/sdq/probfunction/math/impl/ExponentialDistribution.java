@@ -32,81 +32,68 @@ public class ExponentialDistribution extends AbstractContinousPDF implements IEx
 		this.internalFunction = new ExponentialDist(rate);
 	}
 
-	@Override
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction div(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double drawSample() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction getCumulativeFunction()
 			throws FunctionNotInTimeDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction getFourierTransform()
 			throws FunctionNotInTimeDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction getInverseFourierTransform()
 			throws FunctionNotInFrequencyDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double getLowerDomainBorder() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double greaterThan(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double lessThan(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction mult(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double probabilisticEquals(IProbabilityDensityFunction pdf)
 			throws ProbabilityFunctionException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction sub(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public void checkConstrains() throws NegativeDistanceException,
 			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
 			UnitNotSetException, UnitNameNotSetException,
@@ -115,45 +102,37 @@ public class ExponentialDistribution extends AbstractContinousPDF implements IEx
 
 	}
 
-	@Override
 	public Object getMedian() throws UnorderedDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
 			UnorderedDomainException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IUnit getUnit() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public boolean hasOrderedDomain() {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public double getRate() {
 		return ((ExponentialDist)this.internalFunction).getLambda();
 	}
 	
 	
-	@Override
 	public IProbabilityDensityFunction scale(double scalar) {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction shiftDomain(double scalar)
 			throws DomainNotNumbersException {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
 		return new ExponentialDistribution(this.getRate() / scalar);
 	}
