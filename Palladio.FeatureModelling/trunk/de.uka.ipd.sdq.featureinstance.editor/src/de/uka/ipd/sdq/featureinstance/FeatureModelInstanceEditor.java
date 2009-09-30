@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.featureinstance;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,9 +23,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
@@ -78,14 +74,11 @@ import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.impl.featureconfigFactoryImpl;
-import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.Simple;
-import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 /**
  * @author Grischa Liebel
@@ -98,8 +91,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
 	
 	protected AdapterFactoryEditingDomain editingDomain;
-
-	protected ComposedAdapterFactory adapterFactory;
 	
 	protected CheckboxTreeViewer treeViewer;
 	protected PropertySheetPage propertySheetPage;
@@ -121,22 +112,28 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
 	
+	protected FeatureConfigFunctionality functions;
+	
 	protected Composite comp;
 	
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListener = listener;
 	}
 
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
 
+	@Override
 	public void removeSelectionChangedListener(
 			ISelectionChangedListener listener) {
 		selectionChangedListener = null;
 		
 	}
 
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 		selectionChangedListener.selectionChanged(new SelectionChangedEvent(this, selection));	
@@ -147,6 +144,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		super.firePropertyChange(action);
 	}
 	
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -171,28 +169,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		((FeatureModelInstanceContributor)getEditorSite().getActionBarContributor()).fillContextMenu(manager);
 	}
 
-
-
-	/**
-	 * Initializes the adapterFactory, the commandStack and with these objects the editingDomain
-	 */
-	protected void initializeEditingDomain () {
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new featureconfigItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-	}
-
 	public FeatureModelInstanceEditor() {
 		super();
-		initializeEditingDomain();
+		
+		functions = new FeatureConfigFunctionality();
+		editingDomain = functions.initializeEditingDomain();
 	}
 	
 	/**
@@ -368,29 +349,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return (FeatureDiagram)newResource;
 	}
 	
-	/**
-	 * Checks if the Configuration object can be accessed in the loaded resource and returns it if possible
-	 * 
-	 * @param resource The resource from which the Configuration-object can be accessed (a *.featureconfig-file)
-	 * @return Returns a Configuration-object or null, if it can be accessed (e.g. no *.featureconfig-file)
-	 */
-	protected Configuration getConfiguration (Resource resource) {
-		EList<EObject> tempList = resource.getContents();
-		Iterator<EObject> tempIterator = tempList.iterator();
-		EObject newResource;
-		if (tempIterator.hasNext()) {
-			newResource = tempIterator.next();
-		}
-		else {
-			return null;
-		}
-		
-		if (!(newResource instanceof Configuration)) {
-			return null;
-		}
-		return (Configuration)newResource;
-	}
-	
 	
 	/**
 	 * Handles the different file types for the loaded resource.
@@ -434,7 +392,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					}
 					
 					//Check if *.featureconfig references right FeatureDiagram
-					if (isFeatureDiagramReferenceCorrect(existingResource)) {
+					if (functions.isFeatureDiagramReferenceCorrect(existingResource)) {
 						existingResource = handleConfigCases(existingResource);
 						try {
 							resource = existingResource;
@@ -479,7 +437,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					}
 					
 					//Check if *.featureconfig references right FeatureDiagram
-					if (isFeatureDiagramReferenceCorrect(existingResource)) {
+					if (functions.isFeatureDiagramReferenceCorrect(existingResource)) {
 						existingResource = handleConfigCases(existingResource);
 						try {
 							resource = existingResource;
@@ -523,7 +481,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected Resource handleConfigCases(Resource resource) {
 		
 		//Check if featureconfig file is valid (Configuration object can be referenced)
-		Configuration configuration = getConfiguration(resource);
+		Configuration configuration = functions.getConfiguration(resource);
 		
 		EList<FeatureConfig> tempOverrides = configuration.getConfigOverrides();
 		FeatureConfig tempDefault = configuration.getDefaultConfig();
@@ -537,7 +495,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			
 			if (!configList.isEmpty()) {
 				//Try to reference the Feature Diagram object and create a new overrides from it
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				featureDiagram = functions.navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin(), editingDomain);
 				String fileName = resource.getURI().trimFileExtension().lastSegment();
 				
 				//start wizard an ask for a new file location
@@ -555,7 +513,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			
 			//Try to reference the Feature Diagram object
 			if (!configList.isEmpty()) {
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				featureDiagram = functions.navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin(), editingDomain);
 				overridesConfig = featureConfig;
 			}
 			else {
@@ -574,7 +532,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 				//Try to reference the Feature Diagram object
 				if (!(configList.isEmpty())) {
-					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+					featureDiagram = functions.navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin(), editingDomain);
 					overridesConfig = featureConfig;
 					configPresent = true;
 				}
@@ -591,7 +549,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				//else, try to reference the feature config object by using the default config
 				//and ask for new save location (see case that only a default config is present)
 				else {
-					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+					featureDiagram = functions.navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin(), editingDomain);
 					String fileName = resource.getURI().trimFileExtension().lastSegment();
 					URI newResourceURI = startFileWizard(fileName, "Only a default configuration was found. Create a new file with a overrides configuration!");
 					createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
@@ -634,7 +592,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			//set the needed attributes for the validation in the actionBarContributor
 			EditingDomainActionBarContributor contrib = getActionBarContributor();
 			if (contrib instanceof FeatureModelInstanceContributor) {
-				((FeatureModelInstanceContributor)contrib).setConfiguration(getConfiguration(resource));
+				((FeatureModelInstanceContributor)contrib).setConfiguration(functions.getConfiguration(resource));
 				((FeatureModelInstanceContributor)contrib).setShell(getContainer().getShell());
 			}
 	        
@@ -645,69 +603,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					getContainer().setSize(point.x, point.y + 6);
 			}
 		}
-	}
-	
-	/**
-	 * Navigates to the FeatureDiagram from a given Feature-object
-	 * 
-	 * @param feature A Feature-object
-	 * @return the parent FeatureDiagram to the given Feature-object
-	 */
-	protected FeatureDiagram navigateToFeatureDiagram (Feature feature) {
-		Object parent = editingDomain.getParent(feature);
-		
-		while (parent != null && !(parent instanceof FeatureDiagram)) {
-			parent = editingDomain.getParent(parent);
-		}
-		
-		//FIXME: handle the case when no parent was found
-		return (FeatureDiagram)parent;
-	}
-	
-	/**
-	 * Checks if a newly loaded featureconfig-file references the opened FeatureDiagram resource
-	 * 
-	 * @param existingResource Newly loaded Resource-object (should be a featureconfig-file)
-	 * @return <code>false</code>, if existingResource doesn't include a Configuration-object or if no ConifgNode references to the opened model
-	 * 		   <code>true</code> otherwise
-	 */
-	protected boolean isFeatureDiagramReferenceCorrect (Resource existingResource) {
-		Configuration configuration = getConfiguration(existingResource);
-		
-		boolean correct = false;
-		
-		if (configuration == null) {
-			return correct;
-		}
-		else {
-			EList<FeatureConfig> tempOverrides = configuration.getConfigOverrides();
-			FeatureConfig tempDefault = configuration.getDefaultConfig();
-			
-			if (tempOverrides != null && !tempOverrides.isEmpty()) {				
-				EList <ConfigNode> configList = tempOverrides.get(0).getConfignode(); //Assumption: Every config references the same Feature Diagram 
-				if (!(configList.isEmpty())) {
-					Iterator<ConfigNode> configIterator = configList.iterator();
-					while (configIterator.hasNext()) {
-						if (configIterator.next().getOrigin() != null) {
-							correct = true;
-						}
-					}
-				}
-			}
-			
-			if (!correct && tempDefault != null) {
-				EList <ConfigNode> configList = tempDefault.getConfignode();
-				if (!(configList.isEmpty())) {
-					Iterator<ConfigNode> configIterator = configList.iterator();
-					while (configIterator.hasNext()) {
-						if (configIterator.next().getOrigin() != null) {
-							correct = true;
-						}
-					}
-				}
-			}
-		}
-		return correct;
 	}
 	
 	/**
@@ -729,14 +624,14 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 			//Gray FeatureGroups
 			Feature curRoot = root.getRootFeature();
-			grayFeatureGroups(curRoot.getChildrelation());
+			functions.grayFeatureGroups(curRoot.getChildrelation(), treeViewer);
 		}
 		
 		if (defaultConfig != null) {
-			markDefaultConfig();
+			functions.markDefaultConfig(defaultConfig,treeViewer);
 		}
 		if (overridesConfig != null) {
-			markOverridesConfig();
+			functions.markOverridesConfig(overridesConfig,treeViewer);
 		}
 		
 		listener = new ICheckStateListener() {
@@ -750,7 +645,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					Object parent = editingDomain.getParent(event.getElement());					
 					
 					//automatically unchecks Feature again, if its a mandatory Feature and the parent node is selected
-					if ((event.getElement() instanceof Feature) && (checkMandatory((Feature)event.getElement()))) {
+					if ((event.getElement() instanceof Feature) && (functions.checkMandatory((Feature)event.getElement(), editingDomain))) {
 						if (parent instanceof ChildRelation) {
 							parent = editingDomain.getParent(parent);
 						}
@@ -767,12 +662,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 						
 						//check/uncheck recursively
 						if (event.getChecked()) {
-							uncheckInModel((Feature)event.getElement(),true);
-							checkParents(event.getElement());
+							dirtyFlag = true;
+							functions.uncheckInModel((Feature)event.getElement(),true, overridesConfig);
+							functions.checkParents(event.getElement(),treeViewer,overridesConfig,editingDomain);
 						}
 						else {
-							uncheckInModel((Feature)event.getElement(),false);
-							uncheckParents(event.getElement());
+							functions.uncheckInModel((Feature)event.getElement(),false, overridesConfig);
+							functions.uncheckParents(event.getElement(),treeViewer,overridesConfig,editingDomain);
 						}
 					}
 					//make root node readonly
@@ -789,289 +685,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		//Selects all mandatory Features
 		if (root != null) {
 			Feature curRoot = root.getRootFeature();
-			selectMandatoryFeatures(curRoot.getChildrelation());
+			functions.selectMandatoryFeatures(curRoot.getChildrelation(), treeViewer, overridesConfig);
 		}
 		
 
-	}
-	
-	/**
-	 * Selects recursively the mandatory Features
-	 * 
-	 * @param curRelation The ChildRelation, where the selecting should start
-	 */
-	protected void selectMandatoryFeatures(ChildRelation curRelation) {
-		if (curRelation != null) {
-			if (curRelation instanceof FeatureGroup) {
-				EList<Feature> nodes = ((FeatureGroup)curRelation).getChildren();
-				Iterator<Feature> nodesIter = nodes.iterator();
-				while (nodesIter.hasNext()) {
-					selectMandatoryFeatures(nodesIter.next().getChildrelation());
-				}
-			}
-			else if(curRelation instanceof Simple) {
-				EList<Feature> mandFeatures = ((Simple)curRelation).getMandatoryChildren();
-				EList<Feature> optFeatures = ((Simple)curRelation).getOptionalChildren();
-				
-				Iterator<Feature> featureIter = mandFeatures.iterator();
-				while (featureIter.hasNext()) {
-					Feature next = featureIter.next();
-					treeViewer.setChecked(next, true);
-					uncheckInModel(next, true);
-					selectMandatoryFeatures(next.getChildrelation());
-				}
-				
-				featureIter = optFeatures.iterator();
-				while (featureIter.hasNext()) {
-					selectMandatoryFeatures(featureIter.next().getChildrelation());
-				}
-			}
-		}
-	}
-	
-	/**
-	 * Registers changes made in the TreeViewer to the resource
-	 * 
-	 * @param element The changed Feature
-	 * @param state The checked/unchecked state
-	 */
-	protected void uncheckInModel (Feature element, boolean state) {
-		dirtyFlag = true;
-		firePropertyChange(IEditorPart.PROP_DIRTY);
-		int hash = element.hashCode();
-		boolean found = false;
-		Iterator<ConfigNode> tempIter = overridesConfig.getConfignode().iterator();
-		
-		//search for existing ConfigNodes in the overridesConfig and register changes
-		while (tempIter.hasNext()) {
-			ConfigNode next = tempIter.next(); 
-			if (next.getOrigin().hashCode() == hash) {
-				found = true;
-				if (state) {
-					next.setConfigState(ConfigState.SELECTED);
-				}
-				else {
-					next.setConfigState(ConfigState.ELIMINATED);
-				}
-			}
-		}
-		
-		//if no ConfigNode exists, create new one
-		if (!(found)) {
-			featureconfigFactoryImpl factory = new featureconfigFactoryImpl();
-			ConfigNode newConfig = factory.createConfigNode();
-			newConfig.setOrigin(element);
-	
-			if (state) {
-				newConfig.setConfigState(ConfigState.SELECTED);
-			}
-			else {
-				newConfig.setConfigState(ConfigState.ELIMINATED);
-			}
-			overridesConfig.getConfignode().add(newConfig);
-		}
-	}
-	
-	/**
-	 * Checks/unchecks the defaultConfiguration in the Viewer
-	 */
-	protected void markDefaultConfig () {
-		//mark all default configNodes
-		EList<ConfigNode> defaultNodes = defaultConfig.getConfignode();
-		Iterator<ConfigNode> tempIter = defaultNodes.iterator();
-		ConfigNode next;
-		Feature referenced;
-		while (tempIter.hasNext()) {
-			next = tempIter.next();
-			referenced = (Feature)next.getOrigin();
-
-			//selected
-			if (next.getConfigState().getValue() == 0) {
-				treeViewer.setGrayChecked(referenced, true);
-			}
-			//eliminated
-			else if (next.getConfigState().getValue() == 1) {
-				treeViewer.setGrayChecked(referenced, false);
-			}
-		}
-	}
-	
-	/**
-	 * Checks/unchecks the configurationOverrides in the Viewer
-	 */
-	protected void markOverridesConfig () {
-		//mark all overrides configNodes
-		EList<ConfigNode> overridesNodes = overridesConfig.getConfignode();
-		Iterator<ConfigNode> tempIter = overridesNodes.iterator();
-		ConfigNode next;
-		Feature referenced;
-		while (tempIter.hasNext()) {
-			next = tempIter.next();
-			referenced = (Feature)next.getOrigin();
-
-			//selected
-			if (next.getConfigState().getValue() == 0) {
-				treeViewer.setGrayed(referenced, false);
-				treeViewer.setChecked(referenced, true);
-			}
-			//eliminated
-			else if (next.getConfigState().getValue() == 1) {
-				treeViewer.setGrayed(referenced, false);
-				treeViewer.setChecked(referenced, false);
-			}
-		}
-	}
-	
-	/**
-	 * Unchecks recursively parent nodes, if no children nodes are checked
-	 * 
-	 * @param current The unchecked Feature
-	 */
-	protected void uncheckParents (Object current) {
-		boolean checked = getAnyChecked(current);
-
-		if (!checked) {
-			Object parent = editingDomain.getParent(current);
-
-			if (parent != null && !(parent instanceof FeatureDiagram)) {
-				treeViewer.setChecked(parent, false);
-				
-				if (parent instanceof Feature) {
-					uncheckInModel((Feature)parent,false);
-				}
-				uncheckParents(parent);
-			}
-		}
-	}
-	
-	/**
-	 * Checks recursively parent nodes, if a Node is checked
-	 * 
-	 * @param current The checked Feature
-	 */
-	protected void checkParents (Object current) {
-		Object parent = editingDomain.getParent(current);
-		if (parent != null) {
-			if (!(treeViewer.getChecked(parent))) {
-				if (!(parent instanceof FeatureGroup)) {
-					treeViewer.setChecked(parent, true);
-				}
-				
-				if (parent instanceof Feature) {
-					uncheckInModel((Feature)parent,true);
-				}
-				checkParents(parent);
-			}
-		}
-	}
-	
-	/**
-	 * Checks, if any siblings of the selected Node are also selected
-	 * 
-	 * @param current
-	 * @return <code>true</code> if there are any siblings of current checked
-	 * 		   <code>false</code> otherwise
-	 */
-	protected boolean getAnyChecked (Object current) {
-		Object parent = editingDomain.getParent(current);
-
-		boolean checked = false;
-
-		if (parent instanceof FeatureGroup) {
-			EList<Feature> children = ((FeatureGroup) parent).getChildren();
-			Iterator<Feature> tempIter = children.iterator();
-			Feature next;
-			while(tempIter.hasNext()) {
-				next = tempIter.next();
-				if (treeViewer.getChecked(next)) {
-					checked = true;
-				}
-			}
-		}
-		else if (parent instanceof Feature) {
-			ChildRelation childRel = ((Feature) parent).getChildrelation();
-			if (!(childRel instanceof FeatureGroup)) {
-				EList<Feature> childrenMan = ((Simple)childRel).getMandatoryChildren();
-				EList<Feature> childrenOpt = ((Simple)childRel).getOptionalChildren();
-				
-				Iterator<Feature> manIter = childrenMan.iterator();
-				Feature next;
-				while(manIter.hasNext()) {
-					next = manIter.next();
-					if (treeViewer.getChecked(next)) {
-						checked = true;
-					}
-				}
-				if (!checked) {
-					Iterator<Feature> optIter = childrenOpt.iterator();
-					while(optIter.hasNext()) {
-						next = optIter.next();
-						if (treeViewer.getChecked(next)) {
-							checked = true;
-						}
-					}
-				}
-			}
-		}
-
-		return checked;
-	}
-	
-	/**
-	 * Checks if a Feature `node` is a mandatory Feature
-	 * 
-	 * @param node The Feature which needs to be checked
-	 * @return <code>true</code>, if node is a mandatory Feature
-	 *         <code>false</code>, else
-	 */
-	protected boolean checkMandatory (Feature node) {
-		Object parent = editingDomain.getParent(node);
-		
-		boolean mandatory = false;
-		
-		if (parent instanceof Simple) {
-			EList<Feature> featureList = ((Simple)parent).getMandatoryChildren();
-			
-			for (Feature current : featureList) {
-				if (current == node) {
-					mandatory = true;
-				}
-			}
-		}
-		
-		return mandatory;
-	}
-	
-	/**
-	 * Grays out the FeatureGroups in the treeViewer
-	 * 
-	 * @param curRoot The current ChildRelation
-	 */
-	protected void grayFeatureGroups (ChildRelation curRelation) {
-		if (curRelation != null) {
-			if (curRelation instanceof FeatureGroup) {
-				treeViewer.setGrayed(curRelation, true);
-				EList<Feature> nodes = ((FeatureGroup)curRelation).getChildren();
-				Iterator<Feature> nodesIter = nodes.iterator();
-				while (nodesIter.hasNext()) {
-					grayFeatureGroups(nodesIter.next().getChildrelation());
-				}
-			}
-			else if(curRelation instanceof Simple) {
-				EList<Feature> mandFeatures = ((Simple)curRelation).getMandatoryChildren();
-				EList<Feature> optFeatures = ((Simple)curRelation).getOptionalChildren();
-				
-				Iterator<Feature> featureIter = mandFeatures.iterator();
-				while (featureIter.hasNext()) {
-					grayFeatureGroups(featureIter.next().getChildrelation());
-				}
-				
-				featureIter = optFeatures.iterator();
-				while (featureIter.hasNext()) {
-					grayFeatureGroups(featureIter.next().getChildrelation());
-				}
-			}
-		}
 	}
 	
 	@Override
@@ -1098,7 +715,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					//
 					boolean first = true;
 					for (Resource resource : editingDomain.getResourceSet().getResources()) {
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
+						if ((first || !resource.getContents().isEmpty() || functions.isPersisted(resource, editingDomain)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								resource.save(saveOptions);
 							}
@@ -1131,28 +748,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Resource couldn't be saved!"));
 			errord.open();
 		}
-	}
-	
-	/**
-	 * This returns whether something has been persisted to the URI of the specified resource.
-	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected boolean isPersisted(Resource resource) {
-		boolean result = false;
-		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if (stream != null) {
-				result = true;
-				stream.close();
-			}
-		}
-		catch (IOException e) {
-			// Ignore
-		}
-		return result;
 	}
 
 	@Override
@@ -1190,6 +785,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 class TreeLabelProvider implements ILabelProvider {
 
+	@Override
 	public Image getImage(Object element){
 		ImageDescriptor descriptor = null;
 		if (element instanceof Feature) {
@@ -1202,6 +798,7 @@ class TreeLabelProvider implements ILabelProvider {
 		return image;
 	}
 
+	@Override
 	public String getText(Object element) {
 		if (element instanceof Feature) {
 			return ((Feature)element).getName();
@@ -1212,17 +809,21 @@ class TreeLabelProvider implements ILabelProvider {
 		return null;
 	}
 
+	@Override
 	public void addListener(ILabelProviderListener listener) {		
 	}
 
+	@Override
 	public void dispose() {		
 		
 	}
 
+	@Override
 	public boolean isLabelProperty(Object element, String property) {
 		return false;
 	}
 
+	@Override
 	public void removeListener(ILabelProviderListener listener) {
 		
 	}
@@ -1231,6 +832,7 @@ class TreeLabelProvider implements ILabelProvider {
 
 class TreeContentProvider implements ITreeContentProvider {
 
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof Feature) {
 			Object [] children;
@@ -1261,12 +863,14 @@ class TreeContentProvider implements ITreeContentProvider {
 			return null;
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof Feature) {
 		}
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {
 		boolean children = true;
 		if (element instanceof Feature) {
@@ -1293,13 +897,16 @@ class TreeContentProvider implements ITreeContentProvider {
 		return children;
 	}
 
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
+	@Override
 	public void dispose() {
 	}
 
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 				
 	}
