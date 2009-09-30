@@ -86,6 +86,34 @@
           href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="resourceeditor.gmfgraph#NetworkSwitch"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="CommunicationSpecification"
+              editorPattern="">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#NetworkSwitchSpecificationNameLabel"/>
+            <features
+                href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/failureProbability"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="resourceeditor.gmfgraph#NetworkSwitchSpecification"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="resourceeditor.gmfgraph#NetworkSwitchCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <links>

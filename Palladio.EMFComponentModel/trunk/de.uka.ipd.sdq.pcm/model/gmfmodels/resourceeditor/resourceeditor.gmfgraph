@@ -89,28 +89,14 @@
           xsi:type="gmfgraph:RoundedRectangle"
           cornerWidth="27"
           cornerHeight="27">
-        <layout
-            xsi:type="gmfgraph:StackLayout"/>
         <insets
-            top="5"
-            left="5"
-            bottom="2"
-            right="5"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="CommunicationLinkSpecification"
-            text="«CommunicationLinkSpecification»">
-          <foregroundColor
-              xsi:type="gmfgraph:RGBColor"/>
-          <border
-              xsi:type="gmfgraph:MarginBorder">
-            <insets
-                top="2"
-                left="3"
-                bottom="1"
-                right="2"/>
-          </border>
-        </children>
+            top="10"
+            left="10"
+            bottom="10"
+            right="10"/>
+        <size
+            x="200"
+            y="40"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -168,7 +154,25 @@
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="NetworkSwitchSpecificationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name=""
+          outline="false"
+          fill="false">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="NetworkSwitchSpecificationNameFigure"
+            text="Network Switch Specification"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
+  <nodes
+      name="NetworkSwitchSpecification"
+      figure="NetworkSwitchSpecificationFigure"/>
   <nodes
       name="ResourceType"
       figure="ResourceTypeFigure"/>
@@ -184,6 +188,9 @@
   <connections
       name="NetworkConnection"
       figure="NetworkConnectionFigure"/>
+  <compartments
+      name="NetworkSwitchCompartment"
+      figure="NetworkSwitchFigure"/>
   <compartments
       name="ProcessingResourceSpecificationCompartment"
       figure="ProcessingResourceSpecificationFigure"/>
@@ -214,4 +221,8 @@
       name="MTTRLabel"
       figure="ProcessingResourceSpecificationFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.3"/>
+  <labels
+      name="NetworkSwitchSpecificationNameLabel"
+      figure="NetworkSwitchFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
 </gmfgraph:Canvas>
