@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
@@ -99,28 +99,18 @@ public class PalladioComponentModelDiagramUpdater {
 				continue;
 			}
 		}
-		Resource resource = modelElement.eResource();
-		for (Iterator semanticIterator = getPhantomNodesIterator(resource); semanticIterator
+		for (Iterator it = modelElement.getLinkingresource().iterator(); it
 				.hasNext();) {
-			EObject childElement = (EObject) semanticIterator.next();
-			if (childElement == modelElement) {
-				continue;
-			}
-			if (PalladioComponentModelVisualIDRegistry.getNodeVisualID(view,
-					childElement) == CommunicationLinkResourceSpecificationEditPart.VISUAL_ID) {
+			LinkingResource childElement = (LinkingResource) it.next();
+			int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+					view, childElement);
+			if (visualID == LinkingResource2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(childElement,
-						CommunicationLinkResourceSpecificationEditPart.VISUAL_ID));
+						visualID));
 				continue;
 			}
 		}
 		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Iterator getPhantomNodesIterator(Resource resource) {
-		return resource.getAllContents();
 	}
 
 	/**
@@ -132,12 +122,10 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceEnvironment_1000ContainedLinks(view);
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getResourceContainer_2001ContainedLinks(view);
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecification_2002ContainedLinks(view);
+		case LinkingResource2EditPart.VISUAL_ID:
+			return getLinkingResource_2003ContainedLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001ContainedLinks(view);
-		case LinkingResourceEditPart.VISUAL_ID:
-			return getLinkingResource_4001ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -149,12 +137,10 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getResourceContainer_2001IncomingLinks(view);
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecification_2002IncomingLinks(view);
+		case LinkingResource2EditPart.VISUAL_ID:
+			return getLinkingResource_2003IncomingLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001IncomingLinks(view);
-		case LinkingResourceEditPart.VISUAL_ID:
-			return getLinkingResource_4001IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -166,12 +152,10 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getResourceContainer_2001OutgoingLinks(view);
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecification_2002OutgoingLinks(view);
+		case LinkingResource2EditPart.VISUAL_ID:
+			return getLinkingResource_2003OutgoingLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001OutgoingLinks(view);
-		case LinkingResourceEditPart.VISUAL_ID:
-			return getLinkingResource_4001OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -180,11 +164,7 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getResourceEnvironment_1000ContainedLinks(View view) {
-		ResourceEnvironment modelElement = (ResourceEnvironment) view.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getContainedTypeModelFacetLinks_LinkingResource_4001(modelElement));
-		return result;
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -197,9 +177,12 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCommunicationLinkResourceSpecification_2002ContainedLinks(
-			View view) {
-		return Collections.EMPTY_LIST;
+	public static List getLinkingResource_2003ContainedLinks(View view) {
+		LinkingResource modelElement = (LinkingResource) view.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingFeatureModelFacetLinks_LinkingResource_FromResourceContainer_LinkingResource_4001(modelElement));
+		return result;
 	}
 
 	/**
@@ -213,30 +196,22 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLinkingResource_4001ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getResourceContainer_2001IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCommunicationLinkResourceSpecification_2002IncomingLinks(
-			View view) {
-		CommunicationLinkResourceSpecification modelElement = (CommunicationLinkResourceSpecification) view
-				.getElement();
+		ResourceContainer modelElement = (ResourceContainer) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_LinkingResource_4001(
-				modelElement, crossReferences));
+		result
+				.addAll(getIncomingFeatureModelFacetLinks_LinkingResource_FromResourceContainer_LinkingResource_4001(
+						modelElement, crossReferences));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getLinkingResource_2003IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -250,27 +225,19 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLinkingResource_4001IncomingLinks(View view) {
+	public static List getResourceContainer_2001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResourceContainer_2001OutgoingLinks(View view) {
-		ResourceContainer modelElement = (ResourceContainer) view.getElement();
+	public static List getLinkingResource_2003OutgoingLinks(View view) {
+		LinkingResource modelElement = (LinkingResource) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_LinkingResource_4001(modelElement));
+				.addAll(getOutgoingFeatureModelFacetLinks_LinkingResource_FromResourceContainer_LinkingResource_4001(modelElement));
 		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCommunicationLinkResourceSpecification_2002OutgoingLinks(
-			View view) {
-		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -284,71 +251,22 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLinkingResource_4001OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection getContainedTypeModelFacetLinks_LinkingResource_4001(
-			ResourceEnvironment container) {
-		Collection result = new LinkedList();
-		for (Iterator links = container.getLinkingresource().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof LinkingResource) {
-				continue;
-			}
-			LinkingResource link = (LinkingResource) linkObject;
-			if (LinkingResourceEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			CommunicationLinkResourceSpecification dst = link
-					.getCommunicationLinkResourceSpecifications_LinkingResource();
-			List sources = link.getFromResourceContainer_LinkingResource();
-			Object theSource = sources.size() == 1 ? sources.get(0) : null;
-			if (false == theSource instanceof ResourceContainer) {
-				continue;
-			}
-			ResourceContainer src = (ResourceContainer) theSource;
-			result.add(new PalladioComponentModelLinkDescriptor(src, dst, link,
-					PalladioComponentModelElementTypes.LinkingResource_4001,
-					LinkingResourceEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection getIncomingTypeModelFacetLinks_LinkingResource_4001(
-			CommunicationLinkResourceSpecification target, Map crossReferences) {
+	private static Collection getIncomingFeatureModelFacetLinks_LinkingResource_FromResourceContainer_LinkingResource_4001(
+			ResourceContainer target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != ResourceenvironmentPackage.eINSTANCE
-					.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource()
-					|| false == setting.getEObject() instanceof LinkingResource) {
-				continue;
+			if (setting.getEStructuralFeature() == ResourceenvironmentPackage.eINSTANCE
+					.getLinkingResource_FromResourceContainer_LinkingResource()) {
+				result
+						.add(new PalladioComponentModelLinkDescriptor(
+								setting.getEObject(),
+								target,
+								PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001,
+								LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID));
 			}
-			LinkingResource link = (LinkingResource) setting.getEObject();
-			if (LinkingResourceEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			List sources = link.getFromResourceContainer_LinkingResource();
-			Object theSource = sources.size() == 1 ? sources.get(0) : null;
-			if (false == theSource instanceof ResourceContainer) {
-				continue;
-			}
-			ResourceContainer src = (ResourceContainer) theSource;
-			result.add(new PalladioComponentModelLinkDescriptor(src, target, link,
-					PalladioComponentModelElementTypes.LinkingResource_4001,
-					LinkingResourceEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -356,47 +274,19 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_LinkingResource_4001(
-			ResourceContainer source) {
-		ResourceEnvironment container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof ResourceEnvironment) {
-				container = (ResourceEnvironment) element;
-			}
-		}
-		if (container == null) {
-			return Collections.EMPTY_LIST;
-		}
+	private static Collection getOutgoingFeatureModelFacetLinks_LinkingResource_FromResourceContainer_LinkingResource_4001(
+			LinkingResource source) {
 		Collection result = new LinkedList();
-		for (Iterator links = container.getLinkingresource().iterator(); links
+		for (Iterator destinations = source
+				.getFromResourceContainer_LinkingResource().iterator(); destinations
 				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof LinkingResource) {
-				continue;
-			}
-			LinkingResource link = (LinkingResource) linkObject;
-			if (LinkingResourceEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			CommunicationLinkResourceSpecification dst = link
-					.getCommunicationLinkResourceSpecifications_LinkingResource();
-			List sources = link.getFromResourceContainer_LinkingResource();
-			Object theSource = sources.size() == 1 ? sources.get(0) : null;
-			if (false == theSource instanceof ResourceContainer) {
-				continue;
-			}
-			ResourceContainer src = (ResourceContainer) theSource;
-			if (src != source) {
-				continue;
-			}
-			result.add(new PalladioComponentModelLinkDescriptor(src, dst, link,
-					PalladioComponentModelElementTypes.LinkingResource_4001,
-					LinkingResourceEditPart.VISUAL_ID));
+			ResourceContainer destination = (ResourceContainer) destinations.next();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							source,
+							destination,
+							PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001,
+							LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID));
 		}
 		return result;
 	}

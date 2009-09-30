@@ -28,8 +28,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
@@ -79,7 +78,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case ResourceContainerEditPart.VISUAL_ID:
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+		case LinkingResource2EditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -102,6 +101,8 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(ResourceenvironmentPackage.eINSTANCE
 					.getResourceEnvironment_ResourceContainer_ResourceEnvironment());
+			myFeaturesToSynchronize.add(ResourceenvironmentPackage.eINSTANCE
+					.getResourceEnvironment_Linkingresource());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -235,11 +236,10 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID: {
+		case LinkingResource2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result
-						.addAll(PalladioComponentModelDiagramUpdater
-								.getCommunicationLinkResourceSpecification_2002ContainedLinks(view));
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getLinkingResource_2003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -251,17 +251,6 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getProcessingResourceSpecification_3001ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case LinkingResourceEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getLinkingResource_4001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -330,4 +319,5 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 		}
 		return null;
 	}
+
 }

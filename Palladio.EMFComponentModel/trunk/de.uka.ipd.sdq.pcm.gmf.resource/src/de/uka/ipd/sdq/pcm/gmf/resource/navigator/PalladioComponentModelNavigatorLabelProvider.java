@@ -19,9 +19,8 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
@@ -102,15 +101,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2001); //$NON-NLS-1$
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+		case LinkingResource2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_2002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2003); //$NON-NLS-1$
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001); //$NON-NLS-1$
-		case LinkingResourceEditPart.VISUAL_ID:
+		case LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_4001); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?LinkingResource?fromResourceContainer_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -167,12 +166,12 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getResourceEnvironment_1000Text(view);
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getResourceContainer_2001Text(view);
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecification_2002Text(view);
+		case LinkingResource2EditPart.VISUAL_ID:
+			return getLinkingResource_2003Text(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001Text(view);
-		case LinkingResourceEditPart.VISUAL_ID:
-			return getLinkingResource_4001Text(view);
+		case LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID:
+			return getLinkingResourceFromResourceContainer_LinkingResource_4001Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -207,14 +206,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getCommunicationLinkResourceSpecification_2002Text(View view) {
-		CommunicationLinkResourceSpecification domainModelElement = (CommunicationLinkResourceSpecification) view
-				.getElement();
+	private String getLinkingResource_2003Text(View view) {
+		LinkingResource domainModelElement = (LinkingResource) view.getElement();
 		if (domainModelElement != null) {
-			return String.valueOf(domainModelElement.getFailureProbability());
+			return domainModelElement.getId();
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2002); //$NON-NLS-1$
+					"No domain element for view with visualID = " + 2003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -243,15 +241,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getLinkingResource_4001Text(View view) {
-		LinkingResource domainModelElement = (LinkingResource) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getId();
-		} else {
-			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 4001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
+	private String getLinkingResourceFromResourceContainer_LinkingResource_4001Text(
+			View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**

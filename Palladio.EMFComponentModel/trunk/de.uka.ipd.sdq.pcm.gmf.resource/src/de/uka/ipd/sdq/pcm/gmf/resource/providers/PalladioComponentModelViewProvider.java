@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.resource.providers;
 
 import java.util.ArrayList;
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -30,7 +29,6 @@ import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
-import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -46,9 +44,8 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
@@ -150,7 +147,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				}
 				switch (visualID) {
 				case ResourceContainerEditPart.VISUAL_ID:
-				case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+				case LinkingResource2EditPart.VISUAL_ID:
 				case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry
@@ -164,7 +161,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 			}
 		}
 		return ResourceContainerEditPart.VISUAL_ID == visualID
-				|| CommunicationLinkResourceSpecificationEditPart.VISUAL_ID == visualID
+				|| LinkingResource2EditPart.VISUAL_ID == visualID
 				|| ProcessingResourceSpecificationEditPart.VISUAL_ID == visualID;
 	}
 
@@ -226,9 +223,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case ResourceContainerEditPart.VISUAL_ID:
 			return createResourceContainer_2001(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return createCommunicationLinkResourceSpecification_2002(domainElement,
-					containerView, index, persisted, preferencesHint);
+		case LinkingResource2EditPart.VISUAL_ID:
+			return createLinkingResource_2003(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return createProcessingResourceSpecification_3001(domainElement,
 					containerView, index, persisted, preferencesHint);
@@ -246,8 +243,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case LinkingResourceEditPart.VISUAL_ID:
-			return createLinkingResource_4001(getSemanticElement(semanticAdapter),
+		case LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID:
+			return createLinkingResourceFromResourceContainer_LinkingResource_4001(
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -306,21 +303,24 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createCommunicationLinkResourceSpecification_2002(
-			EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createLinkingResource_2003(EObject domainElement,
+			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(PalladioComponentModelVisualIDRegistry
-				.getType(CommunicationLinkResourceSpecificationEditPart.VISUAL_ID));
+				.getType(LinkingResource2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -335,6 +335,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities.RGBToInteger(fillRGB));
 		return node;
 	}
 
@@ -393,9 +397,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
-	public Edge createLinkingResource_4001(EObject domainElement,
+	public Edge createLinkingResourceFromResourceContainer_LinkingResource_4001(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -408,9 +412,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		bendpoints.setPoints(points);
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(PalladioComponentModelVisualIDRegistry
-				.getType(LinkingResourceEditPart.VISUAL_ID));
-		edge.setElement(domainElement);
+		edge
+				.setType(PalladioComponentModelVisualIDRegistry
+						.getType(LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID));
+		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
@@ -433,12 +438,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		// GENERATED: Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-
-		// Custom code: Set rectilinear routing
-		Routing routing = Routing.get(Routing.RECTILINEAR);
-		// End of custon code
-
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);

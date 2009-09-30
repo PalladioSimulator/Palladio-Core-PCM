@@ -38,6 +38,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.helpers.PalladioComponentModelBaseEd
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
@@ -311,18 +312,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateLinkingResource_4001(
-				ResourceEnvironment container, ResourceContainer source,
-				CommunicationLinkResourceSpecification target) {
-			return canExistLinkingResource_4001(container, source, target);
+		public static boolean canCreateLinkingResourceFromResourceContainer_LinkingResource_4001(
+				LinkingResource source, ResourceContainer target) {
+			if (source != null) {
+				if (source.getFromResourceContainer_LinkingResource().contains(target)) {
+					return false;
+				}
+			}
+
+			return canExistLinkingResourceFromResourceContainer_LinkingResource_4001(
+					source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistLinkingResource_4001(
-				ResourceEnvironment container, ResourceContainer source,
-				CommunicationLinkResourceSpecification target) {
+		public static boolean canExistLinkingResourceFromResourceContainer_LinkingResource_4001(
+				LinkingResource source, ResourceContainer target) {
 			return true;
 		}
 	}

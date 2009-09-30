@@ -4,10 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.resource.edit.policies;
 
 import java.util.Iterator;
-
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -17,28 +15,25 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
-import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceFromResourceContainer_LinkingResourceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceFromResourceContainer_LinkingResourceReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
  */
-public class ResourceContainerItemSemanticEditPolicy extends
+public class LinkingResource2ItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ResourceContainerItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.ResourceContainer_2001);
+	public LinkingResource2ItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.LinkingResource_2003);
 	}
 
 	/**
@@ -49,21 +44,20 @@ public class ResourceContainerItemSemanticEditPolicy extends
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			Edge incomingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink
-						.getSource().getElement(), null, incomingLink.getTarget()
+		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+			Edge outgoingLink = (Edge) it.next();
+			if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID) {
+				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink
+						.getSource().getElement(), null, outgoingLink.getTarget()
 						.getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
 		}
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
 			// there are indirectly referenced children, need extra commands: false
-			addDestroyChildNodesCommand(cmd);
 			addDestroyShortcutsCommand(cmd, view);
 			// delete host element
 			cmd.add(new DestroyElementCommand(req));
@@ -71,31 +65,6 @@ public class ResourceContainerItemSemanticEditPolicy extends
 			cmd.add(new DeleteCommand(getEditingDomain(), view));
 		}
 		return getGEFWrapper(cmd.reduce());
-	}
-
-	/**
-	 * @generated
-	 */
-	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
-		View view = (View) getHost().getModel();
-		for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
-			Node node = (Node) nit.next();
-			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
-					case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-								getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					}
-				}
-				break;
-			}
-		}
 	}
 
 	/**
@@ -114,7 +83,8 @@ public class ResourceContainerItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001 == req
 				.getElementType()) {
-			return null;
+			return getGEFWrapper(new LinkingResourceFromResourceContainer_LinkingResourceCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -126,8 +96,7 @@ public class ResourceContainerItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001 == req
 				.getElementType()) {
-			return getGEFWrapper(new LinkingResourceFromResourceContainer_LinkingResourceCreateCommand(
-					req, req.getSource(), req.getTarget()));
+			return null;
 		}
 		return null;
 	}

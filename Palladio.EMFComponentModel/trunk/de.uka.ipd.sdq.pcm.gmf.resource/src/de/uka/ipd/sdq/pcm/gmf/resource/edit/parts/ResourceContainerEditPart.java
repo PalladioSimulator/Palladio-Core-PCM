@@ -267,33 +267,21 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types.add(PalladioComponentModelElementTypes.LinkingResource_4001);
+		types
+				.add(PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001);
 		return types;
 	}
 
 	/**
 	 * @generated
 	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (targetEditPart instanceof CommunicationLinkResourceSpecificationEditPart) {
-			types.add(PalladioComponentModelElementTypes.LinkingResource_4001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == PalladioComponentModelElementTypes.LinkingResource_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_2002);
+		if (relationshipType == PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001) {
+			types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
 		}
 		return types;
 	}

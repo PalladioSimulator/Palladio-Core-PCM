@@ -9,9 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
@@ -142,10 +140,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ResourceContainerEditPart.VISUAL_ID;
 			}
-			if (ResourceenvironmentPackage.eINSTANCE
-					.getCommunicationLinkResourceSpecification().isSuperTypeOf(
-							domainElement.eClass())) {
-				return CommunicationLinkResourceSpecificationEditPart.VISUAL_ID;
+			if (ResourceenvironmentPackage.eINSTANCE.getLinkingResource()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return LinkingResource2EditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -204,7 +201,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ResourceContainerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CommunicationLinkResourceSpecificationEditPart.VISUAL_ID == nodeVisualID) {
+			if (LinkingResource2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -218,10 +215,6 @@ public class PalladioComponentModelVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
-		}
-		if (ResourceenvironmentPackage.eINSTANCE.getLinkingResource()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return LinkingResourceEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

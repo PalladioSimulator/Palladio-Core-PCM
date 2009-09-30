@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.Messages;
@@ -51,8 +51,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		if (editPart instanceof ResourceEnvironmentEditPart) {
 			ArrayList types = new ArrayList(2);
 			types.add(PalladioComponentModelElementTypes.ResourceContainer_2001);
-			types
-					.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_2002);
+			types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -64,8 +63,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ResourceContainerEditPart) {
-			return ((ResourceContainerEditPart) sourceEditPart)
+		if (sourceEditPart instanceof LinkingResource2EditPart) {
+			return ((LinkingResource2EditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
@@ -77,8 +76,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof CommunicationLinkResourceSpecificationEditPart) {
-			return ((CommunicationLinkResourceSpecificationEditPart) targetEditPart)
+		if (targetEditPart instanceof ResourceContainerEditPart) {
+			return ((ResourceContainerEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
@@ -92,8 +91,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ResourceContainerEditPart) {
-			return ((ResourceContainerEditPart) sourceEditPart)
+		if (sourceEditPart instanceof LinkingResource2EditPart) {
+			return ((LinkingResource2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
@@ -105,8 +104,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof CommunicationLinkResourceSpecificationEditPart) {
-			return ((CommunicationLinkResourceSpecificationEditPart) targetEditPart)
+		if (targetEditPart instanceof ResourceContainerEditPart) {
+			return ((ResourceContainerEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -118,8 +117,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ResourceContainerEditPart) {
-			return ((ResourceContainerEditPart) sourceEditPart)
+		if (sourceEditPart instanceof LinkingResource2EditPart) {
+			return ((LinkingResource2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

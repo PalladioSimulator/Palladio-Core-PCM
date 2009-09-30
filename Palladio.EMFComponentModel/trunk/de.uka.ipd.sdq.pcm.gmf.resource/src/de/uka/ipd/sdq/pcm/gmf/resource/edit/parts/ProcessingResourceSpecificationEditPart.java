@@ -121,14 +121,14 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
-			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
 			((ProcessingResourceSpecificationMTTFEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureMTTFFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
@@ -143,10 +143,10 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {

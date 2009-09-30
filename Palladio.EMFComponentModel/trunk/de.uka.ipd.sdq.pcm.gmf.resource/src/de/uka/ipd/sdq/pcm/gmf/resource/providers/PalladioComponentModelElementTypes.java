@@ -19,8 +19,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
@@ -64,15 +64,17 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType CommunicationLinkResourceSpecification_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_2002"); //$NON-NLS-1$
+	public static final IElementType LinkingResource_2003 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType ProcessingResourceSpecification_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LinkingResource_4001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_4001"); //$NON-NLS-1$
+	public static final IElementType LinkingResourceFromResourceContainer_LinkingResource_4001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceFromResourceContainer_LinkingResource_4001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -189,16 +191,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ResourceContainer_2001, ResourceenvironmentPackage.eINSTANCE
 					.getResourceContainer());
 
-			elements.put(CommunicationLinkResourceSpecification_2002,
-					ResourceenvironmentPackage.eINSTANCE
-							.getCommunicationLinkResourceSpecification());
+			elements.put(LinkingResource_2003, ResourceenvironmentPackage.eINSTANCE
+					.getLinkingResource());
 
 			elements.put(ProcessingResourceSpecification_3001,
 					ResourceenvironmentPackage.eINSTANCE
 							.getProcessingResourceSpecification());
 
-			elements.put(LinkingResource_4001, ResourceenvironmentPackage.eINSTANCE
-					.getLinkingResource());
+			elements.put(LinkingResourceFromResourceContainer_LinkingResource_4001,
+					ResourceenvironmentPackage.eINSTANCE
+							.getLinkingResource_FromResourceContainer_LinkingResource());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -218,9 +220,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(ResourceEnvironment_1000);
 			KNOWN_ELEMENT_TYPES.add(ResourceContainer_2001);
-			KNOWN_ELEMENT_TYPES.add(CommunicationLinkResourceSpecification_2002);
+			KNOWN_ELEMENT_TYPES.add(LinkingResource_2003);
 			KNOWN_ELEMENT_TYPES.add(ProcessingResourceSpecification_3001);
-			KNOWN_ELEMENT_TYPES.add(LinkingResource_4001);
+			KNOWN_ELEMENT_TYPES
+					.add(LinkingResourceFromResourceContainer_LinkingResource_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -234,12 +237,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return ResourceEnvironment_1000;
 		case ResourceContainerEditPart.VISUAL_ID:
 			return ResourceContainer_2001;
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return CommunicationLinkResourceSpecification_2002;
+		case LinkingResource2EditPart.VISUAL_ID:
+			return LinkingResource_2003;
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return ProcessingResourceSpecification_3001;
-		case LinkingResourceEditPart.VISUAL_ID:
-			return LinkingResource_4001;
+		case LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID:
+			return LinkingResourceFromResourceContainer_LinkingResource_4001;
 		}
 		return null;
 	}

@@ -40,6 +40,7 @@ public class PalladioComponentModelPaletteFactory {
 				.add(createCommunicationLinkResourceSpecification2CreationTool());
 		paletteContainer.add(createLinkingResource3CreationTool());
 		paletteContainer.add(createProcessingResourceSpecification4CreationTool());
+		paletteContainer.add(createConnection5CreationTool());
 		return paletteContainer;
 	}
 
@@ -64,18 +65,12 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCommunicationLinkResourceSpecification2CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_2002);
-		NodeToolEntry entry = new NodeToolEntry(
+		ToolEntry entry = new ToolEntry(
 				Messages.CommunicationLinkResourceSpecification2CreationTool_title,
 				Messages.CommunicationLinkResourceSpecification2CreationTool_desc,
-				types);
+				null, null) {
+		};
 		entry.setId("createCommunicationLinkResourceSpecification2CreationTool"); //$NON-NLS-1$
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_2002));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -84,14 +79,14 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createLinkingResource3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.LinkingResource_4001);
-		LinkToolEntry entry = new LinkToolEntry(
+		types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LinkingResource3CreationTool_title,
 				Messages.LinkingResource3CreationTool_desc, types);
 		entry.setId("createLinkingResource3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResource_4001));
+						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResource_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -111,6 +106,17 @@ public class PalladioComponentModelPaletteFactory {
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createConnection5CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Connection5CreationTool_title,
+				Messages.Connection5CreationTool_desc, null, null) {
+		};
+		entry.setId("createConnection5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 
