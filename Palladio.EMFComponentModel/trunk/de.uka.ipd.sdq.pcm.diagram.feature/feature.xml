@@ -405,6 +405,13 @@ litigation.
          unpack="false"/>
 
    <plugin
+         id="de.uka.ipd.sdq.pcm.gmf.resource"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="de.uka.ipd.sdq.featureinstance.editor"
          download-size="0"
          install-size="0"
