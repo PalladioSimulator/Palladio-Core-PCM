@@ -78,13 +78,13 @@
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.1/@children.0"/>
     </descriptors>
     <descriptors
-        name="LinkingResourceFigure">
+        name="NetworkConnectionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="StraightLine"/>
     </descriptors>
     <descriptors
-        name="CommunicationLinkResourceSpecificationFigure">
+        name="NetworkSwitchFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           cornerWidth="27"
@@ -176,14 +176,14 @@
       name="ProcessingResourceSpecification"
       figure="ProcessingResourceSpecificationFigure"/>
   <nodes
-      name="CommunicationLinkResourceSpecification"
-      figure="CommunicationLinkResourceSpecificationFigure"/>
+      name="NetworkSwitch"
+      figure="NetworkSwitchFigure"/>
   <nodes
       name="ResourceContainer"
       figure="ResourceContainerFigure"/>
   <connections
-      name="LinkingResource"
-      figure="LinkingResourceFigure"/>
+      name="NetworkConnection"
+      figure="NetworkConnectionFigure"/>
   <compartments
       name="ProcessingResourceSpecificationCompartment"
       figure="ProcessingResourceSpecificationFigure"/>
