@@ -9,7 +9,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
@@ -135,6 +138,13 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ProcessingResourceSpecificationEditPart.VISUAL_ID;
 			}
 			break;
+		case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
+			if (ResourceenvironmentPackage.eINSTANCE
+					.getCommunicationLinkResourceSpecification().isSuperTypeOf(
+							domainElement.eClass())) {
+				return CommunicationLinkResourceSpecificationEditPart.VISUAL_ID;
+			}
+			break;
 		case ResourceEnvironmentEditPart.VISUAL_ID:
 			if (ResourceenvironmentPackage.eINSTANCE.getResourceContainer()
 					.isSuperTypeOf(domainElement.eClass())) {
@@ -178,6 +188,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case LinkingResource2EditPart.VISUAL_ID:
+			if (LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			if (ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -192,8 +207,18 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+			if (CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
 			if (ProcessingResourceSpecificationEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
+			if (CommunicationLinkResourceSpecificationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

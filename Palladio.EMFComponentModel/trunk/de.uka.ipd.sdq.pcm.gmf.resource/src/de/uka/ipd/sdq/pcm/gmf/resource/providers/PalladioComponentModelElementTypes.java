@@ -19,6 +19,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
@@ -70,6 +71,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ProcessingResourceSpecification_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CommunicationLinkResourceSpecification_3002 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -198,6 +204,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 					ResourceenvironmentPackage.eINSTANCE
 							.getProcessingResourceSpecification());
 
+			elements.put(CommunicationLinkResourceSpecification_3002,
+					ResourceenvironmentPackage.eINSTANCE
+							.getCommunicationLinkResourceSpecification());
+
 			elements.put(LinkingResourceFromResourceContainer_LinkingResource_4001,
 					ResourceenvironmentPackage.eINSTANCE
 							.getLinkingResource_FromResourceContainer_LinkingResource());
@@ -222,6 +232,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ResourceContainer_2001);
 			KNOWN_ELEMENT_TYPES.add(LinkingResource_2003);
 			KNOWN_ELEMENT_TYPES.add(ProcessingResourceSpecification_3001);
+			KNOWN_ELEMENT_TYPES.add(CommunicationLinkResourceSpecification_3002);
 			KNOWN_ELEMENT_TYPES
 					.add(LinkingResourceFromResourceContainer_LinkingResource_4001);
 		}
@@ -241,6 +252,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return LinkingResource_2003;
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return ProcessingResourceSpecification_3001;
+		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+			return CommunicationLinkResourceSpecification_3002;
 		case LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID:
 			return LinkingResourceFromResourceContainer_LinkingResource_4001;
 		}

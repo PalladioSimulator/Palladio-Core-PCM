@@ -219,7 +219,7 @@
       <viewProvider class="de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="ResourceEnvironmentModel"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2003,3001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2003,3001,3002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -232,16 +232,16 @@
             <method name="getType()" value="ResourceEnvironmentModel"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2003,3001"/>
+            <method name="getType()" value="2001,2003,3001,3002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003,5004"/>
+            <method name="getType()" value="5001,5002,5003,5004,5005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002"/>
+            <method name="getType()" value="7001,7002,7003"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -315,6 +315,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002"
+               name="%metatype.name.CommunicationLinkResourceSpecification_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CommunicationLinkResourceSpecification"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.resource.edit.helpers.CommunicationLinkResourceSpecificationEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceFromResourceContainer_LinkingResource_4001"
                name="%metatype.name.LinkingResourceFromResourceContainer_LinkingResource_4001"
@@ -339,6 +349,7 @@
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_2001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceFromResourceContainer_LinkingResource_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

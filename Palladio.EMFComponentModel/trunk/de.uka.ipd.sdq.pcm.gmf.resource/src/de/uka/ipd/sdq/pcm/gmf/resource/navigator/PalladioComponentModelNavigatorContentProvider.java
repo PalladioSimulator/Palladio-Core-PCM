@@ -24,8 +24,10 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
@@ -272,7 +274,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_LinkingResource_2003_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getOutgoingLinksByType(
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CommunicationLinkResourceSpecificationEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
 							.getType(LinkingResourceFromResourceContainer_LinkingResourceEditPart.VISUAL_ID));

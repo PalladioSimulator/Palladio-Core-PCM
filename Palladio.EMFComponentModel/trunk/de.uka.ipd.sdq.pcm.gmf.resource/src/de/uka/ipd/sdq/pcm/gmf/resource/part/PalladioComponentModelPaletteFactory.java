@@ -65,12 +65,18 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCommunicationLinkResourceSpecification2CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CommunicationLinkResourceSpecification2CreationTool_title,
 				Messages.CommunicationLinkResourceSpecification2CreationTool_desc,
-				null, null) {
-		};
+				types);
 		entry.setId("createCommunicationLinkResourceSpecification2CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

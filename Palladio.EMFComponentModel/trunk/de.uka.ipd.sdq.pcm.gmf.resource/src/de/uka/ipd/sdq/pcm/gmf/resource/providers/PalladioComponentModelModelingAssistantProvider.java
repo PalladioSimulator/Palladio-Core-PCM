@@ -48,6 +48,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001);
 			return types;
 		}
+		if (editPart instanceof LinkingResource2EditPart) {
+			ArrayList types = new ArrayList(1);
+			types
+					.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002);
+			return types;
+		}
 		if (editPart instanceof ResourceEnvironmentEditPart) {
 			ArrayList types = new ArrayList(2);
 			types.add(PalladioComponentModelElementTypes.ResourceContainer_2001);

@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyEditPart;
@@ -115,6 +116,27 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser communicationLinkResourceSpecificationFailureProbability_5005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCommunicationLinkResourceSpecificationFailureProbability_5005Parser() {
+		if (communicationLinkResourceSpecificationFailureProbability_5005Parser == null) {
+			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
+					.getCommunicationLinkResourceSpecification_FailureProbability() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("CommunicationSpecification"); //$NON-NLS-1$
+			parser.setEditorPattern("CommunicationSpecification"); //$NON-NLS-1$
+			parser.setEditPattern("CommunicationSpecification"); //$NON-NLS-1$
+			communicationLinkResourceSpecificationFailureProbability_5005Parser = parser;
+		}
+		return communicationLinkResourceSpecificationFailureProbability_5005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ResourceContainerEntityNameEditPart.VISUAL_ID:
@@ -125,6 +147,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getProcessingResourceSpecificationMTTR_5003Parser();
 		case ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID:
 			return getProcessingResourceSpecificationSchedulingPolicy_5004Parser();
+		case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
+			return getCommunicationLinkResourceSpecificationFailureProbability_5005Parser();
 		}
 		return null;
 	}

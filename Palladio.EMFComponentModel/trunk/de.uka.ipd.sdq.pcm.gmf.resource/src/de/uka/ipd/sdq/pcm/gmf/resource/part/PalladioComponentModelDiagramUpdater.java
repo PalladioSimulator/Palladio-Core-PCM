@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceFromResourceContainer_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
@@ -42,6 +44,8 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
 			return getResourceContainerResourceContainerCompartment_7001SemanticChildren(view);
+		case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
+			return getLinkingResourceNetworkSwitchCompartment_7003SemanticChildren(view);
 		case ResourceEnvironmentEditPart.VISUAL_ID:
 			return getResourceEnvironment_1000SemanticChildren(view);
 		}
@@ -74,6 +78,33 @@ public class PalladioComponentModelDiagramUpdater {
 				result.add(new PalladioComponentModelNodeDescriptor(childElement,
 						visualID));
 				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getLinkingResourceNetworkSwitchCompartment_7003SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		LinkingResource modelElement = (LinkingResource) containerView.getElement();
+		List result = new LinkedList();
+		{
+			CommunicationLinkResourceSpecification childElement = modelElement
+					.getCommunicationLinkResourceSpecifications_LinkingResource();
+			int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+					view, childElement);
+			if (visualID == CommunicationLinkResourceSpecificationEditPart.VISUAL_ID) {
+				result.add(new PalladioComponentModelNodeDescriptor(childElement,
+						visualID));
 			}
 		}
 		return result;
@@ -126,6 +157,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getLinkingResource_2003ContainedLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001ContainedLinks(view);
+		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+			return getCommunicationLinkResourceSpecification_3002ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -141,6 +174,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getLinkingResource_2003IncomingLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001IncomingLinks(view);
+		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+			return getCommunicationLinkResourceSpecification_3002IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -156,6 +191,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getLinkingResource_2003OutgoingLinks(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getProcessingResourceSpecification_3001OutgoingLinks(view);
+		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+			return getCommunicationLinkResourceSpecification_3002OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -196,6 +233,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getCommunicationLinkResourceSpecification_3002ContainedLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getResourceContainer_2001IncomingLinks(View view) {
 		ResourceContainer modelElement = (ResourceContainer) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -225,6 +270,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getCommunicationLinkResourceSpecification_3002IncomingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getResourceContainer_2001OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -244,6 +297,14 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getProcessingResourceSpecification_3001OutgoingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCommunicationLinkResourceSpecification_3002OutgoingLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
 	}

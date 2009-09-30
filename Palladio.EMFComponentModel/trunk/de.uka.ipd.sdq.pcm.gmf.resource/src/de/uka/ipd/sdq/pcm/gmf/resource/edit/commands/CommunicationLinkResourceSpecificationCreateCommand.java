@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 
 /**
@@ -49,7 +50,12 @@ public class CommunicationLinkResourceSpecificationCreateCommand extends
 	 * @generated
 	 */
 	public boolean canExecute() {
+		LinkingResource container = (LinkingResource) getElementToEdit();
+		if (container.getCommunicationLinkResourceSpecifications_LinkingResource() != null) {
+			return false;
+		}
 		return true;
+
 	}
 
 	/**
@@ -57,17 +63,12 @@ public class CommunicationLinkResourceSpecificationCreateCommand extends
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		// Uncomment to put "phantom" objects into the diagram file.		
-		// org.eclipse.emf.ecore.resource.Resource resource = 
-		// 		((org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest) getRequest()).getContainer().eResource();
-		// if (resource == null) {
-		// 	return null;
-		// }
-		Resource resource = getElementToEdit().eResource();
 		CommunicationLinkResourceSpecification newElement = ResourceenvironmentFactory.eINSTANCE
 				.createCommunicationLinkResourceSpecification();
 
-		resource.getContents().add(newElement);
+		LinkingResource owner = (LinkingResource) getElementToEdit();
+		owner
+				.setCommunicationLinkResourceSpecifications_LinkingResource(newElement);
 
 		doConfigure(newElement, monitor, info);
 
