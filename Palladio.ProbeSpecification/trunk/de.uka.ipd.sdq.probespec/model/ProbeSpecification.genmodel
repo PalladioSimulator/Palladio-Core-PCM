@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.uka.ipd.sdq.probespec/src"
+    modelPluginID="de.uka.ipd.sdq.probespec" modelName="ProbeSpecification" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pipesandfilters/model/pipesandfilters.genmodel#//pipesandfilters">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>file:/D://Ecore.uml</foreignModel>
+  <foreignModel>file:/D://identifier.uml</foreignModel>
+  <foreignModel>file:/D://PipesAndFilters.uml</foreignModel>
+  <foreignModel>file:/D://ProbeSpecification.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="probespec" basePackage="de.uka.ipd.sdq"
+      resource="XML" disposableProviderFactory="true" ecorePackage="probespec.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="probespec.ecore#//ProbeSetPosition">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="probespec.ecore#//ProbeSetPosition/BEFORE"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="probespec.ecore#//ProbeSetPosition/AFTER"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="probespec.ecore#//ProbeSetPosition/NONE"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probespec.ecore#//Calculator">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probespec.ecore#//Calculator/active"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference probespec.ecore#//Calculator/pipeElement"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//PassiveResourceCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probespec.ecore#//UnaryCalculator">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probespec.ecore#//UnaryCalculator/probeSet"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//ProbeSet">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probespec.ecore#//ProbeSet/probes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probespec.ecore#//ProbeSet/position"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference probespec.ecore#//ProbeSet/annotatedElement"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probespec.ecore#//Probe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//PassiveResourceStateProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//StoExProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//SEFFParameterProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//CurrentTimeProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//StoExCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//SEFFParameterCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//ResponseTimeCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probespec.ecore#//BinaryCalculator">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probespec.ecore#//BinaryCalculator/probeSet"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//WaitingTimeCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//ProbeSpecRepository">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probespec.ecore#//ProbeSpecRepository/calculator"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//CPUStateProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//HDDStateProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//CPUDemandProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//HDDDemandProbe"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//HDDStateCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//CPUStateCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//CPUDemandCalculator"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probespec.ecore#//HDDDemandCalculator"/>
+  </genPackages>
+</genmodel:GenModel>

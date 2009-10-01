@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pipesandfilters"
+    nsURI="http://sdq.ipd.uka.de/PipesAndFilters/0.1" nsPrefix="pipesandfilters">
+  <eClassifiers xsi:type="ecore:EClass" name="PipeElement" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true" eSuperTypes="#//PipeElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successors" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//PipeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recorder" abstract="true" eSuperTypes="#//PipeElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregationRecorder" abstract="true"
+      eSuperTypes="#//Recorder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writer" ordered="false"
+        upperBound="-1" eType="#//Writer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Writer" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RawRecorder" eSuperTypes="#//Recorder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writer" ordered="false"
+        upperBound="-1" eType="#//Writer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleWarmUpFilter" eSuperTypes="#//Filter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlidingMeanRecorder" eSuperTypes="#//AggregationRecorder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EDP2Writer" eSuperTypes="#//Writer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PipesAndFiltersRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+        upperBound="-1" eType="#//PipeElement" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

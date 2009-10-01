@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.probespec.presentation.probespecModelWizardID"
+            name="%_UI_probespecModelWizard_label"
+            class="de.uka.ipd.sdq.probespec.presentation.probespecModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/probespecModelFile.gif">
+         <description>%_UI_probespecModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.probespec.presentation.probespecEditorID"
+            name="%_UI_probespecEditor_label"
+            icon="icons/full/obj16/probespecModelFile.gif"
+            extensions="probespec"
+            class="de.uka.ipd.sdq.probespec.presentation.probespecEditor"
+            contributorClass="de.uka.ipd.sdq.probespec.presentation.probespecActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

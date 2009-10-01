@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pipes-and-Filters Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pipesandfilters.framework
+Bundle-Version: 1.0.0
+Bundle-Activator: de.uka.ipd.sdq.pipesandfilters.framework.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.jscience;bundle-version="4.1.3"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.pipesandfilters.framework,
+ de.uka.ipd.sdq.pipesandfilters.framework.filters,
+ de.uka.ipd.sdq.pipesandfilters.framework.recorder
+Import-Package: de.uka.ipd.sdq.pipesandfilters.framework
