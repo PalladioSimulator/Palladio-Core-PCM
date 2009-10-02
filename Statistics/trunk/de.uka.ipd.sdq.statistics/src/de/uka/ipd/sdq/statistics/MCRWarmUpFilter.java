@@ -14,6 +14,11 @@ public class MCRWarmUpFilter {
 	private int minIndex = 0;
 
 	public List<Double> filter(List<Double> samples) {
+		
+		if (samples.size() <= 150){
+			System.out.println("MCRWarmUpFilter Warning: Too few samples to get a meaningful result.");
+		}
+		
 		int truncatedSamplesSize = samples.size();
 		double truncatedSamplesSum = 0;
 
@@ -45,6 +50,11 @@ public class MCRWarmUpFilter {
 			truncatedSamplesSum -= samples.get(0);
 		}
 
+		if (minIndex > samples.size() / 3){
+			//TODO: Kriterium nachschauen und logger
+			System.out.println("MCRWarmUpFilter Warning: Truncation point is in the last two thirds of the samples, so the confidence in this result is low.");
+		}
+		
 		// TODO Create new list?
 		return samples.subList(minIndex, samples.size() - 1);
 	}

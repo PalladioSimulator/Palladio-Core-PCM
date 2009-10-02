@@ -20,9 +20,9 @@ public class TestMCRWarmUpFilter extends TestCase {
 
 	public void testWarmUpFilter() {
 		IDAOFactory factory = new FileDAOFactory(
-				"D:\\Studium\\Master\\HiWi IPD\\runtime-150909\\brs\\Data4");
+				"D:\\uka\\paper\\2009\\Martens_WOSP\\BRS-4-server\\db");
 		Collection<Measurement> measurements = TestUtils.loadMeasurements(
-				factory, 0, 0, 24);
+				factory, "BRS WOSP 4 Server-c RunNo. 0", 8, 158);
 		
 		
 		List<Double> samples = new ArrayList<Double>(measurements.size());

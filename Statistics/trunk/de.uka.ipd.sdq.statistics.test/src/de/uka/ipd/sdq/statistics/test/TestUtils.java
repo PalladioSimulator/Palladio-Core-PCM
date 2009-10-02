@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.statistics.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -36,20 +37,27 @@ public class TestUtils {
 
 		return samples;
 	}
-
+	
 	public static Collection<Measurement> loadMeasurements(IDAOFactory factory,
-			int experimentId, int runId, int sensorId) {
+			String experimentName, int runId, int sensorId) {
+		
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		
-		// Obtain experiment with specified id
-		Experiment experiment = null;
-		for (Experiment e : experimentDAO.getExperiments()) {
-			if (e.getExperimentID() == experimentId) {
-				experiment = e;
-				break;
-			}
+		Collection<Experiment> experiment = experimentDAO.findByExperimentName(experimentName);
+		Iterator iterator = experiment.iterator();
+		if (iterator.hasNext()) {
+			Experiment experiment2 = (Experiment) iterator.next();
+			return loadMeasurementsFromExperiment(experiment2, runId, sensorId);
+		} else {
+			throw new RuntimeException("No Experiment with name "+experimentName+" available.");
 		}
-	
+		
+		
+		
+	}
+
+	private static Collection<Measurement> loadMeasurementsFromExperiment(
+			Experiment experiment, int runId, int sensorId) {
 		// Obtain (time span) sensor with specified id
 		TimeSpanSensor sensor = null;
 		for (Sensor s : experiment.getSensors()) {
@@ -72,6 +80,24 @@ public class TestUtils {
 		
 		SensorAndMeasurements sam = run.getMeasurementsOfSensor(sensor);
 		return sam.getMeasurements();
+	}
+
+	public static Collection<Measurement> loadMeasurements(IDAOFactory factory,
+			int experimentId, int runId, int sensorId) {
+		IExperimentDAO experimentDAO = factory.createExperimentDAO();
+		
+		// Obtain experiment with specified id
+		Experiment experiment = null;
+		for (Experiment e : experimentDAO.getExperiments()) {
+			System.out.println(e.getExperimentName());
+			if (e.getExperimentID() == experimentId) {
+				experiment = e;
+				break;
+			}
+		}
+		return loadMeasurementsFromExperiment(experiment, runId, sensorId);
+	
+
 	}
 
 }
