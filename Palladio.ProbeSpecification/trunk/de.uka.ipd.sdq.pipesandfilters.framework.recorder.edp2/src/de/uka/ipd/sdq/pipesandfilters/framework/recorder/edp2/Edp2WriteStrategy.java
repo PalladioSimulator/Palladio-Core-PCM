@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2;
 
-import java.io.File;
-
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
@@ -51,10 +49,6 @@ public abstract class Edp2WriteStrategy {
 	 */
 	protected ExperimentRun experimentRun;
 	/**
-	 * The directory the data is stored at.
-	 */
-	protected File directory;
-	/**
 	 * The EDP2 measurement range.
 	 */
 	protected MeasurementRange measurementRange;
@@ -63,6 +57,7 @@ public abstract class Edp2WriteStrategy {
 	 * A string containing the name of the directory the data is stored at.
 	 */
 	protected String directoryName;
+
 
 	/**
 	 * The constructor of Edp2AggregationWriteStrategy.
@@ -205,11 +200,12 @@ public abstract class Edp2WriteStrategy {
 
 		// Get experiment setting
 		experimentSetting = edp2MetaData.getExperimentSetting();
-		experimentSetting.getMeasure().add(measure);
+		//experimentSetting.getMeasure().add(measure);
 
 		// Get experiment group
 		experimentGroup = edp2MetaData.getExperimentGroup();
 		experimentGroup.getExperimentSettings().add(experimentSetting);
+		experimentGroup.getMeasure().add(measure);
 
 		// Get experiment run
 		experimentRun = edp2MetaData.getExperimentRun();

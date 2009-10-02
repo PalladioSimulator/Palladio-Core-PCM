@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2;
 
-import java.io.File;
 import java.util.Date;
 
 import javax.measure.Measure;
@@ -23,10 +22,13 @@ public class Edp2RawWriteStrategy extends Edp2WriteStrategy implements IRawWrite
 	 * necessary EDP2 members.
 	 */
 	protected void prepareExperimentRun() {
+		
+//		measurement = ExperimentDataFactory.eINSTANCE.createMeasurement();
+//		measurement.setMeasure(measure);
+//		experimentRun = ExperimentDataFactory.eINSTANCE.createExperimentRun();
+		
 		experimentRun.getMeasurement().add(measurement);
 		experimentSetting.getExperimentRuns().add(experimentRun);
-
-		directory = new File(directoryName);
 
 		measurementRange = MeasurementsUtility.addMeasurementRange(measurement);
 		measurementRange.setRawMeasurements(ExperimentDataFactory.eINSTANCE

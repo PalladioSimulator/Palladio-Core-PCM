@@ -36,9 +36,6 @@ public class Edp2AggregationWriteStrategy extends Edp2WriteStrategy implements
 		experimentRun.getMeasurement().add(measurement);
 		experimentSetting.getExperimentRuns().add(experimentRun);
 
-		directory = new File(directoryName);
-
-
 		measurementRange = MeasurementsUtility.addMeasurementRange(measurement);
 	}
 
@@ -75,6 +72,10 @@ public class Edp2AggregationWriteStrategy extends Edp2WriteStrategy implements
 		//TODO: add aggregated measurements properly. 
 		/*MeasurementsUtility.addDataSeries(aggregatedMeasurements,
 				aggregatedMeasurements.getFunction());*/
+		throw new UnsupportedOperationException("Aggregated Measurements " +
+				"are not yet supported by EDP2. Fix the "
+				+this.getClass().getName()+"'s initializeAggregatedMeasurements()" +
+				" method when EDP2 has been adjusted.");
 	}
 
 	/**
