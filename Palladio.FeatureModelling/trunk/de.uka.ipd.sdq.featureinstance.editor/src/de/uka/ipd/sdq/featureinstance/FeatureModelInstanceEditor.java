@@ -554,7 +554,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return resource;
 	}
 	
-	@Override
 	protected void createPages() {
 		createResource(null);
 		createEditor();		
@@ -691,7 +690,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return dirtyFlag;
 	}
 	
-	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
@@ -704,7 +702,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			new WorkspaceModifyOperation() {
 				// This is the method that gets invoked when the operation runs.
 				//
-				@Override
 				public void execute(IProgressMonitor monitor) {
 					// Save the resources to the file system.
 					//
@@ -745,7 +742,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 
-	@Override
 	public void doSaveAs() {
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
@@ -771,8 +767,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		doSave(progressMonitor);
 	}
 
-
-	@Override
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
@@ -780,7 +774,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 class TreeLabelProvider implements ILabelProvider {
 
-	@Override
 	public Image getImage(Object element){
 		ImageDescriptor descriptor = null;
 		if (element instanceof Feature) {
@@ -793,7 +786,6 @@ class TreeLabelProvider implements ILabelProvider {
 		return image;
 	}
 
-	@Override
 	public String getText(Object element) {
 		if (element instanceof Feature) {
 			return ((Feature)element).getName();
@@ -804,21 +796,16 @@ class TreeLabelProvider implements ILabelProvider {
 		return null;
 	}
 
-	@Override
 	public void addListener(ILabelProviderListener listener) {		
 	}
 
-	@Override
 	public void dispose() {		
 		
-	}
-
-	@Override
+	}	
 	public boolean isLabelProperty(Object element, String property) {
 		return false;
 	}
 
-	@Override
 	public void removeListener(ILabelProviderListener listener) {
 		
 	}
@@ -827,7 +814,6 @@ class TreeLabelProvider implements ILabelProvider {
 
 class TreeContentProvider implements ITreeContentProvider {
 
-	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof Feature) {
 			Object [] children;
@@ -858,14 +844,12 @@ class TreeContentProvider implements ITreeContentProvider {
 			return null;
 	}
 
-	@Override
 	public Object getParent(Object element) {
 		if (element instanceof Feature) {
 		}
 		return null;
 	}
 
-	@Override
 	public boolean hasChildren(Object element) {
 		boolean children = true;
 		if (element instanceof Feature) {
@@ -892,16 +876,13 @@ class TreeContentProvider implements ITreeContentProvider {
 		return children;
 	}
 
-	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
-	@Override
 	public void dispose() {
 	}
 
-	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 				
 	}
