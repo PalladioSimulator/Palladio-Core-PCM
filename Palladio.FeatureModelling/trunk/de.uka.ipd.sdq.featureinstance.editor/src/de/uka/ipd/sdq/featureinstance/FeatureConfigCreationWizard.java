@@ -100,7 +100,6 @@ public class FeatureConfigCreationWizard extends Wizard implements INewWizard {
 		return resourceURI;
 	}
 	
-	@Override
 	public boolean performFinish() {
 		try {
 			resourceURI = page.getURI();
