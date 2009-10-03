@@ -116,24 +116,20 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	
 	protected Composite comp;
 	
-	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListener = listener;
 	}
 
-	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
 
-	@Override
 	public void removeSelectionChangedListener(
 			ISelectionChangedListener listener) {
 		selectionChangedListener = null;
 		
 	}
 
-	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 		selectionChangedListener.selectionChanged(new SelectionChangedEvent(this, selection));	
@@ -144,7 +140,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		super.firePropertyChange(action);
 	}
 	
-	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
