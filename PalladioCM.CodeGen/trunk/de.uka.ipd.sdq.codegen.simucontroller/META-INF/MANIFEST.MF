@@ -50,5 +50,6 @@ Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.pcm.transformations
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: de.uka.ipd.sdq.featureinstance
 
 

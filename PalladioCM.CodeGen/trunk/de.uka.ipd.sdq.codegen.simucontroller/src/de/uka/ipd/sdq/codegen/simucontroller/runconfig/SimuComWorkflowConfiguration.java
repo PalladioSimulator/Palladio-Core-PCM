@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import javax.management.RuntimeErrorException;
+
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 
@@ -64,21 +66,12 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 		
 	}
 
-	@Override
-	public boolean isValid() {
-		//TODO
-		return true;
-	}
-
-	@Override
-	public void setDefaults() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented. Error Message not yet specified.");
 	}
+
+	public void setDefaults() {
+		throw new RuntimeException("Not implemented. No defaults defined.");
+	}
+
 }

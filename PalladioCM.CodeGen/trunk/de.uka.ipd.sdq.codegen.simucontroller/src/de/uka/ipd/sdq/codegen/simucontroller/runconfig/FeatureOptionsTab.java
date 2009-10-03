@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.featureinstance;
+package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.featureinstance;
+package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
