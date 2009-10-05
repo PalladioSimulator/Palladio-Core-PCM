@@ -617,7 +617,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_zWMAuVYOEduVzvtHWuORYA" name="ProbabilityMassFunction">
       <generalization xmi:id="_zWMAulYOEduVzvtHWuORYA" general="_zWMAslYOEduVzvtHWuORYA"/>
-      <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" isUnique="false" aggregation="composite" association="_zWMAwFYOEduVzvtHWuORYA">
+      <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" aggregation="composite" association="_zWMAwFYOEduVzvtHWuORYA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zWMAvlYOEduVzvtHWuORYA" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAv1YOEduVzvtHWuORYA"/>
       </ownedAttribute>
@@ -643,7 +643,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAzFYOEduVzvtHWuORYA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_DeF1YWK-Edyb2N87dIPYvQ" name="values" visibility="public" type="_4Z2E0GK9Edyb2N87dIPYvQ" isUnique="false" aggregation="composite" association="_DeF1YGK-Edyb2N87dIPYvQ">
+      <ownedAttribute xmi:id="_DeF1YWK-Edyb2N87dIPYvQ" name="values" visibility="public" type="_4Z2E0GK9Edyb2N87dIPYvQ" aggregation="composite" association="_DeF1YGK-Edyb2N87dIPYvQ">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DePmYWK-Edyb2N87dIPYvQ" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DePmYGK-Edyb2N87dIPYvQ"/>
       </ownedAttribute>
