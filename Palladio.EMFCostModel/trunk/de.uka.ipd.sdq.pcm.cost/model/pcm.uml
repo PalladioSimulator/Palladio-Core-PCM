@@ -653,6 +653,13 @@ Interfaces can exist on their own, i.e., without any entity requesting or implem
             <body>This property represents the repository where this interface is stored.</body>
           </ownedComment>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_6qy54aOQEd6kDKmj84bKsg" name="requiredCharacterisations" visibility="public" type="_afEZQKOQEd6kDKmj84bKsg" aggregation="composite" association="_6qy54KOQEd6kDKmj84bKsg">
+          <ownedComment xmi:id="_p5ax8KOREd6kDKmj84bKsg" annotatedElement="_6qy54aOQEd6kDKmj84bKsg">
+            <body>documentation of required variable characterisations</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6qy546OQEd6kDKmj84bKsg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6qy54qOQEd6kDKmj84bKsg"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_4XfF4JJGEdqIo-u3cE9-DA" name="ImplementationComponentType" isAbstract="true">
         <ownedComment xmi:id="_HvyxAITKEd2vDt35AcA8Pg" annotatedElement="_4XfF4JJGEdqIo-u3cE9-DA">
@@ -984,6 +991,22 @@ the internal structure depends on the way the component is realised. In general,
           </ownedComment>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_afEZQKOQEd6kDKmj84bKsg" name="RequiredCharacterisation">
+        <ownedComment xmi:id="_QMObAKOREd6kDKmj84bKsg" annotatedElement="_afEZQKOQEd6kDKmj84bKsg">
+          <body>Specification of required variable characeterisations per parameter. Increases power of interfaces and lifts variable characterisations to the interface to enable extended interoperability checks.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_u0pyUKOQEd6kDKmj84bKsg" name="type" visibility="public" type="_Tuq2APIZEdqqVosRZMrxNA"/>
+        <ownedAttribute xmi:id="_9AGkYKOQEd6kDKmj84bKsg" name="parameter" visibility="public" type="_8b84gJJUEdqSSImFLKDkSg" association="_8_8zYKOQEd6kDKmj84bKsg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_6qy54KOQEd6kDKmj84bKsg" memberEnd="_6qy54aOQEd6kDKmj84bKsg _6qy55KOQEd6kDKmj84bKsg">
+        <ownedEnd xmi:id="_6qy55KOQEd6kDKmj84bKsg" name="" visibility="private" type="_cIR90JJJEdqSSImFLKDkSg" association="_6qy54KOQEd6kDKmj84bKsg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8_8zYKOQEd6kDKmj84bKsg" memberEnd="_9AGkYKOQEd6kDKmj84bKsg _9AGkYaOQEd6kDKmj84bKsg">
+        <ownedEnd xmi:id="_9AGkYaOQEd6kDKmj84bKsg" name="requiredCharacterisations" visibility="public" type="_afEZQKOQEd6kDKmj84bKsg" association="_8_8zYKOQEd6kDKmj84bKsg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-s4PQaOQEd6kDKmj84bKsg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-s4PQKOQEd6kDKmj84bKsg"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_HSHQoCh9Edue7oeC4NTCGg" name="protocol">
       <ownedComment xmi:id="_1W890KHbEd2av7jcZUzHwg" annotatedElement="_HSHQoCh9Edue7oeC4NTCGg">
@@ -1047,7 +1070,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedEnd xmi:id="_4KITIU-zEduuPYQnFiBybA" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_4KHsEE-zEduuPYQnFiBybA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MrdV4OQLEdqeH_WIC9QRew" name="ResourceEnvironment">
-        <ownedAttribute xmi:id="_XvtGceQLEdqeH_WIC9QRew" name="linkingresource" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" aggregation="composite" association="_XvtGcOQLEdqeH_WIC9QRew">
+        <ownedAttribute xmi:id="_XvtGceQLEdqeH_WIC9QRew" name="linkingResources__ResourceEnvironment" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" aggregation="composite" association="_XvtGcOQLEdqeH_WIC9QRew">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XvtGdOQLEdqeH_WIC9QRew" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XvtGc-QLEdqeH_WIC9QRew"/>
         </ownedAttribute>
@@ -1096,11 +1119,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_X5vv8OMeEdqaQsPH3rPnBQ" name="LinkingResource">
         <generalization xmi:id="_JuCrsOG1Edu65ZdUH81nfw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_ueHUweMeEdqaQsPH3rPnBQ" name="toResourceContainer_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_ueHUwOMeEdqaQsPH3rPnBQ">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W29rIeQMEdqeH_WIC9QRew" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W29rIOQMEdqeH_WIC9QRew"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_vOGnQeMeEdqaQsPH3rPnBQ" name="fromResourceContainer_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_vOGnQOMeEdqaQsPH3rPnBQ">
+        <ownedAttribute xmi:id="_vOGnQeMeEdqaQsPH3rPnBQ" name="connectedResourceContainers_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_vOGnQOMeEdqaQsPH3rPnBQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WFMP8eQMEdqeH_WIC9QRew" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WFMP8OQMEdqeH_WIC9QRew"/>
         </ownedAttribute>
@@ -1110,6 +1129,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_OSNYgOMfEdqaQsPH3rPnBQ" name="CommunicationLinkResourceSpecification">
+        <generalization xmi:id="_s4vKEKRSEd6yvqsRaRhDng">
+          <general xmi:type="uml:Class" href="identifier.uml#_UMp04JMWEdqSSImFLKDkSg"/>
+        </generalization>
         <ownedAttribute xmi:id="_a8pGcEIyEd6xDqQsjkcxUg" name="failureProbability" visibility="public">
           <ownedComment xmi:id="_uvkeYEIyEd6xDqQsjkcxUg" annotatedElement="_a8pGcEIyEd6xDqQsjkcxUg">
             <body>Specifies the probability that a service call over this communication link fails. The failure could be due to message loss or overload, for example.</body>
@@ -1141,9 +1163,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_dTV1YOMfEdqaQsPH3rPnBQ" memberEnd="_dTV1YeMfEdqaQsPH3rPnBQ _dTV1YuMfEdqaQsPH3rPnBQ">
         <ownedEnd xmi:id="_dTV1YuMfEdqaQsPH3rPnBQ" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" association="_dTV1YOMfEdqaQsPH3rPnBQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_ueHUwOMeEdqaQsPH3rPnBQ" memberEnd="_ueHUweMeEdqaQsPH3rPnBQ _ueHUwuMeEdqaQsPH3rPnBQ">
-        <ownedEnd xmi:id="_ueHUwuMeEdqaQsPH3rPnBQ" name="linkingresource" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" association="_ueHUwOMeEdqaQsPH3rPnBQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_vOGnQOMeEdqaQsPH3rPnBQ" memberEnd="_vOGnQeMeEdqaQsPH3rPnBQ _vOGnQuMeEdqaQsPH3rPnBQ">
         <ownedEnd xmi:id="_vOGnQuMeEdqaQsPH3rPnBQ" name="linkingresource2" visibility="private" type="_X5vv8OMeEdqaQsPH3rPnBQ" association="_vOGnQOMeEdqaQsPH3rPnBQ"/>
@@ -2757,4 +2776,6 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
   <Default:Documentation xmi:id="_MHpqQH2dEd61Z_3XFFo7Qg" base_Comment="_L-tJoH2dEd61Z_3XFFo7Qg"/>
   <Default:Documentation xmi:id="_fR1wwX2pEd61Z_3XFFo7Qg" base_Comment="_fR1wwH2pEd61Z_3XFFo7Qg"/>
+  <Default:Documentation xmi:id="_QMXk8KOREd6kDKmj84bKsg" base_Comment="_QMObAKOREd6kDKmj84bKsg"/>
+  <Default:Documentation xmi:id="_p5ax8aOREd6kDKmj84bKsg" base_Comment="_p5ax8KOREd6kDKmj84bKsg"/>
 </xmi:XMI>

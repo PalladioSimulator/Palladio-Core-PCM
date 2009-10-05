@@ -13,6 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Cost</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This class represents the cost of an Entity. The definition of the cost is deferred to the subclasses that have to define the value of the derived attribute. 
+ * 
+ * When using the Cost, you can read the initialCost to get the procurement cost for the system. The operating cost reflect cost to operate the system over time. Using the present value formula, both cost can be combined to total cost of ownership. 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -37,7 +43,7 @@ public interface Cost extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Annotated Element</em>' reference.
 	 * @see de.uka.ipd.sdq.pcm.cost.costPackage#getCost_AnnotatedElement()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model required="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	EObject getAnnotatedElement();

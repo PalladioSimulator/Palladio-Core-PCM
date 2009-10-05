@@ -15,9 +15,12 @@
         lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/RepositoryComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cost" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This class represents the cost of an Entity. The definition of the cost is deferred to the subclasses that have to define the value of the derived attribute. &#xD;&#xA;&#xD;&#xA;When using the Cost, you can read the initialCost to get the procurement cost for the system. The operating cost reflect cost to operate the system over time. Using the present value formula, both cost can be combined to total cost of ownership. "/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedElement" ordered="false"
         lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+        changeable="false" volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingCost" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         changeable="false" volatile="true" transient="true" derived="true">
@@ -74,7 +77,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CostRepository">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The cost repository is the root element of the cost model. It contains all costs for a PCM instance. &#xD;&#xA;&#xD;&#xA;At first, we assume that all costs in this repository are actually costs in the system. Later, if we have FixedProcessingResourceCost for certain types of, for example, CPUs, we have to check the model first which annotated elements are actually used. Same with alternative components. "/>
+      <details key="documentation" value="The cost repository is the root element of the cost model. It contains all costs for a PCM instance and for the different design alternatives. &#xD;&#xA;&#xD;&#xA;If we have FixedProcessingResourceCost for certain types of, for example, CPUs, we have to check the model first which annotated elements are actually used. Same with alternative components. Only used elements lead to overall cost of the system. "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cost" ordered="false" upperBound="-1"
         eType="#//Cost" containment="true"/>

@@ -908,5 +908,5 @@
       <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_KAOpsJu4Ed6tVp0qEMtCHg" base_Package="_SeWiQMX_EduPJbEsMYXjUQ" packageName="ecore" nsPrefix="ecore" nsURI="http://www.eclipse.org/emf/2002/Ecore" basePackage="org.eclipse.emf" prefix="ecore"/>
+  <Ecore:EPackage xmi:id="__U_sUbF_Ed6moe-uIL_C5w" base_Package="_SeWiQMX_EduPJbEsMYXjUQ" packageName="ecore" nsPrefix="ecore" nsURI="http://www.eclipse.org/emf/2002/Ecore" basePackage="org.eclipse.emf" prefix="ecore"/>
 </xmi:XMI>

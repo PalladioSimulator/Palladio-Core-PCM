@@ -98,6 +98,24 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_DeF1YGK-Edyb2N87dIPYvQ" memberEnd="_DeF1YWK-Edyb2N87dIPYvQ _DePmYmK-Edyb2N87dIPYvQ">
       <ownedEnd xmi:id="_DePmYmK-Edyb2N87dIPYvQ" name="" visibility="private" type="_zWMAyVYOEduVzvtHWuORYA" association="_DeF1YGK-Edyb2N87dIPYvQ"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_R6JF4J4hEd6tVp0qEMtCHg" name="LognormalDistribution">
+      <generalization xmi:id="_ZMi8gJ4hEd6tVp0qEMtCHg" general="_YqMRoGK8Edyb2N87dIPYvQ"/>
+      <ownedAttribute xmi:id="_T6cJsJ4hEd6tVp0qEMtCHg" name="mu" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_UYGWEJ4hEd6tVp0qEMtCHg" name="sigma" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_R3BHIJ4mEd6tVp0qEMtCHg" name="GammaDistribution">
+      <generalization xmi:id="_XzvkQJ4mEd6tVp0qEMtCHg" general="_YqMRoGK8Edyb2N87dIPYvQ"/>
+      <ownedAttribute xmi:id="_S6OQkJ4mEd6tVp0qEMtCHg" name="alpha" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_TvkkMJ4mEd6tVp0qEMtCHg" name="beta" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+    </packagedElement>
     <profileApplication xmi:id="_zsavY1YOEduVzvtHWuORYA">
       <eAnnotations xmi:id="_zsavZFYOEduVzvtHWuORYA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
