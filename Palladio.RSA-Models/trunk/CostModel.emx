@@ -158,7 +158,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_IHZVQPjoEd23O5YGd3Oe8g"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_IHZVMvjoEd23O5YGd3Oe8g" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IHZVM_joEd23O5YGd3Oe8g" x="3413" y="7487"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IHZVM_joEd23O5YGd3Oe8g" x="1585" y="7291"/>
         </children>
         <children xmi:id="_vCZ0cfjsEd23O5YGd3Oe8g" element="_vCZ0cPjsEd23O5YGd3Oe8g">
           <children xmi:id="_vCZ0dPjsEd23O5YGd3Oe8g" type="ImageCompartment">
@@ -642,6 +642,11 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2_wUsPhsEd23O5YGd3Oe8g" name="Cost" isAbstract="true">
+      <ownedComment xmi:id="_D00_ALEPEd6n_b6PB-SSeg" annotatedElement="_2_wUsPhsEd23O5YGd3Oe8g">
+        <body>This class represents the cost of an Entity. The definition of the cost is deferred to the subclasses that have to define the value of the derived attribute. &#xD;
+&#xD;
+When using the Cost, you can read the initialCost to get the procurement cost for the system. The operating cost reflect cost to operate the system over time. Using the present value formula, both cost can be combined to total cost of ownership. </body>
+      </ownedComment>
       <ownedAttribute xmi:id="_EAbrwCKpEd64q9HNdQ0aqw" name="annotatedElement" visibility="public" isReadOnly="true" isDerived="true">
         <type xmi:type="uml:Class" href="features/Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
       </ownedAttribute>
@@ -717,9 +722,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_vCZ0cPjsEd23O5YGd3Oe8g" name="CostRepository">
       <ownedComment xmi:id="_ZPyL8PkIEd23O5YGd3Oe8g" annotatedElement="_vCZ0cPjsEd23O5YGd3Oe8g">
-        <body>The cost repository is the root element of the cost model. It contains all costs for a PCM instance. &#xD;
+        <body>The cost repository is the root element of the cost model. It contains all costs for a PCM instance and for the different design alternatives. &#xD;
 &#xD;
-At first, we assume that all costs in this repository are actually costs in the system. Later, if we have FixedProcessingResourceCost for certain types of, for example, CPUs, we have to check the model first which annotated elements are actually used. Same with alternative components. </body>
+If we have FixedProcessingResourceCost for certain types of, for example, CPUs, we have to check the model first which annotated elements are actually used. Same with alternative components. Only used elements lead to overall cost of the system. </body>
       </ownedComment>
       <ownedAttribute xmi:id="_wzzgofjsEd23O5YGd3Oe8g" name="cost" visibility="private" type="_2_wUsPhsEd23O5YGd3Oe8g" aggregation="composite" association="_wzzgoPjsEd23O5YGd3Oe8g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wzzgo_jsEd23O5YGd3Oe8g" value="*"/>
@@ -766,4 +771,5 @@ At first, we assume that all costs in this repository are actually costs in the 
   <Ecore:EAttribute xmi:id="_m_VeoCKpEd64q9HNdQ0aqw" isTransient="true" isVolatile="true" base_Property="_EAbrwCKpEd64q9HNdQ0aqw" attributeName=""/>
   <Ecore:EAttribute xmi:id="_nDvcMJu4Ed6tVp0qEMtCHg" base_Property="_78AvwZuxEd6tVp0qEMtCHg"/>
   <Ecore:EAttribute xmi:id="_oDheMJu4Ed6tVp0qEMtCHg" base_Property="_ADm3QJuyEd6tVp0qEMtCHg"/>
+  <Default:Documentation xmi:id="_D0-wALEPEd6n_b6PB-SSeg" base_Comment="_D00_ALEPEd6n_b6PB-SSeg"/>
 </xmi:XMI>
