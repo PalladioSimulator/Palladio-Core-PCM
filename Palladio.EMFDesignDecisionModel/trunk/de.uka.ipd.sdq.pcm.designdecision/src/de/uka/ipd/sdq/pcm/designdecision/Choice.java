@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * todo von entities erben
+ * A Choice represents the choice of one value from the domain of a DegreeOfFreedom. The Choice links the DegreeOfFreedom for which it makes the choice. Additionally, it links one element of the domain of the DegreeOfFreedom. This linking is realised in subclasses of Choice, as it may be either PCM Entities or numbers. 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDesigndecision <em>Designdecision</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDegreeOfFreedom <em>Degree Of Freedom</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,29 +30,29 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Choice extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Designdecision</b></em>' reference.
+	 * Returns the value of the '<em><b>Degree Of Freedom</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Designdecision</em>' reference isn't clear,
+	 * If the meaning of the '<em>Degree Of Freedom</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Designdecision</em>' reference.
-	 * @see #setDesigndecision(DesignDecision)
-	 * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage#getChoice_Designdecision()
+	 * @return the value of the '<em>Degree Of Freedom</em>' reference.
+	 * @see #setDegreeOfFreedom(DegreeOfFreedom)
+	 * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage#getChoice_DegreeOfFreedom()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	DesignDecision getDesigndecision();
+	DegreeOfFreedom getDegreeOfFreedom();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDesigndecision <em>Designdecision</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDegreeOfFreedom <em>Degree Of Freedom</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Designdecision</em>' reference.
-	 * @see #getDesigndecision()
+	 * @param value the new value of the '<em>Degree Of Freedom</em>' reference.
+	 * @see #getDegreeOfFreedom()
 	 * @generated
 	 */
-	void setDesigndecision(DesignDecision value);
+	void setDegreeOfFreedom(DegreeOfFreedom value);
 
 } // Choice

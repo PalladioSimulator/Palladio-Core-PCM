@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Problem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Designdecision</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Designdecision</em>' containment reference list isn't clear,
@@ -41,6 +41,6 @@ public interface Problem extends EObject {
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	EList<DesignDecision> getDesigndecision();
+	EList<DegreeOfFreedom> getDesigndecision();
 
 } // Problem

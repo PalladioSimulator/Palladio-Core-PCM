@@ -22,6 +22,17 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * The DesignDecisions metamodel represents degrees of freedonm that can be exploited for optimisation.
+ * 
+ * The core idea is each degree of freedom can be represented by a DegreeOfFreedom element. Each DegreeOfFreedom has two parts: It links a model element that is the changeable entity in this DegreeOfFreedom, and it specifies a Domain of possible values that the model element can take. 
+ * 
+ * The actual making of a decision is represented in the Choice element. For a specific candidate architecture, one Choice for each DegreeOfFreedom in the Problem as to be made. The Choice contains a reference to the DegreeOfFreedom that it decides and a reference to a value from the DegreeOfFreedom's Domain that represent the selected value.  See the diagram "Design and Choice" for an overview of DegreeOfFreedom, Domain and Choice.
+ * 
+ * All of the above mentioned elements are abstract and are subclassed for the different generic degrees of freedom. For example, the degree of freedom of "component allocation" is represented in the AllocationDegree. See the documentation of each subclass of design decision for details. The diagram AssembledComponentDegree visualises the subclassing for the example degree of freedom of "component selection". 
+ * 
+ * 
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory
  * @model kind="package"
  * @generated
@@ -60,51 +71,32 @@ public interface designdecisionPackage extends EPackage {
 	designdecisionPackage eINSTANCE = de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DesignDecisionImpl <em>Design Decision</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DegreeOfFreedomImpl <em>Degree Of Freedom</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DesignDecisionImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDesignDecision()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DegreeOfFreedomImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDegreeOfFreedom()
 	 * @generated
 	 */
-	int DESIGN_DECISION = 0;
+	int DEGREE_OF_FREEDOM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGN_DECISION__DOMAIN = 0;
+	int DEGREE_OF_FREEDOM__CHANGEABLE_ENTITY = 0;
 
 	/**
-	 * The number of structural features of the '<em>Design Decision</em>' class.
+	 * The number of structural features of the '<em>Degree Of Freedom</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGN_DECISION_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DomainImpl <em>Domain</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DomainImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDomain()
-	 * @generated
-	 */
-	int DOMAIN = 1;
-
-	/**
-	 * The number of structural features of the '<em>Domain</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_FEATURE_COUNT = 0;
+	int DEGREE_OF_FREEDOM_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ChoiceImpl <em>Choice</em>}' class.
@@ -114,16 +106,16 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getChoice()
 	 * @generated
 	 */
-	int CHOICE = 2;
+	int CHOICE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Designdecision</b></em>' reference.
+	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHOICE__DESIGNDECISION = 0;
+	int CHOICE__DEGREE_OF_FREEDOM = 0;
 
 	/**
 	 * The number of structural features of the '<em>Choice</em>' class.
@@ -135,14 +127,23 @@ public interface designdecisionPackage extends EPackage {
 	int CHOICE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.RangeImpl <em>Range</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.RangeDegreeImpl <em>Range Degree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.RangeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.RangeDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getRangeDegree()
 	 * @generated
 	 */
-	int RANGE = 3;
+	int RANGE_DEGREE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_DEGREE__CHANGEABLE_ENTITY = DEGREE_OF_FREEDOM__CHANGEABLE_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
@@ -151,7 +152,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE__UPPER_BOUND_INCLUDED = DOMAIN_FEATURE_COUNT + 0;
+	int RANGE_DEGREE__UPPER_BOUND_INCLUDED = DEGREE_OF_FREEDOM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
@@ -160,332 +161,146 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE__LOWER_BOUND_INCLUDED = DOMAIN_FEATURE_COUNT + 1;
+	int RANGE_DEGREE__LOWER_BOUND_INCLUDED = DEGREE_OF_FREEDOM_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Range</em>' class.
+	 * The number of structural features of the '<em>Range Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE_FEATURE_COUNT = DOMAIN_FEATURE_COUNT + 2;
+	int RANGE_DEGREE_FEATURE_COUNT = DEGREE_OF_FREEDOM_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationImpl <em>Enumeration</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationDegreeImpl <em>Enumeration Degree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumeration()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumerationDegree()
 	 * @generated
 	 */
-	int ENUMERATION = 4;
+	int ENUMERATION_DEGREE = 3;
 
 	/**
-	 * The number of structural features of the '<em>Enumeration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATION_FEATURE_COUNT = DOMAIN_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EquivalentComponentsImpl <em>Equivalent Components</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EquivalentComponentsImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEquivalentComponents()
-	 * @generated
-	 */
-	int EQUIVALENT_COMPONENTS = 5;
-
-	/**
-	 * The feature id for the '<em><b>Repositorycomponent</b></em>' reference list.
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUIVALENT_COMPONENTS__REPOSITORYCOMPONENT = ENUMERATION_FEATURE_COUNT + 0;
+	int ENUMERATION_DEGREE__CHANGEABLE_ENTITY = DEGREE_OF_FREEDOM__CHANGEABLE_ENTITY;
 
 	/**
-	 * The number of structural features of the '<em>Equivalent Components</em>' class.
+	 * The feature id for the '<em><b>Domain Of Entities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EQUIVALENT_COMPONENTS_FEATURE_COUNT = ENUMERATION_FEATURE_COUNT + 1;
+	int ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES = DEGREE_OF_FREEDOM_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AvailableServersImpl <em>Available Servers</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AvailableServersImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAvailableServers()
-	 * @generated
-	 */
-	int AVAILABLE_SERVERS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Resourcecontainer</b></em>' reference list.
+	 * The number of structural features of the '<em>Enumeration Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_SERVERS__RESOURCECONTAINER = ENUMERATION_FEATURE_COUNT + 0;
+	int ENUMERATION_DEGREE_FEATURE_COUNT = DEGREE_OF_FREEDOM_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Available Servers</em>' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationChoiceImpl <em>Enumeration Choice</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationChoiceImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumerationChoice()
+	 * @generated
+	 */
+	int ENUMERATION_CHOICE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_SERVERS_FEATURE_COUNT = ENUMERATION_FEATURE_COUNT + 1;
+	int ENUMERATION_CHOICE__DEGREE_OF_FREEDOM = CHOICE__DEGREE_OF_FREEDOM;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ComponentChoiceImpl <em>Component Choice</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ComponentChoiceImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getComponentChoice()
-	 * @generated
-	 */
-	int COMPONENT_CHOICE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Designdecision</b></em>' reference.
+	 * The feature id for the '<em><b>Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_CHOICE__DESIGNDECISION = CHOICE__DESIGNDECISION;
+	int ENUMERATION_CHOICE__ENTITY = CHOICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Chosenrepositorycomponent</b></em>' reference.
+	 * The number of structural features of the '<em>Enumeration Choice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_CHOICE__CHOSENREPOSITORYCOMPONENT = CHOICE_FEATURE_COUNT + 0;
+	int ENUMERATION_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Component Choice</em>' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ContinousRangeChoiceImpl <em>Continous Range Choice</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ContinousRangeChoiceImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinousRangeChoice()
+	 * @generated
+	 */
+	int CONTINOUS_RANGE_CHOICE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
+	int CONTINOUS_RANGE_CHOICE__DEGREE_OF_FREEDOM = CHOICE__DEGREE_OF_FREEDOM;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationChoiceImpl <em>Allocation Choice</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationChoiceImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationChoice()
-	 * @generated
-	 */
-	int ALLOCATION_CHOICE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Designdecision</b></em>' reference.
+	 * The feature id for the '<em><b>Chosen Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_CHOICE__DESIGNDECISION = CHOICE__DESIGNDECISION;
+	int CONTINOUS_RANGE_CHOICE__CHOSEN_VALUE = CHOICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Chosenresourcecontainer</b></em>' reference.
+	 * The number of structural features of the '<em>Continous Range Choice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_CHOICE__CHOSENRESOURCECONTAINER = CHOICE_FEATURE_COUNT + 0;
+	int CONTINOUS_RANGE_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Allocation Choice</em>' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ContinuousRangeDegreeImpl <em>Continuous Range Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ContinuousRangeDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinuousRangeDegree()
+	 * @generated
+	 */
+	int CONTINUOUS_RANGE_DEGREE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateChoiceImpl <em>Processing Rate Choice</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateChoiceImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateChoice()
-	 * @generated
-	 */
-	int PROCESSING_RATE_CHOICE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Designdecision</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_CHOICE__DESIGNDECISION = CHOICE__DESIGNDECISION;
-
-	/**
-	 * The feature id for the '<em><b>Chosen Rate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_CHOICE__CHOSEN_RATE = CHOICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Processing Rate Choice</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDecisionImpl <em>Processing Rate Decision</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDecisionImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateDecision()
-	 * @generated
-	 */
-	int PROCESSING_RATE_DECISION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
-
-	/**
-	 * The feature id for the '<em><b>Processingresourcespecification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION = DESIGN_DECISION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resourcecontainer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_DECISION__RESOURCECONTAINER = DESIGN_DECISION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Processing Rate Decision</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RATE_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl <em>Allocation Decision</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationDecision()
-	 * @generated
-	 */
-	int ALLOCATION_DECISION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
-
-	/**
-	 * The feature id for the '<em><b>Allocationcontext</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_DECISION__ALLOCATIONCONTEXT = DESIGN_DECISION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Allocation Decision</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOCATION_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDecisionImpl <em>Assembled Component Decision</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDecisionImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAssembledComponentDecision()
-	 * @generated
-	 */
-	int ASSEMBLED_COMPONENT_DECISION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLED_COMPONENT_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
-
-	/**
-	 * The feature id for the '<em><b>Assemblycontext</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLED_COMPONENT_DECISION__ASSEMBLYCONTEXT = DESIGN_DECISION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Assembled Component Decision</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLED_COMPONENT_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.IntegerRangeImpl <em>Integer Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.IntegerRangeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getIntegerRange()
-	 * @generated
-	 */
-	int INTEGER_RANGE = 13;
+	int CONTINUOUS_RANGE_DEGREE__CHANGEABLE_ENTITY = RANGE_DEGREE__CHANGEABLE_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
@@ -494,7 +309,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_RANGE__UPPER_BOUND_INCLUDED = RANGE__UPPER_BOUND_INCLUDED;
+	int CONTINUOUS_RANGE_DEGREE__UPPER_BOUND_INCLUDED = RANGE_DEGREE__UPPER_BOUND_INCLUDED;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
@@ -503,7 +318,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_RANGE__LOWER_BOUND_INCLUDED = RANGE__LOWER_BOUND_INCLUDED;
+	int CONTINUOUS_RANGE_DEGREE__LOWER_BOUND_INCLUDED = RANGE_DEGREE__LOWER_BOUND_INCLUDED;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' attribute.
@@ -512,7 +327,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_RANGE__TO = RANGE_FEATURE_COUNT + 0;
+	int CONTINUOUS_RANGE_DEGREE__TO = RANGE_DEGREE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' attribute.
@@ -521,26 +336,35 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_RANGE__FROM = RANGE_FEATURE_COUNT + 1;
+	int CONTINUOUS_RANGE_DEGREE__FROM = RANGE_DEGREE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Integer Range</em>' class.
+	 * The number of structural features of the '<em>Continuous Range Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_RANGE_FEATURE_COUNT = RANGE_FEATURE_COUNT + 2;
+	int CONTINUOUS_RANGE_DEGREE_FEATURE_COUNT = RANGE_DEGREE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DoubleRangeImpl <em>Double Range</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDegreeImpl <em>Processing Rate Degree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DoubleRangeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDoubleRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateDegree()
 	 * @generated
 	 */
-	int DOUBLE_RANGE = 14;
+	int PROCESSING_RATE_DEGREE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RATE_DEGREE__CHANGEABLE_ENTITY = CONTINUOUS_RANGE_DEGREE__CHANGEABLE_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
@@ -549,7 +373,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_RANGE__UPPER_BOUND_INCLUDED = RANGE__UPPER_BOUND_INCLUDED;
+	int PROCESSING_RATE_DEGREE__UPPER_BOUND_INCLUDED = CONTINUOUS_RANGE_DEGREE__UPPER_BOUND_INCLUDED;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
@@ -558,7 +382,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_RANGE__LOWER_BOUND_INCLUDED = RANGE__LOWER_BOUND_INCLUDED;
+	int PROCESSING_RATE_DEGREE__LOWER_BOUND_INCLUDED = CONTINUOUS_RANGE_DEGREE__LOWER_BOUND_INCLUDED;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' attribute.
@@ -567,7 +391,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_RANGE__TO = RANGE_FEATURE_COUNT + 0;
+	int PROCESSING_RATE_DEGREE__TO = CONTINUOUS_RANGE_DEGREE__TO;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' attribute.
@@ -576,118 +400,264 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_RANGE__FROM = RANGE_FEATURE_COUNT + 1;
+	int PROCESSING_RATE_DEGREE__FROM = CONTINUOUS_RANGE_DEGREE__FROM;
 
 	/**
-	 * The number of structural features of the '<em>Double Range</em>' class.
+	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOUBLE_RANGE_FEATURE_COUNT = RANGE_FEATURE_COUNT + 2;
+	int PROCESSING_RATE_DEGREE__PROCESSINGRESOURCETYPE = CONTINUOUS_RANGE_DEGREE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationChoiceImpl <em>Resource Container Replication Choice</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationChoiceImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationChoice()
-	 * @generated
-	 */
-	int RESOURCE_CONTAINER_REPLICATION_CHOICE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Designdecision</b></em>' reference.
+	 * The number of structural features of the '<em>Processing Rate Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_CHOICE__DESIGNDECISION = CHOICE__DESIGNDECISION;
+	int PROCESSING_RATE_DEGREE_FEATURE_COUNT = CONTINUOUS_RANGE_DEGREE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Multiplicity Of Resource Container</b></em>' attribute.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDegreeImpl <em>Allocation Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationDegree()
+	 * @generated
+	 */
+	int ALLOCATION_DEGREE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_CHOICE__MULTIPLICITY_OF_RESOURCE_CONTAINER = CHOICE_FEATURE_COUNT + 0;
+	int ALLOCATION_DEGREE__CHANGEABLE_ENTITY = ENUMERATION_DEGREE__CHANGEABLE_ENTITY;
 
 	/**
-	 * The number of structural features of the '<em>Resource Container Replication Choice</em>' class.
+	 * The feature id for the '<em><b>Domain Of Entities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
+	int ALLOCATION_DEGREE__DOMAIN_OF_ENTITIES = ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDecisionImpl <em>Resource Container Replication Decision</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDecisionImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDecision()
-	 * @generated
-	 */
-	int RESOURCE_CONTAINER_REPLICATION_DECISION = 16;
-
-	/**
-	 * The feature id for the '<em><b>Domain</b></em>' containment reference.
+	 * The number of structural features of the '<em>Allocation Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DECISION__DOMAIN = DESIGN_DECISION__DOMAIN;
+	int ALLOCATION_DEGREE_FEATURE_COUNT = ENUMERATION_DEGREE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Resourcecontainer</b></em>' reference.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDegreeImpl <em>Assembled Component Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAssembledComponentDegree()
+	 * @generated
+	 */
+	int ASSEMBLED_COMPONENT_DEGREE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DECISION__RESOURCECONTAINER = DESIGN_DECISION_FEATURE_COUNT + 0;
+	int ASSEMBLED_COMPONENT_DEGREE__CHANGEABLE_ENTITY = ENUMERATION_DEGREE__CHANGEABLE_ENTITY;
 
 	/**
-	 * The number of structural features of the '<em>Resource Container Replication Decision</em>' class.
+	 * The feature id for the '<em><b>Domain Of Entities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DECISION_FEATURE_COUNT = DESIGN_DECISION_FEATURE_COUNT + 1;
+	int ASSEMBLED_COMPONENT_DEGREE__DOMAIN_OF_ENTITIES = ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.GenotypeImpl <em>Genotype</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.GenotypeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getGenotype()
-	 * @generated
-	 */
-	int GENOTYPE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Choice</b></em>' reference list.
+	 * The number of structural features of the '<em>Assembled Component Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENOTYPE__CHOICE = 0;
+	int ASSEMBLED_COMPONENT_DEGREE_FEATURE_COUNT = ENUMERATION_DEGREE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Genotype</em>' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeDegreeImpl <em>Discrete Range Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteRangeDegree()
+	 * @generated
+	 */
+	int DISCRETE_RANGE_DEGREE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENOTYPE_FEATURE_COUNT = 1;
+	int DISCRETE_RANGE_DEGREE__CHANGEABLE_ENTITY = RANGE_DEGREE__CHANGEABLE_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_DEGREE__UPPER_BOUND_INCLUDED = RANGE_DEGREE__UPPER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_DEGREE__LOWER_BOUND_INCLUDED = RANGE_DEGREE__LOWER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_DEGREE__TO = RANGE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_DEGREE__FROM = RANGE_DEGREE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Discrete Range Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_DEGREE_FEATURE_COUNT = RANGE_DEGREE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl <em>Discrete Range Choice</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteRangeChoice()
+	 * @generated
+	 */
+	int DISCRETE_RANGE_CHOICE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_CHOICE__DEGREE_OF_FREEDOM = CHOICE__DEGREE_OF_FREEDOM;
+
+	/**
+	 * The feature id for the '<em><b>Chosen Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_CHOICE__CHOSEN_VALUE = CHOICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Discrete Range Choice</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_RANGE_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeImpl <em>Resource Container Replication Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegree()
+	 * @generated
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE__CHANGEABLE_ENTITY = DISCRETE_RANGE_DEGREE__CHANGEABLE_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE__UPPER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__UPPER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE__LOWER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__LOWER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE__TO = DISCRETE_RANGE_DEGREE__TO;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE__FROM = DISCRETE_RANGE_DEGREE__FROM;
+
+	/**
+	 * The number of structural features of the '<em>Resource Container Replication Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_FEATURE_COUNT = DISCRETE_RANGE_DEGREE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProblemImpl <em>Problem</em>}' class.
@@ -697,7 +667,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProblem()
 	 * @generated
 	 */
-	int PROBLEM = 18;
+	int PROBLEM = 13;
 
 	/**
 	 * The feature id for the '<em><b>Designdecision</b></em>' containment reference list.
@@ -717,57 +687,129 @@ public interface designdecisionPackage extends EPackage {
 	 */
 	int PROBLEM_FEATURE_COUNT = 1;
 
-
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDegreeImpl <em>Connector Config Degree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDomain()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getConnectorConfigDegree()
 	 * @generated
 	 */
-	int DISCRETE_DOMAIN = 19;
+	int CONNECTOR_CONFIG_DEGREE = 14;
 
 	/**
-	 * The number of structural features of the '<em>Discrete Domain</em>' class.
+	 * The feature id for the '<em><b>Changeable Entity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISCRETE_DOMAIN_FEATURE_COUNT = 0;
+	int CONNECTOR_CONFIG_DEGREE__CHANGEABLE_ENTITY = ENUMERATION_DEGREE__CHANGEABLE_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Domain Of Entities</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_CONFIG_DEGREE__DOMAIN_OF_ENTITIES = ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES;
+
+	/**
+	 * The number of structural features of the '<em>Connector Config Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_CONFIG_DEGREE_FEATURE_COUNT = ENUMERATION_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.CandidateImpl <em>Candidate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.CandidateImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidate()
+	 * @generated
+	 */
+	int CANDIDATE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Choice</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANDIDATE__CHOICE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Candidate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANDIDATE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.CandidatesImpl <em>Candidates</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.CandidatesImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidates()
+	 * @generated
+	 */
+	int CANDIDATES = 16;
+
+	/**
+	 * The feature id for the '<em><b>Candidate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANDIDATES__CANDIDATE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Problem</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANDIDATES__PROBLEM = 1;
+
+	/**
+	 * The number of structural features of the '<em>Candidates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANDIDATES_FEATURE_COUNT = 2;
 
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision <em>Design Decision</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom <em>Degree Of Freedom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Design Decision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DesignDecision
+	 * @return the meta object for class '<em>Degree Of Freedom</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom
 	 * @generated
 	 */
-	EClass getDesignDecision();
+	EClass getDegreeOfFreedom();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision#getDomain <em>Domain</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom#getChangeableEntity <em>Changeable Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Domain</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DesignDecision#getDomain()
-	 * @see #getDesignDecision()
+	 * @return the meta object for the reference '<em>Changeable Entity</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom#getChangeableEntity()
+	 * @see #getDegreeOfFreedom()
 	 * @generated
 	 */
-	EReference getDesignDecision_Domain();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Domain <em>Domain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Domain</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Domain
-	 * @generated
-	 */
-	EClass getDomain();
+	EReference getDegreeOfFreedom_ChangeableEntity();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Choice <em>Choice</em>}'.
@@ -780,363 +822,246 @@ public interface designdecisionPackage extends EPackage {
 	EClass getChoice();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDesigndecision <em>Designdecision</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.Choice#getDegreeOfFreedom <em>Degree Of Freedom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Designdecision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Choice#getDesigndecision()
+	 * @return the meta object for the reference '<em>Degree Of Freedom</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Choice#getDegreeOfFreedom()
 	 * @see #getChoice()
 	 * @generated
 	 */
-	EReference getChoice_Designdecision();
+	EReference getChoice_DegreeOfFreedom();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Range <em>Range</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.RangeDegree <em>Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Range</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Range
+	 * @return the meta object for class '<em>Range Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.RangeDegree
 	 * @generated
 	 */
-	EClass getRange();
+	EClass getRangeDegree();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.Range#isUpperBoundIncluded <em>Upper Bound Included</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.RangeDegree#isUpperBoundIncluded <em>Upper Bound Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Upper Bound Included</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Range#isUpperBoundIncluded()
-	 * @see #getRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.RangeDegree#isUpperBoundIncluded()
+	 * @see #getRangeDegree()
 	 * @generated
 	 */
-	EAttribute getRange_UpperBoundIncluded();
+	EAttribute getRangeDegree_UpperBoundIncluded();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.Range#isLowerBoundIncluded <em>Lower Bound Included</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.RangeDegree#isLowerBoundIncluded <em>Lower Bound Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Lower Bound Included</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Range#isLowerBoundIncluded()
-	 * @see #getRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.RangeDegree#isLowerBoundIncluded()
+	 * @see #getRangeDegree()
 	 * @generated
 	 */
-	EAttribute getRange_LowerBoundIncluded();
+	EAttribute getRangeDegree_LowerBoundIncluded();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Enumeration <em>Enumeration</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree <em>Enumeration Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Enumeration</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Enumeration
+	 * @return the meta object for class '<em>Enumeration Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree
 	 * @generated
 	 */
-	EClass getEnumeration();
+	EClass getEnumerationDegree();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents <em>Equivalent Components</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree#getDomainOfEntities <em>Domain Of Entities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Equivalent Components</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents
+	 * @return the meta object for the reference list '<em>Domain Of Entities</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree#getDomainOfEntities()
+	 * @see #getEnumerationDegree()
 	 * @generated
 	 */
-	EClass getEquivalentComponents();
+	EReference getEnumerationDegree_DomainOfEntities();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents#getRepositorycomponent <em>Repositorycomponent</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice <em>Enumeration Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Repositorycomponent</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents#getRepositorycomponent()
-	 * @see #getEquivalentComponents()
+	 * @return the meta object for class '<em>Enumeration Choice</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice
 	 * @generated
 	 */
-	EReference getEquivalentComponents_Repositorycomponent();
+	EClass getEnumerationChoice();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AvailableServers <em>Available Servers</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice#getEntity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Available Servers</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AvailableServers
+	 * @return the meta object for the reference '<em>Entity</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice#getEntity()
+	 * @see #getEnumerationChoice()
 	 * @generated
 	 */
-	EClass getAvailableServers();
+	EReference getEnumerationChoice_Entity();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.designdecision.AvailableServers#getResourcecontainer <em>Resourcecontainer</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice <em>Continous Range Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resourcecontainer</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AvailableServers#getResourcecontainer()
-	 * @see #getAvailableServers()
+	 * @return the meta object for class '<em>Continous Range Choice</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice
 	 * @generated
 	 */
-	EReference getAvailableServers_Resourcecontainer();
+	EClass getContinousRangeChoice();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ComponentChoice <em>Component Choice</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice#getChosenValue <em>Chosen Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Component Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ComponentChoice
+	 * @return the meta object for the attribute '<em>Chosen Value</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice#getChosenValue()
+	 * @see #getContinousRangeChoice()
 	 * @generated
 	 */
-	EClass getComponentChoice();
+	EAttribute getContinousRangeChoice_ChosenValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ComponentChoice#getChosenrepositorycomponent <em>Chosenrepositorycomponent</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree <em>Processing Rate Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Chosenrepositorycomponent</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ComponentChoice#getChosenrepositorycomponent()
-	 * @see #getComponentChoice()
+	 * @return the meta object for class '<em>Processing Rate Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree
 	 * @generated
 	 */
-	EReference getComponentChoice_Chosenrepositorycomponent();
+	EClass getProcessingRateDegree();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationChoice <em>Allocation Choice</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree#getProcessingresourcetype <em>Processingresourcetype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Allocation Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationChoice
+	 * @return the meta object for the reference '<em>Processingresourcetype</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree#getProcessingresourcetype()
+	 * @see #getProcessingRateDegree()
 	 * @generated
 	 */
-	EClass getAllocationChoice();
+	EReference getProcessingRateDegree_Processingresourcetype();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationChoice#getChosenresourcecontainer <em>Chosenresourcecontainer</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree <em>Continuous Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Chosenresourcecontainer</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationChoice#getChosenresourcecontainer()
-	 * @see #getAllocationChoice()
+	 * @return the meta object for class '<em>Continuous Range Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree
 	 * @generated
 	 */
-	EReference getAllocationChoice_Chosenresourcecontainer();
+	EClass getContinuousRangeDegree();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice <em>Processing Rate Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Processing Rate Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice
-	 * @generated
-	 */
-	EClass getProcessingRateChoice();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice#getChosenRate <em>Chosen Rate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Chosen Rate</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice#getChosenRate()
-	 * @see #getProcessingRateChoice()
-	 * @generated
-	 */
-	EAttribute getProcessingRateChoice_ChosenRate();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision <em>Processing Rate Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Processing Rate Decision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision
-	 * @generated
-	 */
-	EClass getProcessingRateDecision();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getProcessingresourcespecification <em>Processingresourcespecification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Processingresourcespecification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getProcessingresourcespecification()
-	 * @see #getProcessingRateDecision()
-	 * @generated
-	 */
-	EReference getProcessingRateDecision_Processingresourcespecification();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getResourcecontainer <em>Resourcecontainer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resourcecontainer</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision#getResourcecontainer()
-	 * @see #getProcessingRateDecision()
-	 * @generated
-	 */
-	EReference getProcessingRateDecision_Resourcecontainer();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision <em>Allocation Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Allocation Decision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationDecision
-	 * @generated
-	 */
-	EClass getAllocationDecision();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision#getAllocationcontext <em>Allocationcontext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Allocationcontext</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationDecision#getAllocationcontext()
-	 * @see #getAllocationDecision()
-	 * @generated
-	 */
-	EReference getAllocationDecision_Allocationcontext();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision <em>Assembled Component Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assembled Component Decision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision
-	 * @generated
-	 */
-	EClass getAssembledComponentDecision();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision#getAssemblycontext <em>Assemblycontext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assemblycontext</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision#getAssemblycontext()
-	 * @see #getAssembledComponentDecision()
-	 * @generated
-	 */
-	EReference getAssembledComponentDecision_Assemblycontext();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange <em>Integer Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Integer Range</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.IntegerRange
-	 * @generated
-	 */
-	EClass getIntegerRange();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange#getTo <em>To</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>To</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.IntegerRange#getTo()
-	 * @see #getIntegerRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree#getTo()
+	 * @see #getContinuousRangeDegree()
 	 * @generated
 	 */
-	EAttribute getIntegerRange_To();
+	EAttribute getContinuousRangeDegree_To();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange#getFrom <em>From</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>From</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.IntegerRange#getFrom()
-	 * @see #getIntegerRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree#getFrom()
+	 * @see #getContinuousRangeDegree()
 	 * @generated
 	 */
-	EAttribute getIntegerRange_From();
+	EAttribute getContinuousRangeDegree_From();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange <em>Double Range</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDegree <em>Allocation Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Double Range</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DoubleRange
+	 * @return the meta object for class '<em>Allocation Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationDegree
 	 * @generated
 	 */
-	EClass getDoubleRange();
+	EClass getAllocationDegree();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange#getTo <em>To</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree <em>Assembled Component Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assembled Component Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree
+	 * @generated
+	 */
+	EClass getAssembledComponentDegree();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree <em>Discrete Range Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Discrete Range Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree
+	 * @generated
+	 */
+	EClass getDiscreteRangeDegree();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>To</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DoubleRange#getTo()
-	 * @see #getDoubleRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree#getTo()
+	 * @see #getDiscreteRangeDegree()
 	 * @generated
 	 */
-	EAttribute getDoubleRange_To();
+	EAttribute getDiscreteRangeDegree_To();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange#getFrom <em>From</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>From</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DoubleRange#getFrom()
-	 * @see #getDoubleRange()
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree#getFrom()
+	 * @see #getDiscreteRangeDegree()
 	 * @generated
 	 */
-	EAttribute getDoubleRange_From();
+	EAttribute getDiscreteRangeDegree_From();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice <em>Resource Container Replication Choice</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice <em>Discrete Range Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Container Replication Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice
+	 * @return the meta object for class '<em>Discrete Range Choice</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice
 	 * @generated
 	 */
-	EClass getResourceContainerReplicationChoice();
+	EClass getDiscreteRangeChoice();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice#getMultiplicityOfResourceContainer <em>Multiplicity Of Resource Container</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice#getChosenValue <em>Chosen Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiplicity Of Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice#getMultiplicityOfResourceContainer()
-	 * @see #getResourceContainerReplicationChoice()
+	 * @return the meta object for the attribute '<em>Chosen Value</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice#getChosenValue()
+	 * @see #getDiscreteRangeChoice()
 	 * @generated
 	 */
-	EAttribute getResourceContainerReplicationChoice_MultiplicityOfResourceContainer();
+	EAttribute getDiscreteRangeChoice_ChosenValue();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision <em>Resource Container Replication Decision</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree <em>Resource Container Replication Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Container Replication Decision</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision
+	 * @return the meta object for class '<em>Resource Container Replication Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree
 	 * @generated
 	 */
-	EClass getResourceContainerReplicationDecision();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision#getResourcecontainer <em>Resourcecontainer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resourcecontainer</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision#getResourcecontainer()
-	 * @see #getResourceContainerReplicationDecision()
-	 * @generated
-	 */
-	EReference getResourceContainerReplicationDecision_Resourcecontainer();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Genotype <em>Genotype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Genotype</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Genotype
-	 * @generated
-	 */
-	EClass getGenotype();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.designdecision.Genotype#getChoice <em>Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Genotype#getChoice()
-	 * @see #getGenotype()
-	 * @generated
-	 */
-	EReference getGenotype_Choice();
+	EClass getResourceContainerReplicationDegree();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Problem <em>Problem</em>}'.
@@ -1160,14 +1085,67 @@ public interface designdecisionPackage extends EPackage {
 	EReference getProblem_Designdecision();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree <em>Connector Config Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Discrete Domain</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+	 * @return the meta object for class '<em>Connector Config Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree
 	 * @generated
 	 */
-	EClass getDiscreteDomain();
+	EClass getConnectorConfigDegree();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Candidate <em>Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Candidate</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidate
+	 * @generated
+	 */
+	EClass getCandidate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.designdecision.Candidate#getChoice <em>Choice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Choice</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidate#getChoice()
+	 * @see #getCandidate()
+	 * @generated
+	 */
+	EReference getCandidate_Choice();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.Candidates <em>Candidates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Candidates</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidates
+	 * @generated
+	 */
+	EClass getCandidates();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.designdecision.Candidates#getCandidate <em>Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Candidate</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidates#getCandidate()
+	 * @see #getCandidates()
+	 * @generated
+	 */
+	EReference getCandidates_Candidate();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.Candidates#getProblem <em>Problem</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Problem</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidates#getProblem()
+	 * @see #getCandidates()
+	 * @generated
+	 */
+	EReference getCandidates_Problem();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1192,32 +1170,22 @@ public interface designdecisionPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DesignDecisionImpl <em>Design Decision</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DegreeOfFreedomImpl <em>Degree Of Freedom</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DesignDecisionImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDesignDecision()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DegreeOfFreedomImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDegreeOfFreedom()
 		 * @generated
 		 */
-		EClass DESIGN_DECISION = eINSTANCE.getDesignDecision();
+		EClass DEGREE_OF_FREEDOM = eINSTANCE.getDegreeOfFreedom();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Changeable Entity</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DESIGN_DECISION__DOMAIN = eINSTANCE.getDesignDecision_Domain();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DomainImpl <em>Domain</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DomainImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDomain()
-		 * @generated
-		 */
-		EClass DOMAIN = eINSTANCE.getDomain();
+		EReference DEGREE_OF_FREEDOM__CHANGEABLE_ENTITY = eINSTANCE.getDegreeOfFreedom_ChangeableEntity();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ChoiceImpl <em>Choice</em>}' class.
@@ -1230,22 +1198,22 @@ public interface designdecisionPackage extends EPackage {
 		EClass CHOICE = eINSTANCE.getChoice();
 
 		/**
-		 * The meta object literal for the '<em><b>Designdecision</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Degree Of Freedom</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CHOICE__DESIGNDECISION = eINSTANCE.getChoice_Designdecision();
+		EReference CHOICE__DEGREE_OF_FREEDOM = eINSTANCE.getChoice_DegreeOfFreedom();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.RangeImpl <em>Range</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.RangeDegreeImpl <em>Range Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.RangeImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getRange()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.RangeDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getRangeDegree()
 		 * @generated
 		 */
-		EClass RANGE = eINSTANCE.getRange();
+		EClass RANGE_DEGREE = eINSTANCE.getRangeDegree();
 
 		/**
 		 * The meta object literal for the '<em><b>Upper Bound Included</b></em>' attribute feature.
@@ -1253,7 +1221,7 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RANGE__UPPER_BOUND_INCLUDED = eINSTANCE.getRange_UpperBoundIncluded();
+		EAttribute RANGE_DEGREE__UPPER_BOUND_INCLUDED = eINSTANCE.getRangeDegree_UpperBoundIncluded();
 
 		/**
 		 * The meta object literal for the '<em><b>Lower Bound Included</b></em>' attribute feature.
@@ -1261,179 +1229,89 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RANGE__LOWER_BOUND_INCLUDED = eINSTANCE.getRange_LowerBoundIncluded();
+		EAttribute RANGE_DEGREE__LOWER_BOUND_INCLUDED = eINSTANCE.getRangeDegree_LowerBoundIncluded();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationImpl <em>Enumeration</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationDegreeImpl <em>Enumeration Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumeration()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumerationDegree()
 		 * @generated
 		 */
-		EClass ENUMERATION = eINSTANCE.getEnumeration();
+		EClass ENUMERATION_DEGREE = eINSTANCE.getEnumerationDegree();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EquivalentComponentsImpl <em>Equivalent Components</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EquivalentComponentsImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEquivalentComponents()
-		 * @generated
-		 */
-		EClass EQUIVALENT_COMPONENTS = eINSTANCE.getEquivalentComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>Repositorycomponent</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Domain Of Entities</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EQUIVALENT_COMPONENTS__REPOSITORYCOMPONENT = eINSTANCE.getEquivalentComponents_Repositorycomponent();
+		EReference ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES = eINSTANCE.getEnumerationDegree_DomainOfEntities();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AvailableServersImpl <em>Available Servers</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationChoiceImpl <em>Enumeration Choice</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AvailableServersImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAvailableServers()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumerationChoiceImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumerationChoice()
 		 * @generated
 		 */
-		EClass AVAILABLE_SERVERS = eINSTANCE.getAvailableServers();
+		EClass ENUMERATION_CHOICE = eINSTANCE.getEnumerationChoice();
 
 		/**
-		 * The meta object literal for the '<em><b>Resourcecontainer</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AVAILABLE_SERVERS__RESOURCECONTAINER = eINSTANCE.getAvailableServers_Resourcecontainer();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ComponentChoiceImpl <em>Component Choice</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ComponentChoiceImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getComponentChoice()
-		 * @generated
-		 */
-		EClass COMPONENT_CHOICE = eINSTANCE.getComponentChoice();
-
-		/**
-		 * The meta object literal for the '<em><b>Chosenrepositorycomponent</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_CHOICE__CHOSENREPOSITORYCOMPONENT = eINSTANCE.getComponentChoice_Chosenrepositorycomponent();
+		EReference ENUMERATION_CHOICE__ENTITY = eINSTANCE.getEnumerationChoice_Entity();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationChoiceImpl <em>Allocation Choice</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ContinousRangeChoiceImpl <em>Continous Range Choice</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationChoiceImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationChoice()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ContinousRangeChoiceImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinousRangeChoice()
 		 * @generated
 		 */
-		EClass ALLOCATION_CHOICE = eINSTANCE.getAllocationChoice();
+		EClass CONTINOUS_RANGE_CHOICE = eINSTANCE.getContinousRangeChoice();
 
 		/**
-		 * The meta object literal for the '<em><b>Chosenresourcecontainer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALLOCATION_CHOICE__CHOSENRESOURCECONTAINER = eINSTANCE.getAllocationChoice_Chosenresourcecontainer();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateChoiceImpl <em>Processing Rate Choice</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateChoiceImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateChoice()
-		 * @generated
-		 */
-		EClass PROCESSING_RATE_CHOICE = eINSTANCE.getProcessingRateChoice();
-
-		/**
-		 * The meta object literal for the '<em><b>Chosen Rate</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Chosen Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROCESSING_RATE_CHOICE__CHOSEN_RATE = eINSTANCE.getProcessingRateChoice_ChosenRate();
+		EAttribute CONTINOUS_RANGE_CHOICE__CHOSEN_VALUE = eINSTANCE.getContinousRangeChoice_ChosenValue();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDecisionImpl <em>Processing Rate Decision</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDegreeImpl <em>Processing Rate Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDecisionImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateDecision()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ProcessingRateDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getProcessingRateDegree()
 		 * @generated
 		 */
-		EClass PROCESSING_RATE_DECISION = eINSTANCE.getProcessingRateDecision();
+		EClass PROCESSING_RATE_DEGREE = eINSTANCE.getProcessingRateDegree();
 
 		/**
-		 * The meta object literal for the '<em><b>Processingresourcespecification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION = eINSTANCE.getProcessingRateDecision_Processingresourcespecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Resourcecontainer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Processingresourcetype</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROCESSING_RATE_DECISION__RESOURCECONTAINER = eINSTANCE.getProcessingRateDecision_Resourcecontainer();
+		EReference PROCESSING_RATE_DEGREE__PROCESSINGRESOURCETYPE = eINSTANCE.getProcessingRateDegree_Processingresourcetype();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl <em>Allocation Decision</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ContinuousRangeDegreeImpl <em>Continuous Range Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDecisionImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationDecision()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ContinuousRangeDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinuousRangeDegree()
 		 * @generated
 		 */
-		EClass ALLOCATION_DECISION = eINSTANCE.getAllocationDecision();
-
-		/**
-		 * The meta object literal for the '<em><b>Allocationcontext</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALLOCATION_DECISION__ALLOCATIONCONTEXT = eINSTANCE.getAllocationDecision_Allocationcontext();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDecisionImpl <em>Assembled Component Decision</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDecisionImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAssembledComponentDecision()
-		 * @generated
-		 */
-		EClass ASSEMBLED_COMPONENT_DECISION = eINSTANCE.getAssembledComponentDecision();
-
-		/**
-		 * The meta object literal for the '<em><b>Assemblycontext</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSEMBLED_COMPONENT_DECISION__ASSEMBLYCONTEXT = eINSTANCE.getAssembledComponentDecision_Assemblycontext();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.IntegerRangeImpl <em>Integer Range</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.IntegerRangeImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getIntegerRange()
-		 * @generated
-		 */
-		EClass INTEGER_RANGE = eINSTANCE.getIntegerRange();
+		EClass CONTINUOUS_RANGE_DEGREE = eINSTANCE.getContinuousRangeDegree();
 
 		/**
 		 * The meta object literal for the '<em><b>To</b></em>' attribute feature.
@@ -1441,7 +1319,7 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTEGER_RANGE__TO = eINSTANCE.getIntegerRange_To();
+		EAttribute CONTINUOUS_RANGE_DEGREE__TO = eINSTANCE.getContinuousRangeDegree_To();
 
 		/**
 		 * The meta object literal for the '<em><b>From</b></em>' attribute feature.
@@ -1449,17 +1327,37 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTEGER_RANGE__FROM = eINSTANCE.getIntegerRange_From();
+		EAttribute CONTINUOUS_RANGE_DEGREE__FROM = eINSTANCE.getContinuousRangeDegree_From();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DoubleRangeImpl <em>Double Range</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDegreeImpl <em>Allocation Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DoubleRangeImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDoubleRange()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AllocationDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAllocationDegree()
 		 * @generated
 		 */
-		EClass DOUBLE_RANGE = eINSTANCE.getDoubleRange();
+		EClass ALLOCATION_DEGREE = eINSTANCE.getAllocationDegree();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDegreeImpl <em>Assembled Component Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.AssembledComponentDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getAssembledComponentDegree()
+		 * @generated
+		 */
+		EClass ASSEMBLED_COMPONENT_DEGREE = eINSTANCE.getAssembledComponentDegree();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeDegreeImpl <em>Discrete Range Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteRangeDegree()
+		 * @generated
+		 */
+		EClass DISCRETE_RANGE_DEGREE = eINSTANCE.getDiscreteRangeDegree();
 
 		/**
 		 * The meta object literal for the '<em><b>To</b></em>' attribute feature.
@@ -1467,7 +1365,7 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DOUBLE_RANGE__TO = eINSTANCE.getDoubleRange_To();
+		EAttribute DISCRETE_RANGE_DEGREE__TO = eINSTANCE.getDiscreteRangeDegree_To();
 
 		/**
 		 * The meta object literal for the '<em><b>From</b></em>' attribute feature.
@@ -1475,61 +1373,35 @@ public interface designdecisionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DOUBLE_RANGE__FROM = eINSTANCE.getDoubleRange_From();
+		EAttribute DISCRETE_RANGE_DEGREE__FROM = eINSTANCE.getDiscreteRangeDegree_From();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationChoiceImpl <em>Resource Container Replication Choice</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl <em>Discrete Range Choice</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationChoiceImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationChoice()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteRangeChoice()
 		 * @generated
 		 */
-		EClass RESOURCE_CONTAINER_REPLICATION_CHOICE = eINSTANCE.getResourceContainerReplicationChoice();
+		EClass DISCRETE_RANGE_CHOICE = eINSTANCE.getDiscreteRangeChoice();
 
 		/**
-		 * The meta object literal for the '<em><b>Multiplicity Of Resource Container</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_CONTAINER_REPLICATION_CHOICE__MULTIPLICITY_OF_RESOURCE_CONTAINER = eINSTANCE.getResourceContainerReplicationChoice_MultiplicityOfResourceContainer();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDecisionImpl <em>Resource Container Replication Decision</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDecisionImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDecision()
-		 * @generated
-		 */
-		EClass RESOURCE_CONTAINER_REPLICATION_DECISION = eINSTANCE.getResourceContainerReplicationDecision();
-
-		/**
-		 * The meta object literal for the '<em><b>Resourcecontainer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Chosen Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_CONTAINER_REPLICATION_DECISION__RESOURCECONTAINER = eINSTANCE.getResourceContainerReplicationDecision_Resourcecontainer();
+		EAttribute DISCRETE_RANGE_CHOICE__CHOSEN_VALUE = eINSTANCE.getDiscreteRangeChoice_ChosenValue();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.GenotypeImpl <em>Genotype</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeImpl <em>Resource Container Replication Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.GenotypeImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getGenotype()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegree()
 		 * @generated
 		 */
-		EClass GENOTYPE = eINSTANCE.getGenotype();
-
-		/**
-		 * The meta object literal for the '<em><b>Choice</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENOTYPE__CHOICE = eINSTANCE.getGenotype_Choice();
+		EClass RESOURCE_CONTAINER_REPLICATION_DEGREE = eINSTANCE.getResourceContainerReplicationDegree();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ProblemImpl <em>Problem</em>}' class.
@@ -1550,14 +1422,58 @@ public interface designdecisionPackage extends EPackage {
 		EReference PROBLEM__DESIGNDECISION = eINSTANCE.getProblem_Designdecision();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDegreeImpl <em>Connector Config Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDomain()
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ConnectorConfigDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getConnectorConfigDegree()
 		 * @generated
 		 */
-		EClass DISCRETE_DOMAIN = eINSTANCE.getDiscreteDomain();
+		EClass CONNECTOR_CONFIG_DEGREE = eINSTANCE.getConnectorConfigDegree();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.CandidateImpl <em>Candidate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.CandidateImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidate()
+		 * @generated
+		 */
+		EClass CANDIDATE = eINSTANCE.getCandidate();
+
+		/**
+		 * The meta object literal for the '<em><b>Choice</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CANDIDATE__CHOICE = eINSTANCE.getCandidate_Choice();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.CandidatesImpl <em>Candidates</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.CandidatesImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidates()
+		 * @generated
+		 */
+		EClass CANDIDATES = eINSTANCE.getCandidates();
+
+		/**
+		 * The meta object literal for the '<em><b>Candidate</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CANDIDATES__CANDIDATE = eINSTANCE.getCandidates_Candidate();
+
+		/**
+		 * The meta object literal for the '<em><b>Problem</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CANDIDATES__PROBLEM = eINSTANCE.getCandidates_Problem();
 
 	}
 

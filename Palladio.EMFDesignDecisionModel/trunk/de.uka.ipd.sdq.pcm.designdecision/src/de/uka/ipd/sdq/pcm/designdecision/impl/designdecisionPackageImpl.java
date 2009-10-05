@@ -10,30 +10,34 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
-import de.uka.ipd.sdq.pcm.designdecision.AllocationChoice;
-import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
-import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
-import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
+import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree;
+import de.uka.ipd.sdq.pcm.designdecision.Candidate;
+import de.uka.ipd.sdq.pcm.designdecision.Candidates;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
-import de.uka.ipd.sdq.pcm.designdecision.ComponentChoice;
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
-import de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain;
-import de.uka.ipd.sdq.pcm.designdecision.Domain;
-import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
-import de.uka.ipd.sdq.pcm.designdecision.Enumeration;
-import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
-import de.uka.ipd.sdq.pcm.designdecision.Genotype;
-import de.uka.ipd.sdq.pcm.designdecision.IntegerRange;
+import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
+import de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice;
+import de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree;
+
+import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.PrimitiveTypesPackage;
+
+import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.impl.PrimitiveTypesPackageImpl;
+
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
-import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice;
-import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
-import de.uka.ipd.sdq.pcm.designdecision.Range;
-import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice;
-import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision;
+import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
+import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
+
+import de.uka.ipd.sdq.pcm.designdecision.util.designdecisionValidator;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
@@ -57,8 +61,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -74,14 +81,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass designDecisionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass domainEClass = null;
+	private EClass degreeOfFreedomEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,105 +95,77 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rangeEClass = null;
+	private EClass rangeDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass enumerationEClass = null;
+	private EClass enumerationDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass equivalentComponentsEClass = null;
+	private EClass enumerationChoiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass availableServersEClass = null;
+	private EClass continousRangeChoiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentChoiceEClass = null;
+	private EClass processingRateDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass allocationChoiceEClass = null;
+	private EClass continuousRangeDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass processingRateChoiceEClass = null;
+	private EClass allocationDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass processingRateDecisionEClass = null;
+	private EClass assembledComponentDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass allocationDecisionEClass = null;
+	private EClass discreteRangeDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass assembledComponentDecisionEClass = null;
+	private EClass discreteRangeChoiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass integerRangeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass doubleRangeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass resourceContainerReplicationChoiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass resourceContainerReplicationDecisionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass genotypeEClass = null;
+	private EClass resourceContainerReplicationDegreeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,7 +179,21 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass discreteDomainEClass = null;
+	private EClass connectorConfigDegreeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass candidateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass candidatesEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -279,11 +265,25 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		UsagemodelPackage.eINSTANCE.eClass();
 		SubsystemPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		PrimitiveTypesPackageImpl thePrimitiveTypesPackage = (PrimitiveTypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PrimitiveTypesPackage.eNS_URI) instanceof PrimitiveTypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PrimitiveTypesPackage.eNS_URI) : PrimitiveTypesPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		thedesigndecisionPackage.createPackageContents();
+		thePrimitiveTypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thedesigndecisionPackage.initializePackageContents();
+		thePrimitiveTypesPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(thedesigndecisionPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return designdecisionValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		thedesigndecisionPackage.freeze();
@@ -296,8 +296,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDesignDecision() {
-		return designDecisionEClass;
+	public EClass getDegreeOfFreedom() {
+		return degreeOfFreedomEClass;
 	}
 
 	/**
@@ -305,17 +305,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDesignDecision_Domain() {
-		return (EReference)designDecisionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDomain() {
-		return domainEClass;
+	public EReference getDegreeOfFreedom_ChangeableEntity() {
+		return (EReference)degreeOfFreedomEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -332,7 +323,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChoice_Designdecision() {
+	public EReference getChoice_DegreeOfFreedom() {
 		return (EReference)choiceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -341,8 +332,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRange() {
-		return rangeEClass;
+	public EClass getRangeDegree() {
+		return rangeDegreeEClass;
 	}
 
 	/**
@@ -350,8 +341,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRange_UpperBoundIncluded() {
-		return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRangeDegree_UpperBoundIncluded() {
+		return (EAttribute)rangeDegreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -359,8 +350,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRange_LowerBoundIncluded() {
-		return (EAttribute)rangeEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRangeDegree_LowerBoundIncluded() {
+		return (EAttribute)rangeDegreeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -368,8 +359,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEnumeration() {
-		return enumerationEClass;
+	public EClass getEnumerationDegree() {
+		return enumerationDegreeEClass;
 	}
 
 	/**
@@ -377,8 +368,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEquivalentComponents() {
-		return equivalentComponentsEClass;
+	public EReference getEnumerationDegree_DomainOfEntities() {
+		return (EReference)enumerationDegreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -386,8 +377,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEquivalentComponents_Repositorycomponent() {
-		return (EReference)equivalentComponentsEClass.getEStructuralFeatures().get(0);
+	public EClass getEnumerationChoice() {
+		return enumerationChoiceEClass;
 	}
 
 	/**
@@ -395,8 +386,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAvailableServers() {
-		return availableServersEClass;
+	public EReference getEnumerationChoice_Entity() {
+		return (EReference)enumerationChoiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -404,8 +395,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAvailableServers_Resourcecontainer() {
-		return (EReference)availableServersEClass.getEStructuralFeatures().get(0);
+	public EClass getContinousRangeChoice() {
+		return continousRangeChoiceEClass;
 	}
 
 	/**
@@ -413,8 +404,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponentChoice() {
-		return componentChoiceEClass;
+	public EAttribute getContinousRangeChoice_ChosenValue() {
+		return (EAttribute)continousRangeChoiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -422,8 +413,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponentChoice_Chosenrepositorycomponent() {
-		return (EReference)componentChoiceEClass.getEStructuralFeatures().get(0);
+	public EClass getProcessingRateDegree() {
+		return processingRateDegreeEClass;
 	}
 
 	/**
@@ -431,8 +422,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAllocationChoice() {
-		return allocationChoiceEClass;
+	public EReference getProcessingRateDegree_Processingresourcetype() {
+		return (EReference)processingRateDegreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -440,8 +431,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAllocationChoice_Chosenresourcecontainer() {
-		return (EReference)allocationChoiceEClass.getEStructuralFeatures().get(0);
+	public EClass getContinuousRangeDegree() {
+		return continuousRangeDegreeEClass;
 	}
 
 	/**
@@ -449,8 +440,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProcessingRateChoice() {
-		return processingRateChoiceEClass;
+	public EAttribute getContinuousRangeDegree_To() {
+		return (EAttribute)continuousRangeDegreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -458,8 +449,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcessingRateChoice_ChosenRate() {
-		return (EAttribute)processingRateChoiceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getContinuousRangeDegree_From() {
+		return (EAttribute)continuousRangeDegreeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -467,8 +458,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProcessingRateDecision() {
-		return processingRateDecisionEClass;
+	public EClass getAllocationDegree() {
+		return allocationDegreeEClass;
 	}
 
 	/**
@@ -476,8 +467,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProcessingRateDecision_Processingresourcespecification() {
-		return (EReference)processingRateDecisionEClass.getEStructuralFeatures().get(0);
+	public EClass getAssembledComponentDegree() {
+		return assembledComponentDegreeEClass;
 	}
 
 	/**
@@ -485,8 +476,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProcessingRateDecision_Resourcecontainer() {
-		return (EReference)processingRateDecisionEClass.getEStructuralFeatures().get(1);
+	public EClass getDiscreteRangeDegree() {
+		return discreteRangeDegreeEClass;
 	}
 
 	/**
@@ -494,8 +485,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAllocationDecision() {
-		return allocationDecisionEClass;
+	public EAttribute getDiscreteRangeDegree_To() {
+		return (EAttribute)discreteRangeDegreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -503,8 +494,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAllocationDecision_Allocationcontext() {
-		return (EReference)allocationDecisionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDiscreteRangeDegree_From() {
+		return (EAttribute)discreteRangeDegreeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -512,8 +503,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAssembledComponentDecision() {
-		return assembledComponentDecisionEClass;
+	public EClass getDiscreteRangeChoice() {
+		return discreteRangeChoiceEClass;
 	}
 
 	/**
@@ -521,8 +512,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssembledComponentDecision_Assemblycontext() {
-		return (EReference)assembledComponentDecisionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDiscreteRangeChoice_ChosenValue() {
+		return (EAttribute)discreteRangeChoiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -530,107 +521,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIntegerRange() {
-		return integerRangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntegerRange_To() {
-		return (EAttribute)integerRangeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntegerRange_From() {
-		return (EAttribute)integerRangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDoubleRange() {
-		return doubleRangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDoubleRange_To() {
-		return (EAttribute)doubleRangeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDoubleRange_From() {
-		return (EAttribute)doubleRangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResourceContainerReplicationChoice() {
-		return resourceContainerReplicationChoiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getResourceContainerReplicationChoice_MultiplicityOfResourceContainer() {
-		return (EAttribute)resourceContainerReplicationChoiceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResourceContainerReplicationDecision() {
-		return resourceContainerReplicationDecisionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceContainerReplicationDecision_Resourcecontainer() {
-		return (EReference)resourceContainerReplicationDecisionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGenotype() {
-		return genotypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenotype_Choice() {
-		return (EReference)genotypeEClass.getEStructuralFeatures().get(0);
+	public EClass getResourceContainerReplicationDegree() {
+		return resourceContainerReplicationDegreeEClass;
 	}
 
 	/**
@@ -656,8 +548,53 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDiscreteDomain() {
-		return discreteDomainEClass;
+	public EClass getConnectorConfigDegree() {
+		return connectorConfigDegreeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCandidate() {
+		return candidateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCandidate_Choice() {
+		return (EReference)candidateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCandidates() {
+		return candidatesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCandidates_Candidate() {
+		return (EReference)candidatesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCandidates_Problem() {
+		return (EReference)candidatesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -688,66 +625,56 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		isCreated = true;
 
 		// Create classes and their features
-		designDecisionEClass = createEClass(DESIGN_DECISION);
-		createEReference(designDecisionEClass, DESIGN_DECISION__DOMAIN);
-
-		domainEClass = createEClass(DOMAIN);
+		degreeOfFreedomEClass = createEClass(DEGREE_OF_FREEDOM);
+		createEReference(degreeOfFreedomEClass, DEGREE_OF_FREEDOM__CHANGEABLE_ENTITY);
 
 		choiceEClass = createEClass(CHOICE);
-		createEReference(choiceEClass, CHOICE__DESIGNDECISION);
+		createEReference(choiceEClass, CHOICE__DEGREE_OF_FREEDOM);
 
-		rangeEClass = createEClass(RANGE);
-		createEAttribute(rangeEClass, RANGE__UPPER_BOUND_INCLUDED);
-		createEAttribute(rangeEClass, RANGE__LOWER_BOUND_INCLUDED);
+		rangeDegreeEClass = createEClass(RANGE_DEGREE);
+		createEAttribute(rangeDegreeEClass, RANGE_DEGREE__UPPER_BOUND_INCLUDED);
+		createEAttribute(rangeDegreeEClass, RANGE_DEGREE__LOWER_BOUND_INCLUDED);
 
-		enumerationEClass = createEClass(ENUMERATION);
+		enumerationDegreeEClass = createEClass(ENUMERATION_DEGREE);
+		createEReference(enumerationDegreeEClass, ENUMERATION_DEGREE__DOMAIN_OF_ENTITIES);
 
-		equivalentComponentsEClass = createEClass(EQUIVALENT_COMPONENTS);
-		createEReference(equivalentComponentsEClass, EQUIVALENT_COMPONENTS__REPOSITORYCOMPONENT);
+		enumerationChoiceEClass = createEClass(ENUMERATION_CHOICE);
+		createEReference(enumerationChoiceEClass, ENUMERATION_CHOICE__ENTITY);
 
-		availableServersEClass = createEClass(AVAILABLE_SERVERS);
-		createEReference(availableServersEClass, AVAILABLE_SERVERS__RESOURCECONTAINER);
+		continousRangeChoiceEClass = createEClass(CONTINOUS_RANGE_CHOICE);
+		createEAttribute(continousRangeChoiceEClass, CONTINOUS_RANGE_CHOICE__CHOSEN_VALUE);
 
-		componentChoiceEClass = createEClass(COMPONENT_CHOICE);
-		createEReference(componentChoiceEClass, COMPONENT_CHOICE__CHOSENREPOSITORYCOMPONENT);
+		processingRateDegreeEClass = createEClass(PROCESSING_RATE_DEGREE);
+		createEReference(processingRateDegreeEClass, PROCESSING_RATE_DEGREE__PROCESSINGRESOURCETYPE);
 
-		allocationChoiceEClass = createEClass(ALLOCATION_CHOICE);
-		createEReference(allocationChoiceEClass, ALLOCATION_CHOICE__CHOSENRESOURCECONTAINER);
+		continuousRangeDegreeEClass = createEClass(CONTINUOUS_RANGE_DEGREE);
+		createEAttribute(continuousRangeDegreeEClass, CONTINUOUS_RANGE_DEGREE__TO);
+		createEAttribute(continuousRangeDegreeEClass, CONTINUOUS_RANGE_DEGREE__FROM);
 
-		processingRateChoiceEClass = createEClass(PROCESSING_RATE_CHOICE);
-		createEAttribute(processingRateChoiceEClass, PROCESSING_RATE_CHOICE__CHOSEN_RATE);
+		allocationDegreeEClass = createEClass(ALLOCATION_DEGREE);
 
-		processingRateDecisionEClass = createEClass(PROCESSING_RATE_DECISION);
-		createEReference(processingRateDecisionEClass, PROCESSING_RATE_DECISION__PROCESSINGRESOURCESPECIFICATION);
-		createEReference(processingRateDecisionEClass, PROCESSING_RATE_DECISION__RESOURCECONTAINER);
+		assembledComponentDegreeEClass = createEClass(ASSEMBLED_COMPONENT_DEGREE);
 
-		allocationDecisionEClass = createEClass(ALLOCATION_DECISION);
-		createEReference(allocationDecisionEClass, ALLOCATION_DECISION__ALLOCATIONCONTEXT);
+		discreteRangeDegreeEClass = createEClass(DISCRETE_RANGE_DEGREE);
+		createEAttribute(discreteRangeDegreeEClass, DISCRETE_RANGE_DEGREE__TO);
+		createEAttribute(discreteRangeDegreeEClass, DISCRETE_RANGE_DEGREE__FROM);
 
-		assembledComponentDecisionEClass = createEClass(ASSEMBLED_COMPONENT_DECISION);
-		createEReference(assembledComponentDecisionEClass, ASSEMBLED_COMPONENT_DECISION__ASSEMBLYCONTEXT);
+		discreteRangeChoiceEClass = createEClass(DISCRETE_RANGE_CHOICE);
+		createEAttribute(discreteRangeChoiceEClass, DISCRETE_RANGE_CHOICE__CHOSEN_VALUE);
 
-		integerRangeEClass = createEClass(INTEGER_RANGE);
-		createEAttribute(integerRangeEClass, INTEGER_RANGE__TO);
-		createEAttribute(integerRangeEClass, INTEGER_RANGE__FROM);
-
-		doubleRangeEClass = createEClass(DOUBLE_RANGE);
-		createEAttribute(doubleRangeEClass, DOUBLE_RANGE__TO);
-		createEAttribute(doubleRangeEClass, DOUBLE_RANGE__FROM);
-
-		resourceContainerReplicationChoiceEClass = createEClass(RESOURCE_CONTAINER_REPLICATION_CHOICE);
-		createEAttribute(resourceContainerReplicationChoiceEClass, RESOURCE_CONTAINER_REPLICATION_CHOICE__MULTIPLICITY_OF_RESOURCE_CONTAINER);
-
-		resourceContainerReplicationDecisionEClass = createEClass(RESOURCE_CONTAINER_REPLICATION_DECISION);
-		createEReference(resourceContainerReplicationDecisionEClass, RESOURCE_CONTAINER_REPLICATION_DECISION__RESOURCECONTAINER);
-
-		genotypeEClass = createEClass(GENOTYPE);
-		createEReference(genotypeEClass, GENOTYPE__CHOICE);
+		resourceContainerReplicationDegreeEClass = createEClass(RESOURCE_CONTAINER_REPLICATION_DEGREE);
 
 		problemEClass = createEClass(PROBLEM);
 		createEReference(problemEClass, PROBLEM__DESIGNDECISION);
 
-		discreteDomainEClass = createEClass(DISCRETE_DOMAIN);
+		connectorConfigDegreeEClass = createEClass(CONNECTOR_CONFIG_DEGREE);
+
+		candidateEClass = createEClass(CANDIDATE);
+		createEReference(candidateEClass, CANDIDATE__CHOICE);
+
+		candidatesEClass = createEClass(CANDIDATES);
+		createEReference(candidatesEClass, CANDIDATES__CANDIDATE);
+		createEReference(candidatesEClass, CANDIDATES__PROBLEM);
 	}
 
 	/**
@@ -774,92 +701,91 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
-		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		PrimitiveTypesPackage thePrimitiveTypesPackage = (PrimitiveTypesPackage)EPackage.Registry.INSTANCE.getEPackage(PrimitiveTypesPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(thePrimitiveTypesPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		rangeEClass.getESuperTypes().add(this.getDomain());
-		enumerationEClass.getESuperTypes().add(this.getDomain());
-		equivalentComponentsEClass.getESuperTypes().add(this.getEnumeration());
-		availableServersEClass.getESuperTypes().add(this.getEnumeration());
-		componentChoiceEClass.getESuperTypes().add(this.getChoice());
-		allocationChoiceEClass.getESuperTypes().add(this.getChoice());
-		processingRateChoiceEClass.getESuperTypes().add(this.getChoice());
-		processingRateDecisionEClass.getESuperTypes().add(this.getDesignDecision());
-		allocationDecisionEClass.getESuperTypes().add(this.getDesignDecision());
-		assembledComponentDecisionEClass.getESuperTypes().add(this.getDesignDecision());
-		integerRangeEClass.getESuperTypes().add(this.getRange());
-		doubleRangeEClass.getESuperTypes().add(this.getRange());
-		resourceContainerReplicationChoiceEClass.getESuperTypes().add(this.getChoice());
-		resourceContainerReplicationDecisionEClass.getESuperTypes().add(this.getDesignDecision());
+		rangeDegreeEClass.getESuperTypes().add(this.getDegreeOfFreedom());
+		enumerationDegreeEClass.getESuperTypes().add(this.getDegreeOfFreedom());
+		enumerationChoiceEClass.getESuperTypes().add(this.getChoice());
+		continousRangeChoiceEClass.getESuperTypes().add(this.getChoice());
+		processingRateDegreeEClass.getESuperTypes().add(this.getContinuousRangeDegree());
+		continuousRangeDegreeEClass.getESuperTypes().add(this.getRangeDegree());
+		allocationDegreeEClass.getESuperTypes().add(this.getEnumerationDegree());
+		assembledComponentDegreeEClass.getESuperTypes().add(this.getEnumerationDegree());
+		discreteRangeDegreeEClass.getESuperTypes().add(this.getRangeDegree());
+		discreteRangeChoiceEClass.getESuperTypes().add(this.getChoice());
+		resourceContainerReplicationDegreeEClass.getESuperTypes().add(this.getDiscreteRangeDegree());
+		connectorConfigDegreeEClass.getESuperTypes().add(this.getEnumerationDegree());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(designDecisionEClass, DesignDecision.class, "DesignDecision", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDesignDecision_Domain(), this.getDomain(), null, "domain", null, 1, 1, DesignDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(domainEClass, Domain.class, "Domain", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(degreeOfFreedomEClass, DegreeOfFreedom.class, "DegreeOfFreedom", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDegreeOfFreedom_ChangeableEntity(), theEntityPackage.getEntity(), null, "changeableEntity", null, 1, 1, DegreeOfFreedom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(choiceEClass, Choice.class, "Choice", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChoice_Designdecision(), this.getDesignDecision(), null, "designdecision", null, 1, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getChoice_DegreeOfFreedom(), this.getDegreeOfFreedom(), null, "degreeOfFreedom", null, 1, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(rangeEClass, Range.class, "Range", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRange_UpperBoundIncluded(), ecorePackage.getEBoolean(), "upperBoundIncluded", "true", 1, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRange_LowerBoundIncluded(), ecorePackage.getEBoolean(), "lowerBoundIncluded", "true", 1, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(rangeDegreeEClass, RangeDegree.class, "RangeDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRangeDegree_UpperBoundIncluded(), ecorePackage.getEBoolean(), "upperBoundIncluded", "true", 1, 1, RangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRangeDegree_LowerBoundIncluded(), ecorePackage.getEBoolean(), "lowerBoundIncluded", "true", 1, 1, RangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(enumerationEClass, Enumeration.class, "Enumeration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(enumerationDegreeEClass, EnumerationDegree.class, "EnumerationDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnumerationDegree_DomainOfEntities(), theEntityPackage.getEntity(), null, "domainOfEntities", null, 1, -1, EnumerationDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(equivalentComponentsEClass, EquivalentComponents.class, "EquivalentComponents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEquivalentComponents_Repositorycomponent(), theRepositoryPackage.getRepositoryComponent(), null, "repositorycomponent", null, 1, -1, EquivalentComponents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(enumerationChoiceEClass, EnumerationChoice.class, "EnumerationChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnumerationChoice_Entity(), theEntityPackage.getEntity(), null, "entity", null, 0, 1, EnumerationChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(availableServersEClass, AvailableServers.class, "AvailableServers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAvailableServers_Resourcecontainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourcecontainer", null, 1, -1, AvailableServers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(continousRangeChoiceEClass, ContinousRangeChoice.class, "ContinousRangeChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContinousRangeChoice_ChosenValue(), thePrimitiveTypesPackage.getdouble(), "chosenValue", null, 1, 1, ContinousRangeChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(componentChoiceEClass, ComponentChoice.class, "ComponentChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentChoice_Chosenrepositorycomponent(), theRepositoryPackage.getRepositoryComponent(), null, "chosenrepositorycomponent", null, 0, 1, ComponentChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(processingRateDegreeEClass, ProcessingRateDegree.class, "ProcessingRateDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProcessingRateDegree_Processingresourcetype(), theResourcetypePackage.getProcessingResourceType(), null, "processingresourcetype", null, 1, 1, ProcessingRateDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(allocationChoiceEClass, AllocationChoice.class, "AllocationChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAllocationChoice_Chosenresourcecontainer(), theResourceenvironmentPackage.getResourceContainer(), null, "chosenresourcecontainer", null, 0, 1, AllocationChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(continuousRangeDegreeEClass, ContinuousRangeDegree.class, "ContinuousRangeDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContinuousRangeDegree_To(), ecorePackage.getEDouble(), "to", null, 1, 1, ContinuousRangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getContinuousRangeDegree_From(), ecorePackage.getEDouble(), "from", null, 1, 1, ContinuousRangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(processingRateChoiceEClass, ProcessingRateChoice.class, "ProcessingRateChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProcessingRateChoice_ChosenRate(), ecorePackage.getEDouble(), "chosenRate", null, 1, 1, ProcessingRateChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(allocationDegreeEClass, AllocationDegree.class, "AllocationDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(processingRateDecisionEClass, ProcessingRateDecision.class, "ProcessingRateDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcessingRateDecision_Processingresourcespecification(), theResourceenvironmentPackage.getProcessingResourceSpecification(), null, "processingresourcespecification", null, 1, 1, ProcessingRateDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProcessingRateDecision_Resourcecontainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourcecontainer", null, 0, 1, ProcessingRateDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(assembledComponentDegreeEClass, AssembledComponentDegree.class, "AssembledComponentDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(allocationDecisionEClass, AllocationDecision.class, "AllocationDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAllocationDecision_Allocationcontext(), theAllocationPackage.getAllocationContext(), null, "allocationcontext", null, 1, 1, AllocationDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(discreteRangeDegreeEClass, DiscreteRangeDegree.class, "DiscreteRangeDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiscreteRangeDegree_To(), ecorePackage.getEInt(), "to", null, 1, 1, DiscreteRangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDiscreteRangeDegree_From(), ecorePackage.getEInt(), "from", null, 1, 1, DiscreteRangeDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(assembledComponentDecisionEClass, AssembledComponentDecision.class, "AssembledComponentDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssembledComponentDecision_Assemblycontext(), theCompositionPackage.getAssemblyContext(), null, "assemblycontext", null, 1, 1, AssembledComponentDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(discreteRangeChoiceEClass, DiscreteRangeChoice.class, "DiscreteRangeChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiscreteRangeChoice_ChosenValue(), ecorePackage.getEInt(), "chosenValue", null, 1, 1, DiscreteRangeChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(integerRangeEClass, IntegerRange.class, "IntegerRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerRange_To(), ecorePackage.getEInt(), "to", null, 1, 1, IntegerRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIntegerRange_From(), ecorePackage.getEInt(), "from", null, 1, 1, IntegerRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(doubleRangeEClass, DoubleRange.class, "DoubleRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDoubleRange_To(), ecorePackage.getEDouble(), "to", null, 1, 1, DoubleRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDoubleRange_From(), ecorePackage.getEDouble(), "from", null, 1, 1, DoubleRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(resourceContainerReplicationChoiceEClass, ResourceContainerReplicationChoice.class, "ResourceContainerReplicationChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceContainerReplicationChoice_MultiplicityOfResourceContainer(), ecorePackage.getEInt(), "multiplicityOfResourceContainer", null, 1, 1, ResourceContainerReplicationChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(resourceContainerReplicationDecisionEClass, ResourceContainerReplicationDecision.class, "ResourceContainerReplicationDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceContainerReplicationDecision_Resourcecontainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourcecontainer", null, 0, 1, ResourceContainerReplicationDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(genotypeEClass, Genotype.class, "Genotype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGenotype_Choice(), this.getChoice(), null, "choice", null, 1, -1, Genotype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(resourceContainerReplicationDegreeEClass, ResourceContainerReplicationDegree.class, "ResourceContainerReplicationDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(problemEClass, Problem.class, "Problem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProblem_Designdecision(), this.getDesignDecision(), null, "designdecision", null, 1, -1, Problem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProblem_Designdecision(), this.getDegreeOfFreedom(), null, "designdecision", null, 1, -1, Problem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(discreteDomainEClass, DiscreteDomain.class, "DiscreteDomain", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(connectorConfigDegreeEClass, ConnectorConfigDegree.class, "ConnectorConfigDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(candidateEClass, Candidate.class, "Candidate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCandidate_Choice(), this.getChoice(), null, "choice", null, 0, -1, Candidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(candidatesEClass, Candidates.class, "Candidates", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCandidates_Candidate(), this.getCandidate(), null, "candidate", null, 0, -1, Candidates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCandidates_Problem(), this.getProblem(), null, "problem", null, 1, 1, Candidates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(candidatesEClass, ecorePackage.getEBoolean(), "numberOfChoicesMustEqualNumberOfDecisions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

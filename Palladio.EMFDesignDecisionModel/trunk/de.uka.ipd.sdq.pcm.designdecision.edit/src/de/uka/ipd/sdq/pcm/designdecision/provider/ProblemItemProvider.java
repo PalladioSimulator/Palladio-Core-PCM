@@ -154,22 +154,27 @@ public class ProblemItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
-				 designdecisionFactory.eINSTANCE.createProcessingRateDecision()));
+				 designdecisionFactory.eINSTANCE.createProcessingRateDegree()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
-				 designdecisionFactory.eINSTANCE.createAllocationDecision()));
+				 designdecisionFactory.eINSTANCE.createAllocationDegree()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
-				 designdecisionFactory.eINSTANCE.createAssembledComponentDecision()));
+				 designdecisionFactory.eINSTANCE.createAssembledComponentDegree()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
-				 designdecisionFactory.eINSTANCE.createResourceContainerReplicationDecision()));
+				 designdecisionFactory.eINSTANCE.createResourceContainerReplicationDegree()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.PROBLEM__DESIGNDECISION,
+				 designdecisionFactory.eINSTANCE.createConnectorConfigDegree()));
 	}
 
 	/**

@@ -61,25 +61,25 @@ public class ChoiceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDesigndecisionPropertyDescriptor(object);
+			addDegreeOfFreedomPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Designdecision feature.
+	 * This adds a property descriptor for the Degree Of Freedom feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDesigndecisionPropertyDescriptor(Object object) {
+	protected void addDegreeOfFreedomPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Choice_designdecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Choice_designdecision_feature", "_UI_Choice_type"),
-				 designdecisionPackage.Literals.CHOICE__DESIGNDECISION,
+				 getString("_UI_Choice_degreeOfFreedom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Choice_degreeOfFreedom_feature", "_UI_Choice_type"),
+				 designdecisionPackage.Literals.CHOICE__DEGREE_OF_FREEDOM,
 				 true,
 				 false,
 				 true,

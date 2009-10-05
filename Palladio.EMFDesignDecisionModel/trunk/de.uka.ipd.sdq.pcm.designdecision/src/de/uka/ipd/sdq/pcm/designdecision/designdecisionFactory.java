@@ -26,121 +26,67 @@ public interface designdecisionFactory extends EFactory {
 	designdecisionFactory eINSTANCE = de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Equivalent Components</em>'.
+	 * Returns a new object of class '<em>Enumeration Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Equivalent Components</em>'.
+	 * @return a new object of class '<em>Enumeration Choice</em>'.
 	 * @generated
 	 */
-	EquivalentComponents createEquivalentComponents();
+	EnumerationChoice createEnumerationChoice();
 
 	/**
-	 * Returns a new object of class '<em>Available Servers</em>'.
+	 * Returns a new object of class '<em>Continous Range Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Available Servers</em>'.
+	 * @return a new object of class '<em>Continous Range Choice</em>'.
 	 * @generated
 	 */
-	AvailableServers createAvailableServers();
+	ContinousRangeChoice createContinousRangeChoice();
 
 	/**
-	 * Returns a new object of class '<em>Component Choice</em>'.
+	 * Returns a new object of class '<em>Processing Rate Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Choice</em>'.
+	 * @return a new object of class '<em>Processing Rate Degree</em>'.
 	 * @generated
 	 */
-	ComponentChoice createComponentChoice();
+	ProcessingRateDegree createProcessingRateDegree();
 
 	/**
-	 * Returns a new object of class '<em>Allocation Choice</em>'.
+	 * Returns a new object of class '<em>Allocation Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Allocation Choice</em>'.
+	 * @return a new object of class '<em>Allocation Degree</em>'.
 	 * @generated
 	 */
-	AllocationChoice createAllocationChoice();
+	AllocationDegree createAllocationDegree();
 
 	/**
-	 * Returns a new object of class '<em>Processing Rate Choice</em>'.
+	 * Returns a new object of class '<em>Assembled Component Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Processing Rate Choice</em>'.
+	 * @return a new object of class '<em>Assembled Component Degree</em>'.
 	 * @generated
 	 */
-	ProcessingRateChoice createProcessingRateChoice();
+	AssembledComponentDegree createAssembledComponentDegree();
 
 	/**
-	 * Returns a new object of class '<em>Processing Rate Decision</em>'.
+	 * Returns a new object of class '<em>Discrete Range Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Processing Rate Decision</em>'.
+	 * @return a new object of class '<em>Discrete Range Choice</em>'.
 	 * @generated
 	 */
-	ProcessingRateDecision createProcessingRateDecision();
+	DiscreteRangeChoice createDiscreteRangeChoice();
 
 	/**
-	 * Returns a new object of class '<em>Allocation Decision</em>'.
+	 * Returns a new object of class '<em>Resource Container Replication Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Allocation Decision</em>'.
+	 * @return a new object of class '<em>Resource Container Replication Degree</em>'.
 	 * @generated
 	 */
-	AllocationDecision createAllocationDecision();
-
-	/**
-	 * Returns a new object of class '<em>Assembled Component Decision</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembled Component Decision</em>'.
-	 * @generated
-	 */
-	AssembledComponentDecision createAssembledComponentDecision();
-
-	/**
-	 * Returns a new object of class '<em>Integer Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Range</em>'.
-	 * @generated
-	 */
-	IntegerRange createIntegerRange();
-
-	/**
-	 * Returns a new object of class '<em>Double Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Double Range</em>'.
-	 * @generated
-	 */
-	DoubleRange createDoubleRange();
-
-	/**
-	 * Returns a new object of class '<em>Resource Container Replication Choice</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Container Replication Choice</em>'.
-	 * @generated
-	 */
-	ResourceContainerReplicationChoice createResourceContainerReplicationChoice();
-
-	/**
-	 * Returns a new object of class '<em>Resource Container Replication Decision</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Container Replication Decision</em>'.
-	 * @generated
-	 */
-	ResourceContainerReplicationDecision createResourceContainerReplicationDecision();
-
-	/**
-	 * Returns a new object of class '<em>Genotype</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Genotype</em>'.
-	 * @generated
-	 */
-	Genotype createGenotype();
+	ResourceContainerReplicationDegree createResourceContainerReplicationDegree();
 
 	/**
 	 * Returns a new object of class '<em>Problem</em>'.
@@ -150,6 +96,33 @@ public interface designdecisionFactory extends EFactory {
 	 * @generated
 	 */
 	Problem createProblem();
+
+	/**
+	 * Returns a new object of class '<em>Connector Config Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Connector Config Degree</em>'.
+	 * @generated
+	 */
+	ConnectorConfigDegree createConnectorConfigDegree();
+
+	/**
+	 * Returns a new object of class '<em>Candidate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Candidate</em>'.
+	 * @generated
+	 */
+	Candidate createCandidate();
+
+	/**
+	 * Returns a new object of class '<em>Candidates</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Candidates</em>'.
+	 * @generated
+	 */
+	Candidates createCandidates();
 
 	/**
 	 * Returns the package supported by this factory.

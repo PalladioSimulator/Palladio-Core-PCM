@@ -87,15 +87,9 @@ public class designdecisionSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case designdecisionPackage.DESIGN_DECISION: {
-				DesignDecision designDecision = (DesignDecision)theEObject;
-				T result = caseDesignDecision(designDecision);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case designdecisionPackage.DOMAIN: {
-				Domain domain = (Domain)theEObject;
-				T result = caseDomain(domain);
+			case designdecisionPackage.DEGREE_OF_FREEDOM: {
+				DegreeOfFreedom degreeOfFreedom = (DegreeOfFreedom)theEObject;
+				T result = caseDegreeOfFreedom(degreeOfFreedom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,111 +99,88 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.RANGE: {
-				Range range = (Range)theEObject;
-				T result = caseRange(range);
-				if (result == null) result = caseDomain(range);
+			case designdecisionPackage.RANGE_DEGREE: {
+				RangeDegree rangeDegree = (RangeDegree)theEObject;
+				T result = caseRangeDegree(rangeDegree);
+				if (result == null) result = caseDegreeOfFreedom(rangeDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.ENUMERATION: {
-				Enumeration enumeration = (Enumeration)theEObject;
-				T result = caseEnumeration(enumeration);
-				if (result == null) result = caseDomain(enumeration);
+			case designdecisionPackage.ENUMERATION_DEGREE: {
+				EnumerationDegree enumerationDegree = (EnumerationDegree)theEObject;
+				T result = caseEnumerationDegree(enumerationDegree);
+				if (result == null) result = caseDegreeOfFreedom(enumerationDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.EQUIVALENT_COMPONENTS: {
-				EquivalentComponents equivalentComponents = (EquivalentComponents)theEObject;
-				T result = caseEquivalentComponents(equivalentComponents);
-				if (result == null) result = caseEnumeration(equivalentComponents);
-				if (result == null) result = caseDomain(equivalentComponents);
+			case designdecisionPackage.ENUMERATION_CHOICE: {
+				EnumerationChoice enumerationChoice = (EnumerationChoice)theEObject;
+				T result = caseEnumerationChoice(enumerationChoice);
+				if (result == null) result = caseChoice(enumerationChoice);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.AVAILABLE_SERVERS: {
-				AvailableServers availableServers = (AvailableServers)theEObject;
-				T result = caseAvailableServers(availableServers);
-				if (result == null) result = caseEnumeration(availableServers);
-				if (result == null) result = caseDomain(availableServers);
+			case designdecisionPackage.CONTINOUS_RANGE_CHOICE: {
+				ContinousRangeChoice continousRangeChoice = (ContinousRangeChoice)theEObject;
+				T result = caseContinousRangeChoice(continousRangeChoice);
+				if (result == null) result = caseChoice(continousRangeChoice);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.COMPONENT_CHOICE: {
-				ComponentChoice componentChoice = (ComponentChoice)theEObject;
-				T result = caseComponentChoice(componentChoice);
-				if (result == null) result = caseChoice(componentChoice);
+			case designdecisionPackage.PROCESSING_RATE_DEGREE: {
+				ProcessingRateDegree processingRateDegree = (ProcessingRateDegree)theEObject;
+				T result = caseProcessingRateDegree(processingRateDegree);
+				if (result == null) result = caseContinuousRangeDegree(processingRateDegree);
+				if (result == null) result = caseRangeDegree(processingRateDegree);
+				if (result == null) result = caseDegreeOfFreedom(processingRateDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.ALLOCATION_CHOICE: {
-				AllocationChoice allocationChoice = (AllocationChoice)theEObject;
-				T result = caseAllocationChoice(allocationChoice);
-				if (result == null) result = caseChoice(allocationChoice);
+			case designdecisionPackage.CONTINUOUS_RANGE_DEGREE: {
+				ContinuousRangeDegree continuousRangeDegree = (ContinuousRangeDegree)theEObject;
+				T result = caseContinuousRangeDegree(continuousRangeDegree);
+				if (result == null) result = caseRangeDegree(continuousRangeDegree);
+				if (result == null) result = caseDegreeOfFreedom(continuousRangeDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.PROCESSING_RATE_CHOICE: {
-				ProcessingRateChoice processingRateChoice = (ProcessingRateChoice)theEObject;
-				T result = caseProcessingRateChoice(processingRateChoice);
-				if (result == null) result = caseChoice(processingRateChoice);
+			case designdecisionPackage.ALLOCATION_DEGREE: {
+				AllocationDegree allocationDegree = (AllocationDegree)theEObject;
+				T result = caseAllocationDegree(allocationDegree);
+				if (result == null) result = caseEnumerationDegree(allocationDegree);
+				if (result == null) result = caseDegreeOfFreedom(allocationDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.PROCESSING_RATE_DECISION: {
-				ProcessingRateDecision processingRateDecision = (ProcessingRateDecision)theEObject;
-				T result = caseProcessingRateDecision(processingRateDecision);
-				if (result == null) result = caseDesignDecision(processingRateDecision);
+			case designdecisionPackage.ASSEMBLED_COMPONENT_DEGREE: {
+				AssembledComponentDegree assembledComponentDegree = (AssembledComponentDegree)theEObject;
+				T result = caseAssembledComponentDegree(assembledComponentDegree);
+				if (result == null) result = caseEnumerationDegree(assembledComponentDegree);
+				if (result == null) result = caseDegreeOfFreedom(assembledComponentDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.ALLOCATION_DECISION: {
-				AllocationDecision allocationDecision = (AllocationDecision)theEObject;
-				T result = caseAllocationDecision(allocationDecision);
-				if (result == null) result = caseDesignDecision(allocationDecision);
+			case designdecisionPackage.DISCRETE_RANGE_DEGREE: {
+				DiscreteRangeDegree discreteRangeDegree = (DiscreteRangeDegree)theEObject;
+				T result = caseDiscreteRangeDegree(discreteRangeDegree);
+				if (result == null) result = caseRangeDegree(discreteRangeDegree);
+				if (result == null) result = caseDegreeOfFreedom(discreteRangeDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.ASSEMBLED_COMPONENT_DECISION: {
-				AssembledComponentDecision assembledComponentDecision = (AssembledComponentDecision)theEObject;
-				T result = caseAssembledComponentDecision(assembledComponentDecision);
-				if (result == null) result = caseDesignDecision(assembledComponentDecision);
+			case designdecisionPackage.DISCRETE_RANGE_CHOICE: {
+				DiscreteRangeChoice discreteRangeChoice = (DiscreteRangeChoice)theEObject;
+				T result = caseDiscreteRangeChoice(discreteRangeChoice);
+				if (result == null) result = caseChoice(discreteRangeChoice);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.INTEGER_RANGE: {
-				IntegerRange integerRange = (IntegerRange)theEObject;
-				T result = caseIntegerRange(integerRange);
-				if (result == null) result = caseRange(integerRange);
-				if (result == null) result = caseDomain(integerRange);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case designdecisionPackage.DOUBLE_RANGE: {
-				DoubleRange doubleRange = (DoubleRange)theEObject;
-				T result = caseDoubleRange(doubleRange);
-				if (result == null) result = caseRange(doubleRange);
-				if (result == null) result = caseDomain(doubleRange);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_CHOICE: {
-				ResourceContainerReplicationChoice resourceContainerReplicationChoice = (ResourceContainerReplicationChoice)theEObject;
-				T result = caseResourceContainerReplicationChoice(resourceContainerReplicationChoice);
-				if (result == null) result = caseChoice(resourceContainerReplicationChoice);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DECISION: {
-				ResourceContainerReplicationDecision resourceContainerReplicationDecision = (ResourceContainerReplicationDecision)theEObject;
-				T result = caseResourceContainerReplicationDecision(resourceContainerReplicationDecision);
-				if (result == null) result = caseDesignDecision(resourceContainerReplicationDecision);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case designdecisionPackage.GENOTYPE: {
-				Genotype genotype = (Genotype)theEObject;
-				T result = caseGenotype(genotype);
+			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE: {
+				ResourceContainerReplicationDegree resourceContainerReplicationDegree = (ResourceContainerReplicationDegree)theEObject;
+				T result = caseResourceContainerReplicationDegree(resourceContainerReplicationDegree);
+				if (result == null) result = caseDiscreteRangeDegree(resourceContainerReplicationDegree);
+				if (result == null) result = caseRangeDegree(resourceContainerReplicationDegree);
+				if (result == null) result = caseDegreeOfFreedom(resourceContainerReplicationDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,9 +190,23 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case designdecisionPackage.DISCRETE_DOMAIN: {
-				DiscreteDomain discreteDomain = (DiscreteDomain)theEObject;
-				T result = caseDiscreteDomain(discreteDomain);
+			case designdecisionPackage.CONNECTOR_CONFIG_DEGREE: {
+				ConnectorConfigDegree connectorConfigDegree = (ConnectorConfigDegree)theEObject;
+				T result = caseConnectorConfigDegree(connectorConfigDegree);
+				if (result == null) result = caseEnumerationDegree(connectorConfigDegree);
+				if (result == null) result = caseDegreeOfFreedom(connectorConfigDegree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.CANDIDATE: {
+				Candidate candidate = (Candidate)theEObject;
+				T result = caseCandidate(candidate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.CANDIDATES: {
+				Candidates candidates = (Candidates)theEObject;
+				T result = caseCandidates(candidates);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -230,32 +215,17 @@ public class designdecisionSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Design Decision</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Degree Of Freedom</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Design Decision</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Degree Of Freedom</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDesignDecision(DesignDecision object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDomain(Domain object) {
+	public T caseDegreeOfFreedom(DegreeOfFreedom object) {
 		return null;
 	}
 
@@ -275,227 +245,167 @@ public class designdecisionSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Range</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Range Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Range</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Range Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRange(Range object) {
+	public T caseRangeDegree(RangeDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEnumeration(Enumeration object) {
+	public T caseEnumerationDegree(EnumerationDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Equivalent Components</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Equivalent Components</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration Choice</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEquivalentComponents(EquivalentComponents object) {
+	public T caseEnumerationChoice(EnumerationChoice object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Available Servers</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Continous Range Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Available Servers</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Continous Range Choice</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAvailableServers(AvailableServers object) {
+	public T caseContinousRangeChoice(ContinousRangeChoice object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Choice</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Processing Rate Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Choice</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Processing Rate Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComponentChoice(ComponentChoice object) {
+	public T caseProcessingRateDegree(ProcessingRateDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Allocation Choice</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Continuous Range Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Allocation Choice</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Continuous Range Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAllocationChoice(AllocationChoice object) {
+	public T caseContinuousRangeDegree(ContinuousRangeDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Processing Rate Choice</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Allocation Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Processing Rate Choice</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Allocation Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcessingRateChoice(ProcessingRateChoice object) {
+	public T caseAllocationDegree(AllocationDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Processing Rate Decision</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Assembled Component Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Processing Rate Decision</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Assembled Component Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcessingRateDecision(ProcessingRateDecision object) {
+	public T caseAssembledComponentDegree(AssembledComponentDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Allocation Decision</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Discrete Range Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Allocation Decision</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Discrete Range Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAllocationDecision(AllocationDecision object) {
+	public T caseDiscreteRangeDegree(DiscreteRangeDegree object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assembled Component Decision</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Discrete Range Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assembled Component Decision</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Discrete Range Choice</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssembledComponentDecision(AssembledComponentDecision object) {
+	public T caseDiscreteRangeChoice(DiscreteRangeChoice object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer Range</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Container Replication Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer Range</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Container Replication Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntegerRange(IntegerRange object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Double Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Double Range</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDoubleRange(DoubleRange object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Container Replication Choice</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Container Replication Choice</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceContainerReplicationChoice(ResourceContainerReplicationChoice object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Container Replication Decision</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Container Replication Decision</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceContainerReplicationDecision(ResourceContainerReplicationDecision object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Genotype</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Genotype</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGenotype(Genotype object) {
+	public T caseResourceContainerReplicationDegree(ResourceContainerReplicationDegree object) {
 		return null;
 	}
 
@@ -515,17 +425,47 @@ public class designdecisionSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Discrete Domain</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Connector Config Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Discrete Domain</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Connector Config Degree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDiscreteDomain(DiscreteDomain object) {
+	public T caseConnectorConfigDegree(ConnectorConfigDegree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Candidate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Candidate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCandidate(Candidate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Candidates</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Candidates</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCandidates(Candidates object) {
 		return null;
 	}
 

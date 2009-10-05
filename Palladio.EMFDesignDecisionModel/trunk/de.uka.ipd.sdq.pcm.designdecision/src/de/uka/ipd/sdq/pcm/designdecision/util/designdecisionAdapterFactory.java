@@ -72,84 +72,72 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	protected designdecisionSwitch<Adapter> modelSwitch =
 		new designdecisionSwitch<Adapter>() {
 			@Override
-			public Adapter caseDesignDecision(DesignDecision object) {
-				return createDesignDecisionAdapter();
-			}
-			@Override
-			public Adapter caseDomain(Domain object) {
-				return createDomainAdapter();
+			public Adapter caseDegreeOfFreedom(DegreeOfFreedom object) {
+				return createDegreeOfFreedomAdapter();
 			}
 			@Override
 			public Adapter caseChoice(Choice object) {
 				return createChoiceAdapter();
 			}
 			@Override
-			public Adapter caseRange(Range object) {
-				return createRangeAdapter();
+			public Adapter caseRangeDegree(RangeDegree object) {
+				return createRangeDegreeAdapter();
 			}
 			@Override
-			public Adapter caseEnumeration(Enumeration object) {
-				return createEnumerationAdapter();
+			public Adapter caseEnumerationDegree(EnumerationDegree object) {
+				return createEnumerationDegreeAdapter();
 			}
 			@Override
-			public Adapter caseEquivalentComponents(EquivalentComponents object) {
-				return createEquivalentComponentsAdapter();
+			public Adapter caseEnumerationChoice(EnumerationChoice object) {
+				return createEnumerationChoiceAdapter();
 			}
 			@Override
-			public Adapter caseAvailableServers(AvailableServers object) {
-				return createAvailableServersAdapter();
+			public Adapter caseContinousRangeChoice(ContinousRangeChoice object) {
+				return createContinousRangeChoiceAdapter();
 			}
 			@Override
-			public Adapter caseComponentChoice(ComponentChoice object) {
-				return createComponentChoiceAdapter();
+			public Adapter caseProcessingRateDegree(ProcessingRateDegree object) {
+				return createProcessingRateDegreeAdapter();
 			}
 			@Override
-			public Adapter caseAllocationChoice(AllocationChoice object) {
-				return createAllocationChoiceAdapter();
+			public Adapter caseContinuousRangeDegree(ContinuousRangeDegree object) {
+				return createContinuousRangeDegreeAdapter();
 			}
 			@Override
-			public Adapter caseProcessingRateChoice(ProcessingRateChoice object) {
-				return createProcessingRateChoiceAdapter();
+			public Adapter caseAllocationDegree(AllocationDegree object) {
+				return createAllocationDegreeAdapter();
 			}
 			@Override
-			public Adapter caseProcessingRateDecision(ProcessingRateDecision object) {
-				return createProcessingRateDecisionAdapter();
+			public Adapter caseAssembledComponentDegree(AssembledComponentDegree object) {
+				return createAssembledComponentDegreeAdapter();
 			}
 			@Override
-			public Adapter caseAllocationDecision(AllocationDecision object) {
-				return createAllocationDecisionAdapter();
+			public Adapter caseDiscreteRangeDegree(DiscreteRangeDegree object) {
+				return createDiscreteRangeDegreeAdapter();
 			}
 			@Override
-			public Adapter caseAssembledComponentDecision(AssembledComponentDecision object) {
-				return createAssembledComponentDecisionAdapter();
+			public Adapter caseDiscreteRangeChoice(DiscreteRangeChoice object) {
+				return createDiscreteRangeChoiceAdapter();
 			}
 			@Override
-			public Adapter caseIntegerRange(IntegerRange object) {
-				return createIntegerRangeAdapter();
-			}
-			@Override
-			public Adapter caseDoubleRange(DoubleRange object) {
-				return createDoubleRangeAdapter();
-			}
-			@Override
-			public Adapter caseResourceContainerReplicationChoice(ResourceContainerReplicationChoice object) {
-				return createResourceContainerReplicationChoiceAdapter();
-			}
-			@Override
-			public Adapter caseResourceContainerReplicationDecision(ResourceContainerReplicationDecision object) {
-				return createResourceContainerReplicationDecisionAdapter();
-			}
-			@Override
-			public Adapter caseGenotype(Genotype object) {
-				return createGenotypeAdapter();
+			public Adapter caseResourceContainerReplicationDegree(ResourceContainerReplicationDegree object) {
+				return createResourceContainerReplicationDegreeAdapter();
 			}
 			@Override
 			public Adapter caseProblem(Problem object) {
 				return createProblemAdapter();
 			}
 			@Override
-			public Adapter caseDiscreteDomain(DiscreteDomain object) {
-				return createDiscreteDomainAdapter();
+			public Adapter caseConnectorConfigDegree(ConnectorConfigDegree object) {
+				return createConnectorConfigDegreeAdapter();
+			}
+			@Override
+			public Adapter caseCandidate(Candidate object) {
+				return createCandidateAdapter();
+			}
+			@Override
+			public Adapter caseCandidates(Candidates object) {
+				return createCandidatesAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -172,30 +160,16 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DesignDecision <em>Design Decision</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom <em>Degree Of Freedom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DesignDecision
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom
 	 * @generated
 	 */
-	public Adapter createDesignDecisionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Domain <em>Domain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Domain
-	 * @generated
-	 */
-	public Adapter createDomainAdapter() {
+	public Adapter createDegreeOfFreedomAdapter() {
 		return null;
 	}
 
@@ -214,212 +188,156 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Range <em>Range</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.RangeDegree <em>Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Range
+	 * @see de.uka.ipd.sdq.pcm.designdecision.RangeDegree
 	 * @generated
 	 */
-	public Adapter createRangeAdapter() {
+	public Adapter createRangeDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Enumeration <em>Enumeration</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree <em>Enumeration Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Enumeration
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationDegree
 	 * @generated
 	 */
-	public Adapter createEnumerationAdapter() {
+	public Adapter createEnumerationDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents <em>Equivalent Components</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice <em>Enumeration Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents
+	 * @see de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice
 	 * @generated
 	 */
-	public Adapter createEquivalentComponentsAdapter() {
+	public Adapter createEnumerationChoiceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AvailableServers <em>Available Servers</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice <em>Continous Range Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AvailableServers
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice
 	 * @generated
 	 */
-	public Adapter createAvailableServersAdapter() {
+	public Adapter createContinousRangeChoiceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ComponentChoice <em>Component Choice</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree <em>Processing Rate Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ComponentChoice
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree
 	 * @generated
 	 */
-	public Adapter createComponentChoiceAdapter() {
+	public Adapter createProcessingRateDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationChoice <em>Allocation Choice</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree <em>Continuous Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationChoice
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree
 	 * @generated
 	 */
-	public Adapter createAllocationChoiceAdapter() {
+	public Adapter createContinuousRangeDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice <em>Processing Rate Choice</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDegree <em>Allocation Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice
+	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationDegree
 	 * @generated
 	 */
-	public Adapter createProcessingRateChoiceAdapter() {
+	public Adapter createAllocationDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision <em>Processing Rate Decision</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree <em>Assembled Component Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision
+	 * @see de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree
 	 * @generated
 	 */
-	public Adapter createProcessingRateDecisionAdapter() {
+	public Adapter createAssembledComponentDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision <em>Allocation Decision</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree <em>Discrete Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AllocationDecision
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree
 	 * @generated
 	 */
-	public Adapter createAllocationDecisionAdapter() {
+	public Adapter createDiscreteRangeDegreeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision <em>Assembled Component Decision</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice <em>Discrete Range Choice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice
 	 * @generated
 	 */
-	public Adapter createAssembledComponentDecisionAdapter() {
+	public Adapter createDiscreteRangeChoiceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange <em>Integer Range</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree <em>Resource Container Replication Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.IntegerRange
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree
 	 * @generated
 	 */
-	public Adapter createIntegerRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange <em>Double Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DoubleRange
-	 * @generated
-	 */
-	public Adapter createDoubleRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice <em>Resource Container Replication Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice
-	 * @generated
-	 */
-	public Adapter createResourceContainerReplicationChoiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision <em>Resource Container Replication Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision
-	 * @generated
-	 */
-	public Adapter createResourceContainerReplicationDecisionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Genotype <em>Genotype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.Genotype
-	 * @generated
-	 */
-	public Adapter createGenotypeAdapter() {
+	public Adapter createResourceContainerReplicationDegreeAdapter() {
 		return null;
 	}
 
@@ -438,16 +356,44 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain <em>Discrete Domain</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree <em>Connector Config Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDomain
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree
 	 * @generated
 	 */
-	public Adapter createDiscreteDomainAdapter() {
+	public Adapter createConnectorConfigDegreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Candidate <em>Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidate
+	 * @generated
+	 */
+	public Adapter createCandidateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.Candidates <em>Candidates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.Candidates
+	 * @generated
+	 */
+	public Adapter createCandidatesAdapter() {
 		return null;
 	}
 

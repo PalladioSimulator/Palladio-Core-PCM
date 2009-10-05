@@ -60,20 +60,17 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case designdecisionPackage.EQUIVALENT_COMPONENTS: return createEquivalentComponents();
-			case designdecisionPackage.AVAILABLE_SERVERS: return createAvailableServers();
-			case designdecisionPackage.COMPONENT_CHOICE: return createComponentChoice();
-			case designdecisionPackage.ALLOCATION_CHOICE: return createAllocationChoice();
-			case designdecisionPackage.PROCESSING_RATE_CHOICE: return createProcessingRateChoice();
-			case designdecisionPackage.PROCESSING_RATE_DECISION: return createProcessingRateDecision();
-			case designdecisionPackage.ALLOCATION_DECISION: return createAllocationDecision();
-			case designdecisionPackage.ASSEMBLED_COMPONENT_DECISION: return createAssembledComponentDecision();
-			case designdecisionPackage.INTEGER_RANGE: return createIntegerRange();
-			case designdecisionPackage.DOUBLE_RANGE: return createDoubleRange();
-			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_CHOICE: return createResourceContainerReplicationChoice();
-			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DECISION: return createResourceContainerReplicationDecision();
-			case designdecisionPackage.GENOTYPE: return createGenotype();
+			case designdecisionPackage.ENUMERATION_CHOICE: return createEnumerationChoice();
+			case designdecisionPackage.CONTINOUS_RANGE_CHOICE: return createContinousRangeChoice();
+			case designdecisionPackage.PROCESSING_RATE_DEGREE: return createProcessingRateDegree();
+			case designdecisionPackage.ALLOCATION_DEGREE: return createAllocationDegree();
+			case designdecisionPackage.ASSEMBLED_COMPONENT_DEGREE: return createAssembledComponentDegree();
+			case designdecisionPackage.DISCRETE_RANGE_CHOICE: return createDiscreteRangeChoice();
+			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE: return createResourceContainerReplicationDegree();
 			case designdecisionPackage.PROBLEM: return createProblem();
+			case designdecisionPackage.CONNECTOR_CONFIG_DEGREE: return createConnectorConfigDegree();
+			case designdecisionPackage.CANDIDATE: return createCandidate();
+			case designdecisionPackage.CANDIDATES: return createCandidates();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,9 +81,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EquivalentComponents createEquivalentComponents() {
-		EquivalentComponentsImpl equivalentComponents = new EquivalentComponentsImpl();
-		return equivalentComponents;
+	public EnumerationChoice createEnumerationChoice() {
+		EnumerationChoiceImpl enumerationChoice = new EnumerationChoiceImpl();
+		return enumerationChoice;
 	}
 
 	/**
@@ -94,9 +91,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AvailableServers createAvailableServers() {
-		AvailableServersImpl availableServers = new AvailableServersImpl();
-		return availableServers;
+	public ContinousRangeChoice createContinousRangeChoice() {
+		ContinousRangeChoiceImpl continousRangeChoice = new ContinousRangeChoiceImpl();
+		return continousRangeChoice;
 	}
 
 	/**
@@ -104,9 +101,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentChoice createComponentChoice() {
-		ComponentChoiceImpl componentChoice = new ComponentChoiceImpl();
-		return componentChoice;
+	public ProcessingRateDegree createProcessingRateDegree() {
+		ProcessingRateDegreeImpl processingRateDegree = new ProcessingRateDegreeImpl();
+		return processingRateDegree;
 	}
 
 	/**
@@ -114,9 +111,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllocationChoice createAllocationChoice() {
-		AllocationChoiceImpl allocationChoice = new AllocationChoiceImpl();
-		return allocationChoice;
+	public AllocationDegree createAllocationDegree() {
+		AllocationDegreeImpl allocationDegree = new AllocationDegreeImpl();
+		return allocationDegree;
 	}
 
 	/**
@@ -124,9 +121,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingRateChoice createProcessingRateChoice() {
-		ProcessingRateChoiceImpl processingRateChoice = new ProcessingRateChoiceImpl();
-		return processingRateChoice;
+	public AssembledComponentDegree createAssembledComponentDegree() {
+		AssembledComponentDegreeImpl assembledComponentDegree = new AssembledComponentDegreeImpl();
+		return assembledComponentDegree;
 	}
 
 	/**
@@ -134,9 +131,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingRateDecision createProcessingRateDecision() {
-		ProcessingRateDecisionImpl processingRateDecision = new ProcessingRateDecisionImpl();
-		return processingRateDecision;
+	public DiscreteRangeChoice createDiscreteRangeChoice() {
+		DiscreteRangeChoiceImpl discreteRangeChoice = new DiscreteRangeChoiceImpl();
+		return discreteRangeChoice;
 	}
 
 	/**
@@ -144,69 +141,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllocationDecision createAllocationDecision() {
-		AllocationDecisionImpl allocationDecision = new AllocationDecisionImpl();
-		return allocationDecision;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssembledComponentDecision createAssembledComponentDecision() {
-		AssembledComponentDecisionImpl assembledComponentDecision = new AssembledComponentDecisionImpl();
-		return assembledComponentDecision;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IntegerRange createIntegerRange() {
-		IntegerRangeImpl integerRange = new IntegerRangeImpl();
-		return integerRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DoubleRange createDoubleRange() {
-		DoubleRangeImpl doubleRange = new DoubleRangeImpl();
-		return doubleRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceContainerReplicationChoice createResourceContainerReplicationChoice() {
-		ResourceContainerReplicationChoiceImpl resourceContainerReplicationChoice = new ResourceContainerReplicationChoiceImpl();
-		return resourceContainerReplicationChoice;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceContainerReplicationDecision createResourceContainerReplicationDecision() {
-		ResourceContainerReplicationDecisionImpl resourceContainerReplicationDecision = new ResourceContainerReplicationDecisionImpl();
-		return resourceContainerReplicationDecision;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Genotype createGenotype() {
-		GenotypeImpl genotype = new GenotypeImpl();
-		return genotype;
+	public ResourceContainerReplicationDegree createResourceContainerReplicationDegree() {
+		ResourceContainerReplicationDegreeImpl resourceContainerReplicationDegree = new ResourceContainerReplicationDegreeImpl();
+		return resourceContainerReplicationDegree;
 	}
 
 	/**
@@ -217,6 +154,36 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	public Problem createProblem() {
 		ProblemImpl problem = new ProblemImpl();
 		return problem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConnectorConfigDegree createConnectorConfigDegree() {
+		ConnectorConfigDegreeImpl connectorConfigDegree = new ConnectorConfigDegreeImpl();
+		return connectorConfigDegree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Candidate createCandidate() {
+		CandidateImpl candidate = new CandidateImpl();
+		return candidate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Candidates createCandidates() {
+		CandidatesImpl candidates = new CandidatesImpl();
+		return candidates;
 	}
 
 	/**

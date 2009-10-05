@@ -25,76 +25,69 @@
   <foreignModel>DesignDecision.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="designdecision" basePackage="de.uka.ipd.sdq.pcm"
       resource="XMI" disposableProviderFactory="true" ecorePackage="designdecision.ecore#/">
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DesignDecision">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//DesignDecision/domain"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DegreeOfFreedom">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//DegreeOfFreedom/changeableEntity"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//Domain"/>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//Choice">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//Choice/designdecision"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//Choice/degreeOfFreedom"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//Range">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//Range/upperBoundIncluded"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//Range/lowerBoundIncluded"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//RangeDegree">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//RangeDegree/upperBoundIncluded"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//RangeDegree/lowerBoundIncluded"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//Enumeration"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//EquivalentComponents">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//EnumerationDegree">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//EquivalentComponents/repositorycomponent"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//EnumerationDegree/domainOfEntities"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AvailableServers">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//EnumerationChoice">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//AvailableServers/resourcecontainer"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//EnumerationChoice/entity"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ComponentChoice">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ContinousRangeChoice">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//ContinousRangeChoice/chosenValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ProcessingRateDegree">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ComponentChoice/chosenrepositorycomponent"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ProcessingRateDegree/processingresourcetype"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AllocationChoice">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//AllocationChoice/chosenresourcecontainer"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//ContinuousRangeDegree">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//ContinuousRangeDegree/to"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//ContinuousRangeDegree/from"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ProcessingRateChoice">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//ProcessingRateChoice/chosenRate"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AllocationDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AssembledComponentDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DiscreteRangeDegree">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeDegree/to"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeDegree/from"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ProcessingRateDecision">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ProcessingRateDecision/processingresourcespecification"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ProcessingRateDecision/resourcecontainer"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//DiscreteRangeChoice">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeChoice/chosenValue"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AllocationDecision">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//AllocationDecision/allocationcontext"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//AssembledComponentDecision">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//AssembledComponentDecision/assemblycontext"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//IntegerRange">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//IntegerRange/to"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//IntegerRange/from"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//DoubleRange">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DoubleRange/to"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DoubleRange/from"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceContainerReplicationChoice">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//ResourceContainerReplicationChoice/multiplicityOfResourceContainer"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceContainerReplicationDecision">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ResourceContainerReplicationDecision/resourcecontainer"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//Genotype">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//Genotype/choice"/>
-    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceContainerReplicationDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//Problem">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//Problem/designdecision"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DiscreteDomain"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ConnectorConfigDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//Candidate">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//Candidate/choice"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//Candidates">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//Candidates/candidate"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//Candidates/problem"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="designdecision.ecore#//Candidates/numberOfChoicesMustEqualNumberOfDecisions">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="designdecision.ecore#//Candidates/numberOfChoicesMustEqualNumberOfDecisions/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="designdecision.ecore#//Candidates/numberOfChoicesMustEqualNumberOfDecisions/context"/>
+      </genOperations>
+    </genClasses>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="PrimitiveTypes" basePackage="de.uka.ipd.sdq.pcm.designdecision"
+        disposableProviderFactory="true" ecorePackage="designdecision.ecore#//PrimitiveTypes">
+      <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="designdecision.ecore#//PrimitiveTypes/double"/>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

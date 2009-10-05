@@ -76,302 +76,164 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EquivalentComponentsItemProvider equivalentComponentsItemProvider;
+	protected EnumerationChoiceItemProvider enumerationChoiceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.EnumerationChoice}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEquivalentComponentsAdapter() {
-		if (equivalentComponentsItemProvider == null) {
-			equivalentComponentsItemProvider = new EquivalentComponentsItemProvider(this);
+	public Adapter createEnumerationChoiceAdapter() {
+		if (enumerationChoiceItemProvider == null) {
+			enumerationChoiceItemProvider = new EnumerationChoiceItemProvider(this);
 		}
 
-		return equivalentComponentsItemProvider;
+		return enumerationChoiceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AvailableServers} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AvailableServersItemProvider availableServersItemProvider;
+	protected ContinousRangeChoiceItemProvider continousRangeChoiceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AvailableServers}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAvailableServersAdapter() {
-		if (availableServersItemProvider == null) {
-			availableServersItemProvider = new AvailableServersItemProvider(this);
+	public Adapter createContinousRangeChoiceAdapter() {
+		if (continousRangeChoiceItemProvider == null) {
+			continousRangeChoiceItemProvider = new ContinousRangeChoiceItemProvider(this);
 		}
 
-		return availableServersItemProvider;
+		return continousRangeChoiceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ComponentChoice} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentChoiceItemProvider componentChoiceItemProvider;
+	protected ProcessingRateDegreeItemProvider processingRateDegreeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ComponentChoice}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComponentChoiceAdapter() {
-		if (componentChoiceItemProvider == null) {
-			componentChoiceItemProvider = new ComponentChoiceItemProvider(this);
+	public Adapter createProcessingRateDegreeAdapter() {
+		if (processingRateDegreeItemProvider == null) {
+			processingRateDegreeItemProvider = new ProcessingRateDegreeItemProvider(this);
 		}
 
-		return componentChoiceItemProvider;
+		return processingRateDegreeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AllocationChoice} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AllocationDegree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AllocationChoiceItemProvider allocationChoiceItemProvider;
+	protected AllocationDegreeItemProvider allocationDegreeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AllocationChoice}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AllocationDegree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAllocationChoiceAdapter() {
-		if (allocationChoiceItemProvider == null) {
-			allocationChoiceItemProvider = new AllocationChoiceItemProvider(this);
+	public Adapter createAllocationDegreeAdapter() {
+		if (allocationDegreeItemProvider == null) {
+			allocationDegreeItemProvider = new AllocationDegreeItemProvider(this);
 		}
 
-		return allocationChoiceItemProvider;
+		return allocationDegreeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessingRateChoiceItemProvider processingRateChoiceItemProvider;
+	protected AssembledComponentDegreeItemProvider assembledComponentDegreeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateChoice}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProcessingRateChoiceAdapter() {
-		if (processingRateChoiceItemProvider == null) {
-			processingRateChoiceItemProvider = new ProcessingRateChoiceItemProvider(this);
+	public Adapter createAssembledComponentDegreeAdapter() {
+		if (assembledComponentDegreeItemProvider == null) {
+			assembledComponentDegreeItemProvider = new AssembledComponentDegreeItemProvider(this);
 		}
 
-		return processingRateChoiceItemProvider;
+		return assembledComponentDegreeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessingRateDecisionItemProvider processingRateDecisionItemProvider;
+	protected DiscreteRangeChoiceItemProvider discreteRangeChoiceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProcessingRateDecisionAdapter() {
-		if (processingRateDecisionItemProvider == null) {
-			processingRateDecisionItemProvider = new ProcessingRateDecisionItemProvider(this);
+	public Adapter createDiscreteRangeChoiceAdapter() {
+		if (discreteRangeChoiceItemProvider == null) {
+			discreteRangeChoiceItemProvider = new DiscreteRangeChoiceItemProvider(this);
 		}
 
-		return processingRateDecisionItemProvider;
+		return discreteRangeChoiceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AllocationDecisionItemProvider allocationDecisionItemProvider;
+	protected ResourceContainerReplicationDegreeItemProvider resourceContainerReplicationDegreeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AllocationDecision}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAllocationDecisionAdapter() {
-		if (allocationDecisionItemProvider == null) {
-			allocationDecisionItemProvider = new AllocationDecisionItemProvider(this);
+	public Adapter createResourceContainerReplicationDegreeAdapter() {
+		if (resourceContainerReplicationDegreeItemProvider == null) {
+			resourceContainerReplicationDegreeItemProvider = new ResourceContainerReplicationDegreeItemProvider(this);
 		}
 
-		return allocationDecisionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssembledComponentDecisionItemProvider assembledComponentDecisionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssembledComponentDecisionAdapter() {
-		if (assembledComponentDecisionItemProvider == null) {
-			assembledComponentDecisionItemProvider = new AssembledComponentDecisionItemProvider(this);
-		}
-
-		return assembledComponentDecisionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntegerRangeItemProvider integerRangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.IntegerRange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntegerRangeAdapter() {
-		if (integerRangeItemProvider == null) {
-			integerRangeItemProvider = new IntegerRangeItemProvider(this);
-		}
-
-		return integerRangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DoubleRangeItemProvider doubleRangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.DoubleRange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDoubleRangeAdapter() {
-		if (doubleRangeItemProvider == null) {
-			doubleRangeItemProvider = new DoubleRangeItemProvider(this);
-		}
-
-		return doubleRangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceContainerReplicationChoiceItemProvider resourceContainerReplicationChoiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationChoice}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceContainerReplicationChoiceAdapter() {
-		if (resourceContainerReplicationChoiceItemProvider == null) {
-			resourceContainerReplicationChoiceItemProvider = new ResourceContainerReplicationChoiceItemProvider(this);
-		}
-
-		return resourceContainerReplicationChoiceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceContainerReplicationDecisionItemProvider resourceContainerReplicationDecisionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDecision}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceContainerReplicationDecisionAdapter() {
-		if (resourceContainerReplicationDecisionItemProvider == null) {
-			resourceContainerReplicationDecisionItemProvider = new ResourceContainerReplicationDecisionItemProvider(this);
-		}
-
-		return resourceContainerReplicationDecisionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.Genotype} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GenotypeItemProvider genotypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.Genotype}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGenotypeAdapter() {
-		if (genotypeItemProvider == null) {
-			genotypeItemProvider = new GenotypeItemProvider(this);
-		}
-
-		return genotypeItemProvider;
+		return resourceContainerReplicationDegreeItemProvider;
 	}
 
 	/**
@@ -395,6 +257,75 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 		}
 
 		return problemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectorConfigDegreeItemProvider connectorConfigDegreeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDegree}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectorConfigDegreeAdapter() {
+		if (connectorConfigDegreeItemProvider == null) {
+			connectorConfigDegreeItemProvider = new ConnectorConfigDegreeItemProvider(this);
+		}
+
+		return connectorConfigDegreeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.Candidate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CandidateItemProvider candidateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.Candidate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCandidateAdapter() {
+		if (candidateItemProvider == null) {
+			candidateItemProvider = new CandidateItemProvider(this);
+		}
+
+		return candidateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.Candidates} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CandidatesItemProvider candidatesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.Candidates}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCandidatesAdapter() {
+		if (candidatesItemProvider == null) {
+			candidatesItemProvider = new CandidatesItemProvider(this);
+		}
+
+		return candidatesItemProvider;
 	}
 
 	/**
@@ -496,20 +427,17 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 	 * @generated
 	 */
 	public void dispose() {
-		if (equivalentComponentsItemProvider != null) equivalentComponentsItemProvider.dispose();
-		if (availableServersItemProvider != null) availableServersItemProvider.dispose();
-		if (componentChoiceItemProvider != null) componentChoiceItemProvider.dispose();
-		if (allocationChoiceItemProvider != null) allocationChoiceItemProvider.dispose();
-		if (processingRateChoiceItemProvider != null) processingRateChoiceItemProvider.dispose();
-		if (processingRateDecisionItemProvider != null) processingRateDecisionItemProvider.dispose();
-		if (allocationDecisionItemProvider != null) allocationDecisionItemProvider.dispose();
-		if (assembledComponentDecisionItemProvider != null) assembledComponentDecisionItemProvider.dispose();
-		if (integerRangeItemProvider != null) integerRangeItemProvider.dispose();
-		if (doubleRangeItemProvider != null) doubleRangeItemProvider.dispose();
-		if (resourceContainerReplicationChoiceItemProvider != null) resourceContainerReplicationChoiceItemProvider.dispose();
-		if (resourceContainerReplicationDecisionItemProvider != null) resourceContainerReplicationDecisionItemProvider.dispose();
-		if (genotypeItemProvider != null) genotypeItemProvider.dispose();
+		if (enumerationChoiceItemProvider != null) enumerationChoiceItemProvider.dispose();
+		if (continousRangeChoiceItemProvider != null) continousRangeChoiceItemProvider.dispose();
+		if (processingRateDegreeItemProvider != null) processingRateDegreeItemProvider.dispose();
+		if (allocationDegreeItemProvider != null) allocationDegreeItemProvider.dispose();
+		if (assembledComponentDegreeItemProvider != null) assembledComponentDegreeItemProvider.dispose();
+		if (discreteRangeChoiceItemProvider != null) discreteRangeChoiceItemProvider.dispose();
+		if (resourceContainerReplicationDegreeItemProvider != null) resourceContainerReplicationDegreeItemProvider.dispose();
 		if (problemItemProvider != null) problemItemProvider.dispose();
+		if (connectorConfigDegreeItemProvider != null) connectorConfigDegreeItemProvider.dispose();
+		if (candidateItemProvider != null) candidateItemProvider.dispose();
+		if (candidatesItemProvider != null) candidatesItemProvider.dispose();
 	}
 
 }

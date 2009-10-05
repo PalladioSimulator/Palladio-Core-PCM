@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision.impl;
 
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
@@ -46,7 +46,7 @@ public class ProblemImpl extends EObjectImpl implements Problem {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DesignDecision> designdecision;
+	protected EList<DegreeOfFreedom> designdecision;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,9 +72,9 @@ public class ProblemImpl extends EObjectImpl implements Problem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DesignDecision> getDesigndecision() {
+	public EList<DegreeOfFreedom> getDesigndecision() {
 		if (designdecision == null) {
-			designdecision = new EObjectContainmentEList<DesignDecision>(DesignDecision.class, this, designdecisionPackage.PROBLEM__DESIGNDECISION);
+			designdecision = new EObjectContainmentEList<DegreeOfFreedom>(DegreeOfFreedom.class, this, designdecisionPackage.PROBLEM__DESIGNDECISION);
 		}
 		return designdecision;
 	}
@@ -118,7 +118,7 @@ public class ProblemImpl extends EObjectImpl implements Problem {
 		switch (featureID) {
 			case designdecisionPackage.PROBLEM__DESIGNDECISION:
 				getDesigndecision().clear();
-				getDesigndecision().addAll((Collection<? extends DesignDecision>)newValue);
+				getDesigndecision().addAll((Collection<? extends DegreeOfFreedom>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

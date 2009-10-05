@@ -7,7 +7,7 @@
 package de.uka.ipd.sdq.pcm.designdecision.impl;
 
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.designdecision.impl.ChoiceImpl#getDesigndecision <em>Designdecision</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.designdecision.impl.ChoiceImpl#getDegreeOfFreedom <em>Degree Of Freedom</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,14 +33,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	/**
-	 * The cached value of the '{@link #getDesigndecision() <em>Designdecision</em>}' reference.
+	 * The cached value of the '{@link #getDegreeOfFreedom() <em>Degree Of Freedom</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDesigndecision()
+	 * @see #getDegreeOfFreedom()
 	 * @generated
 	 * @ordered
 	 */
-	protected DesignDecision designdecision;
+	protected DegreeOfFreedom degreeOfFreedom;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,16 +66,16 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DesignDecision getDesigndecision() {
-		if (designdecision != null && designdecision.eIsProxy()) {
-			InternalEObject oldDesigndecision = (InternalEObject)designdecision;
-			designdecision = (DesignDecision)eResolveProxy(oldDesigndecision);
-			if (designdecision != oldDesigndecision) {
+	public DegreeOfFreedom getDegreeOfFreedom() {
+		if (degreeOfFreedom != null && degreeOfFreedom.eIsProxy()) {
+			InternalEObject oldDegreeOfFreedom = (InternalEObject)degreeOfFreedom;
+			degreeOfFreedom = (DegreeOfFreedom)eResolveProxy(oldDegreeOfFreedom);
+			if (degreeOfFreedom != oldDegreeOfFreedom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, designdecisionPackage.CHOICE__DESIGNDECISION, oldDesigndecision, designdecision));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM, oldDegreeOfFreedom, degreeOfFreedom));
 			}
 		}
-		return designdecision;
+		return degreeOfFreedom;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DesignDecision basicGetDesigndecision() {
-		return designdecision;
+	public DegreeOfFreedom basicGetDegreeOfFreedom() {
+		return degreeOfFreedom;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDesigndecision(DesignDecision newDesigndecision) {
-		DesignDecision oldDesigndecision = designdecision;
-		designdecision = newDesigndecision;
+	public void setDegreeOfFreedom(DegreeOfFreedom newDegreeOfFreedom) {
+		DegreeOfFreedom oldDegreeOfFreedom = degreeOfFreedom;
+		degreeOfFreedom = newDegreeOfFreedom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, designdecisionPackage.CHOICE__DESIGNDECISION, oldDesigndecision, designdecision));
+			eNotify(new ENotificationImpl(this, Notification.SET, designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM, oldDegreeOfFreedom, degreeOfFreedom));
 	}
 
 	/**
@@ -107,9 +107,9 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case designdecisionPackage.CHOICE__DESIGNDECISION:
-				if (resolve) return getDesigndecision();
-				return basicGetDesigndecision();
+			case designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM:
+				if (resolve) return getDegreeOfFreedom();
+				return basicGetDegreeOfFreedom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,8 +122,8 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case designdecisionPackage.CHOICE__DESIGNDECISION:
-				setDesigndecision((DesignDecision)newValue);
+			case designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM:
+				setDegreeOfFreedom((DegreeOfFreedom)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case designdecisionPackage.CHOICE__DESIGNDECISION:
-				setDesigndecision((DesignDecision)null);
+			case designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM:
+				setDegreeOfFreedom((DegreeOfFreedom)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -152,8 +152,8 @@ public abstract class ChoiceImpl extends EObjectImpl implements Choice {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case designdecisionPackage.CHOICE__DESIGNDECISION:
-				return designdecision != null;
+			case designdecisionPackage.CHOICE__DEGREE_OF_FREEDOM:
+				return degreeOfFreedom != null;
 		}
 		return super.eIsSet(featureID);
 	}
