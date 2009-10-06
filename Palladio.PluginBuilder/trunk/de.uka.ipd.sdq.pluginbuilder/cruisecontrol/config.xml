@@ -4,7 +4,7 @@
   <project name="PCM" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="svn://141.3.52.13/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <!-- <svn RepositoryLocation="svn://141.3.52.13/code" username="cruisecontrol" password="obREaglAkEmhaDwl" /> -->	
     </modificationset>
     <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
@@ -33,14 +33,14 @@
     <listeners></listeners>
   </project>
   
-    <!-- #### BELOW: PCM Build ################################### -->
+    <!-- #### BELOW: PCM Eclipse 3.5 Build ################################### -->
   <project name="PCM Eclipse 3.5 build" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="svn://141.3.52.13/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn RepositoryLocation="svn://i43pc13.ipd.uka.de/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
-      <ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+      <ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/branches/eclipse-3.5/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/branches/eclipse-3.5/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
     </schedule>
     <log>
       <merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
@@ -52,16 +52,16 @@
         <!-- <always address="sbecker@ipd.uka.de"></always>
         <always address="krogmann@ipd.uka.de"></always> -->
       </htmlemail>
-      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.7.3/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
       <onsuccess>
-		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/branches/eclipse-3.5/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
       </onsuccess>
       <onfailure>
-      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/branches/eclipse-3.5/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
       </onfailure>
     </publishers>
     <bootstrappers>
-      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/Palladio.PluginBuilder/branches/eclipse-3.5/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
     </bootstrappers>
     <listeners></listeners>
   </project>
