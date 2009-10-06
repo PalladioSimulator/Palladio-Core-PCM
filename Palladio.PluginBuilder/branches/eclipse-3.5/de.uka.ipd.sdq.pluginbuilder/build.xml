@@ -100,8 +100,6 @@
 			<param name="varjvmargs2" value="-Dbuild.container.feature=true"/>
     	</antcall>
 	</target>
-
-	
 	
 	<target name="-build.internal">
 		<echo>Eclipe build task (-build.internal)</echo>
@@ -141,7 +139,7 @@
 			<jvmarg value="${varjvmargs1}"/>
 			<jvmarg value="${varjvmargs2}"/>	
 		    
-		    <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/>
+		    <!-- <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/> -->
 
 			<classpath>
 				<pathelement location="${equinoxjar}" />
