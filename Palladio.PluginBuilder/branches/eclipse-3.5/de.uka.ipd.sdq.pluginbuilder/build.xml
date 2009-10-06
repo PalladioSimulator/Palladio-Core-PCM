@@ -149,6 +149,7 @@
 
 			<classpath>
 				<pathelement location="${equinoxjar}" />
+			    <pathelement location="/opt/ant-contrib-0.3.jar"/>				
 			</classpath>
 			
 			<syspropertyset>
