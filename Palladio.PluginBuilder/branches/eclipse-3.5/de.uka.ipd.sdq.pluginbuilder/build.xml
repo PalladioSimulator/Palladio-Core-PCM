@@ -119,7 +119,7 @@
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr">
+			failonerror="true" errorproperty="build.stderr"  output="/home/ccontrol/java-build-log-console.txt">
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
@@ -164,6 +164,13 @@
 				</propertyset>
 			</syspropertyset>
 		</java>
+	    <echo>${build.stderr}</echo>
+		
+		<!-- added by kelsaka: log output start -->
+		<!-- as the build directory is delete as a whole, removing the single file is not possible:
+		         <delete file="${buildDirectory}/java-build-log.txt"/> -->
+		<echo file="/home/ccontrol/java-build-log.txt" message="Error output of the Eclipse build java task. If this file has no content below, there have been no errors. - - ${build.stderr}" />
+		<!-- added by kelsaka: log output end -->
 		
 		<!-- save stderr for scrutinizing later -->
 		<echo file="${buildDirectory}/stderr.txt">${build.stderr}</echo>
