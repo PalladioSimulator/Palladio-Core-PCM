@@ -100,7 +100,7 @@
 			<param name="varjvmargs2" value="-Dbuild.container.feature=true"/>
     	</antcall>
 	</target>
-	
+
 	<target name="-build.internal">
 		<echo>Eclipe build task (-build.internal)</echo>
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
@@ -138,12 +138,20 @@
 			<jvmarg value="-DfetchTag=${fetchTag}"/>
 			<jvmarg value="${varjvmargs1}"/>
 			<jvmarg value="${varjvmargs2}"/>	
-		    
+			<jvmarg value="-DbuildProperties=${buildHome}/build-files/build.properties"/>
+			
 		    <!-- <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/> -->
 
 			<classpath>
 				<pathelement location="${equinoxjar}" />
 			</classpath>
+			
+			<syspropertyset>
+				<propertyset>
+					<propertyref prefix="buildSystemProperty"/>
+					<mapper type="glob" from="buildSystemProperty.*" to="*"/>
+				</propertyset>
+			</syspropertyset>			
 		</java>
 	    <echo>${build.stderr}</echo>			
 		
