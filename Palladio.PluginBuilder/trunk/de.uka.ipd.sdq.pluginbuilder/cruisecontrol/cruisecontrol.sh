@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo /etc/init.d/gdm stop
+
 
 ################################################################################
 # CruiseControl, a Continuous Integration Toolkit
@@ -39,16 +40,56 @@ sudo /etc/init.d/gdm stop
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ################################################################################
 
-# The root of the CruiseControl directory.  The key requirement is that this is the parent
+# CCDIR: The root of the CruiseControl directory.
+# The key requirement is that this is the parent
 # directory of CruiseControl's lib and dist directories.
-CCDIR=`pwd`
+if [ -z "$CCDIR" ] ; then
+  # resolve links - $0 may be a softlink
+  PRG="$0"
+
+  # need this for relative symlinks
+  while [ -h "$PRG" ] ; do
+    ls=`ls -ld "$PRG"`
+    link=`expr "$ls" : '.*-> \(.*\)$'`
+    if expr "$link" : '/.*' > /dev/null; then
+      PRG="$link"
+    else
+      PRG=`dirname "$PRG"`"/$link"
+    fi
+  done
+
+  saveddir=`pwd`
+
+  CCDIR=`dirname "$PRG"`
+
+  # make it fully qualified
+  CCDIR=`cd "$CCDIR" && pwd`
+
+  cd $saveddir
+  echo Using Cruise Control at $CCDIR
+fi
 
 # Uncomment the following line if you have OutOfMemoryError errors
+# CC_OPTS="-Xms128m -Xmx256m"
 CC_OPTS="-Xms512m -Xmx1024m -Xmn16m"
-# -Xss64m"
+
+
+#--------------------------------------------
+# set JAVA_HOME on Mac OSX
+#--------------------------------------------
+case "`uname`" in
+  Darwin*)
+    if [ -z "$JAVA_HOME" ] ; then
+      JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+    fi
+    ;;
+esac
 
 LIBDIR=$CCDIR/lib
 LAUNCHER=$LIBDIR/cruisecontrol-launcher.jar
+if [ -z "$JETTY_LOGS" ] ; then 
+ JETTY_LOGS=$CCDIR/logs 
+fi 
 
 # convert the existing path to unix
 if [ `uname | grep -n CYGWIN` ]; then
@@ -69,7 +110,14 @@ killall java
 export DISPLAY=:99
 killall Xvfb
 su -m -c "Xvfb -noreset $DISPLAY &" ccontrol
-EXEC="/usr/bin/java $CC_OPTS -Djavax.management.builder.initial=mx4j.server.MX4JMBeanServerBuilder -Dcc.library.dir=$LIBDIR -jar $LAUNCHER $@ -jmxport 8000 -webport 8080 -rmiport 1099"
+
+
+
+
+EXEC="/usr/bin/java $CC_OPTS -Djavax.management.builder.initial=mx4j.server.MX4JMBeanServerBuilder -Dcc.library.dir=$LIBDIR -Djetty.logs=$JETTY_LOGS -jar $LAUNCHER $@ -jmxport 8000 -webport 8080 -rmiport 1099"
 echo $EXEC
-su -m -c "$EXEC &" ccontrol 
+/usr/bin/java $CC_OPTS -Djavax.management.builder.initial=mx4j.server.MX4JMBeanServerBuilder "-Dcc.library.dir=$LIBDIR" "-Djetty.logs=$JETTY_LOGS" -jar "$LAUNCHER" $@ -jmxport 8000 -webport 8080 -rmiport 1099 &
+
+su -m -c "$EXEC &" ccontrol
+
 echo $! > cc.pid
