@@ -9,7 +9,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Propertyable;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataValidator;
 
@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getAdditionalInformation <em>Additional Information</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getMeasurement <em>Measurement</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getMeasurements <em>Measurements</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentRunImpl#getExperimentSetting <em>Experiment Setting</em>}</li>
@@ -72,14 +72,14 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	protected EMap<String, Object> additionalInformation;
 
 	/**
-	 * The cached value of the '{@link #getMeasurement() <em>Measurement</em>}' containment reference list.
+	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMeasurement()
+	 * @see #getMeasurements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Measurement> measurement;
+	protected EList<Measurements> measurements;
 
 	/**
 	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -157,11 +157,11 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Measurement> getMeasurement() {
-		if (measurement == null) {
-			measurement = new EObjectContainmentWithInverseEList<Measurement>(Measurement.class, this, ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT, ExperimentDataPackage.MEASUREMENT__EXPERIMENT_RUN);
+	public EList<Measurements> getMeasurements() {
+		if (measurements == null) {
+			measurements = new EObjectContainmentWithInverseEList<Measurements>(Measurements.class, this, ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS, ExperimentDataPackage.MEASUREMENTS__EXPERIMENT_RUN);
 		}
-		return measurement;
+		return measurements;
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasurement()).basicAdd(otherEnd, msgs);
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMeasurements()).basicAdd(otherEnd, msgs);
 			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -301,8 +301,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		switch (featureID) {
 			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return ((InternalEList<?>)getAdditionalInformation()).basicRemove(otherEnd, msgs);
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				return ((InternalEList<?>)getMeasurement()).basicRemove(otherEnd, msgs);
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				return ((InternalEList<?>)getMeasurements()).basicRemove(otherEnd, msgs);
 			case ExperimentDataPackage.EXPERIMENT_RUN__EXPERIMENT_SETTING:
 				return basicSetExperimentSetting(null, msgs);
 		}
@@ -334,8 +334,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				if (coreType) return getAdditionalInformation();
 				else return getAdditionalInformation().map();
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				return getMeasurement();
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				return getMeasurements();
 			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				return getStartTime();
 			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:
@@ -358,9 +358,9 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				((EStructuralFeature.Setting)getAdditionalInformation()).set(newValue);
 				return;
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				getMeasurement().clear();
-				getMeasurement().addAll((Collection<? extends Measurement>)newValue);
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				getMeasurements().clear();
+				getMeasurements().addAll((Collection<? extends Measurements>)newValue);
 				return;
 			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime((Date)newValue);
@@ -386,8 +386,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				getAdditionalInformation().clear();
 				return;
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				getMeasurement().clear();
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				getMeasurements().clear();
 				return;
 			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
@@ -412,8 +412,8 @@ public class ExperimentRunImpl extends IdentifiableImpl implements ExperimentRun
 		switch (featureID) {
 			case ExperimentDataPackage.EXPERIMENT_RUN__ADDITIONAL_INFORMATION:
 				return additionalInformation != null && !additionalInformation.isEmpty();
-			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENT:
-				return measurement != null && !measurement.isEmpty();
+			case ExperimentDataPackage.EXPERIMENT_RUN__MEASUREMENTS:
+				return measurements != null && !measurements.isEmpty();
 			case ExperimentDataPackage.EXPERIMENT_RUN__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 			case ExperimentDataPackage.EXPERIMENT_RUN__DURATION:

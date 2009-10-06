@@ -61,7 +61,7 @@ public abstract class MeasurementsDaoFactoryTest {
 		daos[7].open();
 		Assert.assertEquals("Initial state must be active.", true, daoFactory.isActive());
 		daoFactory.setActive(false);
-		Assert.assertEquals("Initial state must be active.", false, daoFactory.isActive());
+		Assert.assertEquals("Sate must be inactive after changing state.", false, daoFactory.isActive());
 		for (MeasurementsDao dao : daos) {
 			Assert
 					.assertEquals(

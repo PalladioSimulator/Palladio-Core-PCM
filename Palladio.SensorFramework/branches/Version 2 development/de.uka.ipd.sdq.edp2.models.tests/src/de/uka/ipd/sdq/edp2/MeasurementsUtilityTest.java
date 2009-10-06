@@ -15,8 +15,8 @@ import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
 /**Test of the utility class MeasurementsUtility.
@@ -35,7 +35,7 @@ public class MeasurementsUtilityTest {
 	@Test (expected = IllegalStateException.class)
 	public void addDataSeriesTwiceOnSameRawMeasurements() throws IOException {
 		LocalDirectoryRepository ldRepo = createRepository();
-		MeasurementRange range = createMeasurementRangeFromScratch(ldRepo);
+		MeasurementsRange range = createMeasurementsRangeFromScratch(ldRepo);
 		// Create only raw measurements
 		RawMeasurements rm = factory.createRawMeasurements();
 		range.setRawMeasurements(rm);
@@ -44,7 +44,7 @@ public class MeasurementsUtilityTest {
 		MeasurementsUtility.addDataSeries(rm);
 	}
 
-	private MeasurementRange createMeasurementRangeFromScratch(LocalDirectoryRepository ldRepo)
+	private MeasurementsRange createMeasurementsRangeFromScratch(LocalDirectoryRepository ldRepo)
 			throws IOException {
 		// Add Descriptions
 		ExampleData ed = new ExampleData();
@@ -52,13 +52,13 @@ public class MeasurementsUtilityTest {
 		// Add structure down to a measurement setting instance
 		ldRepo.getExperimentGroups().add(ed.createExperimentalGroupAndSetting());
 		// Create experiment run
-		Measurement measurementServiceCallA = factory.createMeasurement();
+		Measurements measurementServiceCallA = factory.createMeasurements();
 		measurementServiceCallA.setMeasure(ldRepo.getExperimentGroups().get(0).getMeasure().get(0));
 		ExperimentRun runA0 = factory.createExperimentRun();
-		runA0.getMeasurement().add(measurementServiceCallA);
+		runA0.getMeasurements().add(measurementServiceCallA);
 		ldRepo.getExperimentGroups().get(0).getExperimentSettings().get(0).getExperimentRuns().add(runA0);
 		// Create measurement range
-		MeasurementRange range = MeasurementsUtility.addMeasurementRange(measurementServiceCallA);
+		MeasurementsRange range = MeasurementsUtility.addMeasurementRange(measurementServiceCallA);
 		return range;
 	}
 
@@ -73,8 +73,8 @@ public class MeasurementsUtilityTest {
 	@Test
 	public void addMeasurementRangeWithPreexistingEmptyRange() throws IOException {
 		LocalDirectoryRepository ldRepo = createRepository();
-		MeasurementRange range = createMeasurementRangeFromScratch(ldRepo);
-		MeasurementRange range2 = MeasurementsUtility.addMeasurementRange(ldRepo.getExperimentGroups().get(0).getExperimentSettings().get(0).getExperimentRuns().get(0).getMeasurement().get(0));
+		MeasurementsRange range = createMeasurementsRangeFromScratch(ldRepo);
+		MeasurementsRange range2 = MeasurementsUtility.addMeasurementRange(ldRepo.getExperimentGroups().get(0).getExperimentSettings().get(0).getExperimentRuns().get(0).getMeasurements().get(0));
 		Assert.assertNull("Initialization of test failed.", range.getRawMeasurements());
 		Assert.assertNull("Copy of empty measurement range contains raw measurements.", range2.getRawMeasurements());
 		Assert.assertTrue("Initialization of test failed.", range.getAggregatedMeasurements().size() == 0);
@@ -84,13 +84,13 @@ public class MeasurementsUtilityTest {
 	@Test
 	public void addMeasurementRangeWithPreexistingRange() throws IOException {
 		LocalDirectoryRepository ldRepo = createRepository();
-		MeasurementRange range = createMeasurementRangeFromScratch(ldRepo);
+		MeasurementsRange range = createMeasurementsRangeFromScratch(ldRepo);
 		// populate first range
 		RawMeasurements rm = factory.createRawMeasurements();
 		range.setRawMeasurements(rm);
 		MeasurementsUtility.addDataSeries(rm);
 		// copy
-		MeasurementRange range2 = MeasurementsUtility.addMeasurementRange(ldRepo.getExperimentGroups().get(0).getExperimentSettings().get(0).getExperimentRuns().get(0).getMeasurement().get(0));
+		MeasurementsRange range2 = MeasurementsUtility.addMeasurementRange(ldRepo.getExperimentGroups().get(0).getExperimentSettings().get(0).getExperimentRuns().get(0).getMeasurements().get(0));
 		Assert.assertEquals("Number of data series must be equal.", range.getRawMeasurements().getDataSeries().size(), range2.getRawMeasurements().getDataSeries().size());
 		Assert.assertNotNull("1st data series was not copied.", range2.getRawMeasurements().getDataSeries().get(0));
 		Assert.assertFalse("1st data series must have another uuid.", range.getRawMeasurements().getDataSeries().get(0).getValuesUuid().equals(range2.getRawMeasurements().getDataSeries().get(0).getValuesUuid()));

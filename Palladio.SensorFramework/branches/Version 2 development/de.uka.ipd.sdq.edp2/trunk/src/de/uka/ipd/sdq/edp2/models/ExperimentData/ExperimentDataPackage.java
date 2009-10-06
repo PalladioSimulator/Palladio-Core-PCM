@@ -109,13 +109,13 @@ public interface ExperimentDataPackage extends EPackage {
 	int AGGREGATED_MEASUREMENTS__UUID = IDENTIFIABLE__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
+	 * The feature id for the '<em><b>Measurements Range</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = IDENTIFIABLE_FEATURE_COUNT + 0;
+	int AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -170,16 +170,6 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGGREGATED_MEASUREMENTS_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl <em>Measurement Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurementRange()
-	 * @generated
-	 */
-	int MEASUREMENT_RANGE = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl <em>Raw Measurements</em>}' class.
@@ -250,13 +240,23 @@ public interface ExperimentDataPackage extends EPackage {
 	int PROPERTYABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl <em>Measurements Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurementsRange()
+	 * @generated
+	 */
+	int MEASUREMENTS_RANGE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Additional Information</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
+	int MEASUREMENTS_RANGE__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Raw Measurements</b></em>' containment reference.
@@ -265,7 +265,7 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__RAW_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 0;
+	int MEASUREMENTS_RANGE__RAW_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -274,7 +274,7 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__END_TIME = PROPERTYABLE_FEATURE_COUNT + 1;
+	int MEASUREMENTS_RANGE__END_TIME = PROPERTYABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -283,16 +283,16 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__START_TIME = PROPERTYABLE_FEATURE_COUNT + 2;
+	int MEASUREMENTS_RANGE__START_TIME = PROPERTYABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Measurement</b></em>' container reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__MEASUREMENT = PROPERTYABLE_FEATURE_COUNT + 3;
+	int MEASUREMENTS_RANGE__MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Measurements</b></em>' containment reference list.
@@ -301,26 +301,16 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 4;
+	int MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS = PROPERTYABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Measurement Range</em>' class.
+	 * The number of structural features of the '<em>Measurements Range</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MEASUREMENT_RANGE_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementImpl <em>Measurement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementImpl
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurement()
-	 * @generated
-	 */
-	int MEASUREMENT = 10;
+	int MEASUREMENTS_RANGE_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.EStringtoEObjectMapEntryImpl <em>EStringto EObject Map Entry</em>}' class.
@@ -378,13 +368,13 @@ public interface ExperimentDataPackage extends EPackage {
 	int RAW_MEASUREMENTS__DATA_SERIES = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
+	 * The feature id for the '<em><b>Measurements Range</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RAW_MEASUREMENTS__MEASUREMENT_RANGE = IDENTIFIABLE_FEATURE_COUNT + 1;
+	int RAW_MEASUREMENTS__MEASUREMENTS_RANGE = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Raw Measurements</em>' class.
@@ -487,13 +477,13 @@ public interface ExperimentDataPackage extends EPackage {
 	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__UUID = AGGREGATED_MEASUREMENTS__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' container reference.
+	 * The feature id for the '<em><b>Measurements Range</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE;
+	int FIXED_WIDTH_AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE = AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -613,6 +603,61 @@ public interface ExperimentDataPackage extends EPackage {
 	int FIXED_INTERVALS_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsImpl <em>Measurements</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsImpl
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurements()
+	 * @generated
+	 */
+	int MEASUREMENTS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Additional Information</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Measure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS__MEASURE = PROPERTYABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Experiment Run</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS__EXPERIMENT_RUN = PROPERTYABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Measurements Range</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS__MEASUREMENTS_RANGE = PROPERTYABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Measurements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentGroupImpl <em>Experiment Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,51 +716,6 @@ public interface ExperimentDataPackage extends EPackage {
 	 * @generated
 	 */
 	int BASE_METRIC_DESCRIPTION = 19;
-
-	/**
-	 * The feature id for the '<em><b>Additional Information</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__ADDITIONAL_INFORMATION = PROPERTYABLE__ADDITIONAL_INFORMATION;
-
-	/**
-	 * The feature id for the '<em><b>Measure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__MEASURE = PROPERTYABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Experiment Run</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__EXPERIMENT_RUN = PROPERTYABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Measurement Range</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT__MEASUREMENT_RANGE = PROPERTYABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Measurement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEASUREMENT_FEATURE_COUNT = PROPERTYABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.Edp2MeasureImpl <em>Edp2 Measure</em>}' class.
@@ -908,13 +908,13 @@ public interface ExperimentDataPackage extends EPackage {
 	int EXPERIMENT_RUN__ADDITIONAL_INFORMATION = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Measurement</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENT_RUN__MEASUREMENT = IDENTIFIABLE_FEATURE_COUNT + 1;
+	int EXPERIMENT_RUN__MEASUREMENTS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -2415,15 +2415,15 @@ public interface ExperimentDataPackage extends EPackage {
 	EClass getAggregatedMeasurements();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementRange <em>Measurement Range</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Measurement Range</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementRange()
+	 * @return the meta object for the container reference '<em>Measurements Range</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange()
 	 * @see #getAggregatedMeasurements()
 	 * @generated
 	 */
-	EReference getAggregatedMeasurements_MeasurementRange();
+	EReference getAggregatedMeasurements_MeasurementsRange();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#isValid <em>Valid</em>}'.
@@ -2502,69 +2502,69 @@ public interface ExperimentDataPackage extends EPackage {
 	EAttribute getIdentifiable_Uuid();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange <em>Measurement Range</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange <em>Measurements Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Measurement Range</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange
+	 * @return the meta object for class '<em>Measurements Range</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange
 	 * @generated
 	 */
-	EClass getMeasurementRange();
+	EClass getMeasurementsRange();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getRawMeasurements <em>Raw Measurements</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements <em>Raw Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Raw Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getRawMeasurements()
-	 * @see #getMeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements()
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	EReference getMeasurementRange_RawMeasurements();
+	EReference getMeasurementsRange_RawMeasurements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getEndTime <em>End Time</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getEndTime <em>End Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>End Time</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getEndTime()
-	 * @see #getMeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getEndTime()
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	EAttribute getMeasurementRange_EndTime();
+	EAttribute getMeasurementsRange_EndTime();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getStartTime <em>Start Time</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getStartTime <em>Start Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Start Time</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getStartTime()
-	 * @see #getMeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getStartTime()
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	EAttribute getMeasurementRange_StartTime();
+	EAttribute getMeasurementsRange_StartTime();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getMeasurement <em>Measurement</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getMeasurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Measurement</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getMeasurement()
-	 * @see #getMeasurementRange()
+	 * @return the meta object for the container reference '<em>Measurements</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getMeasurements()
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	EReference getMeasurementRange_Measurement();
+	EReference getMeasurementsRange_Measurements();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Aggregated Measurements</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getAggregatedMeasurements()
-	 * @see #getMeasurementRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getAggregatedMeasurements()
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	EReference getMeasurementRange_AggregatedMeasurements();
+	EReference getMeasurementsRange_AggregatedMeasurements();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements <em>Raw Measurements</em>}'.
@@ -2588,15 +2588,15 @@ public interface ExperimentDataPackage extends EPackage {
 	EReference getRawMeasurements_DataSeries();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Measurement Range</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementRange()
+	 * @return the meta object for the container reference '<em>Measurements Range</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange()
 	 * @see #getRawMeasurements()
 	 * @generated
 	 */
-	EReference getRawMeasurements_MeasurementRange();
+	EReference getRawMeasurements_MeasurementsRange();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries <em>Data Series</em>}'.
@@ -2771,47 +2771,47 @@ public interface ExperimentDataPackage extends EPackage {
 	EReference getFixedIntervals_AggregatedMeasurements();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement <em>Measurement</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Measurement</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement
+	 * @return the meta object for class '<em>Measurements</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements
 	 * @generated
 	 */
-	EClass getMeasurement();
+	EClass getMeasurements();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getMeasure <em>Measure</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasure <em>Measure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Measure</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getMeasure()
-	 * @see #getMeasurement()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasure()
+	 * @see #getMeasurements()
 	 * @generated
 	 */
-	EReference getMeasurement_Measure();
+	EReference getMeasurements_Measure();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getExperimentRun <em>Experiment Run</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun <em>Experiment Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Experiment Run</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getExperimentRun()
-	 * @see #getMeasurement()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun()
+	 * @see #getMeasurements()
 	 * @generated
 	 */
-	EReference getMeasurement_ExperimentRun();
+	EReference getMeasurements_ExperimentRun();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getMeasurementRange <em>Measurement Range</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRange <em>Measurements Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Measurement Range</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getMeasurementRange()
-	 * @see #getMeasurement()
+	 * @return the meta object for the containment reference list '<em>Measurements Range</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRange()
+	 * @see #getMeasurements()
 	 * @generated
 	 */
-	EReference getMeasurement_MeasurementRange();
+	EReference getMeasurements_MeasurementsRange();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure <em>Edp2 Measure</em>}'.
@@ -3041,15 +3041,15 @@ public interface ExperimentDataPackage extends EPackage {
 	EClass getExperimentRun();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurement <em>Measurement</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Measurement</em>'.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurement()
+	 * @return the meta object for the containment reference list '<em>Measurements</em>'.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurements()
 	 * @see #getExperimentRun()
 	 * @generated
 	 */
-	EReference getExperimentRun_Measurement();
+	EReference getExperimentRun_Measurements();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getStartTime <em>Start Time</em>}'.
@@ -3805,12 +3805,12 @@ public interface ExperimentDataPackage extends EPackage {
 		EClass AGGREGATED_MEASUREMENTS = eINSTANCE.getAggregatedMeasurements();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurement Range</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Measurements Range</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE = eINSTANCE.getAggregatedMeasurements_MeasurementRange();
+		EReference AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE = eINSTANCE.getAggregatedMeasurements_MeasurementsRange();
 
 		/**
 		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
@@ -3871,14 +3871,14 @@ public interface ExperimentDataPackage extends EPackage {
 		EAttribute IDENTIFIABLE__UUID = eINSTANCE.getIdentifiable_Uuid();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl <em>Measurement Range</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl <em>Measurements Range</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl
-		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurementRange()
+		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl
+		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurementsRange()
 		 * @generated
 		 */
-		EClass MEASUREMENT_RANGE = eINSTANCE.getMeasurementRange();
+		EClass MEASUREMENTS_RANGE = eINSTANCE.getMeasurementsRange();
 
 		/**
 		 * The meta object literal for the '<em><b>Raw Measurements</b></em>' containment reference feature.
@@ -3886,7 +3886,7 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT_RANGE__RAW_MEASUREMENTS = eINSTANCE.getMeasurementRange_RawMeasurements();
+		EReference MEASUREMENTS_RANGE__RAW_MEASUREMENTS = eINSTANCE.getMeasurementsRange_RawMeasurements();
 
 		/**
 		 * The meta object literal for the '<em><b>End Time</b></em>' attribute feature.
@@ -3894,7 +3894,7 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MEASUREMENT_RANGE__END_TIME = eINSTANCE.getMeasurementRange_EndTime();
+		EAttribute MEASUREMENTS_RANGE__END_TIME = eINSTANCE.getMeasurementsRange_EndTime();
 
 		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
@@ -3902,15 +3902,15 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MEASUREMENT_RANGE__START_TIME = eINSTANCE.getMeasurementRange_StartTime();
+		EAttribute MEASUREMENTS_RANGE__START_TIME = eINSTANCE.getMeasurementsRange_StartTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurement</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Measurements</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT_RANGE__MEASUREMENT = eINSTANCE.getMeasurementRange_Measurement();
+		EReference MEASUREMENTS_RANGE__MEASUREMENTS = eINSTANCE.getMeasurementsRange_Measurements();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregated Measurements</b></em>' containment reference list feature.
@@ -3918,7 +3918,7 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS = eINSTANCE.getMeasurementRange_AggregatedMeasurements();
+		EReference MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS = eINSTANCE.getMeasurementsRange_AggregatedMeasurements();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl <em>Raw Measurements</em>}' class.
@@ -3939,12 +3939,12 @@ public interface ExperimentDataPackage extends EPackage {
 		EReference RAW_MEASUREMENTS__DATA_SERIES = eINSTANCE.getRawMeasurements_DataSeries();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurement Range</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Measurements Range</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RAW_MEASUREMENTS__MEASUREMENT_RANGE = eINSTANCE.getRawMeasurements_MeasurementRange();
+		EReference RAW_MEASUREMENTS__MEASUREMENTS_RANGE = eINSTANCE.getRawMeasurements_MeasurementsRange();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.DataSeriesImpl <em>Data Series</em>}' class.
@@ -4083,14 +4083,14 @@ public interface ExperimentDataPackage extends EPackage {
 		EReference FIXED_INTERVALS__AGGREGATED_MEASUREMENTS = eINSTANCE.getFixedIntervals_AggregatedMeasurements();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementImpl <em>Measurement</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsImpl <em>Measurements</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementImpl
-		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurement()
+		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsImpl
+		 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataPackageImpl#getMeasurements()
 		 * @generated
 		 */
-		EClass MEASUREMENT = eINSTANCE.getMeasurement();
+		EClass MEASUREMENTS = eINSTANCE.getMeasurements();
 
 		/**
 		 * The meta object literal for the '<em><b>Measure</b></em>' reference feature.
@@ -4098,7 +4098,7 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT__MEASURE = eINSTANCE.getMeasurement_Measure();
+		EReference MEASUREMENTS__MEASURE = eINSTANCE.getMeasurements_Measure();
 
 		/**
 		 * The meta object literal for the '<em><b>Experiment Run</b></em>' container reference feature.
@@ -4106,15 +4106,15 @@ public interface ExperimentDataPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT__EXPERIMENT_RUN = eINSTANCE.getMeasurement_ExperimentRun();
+		EReference MEASUREMENTS__EXPERIMENT_RUN = eINSTANCE.getMeasurements_ExperimentRun();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurement Range</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Measurements Range</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MEASUREMENT__MEASUREMENT_RANGE = eINSTANCE.getMeasurement_MeasurementRange();
+		EReference MEASUREMENTS__MEASUREMENTS_RANGE = eINSTANCE.getMeasurements_MeasurementsRange();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.Edp2MeasureImpl <em>Edp2 Measure</em>}' class.
@@ -4297,12 +4297,12 @@ public interface ExperimentDataPackage extends EPackage {
 		EClass EXPERIMENT_RUN = eINSTANCE.getExperimentRun();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurement</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Measurements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPERIMENT_RUN__MEASUREMENT = eINSTANCE.getExperimentRun_Measurement();
+		EReference EXPERIMENT_RUN__MEASUREMENTS = eINSTANCE.getExperimentRun_Measurements();
 
 		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.

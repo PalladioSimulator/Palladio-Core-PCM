@@ -104,10 +104,10 @@ public class ExperimentDataSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExperimentDataPackage.MEASUREMENT_RANGE: {
-				MeasurementRange measurementRange = (MeasurementRange)theEObject;
-				T result = caseMeasurementRange(measurementRange);
-				if (result == null) result = casePropertyable(measurementRange);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE: {
+				MeasurementsRange measurementsRange = (MeasurementsRange)theEObject;
+				T result = caseMeasurementsRange(measurementsRange);
+				if (result == null) result = casePropertyable(measurementsRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,10 +156,10 @@ public class ExperimentDataSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExperimentDataPackage.MEASUREMENT: {
-				Measurement measurement = (Measurement)theEObject;
-				T result = caseMeasurement(measurement);
-				if (result == null) result = casePropertyable(measurement);
+			case ExperimentDataPackage.MEASUREMENTS: {
+				Measurements measurements = (Measurements)theEObject;
+				T result = caseMeasurements(measurements);
+				if (result == null) result = casePropertyable(measurements);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -388,17 +388,17 @@ public class ExperimentDataSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Measurement Range</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Measurements Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Measurement Range</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Measurements Range</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMeasurementRange(MeasurementRange object) {
+	public T caseMeasurementsRange(MeasurementsRange object) {
 		return null;
 	}
 
@@ -508,17 +508,17 @@ public class ExperimentDataSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Measurement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Measurements</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Measurement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Measurements</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMeasurement(Measurement object) {
+	public T caseMeasurements(Measurements object) {
 		return null;
 	}
 

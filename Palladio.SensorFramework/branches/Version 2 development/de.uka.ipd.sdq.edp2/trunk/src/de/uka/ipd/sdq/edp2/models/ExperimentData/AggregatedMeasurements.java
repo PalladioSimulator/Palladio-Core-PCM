@@ -15,7 +15,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementRange <em>Measurement Range</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange <em>Measurements Range</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#isValid <em>Valid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getFunction <em>Function</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getAggregationStatistics <em>Aggregation Statistics</em>}</li>
@@ -30,32 +30,32 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
  */
 public interface AggregatedMeasurements extends Identifiable {
 	/**
-	 * Returns the value of the '<em><b>Measurement Range</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
+	 * Returns the value of the '<em><b>Measurements Range</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getAggregatedMeasurements <em>Aggregated Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Measurement Range</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Measurements Range</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurement Range</em>' container reference.
-	 * @see #setMeasurementRange(MeasurementRange)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_MeasurementRange()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getAggregatedMeasurements
+	 * @return the value of the '<em>Measurements Range</em>' container reference.
+	 * @see #setMeasurementsRange(MeasurementsRange)
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getAggregatedMeasurements_MeasurementsRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getAggregatedMeasurements
 	 * @model opposite="aggregatedMeasurements" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	MeasurementRange getMeasurementRange();
+	MeasurementsRange getMeasurementsRange();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementRange <em>Measurement Range</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange <em>Measurements Range</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Measurement Range</em>' container reference.
-	 * @see #getMeasurementRange()
+	 * @param value the new value of the '<em>Measurements Range</em>' container reference.
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	void setMeasurementRange(MeasurementRange value);
+	void setMeasurementsRange(MeasurementsRange value);
 
 	/**
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.

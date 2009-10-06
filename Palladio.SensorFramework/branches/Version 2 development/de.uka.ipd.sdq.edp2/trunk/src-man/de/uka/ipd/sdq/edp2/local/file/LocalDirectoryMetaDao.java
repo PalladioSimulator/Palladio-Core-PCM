@@ -18,12 +18,14 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
@@ -194,6 +196,7 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			saveExperimentGroups(directory);
 			mmtDaoFactory.setActive(false);
 			// Warning: Cannot clear lists as this would affect data on background storage
+			// TODO: FIXME
 			managedRepo.resetDescriptions();
 			managedRepo.resetExperimentGroups();
 			setClosed();
@@ -300,6 +303,10 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 			mmtDaoFactory = LocalDirectoryMeasurementsDaoFactory.getRegisteredFactory(directory);
 			if (mmtDaoFactory == null) { // DaoFactory not previously initialized
 				mmtDaoFactory = new LocalDirectoryMeasurementsDaoFactory(directory);
+			} else {
+				if (!mmtDaoFactory.isActive()) {
+					mmtDaoFactory.setActive(true);
+				}
 			}
 			setOpen();
 		} catch (IllegalArgumentException e) {
@@ -376,15 +383,21 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		String descFileLocation = directory.getAbsoluteFile() + File.separator
 				+ desc.getUuid() + "."
 				+ EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION;
-		Resource resource = managedRepo.getRepositories()
-				.getCommonResourceSet().createResource(URI.createFileURI(descFileLocation));
+		Resource resource = getResourceForURI(URI.createFileURI(descFileLocation));
 		if (resource == null) {
 			String msg = "Could not create resource to save the description file " + descFileLocation;
 			logger.log(Level.WARNING, msg);
 		} else {
-			resource.getContents().add(desc);
+			if (desc.eResource() == null) {
+				resource.getContents().add(desc);
+			} else if (!desc.eResource().equals(resource)) {
+				logger.log(Level.SEVERE, "Description was assigned to resource " + desc.eResource() + "but should be assigned to " + resource);
+			}
 			try {
 				resource.save(null);
+				resource.unload();
+				// TODO: Test
+				//resource.getResourceSet().getResources().remove(resource);
 			} catch (IOException e) {
 				String msg = "Could not save the description file " + descFileLocation;
 				logger.log(Level.WARNING, msg, e);
@@ -401,6 +414,14 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		}
 	}
 
+	/**Returns a resource for the given URI.
+	 * @param uri Location for which a resource is requested.
+	 * @return created resource.
+	 */
+	private Resource getResourceForURI(URI uri) {
+		return managedRepo.getRepositories().getCommonResourceSet().getResource(uri, true);
+	}
+	
 	/**Saves an experiment group in the provided directory.
 	 * @param directory The EDP2 data directory.
 	 * @param expGroup The experiment group to save.
@@ -409,15 +430,19 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		String egFileLocation = directory.getAbsoluteFile() + File.separator
 				+ expGroup.getUuid() + "."
 				+ EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION;
-		Resource resource = managedRepo.getRepositories()
-				.getCommonResourceSet().createResource(URI.createFileURI(egFileLocation));
+		Resource resource = getResourceForURI(URI.createFileURI(egFileLocation));
 		if (resource == null) {
 			String msg = "Could not create resource to save the experiment group file " + egFileLocation;
 			logger.log(Level.WARNING, msg);
 		} else {
-			resource.getContents().add(expGroup);
+			if (expGroup.eResource() == null) {
+				resource.getContents().add(expGroup);
+			} else if (!expGroup.eResource().equals(resource)) {
+				logger.log(Level.SEVERE, "ExperimentGroup was assigned to resource " + expGroup.eResource() + "but should be assigned to " + resource);
+			}
 			try {
 				resource.save(null);
+				resource.unload();
 			} catch (IOException e) {
 				String msg = "Could not save the experiment group file " + egFileLocation;
 				logger.log(Level.WARNING, msg, e);
@@ -430,12 +455,12 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 */
 	private void loadDescription(File descriptionFile) {
 		assert (managedRepo.getRepositories() != null);
-		Resource resource = managedRepo.getRepositories()
-				.getCommonResourceSet().createResource(
-						URI.createFileURI(descriptionFile.getAbsolutePath()));
+		Resource resource = getResourceForURI(URI.createFileURI(descriptionFile.getAbsolutePath()));
 		String errorMessage = null;
 		try {
 			resource.load(null);
+			logDiagnostic(resource.getErrors(), Level.SEVERE);
+			logDiagnostic(resource.getWarnings(), Level.WARNING);
 			if (resource != null) {
 				if (resource.getContents().size() == 1
 						&& resource.getWarnings().size() == 0
@@ -466,6 +491,18 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		}
 	}
 
+	/**Log diagnostic messages for EMF resources.
+	 * @param diagnostics Messages to log.
+	 * @param level Level with which the messages should be logged.
+	 */
+	private void logDiagnostic(EList<Diagnostic> diagnostics, Level level) {
+		if (diagnostics.size() != 0) {
+			for (Diagnostic diag : diagnostics) {
+				logger.log(level, "EMF Diagnostic message: " + diag.toString());
+			}
+		}
+	}
+
 	/**Loads all experiment groups from the description files within the specified directory.
 	 * @param directory The EDP2 data directory
 	 */
@@ -484,12 +521,13 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 * @param expGroupFile The experiment group file containing the EMF model of the description.
 	 */
 	private void loadExperimentGroup(File expGroupFile) {
-		Resource resource = managedRepo.getRepositories()
-				.getCommonResourceSet().createResource(
+		Resource resource = getResourceForURI(
 						URI.createFileURI(expGroupFile.getAbsolutePath()));
 		String errorMessage = null;
 		try {
 			resource.load(null);
+			logDiagnostic(resource.getErrors(), Level.SEVERE);
+			logDiagnostic(resource.getWarnings(), Level.WARNING);
 			if (resource != null) {
 				if (resource.getContents().size() == 1
 						&& resource.getWarnings().size() == 0

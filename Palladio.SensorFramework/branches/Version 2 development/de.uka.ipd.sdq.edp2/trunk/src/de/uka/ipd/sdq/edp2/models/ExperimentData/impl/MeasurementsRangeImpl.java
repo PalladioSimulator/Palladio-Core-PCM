@@ -8,8 +8,8 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
 import java.util.Collection;
@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -33,22 +32,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Measurement Range</b></em>'.
+ * An implementation of the model object '<em><b>Measurements Range</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl#getRawMeasurements <em>Raw Measurements</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl#getEndTime <em>End Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl#getStartTime <em>Start Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl#getMeasurement <em>Measurement</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementRangeImpl#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl#getRawMeasurements <em>Raw Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl#getStartTime <em>Start Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl#getMeasurements <em>Measurements</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.MeasurementsRangeImpl#getAggregatedMeasurements <em>Aggregated Measurements</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MeasurementRangeImpl extends PropertyableImpl implements MeasurementRange {
+public class MeasurementsRangeImpl extends PropertyableImpl implements MeasurementsRange {
 	/**
 	 * The cached value of the '{@link #getRawMeasurements() <em>Raw Measurements</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -114,7 +113,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MeasurementRangeImpl() {
+	protected MeasurementsRangeImpl() {
 		super();
 	}
 
@@ -125,7 +124,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.MEASUREMENT_RANGE;
+		return ExperimentDataPackage.Literals.MEASUREMENTS_RANGE;
 	}
 
 	/**
@@ -146,7 +145,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		RawMeasurements oldRawMeasurements = rawMeasurements;
 		rawMeasurements = newRawMeasurements;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, oldRawMeasurements, newRawMeasurements);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, oldRawMeasurements, newRawMeasurements);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -161,14 +160,14 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		if (newRawMeasurements != rawMeasurements) {
 			NotificationChain msgs = null;
 			if (rawMeasurements != null)
-				msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, RawMeasurements.class, msgs);
 			if (newRawMeasurements != null)
-				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, RawMeasurements.class, msgs);
+				msgs = ((InternalEObject)newRawMeasurements).eInverseAdd(this, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, RawMeasurements.class, msgs);
 			msgs = basicSetRawMeasurements(newRawMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, newRawMeasurements, newRawMeasurements));
 	}
 
 	/**
@@ -189,7 +188,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		Measure oldEndTime = endTime;
 		endTime = newEndTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME, oldEndTime, endTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENTS_RANGE__END_TIME, oldEndTime, endTime));
 	}
 
 	/**
@@ -210,7 +209,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		Measure oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME, oldStartTime, startTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENTS_RANGE__START_TIME, oldStartTime, startTime));
 	}
 
 	/**
@@ -218,9 +217,9 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measurement getMeasurement() {
-		if (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT) return null;
-		return (Measurement)eContainer();
+	public Measurements getMeasurements() {
+		if (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS) return null;
+		return (Measurements)eContainer();
 	}
 
 	/**
@@ -228,8 +227,8 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMeasurement(Measurement newMeasurement, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurement, ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT, msgs);
+	public NotificationChain basicSetMeasurements(Measurements newMeasurements, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newMeasurements, ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS, msgs);
 		return msgs;
 	}
 
@@ -238,20 +237,20 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasurement(Measurement newMeasurement) {
-		if (newMeasurement != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT && newMeasurement != null)) {
-			if (EcoreUtil.isAncestor(this, newMeasurement))
+	public void setMeasurements(Measurements newMeasurements) {
+		if (newMeasurements != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS && newMeasurements != null)) {
+			if (EcoreUtil.isAncestor(this, newMeasurements))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMeasurement != null)
-				msgs = ((InternalEObject)newMeasurement).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
-			msgs = basicSetMeasurement(newMeasurement, msgs);
+			if (newMeasurements != null)
+				msgs = ((InternalEObject)newMeasurements).eInverseAdd(this, ExperimentDataPackage.MEASUREMENTS__MEASUREMENTS_RANGE, Measurements.class, msgs);
+			msgs = basicSetMeasurements(newMeasurements, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT, newMeasurement, newMeasurement));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS, newMeasurements, newMeasurements));
 	}
 
 	/**
@@ -261,7 +260,7 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	 */
 	public EList<AggregatedMeasurements> getAggregatedMeasurements() {
 		if (aggregatedMeasurements == null) {
-			aggregatedMeasurements = new EObjectContainmentWithInverseEList<AggregatedMeasurements>(AggregatedMeasurements.class, this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE);
+			aggregatedMeasurements = new EObjectContainmentWithInverseEList<AggregatedMeasurements>(AggregatedMeasurements.class, this, ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE);
 		}
 		return aggregatedMeasurements;
 	}
@@ -275,15 +274,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				if (rawMeasurements != null)
-					msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, null, msgs);
+					msgs = ((InternalEObject)rawMeasurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, null, msgs);
 				return basicSetRawMeasurements((RawMeasurements)otherEnd, msgs);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMeasurement((Measurement)otherEnd, msgs);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+				return basicSetMeasurements((Measurements)otherEnd, msgs);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAggregatedMeasurements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -297,11 +296,11 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				return basicSetRawMeasurements(null, msgs);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				return basicSetMeasurement(null, msgs);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				return basicSetMeasurements(null, msgs);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				return ((InternalEList<?>)getAggregatedMeasurements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -315,8 +314,8 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT__MEASUREMENT_RANGE, Measurement.class, msgs);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENTS__MEASUREMENTS_RANGE, Measurements.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -329,15 +328,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				return getRawMeasurements();
-			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__END_TIME:
 				return getEndTime();
-			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__START_TIME:
 				return getStartTime();
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				return getMeasurement();
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				return getMeasurements();
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				return getAggregatedMeasurements();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -352,19 +351,19 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)newValue);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__END_TIME:
 				setEndTime((Measure)newValue);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__START_TIME:
 				setStartTime((Measure)newValue);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				setMeasurement((Measurement)newValue);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				setMeasurements((Measurements)newValue);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
 				getAggregatedMeasurements().addAll((Collection<? extends AggregatedMeasurements>)newValue);
 				return;
@@ -380,19 +379,19 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				setRawMeasurements((RawMeasurements)null);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__END_TIME:
 				setEndTime(END_TIME_EDEFAULT);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				setMeasurement((Measurement)null);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				setMeasurements((Measurements)null);
 				return;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				getAggregatedMeasurements().clear();
 				return;
 		}
@@ -407,15 +406,15 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS:
 				return rawMeasurements != null;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__END_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__END_TIME:
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__START_TIME:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
-			case ExperimentDataPackage.MEASUREMENT_RANGE__MEASUREMENT:
-				return getMeasurement() != null;
-			case ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS:
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__MEASUREMENTS:
+				return getMeasurements() != null;
+			case ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS:
 				return aggregatedMeasurements != null && !aggregatedMeasurements.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -439,4 +438,4 @@ public class MeasurementRangeImpl extends PropertyableImpl implements Measuremen
 		return result.toString();
 	}
 
-} //MeasurementRangeImpl
+} //MeasurementsRangeImpl

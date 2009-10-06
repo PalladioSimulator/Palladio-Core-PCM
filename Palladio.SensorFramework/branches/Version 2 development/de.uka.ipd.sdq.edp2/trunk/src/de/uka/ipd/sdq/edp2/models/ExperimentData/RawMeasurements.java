@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getDataSeries <em>Data Series</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange <em>Measurements Range</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,31 +49,31 @@ public interface RawMeasurements extends Identifiable {
 	EList<DataSeries> getDataSeries();
 
 	/**
-	 * Returns the value of the '<em><b>Measurement Range</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getRawMeasurements <em>Raw Measurements</em>}'.
+	 * Returns the value of the '<em><b>Measurements Range</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements <em>Raw Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Measurement Range</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Measurements Range</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurement Range</em>' container reference.
-	 * @see #setMeasurementRange(MeasurementRange)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRawMeasurements_MeasurementRange()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange#getRawMeasurements
+	 * @return the value of the '<em>Measurements Range</em>' container reference.
+	 * @see #setMeasurementsRange(MeasurementsRange)
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getRawMeasurements_MeasurementsRange()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements
 	 * @model opposite="rawMeasurements" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	MeasurementRange getMeasurementRange();
+	MeasurementsRange getMeasurementsRange();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementRange <em>Measurement Range</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange <em>Measurements Range</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Measurement Range</em>' container reference.
-	 * @see #getMeasurementRange()
+	 * @param value the new value of the '<em>Measurements Range</em>' container reference.
+	 * @see #getMeasurementsRange()
 	 * @generated
 	 */
-	void setMeasurementRange(MeasurementRange value);
+	void setMeasurementsRange(MeasurementsRange value);
 
 } // RawMeasurements

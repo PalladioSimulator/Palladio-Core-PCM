@@ -133,8 +133,8 @@ public class ExperimentDataValidator extends EObjectValidator {
 				return validateAggregatedMeasurements((AggregatedMeasurements)value, diagnostics, context);
 			case ExperimentDataPackage.IDENTIFIABLE:
 				return validateIdentifiable((Identifiable)value, diagnostics, context);
-			case ExperimentDataPackage.MEASUREMENT_RANGE:
-				return validateMeasurementRange((MeasurementRange)value, diagnostics, context);
+			case ExperimentDataPackage.MEASUREMENTS_RANGE:
+				return validateMeasurementsRange((MeasurementsRange)value, diagnostics, context);
 			case ExperimentDataPackage.PROPERTYABLE:
 				return validatePropertyable((Propertyable)value, diagnostics, context);
 			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY:
@@ -149,8 +149,8 @@ public class ExperimentDataValidator extends EObjectValidator {
 				return validateFixedWidthAggregatedMeasurements((FixedWidthAggregatedMeasurements)value, diagnostics, context);
 			case ExperimentDataPackage.FIXED_INTERVALS:
 				return validateFixedIntervals((FixedIntervals)value, diagnostics, context);
-			case ExperimentDataPackage.MEASUREMENT:
-				return validateMeasurement((Measurement)value, diagnostics, context);
+			case ExperimentDataPackage.MEASUREMENTS:
+				return validateMeasurements((Measurements)value, diagnostics, context);
 			case ExperimentDataPackage.EDP2_MEASURE:
 				return validateEdp2Measure((Edp2Measure)value, diagnostics, context);
 			case ExperimentDataPackage.EXPERIMENT_GROUP:
@@ -251,8 +251,8 @@ public class ExperimentDataValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasurementRange(MeasurementRange measurementRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measurementRange, diagnostics, context);
+	public boolean validateMeasurementsRange(MeasurementsRange measurementsRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(measurementsRange, diagnostics, context);
 	}
 
 	/**
@@ -341,8 +341,8 @@ public class ExperimentDataValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMeasurement(Measurement measurement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(measurement, diagnostics, context);
+	public boolean validateMeasurements(Measurements measurements, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(measurements, diagnostics, context);
 	}
 
 	/**

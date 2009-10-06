@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<de.uka.ipd.sdq.edp2.models:ExperimentGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" uuid="_r9qOQLK-Ed6_WMmZWD97Ww" purpose="Exemplary use of EDP2">
+  <experimentSettings description="Experiment Setting #1" measure="//@measure.0 //@measure.1">
+    <experimentRuns uuid="_r9zYMLK-Ed6_WMmZWD97Ww" startTime="2009-10-06T23:24:53.187+0200">
+      <measurements measure="//@measure.0">
+        <measurementsRange>
+          <rawMeasurements uuid="_r9zYMbK-Ed6_WMmZWD97Ww">
+            <dataSeries xsi:type="de.uka.ipd.sdq.edp2.models:DoubleBinaryMeasurements" valuesUuid="_r9zYMrK-Ed6_WMmZWD97Ww" storageUnit="rO0ABXNyABtqYXZheC5tZWFzdXJlLnVuaXQuQmFzZVVuaXQAAAAAAAAAAQIAAUwAB19zeW1ib2x0&#xD;&#xA;ABJMamF2YS9sYW5nL1N0cmluZzt4cgAXamF2YXgubWVhc3VyZS51bml0LlVuaXTNyN4WeM1SZwIA&#xD;&#xA;AHhwdAABcw==&#xD;&#xA;"/>
+            <dataSeries xsi:type="de.uka.ipd.sdq.edp2.models:DoubleBinaryMeasurements" valuesUuid="_r99JMLK-Ed6_WMmZWD97Ww" storageUnit="rO0ABXNyABtqYXZheC5tZWFzdXJlLnVuaXQuQmFzZVVuaXQAAAAAAAAAAQIAAUwAB19zeW1ib2x0&#xD;&#xA;ABJMamF2YS9sYW5nL1N0cmluZzt4cgAXamF2YXgubWVhc3VyZS51bml0LlVuaXTNyN4WeM1SZwIA&#xD;&#xA;AHhwdAABcw==&#xD;&#xA;"/>
+          </rawMeasurements>
+        </measurementsRange>
+      </measurements>
+    </experimentRuns>
+  </experimentSettings>
+  <measure xsi:type="de.uka.ipd.sdq.edp2.models:OrdinalMeasure" experimentSettings="//@experimentSettings.0" measuredObject="Service Call A">
+    <metric xsi:type="de.uka.ipd.sdq.edp2.models:MetricSetDescription" href="_MenvIiUREd6gmLudJva2Dw.edp2desc#_MenvIiUREd6gmLudJva2Dw"/>
+  </measure>
+  <measure xsi:type="de.uka.ipd.sdq.edp2.models:OrdinalMeasure" experimentSettings="//@experimentSettings.0" measuredObject="CPU A">
+    <metric xsi:type="de.uka.ipd.sdq.edp2.models:MetricSetDescription" href="_M3ynoiUSEd6gmLudJva2Dw.edp2desc#_M3ynoiUSEd6gmLudJva2Dw"/>
+  </measure>
+</de.uka.ipd.sdq.edp2.models:ExperimentGroup>

@@ -29,8 +29,8 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.IntervalStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Monotonic;
@@ -100,7 +100,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass measurementRangeEClass = null;
+	private EClass measurementsRangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,7 +142,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass measurementEClass = null;
+	private EClass measurementsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,7 +505,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregatedMeasurements_MeasurementRange() {
+	public EReference getAggregatedMeasurements_MeasurementsRange() {
 		return (EReference)aggregatedMeasurementsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -577,8 +577,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMeasurementRange() {
-		return measurementRangeEClass;
+	public EClass getMeasurementsRange() {
+		return measurementsRangeEClass;
 	}
 
 	/**
@@ -586,8 +586,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurementRange_RawMeasurements() {
-		return (EReference)measurementRangeEClass.getEStructuralFeatures().get(0);
+	public EReference getMeasurementsRange_RawMeasurements() {
+		return (EReference)measurementsRangeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -595,8 +595,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMeasurementRange_EndTime() {
-		return (EAttribute)measurementRangeEClass.getEStructuralFeatures().get(1);
+	public EAttribute getMeasurementsRange_EndTime() {
+		return (EAttribute)measurementsRangeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -604,8 +604,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMeasurementRange_StartTime() {
-		return (EAttribute)measurementRangeEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMeasurementsRange_StartTime() {
+		return (EAttribute)measurementsRangeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -613,8 +613,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurementRange_Measurement() {
-		return (EReference)measurementRangeEClass.getEStructuralFeatures().get(3);
+	public EReference getMeasurementsRange_Measurements() {
+		return (EReference)measurementsRangeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -622,8 +622,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurementRange_AggregatedMeasurements() {
-		return (EReference)measurementRangeEClass.getEStructuralFeatures().get(4);
+	public EReference getMeasurementsRange_AggregatedMeasurements() {
+		return (EReference)measurementsRangeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -649,7 +649,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRawMeasurements_MeasurementRange() {
+	public EReference getRawMeasurements_MeasurementsRange() {
 		return (EReference)rawMeasurementsEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -802,8 +802,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMeasurement() {
-		return measurementEClass;
+	public EClass getMeasurements() {
+		return measurementsEClass;
 	}
 
 	/**
@@ -811,8 +811,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurement_Measure() {
-		return (EReference)measurementEClass.getEStructuralFeatures().get(0);
+	public EReference getMeasurements_Measure() {
+		return (EReference)measurementsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -820,8 +820,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurement_ExperimentRun() {
-		return (EReference)measurementEClass.getEStructuralFeatures().get(1);
+	public EReference getMeasurements_ExperimentRun() {
+		return (EReference)measurementsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -829,8 +829,8 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMeasurement_MeasurementRange() {
-		return (EReference)measurementEClass.getEStructuralFeatures().get(2);
+	public EReference getMeasurements_MeasurementsRange() {
+		return (EReference)measurementsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1027,7 +1027,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentRun_Measurement() {
+	public EReference getExperimentRun_Measurements() {
 		return (EReference)experimentRunEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1672,7 +1672,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 
 		// Create classes and their features
 		aggregatedMeasurementsEClass = createEClass(AGGREGATED_MEASUREMENTS);
-		createEReference(aggregatedMeasurementsEClass, AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE);
+		createEReference(aggregatedMeasurementsEClass, AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE);
 		createEAttribute(aggregatedMeasurementsEClass, AGGREGATED_MEASUREMENTS__VALID);
 		createEReference(aggregatedMeasurementsEClass, AGGREGATED_MEASUREMENTS__FUNCTION);
 		createEReference(aggregatedMeasurementsEClass, AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS);
@@ -1682,12 +1682,12 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		identifiableEClass = createEClass(IDENTIFIABLE);
 		createEAttribute(identifiableEClass, IDENTIFIABLE__UUID);
 
-		measurementRangeEClass = createEClass(MEASUREMENT_RANGE);
-		createEReference(measurementRangeEClass, MEASUREMENT_RANGE__RAW_MEASUREMENTS);
-		createEAttribute(measurementRangeEClass, MEASUREMENT_RANGE__END_TIME);
-		createEAttribute(measurementRangeEClass, MEASUREMENT_RANGE__START_TIME);
-		createEReference(measurementRangeEClass, MEASUREMENT_RANGE__MEASUREMENT);
-		createEReference(measurementRangeEClass, MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS);
+		measurementsRangeEClass = createEClass(MEASUREMENTS_RANGE);
+		createEReference(measurementsRangeEClass, MEASUREMENTS_RANGE__RAW_MEASUREMENTS);
+		createEAttribute(measurementsRangeEClass, MEASUREMENTS_RANGE__END_TIME);
+		createEAttribute(measurementsRangeEClass, MEASUREMENTS_RANGE__START_TIME);
+		createEReference(measurementsRangeEClass, MEASUREMENTS_RANGE__MEASUREMENTS);
+		createEReference(measurementsRangeEClass, MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS);
 
 		propertyableEClass = createEClass(PROPERTYABLE);
 		createEReference(propertyableEClass, PROPERTYABLE__ADDITIONAL_INFORMATION);
@@ -1698,7 +1698,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 
 		rawMeasurementsEClass = createEClass(RAW_MEASUREMENTS);
 		createEReference(rawMeasurementsEClass, RAW_MEASUREMENTS__DATA_SERIES);
-		createEReference(rawMeasurementsEClass, RAW_MEASUREMENTS__MEASUREMENT_RANGE);
+		createEReference(rawMeasurementsEClass, RAW_MEASUREMENTS__MEASUREMENTS_RANGE);
 
 		dataSeriesEClass = createEClass(DATA_SERIES);
 		createEReference(dataSeriesEClass, DATA_SERIES__STATISTICS);
@@ -1720,10 +1720,10 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		createEAttribute(fixedIntervalsEClass, FIXED_INTERVALS__NUMBER_OF_INTERVALS);
 		createEReference(fixedIntervalsEClass, FIXED_INTERVALS__AGGREGATED_MEASUREMENTS);
 
-		measurementEClass = createEClass(MEASUREMENT);
-		createEReference(measurementEClass, MEASUREMENT__MEASURE);
-		createEReference(measurementEClass, MEASUREMENT__EXPERIMENT_RUN);
-		createEReference(measurementEClass, MEASUREMENT__MEASUREMENT_RANGE);
+		measurementsEClass = createEClass(MEASUREMENTS);
+		createEReference(measurementsEClass, MEASUREMENTS__MEASURE);
+		createEReference(measurementsEClass, MEASUREMENTS__EXPERIMENT_RUN);
+		createEReference(measurementsEClass, MEASUREMENTS__MEASUREMENTS_RANGE);
 
 		edp2MeasureEClass = createEClass(EDP2_MEASURE);
 		createEReference(edp2MeasureEClass, EDP2_MEASURE__EXPERIMENT_GROUP);
@@ -1744,7 +1744,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		createEReference(experimentSettingEClass, EXPERIMENT_SETTING__MEASURE);
 
 		experimentRunEClass = createEClass(EXPERIMENT_RUN);
-		createEReference(experimentRunEClass, EXPERIMENT_RUN__MEASUREMENT);
+		createEReference(experimentRunEClass, EXPERIMENT_RUN__MEASUREMENTS);
 		createEAttribute(experimentRunEClass, EXPERIMENT_RUN__START_TIME);
 		createEAttribute(experimentRunEClass, EXPERIMENT_RUN__DURATION);
 		createEReference(experimentRunEClass, EXPERIMENT_RUN__EXPERIMENT_SETTING);
@@ -1875,10 +1875,10 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 
 		// Add supertypes to classes
 		aggregatedMeasurementsEClass.getESuperTypes().add(this.getIdentifiable());
-		measurementRangeEClass.getESuperTypes().add(this.getPropertyable());
+		measurementsRangeEClass.getESuperTypes().add(this.getPropertyable());
 		rawMeasurementsEClass.getESuperTypes().add(this.getIdentifiable());
 		fixedWidthAggregatedMeasurementsEClass.getESuperTypes().add(this.getAggregatedMeasurements());
-		measurementEClass.getESuperTypes().add(this.getPropertyable());
+		measurementsEClass.getESuperTypes().add(this.getPropertyable());
 		experimentGroupEClass.getESuperTypes().add(this.getIdentifiable());
 		experimentGroupEClass.getESuperTypes().add(this.getPropertyable());
 		experimentSettingEClass.getESuperTypes().add(this.getPropertyable());
@@ -1905,7 +1905,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(aggregatedMeasurementsEClass, AggregatedMeasurements.class, "AggregatedMeasurements", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAggregatedMeasurements_MeasurementRange(), this.getMeasurementRange(), this.getMeasurementRange_AggregatedMeasurements(), "measurementRange", null, 1, 1, AggregatedMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAggregatedMeasurements_MeasurementsRange(), this.getMeasurementsRange(), this.getMeasurementsRange_AggregatedMeasurements(), "measurementsRange", null, 1, 1, AggregatedMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getAggregatedMeasurements_Valid(), ecorePackage.getEBoolean(), "valid", null, 1, 1, AggregatedMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAggregatedMeasurements_Function(), this.getAggregationFunctionDescription(), null, "function", null, 1, 1, AggregatedMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAggregatedMeasurements_AggregationStatistics(), this.getAggregationStatistics(), null, "aggregationStatistics", null, 0, 1, AggregatedMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1915,12 +1915,12 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentifiable_Uuid(), ecorePackage.getEString(), "uuid", null, 1, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(measurementRangeEClass, MeasurementRange.class, "MeasurementRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMeasurementRange_RawMeasurements(), this.getRawMeasurements(), this.getRawMeasurements_MeasurementRange(), "rawMeasurements", null, 0, 1, MeasurementRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getMeasurementRange_EndTime(), this.getEJSDurationMeasure(), "endTime", null, 1, 1, MeasurementRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getMeasurementRange_StartTime(), this.getEJSDurationMeasure(), "startTime", null, 1, 1, MeasurementRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMeasurementRange_Measurement(), this.getMeasurement(), this.getMeasurement_MeasurementRange(), "measurement", null, 1, 1, MeasurementRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMeasurementRange_AggregatedMeasurements(), this.getAggregatedMeasurements(), this.getAggregatedMeasurements_MeasurementRange(), "aggregatedMeasurements", null, 0, -1, MeasurementRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(measurementsRangeEClass, MeasurementsRange.class, "MeasurementsRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMeasurementsRange_RawMeasurements(), this.getRawMeasurements(), this.getRawMeasurements_MeasurementsRange(), "rawMeasurements", null, 0, 1, MeasurementsRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMeasurementsRange_EndTime(), this.getEJSDurationMeasure(), "endTime", null, 1, 1, MeasurementsRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMeasurementsRange_StartTime(), this.getEJSDurationMeasure(), "startTime", null, 1, 1, MeasurementsRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurementsRange_Measurements(), this.getMeasurements(), this.getMeasurements_MeasurementsRange(), "measurements", null, 1, 1, MeasurementsRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurementsRange_AggregatedMeasurements(), this.getAggregatedMeasurements(), this.getAggregatedMeasurements_MeasurementsRange(), "aggregatedMeasurements", null, 0, -1, MeasurementsRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(propertyableEClass, Propertyable.class, "Propertyable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyable_AdditionalInformation(), this.getEStringtoEObjectMapEntry(), null, "additionalInformation", null, 0, -1, Propertyable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1931,7 +1931,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 
 		initEClass(rawMeasurementsEClass, RawMeasurements.class, "RawMeasurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRawMeasurements_DataSeries(), this.getDataSeries(), this.getDataSeries_RawMeasurements(), "dataSeries", null, 1, -1, RawMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRawMeasurements_MeasurementRange(), this.getMeasurementRange(), this.getMeasurementRange_RawMeasurements(), "measurementRange", null, 1, 1, RawMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRawMeasurements_MeasurementsRange(), this.getMeasurementsRange(), this.getMeasurementsRange_RawMeasurements(), "measurementsRange", null, 1, 1, RawMeasurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(dataSeriesEClass, DataSeries.class, "DataSeries", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataSeries_Statistics(), this.getNominalStatistics(), this.getNominalStatistics_RawYSeries(), "statistics", null, 0, 1, DataSeries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1957,10 +1957,10 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		initEAttribute(getFixedIntervals_NumberOfIntervals(), ecorePackage.getELong(), "numberOfIntervals", null, 1, 1, FixedIntervals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFixedIntervals_AggregatedMeasurements(), this.getFixedWidthAggregatedMeasurements(), this.getFixedWidthAggregatedMeasurements_Intervals(), "aggregatedMeasurements", null, 1, 1, FixedIntervals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(measurementEClass, Measurement.class, "Measurement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMeasurement_Measure(), this.getEdp2Measure(), null, "measure", null, 1, 1, Measurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMeasurement_ExperimentRun(), this.getExperimentRun(), this.getExperimentRun_Measurement(), "experimentRun", null, 1, 1, Measurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMeasurement_MeasurementRange(), this.getMeasurementRange(), this.getMeasurementRange_Measurement(), "measurementRange", null, 0, -1, Measurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(measurementsEClass, Measurements.class, "Measurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMeasurements_Measure(), this.getEdp2Measure(), null, "measure", null, 1, 1, Measurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurements_ExperimentRun(), this.getExperimentRun(), this.getExperimentRun_Measurements(), "experimentRun", null, 1, 1, Measurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurements_MeasurementsRange(), this.getMeasurementsRange(), this.getMeasurementsRange_Measurements(), "measurementsRange", null, 0, -1, Measurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(edp2MeasureEClass, Edp2Measure.class, "Edp2Measure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEdp2Measure_ExperimentGroup(), this.getExperimentGroup(), this.getExperimentGroup_Measure(), "experimentGroup", null, 1, 1, Edp2Measure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1981,7 +1981,7 @@ public class ExperimentDataPackageImpl extends EPackageImpl implements Experimen
 		initEReference(getExperimentSetting_Measure(), this.getEdp2Measure(), this.getEdp2Measure_ExperimentSettings(), "measure", null, 0, -1, ExperimentSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(experimentRunEClass, ExperimentRun.class, "ExperimentRun", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExperimentRun_Measurement(), this.getMeasurement(), this.getMeasurement_ExperimentRun(), "measurement", null, 0, -1, ExperimentRun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getExperimentRun_Measurements(), this.getMeasurements(), this.getMeasurements_ExperimentRun(), "measurements", null, 0, -1, ExperimentRun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExperimentRun_StartTime(), ecorePackage.getEDate(), "startTime", null, 1, 1, ExperimentRun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExperimentRun_Duration(), this.getEJSDurationMeasure(), "duration", null, 1, 1, ExperimentRun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExperimentRun_ExperimentSetting(), this.getExperimentSetting(), this.getExperimentSetting_ExperimentRuns(), "experimentSetting", null, 1, 1, ExperimentRun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

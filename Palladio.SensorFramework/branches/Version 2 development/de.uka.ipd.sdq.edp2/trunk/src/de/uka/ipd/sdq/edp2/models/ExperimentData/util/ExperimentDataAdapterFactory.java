@@ -85,8 +85,8 @@ public class ExperimentDataAdapterFactory extends AdapterFactoryImpl {
 				return createIdentifiableAdapter();
 			}
 			@Override
-			public Adapter caseMeasurementRange(MeasurementRange object) {
-				return createMeasurementRangeAdapter();
+			public Adapter caseMeasurementsRange(MeasurementsRange object) {
+				return createMeasurementsRangeAdapter();
 			}
 			@Override
 			public Adapter casePropertyable(Propertyable object) {
@@ -117,8 +117,8 @@ public class ExperimentDataAdapterFactory extends AdapterFactoryImpl {
 				return createFixedIntervalsAdapter();
 			}
 			@Override
-			public Adapter caseMeasurement(Measurement object) {
-				return createMeasurementAdapter();
+			public Adapter caseMeasurements(Measurements object) {
+				return createMeasurementsAdapter();
 			}
 			@Override
 			public Adapter caseEdp2Measure(Edp2Measure object) {
@@ -281,16 +281,16 @@ public class ExperimentDataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange <em>Measurement Range</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange <em>Measurements Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange
 	 * @generated
 	 */
-	public Adapter createMeasurementRangeAdapter() {
+	public Adapter createMeasurementsRangeAdapter() {
 		return null;
 	}
 
@@ -393,16 +393,16 @@ public class ExperimentDataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement <em>Measurement</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements
 	 * @generated
 	 */
-	public Adapter createMeasurementAdapter() {
+	public Adapter createMeasurementsAdapter() {
 		return null;
 	}
 

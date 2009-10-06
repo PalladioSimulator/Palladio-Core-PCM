@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.AggregatedMeasurementsImpl#getMeasurementRange <em>Measurement Range</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.AggregatedMeasurementsImpl#getMeasurementsRange <em>Measurements Range</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.AggregatedMeasurementsImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.AggregatedMeasurementsImpl#getFunction <em>Function</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.AggregatedMeasurementsImpl#getAggregationStatistics <em>Aggregation Statistics</em>}</li>
@@ -128,9 +128,9 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE) return null;
-		return (MeasurementRange)eContainer();
+	public MeasurementsRange getMeasurementsRange() {
+		if (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE) return null;
+		return (MeasurementsRange)eContainer();
 	}
 
 	/**
@@ -138,8 +138,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMeasurementRange(MeasurementRange newMeasurementRange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
+	public NotificationChain basicSetMeasurementsRange(MeasurementsRange newMeasurementsRange, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newMeasurementsRange, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE, msgs);
 		return msgs;
 	}
 
@@ -148,20 +148,20 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
-			if (EcoreUtil.isAncestor(this, newMeasurementRange))
+	public void setMeasurementsRange(MeasurementsRange newMeasurementsRange) {
+		if (newMeasurementsRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE && newMeasurementsRange != null)) {
+			if (EcoreUtil.isAncestor(this, newMeasurementsRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMeasurementRange != null)
-				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
-			msgs = basicSetMeasurementRange(newMeasurementRange, msgs);
+			if (newMeasurementsRange != null)
+				msgs = ((InternalEObject)newMeasurementsRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS, MeasurementsRange.class, msgs);
+			msgs = basicSetMeasurementsRange(newMeasurementsRange, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE, newMeasurementsRange, newMeasurementsRange));
 	}
 
 	/**
@@ -350,10 +350,10 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMeasurementRange((MeasurementRange)otherEnd, msgs);
+				return basicSetMeasurementsRange((MeasurementsRange)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -366,8 +366,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				return basicSetMeasurementRange(null, msgs);
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return basicSetMeasurementsRange(null, msgs);
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__AGGREGATION_STATISTICS:
 				return basicSetAggregationStatistics(null, msgs);
 		}
@@ -382,8 +382,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS, MeasurementRange.class, msgs);
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS, MeasurementsRange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -396,8 +396,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				return getMeasurementRange();
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return getMeasurementsRange();
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return isValid();
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:
@@ -423,8 +423,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				setMeasurementRange((MeasurementRange)newValue);
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				setMeasurementsRange((MeasurementsRange)newValue);
 				return;
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid((Boolean)newValue);
@@ -453,8 +453,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				setMeasurementRange((MeasurementRange)null);
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				setMeasurementsRange((MeasurementsRange)null);
 				return;
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				setValid(VALID_EDEFAULT);
@@ -483,8 +483,8 @@ public abstract class AggregatedMeasurementsImpl extends IdentifiableImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENT_RANGE:
-				return getMeasurementRange() != null;
+			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return getMeasurementsRange() != null;
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__VALID:
 				return valid != VALID_EDEFAULT;
 			case ExperimentDataPackage.AGGREGATED_MEASUREMENTS__FUNCTION:

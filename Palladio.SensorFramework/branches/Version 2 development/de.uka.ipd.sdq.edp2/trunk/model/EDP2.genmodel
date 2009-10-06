@@ -121,7 +121,7 @@
       <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSDurationMeasure"/>
       <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSUnit"/>
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/AggregatedMeasurements">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/AggregatedMeasurements/measurementRange"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/AggregatedMeasurements/measurementsRange"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/AggregatedMeasurements/valid"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/AggregatedMeasurements/function"/>
@@ -134,12 +134,12 @@
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/Identifiable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/Identifiable/uuid"/>
       </genClasses>
-      <genClasses ecoreClass="EDP2.ecore#//ExperimentData/MeasurementRange">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementRange/rawMeasurements"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/MeasurementRange/endTime"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/MeasurementRange/startTime"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementRange/measurement"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementRange/aggregatedMeasurements"/>
+      <genClasses ecoreClass="EDP2.ecore#//ExperimentData/MeasurementsRange">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementsRange/rawMeasurements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/MeasurementsRange/endTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/MeasurementsRange/startTime"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementsRange/measurements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/MeasurementsRange/aggregatedMeasurements"/>
       </genClasses>
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/Propertyable">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Propertyable/additionalInformation"/>
@@ -150,7 +150,7 @@
       </genClasses>
       <genClasses ecoreClass="EDP2.ecore#//ExperimentData/RawMeasurements">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/RawMeasurements/dataSeries"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/RawMeasurements/measurementRange"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/RawMeasurements/measurementsRange"/>
       </genClasses>
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/DataSeries">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/DataSeries/statistics"/>
@@ -176,11 +176,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/FixedIntervals/numberOfIntervals"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/FixedIntervals/aggregatedMeasurements"/>
       </genClasses>
-      <genClasses ecoreClass="EDP2.ecore#//ExperimentData/Measurement">
+      <genClasses ecoreClass="EDP2.ecore#//ExperimentData/Measurements">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurement/measure"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurement/experimentRun"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurement/measurementRange"/>
+            ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurements/measure"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurements/experimentRun"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Measurements/measurementsRange"/>
       </genClasses>
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/Edp2Measure">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/Edp2Measure/experimentGroup"/>
@@ -205,7 +205,7 @@
             ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/ExperimentSetting/measure"/>
       </genClasses>
       <genClasses ecoreClass="EDP2.ecore#//ExperimentData/ExperimentRun">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/ExperimentRun/measurement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/ExperimentRun/measurements"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/ExperimentRun/startTime"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/ExperimentRun/duration"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/ExperimentRun/experimentSetting"/>

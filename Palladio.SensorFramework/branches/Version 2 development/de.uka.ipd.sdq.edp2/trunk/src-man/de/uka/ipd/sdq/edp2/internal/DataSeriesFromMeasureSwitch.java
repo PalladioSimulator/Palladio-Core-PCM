@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
 /**EMF switch to create data series based on metric for RawMeasurements.
  * @author groenda
  */
-public class DataSeriesFromMetricSwitch extends ExperimentDataSwitch<Boolean> {
+public class DataSeriesFromMeasureSwitch extends ExperimentDataSwitch<Boolean> {
 	/** Factory for Emfmodel. */
 	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 	/** RawMeasurements on which the DataSeries should be added. */
@@ -42,7 +42,7 @@ public class DataSeriesFromMetricSwitch extends ExperimentDataSwitch<Boolean> {
 	 * @param measure The definition of the measure which defines the data series.
 	 * @param daoFactory The factory used to create the measurement DAOs.
 	 */
-	public DataSeriesFromMetricSwitch(RawMeasurements rm, Edp2Measure measure, MeasurementsDaoFactory daoFactory) {
+	public DataSeriesFromMeasureSwitch(RawMeasurements rm, Edp2Measure measure, MeasurementsDaoFactory daoFactory) {
 		this.rm = rm;
 		this.measure = measure;
 		this.daoFactory = daoFactory;
@@ -53,7 +53,7 @@ public class DataSeriesFromMetricSwitch extends ExperimentDataSwitch<Boolean> {
 		Iterator<MetricDescription> iter = object.getSubsumedMetrics().iterator();
 		boolean success = true;
 		while (iter.hasNext()) {
-			success &= new DataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(iter.next());
+			success &= new DataSeriesFromMeasureSwitch(rm, measure, daoFactory).doSwitch(iter.next());
 		}
 		return success;
 	}

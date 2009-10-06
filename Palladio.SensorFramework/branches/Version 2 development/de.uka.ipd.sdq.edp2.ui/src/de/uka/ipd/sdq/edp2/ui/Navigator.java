@@ -52,6 +52,7 @@ public class Navigator extends ViewPart {
 	public void createPartControl(Composite parent) {
 		parent.setLayout(new FillLayout());
 		treeViewer = new TreeViewer(parent);
+		treeViewer.setAutoExpandLevel(8);
 
 		ObservableListTreeContentProvider contentProvider = new ObservableListTreeContentProvider(
 				new NavigatorTreeFactoryImpl(),
@@ -75,8 +76,6 @@ public class Navigator extends ViewPart {
 		
 		IEMFListProperty nodes = EMFProperties.list(RepositoryPackage.Literals.REPOSITORIES__AVAILABLE_REPOSITORIES);
 		treeViewer.setInput(nodes.observe(Activator.INSTANCE.getRepositories()));
-
-		treeViewer.setAutoExpandLevel(8);
 
 		getSite().setSelectionProvider(treeViewer);
 	}

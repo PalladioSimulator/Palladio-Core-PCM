@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurement <em>Measurement</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getMeasurements <em>Measurements</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getDuration <em>Duration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getExperimentSetting <em>Experiment Setting</em>}</li>
@@ -41,22 +41,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExperimentRun extends Identifiable, Propertyable {
 	/**
-	 * Returns the value of the '<em><b>Measurement</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getExperimentRun <em>Experiment Run</em>}'.
+	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun <em>Experiment Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Measurement</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Measurements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurement</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Measurement()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement#getExperimentRun
+	 * @return the value of the '<em>Measurements</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Measurements()
+	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun
 	 * @model opposite="experimentRun" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Measurement> getMeasurement();
+	EList<Measurements> getMeasurements();
 
 	/**
 	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.

@@ -76,13 +76,13 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExperimentDataPackage.MEASUREMENT_RANGE: return createMeasurementRange();
+			case ExperimentDataPackage.MEASUREMENTS_RANGE: return createMeasurementsRange();
 			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
 			case ExperimentDataPackage.RAW_MEASUREMENTS: return createRawMeasurements();
 			case ExperimentDataPackage.NOMINAL_STATISTICS: return createNominalStatistics();
 			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
 			case ExperimentDataPackage.FIXED_INTERVALS: return createFixedIntervals();
-			case ExperimentDataPackage.MEASUREMENT: return createMeasurement();
+			case ExperimentDataPackage.MEASUREMENTS: return createMeasurements();
 			case ExperimentDataPackage.EXPERIMENT_GROUP: return createExperimentGroup();
 			case ExperimentDataPackage.EXPERIMENT_SETTING: return createExperimentSetting();
 			case ExperimentDataPackage.EXPERIMENT_RUN: return createExperimentRun();
@@ -174,9 +174,9 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementRange createMeasurementRange() {
-		MeasurementRangeImpl measurementRange = new MeasurementRangeImpl();
-		return measurementRange;
+	public MeasurementsRange createMeasurementsRange() {
+		MeasurementsRangeImpl measurementsRange = new MeasurementsRangeImpl();
+		return measurementsRange;
 	}
 
 	/**
@@ -214,9 +214,9 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measurement createMeasurement() {
-		MeasurementImpl measurement = new MeasurementImpl();
-		return measurement;
+	public Measurements createMeasurements() {
+		MeasurementsImpl measurements = new MeasurementsImpl();
+		return measurements;
 	}
 
 	/**

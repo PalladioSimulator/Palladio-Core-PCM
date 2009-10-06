@@ -26,13 +26,13 @@ public interface ExperimentDataFactory extends EFactory {
 	ExperimentDataFactory eINSTANCE = de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Measurement Range</em>'.
+	 * Returns a new object of class '<em>Measurements Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Measurement Range</em>'.
+	 * @return a new object of class '<em>Measurements Range</em>'.
 	 * @generated
 	 */
-	MeasurementRange createMeasurementRange();
+	MeasurementsRange createMeasurementsRange();
 
 	/**
 	 * Returns a new object of class '<em>Raw Measurements</em>'.
@@ -71,13 +71,13 @@ public interface ExperimentDataFactory extends EFactory {
 	FixedIntervals createFixedIntervals();
 
 	/**
-	 * Returns a new object of class '<em>Measurement</em>'.
+	 * Returns a new object of class '<em>Measurements</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Measurement</em>'.
+	 * @return a new object of class '<em>Measurements</em>'.
 	 * @generated
 	 */
-	Measurement createMeasurement();
+	Measurements createMeasurements();
 
 	/**
 	 * Returns a new object of class '<em>Experiment Group</em>'.

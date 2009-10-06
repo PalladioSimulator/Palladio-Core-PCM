@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
 import java.util.Collection;
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl#getDataSeries <em>Data Series</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl#getMeasurementRange <em>Measurement Range</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl#getMeasurementsRange <em>Measurements Range</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,9 +88,9 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementRange getMeasurementRange() {
-		if (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE) return null;
-		return (MeasurementRange)eContainer();
+	public MeasurementsRange getMeasurementsRange() {
+		if (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE) return null;
+		return (MeasurementsRange)eContainer();
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMeasurementRange(MeasurementRange newMeasurementRange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurementRange, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, msgs);
+	public NotificationChain basicSetMeasurementsRange(MeasurementsRange newMeasurementsRange, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newMeasurementsRange, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, msgs);
 		return msgs;
 	}
 
@@ -108,20 +108,20 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasurementRange(MeasurementRange newMeasurementRange) {
-		if (newMeasurementRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE && newMeasurementRange != null)) {
-			if (EcoreUtil.isAncestor(this, newMeasurementRange))
+	public void setMeasurementsRange(MeasurementsRange newMeasurementsRange) {
+		if (newMeasurementsRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE && newMeasurementsRange != null)) {
+			if (EcoreUtil.isAncestor(this, newMeasurementsRange))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMeasurementRange != null)
-				msgs = ((InternalEObject)newMeasurementRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
-			msgs = basicSetMeasurementRange(newMeasurementRange, msgs);
+			if (newMeasurementsRange != null)
+				msgs = ((InternalEObject)newMeasurementsRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
+			msgs = basicSetMeasurementsRange(newMeasurementsRange, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE, newMeasurementRange, newMeasurementRange));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, newMeasurementsRange, newMeasurementsRange));
 	}
 
 	/**
@@ -135,10 +135,10 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 		switch (featureID) {
 			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMeasurementRange((MeasurementRange)otherEnd, msgs);
+				return basicSetMeasurementsRange((MeasurementsRange)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -153,8 +153,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 		switch (featureID) {
 			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				return basicSetMeasurementRange(null, msgs);
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return basicSetMeasurementsRange(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,8 +167,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENT_RANGE__RAW_MEASUREMENTS, MeasurementRange.class, msgs);
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -183,8 +183,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 		switch (featureID) {
 			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return getDataSeries();
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				return getMeasurementRange();
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return getMeasurementsRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,8 +202,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 				getDataSeries().clear();
 				getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
 				return;
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				setMeasurementRange((MeasurementRange)newValue);
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				setMeasurementsRange((MeasurementsRange)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -220,8 +220,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				getDataSeries().clear();
 				return;
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				setMeasurementRange((MeasurementRange)null);
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				setMeasurementsRange((MeasurementsRange)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -237,8 +237,8 @@ public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurem
 		switch (featureID) {
 			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
 				return dataSeries != null && !dataSeries.isEmpty();
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENT_RANGE:
-				return getMeasurementRange() != null;
+			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+				return getMeasurementsRange() != null;
 		}
 		return super.eIsSet(featureID);
 	}

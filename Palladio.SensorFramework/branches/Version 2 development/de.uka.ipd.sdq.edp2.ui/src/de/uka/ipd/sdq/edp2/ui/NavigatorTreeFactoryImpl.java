@@ -26,8 +26,8 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
@@ -55,8 +55,8 @@ public class NavigatorTreeFactoryImpl implements IObservableFactory {
 		} else if (target instanceof ExperimentRun) {
 			final Object target2 = target;
 			return new ComputedList() {
-				private IObservableList list = EMFProperties.list(ExperimentDataPackage.Literals.EXPERIMENT_RUN__MEASUREMENT).observe(target2);
-				private Map<Measurement, IObservableList> listMap = new HashMap<Measurement, IObservableList>();
+				private IObservableList list = EMFProperties.list(ExperimentDataPackage.Literals.EXPERIMENT_RUN__MEASUREMENTS).observe(target2);
+				private Map<Measurements, IObservableList> listMap = new HashMap<Measurements, IObservableList>();
 
 				{
 					list.addListChangeListener(new IListChangeListener() {
@@ -88,19 +88,19 @@ public class NavigatorTreeFactoryImpl implements IObservableFactory {
 							union.addAll(sublist);
 						} else {
 							IObservableList obsList = EMFProperties.list(
-									ExperimentDataPackage.Literals.MEASUREMENT__MEASUREMENT_RANGE).observe(measurement);
-							listMap.put((Measurement) measurement, obsList);
+									ExperimentDataPackage.Literals.MEASUREMENTS__MEASUREMENTS_RANGE).observe(measurement);
+							listMap.put((Measurements) measurement, obsList);
 							union.addAll(obsList);
 						}
 					}
 					return union;
 				}
 			};
-		} else if (target instanceof MeasurementRange) {
+		} else if (target instanceof MeasurementsRange) {
 			final Object target2 = target;
 			return new ComputedList() {
-				private IObservableList list = EMFProperties.list(ExperimentDataPackage.Literals.MEASUREMENT_RANGE__AGGREGATED_MEASUREMENTS).observe(target2);
-				private IObservableValue value = EMFProperties.value(ExperimentDataPackage.Literals.MEASUREMENT_RANGE__RAW_MEASUREMENTS).observe(target2);
+				private IObservableList list = EMFProperties.list(ExperimentDataPackage.Literals.MEASUREMENTS_RANGE__AGGREGATED_MEASUREMENTS).observe(target2);
+				private IObservableValue value = EMFProperties.value(ExperimentDataPackage.Literals.MEASUREMENTS_RANGE__RAW_MEASUREMENTS).observe(target2);
 				@Override
 				protected List calculate() {
 					List<Object> union = new ArrayList<Object>();
@@ -115,9 +115,9 @@ public class NavigatorTreeFactoryImpl implements IObservableFactory {
 			return valueToCollection(EMFProperties.value(
 						FeaturePath
 								.fromList(
-										ExperimentDataPackage.Literals.RAW_MEASUREMENTS__MEASUREMENT_RANGE,
-										ExperimentDataPackage.Literals.MEASUREMENT_RANGE__MEASUREMENT,
-										ExperimentDataPackage.Literals.MEASUREMENT__MEASURE))
+										ExperimentDataPackage.Literals.RAW_MEASUREMENTS__MEASUREMENTS_RANGE,
+										ExperimentDataPackage.Literals.MEASUREMENTS_RANGE__MEASUREMENTS,
+										ExperimentDataPackage.Literals.MEASUREMENTS__MEASURE))
 						.observe(target));
 		} else if (target instanceof Edp2Measure) {
 			return valueToCollection(EMFProperties.value(FeaturePath.fromList(ExperimentDataPackage.Literals.EDP2_MEASURE__METRIC)).observe(target));

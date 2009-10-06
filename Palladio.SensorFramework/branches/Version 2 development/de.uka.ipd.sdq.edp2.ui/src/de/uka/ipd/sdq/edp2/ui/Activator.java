@@ -3,16 +3,12 @@ package de.uka.ipd.sdq.edp2.ui;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.core.runtime.preferences.IScopeContext;
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.service.prefs.BackingStoreException;
-import org.osgi.service.prefs.Preferences;
 
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;

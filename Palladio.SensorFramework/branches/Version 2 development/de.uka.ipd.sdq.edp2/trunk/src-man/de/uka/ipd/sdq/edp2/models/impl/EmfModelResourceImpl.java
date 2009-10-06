@@ -14,7 +14,8 @@ public class EmfModelResourceImpl extends XMIResourceImpl {
 	
 	@Override
 	protected boolean useUUIDs() {
-		return true;
+		//return true;
+		return false;
 	}
 	
 }

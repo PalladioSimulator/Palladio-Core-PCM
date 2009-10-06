@@ -13,8 +13,8 @@ import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.MeasurementsDaoRegistry;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.internal.DataSeriesFromMeasureSwitch;
 import de.uka.ipd.sdq.edp2.internal.EmfmodelAddMeasurementToDataSeriesSwitch;
-import de.uka.ipd.sdq.edp2.internal.DataSeriesFromMetricSwitch;
 import de.uka.ipd.sdq.edp2.internal.EmfmodelDataSeriesFromReferenceSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
@@ -23,8 +23,8 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
 /**This class provides utility functions to handle measurements.
@@ -39,15 +39,15 @@ public class MeasurementsUtility {
 	/**Creates a new MeasurementRange and contained elements if there
 	 * are already existing elements in another MeasurementRange.
 	 * Does not set the startTime and endTime properties.
-	 * @param measurement Location to add the range.
+	 * @param measurements Location where to add the range.
 	 * @return The newly created measurement range.
 	 */
-	public static MeasurementRange addMeasurementRange(Measurement measurement) {
-		MeasurementsDaoFactory daoFactory = measurement.getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
-		MeasurementRange mr = factory.createMeasurementRange();
-		measurement.getMeasurementRange().add(mr);
-		if (measurement.getMeasurementRange().size() > 1) { // copy contents from existing templates
-			MeasurementRange template = measurement.getMeasurementRange().get(0);
+	public static MeasurementsRange addMeasurementRange(Measurements measurements) {
+		MeasurementsDaoFactory daoFactory = measurements.getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
+		MeasurementsRange mr = factory.createMeasurementsRange();
+		measurements.getMeasurementsRange().add(mr);
+		if (measurements.getMeasurementsRange().size() > 1) { // copy contents from existing templates
+			MeasurementsRange template = measurements.getMeasurementsRange().get(0);
 			if (template.getRawMeasurements() != null) {
 				mr.setRawMeasurements(factory.createRawMeasurements());
 				addDataSeries(mr.getRawMeasurements());
@@ -67,6 +67,8 @@ public class MeasurementsUtility {
 			}
 		}
 		return mr;
+		// TODO: Add parameter currentTime to allow range(n-1).endtime=currentTime,range(n).starttime=currentTime
+		// TODO: Create MeasurementsRange for all Measurements of an ExperimentRun -> Refactor from Measurements to ExperimentRun
 	}
 
 	/**Creates the model elements linked as data series corresponding
@@ -85,15 +87,15 @@ public class MeasurementsUtility {
 		}
 		// Test if Raw Measurements is assigned in the right place
 		String msg = null;
-		if (rm.getMeasurementRange() == null) {
+		if (rm.getMeasurementsRange() == null) {
 			msg = "RawMeasurements must be assigned to a measurement range.";
-		} else if (rm.getMeasurementRange().getMeasurement() == null) {
+		} else if (rm.getMeasurementsRange().getMeasurements() == null) {
 			msg = "RawMeasurements must be (indirectly) assigned to a measurement.";
-		} else if (rm.getMeasurementRange().getMeasurement().getMeasure() == null) {
+		} else if (rm.getMeasurementsRange().getMeasurements().getMeasure() == null) {
 			msg = "RawMeasuremnts must be (indirectly) assigned to a measure (definition).";
-		} else if (rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup() == null) {
+		} else if (rm.getMeasurementsRange().getMeasurements().getMeasure().getExperimentGroup() == null) {
 			msg = "RawMeasuremnts must be (indirectly) assigned to an experiment group.";
-		} else if (rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup().getRepository() == null) {
+		} else if (rm.getMeasurementsRange().getMeasurements().getMeasure().getExperimentGroup().getRepository() == null) {
 			msg = "RawMeasuremnts must be (indirectly) assigned to an experiment group which must be assigned to a repository.";
 		}
 		if (msg != null) {
@@ -101,16 +103,16 @@ public class MeasurementsUtility {
 			throw new IllegalStateException(msg);
 		}
 		// 
-		MeasurementsDaoFactory daoFactory = rm.getMeasurementRange().getMeasurement().getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
+		MeasurementsDaoFactory daoFactory = rm.getMeasurementsRange().getMeasurements().getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory();
 		/* check if there are already existing RawMeasurements in other MeasurementRanges.
 		 * Option 1: Copy those types (if existing).
 		 */
 		boolean creationSuccesful = false;
-		if (rm.getMeasurementRange() != null &&
-				rm.getMeasurementRange().getMeasurement() != null &&
-				rm.getMeasurementRange().getMeasurement().getMeasurementRange().size() > 1) {
-			Iterator<MeasurementRange> iter = rm.getMeasurementRange().getMeasurement().getMeasurementRange().iterator();
-			MeasurementRange mr;
+		if (rm.getMeasurementsRange() != null &&
+				rm.getMeasurementsRange().getMeasurements() != null &&
+				rm.getMeasurementsRange().getMeasurements().getMeasurementsRange().size() > 1) {
+			Iterator<MeasurementsRange> iter = rm.getMeasurementsRange().getMeasurements().getMeasurementsRange().iterator();
+			MeasurementsRange mr;
 			while (iter.hasNext() && !creationSuccesful) {
 				mr = iter.next();
 				if (mr.getRawMeasurements() != null 
@@ -128,41 +130,40 @@ public class MeasurementsUtility {
 		}
 		// Option 2: Create data series from information about the measure definition
 		if (creationSuccesful == false) {
-			Edp2Measure measure = rm.getMeasurementRange().getMeasurement().getMeasure();
+			Edp2Measure measure = rm.getMeasurementsRange().getMeasurements().getMeasure();
 			assert measure != null;
-			new DataSeriesFromMetricSwitch(rm, measure, daoFactory).doSwitch(measure.getMetric());
+			new DataSeriesFromMeasureSwitch(rm, measure, daoFactory).doSwitch(measure.getMetric());
 		}
 	}
 
 	/**Stores a new measurement at the last existing range.
-	 * @param measurement The measurement of the experiment run for which a new measurement exists.
+	 * @param measurements The measurement of the experiment run for which a new measurement exists.
 	 * @param data The measurement (data) itself.
 	 */
-	public static void storeMeasurement(Measurement measurement, final Object[] data) {
-		MeasurementsDaoRegistry daoRegistry = measurement.getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory().getDaoRegistry();
-		int size = measurement.getMeasurementRange().size();
-		MeasurementRange lastRange = measurement.getMeasurementRange().get(size - 1);
+	public static void storeMeasurement(Measurements measurements, Measurement measurement) {
+		MeasurementsDaoRegistry daoRegistry = measurements.getMeasure().getExperimentGroup().getRepository().getMeasurementsDaoFactory().getDaoRegistry();
+		int size = measurements.getMeasurementsRange().size();
+		MeasurementsRange lastRange = measurements.getMeasurementsRange().get(size - 1);
 		RawMeasurements rm = lastRange.getRawMeasurements();
 		if (rm != null) { // Add raw measurements
-			if (data.length != rm.getDataSeries().size()) {
-				String msg = "Tried to store raw measurements and provided an argument of invalid size (all data series must be stored at once). Should be "
-						+ rm.getDataSeries().size()
-						+ ", is "
-						+ data.length
-						+ ".";
+			if (!measurement.getMetric().equals(measurements.getMeasure().getMetric())) {
+				String msg = "Tried to store measurement with a wrong metric. Expected: "
+					+ measurements.getMeasure().getMetric()
+					+ ", provided: "
+					+ measurement.getMetric()
+					+ ".";
 				logger.log(Level.SEVERE, msg);
 				throw new IllegalArgumentException(msg);
-			} else {
-				Iterator<DataSeries> iter = rm.getDataSeries().iterator();
-				DataSeries ds;
-				int dataPosition = -1;
-				EmfmodelAddMeasurementToDataSeriesSwitch addMmt = new EmfmodelAddMeasurementToDataSeriesSwitch(daoRegistry);
-				while (iter.hasNext()) {
-					ds = iter.next();
-					dataPosition++;
-					addMmt.setMeasurementToAdd(data[dataPosition]);
-					addMmt.doSwitch(ds);
-				}
+			}
+			Iterator<DataSeries> iter = rm.getDataSeries().iterator();
+			DataSeries ds;
+			int dimension = -1;
+			EmfmodelAddMeasurementToDataSeriesSwitch addMmt = new EmfmodelAddMeasurementToDataSeriesSwitch(daoRegistry);
+			while (iter.hasNext()) {
+				ds = iter.next();
+				dimension++;
+				addMmt.setMeasurementToAdd(measurement.getMeasuredValue(dimension));
+				addMmt.doSwitch(ds);
 			}
 		}
 		// TODO handle aggregated measurements
@@ -175,7 +176,7 @@ public class MeasurementsUtility {
 	 */
 	public static NominalMeasurementsDao getNominalMeasurementsDao(final DataSeries ds) {
 		final MeasurementsDaoFactory daoFactory = ds.getRawMeasurements()
-				.getMeasurementRange().getMeasurement().getMeasure()
+				.getMeasurementsRange().getMeasurements().getMeasure()
 				.getExperimentGroup().getRepository()
 				.getMeasurementsDaoFactory();
 		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {
@@ -221,7 +222,7 @@ public class MeasurementsUtility {
 	public static OrdinalMeasurementsDao getOrdinalMeasurementsDao(
 			final DataSeries ds) {
 		final MeasurementsDaoFactory daoFactory = ds.getRawMeasurements()
-				.getMeasurementRange().getMeasurement().getMeasure()
+				.getMeasurementsRange().getMeasurements().getMeasure()
 				.getExperimentGroup().getRepository()
 				.getMeasurementsDaoFactory();
 		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {

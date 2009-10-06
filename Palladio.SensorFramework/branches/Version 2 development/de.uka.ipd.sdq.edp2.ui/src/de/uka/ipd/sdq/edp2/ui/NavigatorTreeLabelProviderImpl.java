@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurement;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 
 public class NavigatorTreeLabelProviderImpl extends StyledCellLabelProvider {
@@ -73,7 +73,7 @@ public class NavigatorTreeLabelProviderImpl extends StyledCellLabelProvider {
 					styledString.append(decoration, StyledString.COUNTER_STYLER);
 					return styledString;
 				};
-				public StyledString caseMeasurementRange(MeasurementRange object) {
+				public StyledString caseMeasurementsRange(MeasurementsRange object) {
 					StyledString styledString = new StyledString("Range");
 					if (object.getStartTime() != null && object.getEndTime() != null) {
 						String decoration = " (" + object.getStartTime() + "-" + object.getEndTime() + ")";
@@ -97,7 +97,7 @@ public class NavigatorTreeLabelProviderImpl extends StyledCellLabelProvider {
 					styledString.append(decoration, StyledString.COUNTER_STYLER);
 					return styledString;
 				};
-				public StyledString caseMeasurement(Measurement object) {
+				public StyledString caseMeasurements(Measurements object) {
 					StyledString styledString = new StyledString("Measurement");
 					return styledString;
 				};
