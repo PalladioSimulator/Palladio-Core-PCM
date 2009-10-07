@@ -26,9 +26,26 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR ExternalCallAction»
-    «EXPAND m2t_transforms::calls::Call(this,
-       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
-    	this.inputParameterUsages_ExternalCallAction, this.outputVariableUsages_ExternalCallAction) FOR this.calledService_ExternalService»
+ 	{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+	«LET javaVariableName("tries_"+ this.calledService_ExternalService.javaSignature()) AS triesVar»
+	int «triesVar» = 1 + «this.retryCount»; //The call plus the retries
+
+	//Execute the external call until it succeeds or the maximal try count is exeeded.
+	for(int i=0; i<«triesVar»; ++i) {
+		try {
+		    «EXPAND m2t_transforms::calls::Call(this,
+		       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+		    	this.inputParameterUsages_ExternalCallAction, this.outputVariableUsages_ExternalCallAction) FOR this.calledService_ExternalService»
+		    	break; // success, go on.
+    	}
+		catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
+			//failure occured
+			if(i == «triesVar»-1) //retry count exeeded?
+				throw ex; //yes, could not be handled => failure
+		}
+	}
+	«ENDLET»
+	}
 «ENDDEFINE»
 
 «DEFINE Action FOR DelegatingExternalCallAction»

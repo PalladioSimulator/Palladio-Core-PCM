@@ -17,7 +17,7 @@ public class SameResourceSetXmiReader extends XmiReader {
 
 	protected static ResourceSet rs = new ResourceSetImpl();
 	
-	@Override
+	/*@Override
 	public void invoke(WorkflowContext model, ProgressMonitor monitor,
 			Issues issues) {
         final File f = loadFile(issues);
@@ -35,6 +35,6 @@ public class SameResourceSetXmiReader extends XmiReader {
         } else {
             model.set(outputSlot, r.getContents());
         }
-	}
+	}*/
 
 }

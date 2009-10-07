@@ -3,12 +3,14 @@
 	<property file='./workflows/codegen.properties'/>
 	<property file='${propertyFile}'/>
 	
-	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
+	<!--<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">-->
+	<component class='org.eclipse.xtend.typesystem.emf.XmiReader'>
 		<modelFile value="${repositoryFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
 	
-	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
+	<!--<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">-->
+	<component class='org.eclipse.xtend.typesystem.emf.XmiReader'>
 		<modelFile value="${featureFile}"/>
 		<outputSlot value="featureConfig"/>
 	</component>
