@@ -44,7 +44,7 @@ extends
 		ArrayList<LoggerAppenderStruct> loggerList = super.setupLogging(logLevel);
 		
 		// Setup openArchitectureWare Logging
-		loggerList.add(setupLogger("org.openarchitectureware", logLevel, SHORT_LOG_PATTERN));
+		loggerList.add(setupLogger("org.eclipse.xtend", logLevel, SHORT_LOG_PATTERN));
 		
 		return loggerList;
 	}

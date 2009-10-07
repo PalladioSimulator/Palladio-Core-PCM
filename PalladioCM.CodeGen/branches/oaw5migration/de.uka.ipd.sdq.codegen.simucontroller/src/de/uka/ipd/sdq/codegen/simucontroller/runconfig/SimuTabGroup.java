@@ -23,7 +23,7 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 				new FileNamesInputTab(), // Default tab
 				new SimuComConfigurationTab(),
 				new SimuConfigurationTab(),
-				new FeatureOptionsTab(),
+				//new FeatureOptionsTab(),
 				commonTab
 		};
 		setTabs(tabs);
