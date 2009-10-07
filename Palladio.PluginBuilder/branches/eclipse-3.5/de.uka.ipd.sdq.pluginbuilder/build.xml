@@ -84,8 +84,11 @@
 				<equals arg1="${pluginbuilder.is.rcpbuild}" arg2="true"/>
 			</not>
 		</condition>
+		
 		<antcall target="-build.internal">
 			<param name="buildfile" value="${regularbuildfile}"/>
+			<param name="varjvmargs1" value="-Dconfigs=*,*,*"/>
+			<param name="varjvmargs2" value="-Ddummy2=2"/>
 	    </antcall>
 		<!-- build rcp omitting fetch -->
 		<property name="buildSystemProperty.skipFetch" value="true"/>
@@ -93,6 +96,7 @@
 	</target>
 	
 	<target name="-build.rcp.internal" unless="no.rcp.build">
+		<echo>build.rcp.internal</echo>
 		<property prefix="buildSystemProperty." file="${buildHome}/build-files/build_rcp.properties"/>
 		<antcall target="-checkProductProperty"/>
 		<antcall target="-build.internal"> 
@@ -116,6 +120,7 @@
 	</target>
 
 	<target name="-build.internal">
+		<echo>Eclipe build task (-build.internal)</echo>
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
@@ -151,19 +156,22 @@
 			<jvmarg value="-Dversion.qualifier=${version.qualifier}${buildTypePresentation}"/>
 			<jvmarg value="-DbuildType=${buildType}"/>
 			<jvmarg value="-DfetchTag=${fetchTag}"/>
-			
+			<jvmarg value="${varjvmargs1}"/>
+			<jvmarg value="${varjvmargs2}"/>	
+		    
+		    <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/>
 
 			<classpath>
-				<pathelement location="/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar:/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.app_1.2.0.v20090520-1800.jar" />
+				<pathelement location="${equinoxjar}" />
 			   <!-- <pathelement location="/opt/ant-contrib-0.3.jar"/>-->				
 			</classpath>
 			
-			<syspropertyset>
+			<!-- <syspropertyset>
 				<propertyset>
 					<propertyref prefix="buildSystemProperty"/>
 					<mapper type="glob" from="buildSystemProperty.*" to="*"/>
 				</propertyset>
-			</syspropertyset>
+			</syspropertyset> -->
 		</java>
 	    <echo>${build.stderr}</echo>
 		
@@ -193,12 +201,13 @@
 			description="This target is suited to be run from cruisecontrol. The property 'label' is expected to be set from cruisecontrol.">
 		<!-- Note that pluginbuilder also provides an EclipseLabelIncrementer which creates Eclipse version labels.
 			see http://www.pluginbuilder.org/faq.html -->
-		<property name="version.full" value="${label}"/> 
-		<SetRegex input="${label}" match=".+\..+\..+\.(.*)" property="version.qualifier" value="\1" />
+		<!-- <property name="version.full" value="${label}"/> 
+		<SetRegex input="${label}" match=".+\..+\..+\.(.*)" property="version.qualifier" value="\1" /> -->
 		<antcall target="-build"/>
 	</target>
 	
-	<target name="main" description="Run the main target of customTargets.xml. Return status 0,1,2 for Success, Build Failure and Test Failure">
+	<target name="main" description="Run the main target of customTargets.xml.">
+		<echo>in main task</echo>
 		<property name="buildTarget" value="main"/>
 		<antcall target="-build"/>
 
