@@ -76,7 +76,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	private HashMap<String, EObject> getMiddlewareRepositorySlots() {
 		HashMap<String,EObject> sC2 = new HashMap<String, EObject>();
-		ResourceSetPartition mwRepositoryPartition = this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+		ResourceSetPartition mwRepositoryPartition = this.myBlackboard.getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
 		
 		sC2.put("pcmmodel",mwRepositoryPartition.getResourceSet().getResources().get(0).getContents().get(0));
 		

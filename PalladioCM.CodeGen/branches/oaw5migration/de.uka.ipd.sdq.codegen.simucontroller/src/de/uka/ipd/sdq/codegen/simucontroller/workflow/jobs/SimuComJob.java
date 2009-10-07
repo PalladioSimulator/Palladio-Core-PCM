@@ -19,20 +19,27 @@ extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
 implements IBlackboardInteractingJob<MDSDBlackboard> {
 
 	private IDebugListener debugListener = null;
+	
+	public SimuComJob(SimuComWorkflowConfiguration configuration, IDebugListener listener) throws CoreException {
+		this(configuration, listener, true);
+		
+	}
 
 	public SimuComJob(SimuComWorkflowConfiguration configuration) throws CoreException {
 		this(configuration,null);
 	}
 	
-	public SimuComJob(SimuComWorkflowConfiguration configuration, IDebugListener listener) throws CoreException {
+	public SimuComJob(SimuComWorkflowConfiguration configuration, IDebugListener listener, boolean loadModels) throws CoreException {
 		super();
 		
 		if (listener == null && configuration.isDebug())
 			throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");
 		this.debugListener = listener;
-		
-		// 1. Load PCM Models into memory
-		this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+		// 1. Load PCM Models into memory		
+		if (loadModels == true) {
+			this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+		}
+		this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
 		
 		// 2. Validate PCM Models
 		this.addJob(new ValidateModelJob(configuration));

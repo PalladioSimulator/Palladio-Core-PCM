@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import javax.management.RuntimeErrorException;
+
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 
@@ -63,4 +65,13 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 		this.sensitivityAnalysisConfiguration = sensitivityConfig;
 		
 	}
+
+	public String getErrorMessage() {
+		throw new RuntimeException("Not implemented. Error Message not yet specified.");
+	}
+
+	public void setDefaults() {
+		throw new RuntimeException("Not implemented. No defaults defined.");
+	}
+
 }

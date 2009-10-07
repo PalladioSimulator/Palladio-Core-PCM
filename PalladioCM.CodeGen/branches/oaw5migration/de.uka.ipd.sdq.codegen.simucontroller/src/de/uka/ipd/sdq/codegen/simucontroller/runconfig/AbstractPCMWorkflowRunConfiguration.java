@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.workflow.exceptions.InvalidWorkflowJobConfiguration;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 
 public abstract class AbstractPCMWorkflowRunConfiguration 
@@ -118,7 +119,7 @@ extends	AbstractWorkflowBasedRunConfiguration {
 	}
 
 	@Override
-	public void validateAndFreeze() {
+	public void validateAndFreeze() throws InvalidWorkflowJobConfiguration {
 		super.validateAndFreeze();
 	}
 }

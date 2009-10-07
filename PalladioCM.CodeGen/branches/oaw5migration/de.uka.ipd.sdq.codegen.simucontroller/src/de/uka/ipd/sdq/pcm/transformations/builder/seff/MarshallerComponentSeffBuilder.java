@@ -119,6 +119,15 @@ public class MarshallerComponentSeffBuilder extends
 		return result; 
 	}
 
+	/**
+	 * This method is responsible for creating the variable characterizations ints.NUMBER_OF_ELEMENTS that appear in the simulation code of connector completions. 
+	 * TODO: document me properly
+	 * 
+	 * @param currentSignature
+	 * @param type
+	 * @param in
+	 * @return
+	 */
 	protected VariableUsage createInputParameterFor(Signature currentSignature,
 			PrimitiveTypeEnum type, Modifier in) {
 		String specification = NumberOfElementsComputationForSignature.countAmount(currentSignature,type,in);

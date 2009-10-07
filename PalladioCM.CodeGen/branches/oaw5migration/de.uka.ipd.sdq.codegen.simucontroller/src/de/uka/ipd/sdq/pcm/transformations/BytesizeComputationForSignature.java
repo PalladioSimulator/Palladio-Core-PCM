@@ -11,6 +11,11 @@ import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+/**
+ * Responsible for determining a bytesize characterisation string for parameters in a signature. 
+ * @author Steffen
+ *
+ */
 public class BytesizeComputationForSignature {
 	
 	/**
@@ -70,7 +75,20 @@ public class BytesizeComputationForSignature {
 		return result.toString();
 	}
 
-	
+	/**
+	 * Composes the characterisation string for a single parameter. For collection types and composite types, the inner declarations are respected. 
+	 * For example
+	 * 
+	 * <code>int bar</code> would be tranformed into <code>"bar.BYTESIZE"</code>
+	 * <code>int[] myIntArray</code> would be tranformed into <code>"myIntArray.BYTESIZE + myIntArray.NUMBER_OF_ELEMENTS * myIntArray.INNER.BYTESIZE"</code>
+	 * With a composite data type <code>Compositum {int a; String b}</code> <code>Compositum myCompositum</code> would be transformed into <code>"myCompositum.BYTESIZE + myCompositum.a.BYTESIZE + myCompositum.b.BYTESIZE"</code>
+	 * 
+	 * The method calls itself recursively for non-primitive data types. 
+	 * 
+	 * @param dataType The data type of the parameter for that the characterisation string is created
+	 * @param name  The name of the parameter for that the characterisation string is created
+	 * @return A String with the proper BYTESIZE characterisations for the given type and name of parameter  
+	 */
 	private static String getCharacterisationString(DataType dataType, String name){
 		StringBuffer result = new StringBuffer();
 		if (dataType instanceof PrimitiveDataType){

@@ -34,7 +34,7 @@ extends
 				monitor,
 				createExcpetionHandler(workflowConfiguration.isInteractive()),
 				createBlackboard());
-	}	
+	}
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate#setupLogging(org.apache.log4j.Level)

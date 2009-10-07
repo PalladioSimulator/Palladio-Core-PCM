@@ -5,8 +5,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPCMModelsIntoBlackboardJob;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -47,13 +49,14 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
 		PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		ResourceSetPartition middlewareRepository = blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+		ResourceSetPartition middlewareRepository = blackboard.getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
 		
 		logger.info("Create completion repository...");
 		ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
 		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 		completionRepository.setEntityName("CompletionsRepository");
-		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI("c:/"));
+		String tempDir = SimuControllerPlugin.getDefault().getStateLocation().append("temp").toOSString();
+		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI(tempDir));
 		r.getContents().add(completionRepository);
 		this.blackboard.addPartition(COMPLETION_REPOSITORY_PARTITION, completionRepositoryPartition);
 		
