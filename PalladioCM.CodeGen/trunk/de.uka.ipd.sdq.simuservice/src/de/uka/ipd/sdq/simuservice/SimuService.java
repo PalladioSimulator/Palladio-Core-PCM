@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.simuservice.types.ISimuService;
 import de.uka.ipd.sdq.simuservice.types.SimuServiceParams;
 import de.uka.ipd.sdq.simuservice.types.SimuServiceResultStatus;
 import de.uka.ipd.sdq.workflow.Workflow;
+import de.uka.ipd.sdq.workflow.exceptions.InvalidWorkflowJobConfiguration;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowExceptionHandler;
 import de.uka.ipd.sdq.workflow.exceptions.WorkflowFailedException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
@@ -157,9 +158,10 @@ public class SimuService implements ISimuService {
 	 * @param params
 	 *            the SimuService parameters.
 	 * @return the SimCom workflow configuration
+	 * @throws InvalidWorkflowJobConfiguration 
 	 */
 	private SimuComWorkflowConfiguration createWorkflowConfig(
-			SimuServiceParams params) {
+			SimuServiceParams params) throws InvalidWorkflowJobConfiguration {
 
 		// Create the workflow config variable:
 		SimuComWorkflowConfiguration workflowConfiguration = new SimuComWorkflowConfiguration();
