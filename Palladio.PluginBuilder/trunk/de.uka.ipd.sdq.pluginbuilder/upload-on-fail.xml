@@ -2,7 +2,7 @@
 	<!-- action to do for failed builds: upload logging files (txt files) -->
 
 	<target name="clean_remote">
-		<sshexec host="sdqweb.ipd.uka.de"
+		<sshexec host="i43pc12.ipd.uka.de"
 				username="ccontrol"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
@@ -13,7 +13,7 @@
 	</target>
 
 	<target name="upload" depends="clean_remote">
-		<scp todir="ccontrol@sdqweb.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
