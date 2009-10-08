@@ -109,7 +109,7 @@ export ANT_HOME=/opt/apache-ant-1.7.1
 killall java
 export DISPLAY=:99
 killall Xvfb
-sudo -m -c "Xvfb -noreset $DISPLAY &" ccontrol
+su -m -c "Xvfb -noreset $DISPLAY &" ccontrol
 
 
 
@@ -118,6 +118,6 @@ EXEC="/usr/bin/java $CC_OPTS -Djavax.management.builder.initial=mx4j.server.MX4J
 echo $EXEC
 /usr/bin/java $CC_OPTS -Djavax.management.builder.initial=mx4j.server.MX4JMBeanServerBuilder "-Dcc.library.dir=$LIBDIR" "-Djetty.logs=$JETTY_LOGS" -jar "$LAUNCHER" $@ -jmxport 8000 -webport 8080 -rmiport 1099 &
 
-sudo -m -c "$EXEC &" ccontrol
+su -m -c "$EXEC &" ccontrol
 
 echo $! > cc.pid
