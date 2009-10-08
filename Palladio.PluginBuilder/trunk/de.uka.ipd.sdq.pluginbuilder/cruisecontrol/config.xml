@@ -14,7 +14,7 @@
     </log>
     <labelincrementer defaultlabel="3.1" prebuildincrementer="true"></labelincrementer>
     <publishers>
-      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/PCM" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de" skipusers="true">
+      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/PCM" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true">
         <always address="sdq-dev@ira.uka.de"></always>
         <!-- <always address="sbecker@ipd.uka.de"></always>
         <always address="krogmann@ipd.uka.de"></always> -->
@@ -100,7 +100,7 @@
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de"></alwaysbuild> -->
       <svn RepositoryLocation="svn://svn.forge.objectweb.org/svnroot/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/" username="anonymous" password="anonymous" />
     </modificationset>
-    <schedule interval="360"> <!-- in seconds; 86400: 1 day -->    
+    <schedule interval="720"> <!-- in seconds; 86400: 1 day -->    
       <ant buildfile="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/q-impress/qimpress-ide/trunk/reverse-engineering/trunk/org.somox.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>            
     </schedule> 
     <log>
@@ -108,7 +108,7 @@
     </log>
     <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
     <publishers>
-      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/org.somox.pluginbuilder" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de">
+      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/buildresults/org.somox.pluginbuilder" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true">
         <always address="krogmann@ira.uka.de"></always>
       </htmlemail>
       <onsuccess>
