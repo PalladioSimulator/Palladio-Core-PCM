@@ -10,6 +10,34 @@
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.workflow.feature" />
 		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.probfunction.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.pcm.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.pcm.diagram.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.simucom.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.sensorframework.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.pcmsolver.feature" />
+		</ant>
 		
 	</target>
 
@@ -22,6 +50,41 @@
 	
 	<!-- generated assemble targets -->	     
 	<target name="assemble.de.uka.ipd.sdq.workflow.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.probfunction.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.pcm.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.pcm.diagram.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.sensorframework.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.sensorframework.visualisation.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.pcmsolver.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
 		</ant>
