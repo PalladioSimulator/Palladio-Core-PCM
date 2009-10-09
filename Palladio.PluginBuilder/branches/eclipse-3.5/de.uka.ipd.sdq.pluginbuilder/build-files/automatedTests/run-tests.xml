@@ -115,7 +115,8 @@ version=3.1.0</echo>
 
 	<target name="-runAutoTests">
 		<mkdir dir="${test.result.dir}/xml"/>
-		<BundleFileLocator eclipseInstallationRoot="${test.eclipse.host.eclipse}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" />
+		<!-- <BundleFileLocator eclipseInstallationRoot="${test.eclipse.host.eclipse}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" /> -->
+		<property name="equinoxjar" value="/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar" />
 		<condition property="optJvmArg" else="-DdummyVar=NotOnMac" value="-XstartOnFirstThread">
 			<os family="mac"/>
 		</condition>
@@ -193,7 +194,8 @@ version=3.1.0</echo>
 	</target>
 	
 	<target name="updateManager">
-		<BundleFileLocator eclipseInstallationRoot="${test.eclipse.host.eclipse}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" />	
+		<!-- <BundleFileLocator eclipseInstallationRoot="${test.eclipse.host.eclipse}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" />	-->
+		<property name="equinoxjar" value="/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="${updateManagerCommandFailOnError}">
 			<arg value="-ws" />
 			<arg value="${ws}" />
