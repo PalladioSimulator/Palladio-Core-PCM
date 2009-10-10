@@ -1,45 +1,52 @@
 <project name="UpdateSite" default="upload">
 	
+	<taskdef resource="org/pluginbuilder/anttasks/pluginbuildertasks.properties" classpath="build-files/pluginbuilder-anttasks.jar" />
+	
+	<GetHostName />
+	<property file="build_${hostname}.properties" />
+	<property file="build_local.properties" />
+	<property file="upload.properties" />
+	
 	<target name="clean_remote">
-		<sshexec host="i43pc12.ipd.uka.de"
-				username="ccontrol"
+		<sshexec host="${uploadTargetHost}"
+				username="${uploadUsername}"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true" 
-		command="cd /var/www/eclipse/PCM_nightly/; 
+		command="cd ${uploadTargetDir}; 
 			rm -rf *; 
 			"/>
 	</target>
 
 	<target name="upload" depends="clean_remote">
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/p2-updateSite"/>
+		    <fileset dir="${buildDirectory}/p2-updateSite"/>
 	  	</scp>			
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5">
+			<fileset dir="${buildDirectory}">
 				<include name="*.txt" />				
 			</fileset>
 	  	</scp>
 		
 		<!-- test results: -->
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html"/>
+		    <fileset dir="${buildDirectory}/results/testresults/html"/>
 	  	</scp>
-	  	<sshexec host="i43pc12.ipd.uka.de"
-				username="ccontrol"
+	  	<sshexec host="${uploadTargetHost}"
+				username="${uploadUsername}"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true" 
-				command="cd /var/www/eclipse/PCM_nightly/; 
+				command="cd ${uploadTargetDir}; 
 			mv test*.html testresults.html; 
 			"/> 
 	</target>
