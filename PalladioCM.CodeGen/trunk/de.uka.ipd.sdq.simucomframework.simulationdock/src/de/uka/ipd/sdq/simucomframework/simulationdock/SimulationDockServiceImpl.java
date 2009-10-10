@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Hashtable;
+import java.util.Map;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
@@ -152,7 +153,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		Hashtable properties = new Hashtable();
 		properties.put("DOCK_ID", SimulationDockServiceImpl.this.getDockId());
 		properties.putAll(newProperties);
-		Event event = new Event(topic, properties);
+		Event event = new Event(topic, (Map)properties);
 		eventAdmin.sendEvent(event);
 	}
 	
