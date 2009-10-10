@@ -16,13 +16,13 @@
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite"/>
+		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/p2-updateSite"/>
 	  	</scp>			
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
+			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5">
 				<include name="*.txt" />				
 			</fileset>
 	  	</scp>
@@ -32,7 +32,7 @@
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html"/>
+		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html"/>
 	  	</scp>
 	  	<sshexec host="i43pc12.ipd.uka.de"
 				username="ccontrol"
