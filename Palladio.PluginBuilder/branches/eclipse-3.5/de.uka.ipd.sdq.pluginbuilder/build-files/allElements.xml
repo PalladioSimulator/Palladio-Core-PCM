@@ -38,6 +38,10 @@
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.pcmsolver.feature" />
 		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.tests" />
+		</ant>
 		
 	</target>
 
@@ -85,6 +89,11 @@
 		</ant>
 	</target>
 	<target name="assemble.de.uka.ipd.sdq.pcmsolver.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.tests">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
 		</ant>

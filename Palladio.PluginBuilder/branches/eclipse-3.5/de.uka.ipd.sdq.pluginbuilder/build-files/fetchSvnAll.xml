@@ -768,5 +768,41 @@
       <param name="project.name" value="/de.uka.ipd.sdq.markov"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.PCMSolver/trunk"/>
     </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="features"/>
+      <param name="element.id" value="de.uka.ipd.sdq.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcm.stochasticexpressions.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.simucomframework.variables.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.variables.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.storage.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.storage.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.workflow.tests"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.workflow.tests"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/trunk"/>
+    </antcall>
   </target>
 </project>
