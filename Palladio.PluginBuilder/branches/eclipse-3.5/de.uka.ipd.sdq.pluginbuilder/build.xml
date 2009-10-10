@@ -68,7 +68,9 @@
 		<property name="productbuildfile" value="${scriptdir}/productBuild/productBuild.xml"/>
 	
 		<!-- determine launcher -->
-		<BundleFileLocator eclipseInstallationRoot="${eclipseDir}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" />		
+		<!-- StB: Removed the locator as it is buggy and finds the .pack.gz file instead of the main .jar bundle, needs to be updated on upgrading of the build eclipse -->
+		<!-- <BundleFileLocator eclipseInstallationRoot="${eclipseDir}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" /> -->
+		<property name="equinoxjar" value="/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar" />
 
 	</target>
 	
@@ -158,7 +160,8 @@
 				</propertyset>
 			</syspropertyset>
 		</java>
-	    <echo>${build.stderr}</echo>
+	    	
+		<echo>${build.stderr}</echo>
 		
 		<!-- added by kelsaka: log output start -->
 		<!-- as the build directory is delete as a whole, removing the single file is not possible:
