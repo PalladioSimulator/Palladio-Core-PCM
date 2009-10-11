@@ -386,6 +386,108 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="features"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.feature"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.feature"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.storage"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.storage"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.filter"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.filter"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.adapter"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.adapter"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.branding"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="org.hibernate"/>
+      <param name="project.name" value="/org.hibernate"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="features"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.feature"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.branding"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="org.jfree.jfreechart"/>
+      <param name="project.name" value="/org.jfree.jfreechart"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.dialogs"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.dialogs"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="org.rosuda.JRI"/>
+      <param name="project.name" value="/org.rosuda.JRI"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="features"/>
       <param name="element.id" value="de.uka.ipd.sdq.simucom.feature"/>
       <param name="project.name" value="/de.uka.ipd.sdq.simucom.feature"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
@@ -598,108 +700,6 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="org.hibernate"/>
       <param name="project.name" value="/org.hibernate"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="features"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.feature"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.feature"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.storage"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.storage"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.filter"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.filter"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.adapter"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.adapter"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.branding"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="org.hibernate"/>
-      <param name="project.name" value="/org.hibernate"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="features"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.feature"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.branding"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="org.jfree.jfreechart"/>
-      <param name="project.name" value="/org.jfree.jfreechart"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.sensorframework.dialogs"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.sensorframework.dialogs"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="org.rosuda.JRI"/>
-      <param name="project.name" value="/org.rosuda.JRI"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
     </antcall>
     <antcall target="svn.co">
