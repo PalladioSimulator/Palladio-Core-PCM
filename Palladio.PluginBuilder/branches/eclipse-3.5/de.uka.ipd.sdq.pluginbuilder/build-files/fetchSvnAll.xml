@@ -21,8 +21,8 @@
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.workflow.mdsd"/>
-      <param name="project.name" value="/eclipse3.5_development/de.uka.ipd.sdq.workflow.mdsd"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/branches"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.workflow.mdsd"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -495,8 +495,8 @@
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcm.codegen.m2m"/>
-      <param name="project.name" value="/oaw5migration/de.uka.ipd.sdq.pcm.codegen.m2m"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/branches"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.pcm.codegen.m2m"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -525,8 +525,8 @@
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.codegen.simucontroller"/>
-      <param name="project.name" value="/oaw5migration/de.uka.ipd.sdq.codegen.simucontroller"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/branches"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.codegen.simucontroller"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -651,8 +651,8 @@
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.workflow.mdsd"/>
-      <param name="project.name" value="/eclipse3.5_development/de.uka.ipd.sdq.workflow.mdsd"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/branches"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.workflow.mdsd"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="features"/>
