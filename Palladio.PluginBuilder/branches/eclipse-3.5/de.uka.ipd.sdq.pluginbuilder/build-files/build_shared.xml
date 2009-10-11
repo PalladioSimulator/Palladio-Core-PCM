@@ -76,8 +76,12 @@
 		<condition property="moveroot" value="${tempunziplocation}/eclipse" else="${tempunziplocation}">
 				<available file="${tempunziplocation}/eclipse" type="dir"/>
 		</condition>
-		<move todir="${eclipse.installation.dir}" includeemptydirs="true">
-			<fileset dir="${moveroot}" includes="**"/>
+		<!-- StB: Modified to copy only featurs and plugins when a complete update site is in the downloaded zip file -->
+		<move todir="${eclipse.installation.dir}/dropins" includeemptydirs="true">
+			<fileset dir="${moveroot}">
+				<include name="plugins/**"/>
+				<include name="features/**"/>
+			</fileset>
 		</move>
 	</target>
 			
