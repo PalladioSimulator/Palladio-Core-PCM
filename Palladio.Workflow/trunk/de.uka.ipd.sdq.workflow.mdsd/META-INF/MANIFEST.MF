@@ -7,6 +7,7 @@ Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.workflow.mdsd.blackboard,
  de.uka.ipd.sdq.workflow.mdsd.emf,
+ de.uka.ipd.sdq.workflow.mdsd.emf.qvto,
  de.uka.ipd.sdq.workflow.mdsd.oaw
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
