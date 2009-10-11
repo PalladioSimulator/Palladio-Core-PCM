@@ -5,13 +5,14 @@ import java.util.HashMap;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.openarchitectureware.type.emf.EmfMetaModel;
-import org.openarchitectureware.xpand2.Generator;
-import org.openarchitectureware.xpand2.output.JavaBeautifier;
-import org.openarchitectureware.xpand2.output.Outlet;
-import org.openarchitectureware.xpand2.output.PostProcessor;
-import org.openarchitectureware.xpand2.output.XmlBeautifier;
+import org.eclipse.xpand2.Generator;
+import org.eclipse.xpand2.output.JavaBeautifier;
+import org.eclipse.xpand2.output.Outlet;
+import org.eclipse.xpand2.output.PostProcessor;
+import org.eclipse.xpand2.output.XmlBeautifier;
+import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 
+//TODO Is this annotation needed?
 @SuppressWarnings("deprecation")
 public class XpandGeneratorJob
 extends AbstractOAWWorkflowJobBridge<Generator> {

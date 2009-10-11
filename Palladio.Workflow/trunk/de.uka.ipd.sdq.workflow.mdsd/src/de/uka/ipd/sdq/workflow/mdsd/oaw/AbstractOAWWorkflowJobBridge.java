@@ -5,19 +5,19 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.openarchitectureware.workflow.WorkflowContext;
-import org.openarchitectureware.workflow.WorkflowContextDefaultImpl;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.issues.IssuesImpl;
-import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2;
-import org.openarchitectureware.workflow.util.ProgressMonitorAdapter;
+import org.eclipse.emf.mwe.core.WorkflowContext;
+import org.eclipse.emf.mwe.core.WorkflowContextDefaultImpl;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.issues.IssuesImpl;
+import org.eclipse.emf.mwe.core.monitor.ProgressMonitorAdapter;
+import org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent;
 
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
-public abstract class AbstractOAWWorkflowJobBridge<T extends AbstractWorkflowComponent2>
+public abstract class AbstractOAWWorkflowJobBridge<T extends AbstractExpressionsUsingWorkflowComponent>
 implements IJob {
 
 	private Logger logger = Logger.getLogger(AbstractOAWWorkflowJobBridge.class);

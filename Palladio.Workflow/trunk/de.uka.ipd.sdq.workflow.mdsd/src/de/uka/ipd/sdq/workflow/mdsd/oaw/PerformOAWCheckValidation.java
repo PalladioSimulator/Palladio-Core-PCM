@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.openarchitectureware.check.CheckFacade;
-import org.openarchitectureware.expression.ExecutionContext;
-import org.openarchitectureware.expression.ExecutionContextImpl;
-import org.openarchitectureware.type.emf.EmfMetaModel;
-import org.openarchitectureware.workflow.issues.Issue;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.issues.IssuesImpl;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.issues.IssuesImpl;
+import org.eclipse.emf.mwe.core.issues.MWEDiagnostic;
+import org.eclipse.xtend.check.CheckFacade;
+import org.eclipse.xtend.expression.ExecutionContext;
+import org.eclipse.xtend.expression.ExecutionContextImpl;
+import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
@@ -133,9 +133,9 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 	private ArrayList<SeverityAndIssue> getSeverityAndIssues(
 			Issues issues) {
 		ArrayList<SeverityAndIssue> result = new ArrayList<SeverityAndIssue>();
-		for (Issue issue : issues.getErrors())
+		for (MWEDiagnostic issue : issues.getErrors())
 			result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage(),(EObject)issue.getElement()));
-		for (Issue issue : issues.getWarnings())
+		for (MWEDiagnostic issue : issues.getWarnings())
 			result.add(new SeverityAndIssue(SeverityAndIssue.WARNING,issue.getMessage(),(EObject)issue.getElement()));
 		return result;
 	}
