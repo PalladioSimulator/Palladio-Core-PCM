@@ -3,6 +3,7 @@
 «IMPORT repository»
 «IMPORT core::entity»
 «IMPORT system»
+«IMPORT subsystem»
 «IMPORT core::composition»
 
 // Generate code for a single repository
