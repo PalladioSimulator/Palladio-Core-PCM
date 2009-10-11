@@ -1,6 +1,6 @@
 import featuremodel;
 import featureconfig;
-extension org::openarchitectureware::util::stdlib::io;
+extension org::eclipse::xtend::util::stdlib::io;
 
 Configuration getConfiguration() : GLOBALVAR Features;
 

@@ -1,6 +1,6 @@
 <project name="PCM oAW Generator">
 	<taskdef name="workflow"
-		classname="org.openarchitectureware.workflow.ant.WorkflowAntTask"/>
+		classname="org.eclipse.emf.mwe.core.ant.WorkflowAntTask"/>
 
 	<target name='clean'>
 		<deltree dir="src-gen"/>

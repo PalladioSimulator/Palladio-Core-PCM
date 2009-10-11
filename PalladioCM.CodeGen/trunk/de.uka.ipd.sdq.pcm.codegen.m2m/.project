@@ -31,7 +31,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.openarchitectureware.base.oawBuilder</name>
+			<name>org.eclipse.xtend.shared.ui.xtendBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
