@@ -7,17 +7,17 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.openarchitectureware.emf.XmiReader;
-import org.openarchitectureware.workflow.ConfigurationException;
-import org.openarchitectureware.workflow.WorkflowContext;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.core.ConfigurationException;
+import org.eclipse.emf.mwe.core.WorkflowContext;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
+import org.eclipse.xtend.typesystem.emf.XmiReader;
 
 public class SameResourceSetXmiReader extends XmiReader {
 
 	protected static ResourceSet rs = new ResourceSetImpl();
 	
-	@Override
+	/*@Override
 	public void invoke(WorkflowContext model, ProgressMonitor monitor,
 			Issues issues) {
         final File f = loadFile(issues);
@@ -35,6 +35,6 @@ public class SameResourceSetXmiReader extends XmiReader {
         } else {
             model.set(outputSlot, r.getContents());
         }
-	}
+	}*/
 
 }

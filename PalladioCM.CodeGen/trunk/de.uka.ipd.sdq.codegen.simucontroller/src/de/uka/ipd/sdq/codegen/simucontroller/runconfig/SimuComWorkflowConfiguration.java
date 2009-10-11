@@ -67,7 +67,10 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 	}
 
 	public String getErrorMessage() {
-		throw new RuntimeException("Not implemented. Error Message not yet specified.");
+		// Hauck
+		// This is called by AbstractJobConfiguration.isValid() and therefore has to return something.
+		return null;
+		//throw new RuntimeException("Not implemented. Error Message not yet specified.");
 	}
 
 	public void setDefaults() {
