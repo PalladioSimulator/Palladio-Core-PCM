@@ -33,7 +33,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;bundle-version="3.5.0",
  de.uka.ipd.sdq.featureinstance.editor;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
+Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
+ de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs,
  de.uka.ipd.sdq.pcm.transformations
