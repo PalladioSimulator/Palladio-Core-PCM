@@ -1,9 +1,0 @@
-«IMPORT allocation»
- 
-// ------------------------------------------------
-// Define a Template Method if you want to generate
-// code/config files for an instance of the allocation model
-// ------------------------------------------------
-«DEFINE AllocationTM FOR Allocation»
-«ENDDEFINE»
-
