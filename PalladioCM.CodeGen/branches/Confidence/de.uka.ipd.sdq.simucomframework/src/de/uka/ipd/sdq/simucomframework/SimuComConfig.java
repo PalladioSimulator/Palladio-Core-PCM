@@ -24,6 +24,9 @@ public class SimuComConfig implements Serializable {
 	public static String SIMULATION_TIME = "simTime";
 	public static String VERBOSE_LOGGING = "verboseLogging";
 	public static String SIMULATE_FAILURES = "simulateFailures";
+	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
+	public static String CONFIDENCE_LEVEL = "confidenceLevel";
+	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
 	
 	/** configuration options */
 	private String nameExperimentRun;
@@ -34,9 +37,12 @@ public class SimuComConfig implements Serializable {
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
 	private boolean isDebug;
+	private boolean useConfidence;
+	private int confidenceLevel;
+	private int confidenceHalfWidth;
 
 	/**
-	 * @param a map which maps configuation option IDs to their values
+	 * @param configuration a map which maps configuation option IDs to their values
 	 */
 	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
 		try {
@@ -54,6 +60,12 @@ public class SimuComConfig implements Serializable {
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
+			this.useConfidence = (Boolean) configuration.get(
+					USE_CONFIDENCE);
+			this.confidenceLevel = Integer.valueOf((String)configuration.get(
+					CONFIDENCE_LEVEL));
+			this.confidenceHalfWidth = Integer.valueOf((String)configuration.get(
+					CONFIDENCE_HALFWIDTH));
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -87,6 +99,18 @@ public class SimuComConfig implements Serializable {
 		return this.isDebug;
 	}
 	
+	public boolean isUseConfidence() {
+		return useConfidence;
+	}
+
+	public int getConfidenceLevel() {
+		return confidenceLevel;
+	}
+
+	public int getConfidenceHalfWidth() {
+		return confidenceHalfWidth;
+	}
+
 	public String getEngine() {
 		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
 	}

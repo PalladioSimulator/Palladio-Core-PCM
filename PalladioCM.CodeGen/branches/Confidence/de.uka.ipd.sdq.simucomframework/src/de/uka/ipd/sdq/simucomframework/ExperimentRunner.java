@@ -56,9 +56,13 @@ public class ExperimentRunner {
 		
 		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
 		
-		// TODO pass parameters (like level) based on launch config settings
-		model.getSimulationControl().addStopCondition(
-				new ConfidenceStopCondition(model, new PhiMixingBatchAlgorithm(),
-						new SampleMeanEstimator(), 0.95, 0.1));
+		// Add confidence stop condition if configured
+		if (model.getConfig().isUseConfidence()) {
+			double level = model.getConfig().getConfidenceLevel() / 100.0;
+			double halfWidth = model.getConfig().getConfidenceHalfWidth() / 100.0;
+			model.getSimulationControl().addStopCondition(
+					new ConfidenceStopCondition(model, new PhiMixingBatchAlgorithm(),
+							new SampleMeanEstimator(), level, halfWidth));
+		}
 	}
 }
