@@ -247,6 +247,12 @@
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
     </antcall>
     <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcm.gmf.resource"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.pcm.gmf.resource"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
+    </antcall>  	
+    <antcall target="svn.co">
       <param name="target" value="features"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcm.diagram.feature"/>
       <param name="project.name" value="/de.uka.ipd.sdq.pcm.diagram.feature"/>
