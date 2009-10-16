@@ -67,7 +67,9 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 	}
 
 	public String getErrorMessage() {
-		return "An unknown error occured during Workflow config. Error Message not yet specified.";
+		// must be null; otherwise a non-empty error message will result in
+		// a workflow config being considered invalid
+		return null; 
 	}
 
 	public void setDefaults() {
