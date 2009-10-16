@@ -251,8 +251,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	public boolean isValid(ILaunchConfiguration launchConfig) {
-		setErrorMessage("NO error when validating FeatureOptionsTab.");
-		
+		setErrorMessage(null);		
 		
 		if (!validateFilePath(textFeatureConfig.getText(),
 				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
