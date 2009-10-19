@@ -51,12 +51,17 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
+import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionSolveVisitor;
 
 /**
  * For convenient implementation of model transformations in Java from PCM
@@ -495,12 +500,23 @@ public class ContextWrapper implements Cloneable {
 		EList<ResourceDemand> rdList = compAllCtx
 				.getResourceDemands_ComputedAllocationContext();
 		for (ResourceDemand rd : rdList) {
+			//These are already solved expressions, they do not contain variables. 
 			String spec = rd.getSpecification_ResourceDemand()
 					.getSpecification();
-			ProbabilityFunctionLiteral blah = (ProbabilityFunctionLiteral) ExpressionHelper
-					.parseToExpression(spec);
-			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) blah
-					.getFunction_ProbabilityFunctionLiteral();
+			
+			Expression rdExpression = ExpressionHelper.parseToExpression(spec);
+			ProbabilityDensityFunction pdf = null;
+			if (rdExpression instanceof ProbabilityFunctionLiteral){
+				ProbabilityFunctionLiteral probFuncLit = (ProbabilityFunctionLiteral) rdExpression;
+				pdf = (ProbabilityDensityFunction) probFuncLit.getFunction_ProbabilityFunctionLiteral();
+			} else if (rdExpression instanceof FunctionLiteral){
+				FunctionLiteral fLit = (FunctionLiteral) rdExpression;
+				pdf = ProbfunctionHelper.createFunction(fLit.getParameters_FunctionLiteral(), fLit.getId(), ProbfunctionFactory.eINSTANCE);
+			} else throw new RuntimeException("Handling expression "+spec+" in the "+this.getClass()+" failed, could not cast it to "+ProbabilityFunctionLiteral.class+" or "+ FunctionLiteral.class);
+			/*FunctionLiteral function;
+			function.getParameters_FunctionLiteral()*/
+			
+			
 			// ManagedPDF pdf = null;
 			// try {
 			// pdf = ManagedPDF.createFromString(spec);

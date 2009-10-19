@@ -1,18 +1,13 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import umontreal.iro.lecuyer.probdist.GammaDistFromMoments;
-import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
-import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
-import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
-import de.uka.ipd.sdq.probfunction.GammaDistribution;
-import de.uka.ipd.sdq.probfunction.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -260,41 +255,22 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		for (Expression e : object.getParameters_FunctionLiteral())
 			doSwitch(e);
 		
-		if (object.getId().equals("Exp")) {
-			if (object.getParameters_FunctionLiteral().size() == 1){
-				Expression param = object.getParameters_FunctionLiteral().get(0);
-				Expression solvedParam = (Expression) doSwitch(param);
-				if (solvedParam instanceof DoubleLiteral){
-					ExponentialDistribution exp = this.probFuncFactory.createExponentialDistribution();
-					exp.setRate(((DoubleLiteral)solvedParam).getValue());
-					ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
-					literal.setFunction_ProbabilityFunctionLiteral(exp);
-					return literal;
-				} else 
-					throw new ExpressionSolvingFailedException("Function Exp is only supported supported for a single double parameter!", object);
-			}
-			
-		} else	if (ProbfunctionHelper.isFunctionWithTwoParameterID(object.getId())) {
-				if (object.getParameters_FunctionLiteral().size() == 2){
-					Expression firstExp = object.getParameters_FunctionLiteral().get(0);
-					Expression secondExp = object.getParameters_FunctionLiteral().get(1);
-					Expression solvedFirst = (Expression) doSwitch(firstExp);
-					Expression solvedSecond = (Expression) doSwitch(secondExp);
-					if (solvedFirst instanceof DoubleLiteral && solvedSecond instanceof DoubleLiteral){
-						ContinuousPDF lognorm = ProbfunctionHelper.createFunction(solvedFirst, solvedSecond, object.getId(), this.probFuncFactory);
-						ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
-						literal.setFunction_ProbabilityFunctionLiteral(lognorm);
-						return literal;
-					} else 
-						throw new ExpressionSolvingFailedException("Function "+object.getId()+" is only supported supported for two double parameters!", object);
-				}
+		List<Expression> parameterList = new ArrayList<Expression>();
+		for (Expression parameter : object.getParameters_FunctionLiteral()) {
+			parameterList.add((Expression)doSwitch(parameter));
+		}
+		
+		if (ProbfunctionHelper.isFunctionID(object.getId())){
+			ProbabilityFunction func = ProbfunctionHelper.createFunction(parameterList, object.getId(), probFuncFactory);
+			ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
+			literal.setFunction_ProbabilityFunctionLiteral(func);
+			return literal;
 		} else	if (object.getId().equals("Trunc")) {
 			//Create an equivalent ProbabilityMassFunction or Integer from the given expression.
 			
 			//Trunc must only have one parameter 
 			if (object.getParameters_FunctionLiteral().size() == 1){
-				Expression param = object.getParameters_FunctionLiteral().get(0);
-				Expression solvedParam = (Expression) doSwitch(param);
+				Expression solvedParam = parameterList.get(0);
 				//Parameter for Trunc must can be a DoublePDF or a DoubleLiteral? 
 				if (solvedParam instanceof ProbabilityFunctionLiteral){
 					ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)solvedParam;
