@@ -67,10 +67,9 @@ extends AbstractCodeGenerationWorkflowRunConfiguration {
 	}
 
 	public String getErrorMessage() {
-		// Hauck
-		// This is called by AbstractJobConfiguration.isValid() and therefore has to return something.
-		return null;
-		//throw new RuntimeException("Not implemented. Error Message not yet specified.");
+		// must be null; otherwise a non-empty error message will result in
+		// a workflow config being considered invalid
+		return null; 
 	}
 
 	public void setDefaults() {
