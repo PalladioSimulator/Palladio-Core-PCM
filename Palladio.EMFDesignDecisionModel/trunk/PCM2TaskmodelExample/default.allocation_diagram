@@ -15,7 +15,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Ug01AaOXEd6D1ZKDqAnLPA"/>
     <element xmi:type="_1:ResourceContainer" href="My.resourceenvironment#_OiUPMaOXEd6D1ZKDqAnLPA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ug01AqOXEd6D1ZKDqAnLPA" width="536" height="371"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ug01AqOXEd6D1ZKDqAnLPA" x="20" y="30" width="471" height="251"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_LviIILGFEd6GqtTsQtDpPA" type="2002">
     <children xmi:type="notation:Node" xmi:id="_Lvr5ILGFEd6GqtTsQtDpPA" type="5003"/>
@@ -25,7 +25,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_LviIIbGFEd6GqtTsQtDpPA" fontName="Segoe UI"/>
     <element xmi:type="_1:ResourceContainer" href="My.resourceenvironment#_jVV-8aOnEd6gGsCgAiqHJA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LviIIrGFEd6GqtTsQtDpPA" x="695" y="190"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LviIIrGFEd6GqtTsQtDpPA" x="515" y="30" width="196" height="246"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_UfL2QqOXEd6D1ZKDqAnLPA"/>
   <element xmi:type="Allocation" href="default.allocation#_UfL2QKOXEd6D1ZKDqAnLPA"/>
