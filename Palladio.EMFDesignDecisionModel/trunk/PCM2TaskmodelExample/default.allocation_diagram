@@ -26,6 +26,7 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_LviIIbGFEd6GqtTsQtDpPA" fontName="Segoe UI"/>
     <element xmi:type="_1:ResourceContainer" href="My.resourceenvironment#_jVV-8aOnEd6gGsCgAiqHJA"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LviIIrGFEd6GqtTsQtDpPA" x="515" y="30" width="196" height="246"/>
+
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_UfL2QqOXEd6D1ZKDqAnLPA"/>
   <element xmi:type="Allocation" href="default.allocation#_UfL2QKOXEd6D1ZKDqAnLPA"/>
