@@ -67,10 +67,10 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 
 	private void initialize() {
 //		// TODO Remove log4j initialization --------
-//		BasicConfigurator.configure();
-//		Logger.getRootLogger().setLevel(Level.INFO);
+		BasicConfigurator.configure();
+		Logger.getRootLogger().setLevel(Level.INFO);
 //		//------------------------------------------
-		logger = Logger.getLogger(PhiMixingBatchAlgorithm.class);
+		logger = Logger.getLogger("de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm.log");
 
 		qiSamples = new QuasiIndependentSampleSequence();
 		batches = new ArrayList<Batch>();
