@@ -42,7 +42,7 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
 		config.setPluginID(getStringAttribute(ConstantsContainer.PLUGIN_ID));
 		
 		config.setSensitivityAnalysisEnabled(
-				hasStringAttribute(ConstantsContainer.VARIABLE_TEXT));
+				hasValidSensitvityVariableAttribute(ConstantsContainer.VARIABLE_TEXT));
 		if (config.isSensitivityAnalysisEnabled()) {
 			SensitivityAnalysisConfiguration sensitivityConfig = 
 				new SensitivityAnalysisConfiguration(getStringAttribute(ConstantsContainer.VARIABLE_TEXT), 
@@ -64,11 +64,14 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
 		return true;
 	}
 	
-	private boolean hasStringAttribute(String attribute) throws CoreException {
+	private boolean hasValidSensitvityVariableAttribute(String attribute) throws CoreException {
 		if (!configuration.hasAttribute(attribute))
 			return false;
 		Object value = getStringAttribute(attribute);
-		return value instanceof String && !value.equals("");
+		//Anne: I sometimes get a "NO ELEMENT SELECTED" result from the LaunchConfig even if I deleted the string from the field
+		//I have no idea how to fix it directly, so I need to catch it here. 
+		//It seems to only appear in the Design Space Exploration tab. 
+		return value instanceof String && !value.equals("") && !value.equals("NO ELEMENT SELECTED");
 	}
 
 	private void setPCMFilenames(SimuComWorkflowConfiguration config) throws CoreException {
