@@ -12,7 +12,6 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
-import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
@@ -87,11 +86,6 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 		return object;
 	}
 
-	@Override
-	public EObject caseConnectorConfigDecision(ConnectorConfigDecision object) {
-		// TODO Auto-generated method stub
-		return super.caseConnectorConfigDecision(object);
-	}
 
 	@Override
 	public EObject caseProblem(Problem object) {
