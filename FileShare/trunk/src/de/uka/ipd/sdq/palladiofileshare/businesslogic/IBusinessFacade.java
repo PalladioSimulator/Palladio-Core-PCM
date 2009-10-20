@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic;
  */
 public interface IBusinessFacade {
 	public abstract void uploadFiles(
-			long uploadId,
 			byte[][] inputFiles, 
 			String[] inputFileIds, 
 			int[] fileTypes,

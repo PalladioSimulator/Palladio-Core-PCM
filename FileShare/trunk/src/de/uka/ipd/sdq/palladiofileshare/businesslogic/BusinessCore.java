@@ -3,10 +3,6 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 import org.apache.log4j.Logger;
 
 import spec.benchmarks.compress.Harness;
-import de.uka.ipd.sdq.ByCounter.SPECevaluation.SPECCompressExecutionStarter;
-import de.uka.ipd.sdq.logger.Log;
-import de.uka.ipd.sdq.logger.enums.LogDataType;
-import de.uka.ipd.sdq.logger.enums.LogType;
 import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.algorithms.SimpleLZW;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage;
@@ -29,7 +25,6 @@ public class BusinessCore {
 	/**
 	 * internal sub-component
 	 */
-	@SuppressWarnings("unused") //because isCopyrightedMaterial currently always returning true
 	private CopyrightedMaterialDatabase copyDB;
 	
 //	private CompressionRunner compression;
@@ -43,9 +38,6 @@ public class BusinessCore {
 	 * internal sub-component
 	 */
 	private Hash hash;
-	
-	// KK-Log:
-	private de.uka.ipd.sdq.logger.Logger kkLogger;
 	
 	/**
 	 * log4j logger
@@ -61,9 +53,6 @@ public class BusinessCore {
 	 * external sub-component
 	 */
 	private IStorage storageSubSystemSmallFiles;
-
-	@SuppressWarnings("unused")
-	private long uploadId;
 		
 	/**
 	 * Use SPECjvm2008 compress; otherwise use handwritten LZW compress.
@@ -76,14 +65,9 @@ public class BusinessCore {
 		this.copyDB = CopyrightedMaterialDatabase.getSingleton();
 		this.fileDB = ExistingFilesDatabase.getSingleton();
 		this.hash = new Hash();
-		this.kkLogger = Log.getLogger("BusinessCore", this.getClass().getName());
 		this.logger = Logger.getLogger(BusinessCore.class);
 		this.storageSubSystemLargeFiles = new Storage();
 		this.storageSubSystemSmallFiles = new Storage();
-		this.uploadId = uploadId;
-		
-		// KK-Log:
-		kkLogger.setAutomaticLogLineAndMethodMode(true);    	
 	}
 
 	/**
@@ -102,20 +86,10 @@ public class BusinessCore {
 	 * @return
 	 */
 	private byte[] compress(byte[] inputFile, int fileIndex) {				
-//		byte[] compressedFile = compression.compress(inputFile);	
-		byte[] compressedFile;
+		//byte[] compressedFile = compression.compress(inputFile);	
+		byte[] compressedFile; //FIXME: avoid static call!
 		if(this.useSPEC){
-			long startOfStartMethod = System.nanoTime();
-			new SPECCompressExecutionStarter().start(fileIndex);
 			compressedFile = Harness.MK_getLastOutput();
-			System.err.println("Got last output from harness, size "+
-					compressedFile.length);
-			long endOfStartMethod = System.nanoTime();
-			long nsDuration = endOfStartMethod-startOfStartMethod;
-			System.err.println("\nTSE [ns] "+nsDuration+" to perform " +
-					"SPECCompressExecutionStarter.start("+fileIndex+"),\n" +
-					"there is more inside than the actual compression " +
-					"(and a System.err.println outside of measured section)");
 		}else{
 			compressedFile = SimpleLZW.lzwcompress_inlined(inputFile, 512);
 		}
@@ -132,24 +106,22 @@ public class BusinessCore {
 	}	
 	
 	/**
-	 * @deprecated because always returning true
 	 * @param hash
 	 * @return
 	 */
 	private boolean isCopyrightedMaterial(byte[] hash) {
-		boolean isCopyrighted = true;
-//		isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);				
+		boolean isCopyrighted;
+		isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);				
 		return isCopyrighted;
 	}
 	
 	/**
-	 * @deprecated because always returning true
 	 * @param hash
 	 * @return
 	 */
 	private boolean isFileExistingInDB(byte[] hash) {		
-		boolean isFileInDB = true;
-//		isFileInDB = this.fileDB.existsInDatabase(hash);
+		boolean isFileInDB;
+		isFileInDB = this.fileDB.existsInDatabase(hash);
 		return isFileInDB;
 	}
 	
@@ -172,44 +144,26 @@ public class BusinessCore {
 	}
 	
 	/**
-	 * Should measure total, as well as per-file durations
-	 * @param uploadId
+	 * 
 	 * @param uploadFiles
 	 * @param uploadFileIds
 	 * @param uploadFileTypes
 	 * @param measure
 	 * @param monitor
-	 * @return 2*|inputFiles|+1 values: "before saving" and "saving" durations
-	 * for each "inner" file, as well as "total duration" for the entire upload.
-	 * If no saving will take place, the "saving" duration is -1 
-	 * and "before saving" includes all other operations. 
+	 * @return 
 	 */
-	public long[] uploadFiles(
-			long uploadId, //now unneeded...
+	public long uploadFiles(
 			byte[][] uploadFiles, 
 			String[] uploadFileIds, 
 			int[] uploadFileTypes, 
 			boolean measure,
 			boolean monitor
 			) {	
-		System.err.println("uploadID "+uploadId+", "+uploadFiles.length+" uploads");
-		long[] measurements = new long[2*uploadFiles.length+1];
-		if(monitor) {
-			klausStuff1(uploadFiles, uploadFileTypes);
-		}
-		long start = 0L;
-		long stop = 0L;
-		long innerStart = 0L;
-		long innerBeforeLookupAndSaving = -1L;
-		long innerStop = 0L;
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
-		byte[] compressedFile;
+		byte[] compressedFile = null;
 
-		if(measure){
-			start = System.nanoTime();
-		}
 		for(int x = 0; x < uploadFiles.length; x++) {
 			try {
 				Thread.sleep(2000);
@@ -217,150 +171,44 @@ public class BusinessCore {
 				e.printStackTrace();
 			}
 			logger.debug("\n\n\n"+"File "+x+" ("+uploadFileIds[x]+"), size/length "+uploadFiles[x].length);
-			if(measure){
-				innerStart = System.nanoTime();//TODO document
-			}
+
 			inputFile = uploadFiles[x];						
 			
 			if(uploadFileTypes[x] == FileType.TEXT) {
-
-				if(monitor){
-					klausStuff2(inputFile);
-				}
 				compressedFile = this.compress(inputFile, x);
-				
-				if(monitor){
-					// KK-Log:
-					kkLogger.addLogEntryData(LogType.AfterExternalAction,
-						LogDataType.ParameterValue, "compressFile.Out.length",
-							compressedFile.length);
-				}
-
-			} else {
-				
-				if(monitor){
-					// KK-Log:
-					kkLogger.addLogEntryData(LogType.BranchSelection,
-						LogDataType.Timestamp, "false: COMPRESSED file", false);
-					
-					logger.debug("Compressed file. Doing nothing.");
-				}
+			} else {				
+				logger.debug("Compressed file. Doing nothing.");
 				compressedFile = inputFile; //do nothing
-			}
+			}					
 			
-			if(monitor){
-				// KK-Log:
-				kkLogger.addLogEntryData(LogType.BeforeExternalAction,
-					LogDataType.ParameterValue, "compressedFile.length", compressedFile.length);
-			}
-			fileHashAsBytes = this.getMessageDigest(compressedFile);			
-			
-			if(measure){
-				innerBeforeLookupAndSaving = System.nanoTime();//TODO document
-			}
-			
+			fileHashAsBytes = this.getMessageDigest(compressedFile);						
 			boolean isCopyrighted = isCopyrightedMaterial(fileHashAsBytes);
-			if(monitor){
-				// KK-Log:
-				kkLogger.addLogEntryData(LogType.AfterExternalAction,
-					LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
-			}
 
 			if(isCopyrighted) {
-				
-				if(monitor){
-					logger.debug("Copyrighted file found. File not stored.");
-				}
+				logger.debug("Copyrighted file found. File not stored.");				
 				//does not store the file, i.e. does NOTHING 
-			} else {	
-				
+			} else {					
 				boolean isFileInDB = isFileExistingInDB(fileHashAsBytes);
-				if(monitor){
-					// KK-Log:
-					kkLogger.addLogEntryData(LogType.AfterExternalAction,
-						LogDataType.ParameterValue, "isFileInDB", isFileInDB);
-				}
 				if(isFileInDB) { 
 					if(monitor){
 						logger.debug("File already in DB.");
 					}
 				} else {		
 					addHashToFileExistingDB(fileHashAsBytes);
-					if(monitor){
-						// KK-Log:
-						kkLogger.addLogEntryData(LogType.BeforeReturn,
-							LogDataType.ParameterValue, "compressedFile.length", compressedFile.length);
-					}
 
 					if(compressedFile.length > SIZE_OF_LARGE_FILES) {
-						if(monitor){
-							// KK-Log:
-							kkLogger.addLogEntryData(LogType.BranchSelection,
-								LogDataType.Timestamp, "storage if: large", 1);
-							logger.debug("Writing large file to storage system.");
-						}
+						logger.debug("Writing large file to storage system.");
 						storeLargeFile(compressedFile, fileHashAsBytes);
 
 					} else {
-						if(monitor){
-							// KK-Log:
-							kkLogger.addLogEntryData(LogType.BranchSelection,
-								LogDataType.Timestamp, "storage else: small", 0);
-							
-							logger.debug("Writing small file to storage system.");
-						}
+						logger.debug("Writing small file to storage system.");
 						storeSmallFile(compressedFile, fileHashAsBytes);
 					}
 				}
-			}
-			if(measure){
-				innerStop = System.nanoTime();//TODO document
-				measurements[2*x] = innerBeforeLookupAndSaving-innerStart;
-				measurements[2*x+1] = innerStop - innerBeforeLookupAndSaving;
-				System.err.println("TSE [ns] Total "+(measurements[2*x]+measurements[2*x+1])+"="
-						+measurements[2*x]+" (compress+digest) + "+measurements[2*x+1]+" (lookups+addition+storage).");
-			}
-		}
-		if(measure){
-			stop = System.nanoTime();
-			measurements[measurements.length-1] = (stop-start);
-			TestDriver.recordPerformance(uploadId, uploadFileIds, measurements);
-			return measurements;
-		}else{
-			return null;
-		}
-	}
-
-	private void klausStuff2(byte[] inputFile) {
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BranchSelection,
-			LogDataType.Timestamp, "true: TEXT file", true);
-		
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeExternalAction,
-			LogDataType.ParameterValue, "compressFile.In.length", inputFile.length);
-		
-		logger.debug("Non-Compressed file. Compressing.");
-	}
-
-	private void klausStuff1(byte[][] uploadFiles, int[] uploadFileTypes) {
-		kkLogger.newMethodInvocation();
-		kkLogger.addLogEntryData(LogType.MethodCall,
-				LogDataType.ParameterValue, "inputFiles.length",
-				uploadFiles.length);
-		
-		for(int x = 0; x < uploadFiles.length; x++) {
-			kkLogger.addLogEntryData(LogType.MethodCall,
-				LogDataType.ParameterValue, "file-length " + x,
-				uploadFiles[x].length);
+			}		
 		}		
-		kkLogger.addLogEntryData(LogType.MethodCall,
-			LogDataType.ParameterValue, "inputFileTypes.length",
-			uploadFiles.length);
-		for(int x = 0; x < uploadFileTypes.length; x++) {
-			kkLogger.addLogEntryData(LogType.MethodCall,
-				LogDataType.ParameterValue, "file-type " + x,
-				uploadFileTypes[x]);
-		}
+		return 0L;
 	}
+
+
 }

@@ -9,7 +9,6 @@ public class BusinessFacade implements IBusinessFacade {
 	 * @param fileTypes type per file in array inputfiles
 	 */
 	public void uploadFiles(
-			long uploadId,
 			byte[][] inputFiles, 
 			String[] inputFileIds,
 			int[] inputFileTypes,
@@ -18,7 +17,6 @@ public class BusinessFacade implements IBusinessFacade {
 		
 		BusinessRunner businessFacade;
 		businessFacade= new BusinessRunner(
-				uploadId,
 				inputFiles,
 				inputFileIds,
 				inputFileTypes,

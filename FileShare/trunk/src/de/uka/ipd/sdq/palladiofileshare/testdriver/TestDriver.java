@@ -17,9 +17,6 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.logger.Log;
-import de.uka.ipd.sdq.logger.LogFilter;
-import de.uka.ipd.sdq.logger.LogPrinterFactory;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.CopyrightedMaterialDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.ExistingFilesDatabase;
@@ -307,24 +304,6 @@ public class TestDriver {
 		return testData;//TODO log this instance!
 	}
 
-	/**
-     * KK: Parameter logging
-     */
-	private void finishKKLogging() {
-		try {
-			Thread.sleep(100000);
-		} catch (InterruptedException e) {
-			logger.error(e);
-		}
-		// KK-Log:
-		// Specific Setup
-		LogFilter logFilter = new LogFilter(true);		
-		
-		// Outputs
-		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
-		    		    	
-		Log.invalidateCache();		
-	}    
     
 	private TestDataStruct generateRandomTestData(
 			int numberOfAllFiles,
@@ -690,7 +669,6 @@ public class TestDriver {
 			start = System.nanoTime();
 			//TODO subsequent call should go over the interface!!!
 			facade.uploadFiles(
-					testData.getUploadId(), //user-specific, one-per-upload
 					testData.getInputFiles(), 
 					testData.getInputFileIds(),
 					testData.getInputFileTypes(),
@@ -704,9 +682,6 @@ public class TestDriver {
 			//TODO analyse these results
 		}
 		logger.debug(numberOfOpenUploads+" open uploads");
-    	if(monitor) {
-    		//KK-Log:
-    		finishKKLogging();		
-    	}
+
 	}
 }
