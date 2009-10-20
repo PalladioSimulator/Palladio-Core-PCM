@@ -9,7 +9,7 @@ Bibliothek                    | Typ                     | URL
 JbcParser                     | LGPL                    | http://www.bestcode.com/assets/downloads/JbcParser/license.txt
 Log4J                         | Apache (*)              | http://logging.apache.org/log4j/1.2/license.html
 opencsv                       | Apache (*)              | ...
-TestMeasuring                 | ?                       | [nicht auffindbar]
+TestMeasuring                 | eigene                  | eigene
 ---------------------------------------------------------------------------------------------------
 
 (*) Apache License:
