@@ -1,0 +1,1 @@
+"C:\Programme\Java\jdk1.6.0_03\bin\java" -server -classpath .;.\bin;%CLASSPATH%;.\lib\JbcParser.jar;.\lib\log4j-1.2.15.jar;.\lib\opencsv-1.8.jar;.\lib\TestMeasuring.jar de.uka.ipd.sdq.benchmarking.HashBenchmarker MK_Lenovo -server -default SHA-512 200 true 30000 20

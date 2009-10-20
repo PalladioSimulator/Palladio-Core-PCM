@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.6.0_14\bin\java" -server -classpath .;.\bin;.\lib;.\lib\ext;.\lib\JbcParser.jar;.\lib\log4j-1.2.15.jar;.\lib\opencsv-1.8.jar;.\lib\TestMeasuring.jar de.uka.ipd.sdq.palladiofileshare.testdriver.TestDriver

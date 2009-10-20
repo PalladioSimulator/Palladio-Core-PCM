@@ -1,0 +1,15 @@
+opcode;opcode;Instruction duration [ns];;;;;
+AALOAD;50;8.1;;;;;
+ALOAD;25;1.96;;;;;
+ARRAYLENGTH;190;6.98;;;;;
+ASTORE;58;3.91;;;;;
+BALOAD;51;8.38;;;;;
+ICONST_0;3;1.96;;;;;
+ICONST_1;4;1.96;;;;;
+ICONST_M1;2;1.96;;;;;
+IF_ICMPLT;161;4;;;;;
+IF_ICMPNE;160;4;;;;;
+IINC;132;3;;;;;
+ILOAD;21;1.96;;;;;
+NEWARRAY;188;250;;;;;
+SIPUSH;17;3;;;;;
