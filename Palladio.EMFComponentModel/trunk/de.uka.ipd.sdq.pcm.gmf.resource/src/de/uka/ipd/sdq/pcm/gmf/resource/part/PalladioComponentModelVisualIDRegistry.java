@@ -22,6 +22,8 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
@@ -203,12 +205,18 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
 			if (CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

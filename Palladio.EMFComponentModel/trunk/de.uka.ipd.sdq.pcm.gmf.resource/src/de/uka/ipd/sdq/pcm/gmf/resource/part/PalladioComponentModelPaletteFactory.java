@@ -119,10 +119,17 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createConnection5CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Connection5CreationTool_title,
-				Messages.Connection5CreationTool_desc, null, null) {
-		};
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.Connection5CreationTool_title,
+				Messages.Connection5CreationTool_desc, types);
 		entry.setId("createConnection5CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.CommunicationLinkResourceSpecificationItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenLatencyDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -64,6 +65,7 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CommunicationLinkResourceSpecificationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLatencyDialog());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -112,6 +114,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureLatencyLabelFigure());
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -125,6 +132,9 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
@@ -260,6 +270,10 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureLatencyLabelFigure;
+		/**
+		 * @generated
+		 */
 		private WrappingLabel fFigureNetworkSwitchSpecificationNameFigure;
 
 		/**
@@ -283,6 +297,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 
 			this.add(fFigureNetworkSwitchSpecificationNameFigure);
 
+			fFigureLatencyLabelFigure = new WrappingLabel();
+			fFigureLatencyLabelFigure.setText("");
+
+			this.add(fFigureLatencyLabelFigure);
+
 		}
 
 		/**
@@ -302,6 +321,13 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureLatencyLabelFigure() {
+			return fFigureLatencyLabelFigure;
 		}
 
 		/**

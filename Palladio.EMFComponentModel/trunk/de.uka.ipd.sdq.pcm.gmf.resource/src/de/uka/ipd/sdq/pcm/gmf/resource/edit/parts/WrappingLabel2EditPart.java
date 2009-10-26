@@ -9,10 +9,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
@@ -31,13 +28,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -55,7 +48,6 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
@@ -64,13 +56,13 @@ import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserPro
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationMTTFEditPart extends
-		CompartmentEditPart implements ITextAwareEditPart {
+public class WrappingLabel2EditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5007;
 
 	/**
 	 * @generated
@@ -95,7 +87,7 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 	/**
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationMTTFEditPart(View view) {
+	public WrappingLabel2EditPart(View view) {
 		super(view);
 	}
 
@@ -126,7 +118,6 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 						return false;
 					}
 				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
 	}
 
 	/**
@@ -264,7 +255,7 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -324,10 +315,10 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
-									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));
+									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart.VISUAL_ID));
 		}
 		return parser;
 	}

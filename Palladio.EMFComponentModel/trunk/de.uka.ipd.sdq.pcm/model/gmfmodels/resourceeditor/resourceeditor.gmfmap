@@ -57,6 +57,11 @@
             <features
                 href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
           </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#ProcessingRateLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="resourceeditor.gmftool#//@palette/@tools.0/@tools.3"/>
@@ -102,6 +107,11 @@
             <features
                 href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/failureProbability"/>
           </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#LatencyLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
@@ -119,7 +129,7 @@
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
+        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.4"/>
     <diagramLink
         href="resourceeditor.gmfgraph#NetworkConnection"/>
     <linkMetaFeature

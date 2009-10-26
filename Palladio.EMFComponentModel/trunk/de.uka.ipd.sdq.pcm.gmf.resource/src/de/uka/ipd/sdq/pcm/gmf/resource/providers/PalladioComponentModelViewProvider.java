@@ -58,6 +58,8 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -399,6 +401,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID));
+		Node label5006 = createLabel(node, PalladioComponentModelVisualIDRegistry
+				.getType(WrappingLabelEditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				PalladioComponentModelVisualIDRegistry
@@ -449,6 +453,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID));
+		Node label5007 = createLabel(node, PalladioComponentModelVisualIDRegistry
+				.getType(WrappingLabel2EditPart.VISUAL_ID));
 		return node;
 	}
 
