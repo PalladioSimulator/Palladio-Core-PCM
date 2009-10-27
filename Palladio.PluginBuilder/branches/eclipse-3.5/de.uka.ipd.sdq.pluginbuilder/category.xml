@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.uka.ipd.sdq.pcm.diagram.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.diagram.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcm.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcmsolver.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcmsolver.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.probfunction.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.probfunction.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.sensorframework.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.visualisation.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.sensorframework.visualisation.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.simucom.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.simucom.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.workflow.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.workflow.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <category-def name="de.uka.ipd.sdq.pcm" label="Palladio Component Model">
+      <description>
+         This category contains features of the Palladio Component Model
+      </description>
+   </category-def>
+</site>
