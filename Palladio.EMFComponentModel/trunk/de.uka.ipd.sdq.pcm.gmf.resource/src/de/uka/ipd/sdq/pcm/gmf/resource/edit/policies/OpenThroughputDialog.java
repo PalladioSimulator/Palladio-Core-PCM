@@ -8,13 +8,13 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 // Manually written open policy to open the StoEx Dialog. It's
 // called via a CustomBehaviour in the genmap
-public class OpenLatencyDialog extends OpenStoExDialog {
+public class OpenThroughputDialog extends OpenStoExDialog {
 
 	
 	@Override
 	protected RandomVariable getRandomVariable(EObject parent) {
 		CommunicationLinkResourceSpecification resourceSpecification = (CommunicationLinkResourceSpecification) parent;
-		RandomVariable rv = resourceSpecification.getLatency_CommunicationLinkResourceSpecification();
+		RandomVariable rv = resourceSpecification.getThroughput_CommunicationLinkResourceSpecification();
 		return rv;
 	}
 

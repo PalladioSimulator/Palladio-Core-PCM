@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenProcessingRateDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.ProcessingResourceSpecificationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
@@ -73,6 +74,7 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ProcessingResourceSpecificationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenProcessingRateDialog());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -121,14 +123,14 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
-			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureMTTRFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
@@ -148,10 +150,10 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {

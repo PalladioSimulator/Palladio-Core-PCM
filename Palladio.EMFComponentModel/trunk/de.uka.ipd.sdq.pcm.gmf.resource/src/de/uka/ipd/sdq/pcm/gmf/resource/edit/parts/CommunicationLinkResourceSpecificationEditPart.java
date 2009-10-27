@@ -27,6 +27,7 @@ import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.CommunicationLinkResourceSpecificationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenLatencyDialog;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenThroughputDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -66,6 +67,7 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 				new CommunicationLinkResourceSpecificationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLatencyDialog());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenThroughputDialog());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -114,15 +116,15 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel2EditPart) {
-			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureLatencyLabelFigure());
-			return true;
-		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureNetworkSwitchSpecificationNameFigure());
+			return true;
+		}
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureLatencyLabelFigure());
 			return true;
 		}
 		return false;
@@ -132,10 +134,10 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel2EditPart) {
+		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
+		if (childEditPart instanceof WrappingLabel2EditPart) {
 			return true;
 		}
 		return false;

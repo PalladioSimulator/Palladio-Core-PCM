@@ -43,6 +43,10 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="ProcessingResourceSpecificationFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessingResourceSpecificationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureProcessingRateFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSchedulingPolicyFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTFFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMTTRFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActiveResourceTypeFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessingResourceSpecificationFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(1);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActiveResourceTypeFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActiveResourceTypeFigure.setText(&quot;ProcessingResourceSpecification&quot;);&#xA;&#xA;this.add(fFigureActiveResourceTypeFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTFFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTFFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTFFigure);&#xA;&#xA;&#xA;&#xA;fFigureMTTRFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMTTRFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureMTTRFigure);&#xA;&#xA;&#xA;&#xA;fFigureSchedulingPolicyFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSchedulingPolicyFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSchedulingPolicyFigure);&#xA;&#xA;&#xA;&#xA;fFigureProcessingRateFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureProcessingRateFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureProcessingRateFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureProcessingRateFigure() {&#xA;&#x9;&#x9;return fFigureProcessingRateFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSchedulingPolicyFigure() {&#xA;&#x9;&#x9;return fFigureSchedulingPolicyFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTFFigure() {&#xA;&#x9;&#x9;return fFigureMTTFFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMTTRFigure() {&#xA;&#x9;&#x9;return fFigureMTTRFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActiveResourceTypeFigure() {&#xA;&#x9;&#x9;return fFigureActiveResourceTypeFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenProcessingRateDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/resourceenvironment/ProcessingResourceSpecification"/>
@@ -130,10 +134,6 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureProcessingRateFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <behaviour
-            xsi:type="gmfgen:CustomBehaviour"
-            key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenStoExDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>
@@ -160,6 +160,10 @@
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
           editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenLatencyDialog"/>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenThroughputDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/resourceenvironment/CommunicationLinkResourceSpecification"/>
@@ -193,6 +197,7 @@
           visualID="5007"
           editPartClassName="WrappingLabel2EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="CommunicationLinkResourceSpecificationLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass

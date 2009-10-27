@@ -169,7 +169,12 @@
             xsi:type="gmfgraph:Label"
             name="LatencyLabelFigure"
             text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ThroughputLabelFigure"/>
       </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
       <accessors
@@ -204,6 +209,10 @@
       name="ResourceContainerCompartment"
       figure="ResourceContainerFigure"/>
   <labels
+      name="ThroughputLabel"
+      figure="NetworkSwitchSpecificationFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
       name="ProcessingRateLabel"
       figure="ProcessingResourceSpecificationFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
@@ -230,9 +239,9 @@
   <labels
       name="NetworkSwitchSpecificationNameLabel"
       figure="NetworkSwitchFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.2"/>
   <labels
       name="LatencyLabel"
       figure="NetworkSwitchSpecificationFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
 </gmfgraph:Canvas>
