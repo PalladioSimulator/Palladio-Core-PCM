@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Run Config Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.workflow.launchconfig;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ org.eclipse.debug.core,
+ org.eclipse.emf.common.ui,
+ org.eclipse.ui.views,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.console,
+ de.uka.ipd.sdq.workflow;visibility:=reexport,
+ org.apache.log4j;bundle-version="1.2.13";visibility:=reexport,
+ org.apache.commons.logging;bundle-version="1.0.4"
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: de.uka.ipd.sdq.workflow.launchconfig,
+ de.uka.ipd.sdq.workflow.launchconfig.configbuilder,
+ de.uka.ipd.sdq.workflow.launchconfig.tabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
