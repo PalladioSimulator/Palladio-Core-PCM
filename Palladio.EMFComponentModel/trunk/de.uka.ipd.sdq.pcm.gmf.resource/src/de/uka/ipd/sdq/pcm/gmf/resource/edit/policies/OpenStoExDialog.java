@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
  */
 public class OpenStoExDialog extends OpenEditPolicy {
 
-	private EStructuralFeature randomVariableFeature;
+	protected EStructuralFeature randomVariableFeature;
 
 	public OpenStoExDialog(EStructuralFeature randomVariableFeature) {
 		super();
