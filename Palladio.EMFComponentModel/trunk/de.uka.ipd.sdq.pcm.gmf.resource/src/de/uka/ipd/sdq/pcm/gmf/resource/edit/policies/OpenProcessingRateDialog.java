@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.gmf.resource.edit.policies;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.stoex.RandomVariable;
@@ -13,10 +14,21 @@ public class OpenProcessingRateDialog extends OpenStoExDialog {
 
 	
 	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		ProcessingResourceSpecification resourceSpecification = (ProcessingResourceSpecification) parent;
-		RandomVariable rv = resourceSpecification.getProcessingRate_ProcessingResourceSpecification();
-		return rv;
+	protected RandomVariable getRandomVariable(EObject parent) {		
+		// Default Implementation. Override as necessary
+		if (randomVariableFeature == null && parent instanceof RandomVariable) {
+			return (RandomVariable) parent;
+		} else if (randomVariableFeature == null
+				&& parent instanceof ProcessingResourceSpecification) {
+			return ((ProcessingResourceSpecification) parent)
+					.getProcessingRate_ProcessingResourceSpecification();
+		} else {
+			return (RandomVariable) parent.eGet(randomVariableFeature);
+		}
+		
+//		ProcessingResourceSpecification resourceSpecification = (ProcessingResourceSpecification) parent;
+//		RandomVariable rv = resourceSpecification.getProcessingRate_ProcessingResourceSpecification();
+//		return rv;
 	}
 
 	@Override
