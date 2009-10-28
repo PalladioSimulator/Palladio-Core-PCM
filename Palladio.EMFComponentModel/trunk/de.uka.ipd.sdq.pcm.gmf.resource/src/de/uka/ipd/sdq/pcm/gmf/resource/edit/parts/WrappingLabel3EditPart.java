@@ -49,23 +49,23 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenProcessingRateDialog;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenThroughputDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
 /**
  * @generated
  */
-public class WrappingLabelEditPart extends CompartmentEditPart implements
+public class WrappingLabel3EditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	 * @generated
@@ -90,7 +90,7 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public WrappingLabelEditPart(View view) {
+	public WrappingLabel3EditPart(View view) {
 		super(view);
 	}
 
@@ -118,7 +118,7 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 						return false;
 					}
 				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenProcessingRateDialog());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenThroughputDialog());
 	}
 
 	/**
@@ -201,11 +201,7 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -213,9 +209,9 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 	 */
 	protected String getLabelText() {
 		String text = null;
-		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
-		if (spec.getProcessingRate_ProcessingResourceSpecification() != null)
-			text = spec.getProcessingRate_ProcessingResourceSpecification()
+		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
+		if (spec.getLatency_CommunicationLinkResourceSpecification() != null)
+			text = spec.getThroughput_CommunicationLinkResourceSpecification()
 					.getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -315,10 +311,10 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
-									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart.VISUAL_ID));
+									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel3EditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -479,9 +475,9 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
+		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
 		addListenerFilter(
-				"SemanticModel", this, spec.getProcessingRate_ProcessingResourceSpecification()); //$NON-NLS-1$
+				"SemanticModel", this, spec.getLatency_CommunicationLinkResourceSpecification()); //$NON-NLS-1$
 
 	}
 

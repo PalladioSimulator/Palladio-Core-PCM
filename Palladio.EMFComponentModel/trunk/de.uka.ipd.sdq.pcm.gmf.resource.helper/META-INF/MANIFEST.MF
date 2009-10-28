@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Helper
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.resource.helper;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.resource.helper.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.common.core,
@@ -21,7 +20,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex.analyser,
  org.antlr,
- de.uka.ipd.sdq.pcm.dialogs
+ de.uka.ipd.sdq.pcm.dialogs,
+ de.uka.ipd.sdq.pcm.gmf.seff.helper;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.gmf.runtime.emf.type.core.edithelper

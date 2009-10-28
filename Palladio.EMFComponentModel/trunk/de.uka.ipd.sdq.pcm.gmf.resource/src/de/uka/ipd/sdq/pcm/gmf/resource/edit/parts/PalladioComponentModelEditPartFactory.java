@@ -69,6 +69,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case WrappingLabel2EditPart.VISUAL_ID:
 				return new WrappingLabel2EditPart(view);
 
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return new WrappingLabel3EditPart(view);
+
 			case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
 				return new ResourceContainerResourceContainerCompartmentEditPart(view);
 

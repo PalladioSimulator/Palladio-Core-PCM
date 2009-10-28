@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEdi
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -217,6 +218,9 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -99,15 +99,14 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NonResizableEditPolicy() {
 
 					protected List createSelectionHandles() {
 						List handles = new ArrayList();
-						NonResizableHandleKit.addMoveHandle(
-								(GraphicalEditPart) getHost(), handles);
+						NonResizableHandleKit.addMoveHandle((GraphicalEditPart) getHost(),
+								handles);
 						return handles;
 					}
 
@@ -119,8 +118,7 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 						return false;
 					}
 				});
-			installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenLatencyDialog());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLatencyDialog());
 	}
 
 	/**
@@ -203,11 +201,7 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -217,7 +211,8 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 		String text = null;
 		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
 		if (spec.getLatency_CommunicationLinkResourceSpecification() != null)
-			text = spec.getLatency_CommunicationLinkResourceSpecification().getSpecification();
+			text = spec.getLatency_CommunicationLinkResourceSpecification()
+					.getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -480,10 +475,10 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
+		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
 		addListenerFilter(
 				"SemanticModel", this, spec.getLatency_CommunicationLinkResourceSpecification()); //$NON-NLS-1$
-	
+
 	}
 
 	/**

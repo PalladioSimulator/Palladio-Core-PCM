@@ -59,6 +59,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEdi
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
@@ -455,6 +456,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 						.getType(CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID));
 		Node label5007 = createLabel(node, PalladioComponentModelVisualIDRegistry
 				.getType(WrappingLabel2EditPart.VISUAL_ID));
+		Node label5008 = createLabel(node, PalladioComponentModelVisualIDRegistry
+				.getType(WrappingLabel3EditPart.VISUAL_ID));
 		return node;
 	}
 

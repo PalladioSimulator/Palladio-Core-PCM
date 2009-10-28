@@ -127,6 +127,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.getFigureLatencyLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureThroughputLabelFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -138,6 +143,9 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 			return true;
 		}
 		if (childEditPart instanceof WrappingLabel2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
@@ -272,6 +280,10 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureThroughputLabelFigure;
+		/**
+		 * @generated
+		 */
 		private WrappingLabel fFigureLatencyLabelFigure;
 		/**
 		 * @generated
@@ -304,6 +316,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 
 			this.add(fFigureLatencyLabelFigure);
 
+			fFigureThroughputLabelFigure = new WrappingLabel();
+			fFigureThroughputLabelFigure.setText("");
+
+			this.add(fFigureThroughputLabelFigure);
+
 		}
 
 		/**
@@ -323,6 +340,13 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureThroughputLabelFigure() {
+			return fFigureThroughputLabelFigure;
 		}
 
 		/**
