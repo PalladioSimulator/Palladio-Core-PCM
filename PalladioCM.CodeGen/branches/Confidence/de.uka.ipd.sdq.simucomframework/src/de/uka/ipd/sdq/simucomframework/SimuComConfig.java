@@ -27,6 +27,8 @@ public class SimuComConfig implements Serializable {
 	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
 	public static String CONFIDENCE_LEVEL = "confidenceLevel";
 	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
+	public static String CONFIDENCE_MODELELEMENT_NAME = "confidenceModelElementName";
+	public static String CONFIDENCE_MODELELEMENT_LABEL = "confidenceModelElementLabel";
 	
 	/** configuration options */
 	private String nameExperimentRun;
@@ -40,6 +42,8 @@ public class SimuComConfig implements Serializable {
 	private boolean useConfidence;
 	private int confidenceLevel;
 	private int confidenceHalfWidth;
+	private String confidenceModelElementName;
+	private String confidenceModelElementLabel;
 
 	/**
 	 * @param configuration a map which maps configuation option IDs to their values
@@ -66,6 +70,10 @@ public class SimuComConfig implements Serializable {
 					CONFIDENCE_LEVEL));
 			this.confidenceHalfWidth = Integer.valueOf((String)configuration.get(
 					CONFIDENCE_HALFWIDTH));
+			this.confidenceModelElementName = (String) configuration.get(
+					CONFIDENCE_MODELELEMENT_NAME);
+			this.confidenceModelElementLabel = (String) configuration.get(
+					CONFIDENCE_MODELELEMENT_LABEL);
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -109,6 +117,14 @@ public class SimuComConfig implements Serializable {
 
 	public int getConfidenceHalfWidth() {
 		return confidenceHalfWidth;
+	}
+	
+	public String getConfidenceModelElementName() {
+		return confidenceModelElementName;
+	}
+	
+	public String getConfidenceModelElementLabel() {
+		return confidenceModelElementLabel;
 	}
 
 	public String getEngine() {

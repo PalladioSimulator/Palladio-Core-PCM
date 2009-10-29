@@ -3,10 +3,18 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -20,14 +28,21 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
+import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
 
 /**
  * The class defines a tab, which is responsible for the SimuCom configuration.
@@ -46,7 +61,13 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text levelField;
 	private Label halfWidthLabel;
 	private Text halfWidthField;
-
+	private Label selectModelElementLabel;
+	private Text selectModelElementField;
+	private Button selectModelElementButton;
+	
+	private ArrayList<String> modelFiles = new ArrayList<String>();
+	private String selectedModelElementName;
+	private String selectedModelElementLabel;
 	protected int selectedDataSourceID;
 
 	/* (non-Javadoc)
@@ -94,12 +115,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		final Group confidenceGroup = new Group(container, SWT.NONE);
 		confidenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		final GridLayout confidenceLayout = new GridLayout();
-		confidenceLayout.numColumns = 2;
+		confidenceLayout.numColumns = 3;
 		confidenceGroup.setLayout(confidenceLayout);
 		confidenceGroup.setText("Confidence Stop Condition");
 		
 		useConfidenceCheckBox = new Button(confidenceGroup, SWT.CHECK);
-		useConfidenceCheckBox.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		useConfidenceCheckBox.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 		useConfidenceCheckBox.setText("Stop when reaching confidence");
 		useConfidenceCheckBox.setSelection(false);
 		useConfidenceCheckBox.addSelectionListener(new SelectionAdapter() {
@@ -110,6 +131,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				levelField.setEnabled(selected);
 				halfWidthLabel.setEnabled(selected);
 				halfWidthField.setEnabled(selected);
+				selectModelElementLabel.setEnabled(selected);
+				selectModelElementField.setEnabled(selected);
+				selectModelElementButton.setEnabled(selected);
 				
 				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
@@ -120,7 +144,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		levelLabel.setEnabled(false);
 		
 		levelField = new Text(confidenceGroup, SWT.BORDER);
-		levelField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		levelField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		levelField.addModifyListener(modifyListener);
 		levelField.setEnabled(false);
 		
@@ -129,9 +153,27 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		halfWidthLabel.setEnabled(false);
 		
 		halfWidthField = new Text(confidenceGroup, SWT.BORDER);
-		halfWidthField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		halfWidthField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		halfWidthField.addModifyListener(modifyListener);
 		halfWidthField.setEnabled(false);
+		
+		selectModelElementLabel = new Label(confidenceGroup, SWT.NONE);
+		selectModelElementLabel.setText("Monitor Response Time of:");
+		selectModelElementLabel.setEnabled(false);
+		
+		selectModelElementField = new Text(confidenceGroup, SWT.BORDER);
+		selectModelElementField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		selectModelElementField.addModifyListener(modifyListener);
+		selectModelElementField.setEditable(false);
+		selectModelElementField.setEnabled(false);
+		
+		selectModelElementButton = new Button(confidenceGroup, SWT.NONE);
+		selectModelElementButton.setText("Select Model Element...");
+		selectModelElementButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(final SelectionEvent e) {
+				showSelectModelElementDialog();
+			}
+		});
 		
 		/** Create Experiment Run section */
 		final Group experimentrunGroup = new Group(container, SWT.NONE);
@@ -202,6 +244,42 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		});
 		checkLoggingButton.setSelection(false);
 	}
+	
+	private void showSelectModelElementDialog() {
+		ResourceSet rs = new ResourceSetImpl();
+		ArrayList<Object> filter = new ArrayList<Object>();
+		filter.add(UsageModel.class);
+		filter.add(UsageScenario.class);
+		for (String file : modelFiles) {
+			try {
+				rs.getResource(URI.createURI(file), true);
+			} catch (Exception ex) {
+				rs.getResource(URI.createFileURI(file), true);
+			}
+		}
+		EcoreUtil.resolveAll(rs);
+		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog
+			(this.getShell(), filter, rs);
+		if (dialog.open() == org.eclipse.jface.dialogs.Dialog.OK) {
+			EObject modelElement = dialog.getResult();
+			if (modelElement instanceof UsageScenario) {
+				AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(
+						new PalladioItemProviderAdapterFactory(
+								new UsagemodelItemProviderAdapterFactory()));
+				selectedModelElementLabel = labelProvider.getText(modelElement);
+				selectedModelElementName = ((UsageScenario)modelElement).getEntityName();
+				selectModelElementField.setText(selectedModelElementLabel);
+			} else {
+				MessageBox warningBox = new MessageBox(selectModelElementField
+						.getShell(), SWT.ICON_WARNING | SWT.OK);
+				warningBox.setText("Warning");
+				warningBox.setMessage("No response times will be available for " +
+						"the selected model element. Please select a suitable " +
+						"model element.");
+				warningBox.open();
+			}
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
@@ -265,12 +343,18 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			levelField.setEnabled(select);
 			halfWidthLabel.setEnabled(select);
 			halfWidthField.setEnabled(select);
+			selectModelElementLabel.setEnabled(select);
+			selectModelElementField.setEnabled(select);
+			selectModelElementButton.setEnabled(select);
 		} catch (CoreException e) {
 			useConfidenceCheckBox.setSelection(false);
 			levelLabel.setEnabled(false);
 			levelField.setEnabled(false);
 			halfWidthLabel.setEnabled(false);
 			halfWidthField.setEnabled(false);
+			selectModelElementLabel.setEnabled(false);
+			selectModelElementField.setEnabled(false);
+			selectModelElementButton.setEnabled(false);
 		}
 		
 		try {
@@ -285,6 +369,32 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 					SimuComConfig.CONFIDENCE_HALFWIDTH, "10"));
 		} catch (CoreException e) {
 			halfWidthField.setText("10");
+		}
+		
+		try {
+			modelFiles.clear();
+			modelFiles.add(configuration.getAttribute(
+					ConstantsContainer.USAGE_FILE, ""));
+		} catch (CoreException e) {
+			selectModelElementField.setText("");
+		}
+		
+		try {
+			selectedModelElementName = configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, "");
+		} catch (CoreException e) {
+			selectedModelElementLabel = "";
+			selectedModelElementName = "";
+			selectModelElementField.setText("");
+		}
+		
+		try {
+			selectedModelElementLabel = configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL, "");
+			selectModelElementField.setText(selectedModelElementLabel);
+		} catch (CoreException e) {
+			selectedModelElementLabel = "";
+			selectModelElementField.setText("");
 		}
 	}
 
@@ -308,6 +418,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				levelField.getText());
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH,
 				halfWidthField.getText());
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME,
+				selectedModelElementName);
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL,
+				selectedModelElementLabel);
 	}
 
 	/* (non-Javadoc)
@@ -325,6 +439,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.USE_CONFIDENCE, false);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_LEVEL, 95);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH, 10);
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, "");
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL, "");
 	}
 
 	/* (non-Javadoc)
@@ -390,6 +506,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				setErrorMessage("Half-width has to be an integer!");
 				return false;
 			}
+		}
+		// check, whether a model element is selected
+		if (useConfidenceCheckBox.getSelection()
+				&& selectedModelElementName.isEmpty()) {
+			setErrorMessage("Select a model element whose response times are " +
+					"to be monitored!");
 		}
 		return true;
 	}

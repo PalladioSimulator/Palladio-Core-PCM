@@ -29,9 +29,7 @@ public class ConfidenceStopCondition extends Condition implements Observer {
 
 	private SimuComModel model;
 
-	// TODO set the usage scenario name via launch configuration
-	// private String usageScenarioName = "BRS_usage_scenario";
-	private String usageScenarioName = "defaultUsageScenario";
+	private String usageScenarioName;
 
 	/** usage scenario response time sensor */
 	private Sensor sensor;
@@ -71,6 +69,8 @@ public class ConfidenceStopCondition extends Condition implements Observer {
 		this.estimator = estimator;
 		this.confidenceLevel = confidenceLevel;
 		this.halfWidth = halfWidth;
+		this.usageScenarioName = model.getConfig()
+				.getConfidenceModelElementName();
 
 		initialize();
 	}
