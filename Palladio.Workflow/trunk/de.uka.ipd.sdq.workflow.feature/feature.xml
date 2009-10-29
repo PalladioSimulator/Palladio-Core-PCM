@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.workflow.feature"
-      label="SDQ Workflow Engine Feature"
+      label="%label"
       version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
