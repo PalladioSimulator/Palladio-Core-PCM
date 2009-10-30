@@ -112,6 +112,11 @@
             <diagramLabel
                 href="resourceeditor.gmfgraph#LatencyLabel"/>
           </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#ThroughputLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>

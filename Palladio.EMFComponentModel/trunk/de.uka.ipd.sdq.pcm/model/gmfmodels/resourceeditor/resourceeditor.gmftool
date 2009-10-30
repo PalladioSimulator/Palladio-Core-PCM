@@ -49,9 +49,11 @@
           title="Connection"
           description="Create new Connection">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path=""
+            bundle=""/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"/>
       </tools>
     </tools>
   </palette>
