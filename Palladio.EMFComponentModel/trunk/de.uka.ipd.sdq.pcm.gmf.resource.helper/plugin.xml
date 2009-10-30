@@ -11,6 +11,13 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003">
          </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.resource.helper.ProcessingRateEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecificationAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001">
+         </adviceBinding>
+         
       </metamodel>
    </extension>
 
@@ -32,6 +39,9 @@
          </elementType>-->
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecificationAdvice">
          </advice>
        </binding>
    </extension>
