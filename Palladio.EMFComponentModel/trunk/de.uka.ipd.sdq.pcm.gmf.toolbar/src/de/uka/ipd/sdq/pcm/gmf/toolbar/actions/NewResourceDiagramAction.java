@@ -9,7 +9,6 @@ public class NewResourceDiagramAction
 	extends BaseNewDiagramAction {
 
 	protected INewWizard getNewWizard() {
-//		throw new RuntimeException("not running with eclipse 3.4 / gmf 2.1");
-		return new PalladioComponentModelCreationWizard(); //FIXME: re-enable
+		return new PalladioComponentModelCreationWizard();
 	}
 }
