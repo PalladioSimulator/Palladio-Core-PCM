@@ -40,26 +40,25 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 		//edited object should be a single element
 		if(request.getElementsToEdit().size() != 1) {
 			throw new RuntimeException("Did not expect more than one element in request.");
-			//return new CommandResult(new).newErrorCommandResult("failed!"); //TODO
+			//return new CommandResult(new).newErrorCommandResult("failed!"); //TODO: use command error mechanism
 		}
-	 	EObject requestElement = (EObject) request.getElementsToEdit().get(0);
-	 	
+	 	EObject requestElement = (EObject) request.getElementsToEdit().get(0);	 	
 		
+	 	// collect all EObjects in editing domain
 		EditingDomain editingDomain = TransactionUtil.getEditingDomain(requestElement);		 
-		EList<Resource> resources = editingDomain.getResourceSet().getResources();
-		
-		Collection<EObject> c = new ArrayList<EObject>();		
+		EList<Resource> resources = editingDomain.getResourceSet().getResources();		
+		Collection<EObject> collectionOfAllLoadedEObjects = new ArrayList<EObject>();		
 		for(Resource r : resources) {			
-			c.addAll(r.getContents());			
+			collectionOfAllLoadedEObjects.addAll(r.getContents());			
 		}
 
+		EObjectAttributeValueCondition condition = new EObjectAttributeValueCondition(
+				ResourcetypePackage.eINSTANCE.getCommunicationLinkResourceType().getEIDAttribute(),
+				new org.eclipse.emf.query.conditions.strings.StringValue(LAN_COMMUNICATION_LINK_RESOURCE_TYPE) 
+		);
 		SELECT statement = new SELECT(
-		new FROM(c),
-		new WHERE(
-				new EObjectAttributeValueCondition(
-						ResourcetypePackage.eINSTANCE.getCommunicationLinkResourceType().getEIDAttribute(),
-						new org.eclipse.emf.query.conditions.strings.StringValue(LAN_COMMUNICATION_LINK_RESOURCE_TYPE) 
-				))			
+				new FROM(collectionOfAllLoadedEObjects),
+				new WHERE(condition)			
 		);
 		IQueryResult queryResult = statement.execute();
 		CommunicationLinkResourceType lanType = (CommunicationLinkResourceType)queryResult.iterator().next();
@@ -73,10 +72,6 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 						.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
 				spec);
 
-		
-		
-		
-		
 		return new SetValueCommand(setRequest);
 	}
 
