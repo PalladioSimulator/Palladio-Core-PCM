@@ -140,11 +140,11 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 				validateInput();
 			}
 		});
-		combo.setItems(getLoadedReposetorys());
+		combo.setItems(getLoadedRepositories());
 
 		// RadioButtons section
 		final Group choiceTypeGroup = new Group(container, SWT.SHADOW_ETCHED_IN);
-		choiceTypeGroup.setText("Choice DataType");
+		choiceTypeGroup.setText("Choose DataType");
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 2;
 		choiceTypeGroup.setLayout(gridLayout);
@@ -313,7 +313,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 	}
 
 	/** The method define the list with a loaded repository */
-	public abstract String[] getLoadedReposetorys();
+	public abstract String[] getLoadedRepositories();
 
 	/**The method create the editing area for CompositeDataType*/
 	public abstract void createInnerSectionCompositeGroup(Composite group);

@@ -111,9 +111,10 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#getLoadedReposetorys()
 	 */
 	@Override
-	public String[] getLoadedReposetorys() {
+	public String[] getLoadedRepositories() {
 		EList<Resource> resources = editingDomain.getResourceSet()
 				.getResources();
+		
 		List<String> tList = new ArrayList<String>();
 
 		for (Resource r : resources) {
