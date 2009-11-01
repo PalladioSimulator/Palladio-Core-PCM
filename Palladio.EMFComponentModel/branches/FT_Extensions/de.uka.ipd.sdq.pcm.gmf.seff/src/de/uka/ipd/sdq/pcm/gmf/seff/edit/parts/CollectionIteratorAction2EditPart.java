@@ -41,7 +41,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2007;
+	public static final int VISUAL_ID = 3013;
 
 	/**
 	 * @generated
@@ -129,10 +129,9 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 							.getFigureCollectionIteratorNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof CollectionIteratorParameterLabel2EditPart) {
-			((CollectionIteratorParameterLabel2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCollectionIteratorParameterLabelFigure());
+		if (childEditPart instanceof WrappingLabel6EditPart) {
+			((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureCollectionIteratorParameterLabelFigure());
 			return true;
 		}
 		return false;

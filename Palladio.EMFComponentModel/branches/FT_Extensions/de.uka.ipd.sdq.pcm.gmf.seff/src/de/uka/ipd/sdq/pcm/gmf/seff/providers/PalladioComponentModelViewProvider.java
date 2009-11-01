@@ -25,8 +25,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -44,7 +42,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -55,8 +53,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
@@ -65,13 +61,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -94,6 +90,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisat
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel6EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel7EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
@@ -111,8 +111,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorAction2ViewF
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorParameterLabel2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorParameterLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityNameViewFactory;
@@ -129,7 +127,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehavioursView
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionIdViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityName2ViewFactory;
@@ -141,8 +139,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabel2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBranchProbabilityViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionViewFactory;
@@ -151,12 +147,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityName2ViewFa
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour5ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartmentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment3ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment4ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingSEFFViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableAction2ViewFactory;
@@ -180,6 +176,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacter
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel3ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel4ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel5ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel6ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel7ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabelViewFactory;
 
 /**
@@ -262,24 +262,24 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case VariableUsageEditPart.VISUAL_ID:
 				case VariableCharacterisationEditPart.VISUAL_ID:
 				case ResourceDemandingBehaviourEditPart.VISUAL_ID:
-				case InternalActionEditPart.VISUAL_ID:
+				case InternalAction2EditPart.VISUAL_ID:
 				case ParametricResourceDemandEditPart.VISUAL_ID:
-				case BranchActionEditPart.VISUAL_ID:
+				case BranchAction2EditPart.VISUAL_ID:
 				case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 				case AcquireAction2EditPart.VISUAL_ID:
-				case ReleaseActionEditPart.VISUAL_ID:
-				case ForkActionEditPart.VISUAL_ID:
-				case ForkedBehaviourEditPart.VISUAL_ID:
-				case CollectionIteratorActionEditPart.VISUAL_ID:
-				case SetVariableActionEditPart.VISUAL_ID:
-				case GuardedBranchTransitionEditPart.VISUAL_ID:
-				case BranchAction2EditPart.VISUAL_ID:
-				case InternalAction2EditPart.VISUAL_ID:
-				case CollectionIteratorAction2EditPart.VISUAL_ID:
-				case SetVariableAction2EditPart.VISUAL_ID:
-				case AcquireActionEditPart.VISUAL_ID:
 				case ReleaseAction2EditPart.VISUAL_ID:
 				case ForkAction2EditPart.VISUAL_ID:
+				case ForkedBehaviourEditPart.VISUAL_ID:
+				case CollectionIteratorAction2EditPart.VISUAL_ID:
+				case SetVariableAction2EditPart.VISUAL_ID:
+				case GuardedBranchTransitionEditPart.VISUAL_ID:
+				case BranchActionEditPart.VISUAL_ID:
+				case InternalActionEditPart.VISUAL_ID:
+				case CollectionIteratorActionEditPart.VISUAL_ID:
+				case SetVariableActionEditPart.VISUAL_ID:
+				case AcquireActionEditPart.VISUAL_ID:
+				case ReleaseActionEditPart.VISUAL_ID:
+				case ForkActionEditPart.VISUAL_ID:
 				case VariableUsage2EditPart.VISUAL_ID:
 				case VariableCharacterisation2EditPart.VISUAL_ID:
 				case StartAction2EditPart.VISUAL_ID:
@@ -287,10 +287,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case LoopAction2EditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				case ExternalCallAction2EditPart.VISUAL_ID:
-				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 				case VariableUsage3EditPart.VISUAL_ID:
 				case VariableCharacterisation3EditPart.VISUAL_ID:
-				case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -307,41 +307,41 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case LoopActionEntityName2EditPart.VISUAL_ID:
-				case LoopIterationsLabel2EditPart.VISUAL_ID:
+				case LoopActionEntityNameEditPart.VISUAL_ID:
+				case WrappingLabelEditPart.VISUAL_ID:
 					if (LoopActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case BranchActionEntityName2EditPart.VISUAL_ID:
+				case BranchActionEntityNameEditPart.VISUAL_ID:
 				case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
-					if (BranchAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (BranchActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case InternalActionEntityName2EditPart.VISUAL_ID:
+				case InternalActionEntityNameEditPart.VISUAL_ID:
 				case InternalActionResourceDemand2EditPart.VISUAL_ID:
-					if (InternalAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (InternalActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
-				case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
-					if (CollectionIteratorAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+				case WrappingLabel2EditPart.VISUAL_ID:
+					if (CollectionIteratorActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case SetVariableActionEntityName2EditPart.VISUAL_ID:
+				case SetVariableActionEntityNameEditPart.VISUAL_ID:
 				case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
-					if (SetVariableAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (SetVariableActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -354,22 +354,22 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ReleaseActionEntityName2EditPart.VISUAL_ID:
-					if (ReleaseAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case ReleaseActionEntityNameEditPart.VISUAL_ID:
+					if (ReleaseActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case ForkActionEntityName2EditPart.VISUAL_ID:
+				case ForkActionEntityNameEditPart.VISUAL_ID:
 				case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
-					if (ForkAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (ForkActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case WrappingLabelEditPart.VISUAL_ID:
+				case WrappingLabel3EditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -377,7 +377,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrappingLabel2EditPart.VISUAL_ID:
+				case WrappingLabel4EditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 					if (VariableUsage2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -385,32 +385,32 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 					if (ResourceDemandingBehaviourEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case LoopActionEntityNameEditPart.VISUAL_ID:
-				case LoopIterationsLabelEditPart.VISUAL_ID:
+				case LoopActionEntityName2EditPart.VISUAL_ID:
+				case WrappingLabel5EditPart.VISUAL_ID:
 					if (LoopAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case InternalActionEntityNameEditPart.VISUAL_ID:
+				case InternalActionEntityName2EditPart.VISUAL_ID:
 				case InternalActionResourceDemandEditPart.VISUAL_ID:
-					if (InternalActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (InternalAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case BranchActionEntityNameEditPart.VISUAL_ID:
+				case BranchActionEntityName2EditPart.VISUAL_ID:
 				case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
-					if (BranchActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (BranchAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -423,7 +423,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
 					if (ResourceDemandingBehaviour2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -446,16 +446,16 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ReleaseActionEntityNameEditPart.VISUAL_ID:
-					if (ReleaseActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case ReleaseActionEntityName2EditPart.VISUAL_ID:
+					if (ReleaseAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case ForkActionEntityNameEditPart.VISUAL_ID:
+				case ForkActionEntityName2EditPart.VISUAL_ID:
 				case ForkActionForkedBehavioursEditPart.VISUAL_ID:
-					if (ForkActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (ForkAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -468,30 +468,30 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
-				case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
-					if (CollectionIteratorActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+				case WrappingLabel6EditPart.VISUAL_ID:
+					if (CollectionIteratorAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour4EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case SetVariableActionEntityNameEditPart.VISUAL_ID:
+				case SetVariableActionEntityName2EditPart.VISUAL_ID:
 				case SetVariableActionVariableSetterEditPart.VISUAL_ID:
-					if (SetVariableActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					if (SetVariableAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case WrappingLabel3EditPart.VISUAL_ID:
+				case WrappingLabel7EditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 					if (VariableUsage3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -499,15 +499,15 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case GuardedBranchTransitionIdEditPart.VISUAL_ID:
+				case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
 					if (GuardedBranchTransitionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour5EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour4EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -541,50 +541,50 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallActionEntityNameViewFactory.class;
 		case LoopActionEditPart.VISUAL_ID:
 			return LoopActionViewFactory.class;
-		case LoopActionEntityName2EditPart.VISUAL_ID:
-			return LoopActionEntityName2ViewFactory.class;
-		case LoopIterationsLabel2EditPart.VISUAL_ID:
-			return LoopIterationsLabel2ViewFactory.class;
-		case BranchAction2EditPart.VISUAL_ID:
-			return BranchAction2ViewFactory.class;
-		case BranchActionEntityName2EditPart.VISUAL_ID:
-			return BranchActionEntityName2ViewFactory.class;
-		case InternalAction2EditPart.VISUAL_ID:
-			return InternalAction2ViewFactory.class;
-		case InternalActionEntityName2EditPart.VISUAL_ID:
-			return InternalActionEntityName2ViewFactory.class;
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
-			return CollectionIteratorAction2ViewFactory.class;
-		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
-			return CollectionIteratorActionEntityName2ViewFactory.class;
-		case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
-			return CollectionIteratorParameterLabel2ViewFactory.class;
-		case SetVariableAction2EditPart.VISUAL_ID:
-			return SetVariableAction2ViewFactory.class;
-		case SetVariableActionEntityName2EditPart.VISUAL_ID:
-			return SetVariableActionEntityName2ViewFactory.class;
+		case LoopActionEntityNameEditPart.VISUAL_ID:
+			return LoopActionEntityNameViewFactory.class;
+		case WrappingLabelEditPart.VISUAL_ID:
+			return WrappingLabelViewFactory.class;
+		case BranchActionEditPart.VISUAL_ID:
+			return BranchActionViewFactory.class;
+		case BranchActionEntityNameEditPart.VISUAL_ID:
+			return BranchActionEntityNameViewFactory.class;
+		case InternalActionEditPart.VISUAL_ID:
+			return InternalActionViewFactory.class;
+		case InternalActionEntityNameEditPart.VISUAL_ID:
+			return InternalActionEntityNameViewFactory.class;
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+			return CollectionIteratorActionViewFactory.class;
+		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+			return CollectionIteratorActionEntityNameViewFactory.class;
+		case WrappingLabel2EditPart.VISUAL_ID:
+			return WrappingLabel2ViewFactory.class;
+		case SetVariableActionEditPart.VISUAL_ID:
+			return SetVariableActionViewFactory.class;
+		case SetVariableActionEntityNameEditPart.VISUAL_ID:
+			return SetVariableActionEntityNameViewFactory.class;
 		case AcquireActionEditPart.VISUAL_ID:
 			return AcquireActionViewFactory.class;
 		case AcquireActionEntityNameEditPart.VISUAL_ID:
 			return AcquireActionEntityNameViewFactory.class;
-		case ReleaseAction2EditPart.VISUAL_ID:
-			return ReleaseAction2ViewFactory.class;
-		case ReleaseActionEntityName2EditPart.VISUAL_ID:
-			return ReleaseActionEntityName2ViewFactory.class;
-		case ForkAction2EditPart.VISUAL_ID:
-			return ForkAction2ViewFactory.class;
-		case ForkActionEntityName2EditPart.VISUAL_ID:
-			return ForkActionEntityName2ViewFactory.class;
+		case ReleaseActionEditPart.VISUAL_ID:
+			return ReleaseActionViewFactory.class;
+		case ReleaseActionEntityNameEditPart.VISUAL_ID:
+			return ReleaseActionEntityNameViewFactory.class;
+		case ForkActionEditPart.VISUAL_ID:
+			return ForkActionViewFactory.class;
+		case ForkActionEntityNameEditPart.VISUAL_ID:
+			return ForkActionEntityNameViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
-		case WrappingLabelEditPart.VISUAL_ID:
-			return WrappingLabelViewFactory.class;
+		case WrappingLabel3EditPart.VISUAL_ID:
+			return WrappingLabel3ViewFactory.class;
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return VariableCharacterisationViewFactory.class;
 		case VariableUsage2EditPart.VISUAL_ID:
 			return VariableUsage2ViewFactory.class;
-		case WrappingLabel2EditPart.VISUAL_ID:
-			return WrappingLabel2ViewFactory.class;
+		case WrappingLabel4EditPart.VISUAL_ID:
+			return WrappingLabel4ViewFactory.class;
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return VariableCharacterisation2ViewFactory.class;
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -595,20 +595,20 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return StopAction2ViewFactory.class;
 		case LoopAction2EditPart.VISUAL_ID:
 			return LoopAction2ViewFactory.class;
-		case LoopActionEntityNameEditPart.VISUAL_ID:
-			return LoopActionEntityNameViewFactory.class;
-		case LoopIterationsLabelEditPart.VISUAL_ID:
-			return LoopIterationsLabelViewFactory.class;
-		case InternalActionEditPart.VISUAL_ID:
-			return InternalActionViewFactory.class;
-		case InternalActionEntityNameEditPart.VISUAL_ID:
-			return InternalActionEntityNameViewFactory.class;
+		case LoopActionEntityName2EditPart.VISUAL_ID:
+			return LoopActionEntityName2ViewFactory.class;
+		case WrappingLabel5EditPart.VISUAL_ID:
+			return WrappingLabel5ViewFactory.class;
+		case InternalAction2EditPart.VISUAL_ID:
+			return InternalAction2ViewFactory.class;
+		case InternalActionEntityName2EditPart.VISUAL_ID:
+			return InternalActionEntityName2ViewFactory.class;
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return ParametricResourceDemandViewFactory.class;
-		case BranchActionEditPart.VISUAL_ID:
-			return BranchActionViewFactory.class;
-		case BranchActionEntityNameEditPart.VISUAL_ID:
-			return BranchActionEntityNameViewFactory.class;
+		case BranchAction2EditPart.VISUAL_ID:
+			return BranchAction2ViewFactory.class;
+		case BranchActionEntityName2EditPart.VISUAL_ID:
+			return BranchActionEntityName2ViewFactory.class;
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 			return ProbabilisticBranchTransitionViewFactory.class;
 		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
@@ -623,40 +623,40 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return AcquireAction2ViewFactory.class;
 		case AcquireActionEntityName2EditPart.VISUAL_ID:
 			return AcquireActionEntityName2ViewFactory.class;
-		case ReleaseActionEditPart.VISUAL_ID:
-			return ReleaseActionViewFactory.class;
-		case ReleaseActionEntityNameEditPart.VISUAL_ID:
-			return ReleaseActionEntityNameViewFactory.class;
-		case ForkActionEditPart.VISUAL_ID:
-			return ForkActionViewFactory.class;
-		case ForkActionEntityNameEditPart.VISUAL_ID:
-			return ForkActionEntityNameViewFactory.class;
+		case ReleaseAction2EditPart.VISUAL_ID:
+			return ReleaseAction2ViewFactory.class;
+		case ReleaseActionEntityName2EditPart.VISUAL_ID:
+			return ReleaseActionEntityName2ViewFactory.class;
+		case ForkAction2EditPart.VISUAL_ID:
+			return ForkAction2ViewFactory.class;
+		case ForkActionEntityName2EditPart.VISUAL_ID:
+			return ForkActionEntityName2ViewFactory.class;
 		case ForkedBehaviourEditPart.VISUAL_ID:
 			return ForkedBehaviourViewFactory.class;
-		case CollectionIteratorActionEditPart.VISUAL_ID:
-			return CollectionIteratorActionViewFactory.class;
-		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
-			return CollectionIteratorActionEntityNameViewFactory.class;
-		case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
-			return CollectionIteratorParameterLabelViewFactory.class;
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour4ViewFactory.class;
-		case SetVariableActionEditPart.VISUAL_ID:
-			return SetVariableActionViewFactory.class;
-		case SetVariableActionEntityNameEditPart.VISUAL_ID:
-			return SetVariableActionEntityNameViewFactory.class;
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
+			return CollectionIteratorAction2ViewFactory.class;
+		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+			return CollectionIteratorActionEntityName2ViewFactory.class;
+		case WrappingLabel6EditPart.VISUAL_ID:
+			return WrappingLabel6ViewFactory.class;
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour3ViewFactory.class;
+		case SetVariableAction2EditPart.VISUAL_ID:
+			return SetVariableAction2ViewFactory.class;
+		case SetVariableActionEntityName2EditPart.VISUAL_ID:
+			return SetVariableActionEntityName2ViewFactory.class;
 		case VariableUsage3EditPart.VISUAL_ID:
 			return VariableUsage3ViewFactory.class;
-		case WrappingLabel3EditPart.VISUAL_ID:
-			return WrappingLabel3ViewFactory.class;
+		case WrappingLabel7EditPart.VISUAL_ID:
+			return WrappingLabel7ViewFactory.class;
 		case VariableCharacterisation3EditPart.VISUAL_ID:
 			return VariableCharacterisation3ViewFactory.class;
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return GuardedBranchTransitionViewFactory.class;
-		case GuardedBranchTransitionIdEditPart.VISUAL_ID:
-			return GuardedBranchTransitionIdViewFactory.class;
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour5ViewFactory.class;
+		case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
+			return GuardedBranchTransitionEntityNameViewFactory.class;
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour4ViewFactory.class;
 		case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
 			return ExternalCallActionInputVariableUsageViewFactory.class;
 		case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
@@ -665,14 +665,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return VariableUsageVariableCharacterisationViewFactory.class;
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			return VariableUsageVariableCharacterisation2ViewFactory.class;
-		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourLoopCompartmentViewFactory.class;
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBehaviourCompartmentViewFactory.class;
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			return InternalActionResourceDemandViewFactory.class;
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartmentViewFactory.class;
-		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBranchCompartmentViewFactory.class;
+		case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBehaviourCompartment2ViewFactory.class;
 		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
 			return ExternalCallActionInputVariableUsage2ViewFactory.class;
 		case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
@@ -681,14 +681,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ForkActionForkedBehavioursViewFactory.class;
 		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			return ForkedBehaviourBehaviourCompartmentViewFactory.class;
-		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourLoopCompartment2ViewFactory.class;
+		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBehaviourCompartment3ViewFactory.class;
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			return SetVariableActionVariableSetterViewFactory.class;
 		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 			return VariableUsageVariableCharacterisation3ViewFactory.class;
-		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBranchCompartment2ViewFactory.class;
+		case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBehaviourCompartment4ViewFactory.class;
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartment2ViewFactory.class;
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:

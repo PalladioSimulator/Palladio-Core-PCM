@@ -46,12 +46,14 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ResourceType"
-          description="Create new ResourceType">
+          title="Connection"
+          description="Create new Connection">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path=""
+            bundle=""/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"/>
       </tools>
     </tools>
   </palette>

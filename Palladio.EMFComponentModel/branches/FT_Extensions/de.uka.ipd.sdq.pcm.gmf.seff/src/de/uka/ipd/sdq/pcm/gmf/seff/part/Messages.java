@@ -466,7 +466,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResourceDemandingBehaviourLoopCompartmentEditPart_title;
+	public static String ResourceDemandingBehaviourBehaviourCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -481,7 +481,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResourceDemandingBehaviourBranchCompartmentEditPart_title;
+	public static String ResourceDemandingBehaviourBehaviourCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -492,16 +492,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ExternalCallActionOutputVariableUsage2EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResourceDemandingBehaviourBranchCompartment2EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ResourceDemandingBehaviourLoopCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -536,12 +526,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ResourceDemandingBehaviourBehaviourCompartment4EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String ForkActionForkedBehavioursEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String ForkedBehaviourBehaviourCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceDemandingBehaviourBehaviourCompartment3EditPart_title;
 
 	/**
 	 * @generated

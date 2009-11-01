@@ -38,7 +38,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3024;
+	public static final int VISUAL_ID = 2008;
 
 	/**
 	 * @generated
@@ -120,11 +120,11 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 							.getFigureSetVariableNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
+		if (childEditPart instanceof SetVariableActionVariableSetter2EditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureSetVariableActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((SetVariableActionVariableSetterEditPart) childEditPart)
+			pane.add(((SetVariableActionVariableSetter2EditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -136,12 +136,12 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof SetVariableActionVariableSetterEditPart) {
+		if (childEditPart instanceof SetVariableActionVariableSetter2EditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureSetVariableActionCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane
-					.remove(((SetVariableActionVariableSetterEditPart) childEditPart)
+					.remove(((SetVariableActionVariableSetter2EditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -173,7 +173,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
-		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
+		if (editPart instanceof SetVariableActionVariableSetter2EditPart) {
 			return getPrimaryShape().getFigureSetVariableActionCompartment();
 		}
 		return super.getContentPaneFor(editPart);

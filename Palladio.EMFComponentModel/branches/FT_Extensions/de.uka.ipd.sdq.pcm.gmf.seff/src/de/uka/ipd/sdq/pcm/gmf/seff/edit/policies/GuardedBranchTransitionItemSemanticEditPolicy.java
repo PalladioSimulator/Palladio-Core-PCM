@@ -14,8 +14,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour4CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour5CreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -37,7 +38,7 @@ public class GuardedBranchTransitionItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getAbstractBranchTransition_BranchBehaviour_BranchTransition());
 			}
-			return getGEFWrapper(new ResourceDemandingBehaviour5CreateCommand(
+			return getGEFWrapper(new ResourceDemandingBehaviour4CreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -66,7 +67,7 @@ public class GuardedBranchTransitionItemSemanticEditPolicy extends
 		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
 			Node node = (Node) it.next();
 			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+			case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 				cmd.add(getDestroyElementCommand(node));
 				break;
 			}

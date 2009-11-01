@@ -48,8 +48,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
@@ -110,13 +110,13 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case StopActionEditPart.VISUAL_ID:
 		case ExternalCallActionEditPart.VISUAL_ID:
 		case LoopActionEditPart.VISUAL_ID:
-		case BranchAction2EditPart.VISUAL_ID:
-		case InternalAction2EditPart.VISUAL_ID:
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
-		case SetVariableAction2EditPart.VISUAL_ID:
+		case BranchActionEditPart.VISUAL_ID:
+		case InternalActionEditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 		case AcquireActionEditPart.VISUAL_ID:
-		case ReleaseAction2EditPart.VISUAL_ID:
-		case ForkAction2EditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -300,7 +300,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case BranchAction2EditPart.VISUAL_ID: {
+		case BranchActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getBranchAction_2005ContainedLinks(view));
@@ -311,7 +311,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case InternalAction2EditPart.VISUAL_ID: {
+		case InternalActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getInternalAction_2006ContainedLinks(view));
@@ -322,7 +322,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case CollectionIteratorAction2EditPart.VISUAL_ID: {
+		case CollectionIteratorActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getCollectionIteratorAction_2007ContainedLinks(view));
@@ -333,7 +333,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case SetVariableAction2EditPart.VISUAL_ID: {
+		case SetVariableActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getSetVariableAction_2008ContainedLinks(view));
@@ -355,7 +355,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ReleaseAction2EditPart.VISUAL_ID: {
+		case ReleaseActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getReleaseAction_2010ContainedLinks(view));
@@ -366,7 +366,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ForkAction2EditPart.VISUAL_ID: {
+		case ForkActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getForkAction_2011ContainedLinks(view));
@@ -444,7 +444,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case InternalActionEditPart.VISUAL_ID: {
+		case InternalAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getInternalAction_3007ContainedLinks(view));
@@ -455,7 +455,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case BranchActionEditPart.VISUAL_ID: {
+		case BranchAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getBranchAction_3009ContainedLinks(view));
@@ -512,7 +512,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ReleaseActionEditPart.VISUAL_ID: {
+		case ReleaseAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getReleaseAction_3020ContainedLinks(view));
@@ -523,7 +523,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ForkActionEditPart.VISUAL_ID: {
+		case ForkAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getForkAction_3023ContainedLinks(view));
@@ -545,7 +545,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case CollectionIteratorActionEditPart.VISUAL_ID: {
+		case CollectionIteratorAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getCollectionIteratorAction_3013ContainedLinks(view));
@@ -556,7 +556,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID: {
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(PalladioComponentModelDiagramUpdater
@@ -568,7 +568,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case SetVariableActionEditPart.VISUAL_ID: {
+		case SetVariableAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getSetVariableAction_3024ContainedLinks(view));
@@ -601,7 +601,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID: {
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(PalladioComponentModelDiagramUpdater

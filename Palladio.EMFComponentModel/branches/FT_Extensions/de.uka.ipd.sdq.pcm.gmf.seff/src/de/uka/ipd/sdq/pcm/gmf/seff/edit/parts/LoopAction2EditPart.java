@@ -127,15 +127,14 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LoopActionEntityNameEditPart) {
-			((LoopActionEntityNameEditPart) childEditPart)
+		if (childEditPart instanceof LoopActionEntityName2EditPart) {
+			((LoopActionEntityName2EditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureLoopNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof LoopIterationsLabelEditPart) {
-			((LoopIterationsLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureLoopIterationsLabelFigure());
+		if (childEditPart instanceof WrappingLabel5EditPart) {
+			((WrappingLabel5EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureLoopIterationsLabelFigure());
 			return true;
 		}
 		return false;
@@ -233,7 +232,7 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(LoopActionEntityNameEditPart.VISUAL_ID));
+				.getType(LoopActionEntityName2EditPart.VISUAL_ID));
 	}
 
 	/**

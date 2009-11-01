@@ -62,7 +62,7 @@ public class WrappingLabel3EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5035;
+	public static final int VISUAL_ID = 5033;
 
 	/**
 	 * @generated
@@ -314,7 +314,7 @@ public class WrappingLabel3EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.VariableUsage_3036,
+					PalladioComponentModelElementTypes.VariableUsage_3032,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

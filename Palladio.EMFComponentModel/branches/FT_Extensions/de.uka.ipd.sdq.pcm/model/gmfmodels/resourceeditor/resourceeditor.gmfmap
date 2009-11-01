@@ -57,6 +57,11 @@
             <features
                 href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
           </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#ProcessingRateLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="resourceeditor.gmftool#//@palette/@tools.0/@tools.3"/>
@@ -76,32 +81,65 @@
     </ownedChild>
   </nodes>
   <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingresource"/>
     <ownedChild>
       <domainMetaElement
-          href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"/>
+          href="../../pcm.ecore#//resourceenvironment/LinkingResource"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
-          href="resourceeditor.gmfgraph#CommunicationLinkResourceSpecification"/>
+          href="resourceeditor.gmfgraph#NetworkSwitch"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="CommunicationSpecification"
+              editorPattern="">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#NetworkSwitchSpecificationNameLabel"/>
+            <features
+                href="../../pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/failureProbability"/>
+          </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#LatencyLabel"/>
+          </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="resourceeditor.gmfgraph#ThroughputLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="resourceeditor.gmfgraph#NetworkSwitchSpecification"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="resourceeditor.gmfgraph#NetworkSwitchCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <links>
-    <domainMetaElement
-        href="../../pcm.ecore#//resourceenvironment/LinkingResource"/>
-    <containmentFeature
-        href="../../pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingresource"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
+        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.4"/>
     <diagramLink
-        href="resourceeditor.gmfgraph#LinkingResource"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//resourceenvironment/LinkingResource/fromResourceContainer_LinkingResource"/>
+        href="resourceeditor.gmfgraph#NetworkConnection"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//resourceenvironment/LinkingResource/communicationLinkResourceSpecifications_LinkingResource"/>
+        href="../../pcm.ecore#//resourceenvironment/LinkingResource/fromResourceContainer_LinkingResource"/>
   </links>
   <diagram>
     <diagramCanvas

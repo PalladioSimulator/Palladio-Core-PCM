@@ -36,7 +36,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2011;
+	public static final int VISUAL_ID = 3023;
 
 	/**
 	 * @generated
@@ -118,10 +118,10 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 							.getFigureForkFigureNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof ForkActionForkedBehaviours2EditPart) {
+		if (childEditPart instanceof ForkActionForkedBehavioursEditPart) {
 			IFigure pane = getPrimaryShape().getFigureForkCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ForkActionForkedBehaviours2EditPart) childEditPart)
+			pane.add(((ForkActionForkedBehavioursEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -133,10 +133,10 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof ForkActionForkedBehaviours2EditPart) {
+		if (childEditPart instanceof ForkActionForkedBehavioursEditPart) {
 			IFigure pane = getPrimaryShape().getFigureForkCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((ForkActionForkedBehaviours2EditPart) childEditPart)
+			pane.remove(((ForkActionForkedBehavioursEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -168,7 +168,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 
-		if (editPart instanceof ForkActionForkedBehaviours2EditPart) {
+		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
 			return getPrimaryShape().getFigureForkCompartment();
 		}
 		return super.getContentPaneFor(editPart);

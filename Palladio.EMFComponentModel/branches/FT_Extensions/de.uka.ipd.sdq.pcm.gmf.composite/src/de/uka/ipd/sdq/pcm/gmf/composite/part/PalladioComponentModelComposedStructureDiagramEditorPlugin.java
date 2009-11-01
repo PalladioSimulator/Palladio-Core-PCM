@@ -48,6 +48,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterF
 
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
@@ -156,6 +157,7 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
+		factories.add(new SubsystemItemProviderAdapterFactory());
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());

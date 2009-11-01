@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
  * @generated
  */
 public class ExternalCallActionInputVariableUsageEditPart extends
-		ListCompartmentEditPart {
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -34,13 +34,6 @@ public class ExternalCallActionInputVariableUsageEditPart extends
 	 */
 	public ExternalCallActionInputVariableUsageEditPart(View view) {
 		super(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
 	}
 
 	/**

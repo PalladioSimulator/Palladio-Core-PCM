@@ -62,7 +62,7 @@ public class InternalActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class InternalActionEntityName2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.InternalAction_2006,
+					PalladioComponentModelElementTypes.InternalAction_3007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

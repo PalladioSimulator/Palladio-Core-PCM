@@ -23,8 +23,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -42,7 +40,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -53,8 +51,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
@@ -63,13 +59,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -92,6 +88,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisat
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel6EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel7EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -212,10 +212,10 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
 			break;
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
+				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
 			}
 			break;
 		case LoopAction2EditPart.VISUAL_ID:
@@ -230,16 +230,16 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
 			}
 			break;
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
+				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
 			}
 			break;
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return ResourceDemandingBehaviour5EditPart.VISUAL_ID;
+				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
 			}
 			break;
 		case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
@@ -266,7 +266,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return VariableCharacterisation2EditPart.VISUAL_ID;
 			}
 			break;
-		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 					domainElement.eClass())) {
 				return StartAction2EditPart.VISUAL_ID;
@@ -281,11 +281,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalActionEditPart.VISUAL_ID;
+				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchActionEditPart.VISUAL_ID;
+				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -293,7 +293,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorActionEditPart.VISUAL_ID;
+				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -301,15 +301,15 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseActionEditPart.VISUAL_ID;
+				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkActionEditPart.VISUAL_ID;
+				return ForkAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return SetVariableActionEditPart.VISUAL_ID;
+				return SetVariableAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
@@ -328,7 +328,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return GuardedBranchTransitionEditPart.VISUAL_ID;
 			}
 			break;
-		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 					domainElement.eClass())) {
 				return StartAction2EditPart.VISUAL_ID;
@@ -343,11 +343,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalActionEditPart.VISUAL_ID;
+				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchActionEditPart.VISUAL_ID;
+				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -359,19 +359,19 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseActionEditPart.VISUAL_ID;
+				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkActionEditPart.VISUAL_ID;
+				return ForkAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorActionEditPart.VISUAL_ID;
+				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return SetVariableActionEditPart.VISUAL_ID;
+				return SetVariableAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
@@ -407,11 +407,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalActionEditPart.VISUAL_ID;
+				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchActionEditPart.VISUAL_ID;
+				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -419,7 +419,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorActionEditPart.VISUAL_ID;
+				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -427,14 +427,14 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseActionEditPart.VISUAL_ID;
+				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkActionEditPart.VISUAL_ID;
+				return ForkAction2EditPart.VISUAL_ID;
 			}
 			break;
-		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 					domainElement.eClass())) {
 				return StartAction2EditPart.VISUAL_ID;
@@ -449,11 +449,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalActionEditPart.VISUAL_ID;
+				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchActionEditPart.VISUAL_ID;
+				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -461,7 +461,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorActionEditPart.VISUAL_ID;
+				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -469,11 +469,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseActionEditPart.VISUAL_ID;
+				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkActionEditPart.VISUAL_ID;
+				return ForkAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
@@ -488,7 +488,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return VariableCharacterisation3EditPart.VISUAL_ID;
 			}
 			break;
-		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 					domainElement.eClass())) {
 				return StartAction2EditPart.VISUAL_ID;
@@ -503,11 +503,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalActionEditPart.VISUAL_ID;
+				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchActionEditPart.VISUAL_ID;
+				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -519,19 +519,19 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseActionEditPart.VISUAL_ID;
+				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkActionEditPart.VISUAL_ID;
+				return ForkAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorActionEditPart.VISUAL_ID;
+				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return SetVariableActionEditPart.VISUAL_ID;
+				return SetVariableAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
@@ -581,19 +581,19 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return BranchAction2EditPart.VISUAL_ID;
+				return BranchActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InternalAction2EditPart.VISUAL_ID;
+				return InternalActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getCollectionIteratorAction()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return CollectionIteratorAction2EditPart.VISUAL_ID;
+				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return SetVariableAction2EditPart.VISUAL_ID;
+				return SetVariableActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -601,11 +601,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ReleaseAction2EditPart.VISUAL_ID;
+				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return ForkAction2EditPart.VISUAL_ID;
+				return ForkActionEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -645,45 +645,45 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case LoopActionEditPart.VISUAL_ID:
-			if (LoopActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+			if (LoopActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LoopIterationsLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BranchAction2EditPart.VISUAL_ID:
-			if (BranchActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case BranchActionEditPart.VISUAL_ID:
+			if (BranchActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case InternalAction2EditPart.VISUAL_ID:
-			if (InternalActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case InternalActionEditPart.VISUAL_ID:
+			if (InternalActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (InternalActionResourceDemand2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case CollectionIteratorAction2EditPart.VISUAL_ID:
-			if (CollectionIteratorActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+			if (CollectionIteratorActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorParameterLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID) {
+			if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case SetVariableAction2EditPart.VISUAL_ID:
-			if (SetVariableActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case SetVariableActionEditPart.VISUAL_ID:
+			if (SetVariableActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SetVariableActionVariableSetter2EditPart.VISUAL_ID == nodeVisualID) {
@@ -695,13 +695,13 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ReleaseAction2EditPart.VISUAL_ID:
-			if (ReleaseActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case ReleaseActionEditPart.VISUAL_ID:
+			if (ReleaseActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ForkAction2EditPart.VISUAL_ID:
-			if (ForkActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case ForkActionEditPart.VISUAL_ID:
+			if (ForkActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ForkActionForkedBehaviours2EditPart.VISUAL_ID == nodeVisualID) {
@@ -709,7 +709,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsageEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
@@ -717,7 +717,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage2EditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID) {
@@ -725,31 +725,31 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case LoopAction2EditPart.VISUAL_ID:
-			if (LoopActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (LoopActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LoopIterationsLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case InternalActionEditPart.VISUAL_ID:
-			if (InternalActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case InternalAction2EditPart.VISUAL_ID:
+			if (InternalActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (InternalActionResourceDemandEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case BranchActionEditPart.VISUAL_ID:
-			if (BranchActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case BranchAction2EditPart.VISUAL_ID:
+			if (BranchActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -765,7 +765,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -785,13 +785,13 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ReleaseActionEditPart.VISUAL_ID:
-			if (ReleaseActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case ReleaseAction2EditPart.VISUAL_ID:
+			if (ReleaseActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ForkActionEditPart.VISUAL_ID:
-			if (ForkActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case ForkAction2EditPart.VISUAL_ID:
+			if (ForkActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ForkActionForkedBehavioursEditPart.VISUAL_ID == nodeVisualID) {
@@ -803,24 +803,24 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case CollectionIteratorActionEditPart.VISUAL_ID:
-			if (CollectionIteratorActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
+			if (CollectionIteratorActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorParameterLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+			if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case SetVariableActionEditPart.VISUAL_ID:
-			if (SetVariableActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			if (ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SetVariableAction2EditPart.VISUAL_ID:
+			if (SetVariableActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SetVariableActionVariableSetterEditPart.VISUAL_ID == nodeVisualID) {
@@ -828,7 +828,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage3EditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel7EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation3EditPart.VISUAL_ID == nodeVisualID) {
@@ -836,15 +836,15 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
-			if (GuardedBranchTransitionIdEditPart.VISUAL_ID == nodeVisualID) {
+			if (GuardedBranchTransitionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResourceDemandingBehaviour5EditPart.VISUAL_ID == nodeVisualID) {
+			if (ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+			if (ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -868,7 +868,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			if (StartAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -878,28 +878,28 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (SetVariableAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -916,7 +916,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
 			if (StartAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -926,10 +926,10 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
@@ -938,16 +938,16 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (SetVariableAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -976,29 +976,29 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
 			if (StartAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -1008,25 +1008,25 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -1040,7 +1040,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
 			if (StartAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -1050,10 +1050,10 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
@@ -1062,16 +1062,16 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (SetVariableAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -1111,25 +1111,25 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (BranchAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InternalAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SetVariableAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (AcquireActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ForkAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

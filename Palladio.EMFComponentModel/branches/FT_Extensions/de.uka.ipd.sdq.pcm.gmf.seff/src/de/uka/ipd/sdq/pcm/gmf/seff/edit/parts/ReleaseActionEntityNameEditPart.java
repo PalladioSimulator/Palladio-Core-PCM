@@ -63,7 +63,7 @@ public class ReleaseActionEntityNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5020;
+	public static final int VISUAL_ID = 5022;
 
 	/**
 	 * @generated
@@ -322,7 +322,7 @@ public class ReleaseActionEntityNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.ReleaseAction_3020,
+					PalladioComponentModelElementTypes.ReleaseAction_2010,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

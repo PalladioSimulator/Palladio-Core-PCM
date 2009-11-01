@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemPr
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
@@ -71,6 +72,8 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 			.addAdapterFactory(new CompositionItemProviderAdapterFactory());
 		adapterFactory
 			.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 
 		contentProvider = new AdapterFactoryContentProvider(
 				new FilteredItemsAdapterFactory(adapterFactory, filterList,

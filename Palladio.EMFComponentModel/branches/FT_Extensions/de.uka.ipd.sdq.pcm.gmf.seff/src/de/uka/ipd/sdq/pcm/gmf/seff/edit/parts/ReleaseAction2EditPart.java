@@ -33,7 +33,7 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2010;
+	public static final int VISUAL_ID = 3020;
 
 	/**
 	 * @generated

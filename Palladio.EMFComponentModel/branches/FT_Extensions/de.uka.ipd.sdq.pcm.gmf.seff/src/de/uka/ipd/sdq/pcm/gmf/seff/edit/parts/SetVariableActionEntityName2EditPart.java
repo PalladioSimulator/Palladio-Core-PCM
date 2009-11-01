@@ -62,7 +62,7 @@ public class SetVariableActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5023;
+	public static final int VISUAL_ID = 5027;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class SetVariableActionEntityName2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.SetVariableAction_2008,
+					PalladioComponentModelElementTypes.SetVariableAction_3024,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel
+            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.resource.helper.AddCommunicationLinkResourceSpecificationEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.resource.helper.ProcessingRateEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecificationAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001">
+         </adviceBinding>
+         
+      </metamodel>
+   </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <!--<clientContext id="de.uka.ipd.sdq.pcm.gmf.resource.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.pcm.gmf.resource.EditingDomain"/>
+         </enablement>
+      </clientContext>--> 
+      <binding context="de.uka.ipd.sdq.pcm.gmf.resource.TypeContext">
+         <!-- <elementType
+               ref="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003">
+         </elementType>
+         <elementType
+         		ref="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002">
+         </elementType>-->
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecificationAdvice">
+         </advice>
+       </binding>
+   </extension>
+</plugin>
