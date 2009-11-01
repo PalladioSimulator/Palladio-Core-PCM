@@ -45,7 +45,7 @@
 
 «DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
 	// Start Simulate an external call
-	{
+	try{
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
 	// prepare stackframe
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
@@ -63,7 +63,9 @@
 		«ENDLET»
 	«ENDFOREACH» 
 «ENDDEFINE»
-
+«DEFINE TidySimulatedStackFrame FOR Signature»
+ 	ctx.getStack().removeStackFrame();
+«ENDDEFINE»
 «DEFINE PostCall(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
 	// Stop the time measurement
 	«IF ExternalCallAction.isInstance(call)»
@@ -71,7 +73,7 @@
 	«ELSE»
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
 	«ENDIF»		
- 	ctx.getStack().removeStackFrame();
+
 	«FOREACH outParameterUsages AS pu»
 		«LET pu.parameterUsageLHS() AS lhs_prefix»
 			// Copy out parameter «lhs_prefix» to local stack frame
@@ -86,6 +88,10 @@
 			«ENDFOREACH»
 		«ENDLET»
 	«ENDFOREACH» 
+	}
+	finally
+	{
+		«EXPAND TidySimulatedStackFrame FOR this»
 	}
 	// END Simulate an external call
 «ENDDEFINE»
