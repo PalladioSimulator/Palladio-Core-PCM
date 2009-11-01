@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.pcm.sourcecodedecorator/src"
+    modelPluginID="de.uka.ipd.sdq.pcm.sourcecodedecorator" modelName="SourceCodeDecorator"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/kelsaka/Desktop/rsa-export/SourceCodeDecorator.ecore</foreignModel>
+  <genPackages prefix="Sourcecodedecorator" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+      ecorePackage="SourceCodeDecorator.ecore#/">
+    <nestedGenPackages prefix="Sourcecodedecorator" resource="XML" disposableProviderFactory="true"
+        ecorePackage="SourceCodeDecorator.ecore#//sourcecodedecorator">
+      <genClasses image="false" ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeID">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeID/sourceCodeID"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/FileLevelSourceCodeLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/FileLevelSourceCodeLink/sourcefiles"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/SourceFile">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//sourcecodedecorator/SourceFile/fullQualifiedName"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/Methods">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//sourcecodedecorator/Methods/relativePathInFile"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//sourcecodedecorator/Methods/methodName"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/MethodLevelSourceCodeLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/MethodLevelSourceCodeLink/methods"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/ControlFlowLevelSourceCodeLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/ControlFlowLevelSourceCodeLink/controlflow"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/ControlFlow">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//sourcecodedecorator/ControlFlow/lineNumber"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeDecoratorRepository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeDecoratorRepository/filelevelsourcecodelink"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeDecoratorRepository/methodlevelsourcecodelink"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//sourcecodedecorator/SourceCodeDecoratorRepository/controlflowlevelsourcecodelink"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="PCMLink" resource="XML" disposableProviderFactory="true"
+        ecorePackage="SourceCodeDecorator.ecore#//PCMLink">
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//PCMLink/ComponentFileLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/ComponentFileLink/filelevelsourcecodelink"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/ComponentFileLink/repositorycomponent"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//PCMLink/SEFFMethodLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/SEFFMethodLink/methodlevelsourcecodelink"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/SEFFMethodLink/serviceeffectspecification"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//PCMLink/ActionControlFlowLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/ActionControlFlowLink/controlflowlevelsourcecodelink"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/ActionControlFlowLink/abstractaction"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/componentfilelink"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/seffmethodlink"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/actioncontrolflowlink"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/loggingPositionIds"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Loggerlink" resource="XML" disposableProviderFactory="true"
+        ecorePackage="SourceCodeDecorator.ecore#//loggerlink">
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/loggingPositionId"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/serviceEffectSpecification"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/abstractAction"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
