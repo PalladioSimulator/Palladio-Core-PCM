@@ -893,7 +893,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_h_gmj18hEd6Z6s3h6yz7bw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_h_gmgV8hEd6Z6s3h6yz7bw" showListStereotype="Text" showListVisibility="Text" showParent="Name" showStereotype="Label"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_rGa6kKBZEd24Bv0x9CNKpg?pcm/repository/RepositoryComponent?"/>
+            <element xmi:type="uml:Class" href="pcm.emx#_rGa6kKBZEd24Bv0x9CNKpg"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h_gmgl8hEd6Z6s3h6yz7bw" x="6023" y="6974"/>
           </children>
           <children xmi:id="_qs83wF8hEd6Z6s3h6yz7bw">
@@ -916,7 +916,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_qs83z18hEd6Z6s3h6yz7bw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_qs83wV8hEd6Z6s3h6yz7bw" showListStereotype="Text" showListVisibility="Text" showParent="Name" showStereotype="Label"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg?pcm/seff/ServiceEffectSpecification?"/>
+            <element xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qs83wl8hEd6Z6s3h6yz7bw" x="5706" y="10144"/>
           </children>
           <children xmi:id="_tJGxIF8hEd6Z6s3h6yz7bw">
@@ -939,7 +939,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_tJGxL18hEd6Z6s3h6yz7bw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_tJGxIV8hEd6Z6s3h6yz7bw" showListStereotype="Text" showListVisibility="Text" showParent="Name" showStereotype="Label"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg?pcm/seff/AbstractAction?"/>
+            <element xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tJGxIl8hEd6Z6s3h6yz7bw" x="7291" y="13314"/>
           </children>
           <children xmi:id="_bdw7UV8iEd6Z6s3h6yz7bw" element="_bdw7UF8iEd6Z6s3h6yz7bw">
@@ -1808,7 +1808,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h-_Mol8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_l3PQkV8iEd6Z6s3h6yz7bw" name="repositorycomponent" visibility="private" association="_l3PQkF8iEd6Z6s3h6yz7bw">
-          <type xmi:type="uml:Class" href="pcm.emx#_rGa6kKBZEd24Bv0x9CNKpg?pcm/repository/RepositoryComponent?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_rGa6kKBZEd24Bv0x9CNKpg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l3PQk18iEd6Z6s3h6yz7bw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l3PQkl8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
@@ -1822,7 +1822,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKFt0V8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_lWc3sV8iEd6Z6s3h6yz7bw" name="serviceeffectspecification" visibility="private" association="_lWc3sF8iEd6Z6s3h6yz7bw">
-          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg?pcm/seff/ServiceEffectSpecification?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lWc3s18iEd6Z6s3h6yz7bw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lWc3sl8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
@@ -1836,7 +1836,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kB0nEl8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_kv3Y0V8iEd6Z6s3h6yz7bw" name="abstractaction" visibility="private" association="_kv3Y0F8iEd6Z6s3h6yz7bw">
-          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg?pcm/seff/AbstractAction?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kv3Y018iEd6Z6s3h6yz7bw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kv3Y0l8iEd6Z6s3h6yz7bw" value="1"/>
         </ownedAttribute>
@@ -1948,12 +1948,12 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="__bSXMcUrEd6VlMAUqXPm5w" name="serviceEffectSpecification" visibility="private" association="__bSXMMUrEd6VlMAUqXPm5w">
-          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg?pcm/seff/ServiceEffectSpecification?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__bcIMcUrEd6VlMAUqXPm5w" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__bcIMMUrEd6VlMAUqXPm5w" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_AZRpccUsEd6VlMAUqXPm5w" name="abstractAction" visibility="private" association="_AZRpcMUsEd6VlMAUqXPm5w">
-          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg?pcm/seff/AbstractAction?"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AZRpc8UsEd6VlMAUqXPm5w" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AZRpcsUsEd6VlMAUqXPm5w" value="1"/>
         </ownedAttribute>
@@ -2004,5 +2004,6 @@
   <Default:Documentation xmi:id="_F-7WQVmzEd6DDpvRr99l1w" base_Comment="_F-7WQFmzEd6DDpvRr99l1w"/>
   <Default:Documentation xmi:id="_yKiD4VwREd6Hss0W0W36Ag" base_Comment="_yKiD4FwREd6Hss0W0W36Ag"/>
   <Ecore:EPackage xmi:id="_vcVC4F8fEd6Z6s3h6yz7bw" base_Package="_pIqscF8fEd6Z6s3h6yz7bw"/>
-  <Ecore:EPackage xmi:id="_pDvGYMUrEd6VlMAUqXPm5w" base_Package="_n2GOkMUrEd6VlMAUqXPm5w"/>
+  <Ecore:EPackage xmi:id="_pDvGYMUrEd6VlMAUqXPm5w" base_Package="_n2GOkMUrEd6VlMAUqXPm5w" packageName="loggerlink" basePackage="" prefix="loggerLink"/>
+  <Ecore:EPackage xmi:id="_WZce0McKEd6VlMAUqXPm5w" base_Package="_PTww8FmuEd6DDpvRr99l1w" packageName="sourcecodedecorator" nsPrefix="sourcecodedecorator" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SourceCodeDecorator/1.0" basePackage="de.uka.ipd.sdq.pcm" prefix="SourceCodeDecorator"/>
 </xmi:XMI>
