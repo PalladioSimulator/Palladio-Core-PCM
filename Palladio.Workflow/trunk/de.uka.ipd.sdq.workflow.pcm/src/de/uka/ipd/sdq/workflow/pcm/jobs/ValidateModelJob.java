@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
+package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.util.List;
 
@@ -10,8 +10,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractPCMWorkflowRunConfiguration;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
@@ -21,8 +19,14 @@ import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.emf.CheckEMFConstraintsJob;
 import de.uka.ipd.sdq.workflow.mdsd.oaw.PerformOAWCheckValidation;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 
+/** Inner class used to display the dialog containing found validation errors. Needed by Eclipse to
+ * display the dialog in Eclipse's UI thread
+ * 
+ * @author Steffen Becker
+ */
 class ErrorDisplayRunner implements Runnable {
 	
 	private List<SeverityAndIssue> issues;
@@ -47,31 +51,36 @@ class ErrorDisplayRunner implements Runnable {
 }
 
 /**
- * @author Snowball
- *
+ * A job for running model validation checks. The job executes both, OCL and oAW check, validations on a PCM model instance.
+ * If errors are found, they are reported to the user for corrections.
+ * @author Steffen Becker
  */
 public class ValidateModelJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
+	private static final String PCM_CHECK_FILENAME = "pcm";
 	private Logger logger = Logger.getLogger(ValidateModelJob.class);
 	private MDSDBlackboard blackboard = null;
-	private SimuComWorkflowConfiguration configuration;
+	private AbstractPCMWorkflowRunConfiguration configuration;
 	private PerformOAWCheckValidation oawCheckJob;
 	private CheckEMFConstraintsJob emfCheckJob;
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.workflow.ISimulationJob#execute()
 	 */
-	public ValidateModelJob(SimuComWorkflowConfiguration configuration) {
+	public ValidateModelJob(AbstractPCMWorkflowRunConfiguration configuration) {
 		super();
 		this.configuration = configuration;
 		this.oawCheckJob = new PerformOAWCheckValidation(
 				LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, 
-				"pcm", 
+				PCM_CHECK_FILENAME, 
 				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		this.emfCheckJob = new CheckEMFConstraintsJob(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException{
 		oawCheckJob.setBlackboard(blackboard);
 		oawCheckJob.execute(monitor);

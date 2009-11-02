@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import javax.management.RuntimeErrorException;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
 
 /**

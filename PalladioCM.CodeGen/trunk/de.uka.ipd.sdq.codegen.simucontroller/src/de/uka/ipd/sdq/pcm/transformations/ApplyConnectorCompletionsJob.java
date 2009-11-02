@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPCMModelsIntoBlackboardJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;

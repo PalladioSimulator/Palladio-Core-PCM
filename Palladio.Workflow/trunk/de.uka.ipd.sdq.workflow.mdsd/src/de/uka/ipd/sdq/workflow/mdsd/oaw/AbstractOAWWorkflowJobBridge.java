@@ -17,7 +17,16 @@ import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
+
+/**
+ * This class allows the use of jobs of the openArchitectureWare workflow engine as part of the SDQ workflow engine
+ * 
+ * @author Steffen Becker
+ *
+ * @param <T> The class of the oAW job bridged by an specific instance of this class
+ */
 public abstract class AbstractOAWWorkflowJobBridge<T extends AbstractExpressionsUsingWorkflowComponent>
+
 implements IJob {
 
 	private Logger logger = Logger.getLogger(AbstractOAWWorkflowJobBridge.class);
@@ -25,10 +34,19 @@ implements IJob {
 	protected T oawJob = null;
 	private HashMap<String, EObject> slotContents;
 	
+	/**
+	 * Constructor of the oAW bridge
+	 * @param job The oAW job to wrap for execution in the SDQ workflow engine
+	 */
 	public AbstractOAWWorkflowJobBridge(T job) {
 		this(job,new HashMap<String, EObject>());
 	}
 	
+	/** Constructor of the oAW bridge
+	 * @param job The oAW job to wrap for execution in the SDQ workflow engine
+	 * @param slotContents Contains models of the oAW workflow engine's blackboard, i.e., models to be transformed
+	 * by the encapsulated oAW job
+	 */
 	public AbstractOAWWorkflowJobBridge(T job,
 			HashMap<String, EObject> slotContents) {
 		super();
@@ -37,6 +55,9 @@ implements IJob {
 		this.slotContents = slotContents;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		Issues issues = new IssuesImpl();
@@ -62,18 +83,32 @@ implements IJob {
 		}
 	}
 
+	/**
+	 * Creates the oAW job's {@link WorkflowContext}
+	 * @param ctx The context to configure. Add all the models needed by the oAW job
+	 */
 	protected void setupContext(WorkflowContext ctx) {
 		for (String slot : slotContents.keySet()) {
 			ctx.set(slot, slotContents.get(slot));
 		}
 	}
 
+	/** 
+	 * Template method in which hiers can add logic to configure their specific oAW jobs 
+	 * @param oawJob2 The job to be set up
+	 */
 	protected abstract void setupOAWJob(T oawJob2);
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#getName()
+	 */
 	public String getName() {
 		return oawJob.getId() == null ? "oAW Job" : oawJob.getId();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.IJob#rollback(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public void rollback(IProgressMonitor monitor)
 			throws RollbackFailedException {
 	}

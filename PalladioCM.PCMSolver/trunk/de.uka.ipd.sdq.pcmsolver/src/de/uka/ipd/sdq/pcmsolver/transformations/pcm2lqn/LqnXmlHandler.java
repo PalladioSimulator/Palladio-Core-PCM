@@ -126,6 +126,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("printInt", "print_int");
 		content = content.replaceAll("underrelaxCoeff", "underrelax_coeff");
 		content = content.replaceAll("hostDemandMean", "host-demand-mean");
+		content = content.replaceAll("hostDemandCvsq", "host-demand-cvsq");
 		content = content.replaceAll("callsMean", "calls-mean");
 		content = content.replaceAll("replyActivity", "reply-activity");
 		content = content.replaceAll("postOR", "post-OR");
@@ -138,6 +139,16 @@ public class LqnXmlHandler {
 		content = content.replaceAll("serviceTimeDistribution", "service-time-distribution");
 		content = content.replaceAll("openArrivalRate", "open-arrival-rate");
 		content = content.replaceAll("openWaitTime", "open-wait-time");
+		content = content.replaceAll("binSize", "bin-size");
+		content = content.replaceAll("midPoint", "mid-point");
+		content = content.replaceAll("numberBins", "number-bins");
+		content = content.replaceAll("stdDev", "std-dev");
+		content = content.replaceAll("histogramBin", "histogram-bin");
+		content = content.replaceAll("overflowBin", "overflow-bin");
+		content = content.replaceAll("waitingVariance", "waiting-variance");
+		content = content.replaceAll("phase1ProcWaiting", "phase1-procWaiting");
+		content = content.replaceAll("phase1ServiceTime", "phase1-serviceTime");
+		content = content.replaceAll("phase1ServiceTimeVariance", "phase1-serviceTime");
 		
 		FileOutputStream fos;
 		try {
@@ -191,6 +202,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("print_int", "printInt");
 		content = content.replaceAll("underrelax_coeff", "underrelaxCoeff");
 		content = content.replaceAll("host-demand-mean", "hostDemandMean");
+		content = content.replaceAll("host-demand-cvsq", "hostDemandCvsq");
 		content = content.replaceAll("calls-mean", "callsMean");
 		content = content.replaceAll("reply-activity", "replyActivity");
 		content = content.replaceAll("post-OR", "postOR");
@@ -222,7 +234,16 @@ public class LqnXmlHandler {
 		content = content.replaceAll("result-call", "resultCall");
 		content = content.replaceAll("result-processor", "resultProcessor");
 		content = content.replaceAll("open-wait-time", "openWaitTime");
-		
+		content = content.replaceAll("bin-size", "binSize");
+		content = content.replaceAll("mid-point", "midPoint");
+		content = content.replaceAll("number-bins", "numberBins");
+		content = content.replaceAll("std-dev", "stdDev");
+		content = content.replaceAll("histogram-bin", "histogramBin");
+		content = content.replaceAll("overflow-bin", "overflowBin");
+		content = content.replaceAll("waiting-variance", "waitingVariance");
+		content = content.replaceAll("phase1-procWaiting", "phase1ProcWaiting");
+		content = content.replaceAll("phase1-serviceTime", "phase1ServiceTime");
+		content = content.replaceAll("phase1-serviceTime", "phase1ServiceTimeVariance");
 		
 		FileOutputStream fos;
 		try {

@@ -474,4 +474,14 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 				.setAttribute(ConstantsContainer.TEMPORARY_MODELS_PATH, "");
 	}
 
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
+
 }

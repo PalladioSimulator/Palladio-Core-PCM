@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.mdsd.oaw;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -13,6 +14,11 @@ import org.eclipse.xpand2.output.XmlBeautifier;
 import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 
 //TODO Is this annotation needed?
+/**
+ * A job to run oAWs Xpand Generator on models in order to generate code (i.e., perform a model-2-text transformation)
+ * 
+ * @author Steffen Becker
+ */
 @SuppressWarnings("deprecation")
 public class XpandGeneratorJob
 extends AbstractOAWWorkflowJobBridge<Generator> {
@@ -21,7 +27,7 @@ extends AbstractOAWWorkflowJobBridge<Generator> {
 	private Outlet[] outlets;
 	private String expandExpression;
 	
-	private String advice;
+	private List<String> advices = new ArrayList<String>();
 	private boolean checkProtectedRegions;
 	private String fileEncoding;
 	private boolean beautifyCode;
@@ -32,16 +38,19 @@ extends AbstractOAWWorkflowJobBridge<Generator> {
 			String expandExpression) {
 		
 		super(new Generator(),slotContents);
+		
 		this.ePackages = ePackages;
 		this.outlets = outlets;
 		this.expandExpression = expandExpression;
 		
-		this.advice = null;
 		this.checkProtectedRegions = false;
 		this.fileEncoding = "ISO-8859-1"; 
 		this.beautifyCode = false;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.workflow.mdsd.oaw.AbstractOAWWorkflowJobBridge#setupOAWJob(org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2)
+	 */
 	@Override
 	protected void setupOAWJob(Generator generatorJob) {
 		generatorJob.setExpand(expandExpression);
@@ -63,8 +72,8 @@ extends AbstractOAWWorkflowJobBridge<Generator> {
 			generatorJob.setPrExcludes(".svn");
 		}
 		
-		if (this.advice != null) {
-			generatorJob.addAdvice("simulation_template_methods");
+		for (String advice : this.advices) {
+			generatorJob.addAdvice(advice);
 		}
 		
 		if (beautifyCode) {
@@ -75,12 +84,8 @@ extends AbstractOAWWorkflowJobBridge<Generator> {
 		}
 	}
 
-	public String getAdvice() {
-		return advice;
-	}
-
-	public void setAdvice(String advice) {
-		this.advice = advice;
+	public List<String> getAdvices() {
+		return this.advices;
 	}
 
 	public boolean isCheckProtectedRegions() {

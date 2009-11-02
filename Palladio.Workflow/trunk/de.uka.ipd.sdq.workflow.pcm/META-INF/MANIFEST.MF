@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM Workflow Jobs and Configurations
+Bundle-SymbolicName: de.uka.ipd.sdq.workflow.pcm
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.1.0",
+ de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
+ de.uka.ipd.sdq.completions;bundle-version="1.0.0",
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.featureconfig;bundle-version="1.0.0",
+ org.eclipse.debug.core,
+ de.uka.ipd.sdq.errorhandling;bundle-version="1.0.0"
+Export-Package: de.uka.ipd.sdq.workflow.pcm.blackboard,
+ de.uka.ipd.sdq.workflow.pcm.configurations,
+ de.uka.ipd.sdq.workflow.pcm.jobs

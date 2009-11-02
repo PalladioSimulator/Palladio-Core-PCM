@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
@@ -112,12 +112,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		this.markovChain = new MarkovBuilder().initNewMarkovChain("");
 		this.configuration = configuration;
 		this.sensitivityController = new SensitivityController(configuration);
-
-		// Initialize raw message stream:
-		if (PCMSolver.getConsole() != null) {
-			this.rawStream = PCMSolver.getConsole().newMessageStream();
 		}
-	}
 
 	/**
 	 * The short constructor maintained for Markov TestCases.

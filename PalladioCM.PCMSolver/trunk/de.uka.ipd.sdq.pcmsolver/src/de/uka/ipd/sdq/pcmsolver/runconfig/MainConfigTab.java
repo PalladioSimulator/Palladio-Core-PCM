@@ -33,6 +33,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Text lqsimConfig1;
 	private Text lqsimConfig2;
 	private Text lqsimConfig3;
+	protected Combo comboLqsimOutput;
 	
 	private Group sresConfigGroup; 
 	private Group lqnsConfigGroup; 
@@ -121,6 +122,19 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		lqsimConfig3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		lqsimConfig3.addModifyListener(listener);
 
+		Label label4 = new Label(group, SWT.NONE);
+		label4.setText("Output Type:");
+		label4.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
+		
+		comboLqsimOutput = new Combo(group, SWT.READ_ONLY);
+		comboLqsimOutput.setItems (new String [] {
+				MessageStrings.LQN_OUTPUT_HUMAN,
+				MessageStrings.LQN_OUTPUT_XML
+				});
+		comboLqsimOutput.setSize (400, 200);
+		comboLqsimOutput.addModifyListener(listener);
+//		comboLqsimOutput.addSelectionListener(comboListener);
+
 		return group;
 	}
 
@@ -173,8 +187,8 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		
 		comboLqnsOutput = new Combo(group, SWT.READ_ONLY);
 		comboLqnsOutput.setItems (new String [] {
-				MessageStrings.LQNS_OUTPUT_HUMAN,
-				MessageStrings.LQNS_OUTPUT_XML
+				MessageStrings.LQN_OUTPUT_HUMAN,
+				MessageStrings.LQN_OUTPUT_XML
 				});
 		comboLqnsOutput.setSize (400, 200);
 		comboLqnsOutput.addModifyListener(listener);
@@ -235,7 +249,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		}
 		try{
 			String outputStr = configuration.getAttribute(MessageStrings.LQNS_OUTPUT, 
-					MessageStrings.LQNS_OUTPUT_HUMAN);
+					MessageStrings.LQN_OUTPUT_HUMAN);
 			String[] items = comboLqnsOutput.getItems();
 			for (int i=0; i<items.length; i++){
 				String str = items[i];
@@ -245,6 +259,19 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 			}
 		} catch(CoreException e){
 			comboLqnsOutput.select(0);
+		}
+		try{
+			String outputStr = configuration.getAttribute(MessageStrings.LQSIM_OUTPUT, 
+					MessageStrings.LQN_OUTPUT_HUMAN);
+			String[] items = comboLqsimOutput.getItems();
+			for (int i=0; i<items.length; i++){
+				String str = items[i];
+				if (str.equals(outputStr)){
+					comboLqsimOutput.select(i);
+				}
+			}
+		} catch(CoreException e){
+			comboLqsimOutput.select(0);
 		}
 		try{
 			textSamplingDist.setText(configuration.getAttribute(MessageStrings.SAMPLING_DIST, "1.0"));
@@ -318,6 +345,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(MessageStrings.PRINT_INT, lqnsConfig3.getText());
 		configuration.setAttribute(MessageStrings.UNDER_COEFF, lqnsConfig4.getText());
 		configuration.setAttribute(MessageStrings.LQNS_OUTPUT, comboLqnsOutput.getText());
+		configuration.setAttribute(MessageStrings.LQSIM_OUTPUT, comboLqsimOutput.getText());
 
 		configuration.setAttribute(MessageStrings.RUN_TIME, lqsimConfig1.getText());
 		configuration.setAttribute(MessageStrings.BLOCKS, lqsimConfig2.getText());
@@ -359,4 +387,14 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	    return true;
 	}
 
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
+	
 }

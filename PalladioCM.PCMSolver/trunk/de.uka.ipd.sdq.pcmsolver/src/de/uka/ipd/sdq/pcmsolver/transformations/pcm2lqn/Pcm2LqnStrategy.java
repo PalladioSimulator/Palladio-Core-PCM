@@ -117,6 +117,7 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 	public void solve() {
 		String solverProgram = getSolverProgramName();
 		String lqnsOutputType = getLqnsOutputTypeName();
+		String lqnSimOutputType = getLqsimOutputTypeName();
 		
 		String resultFile = "";
 		String inputFile = "";
@@ -127,13 +128,13 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		try {
 			Process proc = null;
 			if (solverProgram.equals(FILENAME_LQNS)) {
-				if (lqnsOutputType.equals(MessageStrings.LQNS_OUTPUT_HUMAN)) {
+				if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)) {
 					inputFile = FILENAME_LQN;
 					resultFile = FILENAME_RESULT_HUMAN_READABLE;
 					proc = Runtime.getRuntime().exec(solverProgram+" -o"+
 							resultFile+" "+inputFile);
 				}
-				else if (lqnsOutputType.equals(MessageStrings.LQNS_OUTPUT_XML)) {
+				else if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_XML)) {
 					// The lqns produces XML output when the input is as well in XML
 					inputFile = FILENAME_RESULT_XML;
 					resultFile = inputFile;
@@ -141,10 +142,18 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 				}
 			}
 			else if (solverProgram.equals(FILENAME_LQSIM)) {
+				if (lqnSimOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)) {
 				inputFile = FILENAME_LQN;
 				resultFile = FILENAME_RESULT_HUMAN_READABLE;
 				proc = Runtime.getRuntime().exec(solverProgram+" -o"+
 						resultFile+" "+inputFile);
+			}
+				else if (lqnSimOutputType.equals(MessageStrings.LQN_OUTPUT_XML)) {
+					// The lqsim produces XML output when the input is as well in XML
+					inputFile = FILENAME_RESULT_XML;
+					resultFile = inputFile;
+					proc = Runtime.getRuntime().exec(solverProgram+" "+inputFile);
+				}
 			}
 
             StreamGobbler errorGobbler = new 
@@ -209,9 +218,23 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		try {
 			 outputType = config.getAttribute(
 					MessageStrings.LQNS_OUTPUT,
-					MessageStrings.LQNS_OUTPUT_HUMAN);
+					MessageStrings.LQN_OUTPUT_HUMAN);
 		} catch (CoreException e) {
 			logger.error("Could not determine LQN Solver output type.");
+		}
+		
+		return outputType;
+	}
+	
+	private String getLqsimOutputTypeName() {
+		String outputType = "";
+		
+		try {
+			 outputType = config.getAttribute(
+					MessageStrings.LQSIM_OUTPUT,
+					MessageStrings.LQN_OUTPUT_HUMAN);
+		} catch (CoreException e) {
+			logger.error("Could not determine LQN Simulation output type.");
 		}
 		
 		return outputType;

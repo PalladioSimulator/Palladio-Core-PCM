@@ -37,6 +37,8 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
@@ -274,6 +276,16 @@ public class Rdseff2Lqn extends SeffSwitch {
 				e.printStackTrace();
 			}
 			apt.setHostDemandMean(hostDemand);
+			
+			//if continuous function, get coefficient of variance
+			//TODO: also get this for stepwise defined functions!
+			IProbabilityDensityFunction innerPDF = pdf.getPdfTimeDomain();
+			if (innerPDF instanceof IContinousPDF){
+				IContinousPDF innerContPDF = (IContinousPDF)innerPDF; 
+				double coeffv = innerContPDF.getCoefficientOfVariance();
+				Double squaredcv = coeffv * coeffv;
+				apt.setHostDemandCvsq(squaredcv.toString());
+			}
 			
 			PhaseActivities pa = lqnBuilder.addPhaseActivities(apt);
 			et.setEntryPhaseActivities(pa);

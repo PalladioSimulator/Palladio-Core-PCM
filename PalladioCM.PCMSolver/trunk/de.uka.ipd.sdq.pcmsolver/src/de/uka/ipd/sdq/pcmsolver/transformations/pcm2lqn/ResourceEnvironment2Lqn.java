@@ -12,8 +12,6 @@ import LqnCore.ProcessorType;
 import LqnCore.SchedulingType;
 import LqnCore.TaskType;
 import LqnCore.TypeType;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -84,6 +82,10 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 				.getProcessingRate_ProcessingResourceSpecification()
 				.getSpecification();*/
 		pt.setSpeedFactor("1.0");
+		
+//		String processingRateSolved = ExpressionHelper.getSolvedExpressionAsString(processingRate, null);
+//		
+//		pt.setSpeedFactor(processingRateSolved);
 		
 		TaskType tt = lqnBuilder.addTask(id,pt);
 		ActivityPhasesType apt = lqnBuilder.addActivityPhases(id);

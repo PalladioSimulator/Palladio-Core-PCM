@@ -57,6 +57,8 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 			vuList.addAll(vuList2); 
 		}
 		
+		//TODO: add component parameters
+		
 		String soughtParameterName = getFullParameterName(anr);
 		for (VariableUsage vu : vuList){ 
 			AbstractNamedReference ref = vu.getNamedReference_VariableUsage();

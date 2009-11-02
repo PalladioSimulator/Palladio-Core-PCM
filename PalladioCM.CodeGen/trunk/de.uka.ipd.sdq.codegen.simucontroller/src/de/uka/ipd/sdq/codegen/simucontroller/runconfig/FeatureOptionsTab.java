@@ -4,6 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -44,6 +48,9 @@ import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private static final String DEFAULT_CONNECTOR_FEATURE_CONFIG = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
+	private static final String TITLE_FEATURE_CONFIG_SECTION = "PCM2EJB Feature Configuration File";
+	private static final String LABEL_SIMULATE_NETWORK = "Simulate linking resources";
+	
 	private Button simulateLinkingResourcesButton;
 	private Button simulateFailuresButton;
 	private Text textFeatureConfig;
@@ -116,6 +123,10 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 		// Create the top-level container:
 		container = new Composite(parent, SWT.NONE);
+
+		// Create the top-level container:
+		Composite container = new Composite(parent, SWT.NONE);
+
 		setControl(container);
 		container.setLayout(new GridLayout());
 
@@ -131,7 +142,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				SWT.FILL, SWT.CENTER, true, false);
 		simulateLinkingResourcesButton
 				.setLayoutData(gd_simulateLinkingResourcesButton);
-		simulateLinkingResourcesButton.setText("Simulate linking resources");
+		simulateLinkingResourcesButton.setText(FeatureOptionsTab.LABEL_SIMULATE_NETWORK);
 		simulateLinkingResourcesButton.addSelectionListener(selectionListener);
 
 		// Create reliability section:
@@ -154,7 +165,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		final GridLayout glReposetoryTypeGroup = new GridLayout();
 		glReposetoryTypeGroup.numColumns = 3;
 		featureConfigGroup.setLayout(glReposetoryTypeGroup);
-		featureConfigGroup.setText("PCM2EJB Feature Configuration File");
+		featureConfigGroup.setText(FeatureOptionsTab.TITLE_FEATURE_CONFIG_SECTION);
 		featureConfigGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				true, false));
 		textFeatureConfig = new Text(featureConfigGroup, SWT.SINGLE
@@ -250,32 +261,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 //		});
 	}
 	
-	public boolean isValid(ILaunchConfiguration launchConfig) {
-		setErrorMessage(null);		
-		
-		if (!validateFilePath(textFeatureConfig.getText(),
-				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
-			setErrorMessage("Source model file is missing!");
-			return false;
-		}
-		
-		
-//FIXME: re-enable
-//		if (!validateFilePath(textTargetConfig.getText(),
-//				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
-//			setErrorMessage("Target model file is missing!");
-//			return false;
-//		}
-//		if (editorWidget != null) {
-//			if (!editorValid) {
-//				setErrorMessage(editorWidget.getErrorMessage());
-//			}
-//			return false;
-//		}
-		
-		return true;
-	}
-	
+
 	private boolean validateFilePath(String filePath, String[] extensions){
 		if (filePath.equals(""))
 			return false;
@@ -331,7 +317,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		return RunConfigImages.getFeaturTabImage();
 	}
 
-	/*
+    /*
 	 * (non-Javadoc)
 	 * 
 	 * @see
@@ -363,6 +349,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			simulateLinkingResourcesButton.setSelection(true);
 		}
+
 		//FIXME: re-enable
 //		try {			
 //			textTargetConfig.setText(configuration.getAttribute(
@@ -393,6 +380,48 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 //				textTargetConfig.getText());
 	}
 
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);		
+		
+		if (!validateFilePath(textFeatureConfig.getText(),
+				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+			setErrorMessage("Source model file is missing!");
+			return false;
+		}
+		
+		
+//FIXME: re-enable
+//		if (!validateFilePath(textTargetConfig.getText(),
+//				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+//			setErrorMessage("Target model file is missing!");
+//			return false;
+//		}
+//		if (editorWidget != null) {
+//			if (!editorValid) {
+//				setErrorMessage(editorWidget.getErrorMessage());
+//			}
+//			return false;
+//		}
+		
+		return true;
+	}
+	
+/*	TODO: Maybe this can be used to check whether models are needed 
+    @Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		
+		setErrorMessage(null);
+		
+		//if linking resources shall be simulated, the connector config must be specified
+		if (simulateLinkingResourcesButton.getSelection() && (this.textFeatureConfig.getText() == null || this.textFeatureConfig.getText().equals(""))){
+			setErrorMessage("If \""+FeatureOptionsTab.LABEL_SIMULATE_NETWORK+"\" is checked, a connector config has to be chosen for "+FeatureOptionsTab.TITLE_FEATURE_CONFIG_SECTION);
+			return false;
+		}
+		
+		return super.isValid(launchConfig);
+	}*/
+
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -408,6 +437,17 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 				DEFAULT_CONNECTOR_FEATURE_CONFIG);
 	}
+	
+	
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+	}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
 
 	/** Button SelectionListener - call a WorkspaceResourceDialog */
 	class WorkspaceButtonSelectionListener extends SelectionAdapter {
@@ -436,6 +476,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 			return array[0];
 		}
 	}
+	
 
 	/**
 	 * The function calls the ContainerSelectionDialog and gives back relative
@@ -482,6 +523,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public String getId() {
 		return "de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab";
-	}
+    }
 
 }

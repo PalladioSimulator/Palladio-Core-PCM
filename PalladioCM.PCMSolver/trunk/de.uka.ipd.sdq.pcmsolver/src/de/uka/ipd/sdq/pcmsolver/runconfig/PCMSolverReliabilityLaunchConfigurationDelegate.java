@@ -6,7 +6,11 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
+import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /**
  * Launches the PCM Solver for Reliability analysis.
@@ -15,38 +19,45 @@ import de.uka.ipd.sdq.pcmsolver.PCMSolver;
  * plugin.xml refers to this class. The class inherits from the eclipse-internal
  * launch configuration delegate.
  * 
- * @author brosch
+ * @author anne
  * 
  */
-public class PCMSolverReliabilityLaunchConfigurationDelegate implements
-		ILaunchConfigurationDelegate {
+public class PCMSolverReliabilityLaunchConfigurationDelegate extends PCMSolverLaunchConfigurationDelegate {
 
-	/**
-	 * The central routine for launching the PCM Solver.
-	 * 
-	 * @param configuration
-	 *            contains the values entered by the user to configure the
-	 *            launch
-	 * @param mode
-	 *            distinguishes between run and debug modes
-	 * @param launch ?
-	 * @param monitor
-	 *            displays launch progress to the user
-	 * @throws CoreException ?
-	 * @see org.eclipse.debug.core.model.ILaunchConfigurationDelegate#launch(org.eclipse.debug.core.ILaunchConfiguration,
-	 *      java.lang.String, org.eclipse.debug.core.ILaunch,
-	 *      org.eclipse.core.runtime.IProgressMonitor)
-	 */
-	public void launch(final ILaunchConfiguration configuration,
-			final String mode, final ILaunch launch,
-			final IProgressMonitor monitor) throws CoreException {
+	private Pcm2MarkovStrategy strategy = null;
 
-		// Create a new PCM Solver:
-		PCMSolver solver = new PCMSolver(configuration, monitor, true);
+	@Override
+	protected IJob createWorkflowJob(PCMSolverWorkflowRunConfiguration config,
+			ILaunch launch) throws CoreException {
+		PCMSolverJob job = (PCMSolverJob) super.createWorkflowJob(config,launch);
 
-		// Start the solver:
-		solver.execute();
+		RunPCMAnalysisJob runJob = (RunPCMAnalysisJob)job.getLast();
 
+		this.setStrategy((Pcm2MarkovStrategy) runJob.getStrategy());
+		
+		return job;
+		
 	}
 
+	@Override
+	protected PCMSolverWorkflowRunConfiguration deriveConfiguration(
+			ILaunchConfiguration configuration, String mode)
+			throws CoreException {
+		PCMSolverWorkflowRunConfiguration pcmConfig = super.deriveConfiguration(configuration, mode);
+		pcmConfig.setIsReliabilityAnalysis(true);
+		
+		return pcmConfig;
+}
+
+	public void setStrategy(Pcm2MarkovStrategy strategy) {
+		this.strategy = strategy;
+	}
+
+	public Pcm2MarkovStrategy getStrategy() {
+		return strategy;
+	}
+	
+	
+	
+	
 }

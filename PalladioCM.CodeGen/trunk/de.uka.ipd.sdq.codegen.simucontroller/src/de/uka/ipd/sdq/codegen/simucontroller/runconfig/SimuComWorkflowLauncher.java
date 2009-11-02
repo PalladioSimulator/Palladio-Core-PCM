@@ -11,7 +11,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob;
 import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
 import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
 /**
  * The class adapts defined functionality in the AbstractMDSDLaunchConfigurationDelegate for
@@ -19,7 +22,7 @@ import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
  * 
  */
 public class SimuComWorkflowLauncher extends
-		AbstractMDSDLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
+		AbstractPCMLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
 
 	/*
 	 * (non-Javadoc)
@@ -31,9 +34,17 @@ public class SimuComWorkflowLauncher extends
 	protected SimuComWorkflowConfiguration deriveConfiguration(
 			ILaunchConfiguration configuration, String mode)
 			throws CoreException {
-		SimuComConfigurationBuilder builder = new SimuComLaunchConfigurationBasedConfigBuilder(
+		SimuComWorkflowConfiguration config = new SimuComWorkflowConfiguration();
+		
+		AbstractWorkflowConfigurationBuilder builder;
+		builder = new PCMWorkflowConfigurationBuilder(configuration, mode);
+		builder.fillConfiguration(config);
+		
+		builder = new SimuComLaunchConfigurationBasedConfigBuilder(
 				configuration, mode);
-		return builder.getConfiguration();
+		builder.fillConfiguration(config);
+		
+		return config;
 	}
 
 	/* (non-Javadoc)
