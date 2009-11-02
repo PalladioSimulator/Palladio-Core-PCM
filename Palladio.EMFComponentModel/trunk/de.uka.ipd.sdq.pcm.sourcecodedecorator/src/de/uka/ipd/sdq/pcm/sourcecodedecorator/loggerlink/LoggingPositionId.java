@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#getLoggingPositionId <em>Logging Position Id</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#isIsInputPosition <em>Is Input Position</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#getAbstractAction <em>Abstract Action</em>}</li>
  * </ul>
@@ -55,6 +56,32 @@ public interface LoggingPositionId extends EObject {
 	 * @generated
 	 */
 	void setLoggingPositionId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Input Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Input Position</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Input Position</em>' attribute.
+	 * @see #setIsInputPosition(boolean)
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getLoggingPositionId_IsInputPosition()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isIsInputPosition();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#isIsInputPosition <em>Is Input Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Input Position</em>' attribute.
+	 * @see #isIsInputPosition()
+	 * @generated
+	 */
+	void setIsInputPosition(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Effect Specification</b></em>' reference.

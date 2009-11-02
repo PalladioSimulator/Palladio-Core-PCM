@@ -169,8 +169,17 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLoggingPositionId_IsInputPosition() {
+		return (EAttribute)loggingPositionIdEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLoggingPositionId_ServiceEffectSpecification() {
-		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(1);
+		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -179,7 +188,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * @generated
 	 */
 	public EReference getLoggingPositionId_AbstractAction() {
-		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(2);
+		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -212,6 +221,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		// Create classes and their features
 		loggingPositionIdEClass = createEClass(LOGGING_POSITION_ID);
 		createEAttribute(loggingPositionIdEClass, LOGGING_POSITION_ID__LOGGING_POSITION_ID);
+		createEAttribute(loggingPositionIdEClass, LOGGING_POSITION_ID__IS_INPUT_POSITION);
 		createEReference(loggingPositionIdEClass, LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION);
 		createEReference(loggingPositionIdEClass, LOGGING_POSITION_ID__ABSTRACT_ACTION);
 	}
@@ -251,6 +261,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		// Initialize classes and features; add operations and parameters
 		initEClass(loggingPositionIdEClass, LoggingPositionId.class, "LoggingPositionId", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoggingPositionId_LoggingPositionId(), ecorePackage.getEString(), "loggingPositionId", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLoggingPositionId_IsInputPosition(), ecorePackage.getEBoolean(), "isInputPosition", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoggingPositionId_ServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecification", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoggingPositionId_AbstractAction(), theSeffPackage.getAbstractAction(), null, "abstractAction", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 

@@ -79,13 +79,22 @@ public interface LoggerlinkPackage extends EPackage {
 	int LOGGING_POSITION_ID__LOGGING_POSITION_ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Input Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGGING_POSITION_ID__IS_INPUT_POSITION = 1;
+
+	/**
 	 * The feature id for the '<em><b>Service Effect Specification</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION = 1;
+	int LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Action</b></em>' reference.
@@ -94,7 +103,7 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOGGING_POSITION_ID__ABSTRACT_ACTION = 2;
+	int LOGGING_POSITION_ID__ABSTRACT_ACTION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Logging Position Id</em>' class.
@@ -103,7 +112,7 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOGGING_POSITION_ID_FEATURE_COUNT = 3;
+	int LOGGING_POSITION_ID_FEATURE_COUNT = 4;
 
 
 	/**
@@ -126,6 +135,17 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLoggingPositionId_LoggingPositionId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#isIsInputPosition <em>Is Input Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Input Position</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#isIsInputPosition()
+	 * @see #getLoggingPositionId()
+	 * @generated
+	 */
+	EAttribute getLoggingPositionId_IsInputPosition();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId#getServiceEffectSpecification <em>Service Effect Specification</em>}'.
@@ -188,6 +208,14 @@ public interface LoggerlinkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOGGING_POSITION_ID__LOGGING_POSITION_ID = eINSTANCE.getLoggingPositionId_LoggingPositionId();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Input Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOGGING_POSITION_ID__IS_INPUT_POSITION = eINSTANCE.getLoggingPositionId_IsInputPosition();
 
 		/**
 		 * The meta object literal for the '<em><b>Service Effect Specification</b></em>' reference feature.
