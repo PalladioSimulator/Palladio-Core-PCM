@@ -121,7 +121,7 @@
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr">
+			failonerror="true" errorproperty="build.stderr" output="${buildDirectory}/java-build-log-console.txt"> <!-- added by kelsaka: log file output -->
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
@@ -134,6 +134,11 @@
 			<arg value="-data" />
 			<arg value="${buildDirectory}/workspace" />
 			<arg value="${verboseAnt}"/>
+			<!-- <arg value="-verbose" /> --> <!-- added by kelsaka for debugging -->
+			<!-- <arg value="-init" /> --> <!-- added by kelsaka for debugging -->
+			<!-- <arg value="-clean" /> --> <!-- added by kelsaka for debugging -->
+			<!-- <arg value="-debug" /> --> <!-- added by kelsaka for debugging -->
+			<!-- <arg value="-consoleLog" /> --> <!-- added by kelsaka for debugging -->			
 			<jvmarg value="-Dbasews=${ws}" />
 			<jvmarg value="-Dbaseos=${os}" />
 			<jvmarg value="-Dbasearch=${arch}" />
