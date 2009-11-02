@@ -572,6 +572,12 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.workflow.pcm"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.workflow.pcm"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.Workflow/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.branding"/>
       <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
       <param name="url" value="svn://klaus@141.3.52.13/code/Palladio.EMFComponentModel/trunk"/>
