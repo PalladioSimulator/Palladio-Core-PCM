@@ -1943,11 +1943,17 @@
           <element xsi:nil="true"/>
         </contents>
       </eAnnotations>
-      <packagedElement xmi:type="uml:Class" xmi:id="_vYAg0MUrEd6VlMAUqXPm5w" name="LoggingPositionId">
+      <packagedElement xmi:type="uml:Class" xmi:id="_vYAg0MUrEd6VlMAUqXPm5w" name="LoggingPositionIdLink">
         <ownedAttribute xmi:id="_1fwiMMUrEd6VlMAUqXPm5w" name="loggingPositionId" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_C8e1wMeMEd6VlMAUqXPm5w" name="isInputPosition" visibility="public">
+          <ownedComment xmi:id="_Lij2kMeTEd6VlMAUqXPm5w" annotatedElement="_C8e1wMeMEd6VlMAUqXPm5w">
+            <body>&lt;p>&#xD;
+    If set to true it is a input position (method call of a provided call).&#xD;
+    If&amp;nbsp;set&amp;nbsp;to&amp;nbsp;false&amp;nbsp;it&amp;nbsp;is&amp;nbsp;a&amp;nbsp;output&amp;nbsp;position&amp;nbsp;(external&amp;nbsp;call&amp;nbsp;or&amp;nbsp;return).&#xD;
+&lt;/p></body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="__bSXMcUrEd6VlMAUqXPm5w" name="serviceEffectSpecification" visibility="private" association="__bSXMMUrEd6VlMAUqXPm5w">
@@ -2009,4 +2015,5 @@
   <Ecore:EPackage xmi:id="_vcVC4F8fEd6Z6s3h6yz7bw" base_Package="_pIqscF8fEd6Z6s3h6yz7bw"/>
   <Ecore:EPackage xmi:id="_pDvGYMUrEd6VlMAUqXPm5w" base_Package="_n2GOkMUrEd6VlMAUqXPm5w" packageName="loggerlink" basePackage="" prefix="loggerLink"/>
   <Ecore:EPackage xmi:id="_WZce0McKEd6VlMAUqXPm5w" base_Package="_PTww8FmuEd6DDpvRr99l1w" packageName="sourcecodedecorator" nsPrefix="sourcecodedecorator" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SourceCodeDecorator/1.0" basePackage="de.uka.ipd.sdq.pcm" prefix="SourceCodeDecorator"/>
+  <Default:Documentation xmi:id="_LitAgMeTEd6VlMAUqXPm5w" base_Comment="_Lij2kMeTEd6VlMAUqXPm5w"/>
 </xmi:XMI>
