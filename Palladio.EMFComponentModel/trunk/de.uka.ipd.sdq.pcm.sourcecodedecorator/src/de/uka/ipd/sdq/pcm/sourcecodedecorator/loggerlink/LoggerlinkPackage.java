@@ -68,7 +68,7 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getLoggingPositionIdLink()
 	 * @generated
 	 */
-	int LOGGING_POSITION_ID_LINK = 6;
+	int LOGGING_POSITION_ID_LINK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -358,6 +358,99 @@ public interface LoggerlinkPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BranchLoggingPositionLinkImpl <em>Branch Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BranchLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBranchLoggingPositionLink()
+	 * @generated
+	 */
+	int BRANCH_LOGGING_POSITION_LINK = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_LOGGING_POSITION_LINK__ID = OUTPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = OUTPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Linked Guarded Branch Transition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_LOGGING_POSITION_LINK__LINKED_GUARDED_BRANCH_TRANSITION = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Branch Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_LOGGING_POSITION_LINK_FEATURE_COUNT = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoopLoggingPositionLinkImpl <em>Loop Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoopLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getLoopLoggingPositionLink()
+	 * @generated
+	 */
+	int LOOP_LOGGING_POSITION_LINK = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_LOGGING_POSITION_LINK__ID = OUTPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = OUTPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Linked Loop Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_LOGGING_POSITION_LINK__LINKED_LOOP_ACTION = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Loop Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_LOGGING_POSITION_LINK_FEATURE_COUNT = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink <em>Before Return Value Logging Position Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,6 +553,48 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAfterExternalCallLoggingPositionLink_LinkedExternalCallAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink <em>Branch Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Branch Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink
+	 * @generated
+	 */
+	EClass getBranchLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink#getLinkedGuardedBranchTransition <em>Linked Guarded Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Linked Guarded Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink#getLinkedGuardedBranchTransition()
+	 * @see #getBranchLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getBranchLoggingPositionLink_LinkedGuardedBranchTransition();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink <em>Loop Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Loop Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink
+	 * @generated
+	 */
+	EClass getLoopLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink#getLinkedLoopAction <em>Linked Loop Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Linked Loop Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink#getLinkedLoopAction()
+	 * @see #getLoopLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getLoopLoggingPositionLink_LinkedLoopAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink <em>Logging Position Id Link</em>}'.
@@ -595,6 +730,42 @@ public interface LoggerlinkPackage extends EPackage {
 		 * @generated
 		 */
 		EReference AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION = eINSTANCE.getAfterExternalCallLoggingPositionLink_LinkedExternalCallAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BranchLoggingPositionLinkImpl <em>Branch Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BranchLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBranchLoggingPositionLink()
+		 * @generated
+		 */
+		EClass BRANCH_LOGGING_POSITION_LINK = eINSTANCE.getBranchLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Linked Guarded Branch Transition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BRANCH_LOGGING_POSITION_LINK__LINKED_GUARDED_BRANCH_TRANSITION = eINSTANCE.getBranchLoggingPositionLink_LinkedGuardedBranchTransition();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoopLoggingPositionLinkImpl <em>Loop Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoopLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getLoopLoggingPositionLink()
+		 * @generated
+		 */
+		EClass LOOP_LOGGING_POSITION_LINK = eINSTANCE.getLoopLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Linked Loop Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOOP_LOGGING_POSITION_LINK__LINKED_LOOP_ACTION = eINSTANCE.getLoopLoggingPositionLink_LinkedLoopAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl <em>Logging Position Id Link</em>}' class.

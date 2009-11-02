@@ -27,10 +27,12 @@ import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkPackageImpl;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.InputLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkFactory;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.OutputLoggingPositionLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
@@ -82,6 +84,18 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * @generated
 	 */
 	private EClass afterExternalCallLoggingPositionLinkEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass branchLoggingPositionLinkEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loopLoggingPositionLinkEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +280,42 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBranchLoggingPositionLink() {
+		return branchLoggingPositionLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBranchLoggingPositionLink_LinkedGuardedBranchTransition() {
+		return (EReference)branchLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLoopLoggingPositionLink() {
+		return loopLoggingPositionLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLoopLoggingPositionLink_LinkedLoopAction() {
+		return (EReference)loopLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLoggingPositionIdLink() {
 		return loggingPositionIdLinkEClass;
 	}
@@ -323,6 +373,12 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		afterExternalCallLoggingPositionLinkEClass = createEClass(AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK);
 		createEReference(afterExternalCallLoggingPositionLinkEClass, AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION);
 
+		branchLoggingPositionLinkEClass = createEClass(BRANCH_LOGGING_POSITION_LINK);
+		createEReference(branchLoggingPositionLinkEClass, BRANCH_LOGGING_POSITION_LINK__LINKED_GUARDED_BRANCH_TRANSITION);
+
+		loopLoggingPositionLinkEClass = createEClass(LOOP_LOGGING_POSITION_LINK);
+		createEReference(loopLoggingPositionLinkEClass, LOOP_LOGGING_POSITION_LINK__LINKED_LOOP_ACTION);
+
 		loggingPositionIdLinkEClass = createEClass(LOGGING_POSITION_ID_LINK);
 		createEAttribute(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID);
 	}
@@ -365,6 +421,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		methodCallLoggingPositionLinkEClass.getESuperTypes().add(this.getInputLoggingPositionLink());
 		inputLoggingPositionLinkEClass.getESuperTypes().add(this.getLoggingPositionIdLink());
 		afterExternalCallLoggingPositionLinkEClass.getESuperTypes().add(this.getInputLoggingPositionLink());
+		branchLoggingPositionLinkEClass.getESuperTypes().add(this.getOutputLoggingPositionLink());
+		loopLoggingPositionLinkEClass.getESuperTypes().add(this.getOutputLoggingPositionLink());
 		loggingPositionIdLinkEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 
 		// Initialize classes and features; add operations and parameters
@@ -383,6 +441,12 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 
 		initEClass(afterExternalCallLoggingPositionLinkEClass, AfterExternalCallLoggingPositionLink.class, "AfterExternalCallLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAfterExternalCallLoggingPositionLink_LinkedExternalCallAction(), theSeffPackage.getExternalCallAction(), null, "linkedExternalCallAction", null, 1, 1, AfterExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(branchLoggingPositionLinkEClass, BranchLoggingPositionLink.class, "BranchLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBranchLoggingPositionLink_LinkedGuardedBranchTransition(), theSeffPackage.getGuardedBranchTransition(), null, "linkedGuardedBranchTransition", null, 1, 1, BranchLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(loopLoggingPositionLinkEClass, LoopLoggingPositionLink.class, "LoopLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLoopLoggingPositionLink_LinkedLoopAction(), theSeffPackage.getLoopAction(), null, "linkedLoopAction", null, 1, 1, LoopLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loggingPositionIdLinkEClass, LoggingPositionIdLink.class, "LoggingPositionIdLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoggingPositionIdLink_LoggingPositionId(), ecorePackage.getEString(), "loggingPositionId", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

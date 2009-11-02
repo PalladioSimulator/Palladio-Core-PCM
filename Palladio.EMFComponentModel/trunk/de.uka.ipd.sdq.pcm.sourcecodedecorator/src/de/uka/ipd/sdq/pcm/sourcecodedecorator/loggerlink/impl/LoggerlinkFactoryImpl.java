@@ -65,6 +65,8 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK: return createBeforeExternalCallLoggingPositionLink();
 			case LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK: return createMethodCallLoggingPositionLink();
 			case LoggerlinkPackage.AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK: return createAfterExternalCallLoggingPositionLink();
+			case LoggerlinkPackage.BRANCH_LOGGING_POSITION_LINK: return createBranchLoggingPositionLink();
+			case LoggerlinkPackage.LOOP_LOGGING_POSITION_LINK: return createLoopLoggingPositionLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +110,26 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 	public AfterExternalCallLoggingPositionLink createAfterExternalCallLoggingPositionLink() {
 		AfterExternalCallLoggingPositionLinkImpl afterExternalCallLoggingPositionLink = new AfterExternalCallLoggingPositionLinkImpl();
 		return afterExternalCallLoggingPositionLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BranchLoggingPositionLink createBranchLoggingPositionLink() {
+		BranchLoggingPositionLinkImpl branchLoggingPositionLink = new BranchLoggingPositionLinkImpl();
+		return branchLoggingPositionLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LoopLoggingPositionLink createLoopLoggingPositionLink() {
+		LoopLoggingPositionLinkImpl loopLoggingPositionLink = new LoopLoggingPositionLinkImpl();
+		return loopLoggingPositionLink;
 	}
 
 	/**

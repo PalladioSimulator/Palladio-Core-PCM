@@ -62,6 +62,24 @@ public interface LoggerlinkFactory extends EFactory {
 	AfterExternalCallLoggingPositionLink createAfterExternalCallLoggingPositionLink();
 
 	/**
+	 * Returns a new object of class '<em>Branch Logging Position Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch Logging Position Link</em>'.
+	 * @generated
+	 */
+	BranchLoggingPositionLink createBranchLoggingPositionLink();
+
+	/**
+	 * Returns a new object of class '<em>Loop Logging Position Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop Logging Position Link</em>'.
+	 * @generated
+	 */
+	LoopLoggingPositionLink createLoopLoggingPositionLink();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

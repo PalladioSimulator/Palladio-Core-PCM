@@ -124,6 +124,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkedExternalCallAction"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchLoggingPositionLink" eSuperTypes="#//loggerlink/OutputLoggingPositionLink">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedGuardedBranchTransition"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/GuardedBranchTransition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopLoggingPositionLink" eSuperTypes="#//loggerlink/OutputLoggingPositionLink">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedLoopAction" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/LoopAction"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoggingPositionIdLink" abstract="true"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="loggingPositionId" ordered="false"

@@ -97,6 +97,14 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 				return createAfterExternalCallLoggingPositionLinkAdapter();
 			}
 			@Override
+			public Adapter caseBranchLoggingPositionLink(BranchLoggingPositionLink object) {
+				return createBranchLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseLoopLoggingPositionLink(LoopLoggingPositionLink object) {
+				return createLoopLoggingPositionLinkAdapter();
+			}
+			@Override
 			public Adapter caseLoggingPositionIdLink(LoggingPositionIdLink object) {
 				return createLoggingPositionIdLinkAdapter();
 			}
@@ -205,6 +213,34 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAfterExternalCallLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink <em>Branch Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createBranchLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink <em>Loop Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createLoopLoggingPositionLinkAdapter() {
 		return null;
 	}
 

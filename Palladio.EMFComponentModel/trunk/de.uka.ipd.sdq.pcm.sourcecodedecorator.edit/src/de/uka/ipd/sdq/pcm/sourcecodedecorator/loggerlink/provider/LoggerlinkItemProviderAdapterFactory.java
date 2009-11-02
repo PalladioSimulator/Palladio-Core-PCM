@@ -168,6 +168,52 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchLoggingPositionLinkItemProvider branchLoggingPositionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BranchLoggingPositionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBranchLoggingPositionLinkAdapter() {
+		if (branchLoggingPositionLinkItemProvider == null) {
+			branchLoggingPositionLinkItemProvider = new BranchLoggingPositionLinkItemProvider(this);
+		}
+
+		return branchLoggingPositionLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopLoggingPositionLinkItemProvider loopLoggingPositionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoopLoggingPositionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLoopLoggingPositionLinkAdapter() {
+		if (loopLoggingPositionLinkItemProvider == null) {
+			loopLoggingPositionLinkItemProvider = new LoopLoggingPositionLinkItemProvider(this);
+		}
+
+		return loopLoggingPositionLinkItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +316,8 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 		if (beforeExternalCallLoggingPositionLinkItemProvider != null) beforeExternalCallLoggingPositionLinkItemProvider.dispose();
 		if (methodCallLoggingPositionLinkItemProvider != null) methodCallLoggingPositionLinkItemProvider.dispose();
 		if (afterExternalCallLoggingPositionLinkItemProvider != null) afterExternalCallLoggingPositionLinkItemProvider.dispose();
+		if (branchLoggingPositionLinkItemProvider != null) branchLoggingPositionLinkItemProvider.dispose();
+		if (loopLoggingPositionLinkItemProvider != null) loopLoggingPositionLinkItemProvider.dispose();
 	}
 
 }

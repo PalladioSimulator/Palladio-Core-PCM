@@ -142,6 +142,24 @@ public class LoggerlinkSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LoggerlinkPackage.BRANCH_LOGGING_POSITION_LINK: {
+				BranchLoggingPositionLink branchLoggingPositionLink = (BranchLoggingPositionLink)theEObject;
+				T result = caseBranchLoggingPositionLink(branchLoggingPositionLink);
+				if (result == null) result = caseOutputLoggingPositionLink(branchLoggingPositionLink);
+				if (result == null) result = caseLoggingPositionIdLink(branchLoggingPositionLink);
+				if (result == null) result = caseIdentifier(branchLoggingPositionLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LoggerlinkPackage.LOOP_LOGGING_POSITION_LINK: {
+				LoopLoggingPositionLink loopLoggingPositionLink = (LoopLoggingPositionLink)theEObject;
+				T result = caseLoopLoggingPositionLink(loopLoggingPositionLink);
+				if (result == null) result = caseOutputLoggingPositionLink(loopLoggingPositionLink);
+				if (result == null) result = caseLoggingPositionIdLink(loopLoggingPositionLink);
+				if (result == null) result = caseIdentifier(loopLoggingPositionLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK: {
 				LoggingPositionIdLink loggingPositionIdLink = (LoggingPositionIdLink)theEObject;
 				T result = caseLoggingPositionIdLink(loggingPositionIdLink);
@@ -240,6 +258,36 @@ public class LoggerlinkSwitch<T> {
 	 * @generated
 	 */
 	public T caseAfterExternalCallLoggingPositionLink(AfterExternalCallLoggingPositionLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Branch Logging Position Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Branch Logging Position Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBranchLoggingPositionLink(BranchLoggingPositionLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Logging Position Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Logging Position Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoopLoggingPositionLink(LoopLoggingPositionLink object) {
 		return null;
 	}
 

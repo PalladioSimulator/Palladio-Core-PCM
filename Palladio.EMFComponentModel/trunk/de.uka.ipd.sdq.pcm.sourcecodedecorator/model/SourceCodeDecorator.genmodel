@@ -88,6 +88,14 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/linkedExternalCallAction"/>
       </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BranchLoggingPositionLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BranchLoggingPositionLink/linkedGuardedBranchTransition"/>
+      </genClasses>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoopLoggingPositionLink">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoopLoggingPositionLink/linkedLoopAction"/>
+      </genClasses>
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/loggingPositionId"/>
       </genClasses>

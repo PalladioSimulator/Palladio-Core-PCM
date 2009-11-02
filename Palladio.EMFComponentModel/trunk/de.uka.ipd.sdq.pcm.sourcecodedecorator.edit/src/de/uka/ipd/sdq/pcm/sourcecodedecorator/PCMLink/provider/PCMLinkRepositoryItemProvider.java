@@ -199,6 +199,16 @@ public class PCMLinkRepositoryItemProvider
 			(createChildParameter
 				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
 				 LoggerlinkFactory.eINSTANCE.createAfterExternalCallLoggingPositionLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				 LoggerlinkFactory.eINSTANCE.createBranchLoggingPositionLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				 LoggerlinkFactory.eINSTANCE.createLoopLoggingPositionLink()));
 	}
 
 	/**
