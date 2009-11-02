@@ -1937,7 +1937,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_vYJqz8UrEd6VlMAUqXPm5w"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_vYJqwcUrEd6VlMAUqXPm5w" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vYJqwsUrEd6VlMAUqXPm5w" x="4356" y="3960"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vYJqwsUrEd6VlMAUqXPm5w" x="5544" y="3960"/>
           </children>
           <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_uGywkcUrEd6VlMAUqXPm5w"/>
           <element xsi:nil="true"/>
@@ -1947,13 +1947,16 @@
         <ownedAttribute xmi:id="_1fwiMMUrEd6VlMAUqXPm5w" name="loggingPositionId" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_C8e1wMeMEd6VlMAUqXPm5w" name="isInputPosition" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedAttribute>
         <ownedAttribute xmi:id="__bSXMcUrEd6VlMAUqXPm5w" name="serviceEffectSpecification" visibility="private" association="__bSXMMUrEd6VlMAUqXPm5w">
-          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_1qN_0JJxEdqSSImFLKDkSg?pcm/seff/ServiceEffectSpecification?"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__bcIMcUrEd6VlMAUqXPm5w" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__bcIMMUrEd6VlMAUqXPm5w" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_AZRpccUsEd6VlMAUqXPm5w" name="abstractAction" visibility="private" association="_AZRpcMUsEd6VlMAUqXPm5w">
-          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg"/>
+          <type xmi:type="uml:Class" href="pcm.emx#_6qnlsODgEdq8ysXH3gTiEg?pcm/seff/AbstractAction?"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AZRpc8UsEd6VlMAUqXPm5w" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AZRpcsUsEd6VlMAUqXPm5w" value="1"/>
         </ownedAttribute>
