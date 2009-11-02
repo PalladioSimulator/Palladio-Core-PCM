@@ -16,8 +16,8 @@
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
-				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5">
+				trust="true">rt
+			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/">
 				<include name="*.txt" />
 			</fileset>
 	  	</scp>	
