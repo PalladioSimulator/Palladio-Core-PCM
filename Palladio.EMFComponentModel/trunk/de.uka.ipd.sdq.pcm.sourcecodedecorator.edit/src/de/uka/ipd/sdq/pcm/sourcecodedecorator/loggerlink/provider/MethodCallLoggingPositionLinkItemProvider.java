@@ -59,25 +59,25 @@ public class MethodCallLoggingPositionLinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceEffectSpecificationPropertyDescriptor(object);
+			addLinkedServiceEffectSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Service Effect Specification feature.
+	 * This adds a property descriptor for the Linked Service Effect Specification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addServiceEffectSpecificationPropertyDescriptor(Object object) {
+	protected void addLinkedServiceEffectSpecificationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MethodCallLoggingPositionLink_serviceEffectSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MethodCallLoggingPositionLink_serviceEffectSpecification_feature", "_UI_MethodCallLoggingPositionLink_type"),
-				 LoggerlinkPackage.Literals.METHOD_CALL_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION,
+				 getString("_UI_MethodCallLoggingPositionLink_linkedServiceEffectSpecification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MethodCallLoggingPositionLink_linkedServiceEffectSpecification_feature", "_UI_MethodCallLoggingPositionLink_type"),
+				 LoggerlinkPackage.Literals.METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION,
 				 true,
 				 false,
 				 true,

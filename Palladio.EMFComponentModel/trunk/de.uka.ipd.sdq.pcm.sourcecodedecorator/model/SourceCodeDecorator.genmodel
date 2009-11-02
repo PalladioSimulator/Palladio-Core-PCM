@@ -72,21 +72,21 @@
         resource="XML" disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#//loggerlink">
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink/serviceEffectSpecification"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink/linkedSetVariableAction"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/OutputLoggingPositionLink"/>
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink/abstractAction"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink/linkedExternalCallAction"/>
       </genClasses>
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink/serviceEffectSpecification"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink/linkedServiceEffectSpecification"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/InputLoggingPositionLink"/>
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/abstractAction"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/linkedExternalCallAction"/>
       </genClasses>
       <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/loggingPositionId"/>

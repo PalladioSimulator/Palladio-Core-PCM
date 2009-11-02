@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink;
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl#getAbstractAction <em>Abstract Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl#getLinkedExternalCallAction <em>Linked External Call Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,15 +34,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPositionLinkImpl implements BeforeExternalCallLoggingPositionLink {
 	/**
-	 * The cached value of the '{@link #getAbstractAction() <em>Abstract Action</em>}' reference.
+	 * The cached value of the '{@link #getLinkedExternalCallAction() <em>Linked External Call Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractAction()
+	 * @see #getLinkedExternalCallAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractAction abstractAction;
-
+	protected ExternalCallAction linkedExternalCallAction;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,16 +66,16 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractAction getAbstractAction() {
-		if (abstractAction != null && abstractAction.eIsProxy()) {
-			InternalEObject oldAbstractAction = (InternalEObject)abstractAction;
-			abstractAction = (AbstractAction)eResolveProxy(oldAbstractAction);
-			if (abstractAction != oldAbstractAction) {
+	public ExternalCallAction getLinkedExternalCallAction() {
+		if (linkedExternalCallAction != null && linkedExternalCallAction.eIsProxy()) {
+			InternalEObject oldLinkedExternalCallAction = (InternalEObject)linkedExternalCallAction;
+			linkedExternalCallAction = (ExternalCallAction)eResolveProxy(oldLinkedExternalCallAction);
+			if (linkedExternalCallAction != oldLinkedExternalCallAction) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION, oldLinkedExternalCallAction, linkedExternalCallAction));
 			}
 		}
-		return abstractAction;
+		return linkedExternalCallAction;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractAction basicGetAbstractAction() {
-		return abstractAction;
+	public ExternalCallAction basicGetLinkedExternalCallAction() {
+		return linkedExternalCallAction;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbstractAction(AbstractAction newAbstractAction) {
-		AbstractAction oldAbstractAction = abstractAction;
-		abstractAction = newAbstractAction;
+	public void setLinkedExternalCallAction(ExternalCallAction newLinkedExternalCallAction) {
+		ExternalCallAction oldLinkedExternalCallAction = linkedExternalCallAction;
+		linkedExternalCallAction = newLinkedExternalCallAction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION, oldLinkedExternalCallAction, linkedExternalCallAction));
 	}
 
 	/**
@@ -107,9 +107,9 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION:
-				if (resolve) return getAbstractAction();
-				return basicGetAbstractAction();
+			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION:
+				if (resolve) return getLinkedExternalCallAction();
+				return basicGetLinkedExternalCallAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,8 +122,8 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION:
-				setAbstractAction((AbstractAction)newValue);
+			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION:
+				setLinkedExternalCallAction((ExternalCallAction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION:
-				setAbstractAction((AbstractAction)null);
+			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION:
+				setLinkedExternalCallAction((ExternalCallAction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class BeforeExternalCallLoggingPositionLinkImpl extends OutputLoggingPosi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION:
-				return abstractAction != null;
+			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION:
+				return linkedExternalCallAction != null;
 		}
 		return super.eIsSet(featureID);
 	}

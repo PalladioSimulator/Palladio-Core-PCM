@@ -103,26 +103,26 @@
       nsPrefix="SourceCodeDecorator.loggerLink">
     <eClassifiers xsi:type="ecore:EClass" name="BeforeReturnValueLoggingPositionLink"
         eSuperTypes="#//loggerlink/OutputLoggingPositionLink">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecification"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedSetVariableAction"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/SetVariableAction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OutputLoggingPositionLink" abstract="true"
         eSuperTypes="#//loggerlink/LoggingPositionIdLink"/>
     <eClassifiers xsi:type="ecore:EClass" name="BeforeExternalCallLoggingPositionLink"
         eSuperTypes="#//loggerlink/OutputLoggingPositionLink">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="abstractAction" ordered="false"
-          lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedExternalCallAction"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MethodCallLoggingPositionLink" eSuperTypes="#//loggerlink/InputLoggingPositionLink">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecification"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedServiceEffectSpecification"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InputLoggingPositionLink" abstract="true"
         eSuperTypes="#//loggerlink/LoggingPositionIdLink"/>
     <eClassifiers xsi:type="ecore:EClass" name="AfterExternalCallLoggingPositionLink"
         eSuperTypes="#//loggerlink/InputLoggingPositionLink">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="abstractAction" ordered="false"
-          lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkedExternalCallAction"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoggingPositionIdLink" abstract="true"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">

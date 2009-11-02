@@ -185,7 +185,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBeforeReturnValueLoggingPositionLink_ServiceEffectSpecification() {
+	public EReference getBeforeReturnValueLoggingPositionLink_LinkedSetVariableAction() {
 		return (EReference)beforeReturnValueLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -212,7 +212,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBeforeExternalCallLoggingPositionLink_AbstractAction() {
+	public EReference getBeforeExternalCallLoggingPositionLink_LinkedExternalCallAction() {
 		return (EReference)beforeExternalCallLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -230,7 +230,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethodCallLoggingPositionLink_ServiceEffectSpecification() {
+	public EReference getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification() {
 		return (EReference)methodCallLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -257,7 +257,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAfterExternalCallLoggingPositionLink_AbstractAction() {
+	public EReference getAfterExternalCallLoggingPositionLink_LinkedExternalCallAction() {
 		return (EReference)afterExternalCallLoggingPositionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -308,20 +308,20 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 
 		// Create classes and their features
 		beforeReturnValueLoggingPositionLinkEClass = createEClass(BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK);
-		createEReference(beforeReturnValueLoggingPositionLinkEClass, BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION);
+		createEReference(beforeReturnValueLoggingPositionLinkEClass, BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION);
 
 		outputLoggingPositionLinkEClass = createEClass(OUTPUT_LOGGING_POSITION_LINK);
 
 		beforeExternalCallLoggingPositionLinkEClass = createEClass(BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK);
-		createEReference(beforeExternalCallLoggingPositionLinkEClass, BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION);
+		createEReference(beforeExternalCallLoggingPositionLinkEClass, BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION);
 
 		methodCallLoggingPositionLinkEClass = createEClass(METHOD_CALL_LOGGING_POSITION_LINK);
-		createEReference(methodCallLoggingPositionLinkEClass, METHOD_CALL_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION);
+		createEReference(methodCallLoggingPositionLinkEClass, METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION);
 
 		inputLoggingPositionLinkEClass = createEClass(INPUT_LOGGING_POSITION_LINK);
 
 		afterExternalCallLoggingPositionLinkEClass = createEClass(AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK);
-		createEReference(afterExternalCallLoggingPositionLinkEClass, AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION);
+		createEReference(afterExternalCallLoggingPositionLinkEClass, AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION);
 
 		loggingPositionIdLinkEClass = createEClass(LOGGING_POSITION_ID_LINK);
 		createEAttribute(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID);
@@ -369,20 +369,20 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(beforeReturnValueLoggingPositionLinkEClass, BeforeReturnValueLoggingPositionLink.class, "BeforeReturnValueLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBeforeReturnValueLoggingPositionLink_ServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecification", null, 1, 1, BeforeReturnValueLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBeforeReturnValueLoggingPositionLink_LinkedSetVariableAction(), theSeffPackage.getSetVariableAction(), null, "linkedSetVariableAction", null, 1, 1, BeforeReturnValueLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(outputLoggingPositionLinkEClass, OutputLoggingPositionLink.class, "OutputLoggingPositionLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(beforeExternalCallLoggingPositionLinkEClass, BeforeExternalCallLoggingPositionLink.class, "BeforeExternalCallLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBeforeExternalCallLoggingPositionLink_AbstractAction(), theSeffPackage.getAbstractAction(), null, "abstractAction", null, 1, 1, BeforeExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBeforeExternalCallLoggingPositionLink_LinkedExternalCallAction(), theSeffPackage.getExternalCallAction(), null, "linkedExternalCallAction", null, 1, 1, BeforeExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(methodCallLoggingPositionLinkEClass, MethodCallLoggingPositionLink.class, "MethodCallLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethodCallLoggingPositionLink_ServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecification", null, 1, 1, MethodCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "linkedServiceEffectSpecification", null, 1, 1, MethodCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(inputLoggingPositionLinkEClass, InputLoggingPositionLink.class, "InputLoggingPositionLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(afterExternalCallLoggingPositionLinkEClass, AfterExternalCallLoggingPositionLink.class, "AfterExternalCallLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAfterExternalCallLoggingPositionLink_AbstractAction(), theSeffPackage.getAbstractAction(), null, "abstractAction", null, 1, 1, AfterExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAfterExternalCallLoggingPositionLink_LinkedExternalCallAction(), theSeffPackage.getExternalCallAction(), null, "linkedExternalCallAction", null, 1, 1, AfterExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loggingPositionIdLinkEClass, LoggingPositionIdLink.class, "LoggingPositionIdLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoggingPositionIdLink_LoggingPositionId(), ecorePackage.getEString(), "loggingPositionId", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

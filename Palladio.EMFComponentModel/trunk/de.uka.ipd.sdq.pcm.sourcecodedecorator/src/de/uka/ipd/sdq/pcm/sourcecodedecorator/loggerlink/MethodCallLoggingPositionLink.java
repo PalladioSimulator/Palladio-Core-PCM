@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getLinkedServiceEffectSpecification <em>Linked Service Effect Specification</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,29 +26,29 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  */
 public interface MethodCallLoggingPositionLink extends InputLoggingPositionLink {
 	/**
-	 * Returns the value of the '<em><b>Service Effect Specification</b></em>' reference.
+	 * Returns the value of the '<em><b>Linked Service Effect Specification</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Effect Specification</em>' reference isn't clear,
+	 * If the meaning of the '<em>Linked Service Effect Specification</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Effect Specification</em>' reference.
-	 * @see #setServiceEffectSpecification(ServiceEffectSpecification)
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getMethodCallLoggingPositionLink_ServiceEffectSpecification()
+	 * @return the value of the '<em>Linked Service Effect Specification</em>' reference.
+	 * @see #setLinkedServiceEffectSpecification(ServiceEffectSpecification)
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ServiceEffectSpecification getServiceEffectSpecification();
+	ServiceEffectSpecification getLinkedServiceEffectSpecification();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getServiceEffectSpecification <em>Service Effect Specification</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getLinkedServiceEffectSpecification <em>Linked Service Effect Specification</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Effect Specification</em>' reference.
-	 * @see #getServiceEffectSpecification()
+	 * @param value the new value of the '<em>Linked Service Effect Specification</em>' reference.
+	 * @see #getLinkedServiceEffectSpecification()
 	 * @generated
 	 */
-	void setServiceEffectSpecification(ServiceEffectSpecification value);
+	void setLinkedServiceEffectSpecification(ServiceEffectSpecification value);
 
 } // MethodCallLoggingPositionLink

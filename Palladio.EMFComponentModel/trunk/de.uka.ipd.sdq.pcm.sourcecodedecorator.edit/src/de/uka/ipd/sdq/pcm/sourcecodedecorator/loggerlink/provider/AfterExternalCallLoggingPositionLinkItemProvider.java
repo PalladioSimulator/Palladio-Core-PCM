@@ -59,25 +59,25 @@ public class AfterExternalCallLoggingPositionLinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAbstractActionPropertyDescriptor(object);
+			addLinkedExternalCallActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Abstract Action feature.
+	 * This adds a property descriptor for the Linked External Call Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAbstractActionPropertyDescriptor(Object object) {
+	protected void addLinkedExternalCallActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AfterExternalCallLoggingPositionLink_abstractAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AfterExternalCallLoggingPositionLink_abstractAction_feature", "_UI_AfterExternalCallLoggingPositionLink_type"),
-				 LoggerlinkPackage.Literals.AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION,
+				 getString("_UI_AfterExternalCallLoggingPositionLink_linkedExternalCallAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AfterExternalCallLoggingPositionLink_linkedExternalCallAction_feature", "_UI_AfterExternalCallLoggingPositionLink_type"),
+				 LoggerlinkPackage.Literals.AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__LINKED_EXTERNAL_CALL_ACTION,
 				 true,
 				 false,
 				 true,

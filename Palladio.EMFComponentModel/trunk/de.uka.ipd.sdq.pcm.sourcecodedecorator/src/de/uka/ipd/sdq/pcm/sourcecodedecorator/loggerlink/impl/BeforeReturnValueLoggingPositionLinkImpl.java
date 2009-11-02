@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink;
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl#getLinkedSetVariableAction <em>Linked Set Variable Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,15 +34,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPositionLinkImpl implements BeforeReturnValueLoggingPositionLink {
 	/**
-	 * The cached value of the '{@link #getServiceEffectSpecification() <em>Service Effect Specification</em>}' reference.
+	 * The cached value of the '{@link #getLinkedSetVariableAction() <em>Linked Set Variable Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceEffectSpecification()
+	 * @see #getLinkedSetVariableAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected ServiceEffectSpecification serviceEffectSpecification;
-
+	protected SetVariableAction linkedSetVariableAction;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,16 +66,16 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceEffectSpecification getServiceEffectSpecification() {
-		if (serviceEffectSpecification != null && serviceEffectSpecification.eIsProxy()) {
-			InternalEObject oldServiceEffectSpecification = (InternalEObject)serviceEffectSpecification;
-			serviceEffectSpecification = (ServiceEffectSpecification)eResolveProxy(oldServiceEffectSpecification);
-			if (serviceEffectSpecification != oldServiceEffectSpecification) {
+	public SetVariableAction getLinkedSetVariableAction() {
+		if (linkedSetVariableAction != null && linkedSetVariableAction.eIsProxy()) {
+			InternalEObject oldLinkedSetVariableAction = (InternalEObject)linkedSetVariableAction;
+			linkedSetVariableAction = (SetVariableAction)eResolveProxy(oldLinkedSetVariableAction);
+			if (linkedSetVariableAction != oldLinkedSetVariableAction) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION, oldLinkedSetVariableAction, linkedSetVariableAction));
 			}
 		}
-		return serviceEffectSpecification;
+		return linkedSetVariableAction;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceEffectSpecification basicGetServiceEffectSpecification() {
-		return serviceEffectSpecification;
+	public SetVariableAction basicGetLinkedSetVariableAction() {
+		return linkedSetVariableAction;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceEffectSpecification(ServiceEffectSpecification newServiceEffectSpecification) {
-		ServiceEffectSpecification oldServiceEffectSpecification = serviceEffectSpecification;
-		serviceEffectSpecification = newServiceEffectSpecification;
+	public void setLinkedSetVariableAction(SetVariableAction newLinkedSetVariableAction) {
+		SetVariableAction oldLinkedSetVariableAction = linkedSetVariableAction;
+		linkedSetVariableAction = newLinkedSetVariableAction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION, oldLinkedSetVariableAction, linkedSetVariableAction));
 	}
 
 	/**
@@ -107,9 +107,9 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION:
-				if (resolve) return getServiceEffectSpecification();
-				return basicGetServiceEffectSpecification();
+			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION:
+				if (resolve) return getLinkedSetVariableAction();
+				return basicGetLinkedSetVariableAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,8 +122,8 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION:
-				setServiceEffectSpecification((ServiceEffectSpecification)newValue);
+			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION:
+				setLinkedSetVariableAction((SetVariableAction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION:
-				setServiceEffectSpecification((ServiceEffectSpecification)null);
+			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION:
+				setLinkedSetVariableAction((SetVariableAction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class BeforeReturnValueLoggingPositionLinkImpl extends OutputLoggingPosit
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION:
-				return serviceEffectSpecification != null;
+			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LINKED_SET_VARIABLE_ACTION:
+				return linkedSetVariableAction != null;
 		}
 		return super.eIsSet(featureID);
 	}
