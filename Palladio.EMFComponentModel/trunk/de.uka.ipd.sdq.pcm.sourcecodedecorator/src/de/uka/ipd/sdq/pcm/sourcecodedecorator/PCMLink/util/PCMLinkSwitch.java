@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.*;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ActionControlFlowLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;

@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
@@ -20,17 +21,14 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getLoggingPositionId <em>Logging Position Id</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#isIsInputPosition <em>Is Input Position</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getAbstractAction <em>Abstract Action</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getLoggingPositionIdLink()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface LoggingPositionIdLink extends EObject {
+public interface LoggingPositionIdLink extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Logging Position Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,85 +54,5 @@ public interface LoggingPositionIdLink extends EObject {
 	 * @generated
 	 */
 	void setLoggingPositionId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Input Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * <p>
-	 *     If set to true it is a input position (method call of a provided call).
-	 *     If&nbsp;set&nbsp;to&nbsp;false&nbsp;it&nbsp;is&nbsp;a&nbsp;output&nbsp;position&nbsp;(external&nbsp;call&nbsp;or&nbsp;return).
-	 * </p>
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Is Input Position</em>' attribute.
-	 * @see #setIsInputPosition(boolean)
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getLoggingPositionIdLink_IsInputPosition()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	boolean isIsInputPosition();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#isIsInputPosition <em>Is Input Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Input Position</em>' attribute.
-	 * @see #isIsInputPosition()
-	 * @generated
-	 */
-	void setIsInputPosition(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Service Effect Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Effect Specification</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Effect Specification</em>' reference.
-	 * @see #setServiceEffectSpecification(ServiceEffectSpecification)
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getLoggingPositionIdLink_ServiceEffectSpecification()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	ServiceEffectSpecification getServiceEffectSpecification();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getServiceEffectSpecification <em>Service Effect Specification</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Effect Specification</em>' reference.
-	 * @see #getServiceEffectSpecification()
-	 * @generated
-	 */
-	void setServiceEffectSpecification(ServiceEffectSpecification value);
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract Action</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Action</em>' reference.
-	 * @see #setAbstractAction(AbstractAction)
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getLoggingPositionIdLink_AbstractAction()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	AbstractAction getAbstractAction();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getAbstractAction <em>Abstract Action</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Abstract Action</em>' reference.
-	 * @see #getAbstractAction()
-	 * @generated
-	 */
-	void setAbstractAction(AbstractAction value);
 
 } // LoggingPositionIdLink

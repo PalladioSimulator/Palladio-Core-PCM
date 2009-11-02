@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.*;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlow;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlowLevelSourceCodeLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;

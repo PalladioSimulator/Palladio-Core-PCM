@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -67,7 +68,16 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getLoggingPositionIdLink()
 	 * @generated
 	 */
-	int LOGGING_POSITION_ID_LINK = 0;
+	int LOGGING_POSITION_ID_LINK = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGGING_POSITION_ID_LINK__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
@@ -76,34 +86,7 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Is Input Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Service Effect Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION = 3;
+	int LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Logging Position Id Link</em>' class.
@@ -112,8 +95,371 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOGGING_POSITION_ID_LINK_FEATURE_COUNT = 4;
+	int LOGGING_POSITION_ID_LINK_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.OutputLoggingPositionLinkImpl <em>Output Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.OutputLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getOutputLoggingPositionLink()
+	 * @generated
+	 */
+	int OUTPUT_LOGGING_POSITION_LINK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_LOGGING_POSITION_LINK__ID = LOGGING_POSITION_ID_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The number of structural features of the '<em>Output Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT = LOGGING_POSITION_ID_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl <em>Before Return Value Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBeforeReturnValueLoggingPositionLink()
+	 * @generated
+	 */
+	int BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__ID = OUTPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = OUTPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Service Effect Specification</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Before Return Value Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK_FEATURE_COUNT = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl <em>Before External Call Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBeforeExternalCallLoggingPositionLink()
+	 * @generated
+	 */
+	int BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ID = OUTPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = OUTPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Before External Call Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK_FEATURE_COUNT = OUTPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.InputLoggingPositionLinkImpl <em>Input Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.InputLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getInputLoggingPositionLink()
+	 * @generated
+	 */
+	int INPUT_LOGGING_POSITION_LINK = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_LOGGING_POSITION_LINK__ID = LOGGING_POSITION_ID_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The number of structural features of the '<em>Input Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_LOGGING_POSITION_LINK_FEATURE_COUNT = LOGGING_POSITION_ID_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.MethodCallLoggingPositionLinkImpl <em>Method Call Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.MethodCallLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getMethodCallLoggingPositionLink()
+	 * @generated
+	 */
+	int METHOD_CALL_LOGGING_POSITION_LINK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_LOGGING_POSITION_LINK__ID = INPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = INPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Service Effect Specification</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION = INPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Method Call Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_LOGGING_POSITION_LINK_FEATURE_COUNT = INPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.AfterExternalCallLoggingPositionLinkImpl <em>After External Call Logging Position Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.AfterExternalCallLoggingPositionLinkImpl
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getAfterExternalCallLoggingPositionLink()
+	 * @generated
+	 */
+	int AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__ID = INPUT_LOGGING_POSITION_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Logging Position Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__LOGGING_POSITION_ID = INPUT_LOGGING_POSITION_LINK__LOGGING_POSITION_ID;
+
+	/**
+	 * The feature id for the '<em><b>Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION = INPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>After External Call Logging Position Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK_FEATURE_COUNT = INPUT_LOGGING_POSITION_LINK_FEATURE_COUNT + 1;
+
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink <em>Before Return Value Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Before Return Value Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink
+	 * @generated
+	 */
+	EClass getBeforeReturnValueLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink#getServiceEffectSpecification <em>Service Effect Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service Effect Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink#getServiceEffectSpecification()
+	 * @see #getBeforeReturnValueLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getBeforeReturnValueLoggingPositionLink_ServiceEffectSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.OutputLoggingPositionLink <em>Output Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.OutputLoggingPositionLink
+	 * @generated
+	 */
+	EClass getOutputLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink <em>Before External Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Before External Call Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink
+	 * @generated
+	 */
+	EClass getBeforeExternalCallLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink#getAbstractAction <em>Abstract Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Abstract Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink#getAbstractAction()
+	 * @see #getBeforeExternalCallLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getBeforeExternalCallLoggingPositionLink_AbstractAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink <em>Method Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Call Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink
+	 * @generated
+	 */
+	EClass getMethodCallLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getServiceEffectSpecification <em>Service Effect Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service Effect Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getServiceEffectSpecification()
+	 * @see #getMethodCallLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getMethodCallLoggingPositionLink_ServiceEffectSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.InputLoggingPositionLink <em>Input Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.InputLoggingPositionLink
+	 * @generated
+	 */
+	EClass getInputLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink <em>After External Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>After External Call Logging Position Link</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink
+	 * @generated
+	 */
+	EClass getAfterExternalCallLoggingPositionLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink#getAbstractAction <em>Abstract Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Abstract Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink#getAbstractAction()
+	 * @see #getAfterExternalCallLoggingPositionLink()
+	 * @generated
+	 */
+	EReference getAfterExternalCallLoggingPositionLink_AbstractAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink <em>Logging Position Id Link</em>}'.
@@ -135,39 +481,6 @@ public interface LoggerlinkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLoggingPositionIdLink_LoggingPositionId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#isIsInputPosition <em>Is Input Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Input Position</em>'.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#isIsInputPosition()
-	 * @see #getLoggingPositionIdLink()
-	 * @generated
-	 */
-	EAttribute getLoggingPositionIdLink_IsInputPosition();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getServiceEffectSpecification <em>Service Effect Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Service Effect Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getServiceEffectSpecification()
-	 * @see #getLoggingPositionIdLink()
-	 * @generated
-	 */
-	EReference getLoggingPositionIdLink_ServiceEffectSpecification();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getAbstractAction <em>Abstract Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Abstract Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink#getAbstractAction()
-	 * @see #getLoggingPositionIdLink()
-	 * @generated
-	 */
-	EReference getLoggingPositionIdLink_AbstractAction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -192,6 +505,98 @@ public interface LoggerlinkPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl <em>Before Return Value Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeReturnValueLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBeforeReturnValueLoggingPositionLink()
+		 * @generated
+		 */
+		EClass BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK = eINSTANCE.getBeforeReturnValueLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Effect Specification</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getBeforeReturnValueLoggingPositionLink_ServiceEffectSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.OutputLoggingPositionLinkImpl <em>Output Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.OutputLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getOutputLoggingPositionLink()
+		 * @generated
+		 */
+		EClass OUTPUT_LOGGING_POSITION_LINK = eINSTANCE.getOutputLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl <em>Before External Call Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.BeforeExternalCallLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getBeforeExternalCallLoggingPositionLink()
+		 * @generated
+		 */
+		EClass BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK = eINSTANCE.getBeforeExternalCallLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION = eINSTANCE.getBeforeExternalCallLoggingPositionLink_AbstractAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.MethodCallLoggingPositionLinkImpl <em>Method Call Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.MethodCallLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getMethodCallLoggingPositionLink()
+		 * @generated
+		 */
+		EClass METHOD_CALL_LOGGING_POSITION_LINK = eINSTANCE.getMethodCallLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Effect Specification</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_CALL_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getMethodCallLoggingPositionLink_ServiceEffectSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.InputLoggingPositionLinkImpl <em>Input Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.InputLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getInputLoggingPositionLink()
+		 * @generated
+		 */
+		EClass INPUT_LOGGING_POSITION_LINK = eINSTANCE.getInputLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.AfterExternalCallLoggingPositionLinkImpl <em>After External Call Logging Position Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.AfterExternalCallLoggingPositionLinkImpl
+		 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl#getAfterExternalCallLoggingPositionLink()
+		 * @generated
+		 */
+		EClass AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK = eINSTANCE.getAfterExternalCallLoggingPositionLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK__ABSTRACT_ACTION = eINSTANCE.getAfterExternalCallLoggingPositionLink_AbstractAction();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl <em>Logging Position Id Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -208,30 +613,6 @@ public interface LoggerlinkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID = eINSTANCE.getLoggingPositionIdLink_LoggingPositionId();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Input Position</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION = eINSTANCE.getLoggingPositionIdLink_IsInputPosition();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Effect Specification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getLoggingPositionIdLink_ServiceEffectSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Action</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION = eINSTANCE.getLoggingPositionIdLink_AbstractAction();
 
 	}
 

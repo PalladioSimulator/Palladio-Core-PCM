@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.util;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -71,8 +73,36 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 	protected LoggerlinkSwitch<Adapter> modelSwitch =
 		new LoggerlinkSwitch<Adapter>() {
 			@Override
+			public Adapter caseBeforeReturnValueLoggingPositionLink(BeforeReturnValueLoggingPositionLink object) {
+				return createBeforeReturnValueLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseOutputLoggingPositionLink(OutputLoggingPositionLink object) {
+				return createOutputLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseBeforeExternalCallLoggingPositionLink(BeforeExternalCallLoggingPositionLink object) {
+				return createBeforeExternalCallLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseMethodCallLoggingPositionLink(MethodCallLoggingPositionLink object) {
+				return createMethodCallLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseInputLoggingPositionLink(InputLoggingPositionLink object) {
+				return createInputLoggingPositionLinkAdapter();
+			}
+			@Override
+			public Adapter caseAfterExternalCallLoggingPositionLink(AfterExternalCallLoggingPositionLink object) {
+				return createAfterExternalCallLoggingPositionLinkAdapter();
+			}
+			@Override
 			public Adapter caseLoggingPositionIdLink(LoggingPositionIdLink object) {
 				return createLoggingPositionIdLinkAdapter();
+			}
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -95,6 +125,90 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink <em>Before Return Value Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createBeforeReturnValueLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.OutputLoggingPositionLink <em>Output Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.OutputLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createOutputLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink <em>Before External Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createBeforeExternalCallLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink <em>Method Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createMethodCallLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.InputLoggingPositionLink <em>Input Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.InputLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createInputLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink <em>After External Call Logging Position Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink
+	 * @generated
+	 */
+	public Adapter createAfterExternalCallLoggingPositionLinkAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink <em>Logging Position Id Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -105,6 +219,20 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoggingPositionIdLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
 		return null;
 	}
 

@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -60,7 +61,10 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK: return createLoggingPositionIdLink();
+			case LoggerlinkPackage.BEFORE_RETURN_VALUE_LOGGING_POSITION_LINK: return createBeforeReturnValueLoggingPositionLink();
+			case LoggerlinkPackage.BEFORE_EXTERNAL_CALL_LOGGING_POSITION_LINK: return createBeforeExternalCallLoggingPositionLink();
+			case LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK: return createMethodCallLoggingPositionLink();
+			case LoggerlinkPackage.AFTER_EXTERNAL_CALL_LOGGING_POSITION_LINK: return createAfterExternalCallLoggingPositionLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,9 +75,39 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoggingPositionIdLink createLoggingPositionIdLink() {
-		LoggingPositionIdLinkImpl loggingPositionIdLink = new LoggingPositionIdLinkImpl();
-		return loggingPositionIdLink;
+	public BeforeReturnValueLoggingPositionLink createBeforeReturnValueLoggingPositionLink() {
+		BeforeReturnValueLoggingPositionLinkImpl beforeReturnValueLoggingPositionLink = new BeforeReturnValueLoggingPositionLinkImpl();
+		return beforeReturnValueLoggingPositionLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BeforeExternalCallLoggingPositionLink createBeforeExternalCallLoggingPositionLink() {
+		BeforeExternalCallLoggingPositionLinkImpl beforeExternalCallLoggingPositionLink = new BeforeExternalCallLoggingPositionLinkImpl();
+		return beforeExternalCallLoggingPositionLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodCallLoggingPositionLink createMethodCallLoggingPositionLink() {
+		MethodCallLoggingPositionLinkImpl methodCallLoggingPositionLink = new MethodCallLoggingPositionLinkImpl();
+		return methodCallLoggingPositionLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AfterExternalCallLoggingPositionLink createAfterExternalCallLoggingPositionLink() {
+		AfterExternalCallLoggingPositionLinkImpl afterExternalCallLoggingPositionLink = new AfterExternalCallLoggingPositionLinkImpl();
+		return afterExternalCallLoggingPositionLink;
 	}
 
 	/**

@@ -7,19 +7,14 @@
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.provider;
 
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.provider.SourceCodeDecoratorEditPlugin;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -28,18 +23,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoggingPositionIdLinkItemProvider
-	extends IdentifierItemProvider
+public class MethodCallLoggingPositionLinkItemProvider
+	extends InputLoggingPositionLinkItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -52,7 +44,7 @@ public class LoggingPositionIdLinkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoggingPositionIdLinkItemProvider(AdapterFactory adapterFactory) {
+	public MethodCallLoggingPositionLinkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,42 +59,42 @@ public class LoggingPositionIdLinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLoggingPositionIdPropertyDescriptor(object);
+			addServiceEffectSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Logging Position Id feature.
+	 * This adds a property descriptor for the Service Effect Specification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLoggingPositionIdPropertyDescriptor(Object object) {
+	protected void addServiceEffectSpecificationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoggingPositionIdLink_loggingPositionId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionIdLink_loggingPositionId_feature", "_UI_LoggingPositionIdLink_type"),
-				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID,
+				 getString("_UI_MethodCallLoggingPositionLink_serviceEffectSpecification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MethodCallLoggingPositionLink_serviceEffectSpecification_feature", "_UI_MethodCallLoggingPositionLink_type"),
+				 LoggerlinkPackage.Literals.METHOD_CALL_LOGGING_POSITION_LINK__SERVICE_EFFECT_SPECIFICATION,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns LoggingPositionIdLink.gif.
+	 * This returns MethodCallLoggingPositionLink.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoggingPositionIdLink"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MethodCallLoggingPositionLink"));
 	}
 
 	/**
@@ -113,10 +105,10 @@ public class LoggingPositionIdLinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LoggingPositionIdLink)object).getId();
+		String label = ((MethodCallLoggingPositionLink)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_LoggingPositionIdLink_type") :
-			getString("_UI_LoggingPositionIdLink_type") + " " + label;
+			getString("_UI_MethodCallLoggingPositionLink_type") :
+			getString("_UI_MethodCallLoggingPositionLink_type") + " " + label;
 	}
 
 	/**
@@ -129,12 +121,6 @@ public class LoggingPositionIdLinkItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(LoggingPositionIdLink.class)) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -148,17 +134,6 @@ public class LoggingPositionIdLinkItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SourceCodeDecoratorEditPlugin.INSTANCE;
 	}
 
 }

@@ -76,26 +76,95 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LoggingPositionIdLinkItemProvider loggingPositionIdLinkItemProvider;
+	protected BeforeReturnValueLoggingPositionLinkItemProvider beforeReturnValueLoggingPositionLinkItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeReturnValueLoggingPositionLink}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLoggingPositionIdLinkAdapter() {
-		if (loggingPositionIdLinkItemProvider == null) {
-			loggingPositionIdLinkItemProvider = new LoggingPositionIdLinkItemProvider(this);
+	public Adapter createBeforeReturnValueLoggingPositionLinkAdapter() {
+		if (beforeReturnValueLoggingPositionLinkItemProvider == null) {
+			beforeReturnValueLoggingPositionLinkItemProvider = new BeforeReturnValueLoggingPositionLinkItemProvider(this);
 		}
 
-		return loggingPositionIdLinkItemProvider;
+		return beforeReturnValueLoggingPositionLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeforeExternalCallLoggingPositionLinkItemProvider beforeExternalCallLoggingPositionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.BeforeExternalCallLoggingPositionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeforeExternalCallLoggingPositionLinkAdapter() {
+		if (beforeExternalCallLoggingPositionLinkItemProvider == null) {
+			beforeExternalCallLoggingPositionLinkItemProvider = new BeforeExternalCallLoggingPositionLinkItemProvider(this);
+		}
+
+		return beforeExternalCallLoggingPositionLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodCallLoggingPositionLinkItemProvider methodCallLoggingPositionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodCallLoggingPositionLinkAdapter() {
+		if (methodCallLoggingPositionLinkItemProvider == null) {
+			methodCallLoggingPositionLinkItemProvider = new MethodCallLoggingPositionLinkItemProvider(this);
+		}
+
+		return methodCallLoggingPositionLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AfterExternalCallLoggingPositionLinkItemProvider afterExternalCallLoggingPositionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.AfterExternalCallLoggingPositionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAfterExternalCallLoggingPositionLinkAdapter() {
+		if (afterExternalCallLoggingPositionLinkItemProvider == null) {
+			afterExternalCallLoggingPositionLinkItemProvider = new AfterExternalCallLoggingPositionLinkItemProvider(this);
+		}
+
+		return afterExternalCallLoggingPositionLinkItemProvider;
 	}
 
 	/**
@@ -197,7 +266,10 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (loggingPositionIdLinkItemProvider != null) loggingPositionIdLinkItemProvider.dispose();
+		if (beforeReturnValueLoggingPositionLinkItemProvider != null) beforeReturnValueLoggingPositionLinkItemProvider.dispose();
+		if (beforeExternalCallLoggingPositionLinkItemProvider != null) beforeExternalCallLoggingPositionLinkItemProvider.dispose();
+		if (methodCallLoggingPositionLinkItemProvider != null) methodCallLoggingPositionLinkItemProvider.dispose();
+		if (afterExternalCallLoggingPositionLinkItemProvider != null) afterExternalCallLoggingPositionLinkItemProvider.dispose();
 	}
 
 }
