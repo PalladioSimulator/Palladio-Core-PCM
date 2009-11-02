@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->

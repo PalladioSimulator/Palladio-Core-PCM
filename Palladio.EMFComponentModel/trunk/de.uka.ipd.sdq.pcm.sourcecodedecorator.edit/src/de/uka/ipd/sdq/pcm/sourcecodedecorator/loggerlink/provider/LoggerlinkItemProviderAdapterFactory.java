@@ -76,26 +76,26 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LoggingPositionIdItemProvider loggingPositionIdItemProvider;
+	protected LoggingPositionIdLinkItemProvider loggingPositionIdLinkItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLoggingPositionIdAdapter() {
-		if (loggingPositionIdItemProvider == null) {
-			loggingPositionIdItemProvider = new LoggingPositionIdItemProvider(this);
+	public Adapter createLoggingPositionIdLinkAdapter() {
+		if (loggingPositionIdLinkItemProvider == null) {
+			loggingPositionIdLinkItemProvider = new LoggingPositionIdLinkItemProvider(this);
 		}
 
-		return loggingPositionIdItemProvider;
+		return loggingPositionIdLinkItemProvider;
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class LoggerlinkItemProviderAdapterFactory extends LoggerlinkAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (loggingPositionIdItemProvider != null) loggingPositionIdItemProvider.dispose();
+		if (loggingPositionIdLinkItemProvider != null) loggingPositionIdLinkItemProvider.dispose();
 	}
 
 }

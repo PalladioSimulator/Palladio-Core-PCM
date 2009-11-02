@@ -6,16 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlow;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlowLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.MethodLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.Methods;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceCodeDecoratorRepository;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceCodeID;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceFile;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

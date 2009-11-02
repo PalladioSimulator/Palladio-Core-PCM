@@ -6,27 +6,22 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl;
 
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ActionControlFlowLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.SEFFMethodLink;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +78,7 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LoggingPositionId> loggingPositionIds;
+	protected EList<LoggingPositionIdLink> loggingPositionIds;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,9 +140,9 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LoggingPositionId> getLoggingPositionIds() {
+	public EList<LoggingPositionIdLink> getLoggingPositionIds() {
 		if (loggingPositionIds == null) {
-			loggingPositionIds = new EObjectContainmentEList<LoggingPositionId>(LoggingPositionId.class, this, PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS);
+			loggingPositionIds = new EObjectContainmentEList<LoggingPositionIdLink>(LoggingPositionIdLink.class, this, PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS);
 		}
 		return loggingPositionIds;
 	}
@@ -215,7 +210,7 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 				return;
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
 				getLoggingPositionIds().clear();
-				getLoggingPositionIds().addAll((Collection<? extends LoggingPositionId>)newValue);
+				getLoggingPositionIds().addAll((Collection<? extends LoggingPositionIdLink>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

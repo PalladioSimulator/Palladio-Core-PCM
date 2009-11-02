@@ -6,15 +6,15 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkFactory;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID: return createLoggingPositionId();
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK: return createLoggingPositionIdLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,9 +71,9 @@ public class LoggerlinkFactoryImpl extends EFactoryImpl implements LoggerlinkFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoggingPositionId createLoggingPositionId() {
-		LoggingPositionIdImpl loggingPositionId = new LoggingPositionIdImpl();
-		return loggingPositionId;
+	public LoggingPositionIdLink createLoggingPositionIdLink() {
+		LoggingPositionIdLinkImpl loggingPositionIdLink = new LoggingPositionIdLinkImpl();
+		return loggingPositionIdLink;
 	}
 
 	/**

@@ -6,48 +6,31 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkPackageImpl;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkFactory;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.impl.SourcecodedecoratorPackageImpl;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkPackageImpl;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkFactory;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.impl.SourcecodedecoratorPackageImpl;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,8 +44,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass loggingPositionIdEClass = null;
-
+	private EClass loggingPositionIdLinkEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -151,8 +133,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLoggingPositionId() {
-		return loggingPositionIdEClass;
+	public EClass getLoggingPositionIdLink() {
+		return loggingPositionIdLinkEClass;
 	}
 
 	/**
@@ -160,8 +142,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLoggingPositionId_LoggingPositionId() {
-		return (EAttribute)loggingPositionIdEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLoggingPositionIdLink_LoggingPositionId() {
+		return (EAttribute)loggingPositionIdLinkEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -169,8 +151,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLoggingPositionId_IsInputPosition() {
-		return (EAttribute)loggingPositionIdEClass.getEStructuralFeatures().get(1);
+	public EAttribute getLoggingPositionIdLink_IsInputPosition() {
+		return (EAttribute)loggingPositionIdLinkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -178,8 +160,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoggingPositionId_ServiceEffectSpecification() {
-		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(2);
+	public EReference getLoggingPositionIdLink_ServiceEffectSpecification() {
+		return (EReference)loggingPositionIdLinkEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -187,8 +169,8 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoggingPositionId_AbstractAction() {
-		return (EReference)loggingPositionIdEClass.getEStructuralFeatures().get(3);
+	public EReference getLoggingPositionIdLink_AbstractAction() {
+		return (EReference)loggingPositionIdLinkEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -219,11 +201,11 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		isCreated = true;
 
 		// Create classes and their features
-		loggingPositionIdEClass = createEClass(LOGGING_POSITION_ID);
-		createEAttribute(loggingPositionIdEClass, LOGGING_POSITION_ID__LOGGING_POSITION_ID);
-		createEAttribute(loggingPositionIdEClass, LOGGING_POSITION_ID__IS_INPUT_POSITION);
-		createEReference(loggingPositionIdEClass, LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION);
-		createEReference(loggingPositionIdEClass, LOGGING_POSITION_ID__ABSTRACT_ACTION);
+		loggingPositionIdLinkEClass = createEClass(LOGGING_POSITION_ID_LINK);
+		createEAttribute(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID);
+		createEAttribute(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION);
+		createEReference(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION);
+		createEReference(loggingPositionIdLinkEClass, LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION);
 	}
 
 	/**
@@ -259,11 +241,11 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(loggingPositionIdEClass, LoggingPositionId.class, "LoggingPositionId", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLoggingPositionId_LoggingPositionId(), ecorePackage.getEString(), "loggingPositionId", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getLoggingPositionId_IsInputPosition(), ecorePackage.getEBoolean(), "isInputPosition", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoggingPositionId_ServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecification", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoggingPositionId_AbstractAction(), theSeffPackage.getAbstractAction(), null, "abstractAction", null, 1, 1, LoggingPositionId.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(loggingPositionIdLinkEClass, LoggingPositionIdLink.class, "LoggingPositionIdLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLoggingPositionIdLink_LoggingPositionId(), ecorePackage.getEString(), "loggingPositionId", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLoggingPositionIdLink_IsInputPosition(), ecorePackage.getEBoolean(), "isInputPosition", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoggingPositionIdLink_ServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecification", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoggingPositionIdLink_AbstractAction(), theSeffPackage.getAbstractAction(), null, "abstractAction", null, 1, 1, LoggingPositionIdLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

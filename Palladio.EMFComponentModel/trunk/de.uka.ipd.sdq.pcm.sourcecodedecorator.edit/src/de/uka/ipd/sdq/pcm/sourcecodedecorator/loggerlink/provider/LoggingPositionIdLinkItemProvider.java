@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.provider;
 
 
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.provider.SourceCodeDecoratorEditPlugin;
 
@@ -32,12 +32,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoggingPositionIdItemProvider
+public class LoggingPositionIdLinkItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -51,7 +51,7 @@ public class LoggingPositionIdItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoggingPositionIdItemProvider(AdapterFactory adapterFactory) {
+	public LoggingPositionIdLinkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,9 +85,9 @@ public class LoggingPositionIdItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoggingPositionId_loggingPositionId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionId_loggingPositionId_feature", "_UI_LoggingPositionId_type"),
-				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID__LOGGING_POSITION_ID,
+				 getString("_UI_LoggingPositionIdLink_loggingPositionId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionIdLink_loggingPositionId_feature", "_UI_LoggingPositionIdLink_type"),
+				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID,
 				 true,
 				 false,
 				 false,
@@ -107,9 +107,9 @@ public class LoggingPositionIdItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoggingPositionId_isInputPosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionId_isInputPosition_feature", "_UI_LoggingPositionId_type"),
-				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID__IS_INPUT_POSITION,
+				 getString("_UI_LoggingPositionIdLink_isInputPosition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionIdLink_isInputPosition_feature", "_UI_LoggingPositionIdLink_type"),
+				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION,
 				 true,
 				 false,
 				 false,
@@ -129,9 +129,9 @@ public class LoggingPositionIdItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoggingPositionId_serviceEffectSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionId_serviceEffectSpecification_feature", "_UI_LoggingPositionId_type"),
-				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION,
+				 getString("_UI_LoggingPositionIdLink_serviceEffectSpecification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionIdLink_serviceEffectSpecification_feature", "_UI_LoggingPositionIdLink_type"),
+				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION,
 				 true,
 				 false,
 				 true,
@@ -151,9 +151,9 @@ public class LoggingPositionIdItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoggingPositionId_abstractAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionId_abstractAction_feature", "_UI_LoggingPositionId_type"),
-				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID__ABSTRACT_ACTION,
+				 getString("_UI_LoggingPositionIdLink_abstractAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoggingPositionIdLink_abstractAction_feature", "_UI_LoggingPositionIdLink_type"),
+				 LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION,
 				 true,
 				 false,
 				 true,
@@ -163,14 +163,14 @@ public class LoggingPositionIdItemProvider
 	}
 
 	/**
-	 * This returns LoggingPositionId.gif.
+	 * This returns LoggingPositionIdLink.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoggingPositionId"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoggingPositionIdLink"));
 	}
 
 	/**
@@ -181,10 +181,10 @@ public class LoggingPositionIdItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LoggingPositionId)object).getLoggingPositionId();
+		String label = ((LoggingPositionIdLink)object).getLoggingPositionId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_LoggingPositionId_type") :
-			getString("_UI_LoggingPositionId_type") + " " + label;
+			getString("_UI_LoggingPositionIdLink_type") :
+			getString("_UI_LoggingPositionIdLink_type") + " " + label;
 	}
 
 	/**
@@ -198,9 +198,9 @@ public class LoggingPositionIdItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(LoggingPositionId.class)) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID:
-			case LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION:
+		switch (notification.getFeatureID(LoggingPositionIdLink.class)) {
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

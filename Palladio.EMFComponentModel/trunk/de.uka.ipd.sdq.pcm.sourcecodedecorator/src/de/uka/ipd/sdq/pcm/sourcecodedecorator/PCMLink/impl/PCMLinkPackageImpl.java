@@ -6,52 +6,34 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
 import de.uka.ipd.sdq.pcm.core.CorePackage;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ActionControlFlowLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkFactory;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.SEFFMethodLink;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.impl.SourcecodedecoratorPackageImpl;
-
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -401,7 +383,7 @@ public class PCMLinkPackageImpl extends EPackageImpl implements PCMLinkPackage {
 		initEReference(getPCMLinkRepository_Componentfilelink(), this.getComponentFileLink(), null, "componentfilelink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMLinkRepository_Seffmethodlink(), this.getSEFFMethodLink(), null, "seffmethodlink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMLinkRepository_Actioncontrolflowlink(), this.getActionControlFlowLink(), null, "actioncontrolflowlink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPCMLinkRepository_LoggingPositionIds(), theLoggerlinkPackage.getLoggingPositionId(), null, "loggingPositionIds", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMLinkRepository_LoggingPositionIds(), theLoggerlinkPackage.getLoggingPositionIdLink(), null, "loggingPositionIds", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

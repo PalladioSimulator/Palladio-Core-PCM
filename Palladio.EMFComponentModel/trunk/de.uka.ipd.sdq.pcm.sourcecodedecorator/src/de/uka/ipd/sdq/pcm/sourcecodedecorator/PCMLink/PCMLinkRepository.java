@@ -6,11 +6,10 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,7 +81,7 @@ public interface PCMLinkRepository extends Identifier {
 
 	/**
 	 * Returns the value of the '<em><b>Logging Position Ids</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Logging Position Ids</em>' containment reference list isn't clear,
@@ -94,6 +93,6 @@ public interface PCMLinkRepository extends Identifier {
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<LoggingPositionId> getLoggingPositionIds();
+	EList<LoggingPositionIdLink> getLoggingPositionIds();
 
 } // PCMLinkRepository

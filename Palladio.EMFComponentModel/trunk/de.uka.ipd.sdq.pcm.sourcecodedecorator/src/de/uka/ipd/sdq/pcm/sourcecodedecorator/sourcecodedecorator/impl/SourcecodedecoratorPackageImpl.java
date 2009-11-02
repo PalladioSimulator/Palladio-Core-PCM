@@ -6,34 +6,26 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
 import de.uka.ipd.sdq.pcm.core.CorePackage;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkPackageImpl;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggerlinkPackageImpl;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlow;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlowLevelSourceCodeLink;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
@@ -44,19 +36,9 @@ import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceCodeID;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceFile;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorFactory;
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
-
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

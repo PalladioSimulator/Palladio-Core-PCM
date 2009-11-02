@@ -6,15 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.impl;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlow;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.ControlFlowLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.MethodLevelSourceCodeLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.Methods;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceCodeDecoratorRepository;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourceFile;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorFactory;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

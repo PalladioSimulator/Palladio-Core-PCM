@@ -6,15 +6,18 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ActionControlFlowLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkFactory;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.SEFFMethodLink;
 
 /**
  * <!-- begin-user-doc -->

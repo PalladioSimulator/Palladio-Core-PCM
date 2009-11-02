@@ -6,15 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.util;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

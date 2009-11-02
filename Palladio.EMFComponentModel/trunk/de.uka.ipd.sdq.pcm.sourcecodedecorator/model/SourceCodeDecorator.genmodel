@@ -70,13 +70,13 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Loggerlink" basePackage="de.uka.ipd.sdq.pcm.sourcecodedecorator"
         resource="XML" disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#//loggerlink">
-      <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/loggingPositionId"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/isInputPosition"/>
+      <genClasses ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/loggingPositionId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/isInputPosition"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/serviceEffectSpecification"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/serviceEffectSpecification"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionId/abstractAction"/>
+            ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/abstractAction"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

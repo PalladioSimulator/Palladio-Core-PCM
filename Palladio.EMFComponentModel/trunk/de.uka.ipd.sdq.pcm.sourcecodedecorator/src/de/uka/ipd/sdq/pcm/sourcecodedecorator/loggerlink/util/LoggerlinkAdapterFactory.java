@@ -6,14 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.util;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,8 +71,8 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 	protected LoggerlinkSwitch<Adapter> modelSwitch =
 		new LoggerlinkSwitch<Adapter>() {
 			@Override
-			public Adapter caseLoggingPositionId(LoggingPositionId object) {
-				return createLoggingPositionIdAdapter();
+			public Adapter caseLoggingPositionIdLink(LoggingPositionIdLink object) {
+				return createLoggingPositionIdLinkAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -96,16 +95,16 @@ public class LoggerlinkAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId <em>Logging Position Id</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink <em>Logging Position Id Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink
 	 * @generated
 	 */
-	public Adapter createLoggingPositionIdAdapter() {
+	public Adapter createLoggingPositionIdLinkAdapter() {
 		return null;
 	}
 

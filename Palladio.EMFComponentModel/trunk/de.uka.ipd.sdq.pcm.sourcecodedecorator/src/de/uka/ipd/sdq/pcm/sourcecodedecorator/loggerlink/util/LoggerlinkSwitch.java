@@ -6,12 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.util;
 
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,9 +88,9 @@ public class LoggerlinkSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID: {
-				LoggingPositionId loggingPositionId = (LoggingPositionId)theEObject;
-				T result = caseLoggingPositionId(loggingPositionId);
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK: {
+				LoggingPositionIdLink loggingPositionIdLink = (LoggingPositionIdLink)theEObject;
+				T result = caseLoggingPositionIdLink(loggingPositionIdLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,17 +99,17 @@ public class LoggerlinkSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Logging Position Id</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Logging Position Id Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Logging Position Id</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Logging Position Id Link</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLoggingPositionId(LoggingPositionId object) {
+	public T caseLoggingPositionIdLink(LoggingPositionIdLink object) {
 		return null;
 	}
 

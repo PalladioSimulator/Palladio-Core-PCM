@@ -6,21 +6,16 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl;
 
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.ComponentFileLink;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
 
 /**
  * <!-- begin-user-doc -->

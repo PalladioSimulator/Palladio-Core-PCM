@@ -96,16 +96,20 @@
           ordered="false" upperBound="-1" eType="#//PCMLink/ActionControlFlowLink"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loggingPositionIds" ordered="false"
-          upperBound="-1" eType="#//loggerlink/LoggingPositionId" containment="true"/>
+          upperBound="-1" eType="#//loggerlink/LoggingPositionIdLink" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="loggerlink" nsURI="http:///SourceCodeDecorator/loggerLink.ecore"
       nsPrefix="SourceCodeDecorator.loggerLink">
-    <eClassifiers xsi:type="ecore:EClass" name="LoggingPositionId">
+    <eClassifiers xsi:type="ecore:EClass" name="LoggingPositionIdLink">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="loggingPositionId" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInputPosition" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    If set to true it is a input position (method call of a provided call).&#xD;&#xA;    If&amp;nbsp;set&amp;nbsp;to&amp;nbsp;false&amp;nbsp;it&amp;nbsp;is&amp;nbsp;a&amp;nbsp;output&amp;nbsp;position&amp;nbsp;(external&amp;nbsp;call&amp;nbsp;or&amp;nbsp;return).&#xD;&#xA;&lt;/p>"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecification"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstractAction" ordered="false"

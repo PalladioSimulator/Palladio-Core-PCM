@@ -6,37 +6,34 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
-import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionId;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
+import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Logging Position Id</b></em>'.
+ * An implementation of the model object '<em><b>Logging Position Id Link</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdImpl#getLoggingPositionId <em>Logging Position Id</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdImpl#isIsInputPosition <em>Is Input Position</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdImpl#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdImpl#getAbstractAction <em>Abstract Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl#getLoggingPositionId <em>Logging Position Id</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl#isIsInputPosition <em>Is Input Position</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl#getServiceEffectSpecification <em>Service Effect Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl.LoggingPositionIdLinkImpl#getAbstractAction <em>Abstract Action</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositionId {
+public class LoggingPositionIdLinkImpl extends EObjectImpl implements LoggingPositionIdLink {
 	/**
 	 * The default value of the '{@link #getLoggingPositionId() <em>Logging Position Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,7 +99,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LoggingPositionIdImpl() {
+	protected LoggingPositionIdLinkImpl() {
 		super();
 	}
 
@@ -113,7 +110,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LoggerlinkPackage.Literals.LOGGING_POSITION_ID;
+		return LoggerlinkPackage.Literals.LOGGING_POSITION_ID_LINK;
 	}
 
 	/**
@@ -134,7 +131,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 		String oldLoggingPositionId = loggingPositionId;
 		loggingPositionId = newLoggingPositionId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID, oldLoggingPositionId, loggingPositionId));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID, oldLoggingPositionId, loggingPositionId));
 	}
 
 	/**
@@ -155,7 +152,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 		boolean oldIsInputPosition = isInputPosition;
 		isInputPosition = newIsInputPosition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION, oldIsInputPosition, isInputPosition));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION, oldIsInputPosition, isInputPosition));
 	}
 
 	/**
@@ -169,7 +166,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 			serviceEffectSpecification = (ServiceEffectSpecification)eResolveProxy(oldServiceEffectSpecification);
 			if (serviceEffectSpecification != oldServiceEffectSpecification) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
 			}
 		}
 		return serviceEffectSpecification;
@@ -193,7 +190,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 		ServiceEffectSpecification oldServiceEffectSpecification = serviceEffectSpecification;
 		serviceEffectSpecification = newServiceEffectSpecification;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION, oldServiceEffectSpecification, serviceEffectSpecification));
 	}
 
 	/**
@@ -207,7 +204,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 			abstractAction = (AbstractAction)eResolveProxy(oldAbstractAction);
 			if (abstractAction != oldAbstractAction) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
 			}
 		}
 		return abstractAction;
@@ -231,7 +228,7 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 		AbstractAction oldAbstractAction = abstractAction;
 		abstractAction = newAbstractAction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
+			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION, oldAbstractAction, abstractAction));
 	}
 
 	/**
@@ -242,14 +239,14 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
 				return getLoggingPositionId();
-			case LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION:
 				return isIsInputPosition();
-			case LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION:
 				if (resolve) return getServiceEffectSpecification();
 				return basicGetServiceEffectSpecification();
-			case LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION:
 				if (resolve) return getAbstractAction();
 				return basicGetAbstractAction();
 		}
@@ -264,16 +261,16 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
 				setLoggingPositionId((String)newValue);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION:
 				setIsInputPosition((Boolean)newValue);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION:
 				setServiceEffectSpecification((ServiceEffectSpecification)newValue);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION:
 				setAbstractAction((AbstractAction)newValue);
 				return;
 		}
@@ -288,16 +285,16 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
 				setLoggingPositionId(LOGGING_POSITION_ID_EDEFAULT);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION:
 				setIsInputPosition(IS_INPUT_POSITION_EDEFAULT);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION:
 				setServiceEffectSpecification((ServiceEffectSpecification)null);
 				return;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION:
 				setAbstractAction((AbstractAction)null);
 				return;
 		}
@@ -312,13 +309,13 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LoggerlinkPackage.LOGGING_POSITION_ID__LOGGING_POSITION_ID:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__LOGGING_POSITION_ID:
 				return LOGGING_POSITION_ID_EDEFAULT == null ? loggingPositionId != null : !LOGGING_POSITION_ID_EDEFAULT.equals(loggingPositionId);
-			case LoggerlinkPackage.LOGGING_POSITION_ID__IS_INPUT_POSITION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__IS_INPUT_POSITION:
 				return isInputPosition != IS_INPUT_POSITION_EDEFAULT;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__SERVICE_EFFECT_SPECIFICATION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__SERVICE_EFFECT_SPECIFICATION:
 				return serviceEffectSpecification != null;
-			case LoggerlinkPackage.LOGGING_POSITION_ID__ABSTRACT_ACTION:
+			case LoggerlinkPackage.LOGGING_POSITION_ID_LINK__ABSTRACT_ACTION:
 				return abstractAction != null;
 		}
 		return super.eIsSet(featureID);
@@ -342,4 +339,4 @@ public class LoggingPositionIdImpl extends EObjectImpl implements LoggingPositio
 		return result.toString();
 	}
 
-} //LoggingPositionIdImpl
+} //LoggingPositionIdLinkImpl

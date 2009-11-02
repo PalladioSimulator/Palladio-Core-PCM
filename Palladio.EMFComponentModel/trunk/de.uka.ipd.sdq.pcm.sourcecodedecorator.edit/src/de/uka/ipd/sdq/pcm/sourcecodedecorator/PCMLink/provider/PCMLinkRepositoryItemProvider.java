@@ -183,7 +183,7 @@ public class PCMLinkRepositoryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
-				 LoggerlinkFactory.eINSTANCE.createLoggingPositionId()));
+				 LoggerlinkFactory.eINSTANCE.createLoggingPositionIdLink()));
 	}
 
 	/**

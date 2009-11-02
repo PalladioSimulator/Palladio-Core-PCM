@@ -7,9 +7,7 @@
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.FileLevelSourceCodeLink;
 
 /**

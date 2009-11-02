@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
