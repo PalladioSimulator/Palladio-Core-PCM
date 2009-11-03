@@ -135,6 +135,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 
@@ -194,6 +195,7 @@ import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
@@ -225,9 +227,9 @@ public class designdecisionEditor
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
-	protected ComposedAdapterFactory adapterFactory;
+	protected AdapterFactory adapterFactory;
 
 	/**
 	 * This is the content outline page.
@@ -728,39 +730,49 @@ public class designdecisionEditor
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		//adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		
+		ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
+			@Override
+			public ComposeableAdapterFactory getRootAdapterFactory() {
+				// TODO Auto-generated method stub
+				return (PalladioItemProviderAdapterFactory)adapterFactory;
+			}
+		};
 
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new designdecisionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.qosannotations.performance.provider.PerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new designdecisionItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new PerformanceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.qosannotations.performance.provider.PerformanceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
+		adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
+		
 		// Create the command stack that will notify this editor as commands are executed.
 		//
 		BasicCommandStack commandStack = new BasicCommandStack();
@@ -1846,7 +1858,7 @@ public class designdecisionEditor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public void dispose() {
@@ -1856,7 +1868,7 @@ public class designdecisionEditor
 
 		getSite().getPage().removePartListener(partListener);
 
-		adapterFactory.dispose();
+		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);
