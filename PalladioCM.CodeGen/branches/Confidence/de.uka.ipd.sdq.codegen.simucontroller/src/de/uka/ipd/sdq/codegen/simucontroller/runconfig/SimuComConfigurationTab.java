@@ -520,19 +520,21 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		try {
 			String usageFile = configuration.getAttribute(
 					ConstantsContainer.USAGE_FILE, "");
-			modelFiles.clear();
+
 			if (!usageFile.isEmpty()) {
-				modelFiles.add(usageFile);
+				// Prevent reloading the model elements when usage file has not
+				// changed
+				if (!modelFiles.contains(usageFile)) {
+					modelFiles.clear();	
+					modelFiles.add(usageFile);
+					
+					selectedModelElementURI = URI.createURI(configuration.getAttribute(
+							SimuComConfig.CONFIDENCE_MODELELEMENT_URI, ""));
+					UsageScenario usageScenario = getUsageScenarioFromURI(selectedModelElementURI);
+					selectedModelElementName = usageScenario.getEntityName();
+					updateModelElementField(usageScenario);
+				}
 			}
-		} catch (CoreException e) {
-		}
-		
-		try {
-			selectedModelElementURI = URI.createURI(configuration.getAttribute(
-					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, ""));
-			UsageScenario usageScenario = getUsageScenarioFromURI(selectedModelElementURI); 
-			selectedModelElementName = usageScenario.getEntityName();
-			updateModelElementField(usageScenario);
 		} catch (Exception e) {
 			selectedModelElementURI = null;
 			selectedModelElementName = "";
