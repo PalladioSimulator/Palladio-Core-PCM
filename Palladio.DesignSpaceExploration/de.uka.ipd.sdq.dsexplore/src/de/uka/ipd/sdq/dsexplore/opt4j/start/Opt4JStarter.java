@@ -2,15 +2,17 @@ package de.uka.ipd.sdq.dsexplore.opt4j.start;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
-import org.opt4j.common.archive.ArchiveModule;
+import org.opt4j.common.archive.BoundedArchive;
+import org.opt4j.common.archive.CrowdingArchive;
+import org.opt4j.common.archive.DefaultArchive;
+import org.opt4j.config.Task;
+import org.opt4j.config.Task.State;
 import org.opt4j.common.archive.BoundedArchive;
 import org.opt4j.common.archive.CrowdingArchive;
 import org.opt4j.common.archive.DefaultArchive;
@@ -18,9 +20,9 @@ import org.opt4j.common.archive.PopulationArchive;
 import org.opt4j.config.Task.State;
 import org.opt4j.core.Archive;
 import org.opt4j.core.Individual;
+import org.opt4j.core.IndividualCollection;
 import org.opt4j.core.IndividualCollectionListener;
-import org.opt4j.core.Objective;
-import org.opt4j.core.Objectives;
+import org.opt4j.core.Population;
 import org.opt4j.core.Population;
 import org.opt4j.core.Value;
 import org.opt4j.core.optimizer.Control;
@@ -34,13 +36,11 @@ import org.opt4j.start.Opt4JTask;
 import com.google.inject.Module;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.cost.CostEvaluator;
+import de.uka.ipd.sdq.dsexplore.helper.ResultsWriter;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTracker;
 import de.uka.ipd.sdq.dsexplore.opt4j.archive.PopulationTrackerModule;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEConstraint;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
@@ -48,11 +48,7 @@ import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
 public class Opt4JStarter {
 	
-	public static IAnalysis perfAnalysisTool = null; 
-	
-	public static IAnalysis relAnalysisTool = null;
-	
-	public static CostEvaluator costEvaluator = null;
+	public static List<IAnalysis> evaluators = null; 
 	
 	public static DSEProblem problem = null;
 	
@@ -64,42 +60,81 @@ public class Opt4JStarter {
 
 	public static List<Value<Double>> upperConstraints;
 	
-	public static void init(IAnalysis perfAnalysisTool, IAnalysis relAnalysisTool, List<Value<Double>> upperConstraints, CostRepository costs, PCMInstance pcmInstance){
+	public static void init(List<IAnalysis> evaluators, List<Value<Double>> upperConstraints, PCMInstance pcmInstance, boolean newProblem) throws CoreException{
 		
-		Opt4JStarter.perfAnalysisTool = perfAnalysisTool;
-		Opt4JStarter.relAnalysisTool = relAnalysisTool;
-		Opt4JStarter.costEvaluator = new CostEvaluator(costs);
-		Opt4JStarter.problem = new DSEProblem(pcmInstance);
-		
+		Opt4JStarter.evaluators = evaluators;
 		Opt4JStarter.upperConstraints = upperConstraints;
 		
-		
-		Opt4JStarter.problem.saveProblem();
+		if (newProblem){
+		Opt4JStarter.problem = new DSEProblem(pcmInstance);
+			Opt4JStarter.problem.saveProblem();
+		} else {
+			Opt4JStarter.problem = new DSEProblem(pcmInstance, false);
+		}
 		
 	}
-
-	public static void startOpt4J(IAnalysis perfAnalysisTool,
-			IAnalysis relAnalysisTool, PCMInstance pcmInstance, int maxIterations,
-			int individualsPerGeneration, CostRepository costs, List<Value<Double>> upperConstraints, IProgressMonitor monitor)
-			throws CoreException {
-
-
-		init(perfAnalysisTool, relAnalysisTool, upperConstraints, costs, pcmInstance);
 		
+	/**
+	 * Only starts Opt4J, needs can to {@link Opt4JStarter#init(IAnalysis, IAnalysis, List, CostRepository, PCMInstance, boolean)} first.
+	 * @param maxIterations
+	 * @param individualsPerGeneration
+	 * @param monitor
+	 * @param genotypes May be null
+	 * @throws CoreException
+	 */
+	public static void runOpt4JWithPopulation(
+			int maxIterations, int individualsPerGeneration,
+			IProgressMonitor monitor,
+			List<DoubleGenotype> genotypes) throws CoreException {
+		
+		if (Opt4JStarter.evaluators == null
+				||	  Opt4JStarter.problem == null){
+			throw new CoreException(new Status(Status.ERROR,
+					"de.uka.ipd.sdq.dsexplore", 0, "Opt4JStarter has not been properly initialised. Contact developers.", null));
+		}
+		
+		//TODO put initial population in Problem.
+		if (genotypes != null && genotypes.size() > 0){
+			Opt4JStarter.problem.setInitialPopulation(genotypes);
+		}
+
 		Collection<Module> modules = new ArrayList<Module>();
 
 		DSEModule dseModule = new DSEModule();
 		modules.add(dseModule);
-		
+
 		addOptimisationModules(maxIterations, individualsPerGeneration,
 				modules);
-		
-		addPopulationModule(modules);
 
-		runTask(modules, monitor);
+		addPopulationModule(modules);
+		
+		DSEListener listener = new DSEListener(monitor, maxIterations);
+		runTask(modules, listener);
+
 	}
 
-	private static void runTask(Collection<Module> modules, IProgressMonitor monitor)
+	/**
+	 * inits and starts Opt4J
+	 * @param perfAnalysisTool
+	 * @param relAnalysisTool
+	 * @param pcmInstance
+	 * @param maxIterations
+	 * @param individualsPerGeneration
+	 * @param upperConstraints
+	 * @param monitor
+	 * @param newProblem
+	 * @throws CoreException
+	 */
+	public static void initAndStartOpt4J(List<IAnalysis> evaluators, PCMInstance pcmInstance, int maxIterations,
+			int individualsPerGeneration, List<Value<Double>> upperConstraints, IProgressMonitor monitor, boolean newProblem)
+			throws CoreException {
+		
+		init(evaluators, upperConstraints, pcmInstance, newProblem);
+		runOpt4JWithPopulation(maxIterations, individualsPerGeneration, monitor, null);
+		
+	}
+
+	private static void runTask(Collection<Module> modules, DSEListener listener)
 			throws CoreException {
 		Opt4JStarter.task = new Opt4JTask(false);
 		task.init(modules);
@@ -107,7 +142,7 @@ public class Opt4JStarter {
 		try {
 			task.open();
 			Optimizer opt = task.getInstance(Optimizer.class);
-			opt.addOptimizerIterationListener(new DSEListener(monitor));
+			opt.addOptimizerIterationListener(listener);
 			
 			task.execute();
 			
@@ -119,13 +154,16 @@ public class Opt4JStarter {
 					"de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
 		} finally {
 			try {
+
+				ResultsWriter resultsWriter = new ResultsWriter(); 
+			
 			Collection<Individual> archive = getArchiveIndividuals();
-			printOutIndividuals(archive, "NGSA2Archive");
+			resultsWriter.printOutIndividuals(archive, "NGSA2Archive");
 
 			PopulationTracker allIndividuals = getAllIndividuals();
-			printOutIndividuals(allIndividuals, "All Individuals");
+			resultsWriter.printOutIndividuals(allIndividuals, "All Individuals");
 			
-			printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
+			resultsWriter.printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
 			
 			} catch (Exception e){
 				logger.error("Optimisation failed, I could not save the results.");
@@ -152,7 +190,7 @@ public class Opt4JStarter {
 		// modules.add(dtlz);
 		// modules.add(gui);
 	}
-
+		
 	private static void addOptimisationModules(int maxIterations,
 			int individualsPerGeneration, Collection<Module> modules) {
 		EvolutionaryAlgorithmModule ea = new EvolutionaryAlgorithmModule();
@@ -168,168 +206,29 @@ public class Opt4JStarter {
 		 * GUIModule gui = new GUIModule(); gui.setCloseOnStop(true);
 		 */
 		modules.add(ea);
-	}
-
-	public static void printOutIndividuals(Collection<Individual> individuals,
-			String collectionName) {
-		logger.warn("------------ RESULTS " + collectionName
-				+ " ----------------------");
-		logger.warn("Printing results (number is " + individuals.size() + ").");
-		
-		List<Exception> exceptionList = new ArrayList<Exception>();
-		
-		int counter = 0;
-		for (Individual individual : individuals) {
-			try {
-			printResultLineNatural(individual);
-			} catch (Exception e){
-				exceptionList.add(new Exception("Encountered corrupted result number "+counter+", skipped it", e));
 			}
-			counter++;
-		}
-		logger.warn("------------ CSV RESULTS " + collectionName
-				+ " ----------------------");
-		String output = "\n";
 
-		output = printHeadlineCSV(individuals, output);
-		counter = 0;
-
-		// content
-		for (Individual ind : individuals) {
-			try {
-			output = printResultLineCSV(output, ind);
-			} catch (Exception e){
-				exceptionList.add(new Exception("Encountered corrupted result number "+counter+", skipped it", e));
-			}
-			counter++;
-		}
-		logger.warn(output);
-		
-		logger.warn("------------ PRETTY CSV RESULTS " + collectionName
-				+ " ----------------------");
-		
-		output = "\n";
-		output = prettyPrintHeadlineCSV(individuals, output);
-		counter = 0;
-
-		// content
-		for (Individual ind2 : individuals) {
-			try {
-			output = prettyPrintResultLineCSV(output, ind2);
-			} catch (Exception e){
-				exceptionList.add(new Exception("Encountered corrupted result number "+counter+", skipped it", e));
-			}
-			counter++;
-		}
-		logger.warn(output);
-		
-		if (exceptionList.size() > 0){
-			logger.warn("Encountered exceptions while printing results");
-			for (Exception exception : exceptionList) {
-				exception.printStackTrace();
-			}
-		}
-	}
-
-	static String prettyPrintResultLineCSV(String output, Individual ind) {
-		
-		DSEDecoder decoder = new DSEDecoder();
-		
-		// first objectives
-		Objectives objs = ind.getObjectives();
-		for (Entry<Objective, Value<?>> entry : objs) { 
-			output += entry.getValue() + ";";
-		}
-		//then genes
-		DoubleGenotype genes = (DoubleGenotype) ind.getGenotype();
-		for (int i = 0; i < genes.size(); i++) {
-			output += decoder.getDecisionString(i, genes.get(i))+";";
-		}
-		output += "\n";
-		return output;
-	}
-
-	static String prettyPrintHeadlineCSV(
-			Collection<Individual> individuals, String output) {
-		
-		Individual i = individuals.iterator().next();
-		output += printObjectives(i, output);
-		
-		output += Opt4JStarter.problem.toString();
-		
-		output += "\n";
-		
-		return output; 
-	}
-
-	private static void printResultLineNatural(Individual individual) {
-		logger.warn("Result for individual "
-				+ individual.getGenotype().toString() + " is: "
-				+ individual.getObjectives().toString());
-	}
-
-	private static String printResultLineCSV(String output, Individual ind) {
-		// first objectives
-		Objectives objs = ind.getObjectives();
-		for (Entry<Objective, Value<?>> entry : objs) {
-			output += entry.getValue() + ";";
-		}
-		//then genes
-		DoubleGenotype genes = (DoubleGenotype) ind.getGenotype();
-		for (Double gene : genes) {
-			output += gene + ";";
-		}
-		output += "\n";
-		return output;
-	}
-
-	private static String printHeadlineCSV(Collection<Individual> individuals,
-			String output) {
-		{
-			Individual i = individuals.iterator().next();
-			
-			// headline
-			// first objectives
-			output += printObjectives(i, output);
-			// then genes
-			DoubleGenotype genes = (DoubleGenotype) i.getGenotype();
-			for (int j = 0; j < genes.size(); j++) {
-				output += "gene" + j + ";";
-			}
-			output += "\n";
-		}
-		return output;
-	}
-	
-	private static String printObjectives(Individual i,	String output) {
-		Objectives objs = i.getObjectives();
-		for (Entry<Objective, Value<?>> entry : objs) {
-			output += entry.getKey().getName() + "("
-					+ entry.getKey().getSign() + ");";
-		}
-		return output;
-	}
 
 	public static void closeTask(){
 		if (Opt4JStarter.task != null){
 			Opt4JStarter.task.close(); 
+			}
 		}
-	}
-	
+		
 	@Deprecated
 	public static void startOpt4JWithGUI(){
 		//String id = Opt4JPluginActivator.PLUGIN_ID;
 		
-		try {
+			try {
 			Opt4J.main(new String[0]);
 			
-		} catch (Exception e) {
+			} catch (Exception e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
+		
+			}
 
-	}
-	
 	public synchronized static void terminate (){
 		if (task != null && !task.getState().equals(State.DONE)){
 			Control control = task.getInstance(Control.class);
@@ -338,8 +237,8 @@ public class Opt4JStarter {
 		} else {
 			logger.warn("Cannot terminate as no task is executing");
 		}
-	}
-	
+		}
+
 	/**
 	 * Returns the instance of {@link Archive} from the Opt4J {@link Task},
 	 *  which is a {@link DefaultArchive} inheriting from 
@@ -349,7 +248,7 @@ public class Opt4JStarter {
 	public static Archive getArchiveIndividuals(){
 		return (Archive)task.getInstance(Archive.class);
 	}
-	
+
 	/**
 	 * Returns the instance of {@link Population} from the Opt4J {@link Task}, 
 	 * which is a plain {@link IndividualCollection}.  
@@ -358,7 +257,7 @@ public class Opt4JStarter {
 	public static Population getPopulationIndividuals(){
 		return (Population)task.getInstance(Population.class);
 	}
-	
+
 	/**
 	 * Returns the instance of {@link PopulationTracker} from the Opt4J {@link Task}, 
 	 * which is an {@link IndividualCollectionListener} that listens on the 
@@ -367,8 +266,17 @@ public class Opt4JStarter {
 	 */
 	public static PopulationTracker getAllIndividuals(){
 		return (PopulationTracker)task.getInstance(PopulationTracker.class);
+		}
+
+	public static void tearDown(){
+		evaluators = null;
+			
+		problem = null;
+	
+		task = null;
+
+		upperConstraints = null;
+		}
 	}
 	
-
-	
-}
+		

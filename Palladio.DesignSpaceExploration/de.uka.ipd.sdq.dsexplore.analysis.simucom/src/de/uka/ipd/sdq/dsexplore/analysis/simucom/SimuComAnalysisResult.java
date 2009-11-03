@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.PieEntity;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.dsexplore.analysis.IStatisticAnalysisResult;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -23,12 +24,16 @@ import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports.RReport.TimeseriesData;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm;
+import de.uka.ipd.sdq.statistics.estimation.ConfidenceInterval;
+import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 
 
-public class SimuComAnalysisResult implements IAnalysisResult {
+public class SimuComAnalysisResult implements IStatisticAnalysisResult {
 
 	private ExperimentRun run;
 	
@@ -39,6 +44,14 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 	private PCMInstance pcm;
 
 	private double medianValueCache; 
+	
+	private double stdDeviationCache;
+
+	private ConfidenceInterval confidenceInterval; 
+	
+	private double alpha = 0.95;
+
+	private long observations = 0;
 	
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -56,6 +69,52 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 			meanValueCache = calculateValue(sam,"mean");
 		}
 		return meanValueCache;
+	}
+	
+	public double getStandardDeviation() throws AnalysisFailedException {
+		if (stdDeviationCache == 0){
+			SensorAndMeasurements sam = getUsageScenarioMeasurements();
+			stdDeviationCache = calculateValue(sam,"sd");
+		}
+		return stdDeviationCache;
+	}
+	
+	public double getVariance() throws AnalysisFailedException {
+		double std = this.getStandardDeviation();
+		return std * std;
+	}
+	
+	public double getCoefficientOfVariance() throws AnalysisFailedException {
+		double std = this.getStandardDeviation();
+		double mean = this.getMeanValue();
+		return std / mean;
+	}
+	
+	public ConfidenceInterval getConfidenceInterval() throws AnalysisFailedException{
+		if (this.confidenceInterval == null){
+			SensorAndMeasurements meas = getUsageScenarioMeasurements();
+			Sensor sensor = meas.getSensor();
+			if (sensor instanceof TimeSpanSensor){
+				TimeSpanSensor tss = (TimeSpanSensor)sensor;
+				PhiMixingBatchAlgorithm statisticChecker = new PhiMixingBatchAlgorithm();
+							
+				for (Measurement m : meas.getMeasurements()) {
+					TimeSpanMeasurement t = (TimeSpanMeasurement)m;
+					statisticChecker.offerSample(t.getTimeSpan());
+				}
+				if (statisticChecker.hasValidBatches()){
+					this.confidenceInterval = new SampleMeanEstimator().estimateConfidence(statisticChecker.getBatchMeans(),this.alpha);
+				} else {
+					this.confidenceInterval = new ConfidenceInterval(Double.NaN, 0, Double.POSITIVE_INFINITY, this.alpha);
+				}
+				
+			} else {
+				logger.error("Sensor of usage scenario is not a time span sensor, cannot calculate statistics.");
+				return null;
+			}
+
+		}
+		return this.confidenceInterval;
 	}
 	
 	private SensorAndMeasurements getUsageScenarioMeasurements() throws AnalysisFailedException{
@@ -306,6 +365,15 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 		} else 
 			throw new AnalysisFailedException("Could not find sensor for resource "+container.getEntityName()+": "+resource.getActiveResourceType_ActiveResourceSpecification().getEntityName());
 
+	}
+	
+	@Override
+	public long getNumberOfObservations() throws AnalysisFailedException {
+		if (this.observations  == 0){
+			SensorAndMeasurements sam = getUsageScenarioMeasurements();
+			this.observations = sam.getMeasurements().size();
+		}
+		return this.observations;
 	}
 	
 	/**Prepares to export the measurements of a time series sensor to R. 

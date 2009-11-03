@@ -7,8 +7,6 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
 
 /**
  * This class represents the result of a LQN Solver analysis. 
@@ -28,12 +26,10 @@ public class ReliabilityAnalysisResult implements IAnalysisResult {
 	private double pofod;
 
 	
-	public ReliabilityAnalysisResult(PCMInstance pcm, PCMSolver solver) {
+	public ReliabilityAnalysisResult(PCMInstance pcm, double d) {
 		this.pcm = pcm;
 		
-		Pcm2MarkovStrategy strat = (Pcm2MarkovStrategy)solver.getStrategy();
-		
-		this.pofod = 1 - strat.getSolvedValue();
+		this.pofod = d;
 	}
 	
 	
@@ -57,19 +53,11 @@ public class ReliabilityAnalysisResult implements IAnalysisResult {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public double getMeanValue() throws AnalysisFailedException {
+	public double getMeanValue()  {
 		return this.pofod;
 
 	}
 
-	/**
-	 * Not applicable to Reliability results. 
-	 * @return -1
-	 */
-	@Override
-	public double getMedianValue() throws AnalysisFailedException {
-		return -1;
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -86,7 +74,7 @@ public class ReliabilityAnalysisResult implements IAnalysisResult {
 	@Override
 	public double getUtilisationOfResource(ResourceContainer container,
 			ProcessingResourceSpecification resource)
-			throws AnalysisFailedException {
+			 {
 		// TODO Implement
 		return -1;
 	}

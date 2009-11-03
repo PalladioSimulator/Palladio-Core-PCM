@@ -11,8 +11,12 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.RunPCMAnalysisJob;
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate;
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverReliabilityLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /**
  * Starts a reliability Solver Analysis for the design space exploration.
@@ -41,14 +45,22 @@ public class ReliabilityAnalysis implements IAnalysis {
 	private int iteration = -1;
 
 
-	private PCMSolver solver;
+	private double pofod = 0.0;
+	
+
+	private String mode;
+
+
+	private ILaunch launch;
 	
 	/**
 	 * {@inheritDoc}
+	 * @throws UserCanceledException 
+	 * @throws JobFailedException 
 	 */
 	@Override
 	public IAnalysisResult analyse(final PCMInstance pcmInstance)
-			throws AnalysisFailedException, CoreException {
+			throws CoreException, JobFailedException, UserCanceledException {
 		
 		iteration++;
 		
@@ -60,9 +72,9 @@ public class ReliabilityAnalysis implements IAnalysis {
 		return result;
 	}
 	
-	private IAnalysisResult retrieveRealiabilitySolverResults(PCMInstance pcmInstance) throws AnalysisFailedException {
+	private IAnalysisResult retrieveRealiabilitySolverResults(PCMInstance pcmInstance)  {
 		
-		ReliabilityAnalysisResult result = new ReliabilityAnalysisResult(pcmInstance, this.solver);
+		ReliabilityAnalysisResult result = new ReliabilityAnalysisResult(pcmInstance, this.pofod);
 	
 		return result;
 	}
@@ -71,24 +83,28 @@ public class ReliabilityAnalysis implements IAnalysis {
 	 * Launches the LQN Solver.
 	 * 
 	 * @param pcmInstance the instance of PCM
-	 * @throws AnalysisFailedException 
+	 * @throws AnalysisFailedException RunPCMAnalysisJob solver = new RunPCMAnalysisJob(configuration, true);
 	 * @throws CoreException 
+	 * @throws UserCanceledException 
+	 * @throws JobFailedException 
 	 */
 	private void launchReliabilitySolver(final PCMInstance pcmInstance)
-			throws AnalysisFailedException, CoreException {
+			throws CoreException, JobFailedException, UserCanceledException {
 		
-		this.config = ConfigurationHelper.getInstance().updateConfig(config, pcmInstance);
+		this.config = ConfigurationHelper.getInstance().updateConfig(this.config, pcmInstance);
 		pcmInstance.saveUpdatesToFile();
 		
 		logger.debug("Starting analysis of "+pcmInstance.getName());
 		
 		//TODO catch exceptions due to convergence problems and handle them nicely. For example, set the response time to MAXINT or similar.
 		// Create a new PCM Solver:
-		this.solver = new PCMSolver(config, monitor, true);
+		PCMSolverReliabilityLaunchConfigurationDelegate solverDelegate = new PCMSolverReliabilityLaunchConfigurationDelegate();
 
+		
 		// Start the solver:
-		solver.execute();
+		solverDelegate.launch(this.config, this.mode, this.launch, this.monitor);
 
+		this.pofod = 1 - solverDelegate.getStrategy().getSolvedValue();
 		
 		logger.debug("Finished reliability solver analysis");
 		
@@ -99,8 +115,11 @@ public class ReliabilityAnalysis implements IAnalysis {
 	 * @see de.uka.ipd.sdq.dsexplore.analysis.IAnalysis#initialise(org.eclipse.debug.core.ILaunchConfiguration, java.lang.String, org.eclipse.debug.core.ILaunch, org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	public void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor) {
+		this.mode = mode;
+		this.launch = launch;
 		this.monitor = monitor;
 		this.config = configuration;
+		
 	}
 	
 	@Override
@@ -109,6 +128,11 @@ public class ReliabilityAnalysis implements IAnalysis {
 		return retrieveRealiabilitySolverResults(pcmInstance);
 	}
 
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "POFOD";
+	}
+	
 	
 	
 }

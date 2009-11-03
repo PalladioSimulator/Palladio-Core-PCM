@@ -14,6 +14,8 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.designdecisions.INewCandidates;
 import de.uka.ipd.sdq.dsexplore.designdecisions.NewCandidateFactory;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public class HillClimbingAlgorithm implements IAlgorithm {
 
@@ -157,7 +159,15 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 		List<IAnalysisResult> result = new ArrayList<IAnalysisResult>();
 	    //analyse the alternatives
 	    for (PCMInstance instance : neighbours) {
+			try {
 			result.add(analysisTool.analyse(instance));
+			} catch (UserCanceledException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JobFailedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
 		}
 	    return result;
 	}

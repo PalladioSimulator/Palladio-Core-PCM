@@ -49,16 +49,11 @@ public interface IAnalysisResult extends Comparable<IAnalysisResult>{
 	int compareTo(IAnalysisResult other);
 	
 	/**
-	 * Returns the utilisation of the goven resource from the analysis results
+	 * Returns the utilisation of the given resource from the analysis results
 	 * @param resource
-	 * @return a doubke between 0 and 1 that describes the utilisation. 
+	 * @return a double between 0 and 1 that describes the utilisation. 
 	 */
 	public double getUtilisationOfResource(ResourceContainer container, ProcessingResourceSpecification resource) throws AnalysisFailedException;
-
-	public double getMedianValue() throws AnalysisFailedException;
-	
-	//public double getUtilisationOfResource(PassiveResourceSpecification resource);
-
 
 }
 

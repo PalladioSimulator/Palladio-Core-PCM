@@ -71,6 +71,8 @@ public class ConfigurationHelper {
 			workingCopy.setAttribute(ConstantsContainer.USAGE_FILE, instance.getUsageModelFileName());
 			workingCopy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, instance.getResourceRepositoryFileName());
 			
+			//workingCopy.setAttribute(ConstantsContainer.FEATURE_CONFIG, instance.getConnectorConfigFilename());
+			
 			workingCopy.setAttribute(SimuComConfig.EXPERIMENT_RUN, instance.getName());
 			
 			workingCopy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);

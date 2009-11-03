@@ -10,6 +10,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 /** Singleton */
 public class AnalysisProxy implements IAnalysis {
@@ -29,7 +31,7 @@ public class AnalysisProxy implements IAnalysis {
 	}
 
 	@Override
-	public IAnalysisResult analyse(PCMInstance pcmInstance) throws AnalysisFailedException, CoreException {
+	public IAnalysisResult analyse(PCMInstance pcmInstance) throws CoreException, UserCanceledException, AnalysisFailedException, JobFailedException {
 		checkAnalysisExtension();
 		
 		return ana.analyse(pcmInstance);
@@ -50,7 +52,7 @@ public class AnalysisProxy implements IAnalysis {
 						// if extension fits to analysis method
 						if (element.getAttribute("name").equals(methodName)) { 
 							// obtain an analysis method instance  
-							ana = (IAnalysis)ExtensionHelper.loadExecutableAttribute(ext, "analysis", "delegate");
+							ana = (IAnalysis)ExtensionHelper.loadExecutableAttribute(element, "delegate");
 							ana.initialise(configuration, mode,launch,monitor);
 							return;
 						}
@@ -75,5 +77,11 @@ public class AnalysisProxy implements IAnalysis {
 		checkAnalysisExtension();
 		return ana.retrieveLastResults(pcmInstance);
 	}
+
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		checkAnalysisExtension();
+		return ana.getQualityAttribute();
+}
 
 }

@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.opt4j.core.Individual;
@@ -27,25 +26,59 @@ public class FilterParetoOptimalIndividuals {
 
 		if (args.length < 2) {
 			System.out
-					.println("You need to specify a cvs file as first argument and the number of columns to be read and compared as second argument");
+					.println("You need to specify the number of columns to be read and compared as first argument and the cvs file(s) as second and optional further arguments");
 		}
 
-		String filename = args[0];
 
-		int noColumns = Integer.parseInt(args[1]);
-
-		List<Individual> values = readInDoubles(filename, noColumns);
+		int noColumns = Integer.parseInt(args[0]);
 		
-		List<Individual> optimal = filterPareto(values);
-		
-		writeResults("results"+filename, optimal);
+		List<List<Individual>> allIndividuals = new ArrayList<List<Individual>>();
+		List<File> files = new ArrayList<File>();
 
+		for (int i = 1; i < args.length; i++) {
+			String filename = args[i];
+			File file = new File(filename);
+			files.add(file);
+			List<Individual> values = readInDoubles(file, noColumns);
+			allIndividuals.add(values);
+			
+			List<Individual> optimal = filterPareto(values);
+			
+			System.out.println("Input: "+file.getAbsolutePath());
+			writeResults("results", file, optimal);
+			
+			
+		}
+		
+		//Filter the overall optimals and put them in the lists.
+		List<Individual> overallList = new ArrayList<Individual>();
+		for (List<Individual> list : allIndividuals) {
+			overallList.addAll(list);
+		}
+		List<Individual> overallOptimal = filterPareto(overallList);
+		
+		//remove non-optimal from list and then print the remaining ones to see how many were optimal. 
+		for (List<Individual> list : allIndividuals) {
+			List<Individual> toBeRemoved = new ArrayList<Individual>();
+			for (Individual individual : list) {
+				if (!overallOptimal.contains(individual)){
+					toBeRemoved.add(individual);
+				}
+			}
+			list.removeAll(toBeRemoved);
+			System.out.println("Input: "+files.get(allIndividuals.indexOf(list)).getAbsolutePath());
+			writeResults("resultsComparedWithOthers", files.get(allIndividuals.indexOf(list)), list);
+			
+		}
 	}
+	
 
 	@SuppressWarnings("unchecked")
-	private static void writeResults(String filename, List<Individual> optimalIndividuals) {
+	private static void writeResults(String filenamePrefix, File oldFile, List<Individual> optimalIndividuals) {
+		
+		File file = new File(oldFile.getParentFile(),filenamePrefix+oldFile.getName());
 		try {
-			BufferedWriter w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(filename)));
+			BufferedWriter w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(file)));
 			
 			for (Individual indiv : optimalIndividuals) {
 				for (Value double1 : indiv.getObjectives().getValues()) {
@@ -57,19 +90,29 @@ public class FilterParetoOptimalIndividuals {
 			w.flush();
 			
 			w.close();
+			
+			System.out.println("Written results to "+file.getAbsolutePath());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Writing failed.");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Writing failed.");
 			e.printStackTrace();
 		}
 		
 	}
 
-	public static List<Individual> filterPareto(List<Individual> individuals) {
+	/**
+	 * 
+	 * @param individuals The list is not modified
+	 * @return A copy of the given list with all non-optimal Individuals removed.
+	 */
+	public static List<Individual> filterPareto(final List<Individual> individuals) {
 		
 		List<Individual> toBeRemoved = new ArrayList<Individual>();
+		List<Individual> result = new ArrayList<Individual>();
+		
+		result.addAll(individuals);
 		
 		for (int i = 0; i < individuals.size(); i++) {
 			Individual indiv1 = individuals.get(i);
@@ -84,16 +127,22 @@ public class FilterParetoOptimalIndividuals {
 			
 		}
 		
-		individuals.removeAll(toBeRemoved);
+		result.removeAll(toBeRemoved);
 		
-		return individuals;
+		return result;
 
 	}
 
-	private static List<Individual> readInDoubles(String filename,
+	/**
+	 * Reads in Individuals from a file having the objectives in the first columns. 
+	 * Must contain headlines. 
+	 * @param filename
+	 * @param noColumns The number of first columns that contain the objectives to be analysed. 
+	 * @return
+	 */
+	private static List<Individual> readInDoubles(File file,
 			int noColumns) {
-		File file = new File(filename);
-
+		
 		try {
 
 			List<Individual> results = new ArrayList<Individual>();
@@ -116,6 +165,11 @@ public class FilterParetoOptimalIndividuals {
 			while (null != (line = in.readLine())) {
 				Objectives lineList = new Objectives();
 				String[] lineArray = line.split(";");
+				
+				if (lineArray.length == 0){
+					//lines of the form ";;;;;;;" result in an empty array and should be skipped. 
+					continue;
+				}
 
 				for (int i = 0; i < noColumns; i++) {
 					try {

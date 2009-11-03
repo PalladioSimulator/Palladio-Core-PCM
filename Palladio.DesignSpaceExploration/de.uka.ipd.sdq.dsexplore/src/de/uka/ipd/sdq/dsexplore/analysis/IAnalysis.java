@@ -6,6 +6,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
 public interface IAnalysis {
 
@@ -13,10 +15,12 @@ public interface IAnalysis {
 	 * Analyses the passed {@link PCMInstance}. 
 	 * @param pcmInstance
 	 * @return
-	 * @throws AnalysisFailedException
 	 * @throws CoreException
+	 * @throws UserCanceledException 
+	 * @throws JobFailedException 
+	 * @throws AnalysisFailedException
 	 */
-	public abstract IAnalysisResult analyse(PCMInstance pcmInstance) throws AnalysisFailedException, CoreException;
+	public abstract IAnalysisResult analyse(PCMInstance pcmInstance) throws CoreException, UserCanceledException, JobFailedException, AnalysisFailedException;
 
 	 /**
 	  * Saves the passed Run Configuration information so that we do not have to pass them as parameters all the time.  
@@ -24,9 +28,12 @@ public interface IAnalysis {
 	  * @param mode
 	  * @param launch
 	  * @param monitor
+	 * @throws CoreException 
 	  */
-	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor);
+	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor) throws CoreException;
 
 	public abstract IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException;
+
+	public abstract String getQualityAttribute() throws CoreException;
 
 }

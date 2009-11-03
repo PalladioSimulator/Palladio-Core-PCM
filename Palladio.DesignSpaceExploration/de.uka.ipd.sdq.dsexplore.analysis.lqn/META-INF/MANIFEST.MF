@@ -1,19 +1,22 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Reliability analysis DSE Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.analysis.reliability;singleton:=true
+Bundle-Name: Lqnsolver Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.analysis.lqn;singleton:=true
 Bundle-Version: 0.1.0
-Bundle-Activator: de.uka.ipd.sdq.dsexplore.analysis.reliability.Activator
+Bundle-Activator: de.uka.ipd.sdq.dsexplore.analysis.lqn.Activator
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.dsexplore;bundle-version="1.0.0",
+ org.eclipse.debug.core,
  org.apache.log4j,
- de.uka.ipd.sdq.pcmsolver;bundle-version="3.0.0",
  de.uka.ipd.sdq.pcm;bundle-version="3.0.0",
- org.eclipse.debug.ui;bundle-version="3.4.1",
+ org.eclipse.ui,
+ org.eclipse.debug.ui,
+ LQNModel;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.pcmsolver;bundle-version="3.0.0",
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
- de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0"
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: de.uka.ipd.sdq.workflow.launchconfig.tabs

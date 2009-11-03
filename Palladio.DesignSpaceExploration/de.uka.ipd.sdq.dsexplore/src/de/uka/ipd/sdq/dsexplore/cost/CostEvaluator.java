@@ -3,31 +3,39 @@ package de.uka.ipd.sdq.dsexplore.cost;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.cost.ComponentCost;
 import de.uka.ipd.sdq.pcm.cost.Cost;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
+import de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
-public class CostEvaluator {
+public class CostEvaluator implements IAnalysis{
 
 	private CostRepository costModel;
 
-	public CostEvaluator(CostRepository costs) {
-		this.costModel = costs;
-	}
-	
 	/** 
 	 * Sums up the initial cost of the PCM elements present in the given PCM instance.
 	 * TODO For now, all cost in the internal costRepository are considered. Thus, only 
@@ -61,26 +69,36 @@ public class CostEvaluator {
 		if (VariableProcessingResourceCost.class.isInstance(cost)){
 			VariableProcessingResourceCost vc = (VariableProcessingResourceCost)cost;
 			ResourceContainer rc = (ResourceContainer)vc.getProcessingresourcespecification().eContainer();
-			List<AllocationContext> alloc = pcm.getAllocation().getAllocationContexts_Allocation();
-			for (AllocationContext allocationContext : alloc) {
-				if (EMFHelper.checkIdentity(allocationContext.getResourceContainer_AllocationContext(), rc)){
-					return true;
-				}
-			}
+			return checkWhetherResourceContainerIsUsed(pcm, rc);
 			//No usage of resource container found, return false. 
-			return false;
 		} else if (ComponentCost.class.isInstance(cost)){
 			ComponentCost cc = (ComponentCost)cost;
 			RepositoryComponent rc = cc.getRepositoryComponent();
 			List<AssemblyContext> asctx = pcm.getSystem().getAssemblyContexts_ComposedStructure();
+			//TODO: also retrieve inner assembly contexts of deployed composite components. Cost currently need to be specified separately. 
 			for (AssemblyContext assemblyContext : asctx) {
 				if (EMFHelper.checkIdentity(assemblyContext.getEncapsulatedComponent_AssemblyContext(), rc)){
 					return true;
 				}
 			}
 			return false;
+		} else if (cost instanceof FixedProcessingResourceCost){
+			FixedProcessingResourceCost fc = (FixedProcessingResourceCost)cost;
+			ResourceContainer rc = (ResourceContainer)fc.getProcessingresourcespecification().eContainer();
+			return checkWhetherResourceContainerIsUsed(pcm, rc);
 		} else 
 			return true;
+	}
+
+	private boolean checkWhetherResourceContainerIsUsed(PCMInstance pcm,
+			ResourceContainer rc) {
+		List<AllocationContext> alloc = pcm.getAllocation().getAllocationContexts_Allocation();
+		for (AllocationContext allocationContext : alloc) {
+			if (EMFHelper.checkIdentity(allocationContext.getResourceContainer_AllocationContext(), rc)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -175,6 +193,49 @@ public class CostEvaluator {
 			}
 		}
 
+	}
+	
+	@Override
+	public IAnalysisResult analyse(PCMInstance pcmInstance)
+			throws CoreException, UserCanceledException, JobFailedException,
+			AnalysisFailedException {
+		return new CostAnalysisResult(getTotalCost(pcmInstance, 0), pcmInstance);
+	}
+	
+	@Override
+	public String getQualityAttribute() throws CoreException {
+		return "cost";
+	}
+
+	@Override
+	public void initialise(ILaunchConfiguration configuration, String mode,
+			ILaunch launch, IProgressMonitor monitor) throws CoreException {
+		
+		CostRepository costs = getCostModel(configuration);
+		this.costModel = costs;
+		
+}
+
+	@Override
+	public IAnalysisResult retrieveLastResults(PCMInstance pcmInstance)
+			throws CoreException, AnalysisFailedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/**
+	 * returns a cost model or throws an exception. 
+	 * @param configuration
+	 * @return a CostRepository which is not null
+	 * @throws CoreException if the model could not be loaded.  
+	 */
+	private CostRepository getCostModel(ILaunchConfiguration configuration) throws CoreException {
+		String costModelFileName = configuration.getAttribute(DSEConstantsContainer.COST_FILE, "");
+		CostRepository cr =  (CostRepository)EMFHelper.loadFromXMIFile(costModelFileName);
+		if (cr == null){
+			throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, "Cost model "+costModelFileName+" could not be loaded.", null));
+		}
+		return cr;
 	}
 	
 	
