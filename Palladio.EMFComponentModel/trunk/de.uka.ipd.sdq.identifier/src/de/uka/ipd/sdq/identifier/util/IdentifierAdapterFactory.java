@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
-import de.uka.ipd.sdq.identifier.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

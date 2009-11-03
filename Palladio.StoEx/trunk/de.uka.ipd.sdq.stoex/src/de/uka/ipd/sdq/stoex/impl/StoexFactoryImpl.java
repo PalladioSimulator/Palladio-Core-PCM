@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
-import de.uka.ipd.sdq.stoex.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;

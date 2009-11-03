@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.stoex.util;
 
-import de.uka.ipd.sdq.stoex.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
