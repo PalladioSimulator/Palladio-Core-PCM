@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework;
 import java.io.Serializable;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
+
 /**
  * @author roman
  * 
@@ -27,8 +29,8 @@ public class SimuComConfig implements Serializable {
 	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
 	public static String CONFIDENCE_LEVEL = "confidenceLevel";
 	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
+	public static String CONFIDENCE_MODELELEMENT_URI = "confidenceModelElementURI";
 	public static String CONFIDENCE_MODELELEMENT_NAME = "confidenceModelElementName";
-	public static String CONFIDENCE_MODELELEMENT_LABEL = "confidenceModelElementLabel";
 	
 	/** configuration options */
 	private String nameExperimentRun;
@@ -42,11 +44,11 @@ public class SimuComConfig implements Serializable {
 	private boolean useConfidence;
 	private int confidenceLevel;
 	private int confidenceHalfWidth;
+	private URI confidenceModelElementURI;
 	private String confidenceModelElementName;
-	private String confidenceModelElementLabel;
 
 	/**
-	 * @param configuration a map which maps configuation option IDs to their values
+	 * @param configuration a map which maps configuration option IDs to their values
 	 */
 	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
 		try {
@@ -72,8 +74,8 @@ public class SimuComConfig implements Serializable {
 					CONFIDENCE_HALFWIDTH));
 			this.confidenceModelElementName = (String) configuration.get(
 					CONFIDENCE_MODELELEMENT_NAME);
-			this.confidenceModelElementLabel = (String) configuration.get(
-					CONFIDENCE_MODELELEMENT_LABEL);
+			this.confidenceModelElementURI = URI.createURI((String)configuration.get(
+					CONFIDENCE_MODELELEMENT_URI));
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -123,8 +125,8 @@ public class SimuComConfig implements Serializable {
 		return confidenceModelElementName;
 	}
 	
-	public String getConfidenceModelElementLabel() {
-		return confidenceModelElementLabel;
+	public URI getConfidenceModelElementURI() {
+		return confidenceModelElementURI;
 	}
 
 	public String getEngine() {

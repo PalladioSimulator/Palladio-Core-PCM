@@ -67,7 +67,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	
 	private ArrayList<String> modelFiles = new ArrayList<String>();
 	private String selectedModelElementName;
-	private String selectedModelElementLabel;
+	private URI selectedModelElementURI;
 	protected int selectedDataSourceID;
 
 	/* (non-Javadoc)
@@ -125,7 +125,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		useConfidenceCheckBox.setSelection(false);
 		useConfidenceCheckBox.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				// enable level and half-with fields iff check box is checked
+				// enable level and half-with fields if and only if check box is checked
 				boolean selected = useConfidenceCheckBox.getSelection();
 				levelLabel.setEnabled(selected);
 				levelField.setEnabled(selected);
@@ -246,29 +246,19 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	private void showSelectModelElementDialog() {
-		ResourceSet rs = new ResourceSetImpl();
+		ResourceSet rs = loadResourceSetForModelFiles();
 		ArrayList<Object> filter = new ArrayList<Object>();
 		filter.add(UsageModel.class);
 		filter.add(UsageScenario.class);
-		for (String file : modelFiles) {
-			try {
-				rs.getResource(URI.createURI(file), true);
-			} catch (Exception ex) {
-				rs.getResource(URI.createFileURI(file), true);
-			}
-		}
-		EcoreUtil.resolveAll(rs);
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog
 			(this.getShell(), filter, rs);
 		if (dialog.open() == org.eclipse.jface.dialogs.Dialog.OK) {
 			EObject modelElement = dialog.getResult();
 			if (modelElement instanceof UsageScenario) {
-				AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(
-						new PalladioItemProviderAdapterFactory(
-								new UsagemodelItemProviderAdapterFactory()));
-				selectedModelElementLabel = labelProvider.getText(modelElement);
-				selectedModelElementName = ((UsageScenario)modelElement).getEntityName();
-				selectModelElementField.setText(selectedModelElementLabel);
+				UsageScenario usageScenario = (UsageScenario)modelElement;
+				selectedModelElementURI = EcoreUtil.getURI(modelElement);
+				selectedModelElementName = usageScenario.getEntityName();
+				updateModelElementField(usageScenario);
 			} else {
 				MessageBox warningBox = new MessageBox(selectModelElementField
 						.getShell(), SWT.ICON_WARNING | SWT.OK);
@@ -279,6 +269,26 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				warningBox.open();
 			}
 		}
+	}
+	
+	private void updateModelElementField(UsageScenario modelElement) {
+		AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(
+				new PalladioItemProviderAdapterFactory(
+						new UsagemodelItemProviderAdapterFactory()));
+		selectModelElementField.setText(labelProvider.getText(modelElement));
+	}
+	
+	private ResourceSet loadResourceSetForModelFiles() {
+		ResourceSet rs = new ResourceSetImpl();
+		for (String file : modelFiles) {
+			try {
+				rs.getResource(URI.createURI(file), true);
+			} catch (Exception ex) {
+				rs.getResource(URI.createFileURI(file), true);
+			}
+		}
+		EcoreUtil.resolveAll(rs);
+		return rs;
 	}
 
 	/* (non-Javadoc)
@@ -380,20 +390,22 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		
 		try {
-			selectedModelElementName = configuration.getAttribute(
-					SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, "");
+			selectedModelElementURI = URI.createURI(configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, ""));
+			ResourceSet rs = loadResourceSetForModelFiles();
+			EObject selectedModelElement = rs.getEObject(selectedModelElementURI, false);		
+			if (selectedModelElement != null && selectedModelElement instanceof UsageScenario) {
+				UsageScenario usageScenario = (UsageScenario)selectedModelElement;
+				selectedModelElementName = usageScenario.getEntityName();
+				updateModelElementField(usageScenario);
+			} else {	// selectedModelElement is null or of wrong type
+				selectedModelElementURI = null;
+				selectedModelElementName = "";
+				selectModelElementField.setText("");
+			}
 		} catch (CoreException e) {
-			selectedModelElementLabel = "";
+			selectedModelElementURI = null;
 			selectedModelElementName = "";
-			selectModelElementField.setText("");
-		}
-		
-		try {
-			selectedModelElementLabel = configuration.getAttribute(
-					SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL, "");
-			selectModelElementField.setText(selectedModelElementLabel);
-		} catch (CoreException e) {
-			selectedModelElementLabel = "";
 			selectModelElementField.setText("");
 		}
 	}
@@ -420,8 +432,14 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				halfWidthField.getText());
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME,
 				selectedModelElementName);
-		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL,
-				selectedModelElementLabel);
+		
+		if (selectedModelElementURI != null) {
+			configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_URI,
+					selectedModelElementURI.toString());
+		} else {
+			configuration.setAttribute(
+					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, "");
+		}
 	}
 
 	/* (non-Javadoc)
@@ -440,7 +458,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_LEVEL, 95);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH, 10);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, "");
-		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_LABEL, "");
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_URI, "");
 	}
 
 	/* (non-Javadoc)
@@ -509,10 +527,21 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		// check, whether a model element is selected
 		if (useConfidenceCheckBox.getSelection()
-				&& selectedModelElementName.isEmpty()) {
+				&& selectedModelElementURI == null) {
 			setErrorMessage("Select a model element whose response times are " +
 					"to be monitored!");
 		}
 		return true;
 	}
+	
+	@Override
+	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
+		// Leave this method empty to prevent unnecessary invocation of
+		// initializeFrom() and multiple resulting invocations of
+		// performApply().
+	}
+
+	@Override
+	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
+	
 }
