@@ -20,8 +20,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
-import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -61,7 +60,7 @@ public class AlternativeComponent  {
 	/**
 	 * @see de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates#generateNewCandidates(de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult)
 	 */
-	public List<AssembledComponentDecision> generateDesignDecisions(PCMInstance currentPCMInstance) {
+	public List<AssembledComponentDegree> generateDesignDecisions(PCMInstance currentPCMInstance) {
 		
 		Repository r = currentPCMInstance.getRepository();
 		
@@ -83,11 +82,11 @@ public class AlternativeComponent  {
 	 * @param alternativeMap2 The Map containing all replacement options
 	 * @return A list of design decisions
 	 */
-	private List<AssembledComponentDecision> createAssembledComponentDecisionsInstances(
+	private List<AssembledComponentDegree> createAssembledComponentDecisionsInstances(
 			PCMInstance currentSolution,
 			Map<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> alternativeMap2) {
 		
-		List<AssembledComponentDecision> l = new ArrayList<AssembledComponentDecision>();
+		List<AssembledComponentDegree> l = new ArrayList<AssembledComponentDegree>();
 		
 
 		for (Map.Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mapping : alternativeMap2
@@ -97,7 +96,7 @@ public class AlternativeComponent  {
 			
 			//only save design decision if there are at least two components
 			if (mapping.getValue().size() > 1){
-				AssembledComponentDecision inst = createDesignDecision(currentSolution, mapping); 
+				AssembledComponentDegree inst = createDesignDecision(currentSolution, mapping); 
 				l.add(inst);
 			}
 			
@@ -113,19 +112,16 @@ public class AlternativeComponent  {
 	 * @param mappingEntry
 	 * @return
 	 */
-	private AssembledComponentDecision createDesignDecision(
+	private AssembledComponentDegree createDesignDecision(
 			PCMInstance currentSolution,
 			Entry<AssemblyContext, Map<RepositoryComponent, ComponentReplacer>> mappingEntry) {
-		AssembledComponentDecision decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDecision();
-		EquivalentComponents ec = designdecisionFactoryImpl.eINSTANCE.createEquivalentComponents();
+		AssembledComponentDegree decision = designdecisionFactoryImpl.eINSTANCE.createAssembledComponentDegree();
 		
 		//Set domain to be all alternative components, i.e. all RepositoryComponents in the mapping. 
-		ec.getRepositorycomponent().addAll(mappingEntry.getValue().keySet());
+		decision.getDomainOfEntities().addAll(mappingEntry.getValue().keySet());
 		
-		decision.setAssemblycontext(mappingEntry.getKey());
-		decision.setDomain(ec);
-		
-		
+		decision.setChangeableEntity(mappingEntry.getKey());
+	
 		return decision;
 	}
 

@@ -11,28 +11,25 @@ import org.eclipse.emf.ecore.EObject;
 import org.opt4j.genotype.DoubleGenotype;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.helper.FixDesignDecisionReferenceSwitch;
-import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
-import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
-import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
-import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
-import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
-import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
+import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
+import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
-import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
+import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * The {@link DSEProblem} defines the problem. Therefore, it reads in the 
@@ -95,26 +92,40 @@ public class DSEProblem {
 	private List<DoubleGenotype> determineInitialGenotype(Problem problem) {
 		DoubleGenotype genotype = new DoubleGenotype();
 		
-		for (DesignDecision dd : problem.getDesigndecision()) {
-			if (dd instanceof AssembledComponentDecision){
-				AssembledComponentDecision acd = (AssembledComponentDecision)dd;
-				AssemblyContext ac = acd.getAssemblycontext();
+		for (DegreeOfFreedom dd : problem.getDesigndecision()) {
+			if (dd instanceof AssembledComponentDegree){
+				AssembledComponentDegree acd = (AssembledComponentDegree)dd;
+				AssemblyContext ac = (AssemblyContext)acd.getChangeableEntity();
 				RepositoryComponent rc = ac.getEncapsulatedComponent_AssemblyContext();
-				List<RepositoryComponent> listInMemory = ((EquivalentComponents)acd.getDomain()).getRepositorycomponent();
+				List<Entity> listInMemory = acd.getDomainOfEntities();
 				int index = EMFHelper.indexOfByID(listInMemory, rc.getId());
 				genotype.add(new Double(index));
-			} else if (dd instanceof AllocationDecision){
-				AllocationDecision ad = (AllocationDecision)dd;
-				AllocationContext ac = ad.getAllocationcontext();
+			} else if (dd instanceof AllocationDegree){
+				AllocationDegree ad = (AllocationDegree)dd;
+				AllocationContext ac = (AllocationContext)ad.getChangeableEntity();
 				ResourceContainer rc = ac.getResourceContainer_AllocationContext();
-				List<ResourceContainer> listInMemory = ((AvailableServers)ad.getDomain()).getResourcecontainer();
+				List<Entity> listInMemory = ad.getDomainOfEntities();
 				int index = EMFHelper.indexOfByID(listInMemory, rc.getId());
 				genotype.add(new Double(index));
-			} else if (dd instanceof ProcessingRateDecision){
-				ProcessingRateDecision prd = (ProcessingRateDecision)dd;
-				ProcessingResourceSpecification prs = prd.getProcessingresourcespecification();
-				genotype.add(new Double(CostUtil.getDoubleFromSpecification(prs.getProcessingRate_ProcessingResourceSpecification().getSpecification())));
-	}
+			} else if (dd instanceof ProcessingRateDegree){
+				ProcessingRateDegree prd = (ProcessingRateDegree)dd;
+				ResourceContainer rc = (ResourceContainer)prd.getChangeableEntity();
+				List<ProcessingResourceSpecification> prsList = rc.getActiveResourceSpecifications_ResourceContainer();
+				ProcessingResourceType prt = prd.getProcessingresourcetype();
+				
+				ProcessingResourceSpecification rightPrs = null;
+				for (ProcessingResourceSpecification prs : prsList) {
+					if (EMFHelper.checkIdentity(prs.getActiveResourceType_ActiveResourceSpecification(),prt)){
+						rightPrs = prs;
+						break;
+					}
+				}
+				
+				if (rightPrs != null){
+					genotype.add(new Double(CostUtil.getDoubleFromSpecification(rightPrs.getProcessingRate_ProcessingResourceSpecification().getSpecification())));
+				} else 
+					throw new RuntimeException("Invalid degree of freedom "+dd.toString()+". The references ProcessingResourceType is not available in the given ResourceContainer.");
+				}
 		};
 
 		//determineProcessingRateDecisions(new ArrayList<DesignDecision>(), genotype);
@@ -128,7 +139,7 @@ public class DSEProblem {
 
 	private void initialiseProblem() {
 		this.pcmProblem = this.designDecisionFactory.createProblem();
-		List<DesignDecision> dds = this.pcmProblem.getDesigndecision();
+		List<DegreeOfFreedom> dds = this.pcmProblem.getDesigndecision();
 		//analyse PCM Instance and create design decisions
 		//TODO: could this be possible with a M2M transformation? 
 		//First, only get design decisions for making resources faster. 
@@ -171,7 +182,7 @@ public class DSEProblem {
 //	}
 
 	//TODO: change this to two visitors that either create the design decision and initial genotype or just initial genotype.  
-	private void determineAllocationDecisions(List<DesignDecision> dds, DoubleGenotype genotype) {
+	private void determineAllocationDecisions(List<DegreeOfFreedom> dds, DoubleGenotype genotype) {
 		List<AllocationContext> acs = this.initialInstance.getAllocation().getAllocationContexts_Allocation();
 		List<ResourceContainer> rcs = this.initialInstance.getResourceenvironment().getResourceContainer_ResourceEnvironment();
 		
@@ -179,13 +190,11 @@ public class DSEProblem {
 		
 		//each allocation context could be allocated on each container.
 		for (AllocationContext ac : acs) {
-			AllocationDecision ad = this.designDecisionFactory.createAllocationDecision();
-			ad.setAllocationcontext(ac);
-			AvailableServers servers = this.designDecisionFactory.createAvailableServers();
-			servers.getResourcecontainer().addAll(rcs);
-			ad.setDomain(servers);
+			AllocationDegree ad = this.designDecisionFactory.createAllocationDegree();
+			ad.setChangeableEntity(ac);
+			ad.getDomainOfEntities().addAll(rcs);
 			dds.add(ad);
-			genotype.add(new Double(servers.getResourcecontainer().indexOf(ac.getResourceContainer_AllocationContext())));
+			genotype.add(new Double(ad.getDomainOfEntities().indexOf(ac.getResourceContainer_AllocationContext())));
 		}
 		
 		
@@ -197,18 +206,18 @@ public class DSEProblem {
 	 * Be sure to add one design decision and one gene in the initial genotype at once. The index is important.
 	 * @param genotypeIndex
 	 */
-	private void determineAssembledComponentsDecisions(List<DesignDecision> dds, DoubleGenotype genotype) {
+	private void determineAssembledComponentsDecisions(List<DegreeOfFreedom> dds, DoubleGenotype genotype) {
 		AlternativeComponent ac = AlternativeComponent.getInstance();
-		List<AssembledComponentDecision> decisions = ac.generateDesignDecisions(this.initialInstance);
+		List<AssembledComponentDegree> decisions = ac.generateDesignDecisions(this.initialInstance);
 		
-		for (AssembledComponentDecision designDecision : decisions) {
+		for (AssembledComponentDegree designDecision : decisions) {
 			dds.add(designDecision);
-			EList<RepositoryComponent> ec = ((EquivalentComponents) designDecision.getDomain()).getRepositorycomponent();
-			RepositoryComponent currentlyAssembledComponent = designDecision.getAssemblycontext().getEncapsulatedComponent_AssemblyContext();
+			EList<Entity> ec = designDecision.getDomainOfEntities();
+			RepositoryComponent currentlyAssembledComponent = ((AssemblyContext)designDecision.getChangeableEntity()).getEncapsulatedComponent_AssemblyContext();
 			
 			//determine where the original component is in the map
 			boolean foundInitialRepoComponent = false;
-			for (RepositoryComponent repositoryComponent : ec) {
+			for (Entity repositoryComponent : ec) {
 				if (EMFHelper.checkIdentity(repositoryComponent, currentlyAssembledComponent)){
 					genotype.add(new Double(ec.indexOf(repositoryComponent)));
 					foundInitialRepoComponent = true;
@@ -226,21 +235,19 @@ public class DSEProblem {
 	/**
 	 * Be sure to add one design decision and one gene in the initial genotype at once. The index is important.
 	 */
-	private void determineProcessingRateDecisions(List<DesignDecision> dds, DoubleGenotype genotype) {
+	private void determineProcessingRateDecisions(List<DegreeOfFreedom> dds, DoubleGenotype genotype) {
 		List<ResourceContainer> resourceContainers = this.initialInstance.getAllResourceContainers();
 		for (ResourceContainer resourceContainer : resourceContainers) {
 			List<ProcessingResourceSpecification> resources = resourceContainer.getActiveResourceSpecifications_ResourceContainer();
 			for (ProcessingResourceSpecification resource : resources) {
-				ProcessingRateDecision decision = this.designDecisionFactory.createProcessingRateDecision();
-				DoubleRange range = this.designDecisionFactory.createDoubleRange();
-				range.setLowerBoundIncluded(false);
+				ProcessingRateDegree decision = this.designDecisionFactory.createProcessingRateDegree();
+				decision.setLowerBoundIncluded(false);
 				double currentRate = CostUtil.getDoubleFromSpecification(resource.getProcessingRate_ProcessingResourceSpecification().getSpecification());
 				//XXX initial assumption: the highest possible processingRate is 10 times the current one.
-				range.setTo(currentRate * 2.0);
-				range.setFrom(currentRate * 0.5);
-				decision.setDomain(range);
-				decision.setProcessingresourcespecification(resource);
-				decision.setResourcecontainer(resourceContainer);
+				decision.setTo(currentRate * 2.0);
+				decision.setFrom(currentRate * 0.5);
+				decision.setChangeableEntity(resourceContainer);
+				decision.setProcessingresourcetype(resource.getActiveResourceType_ActiveResourceSpecification());
 				dds.add(decision);
 				genotype.add(currentRate);
 				;
@@ -258,11 +265,11 @@ public class DSEProblem {
 	}
 
 
-	protected DesignDecision getDesignDecision(int index){
+	protected DegreeOfFreedom getDesignDecision(int index){
 		return this.pcmProblem.getDesigndecision().get(index);
 	}
 
-	public List<DesignDecision> getDesignDecisions(){
+	public List<DegreeOfFreedom> getDesignDecisions(){
 		return this.pcmProblem.getDesigndecision();
 	}
 
@@ -301,8 +308,8 @@ public class DSEProblem {
 		
 		String result = "";
 		
-		List<DesignDecision> decisions = this.pcmProblem.getDesigndecision();
-		for (DesignDecision designDecision : decisions) {
+		List<DegreeOfFreedom> decisions = this.pcmProblem.getDesigndecision();
+		for (DegreeOfFreedom designDecision : decisions) {
 			result += designDecision.toString()+";";
 		}
 		

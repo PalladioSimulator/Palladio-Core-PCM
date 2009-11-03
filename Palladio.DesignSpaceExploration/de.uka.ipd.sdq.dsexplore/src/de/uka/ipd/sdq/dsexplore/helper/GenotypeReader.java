@@ -13,11 +13,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Status;
 import org.opt4j.genotype.DoubleGenotype;
 
-import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 
 public class GenotypeReader {
 	
@@ -113,7 +112,7 @@ public class GenotypeReader {
 		List<DoubleGenotype> results = new ArrayList<DoubleGenotype>();
 		
 		DSEProblem problem = Opt4JStarter.problem;
-		List<DesignDecision> decisionList = problem.getDesignDecisions();
+		List<DegreeOfFreedom> decisionList = problem.getDesignDecisions();
 		
 		//order design decisions
 		String headline = in.readLine();
@@ -123,9 +122,9 @@ public class GenotypeReader {
 		} 
 		String[] headlineArray = headline.split(SEPARATOR);
 		
-		List<DesignDecision> orderedDesignDecisions = new ArrayList<DesignDecision>();
+		List<DegreeOfFreedom> orderedDesignDecisions = new ArrayList<DegreeOfFreedom>();
 		for (String headlineEntry : headlineArray) {
-			for (DesignDecision decision : decisionList) {
+			for (DegreeOfFreedom decision : decisionList) {
 				if (decision.toString().equals(headlineEntry)){
 					orderedDesignDecisions.add(decision);
 				}

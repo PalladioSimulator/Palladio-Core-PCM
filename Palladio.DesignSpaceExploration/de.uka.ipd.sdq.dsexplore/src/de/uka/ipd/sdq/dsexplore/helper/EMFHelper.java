@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
-import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
