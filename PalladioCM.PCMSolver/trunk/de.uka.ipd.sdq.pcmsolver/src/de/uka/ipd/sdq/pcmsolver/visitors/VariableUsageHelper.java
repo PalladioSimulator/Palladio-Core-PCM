@@ -38,10 +38,12 @@ public class VariableUsageHelper {
 		//check if there already exists a variable with the same name
 		String varName = newUsage.getNamedReference_VariableUsage()
 				.getReferenceName();
-		for (VariableUsage usage : input.getParameterChacterisations_Input())
-			if (usage.getNamedReference_VariableUsage().getReferenceName()
-					.equals(varName))
-				throw new RuntimeException("Multiple definition of variable '" + varName + "'.");
+		// Checking for duplicate variable names here also disallows component parameters of different components with the same name. 
+		// TODO: Allow duplicate names for different components, then uncomment this here. 
+//		for (VariableUsage usage : input.getParameterChacterisations_Input())
+//			if (usage.getNamedReference_VariableUsage().getReferenceName()
+//					.equals(varName))
+//				throw new RuntimeException("Multiple definition of variable '" + varName + "'.");
 		input.getParameterChacterisations_Input().add(newUsage);
 	}
 	
