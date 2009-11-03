@@ -327,9 +327,9 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	
 	@Override
 	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
-		// Leave this method empty to prevent unnecessary invocation of
-		// initializeFrom() and multiple resulting invocations of
-		// performApply().
+		// Override this methods's super class implementation in order to
+		// prevent multiple invocation of initializeFrom() and subsequent
+		// invocations of performApply().
 	}
 
 	@Override
