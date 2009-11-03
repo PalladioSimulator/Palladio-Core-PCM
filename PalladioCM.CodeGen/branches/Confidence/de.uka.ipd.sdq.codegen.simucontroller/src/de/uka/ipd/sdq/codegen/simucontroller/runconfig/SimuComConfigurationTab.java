@@ -246,7 +246,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	private void showSelectModelElementDialog() {
-		ResourceSet rs = loadResourceSetForModelFiles();
+		ResourceSet rs = loadModelFiles();
 		ArrayList<Object> filter = new ArrayList<Object>();
 		filter.add(UsageModel.class);
 		filter.add(UsageScenario.class);
@@ -276,19 +276,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				new PalladioItemProviderAdapterFactory(
 						new UsagemodelItemProviderAdapterFactory()));
 		selectModelElementField.setText(labelProvider.getText(modelElement));
-	}
-	
-	private ResourceSet loadResourceSetForModelFiles() {
-		ResourceSet rs = new ResourceSetImpl();
-		for (String file : modelFiles) {
-			try {
-				rs.getResource(URI.createURI(file), true);
-			} catch (Exception ex) {
-				rs.getResource(URI.createFileURI(file), true);
-			}
-		}
-		EcoreUtil.resolveAll(rs);
-		return rs;
 	}
 
 	/* (non-Javadoc)
@@ -382,28 +369,22 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		
 		try {
+			String usageFile = configuration.getAttribute(
+					ConstantsContainer.USAGE_FILE, "");
 			modelFiles.clear();
-			modelFiles.add(configuration.getAttribute(
-					ConstantsContainer.USAGE_FILE, ""));
+			if (!usageFile.isEmpty()) {
+				modelFiles.add(usageFile);
+			}
 		} catch (CoreException e) {
-			selectModelElementField.setText("");
 		}
 		
 		try {
 			selectedModelElementURI = URI.createURI(configuration.getAttribute(
 					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, ""));
-			ResourceSet rs = loadResourceSetForModelFiles();
-			EObject selectedModelElement = rs.getEObject(selectedModelElementURI, false);		
-			if (selectedModelElement != null && selectedModelElement instanceof UsageScenario) {
-				UsageScenario usageScenario = (UsageScenario)selectedModelElement;
-				selectedModelElementName = usageScenario.getEntityName();
-				updateModelElementField(usageScenario);
-			} else {	// selectedModelElement is null or of wrong type
-				selectedModelElementURI = null;
-				selectedModelElementName = "";
-				selectModelElementField.setText("");
-			}
-		} catch (CoreException e) {
+			UsageScenario usageScenario = getUsageScenarioFromURI(selectedModelElementURI); 
+			selectedModelElementName = usageScenario.getEntityName();
+			updateModelElementField(usageScenario);
+		} catch (Exception e) {
 			selectedModelElementURI = null;
 			selectedModelElementName = "";
 			selectModelElementField.setText("");
@@ -535,13 +516,63 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	@Override
-	public void activated(ILaunchConfigurationWorkingCopy workingCopy) {
-		// Leave this method empty to prevent unnecessary invocation of
-		// initializeFrom() and multiple resulting invocations of
-		// performApply().
+	public void activated(ILaunchConfigurationWorkingCopy configuration) {
+		try {
+			String usageFile = configuration.getAttribute(
+					ConstantsContainer.USAGE_FILE, "");
+			modelFiles.clear();
+			if (!usageFile.isEmpty()) {
+				modelFiles.add(usageFile);
+			}
+		} catch (CoreException e) {
+		}
+		
+		try {
+			selectedModelElementURI = URI.createURI(configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, ""));
+			UsageScenario usageScenario = getUsageScenarioFromURI(selectedModelElementURI); 
+			selectedModelElementName = usageScenario.getEntityName();
+			updateModelElementField(usageScenario);
+		} catch (Exception e) {
+			selectedModelElementURI = null;
+			selectedModelElementName = "";
+			selectModelElementField.setText("");
+		}
+		
 	}
 
 	@Override
 	public void deactivated(ILaunchConfigurationWorkingCopy workingCopy) {}
+	
+	private ResourceSet loadModelFiles() {
+		ResourceSet rs = new ResourceSetImpl();
+		for (String file : modelFiles) {
+			try {
+				rs.getResource(URI.createURI(file), true);
+			} catch (Exception ex) {
+				try {
+					rs.getResource(URI.createFileURI(file), true);
+				} catch (Exception exInner) {
+				}
+			}
+		}
+		EcoreUtil.resolveAll(rs);
+		return rs;
+	}
+	
+	private UsageScenario getUsageScenarioFromURI(URI selectedModelElementURI)
+			throws Exception {
+		ResourceSet rs = loadModelFiles();
+		EObject selectedModelElement = rs.getEObject(selectedModelElementURI,
+				false);
+
+		if (selectedModelElement != null
+				&& selectedModelElement instanceof UsageScenario) {
+			return (UsageScenario) selectedModelElement;
+		} else {
+			throw new RuntimeException("selectedModelElement " +
+					"is null or of wrong type");
+		}
+	}
 	
 }
