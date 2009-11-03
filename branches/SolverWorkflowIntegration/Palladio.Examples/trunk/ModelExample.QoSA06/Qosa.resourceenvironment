@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
-  <resourceContainer_ResourceEnvironment id="Application Server" entityName="Application Server">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
-      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#cpu"/>
-      <processingRate_ProcessingResourceSpecification specification="1"/>
-    </activeResourceSpecifications_ResourceContainer>
-  </resourceContainer_ResourceEnvironment>
-</pcm.resourceenvironment:ResourceEnvironment>

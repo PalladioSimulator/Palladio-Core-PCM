@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
-  <resourceContainer_ResourceEnvironment id="_nYQscP__Edu5_5tCZjPAAA" entityName="server">
-    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="s">
-      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#cpu"/>
-    </activeResourceSpecifications_ResourceContainer>
-  </resourceContainer_ResourceEnvironment>
-</pcm.resourceenvironment:ResourceEnvironment>

@@ -1,8 +1,0 @@
-import parameter;
-import seff;
-
-context VariableUsage ERROR 'LHS ID not set':
-	this.namedReference_VariableUsage != null;
-	
-context ExternalCallAction ERROR this.calledService_ExternalService.serviceName + ' Variable Reference not set':
-	!this.parameterUsage_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
