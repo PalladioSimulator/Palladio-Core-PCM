@@ -6,14 +6,12 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 import org.opt4j.genotype.Bounds;
 
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
-import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.Domain;
 import de.uka.ipd.sdq.pcm.designdecision.DoubleRange;
 import de.uka.ipd.sdq.pcm.designdecision.Enumeration;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.IntegerRange;
 import de.uka.ipd.sdq.pcm.designdecision.Problem;
-import de.uka.ipd.sdq.pcm.designdecision.SoapOrRmi;
 
 class DimensionBounds implements Bounds<Double> {
 	
@@ -62,8 +60,6 @@ class DimensionBounds implements Bounds<Double> {
 			upperEnumerationBound = ((EquivalentComponents)domain).getRepositorycomponent().size()-1;
 		} else if (AvailableServers.class.isInstance(domain)){
 			upperEnumerationBound = ((AvailableServers)domain).getResourcecontainer().size()-1;
-		} else if (SoapOrRmi.class.isInstance(domain)){
-			upperEnumerationBound = 1;
 		} else {
 			throw new RuntimeException("Domain of design decision not supported: "+this.problem.getDesigndecision().get(index).getDomain().getClass().getName());
 		}

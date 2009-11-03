@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.cost.util.CostUtil;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDecision;
 import de.uka.ipd.sdq.pcm.designdecision.AvailableServers;
-import de.uka.ipd.sdq.pcm.designdecision.ConnectorConfigDecision;
 import de.uka.ipd.sdq.pcm.designdecision.DesignDecision;
 import de.uka.ipd.sdq.pcm.designdecision.EquivalentComponents;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDecision;
@@ -96,29 +95,11 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 			this.applyChangeAssembledComponentDecision((AssembledComponentDecision)designDecision, doubleGene);
 		} else if (AllocationDecision.class.isInstance(designDecision)){
 			this.applyChangeAllocationDecision((AllocationDecision)designDecision, doubleGene);
-		} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
-			this.applyChangeConnectorConfigDecision((ConnectorConfigDecision)designDecision, doubleGene);
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
 	}
 	
-	private void applyChangeConnectorConfigDecision(
-			ConnectorConfigDecision designDecision, Double doubleGene) {
-		int gene = doubleGene.intValue();
-		
-		if (gene == 0){
-			//Apply SOAP
-			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(0).setConfigState(ConfigState.ELIMINATED);
-			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(1).setConfigState(ConfigState.SELECTED);
-		} else if (gene == 1){
-			//Apply RMI
-			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(1).setConfigState(ConfigState.ELIMINATED);
-			((ConnectorConfigDecision)designDecision).getFeatureconfig().getConfignode().get(0).setConfigState(ConfigState.SELECTED);
-		} else throw new RuntimeException("ConnectorConfigDecision has a value out of range:"+gene+" or as double "+doubleGene);
-		
-	}
-
 	private void applyChangeAllocationDecision(
 			AllocationDecision designDecision, Double doubleGene) {
 		int gene = doubleGene.intValue();
@@ -196,8 +177,6 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 			result = ((EquivalentComponents)designDecision.getDomain()).getRepositorycomponent().get(intgene).getEntityName();
 		} else if (AllocationDecision.class.isInstance(designDecision)){
 			result = ((AvailableServers)designDecision.getDomain()).getResourcecontainer().get(intgene).getEntityName();
-		} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
-			result = intgene == 0 ? "SOAP" : "RMI";
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
@@ -232,21 +211,11 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 				value = getDoubleValueFor((AssembledComponentDecision)designDecision, decisionString);
 			} else if (AllocationDecision.class.isInstance(designDecision)){
 				value = getDoubleValueFor((AllocationDecision)designDecision, decisionString);
-			} else if (ConnectorConfigDecision.class.isInstance(designDecision)){
-				value = getDoubleValueFor((ConnectorConfigDecision)designDecision, decisionString);
 			} else {
 				logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 			}
 		}
 		return value;
-	}
-
-	private static double getDoubleValueFor(ConnectorConfigDecision designDecision,
-			String decisionString) {
-		if (decisionString.equals("SOAP"))
-			return 0;
-		else 
-			return 1;
 	}
 
 	private static double getDoubleValueFor(AllocationDecision designDecision,
