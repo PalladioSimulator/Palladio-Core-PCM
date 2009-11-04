@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math.test;
 
 import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 
 
-public class SampleTest {
+public class SampleTest{
 	
 	public static IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	

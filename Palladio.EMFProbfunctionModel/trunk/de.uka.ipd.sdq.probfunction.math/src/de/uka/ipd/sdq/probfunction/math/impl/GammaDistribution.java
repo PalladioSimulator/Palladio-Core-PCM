@@ -4,7 +4,6 @@ import umontreal.iro.lecuyer.probdist.GammaDist;
 import umontreal.iro.lecuyer.probdist.GammaDistFromMoments;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -19,8 +18,18 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
+/**
+ * gamma distribution with shape parameter alpha > 0 (also called k in Wikipedia) and scale parameter beta > 0 (called lambda in umontreal.iro.lecuyer.probdist.GammaDist, or Theta in Wikipedia). 
+ * @author martens
+ *
+ */
 public class GammaDistribution extends AbstractContinousPDF implements IGammaDistribution {
 
+	/**
+	 *  Constructs a GammaDist object with parameters alpha and beta.
+	 * @param alpha
+	 * @param beta
+	 */
 	public GammaDistribution(double alpha, double beta) {
 		super();
 		this.internalFunction = new GammaDist(alpha, beta);
@@ -126,12 +135,6 @@ public class GammaDistribution extends AbstractContinousPDF implements IGammaDis
 			UnorderedDomainException {
 		throw new UnsupportedOperationException();
 	}
-
-	
-	public IUnit getUnit() {
-		throw new UnsupportedOperationException();
-	}
-
 	
 	public boolean hasOrderedDomain() {
 		throw new UnsupportedOperationException();

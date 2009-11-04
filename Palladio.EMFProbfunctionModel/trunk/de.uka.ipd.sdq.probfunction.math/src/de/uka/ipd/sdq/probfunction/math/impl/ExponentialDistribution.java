@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.probfunction.math.impl;
 import umontreal.iro.lecuyer.probdist.ExponentialDist;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -108,10 +107,6 @@ public class ExponentialDistribution extends AbstractContinousPDF implements IEx
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
 			UnorderedDomainException {
-		throw new UnsupportedOperationException();
-	}
-
-	public IUnit getUnit() {
 		throw new UnsupportedOperationException();
 	}
 

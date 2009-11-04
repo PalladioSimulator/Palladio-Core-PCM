@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
@@ -352,6 +353,8 @@ public class ProbabilityFunctionFactoryImpl implements
 			resultPDF = (IBoxedPDF) pdf;
 		} else if (pdf instanceof ISamplePDF) {
 			resultPDF = transformSampledToBoxedPDF((ISamplePDF) pdf);
+		} else if (pdf instanceof IContinousPDF){
+			resultPDF = transformContinuousToBoxedPDF((IContinousPDF) pdf);
 		} else {
 			throw new UnknownPDFTypeException(pdf);
 		}
@@ -654,6 +657,84 @@ public class ProbabilityFunctionFactoryImpl implements
 		}
 
 		return createBoxedPDF(samples, spdf.getUnit());
+	}
+	
+
+	/**
+	 * This function creates an approximation histogram of the passed pdf. 
+	 * The number of bins is fixed to 20. 
+	 * If the passed pdf has an infinite support (e.g. ranges from 0 to + 
+	 * infinity like the exponential function), the 95% or 5% percentile is
+	 * used for the support of the histogram.    
+	 * The value of each bin with the range lowerLimit to upperLimit 
+	 * is the difference of the cumulated probabilities of its limit points:
+	 * p(bin) = pdf.cdf(upperLimit) - pdf.cdf(lowerLimit). 
+	 * @param pdf The continuous probability function to approximate.
+	 * @return
+	 * @throws DoubleSampleException
+	 */
+	private IBoxedPDF transformContinuousToBoxedPDF(IContinousPDF pdf) throws DoubleSampleException {
+		// number of boxes needs to be defined. Not too much, or it becomes too big. 
+		int numberOfBoxes = 20;
+		double cutMargin = 0.05;
+	
+		// get lower and upper bound for the boxes. 
+		double xSup = pdf.getXsup();
+		double xInf = pdf.getXinf();
+		
+		// try xInf and xsup and test that not inifinity. If no, use them directly for bounds. 
+		if (Double.isInfinite(xSup) || Double.isNaN(xSup)){
+			// If yes, lets define it so that 95% of the
+			// probability is covered.
+			xSup = pdf.inverseF(1-cutMargin);
+			//TODO: adjust pdf to new xSup?
+		}
+		if (Double.isInfinite(xInf) || Double.isNaN(xInf)){
+			xInf = pdf.inverseF(0+cutMargin);
+			//TODO: adjust pdf to new xInf?
+		}
+
+		double stepwidth = (xSup - xInf) / 20;
+		double x = xInf;
+		double upperProbability = 0;
+		double lowerProbability = 0;
+		
+		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
+		if (xInf != 0){
+			IContinuousSample s = this.createContinuousSample(xInf, 0);
+			samples.add(s);
+		}
+		for (int i = 1; i <= numberOfBoxes; i++){
+			x = xInf + i * stepwidth;
+			
+			lowerProbability = upperProbability;
+			upperProbability = pdf.cdf(x);
+			
+			IContinuousSample s = this.createContinuousSample(x, upperProbability - lowerProbability);
+			samples.add(s);
+		}
+		
+		BoxedPDFImpl boxedPdf = (BoxedPDFImpl)createBoxedPDF(samples, pdf.getUnit());
+		double sum = boxedPdf.getProbabilitySum();
+		
+		if (Math.abs(sum - 1) > 10e-10 ){
+			// Adjust wrong PDFs
+			double delta = (1 - sum) / countNonZeroContiniousSamples(samples);
+			for(IContinuousSample sample : boxedPdf.getSamples()) {
+				if (sample.getProbability() > 0)
+					((ContinuousSampleImpl)sample).setProbability(sample.getProbability()+delta);
+			}
+		}
+	
+		return boxedPdf;
+	}
+	
+	private double countNonZeroContiniousSamples(List<IContinuousSample> samples) {
+		int count=0;
+		for (IContinuousSample s : samples)
+			if (s.getProbability()>0)
+				count++;
+		return count;
 	}
 
 	private List<Double> continuousSamplesToDoubles(List<IContinuousSample> list) {

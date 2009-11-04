@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.probfunction.math.impl;
 
 import umontreal.iro.lecuyer.probdist.ContinuousDistribution;
 import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
+import de.uka.ipd.sdq.probfunction.math.IUnit;
 
 public abstract class AbstractContinousPDF implements IContinousPDF {
 
@@ -41,6 +42,74 @@ public abstract class AbstractContinousPDF implements IContinousPDF {
 	public boolean isInTimeDomain() {
 		return true;
 	}
+	
+	/**
+	 * Returns the distribution function F(x) as defined in 
+	 * {@link umontreal.iro.lecuyer.probdist.Distribution#cdf(double)}
+	 * @param x
+	 * @return F(x)
+	 */
+	public double cdf(double x){
+		return this.internalFunction.cdf(x);
+	}
+	
+	/**
+	 * Returns f(x), the density evaluated at x, as defined in 
+	 * {@link umontreal.iro.lecuyer.probdist.ContinousDistribution#density(double)}
+	 * @param x
+	 * @return F(x)
+	 */
+	public double density(double x){
+		return this.internalFunction.density(x);
+	}
+
+
+	/**
+	 * Returns xa such that the probability density is 0 everywhere outside the interval [xa, xb], 
+	 * as defined in 
+	 * {@link umontreal.iro.lecuyer.probdist.ContinousDistribution#density(double)}
+	 * @return lower limit of support
+	 */
+	@Override
+	public double getXinf() {
+		return this.internalFunction.getXinf();
+	}
+
+
+	/**
+	 * Returns xb such that the probability density is 0 everywhere outside the interval [xa, xb], 
+	 * as defined in 
+	 * {@link umontreal.iro.lecuyer.probdist.ContinousDistribution#density(double)}
+	 * @return upper limit of support
+	 */
+	@Override
+	public double getXsup() {
+		return this.internalFunction.getXsup();
+	}
+
+
+	/**
+	 * Computes and returns the inverse distribution function x = F^{-1}(u). 
+	 * This can be used to get the quantiles of the distribution. 
+	 * Pass 0.9 to get the x value of this function for which this.cdf(x) = 0.9 holds.
+	 * Uses the implementation of the concrete function in the {@link umontreal.iro.lecuyer.probdist} package. 
+	 * @param u - value in the interval [0, 1] for which the inverse distribution function is evaluated 
+	 * @return the inverse distribution function evaluated at u
+	 */
+	@Override
+	public double inverseF(double u) {
+		return this.internalFunction.inverseF(u);
+	}
+
+
+	@Override
+	public IUnit getUnit() {
+		return null;
+	}
+	
+	
+	
+	
 
 
 }

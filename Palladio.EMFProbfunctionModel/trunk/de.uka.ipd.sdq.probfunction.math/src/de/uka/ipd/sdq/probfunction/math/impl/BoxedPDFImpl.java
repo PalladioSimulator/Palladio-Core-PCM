@@ -187,8 +187,23 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return sPDF.sub(pdf);
 	}
 
+	/**
+	 * Get the mean value of the BoxedPDF
+	 * @param list
+	 * @return the mean value
+	 */
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		return MathTools.sumOfCountinuousSamples(samples) / samples.size();
+		List<IContinuousSample> list = this.getSamples();
+		double mean = 0;
+		double previousValue = 0;
+		
+		for (IContinuousSample continuousSample : list) {
+			double number = (continuousSample.getValue() + previousValue)/2;
+			mean += number * continuousSample.getProbability();
+			previousValue = continuousSample.getValue();
+		}
+		
+		return mean;
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
@@ -251,10 +266,16 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		// if (getUnit().getUnitName() == null)
 		//	throw new UnitNameNotSetException();
 
+		double value = 0;
 		for (IContinuousSample s : samples) {
 			if (s == null || s.getValue() < 0.0 || s.getProbability() < 0.0
 					|| s.getProbability() > 1.0)
 				throw new InvalidSampleValueException();
+			//Samples must be ordered by their value. 
+			if (s.getValue() < value){
+				throw new InvalidSampleValueException();
+			}
+			value = s.getValue();
 		}
 	}
 	public IProbabilityDensityFunction getCumulativeFunction() {

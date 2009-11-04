@@ -4,7 +4,6 @@ import umontreal.iro.lecuyer.probdist.LognormalDist;
 import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -130,12 +129,6 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 		throw new UnsupportedOperationException();
 	}
 
-	
-	public IUnit getUnit() {
-		throw new UnsupportedOperationException();
-	}
-
-	
 	public boolean hasOrderedDomain() {
 		throw new UnsupportedOperationException();
 	}

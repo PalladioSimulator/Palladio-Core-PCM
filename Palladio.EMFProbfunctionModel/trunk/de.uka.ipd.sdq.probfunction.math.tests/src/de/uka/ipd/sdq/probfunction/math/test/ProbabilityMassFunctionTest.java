@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -217,19 +218,19 @@ public class ProbabilityMassFunctionTest {
 		pmf.checkConstrains();
 	}
 
-	@Test(expected = UnitNotSetException.class)
-	public void checkConstrains2() throws NegativeDistanceException,
-			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
-			UnitNotSetException, UnitNameNotSetException,
-			InvalidSampleValueException {
-		List<ISample> samples = new ArrayList<ISample>();
-		Collections.addAll(samples, dfFactory.createSample(0.1, 0.3), dfFactory
-				.createSample(0.2, 0.2), dfFactory.createSample(0.3, 0.4),
-				dfFactory.createSample(0.4, 0.1));
-		IProbabilityMassFunction pmf = dfFactory.createProbabilityMassFunction(
-				samples, null, true);
-		pmf.checkConstrains();
-	}
+//	@Test(expected = UnitNotSetException.class)
+//	public void checkConstrains2() throws NegativeDistanceException,
+//			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+//			UnitNotSetException, UnitNameNotSetException,
+//			InvalidSampleValueException {
+//		List<ISample> samples = new ArrayList<ISample>();
+//		Collections.addAll(samples, dfFactory.createSample(0.1, 0.3), dfFactory
+//				.createSample(0.2, 0.2), dfFactory.createSample(0.3, 0.4),
+//				dfFactory.createSample(0.4, 0.1));
+//		IProbabilityMassFunction pmf = dfFactory.createProbabilityMassFunction(
+//				samples, null, true);
+//		pmf.checkConstrains();
+//	}
 
 	@Test
 	public void checkConstrains4() throws NegativeDistanceException,

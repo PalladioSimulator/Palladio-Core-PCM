@@ -7,6 +7,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import flanagan.complex.Complex;
@@ -151,10 +154,10 @@ public class MathTools {
 	public static double sumOfCountinuousSamples(List<IContinuousSample> list) {
 		double sum = 0.0;
 		for (IContinuousSample s : list)
-			sum += s.getValue(); // hier stand vorher s.getProbability()! unfug?
+			sum += s.getProbability();
 		return sum;
 	}
-
+	
 	/**
 	 * Compute the sum of probabilities associated with a set of ISamples.
 	 * 
