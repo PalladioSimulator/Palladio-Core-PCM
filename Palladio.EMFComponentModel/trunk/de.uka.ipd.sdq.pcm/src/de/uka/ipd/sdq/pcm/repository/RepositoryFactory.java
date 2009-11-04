@@ -21,7 +21,7 @@ public interface RepositoryFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -92,15 +92,6 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	Interface createInterface();
-
-	/**
-	 * Returns a new object of class '<em>Required Characterisation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Characterisation</em>'.
-	 * @generated
-	 */
-	RequiredCharacterisation createRequiredCharacterisation();
 
 	/**
 	 * Returns a new object of class '<em>Resource Required Role</em>'.

@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.repository.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -47,7 +46,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Creates the default factory implementation.
@@ -92,7 +91,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
-			case RepositoryPackage.REQUIRED_CHARACTERISATION: return createRequiredCharacterisation();
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
@@ -211,16 +209,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public Interface createInterface() {
 		InterfaceImpl interface_ = new InterfaceImpl();
 		return interface_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredCharacterisation createRequiredCharacterisation() {
-		RequiredCharacterisationImpl requiredCharacterisation = new RequiredCharacterisationImpl();
-		return requiredCharacterisation;
 	}
 
 	/**

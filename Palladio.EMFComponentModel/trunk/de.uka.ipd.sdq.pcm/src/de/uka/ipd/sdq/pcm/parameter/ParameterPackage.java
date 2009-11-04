@@ -41,7 +41,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The package name.
@@ -83,54 +83,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
 	 * @generated
 	 */
-	int VARIABLE_CHARACTERISATION = 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
-	 * @generated
-	 */
-	int CHARACTERISED_VARIABLE = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
-	 * @generated
-	 */
-	int VARIABLE_USAGE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Named Reference Variable Usage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Variable Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_USAGE_FEATURE_COUNT = 2;
+	int VARIABLE_CHARACTERISATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -160,6 +113,16 @@ public interface ParameterPackage extends EPackage {
 	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
+	 * @generated
+	 */
+	int CHARACTERISED_VARIABLE = 1;
+
+	/**
 	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,6 +148,43 @@ public interface ParameterPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHARACTERISED_VARIABLE_FEATURE_COUNT = StoexPackage.VARIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
+	 * @generated
+	 */
+	int VARIABLE_USAGE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Named Reference Variable Usage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_USAGE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.

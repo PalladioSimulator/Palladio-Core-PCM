@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.parameter.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -45,7 +44,7 @@ public class ParameterSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -106,12 +105,6 @@ public class ParameterSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ParameterPackage.VARIABLE_USAGE: {
-				VariableUsage variableUsage = (VariableUsage)theEObject;
-				T result = caseVariableUsage(variableUsage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ParameterPackage.VARIABLE_CHARACTERISATION: {
 				VariableCharacterisation variableCharacterisation = (VariableCharacterisation)theEObject;
 				T result = caseVariableCharacterisation(variableCharacterisation);
@@ -131,6 +124,12 @@ public class ParameterSwitch<T> {
 				if (result == null) result = caseBooleanExpression(characterisedVariable);
 				if (result == null) result = caseIfElse(characterisedVariable);
 				if (result == null) result = caseExpression(characterisedVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ParameterPackage.VARIABLE_USAGE: {
+				VariableUsage variableUsage = (VariableUsage)theEObject;
+				T result = caseVariableUsage(variableUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

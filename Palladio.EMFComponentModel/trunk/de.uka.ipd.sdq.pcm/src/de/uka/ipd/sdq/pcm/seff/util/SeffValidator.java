@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -51,7 +50,7 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached model package
@@ -194,8 +193,6 @@ public class SeffValidator extends EObjectValidator {
 				return validateResourceDemandingSEFF((ResourceDemandingSEFF)value, diagnostics, context);
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:
 				return validateResourceDemandingBehaviour((ResourceDemandingBehaviour)value, diagnostics, context);
-			case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-				return validateResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour)value, diagnostics, context);
 			case SeffPackage.RELEASE_ACTION:
 				return validateReleaseAction((ReleaseAction)value, diagnostics, context);
 			case SeffPackage.LOOP_ACTION:
@@ -212,8 +209,6 @@ public class SeffValidator extends EObjectValidator {
 				return validateSynchronisationPoint((SynchronisationPoint)value, diagnostics, context);
 			case SeffPackage.EXTERNAL_CALL_ACTION:
 				return validateExternalCallAction((ExternalCallAction)value, diagnostics, context);
-			case SeffPackage.CALL_ACTION:
-				return validateCallAction((CallAction)value, diagnostics, context);
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
 				return validateProbabilisticBranchTransition((ProbabilisticBranchTransition)value, diagnostics, context);
 			case SeffPackage.ABSTRACT_BRANCH_TRANSITION:
@@ -228,8 +223,6 @@ public class SeffValidator extends EObjectValidator {
 				return validateGuardedBranchTransition((GuardedBranchTransition)value, diagnostics, context);
 			case SeffPackage.SET_VARIABLE_ACTION:
 				return validateSetVariableAction((SetVariableAction)value, diagnostics, context);
-			case SeffPackage.INTERNAL_CALL_ACTION:
-				return validateInternalCallAction((InternalCallAction)value, diagnostics, context);
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
 				return validateServiceEffectSpecification((ServiceEffectSpecification)value, diagnostics, context);
 			default:
@@ -401,25 +394,6 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingInternalBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(resourceDemandingInternalBehaviour, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateReleaseAction(ReleaseAction releaseAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(releaseAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(releaseAction, diagnostics, context);
@@ -550,25 +524,8 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCallAction(CallAction callAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(callAction, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateProbabilisticBranchTransition(ProbabilisticBranchTransition probabilisticBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(probabilisticBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(probabilisticBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(probabilisticBranchTransition, diagnostics, context);
 	}
 
 	/**
@@ -577,15 +534,7 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractBranchTransition(AbstractBranchTransition abstractBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(abstractBranchTransition, diagnostics, context);
 	}
 
 	/**
@@ -667,15 +616,7 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGuardedBranchTransition(GuardedBranchTransition guardedBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(guardedBranchTransition, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(guardedBranchTransition, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(guardedBranchTransition, diagnostics, context);
 	}
 
 	/**
@@ -692,23 +633,6 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(setVariableAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(setVariableAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(setVariableAction, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInternalCallAction(InternalCallAction internalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(internalCallAction, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(internalCallAction, diagnostics, context);
 		return result;
 	}
 

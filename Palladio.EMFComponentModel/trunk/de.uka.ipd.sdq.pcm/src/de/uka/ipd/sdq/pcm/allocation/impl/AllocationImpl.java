@@ -53,7 +53,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getAllocationContexts_Allocation() <em>Allocation Contexts Allocation</em>}' containment reference list.
@@ -200,7 +200,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- Get all AssemblyContexts used by this system, that is \n"+"-- 1) the AssemblyContexts directly used in the system and \n"+"self.system_Allocation.assemblyContexts_ComposedStructure\n"+"-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,\n"+"-- we need to get those AssemblyContexts too: Thus, we use a closure here\n"+"->union(self.system_Allocation.assemblyContexts_ComposedStructure->closure(\n"+"encapsulatedComponent_AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)\n"+".assemblyContexts_ComposedStructure))\n"+"--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated \n"+"--and if yes, if they are allocated.\n"+"->forAll(assemblyCtx|\n"+"--AssemblyContexts that contain SubSystems do not need to be allocated\n"+"assemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or\n"+"--All others need to be allocated. \n"+"self.allocationContexts_Allocation->select(allocationCtx|\n"+"allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)";
+	protected static final String EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant operation.

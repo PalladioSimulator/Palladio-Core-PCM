@@ -36,7 +36,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
@@ -174,7 +174,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return getBranchProbability();
+				return new Double(getBranchProbability());
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
 				return getBranchedBehaviour_BranchTransition();
 		}
@@ -190,7 +190,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability((Double)newValue);
+				setBranchProbability(((Double)newValue).doubleValue());
 				return;
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
 				setBranchedBehaviour_BranchTransition((ScenarioBehaviour)newValue);

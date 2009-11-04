@@ -49,7 +49,7 @@ public class ResourceDemandingSEFFItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -135,7 +135,6 @@ public class ResourceDemandingSEFFItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
-			childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS);
 		}
 		return childrenFeatures;
 	}
@@ -194,7 +193,6 @@ public class ResourceDemandingSEFFItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -266,16 +264,6 @@ public class ResourceDemandingSEFFItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
 				 SeffFactory.eINSTANCE.createSetVariableAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createInternalCallAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
-				 SeffFactory.eINSTANCE.createResourceDemandingInternalBehaviour()));
 	}
 
 	/**

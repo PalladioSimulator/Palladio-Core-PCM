@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.entity.*;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -41,7 +40,7 @@ public class EntitySwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -160,10 +159,10 @@ public class EntitySwitch<T> {
 				T result = caseComposedProvidingRequiringEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseComposedStructure(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(composedProvidingRequiringEntity);
+				if (result == null) result = caseEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceRequiringEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(composedProvidingRequiringEntity);
-				if (result == null) result = caseEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseIdentifier(composedProvidingRequiringEntity);
 				if (result == null) result = caseNamedElement(composedProvidingRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);

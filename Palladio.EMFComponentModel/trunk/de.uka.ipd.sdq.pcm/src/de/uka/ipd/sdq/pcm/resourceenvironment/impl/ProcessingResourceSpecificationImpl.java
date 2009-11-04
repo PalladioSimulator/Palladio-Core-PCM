@@ -41,7 +41,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getMTTR() <em>MTTR</em>}' attribute.
@@ -309,9 +309,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
-				return getMTTR();
+				return new Double(getMTTR());
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
-				return getMTTF();
+				return new Double(getMTTF());
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -332,10 +332,10 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
-				setMTTR((Double)newValue);
+				setMTTR(((Double)newValue).doubleValue());
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
-				setMTTF((Double)newValue);
+				setMTTF(((Double)newValue).doubleValue());
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy((SchedulingPolicy)newValue);

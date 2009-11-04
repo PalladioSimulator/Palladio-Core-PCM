@@ -32,7 +32,6 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required Characterisations</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,7 +45,7 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Parent Interface Interface</b></em>' reference list.
@@ -148,21 +147,6 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	void setRepository_Interface(Repository value);
-
-	/**
-	 * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * documentation of required variable characterisations
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Required Characterisations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<RequiredCharacterisation> getRequiredCharacterisations();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -64,7 +63,7 @@ public class RepositorySwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -202,12 +201,6 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.REQUIRED_CHARACTERISATION: {
-				RequiredCharacterisation requiredCharacterisation = (RequiredCharacterisation)theEObject;
-				T result = caseRequiredCharacterisation(requiredCharacterisation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: {
 				ResourceRequiredRole resourceRequiredRole = (ResourceRequiredRole)theEObject;
 				T result = caseResourceRequiredRole(resourceRequiredRole);
@@ -282,12 +275,12 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseComposedProvidingRequiringEntity(compositeComponent);
 				if (result == null) result = caseImplementationComponentType(compositeComponent);
 				if (result == null) result = caseComposedStructure(compositeComponent);
-				if (result == null) result = caseRepositoryComponent(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(compositeComponent);
+				if (result == null) result = caseRepositoryComponent(compositeComponent);
+				if (result == null) result = caseEntity(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingEntity(compositeComponent);
 				if (result == null) result = caseInterfaceRequiringEntity(compositeComponent);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(compositeComponent);
-				if (result == null) result = caseEntity(compositeComponent);
 				if (result == null) result = caseIdentifier(compositeComponent);
 				if (result == null) result = caseNamedElement(compositeComponent);
 				if (result == null) result = defaultCase(theEObject);
@@ -503,21 +496,6 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseInterface(Interface object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequiredCharacterisation(RequiredCharacterisation object) {
 		return null;
 	}
 

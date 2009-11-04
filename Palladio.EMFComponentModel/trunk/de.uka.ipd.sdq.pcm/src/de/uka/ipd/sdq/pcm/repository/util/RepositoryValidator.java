@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
-import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -54,7 +53,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached model package
@@ -260,8 +259,6 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateRole((Role)value, diagnostics, context);
 			case RepositoryPackage.INTERFACE:
 				return validateInterface((Interface)value, diagnostics, context);
-			case RepositoryPackage.REQUIRED_CHARACTERISATION:
-				return validateRequiredCharacterisation((RequiredCharacterisation)value, diagnostics, context);
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE:
 				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
 			case RepositoryPackage.EXCEPTION_TYPE:
@@ -492,15 +489,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 */
 	public boolean validateInterface_SignaturesHaveToBeUniqueForAnInterface(Interface interface_, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return interface_.SignaturesHaveToBeUniqueForAnInterface(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRequiredCharacterisation(RequiredCharacterisation requiredCharacterisation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(requiredCharacterisation, diagnostics, context);
 	}
 
 	/**

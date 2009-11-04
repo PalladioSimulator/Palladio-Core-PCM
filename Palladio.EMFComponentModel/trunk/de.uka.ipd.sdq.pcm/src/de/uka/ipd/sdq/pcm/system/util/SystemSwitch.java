@@ -40,7 +40,7 @@ public class SystemSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -104,6 +104,7 @@ public class SystemSwitch<T> {
 			case SystemPackage.SYSTEM: {
 				de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System)theEObject;
 				T result = caseSystem(system);
+				if (result == null) result = caseEntity(system);
 				if (result == null) result = caseComposedProvidingRequiringEntity(system);
 				if (result == null) result = caseIdentifier(system);
 				if (result == null) result = caseNamedElement(system);
@@ -112,7 +113,6 @@ public class SystemSwitch<T> {
 				if (result == null) result = caseInterfaceProvidingEntity(system);
 				if (result == null) result = caseInterfaceRequiringEntity(system);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(system);
-				if (result == null) result = caseEntity(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

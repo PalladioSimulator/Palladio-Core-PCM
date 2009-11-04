@@ -47,7 +47,7 @@ public class LinkingResourceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -70,25 +70,48 @@ public class LinkingResourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addConnectedResourceContainers_LinkingResourcePropertyDescriptor(object);
+			addToResourceContainer_LinkingResourcePropertyDescriptor(object);
+			addFromResourceContainer_LinkingResourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Connected Resource Containers Linking Resource feature.
+	 * This adds a property descriptor for the To Resource Container Linking Resource feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addConnectedResourceContainers_LinkingResourcePropertyDescriptor(Object object) {
+	protected void addToResourceContainer_LinkingResourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature", "_UI_LinkingResource_type"),
-				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
+				 getString("_UI_LinkingResource_toResourceContainer_LinkingResource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_toResourceContainer_LinkingResource_feature", "_UI_LinkingResource_type"),
+				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the From Resource Container Linking Resource feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFromResourceContainer_LinkingResourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LinkingResource_fromResourceContainer_LinkingResource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_fromResourceContainer_LinkingResource_feature", "_UI_LinkingResource_type"),
+				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE,
 				 true,
 				 false,
 				 true,

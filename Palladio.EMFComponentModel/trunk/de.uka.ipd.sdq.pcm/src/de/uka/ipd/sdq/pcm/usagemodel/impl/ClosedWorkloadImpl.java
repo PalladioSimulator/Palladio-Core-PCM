@@ -46,7 +46,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
@@ -286,7 +286,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-				return getPopulation();
+				return new Integer(getPopulation());
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
 				return getThinkTime_ClosedWorkload();
 		}
@@ -302,7 +302,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-				setPopulation((Integer)newValue);
+				setPopulation(((Integer)newValue).intValue());
 				return;
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
 				setThinkTime_ClosedWorkload((PCMRandomVariable)newValue);

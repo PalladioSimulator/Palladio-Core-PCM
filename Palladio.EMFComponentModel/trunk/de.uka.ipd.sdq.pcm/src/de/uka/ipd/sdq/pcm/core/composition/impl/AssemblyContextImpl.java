@@ -45,7 +45,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getEncapsulatedComponent_AssemblyContext() <em>Encapsulated Component Assembly Context</em>}' reference.
@@ -130,7 +130,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_AssemblyContext() {
-		if (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT) return null;
+		if (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT) return null;
 		return (ComposedStructure)eContainer();
 	}
 
@@ -150,7 +150,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * @generated
 	 */
 	public void setParentStructure_AssemblyContext(ComposedStructure newParentStructure_AssemblyContext) {
-		if (newParentStructure_AssemblyContext != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT && newParentStructure_AssemblyContext != null)) {
+		if (newParentStructure_AssemblyContext != eInternalContainer() || (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT && newParentStructure_AssemblyContext != null)) {
 			if (EcoreUtil.isAncestor(this, newParentStructure_AssemblyContext))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -216,7 +216,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
+		switch (eContainerFeatureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}

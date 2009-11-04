@@ -36,7 +36,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 * @generated
 	 */
 	public Repository getRepository_DataType() {
-		if (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE) return null;
+		if (eContainerFeatureID != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE) return null;
 		return (Repository)eContainer();
 	}
 
@@ -83,7 +83,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 * @generated
 	 */
 	public void setRepository_DataType(Repository newRepository_DataType) {
-		if (newRepository_DataType != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository_DataType != null)) {
+		if (newRepository_DataType != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository_DataType != null)) {
 			if (EcoreUtil.isAncestor(this, newRepository_DataType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -135,7 +135,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
+		switch (eContainerFeatureID) {
 			case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY, Repository.class, msgs);
 		}

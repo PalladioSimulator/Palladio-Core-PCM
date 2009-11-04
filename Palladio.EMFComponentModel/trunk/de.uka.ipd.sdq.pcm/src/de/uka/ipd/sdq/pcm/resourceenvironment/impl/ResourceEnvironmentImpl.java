@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl#getLinkingResources__ResourceEnvironment <em>Linking Resources Resource Environment</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl#getLinkingresource <em>Linkingresource</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl#getResourceContainer_ResourceEnvironment <em>Resource Container Resource Environment</em>}</li>
  * </ul>
  * </p>
@@ -40,17 +40,17 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getLinkingResources__ResourceEnvironment() <em>Linking Resources Resource Environment</em>}' containment reference list.
+	 * The cached value of the '{@link #getLinkingresource() <em>Linkingresource</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLinkingResources__ResourceEnvironment()
+	 * @see #getLinkingresource()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LinkingResource> linkingResources__ResourceEnvironment;
+	protected EList<LinkingResource> linkingresource;
 
 	/**
 	 * The cached value of the '{@link #getResourceContainer_ResourceEnvironment() <em>Resource Container Resource Environment</em>}' containment reference list.
@@ -86,11 +86,11 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LinkingResource> getLinkingResources__ResourceEnvironment() {
-		if (linkingResources__ResourceEnvironment == null) {
-			linkingResources__ResourceEnvironment = new EObjectContainmentEList<LinkingResource>(LinkingResource.class, this, ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
+	public EList<LinkingResource> getLinkingresource() {
+		if (linkingresource == null) {
+			linkingresource = new EObjectContainmentEList<LinkingResource>(LinkingResource.class, this, ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE);
 		}
-		return linkingResources__ResourceEnvironment;
+		return linkingresource;
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-				return ((InternalEList<?>)getLinkingResources__ResourceEnvironment()).basicRemove(otherEnd, msgs);
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+				return ((InternalEList<?>)getLinkingresource()).basicRemove(otherEnd, msgs);
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				return ((InternalEList<?>)getResourceContainer_ResourceEnvironment()).basicRemove(otherEnd, msgs);
 		}
@@ -129,8 +129,8 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-				return getLinkingResources__ResourceEnvironment();
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+				return getLinkingresource();
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				return getResourceContainer_ResourceEnvironment();
 		}
@@ -146,9 +146,9 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-				getLinkingResources__ResourceEnvironment().clear();
-				getLinkingResources__ResourceEnvironment().addAll((Collection<? extends LinkingResource>)newValue);
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+				getLinkingresource().clear();
+				getLinkingresource().addAll((Collection<? extends LinkingResource>)newValue);
 				return;
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				getResourceContainer_ResourceEnvironment().clear();
@@ -166,8 +166,8 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-				getLinkingResources__ResourceEnvironment().clear();
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+				getLinkingresource().clear();
 				return;
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				getResourceContainer_ResourceEnvironment().clear();
@@ -184,8 +184,8 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-				return linkingResources__ResourceEnvironment != null && !linkingResources__ResourceEnvironment.isEmpty();
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+				return linkingresource != null && !linkingresource.isEmpty();
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				return resourceContainer_ResourceEnvironment != null && !resourceContainer_ResourceEnvironment.isEmpty();
 		}

@@ -37,7 +37,7 @@ public interface Allocation extends Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list.
@@ -111,31 +111,11 @@ public interface Allocation extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. 
-	 * 
-	 * Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. 
-	 * 
-	 * The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. 
-	 * -- Get all AssemblyContexts used by this system, that is 
-	 * -- 1) the AssemblyContexts directly used in the system and 
-	 * self.system_Allocation.assemblyContexts_ComposedStructure
-	 * -- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,
-	 * -- we need to get those AssemblyContexts too: Thus, we use a closure here
-	 * ->union(self.system_Allocation.assemblyContexts_ComposedStructure->closure(
-	 * encapsulatedComponent_AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)
-	 * .assemblyContexts_ComposedStructure))
-	 * --Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated 
-	 * --and if yes, if they are allocated.
-	 * ->forAll(assemblyCtx|
-	 * --AssemblyContexts that contain SubSystems do not need to be allocated
-	 * assemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or
-	 * --All others need to be allocated. 
-	 * self.allocationContexts_Allocation->select(allocationCtx|
-	 * allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)
+	 * self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- Get all AssemblyContexts used by this system, that is \r\n-- 1) the AssemblyContexts directly used in the system and \r\nself.system_Allocation.assemblyContexts_ComposedStructure\r\n-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,\r\n-- we need to get those AssemblyContexts too: Thus, we use a closure here\r\n->union(self.system_Allocation.assemblyContexts_ComposedStructure->closure(\r\nencapsulatedComponent_AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)\r\n.assemblyContexts_ComposedStructure))\r\n--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated \r\n--and if yes, if they are allocated.\r\n->forAll(assemblyCtx|\r\n--AssemblyContexts that contain SubSystems do not need to be allocated\r\nassemblyCtx.encapsulatedComponent_AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or\r\n--All others need to be allocated. \r\nself.allocationContexts_Allocation->select(allocationCtx|\r\nallocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)'"
 	 * @generated
 	 */
 	boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(DiagnosticChain diagnostics, Map<Object, Object> context);

@@ -28,7 +28,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LinkingResourceImpl#getConnectedResourceContainers_LinkingResource <em>Connected Resource Containers Linking Resource</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LinkingResourceImpl#getToResourceContainer_LinkingResource <em>To Resource Container Linking Resource</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LinkingResourceImpl#getFromResourceContainer_LinkingResource <em>From Resource Container Linking Resource</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LinkingResourceImpl#getCommunicationLinkResourceSpecifications_LinkingResource <em>Communication Link Resource Specifications Linking Resource</em>}</li>
  * </ul>
  * </p>
@@ -41,17 +42,27 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getConnectedResourceContainers_LinkingResource() <em>Connected Resource Containers Linking Resource</em>}' reference list.
+	 * The cached value of the '{@link #getToResourceContainer_LinkingResource() <em>To Resource Container Linking Resource</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectedResourceContainers_LinkingResource()
+	 * @see #getToResourceContainer_LinkingResource()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> connectedResourceContainers_LinkingResource;
+	protected EList<ResourceContainer> toResourceContainer_LinkingResource;
+
+	/**
+	 * The cached value of the '{@link #getFromResourceContainer_LinkingResource() <em>From Resource Container Linking Resource</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromResourceContainer_LinkingResource()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceContainer> fromResourceContainer_LinkingResource;
 
 	/**
 	 * The cached value of the '{@link #getCommunicationLinkResourceSpecifications_LinkingResource() <em>Communication Link Resource Specifications Linking Resource</em>}' containment reference.
@@ -87,11 +98,23 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceContainer> getConnectedResourceContainers_LinkingResource() {
-		if (connectedResourceContainers_LinkingResource == null) {
-			connectedResourceContainers_LinkingResource = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE);
+	public EList<ResourceContainer> getToResourceContainer_LinkingResource() {
+		if (toResourceContainer_LinkingResource == null) {
+			toResourceContainer_LinkingResource = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ResourceenvironmentPackage.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE);
 		}
-		return connectedResourceContainers_LinkingResource;
+		return toResourceContainer_LinkingResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResourceContainer> getFromResourceContainer_LinkingResource() {
+		if (fromResourceContainer_LinkingResource == null) {
+			fromResourceContainer_LinkingResource = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ResourceenvironmentPackage.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE);
+		}
+		return fromResourceContainer_LinkingResource;
 	}
 
 	/**
@@ -159,8 +182,10 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-				return getConnectedResourceContainers_LinkingResource();
+			case ResourceenvironmentPackage.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				return getToResourceContainer_LinkingResource();
+			case ResourceenvironmentPackage.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				return getFromResourceContainer_LinkingResource();
 			case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
 				return getCommunicationLinkResourceSpecifications_LinkingResource();
 		}
@@ -176,9 +201,13 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-				getConnectedResourceContainers_LinkingResource().clear();
-				getConnectedResourceContainers_LinkingResource().addAll((Collection<? extends ResourceContainer>)newValue);
+			case ResourceenvironmentPackage.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				getToResourceContainer_LinkingResource().clear();
+				getToResourceContainer_LinkingResource().addAll((Collection<? extends ResourceContainer>)newValue);
+				return;
+			case ResourceenvironmentPackage.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				getFromResourceContainer_LinkingResource().clear();
+				getFromResourceContainer_LinkingResource().addAll((Collection<? extends ResourceContainer>)newValue);
 				return;
 			case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
 				setCommunicationLinkResourceSpecifications_LinkingResource((CommunicationLinkResourceSpecification)newValue);
@@ -195,8 +224,11 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-				getConnectedResourceContainers_LinkingResource().clear();
+			case ResourceenvironmentPackage.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				getToResourceContainer_LinkingResource().clear();
+				return;
+			case ResourceenvironmentPackage.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				getFromResourceContainer_LinkingResource().clear();
 				return;
 			case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
 				setCommunicationLinkResourceSpecifications_LinkingResource((CommunicationLinkResourceSpecification)null);
@@ -213,8 +245,10 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-				return connectedResourceContainers_LinkingResource != null && !connectedResourceContainers_LinkingResource.isEmpty();
+			case ResourceenvironmentPackage.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				return toResourceContainer_LinkingResource != null && !toResourceContainer_LinkingResource.isEmpty();
+			case ResourceenvironmentPackage.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE:
+				return fromResourceContainer_LinkingResource != null && !fromResourceContainer_LinkingResource.isEmpty();
 			case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
 				return communicationLinkResourceSpecifications_LinkingResource != null;
 		}

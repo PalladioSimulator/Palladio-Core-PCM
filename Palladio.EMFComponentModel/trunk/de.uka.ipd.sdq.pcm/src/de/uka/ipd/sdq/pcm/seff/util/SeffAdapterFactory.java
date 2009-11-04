@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -52,7 +51,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -125,10 +124,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createResourceDemandingBehaviourAdapter();
 			}
 			@Override
-			public Adapter caseResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour object) {
-				return createResourceDemandingInternalBehaviourAdapter();
-			}
-			@Override
 			public Adapter caseReleaseAction(ReleaseAction object) {
 				return createReleaseActionAdapter();
 			}
@@ -161,10 +156,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createExternalCallActionAdapter();
 			}
 			@Override
-			public Adapter caseCallAction(CallAction object) {
-				return createCallActionAdapter();
-			}
-			@Override
 			public Adapter caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
 				return createProbabilisticBranchTransitionAdapter();
 			}
@@ -191,10 +182,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSetVariableAction(SetVariableAction object) {
 				return createSetVariableActionAdapter();
-			}
-			@Override
-			public Adapter caseInternalCallAction(InternalCallAction object) {
-				return createInternalCallActionAdapter();
 			}
 			@Override
 			public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
@@ -317,20 +304,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour <em>Resource Demanding Internal Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour
-	 * @generated
-	 */
-	public Adapter createResourceDemandingInternalBehaviourAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction <em>Release Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -443,20 +416,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CallAction <em>Call Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.CallAction
-	 * @generated
-	 */
-	public Adapter createCallActionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -551,20 +510,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSetVariableActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.InternalCallAction <em>Internal Call Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.InternalCallAction
-	 * @generated
-	 */
-	public Adapter createInternalCallActionAdapter() {
 		return null;
 	}
 

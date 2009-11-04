@@ -38,7 +38,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached value of the '{@link #getProvidedInterface__ProvidedRole() <em>Provided Interface Provided Role</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -112,7 +112,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 */
 	public InterfaceProvidingEntity getProvidingEntity_ProvidedRole() {
-		if (eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE) return null;
+		if (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE) return null;
 		return (InterfaceProvidingEntity)eContainer();
 	}
 
@@ -132,7 +132,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 */
 	public void setProvidingEntity_ProvidedRole(InterfaceProvidingEntity newProvidingEntity_ProvidedRole) {
-		if (newProvidingEntity_ProvidedRole != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE && newProvidingEntity_ProvidedRole != null)) {
+		if (newProvidingEntity_ProvidedRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE && newProvidingEntity_ProvidedRole != null)) {
 			if (EcoreUtil.isAncestor(this, newProvidingEntity_ProvidedRole))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -184,7 +184,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
+		switch (eContainerFeatureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
 				return eInternalContainer().eInverseRemove(this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, InterfaceProvidingEntity.class, msgs);
 		}
