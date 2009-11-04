@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
@@ -48,6 +49,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRepository_Interface <em>Repository Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRequiredCharacterisations <em>Required Characterisations</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,7 +61,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getParentInterface__Interface() <em>Parent Interface Interface</em>}' reference list.
@@ -100,6 +102,16 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @ordered
 	 */
 	protected EList<Signature> signatures__Interface;
+
+	/**
+	 * The cached value of the '{@link #getRequiredCharacterisations() <em>Required Characterisations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredCharacterisations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RequiredCharacterisation> requiredCharacterisations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,7 +186,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public Repository getRepository_Interface() {
-		if (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
+		if (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
 		return (Repository)eContainer();
 	}
 
@@ -194,7 +206,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public void setRepository_Interface(Repository newRepository_Interface) {
-		if (newRepository_Interface != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository_Interface != null)) {
+		if (newRepository_Interface != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository_Interface != null)) {
 			if (EcoreUtil.isAncestor(this, newRepository_Interface))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -207,6 +219,18 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, newRepository_Interface, newRepository_Interface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RequiredCharacterisation> getRequiredCharacterisations() {
+		if (requiredCharacterisations == null) {
+			requiredCharacterisations = new EObjectContainmentEList<RequiredCharacterisation>(RequiredCharacterisation.class, this, RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS);
+		}
+		return requiredCharacterisations;
 	}
 
 	/**
@@ -344,6 +368,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return ((InternalEList<?>)getSignatures__Interface()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				return basicSetRepository_Interface(null, msgs);
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
+				return ((InternalEList<?>)getRequiredCharacterisations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -355,7 +381,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
 		}
@@ -380,6 +406,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return getSignatures__Interface();
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				return getRepository_Interface();
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
+				return getRequiredCharacterisations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,6 +440,10 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				setRepository_Interface((Repository)newValue);
 				return;
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
+				getRequiredCharacterisations().clear();
+				getRequiredCharacterisations().addAll((Collection<? extends RequiredCharacterisation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -439,6 +471,9 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				setRepository_Interface((Repository)null);
 				return;
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
+				getRequiredCharacterisations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -461,6 +496,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return signatures__Interface != null && !signatures__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				return getRepository_Interface() != null;
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
+				return requiredCharacterisations != null && !requiredCharacterisations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

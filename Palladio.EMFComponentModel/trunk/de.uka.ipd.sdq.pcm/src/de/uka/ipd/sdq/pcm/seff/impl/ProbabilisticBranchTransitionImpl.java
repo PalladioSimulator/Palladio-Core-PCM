@@ -31,7 +31,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
@@ -102,7 +102,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return new Double(getBranchProbability());
+				return getBranchProbability();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,7 +116,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability(((Double)newValue).doubleValue());
+				setBranchProbability((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

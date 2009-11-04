@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -56,7 +57,7 @@ public class SeffSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -173,6 +174,13 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: {
+				ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour)theEObject;
+				T result = caseResourceDemandingInternalBehaviour(resourceDemandingInternalBehaviour);
+				if (result == null) result = caseResourceDemandingBehaviour(resourceDemandingInternalBehaviour);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.RELEASE_ACTION: {
 				ReleaseAction releaseAction = (ReleaseAction)theEObject;
 				T result = caseReleaseAction(releaseAction);
@@ -246,9 +254,16 @@ public class SeffSwitch<T> {
 				ExternalCallAction externalCallAction = (ExternalCallAction)theEObject;
 				T result = caseExternalCallAction(externalCallAction);
 				if (result == null) result = caseAbstractAction(externalCallAction);
+				if (result == null) result = caseCallAction(externalCallAction);
 				if (result == null) result = caseEntity(externalCallAction);
 				if (result == null) result = caseIdentifier(externalCallAction);
 				if (result == null) result = caseNamedElement(externalCallAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.CALL_ACTION: {
+				CallAction callAction = (CallAction)theEObject;
+				T result = caseCallAction(callAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -256,6 +271,8 @@ public class SeffSwitch<T> {
 				ProbabilisticBranchTransition probabilisticBranchTransition = (ProbabilisticBranchTransition)theEObject;
 				T result = caseProbabilisticBranchTransition(probabilisticBranchTransition);
 				if (result == null) result = caseAbstractBranchTransition(probabilisticBranchTransition);
+				if (result == null) result = caseEntity(probabilisticBranchTransition);
+				if (result == null) result = caseIdentifier(probabilisticBranchTransition);
 				if (result == null) result = caseNamedElement(probabilisticBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -263,6 +280,8 @@ public class SeffSwitch<T> {
 			case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
 				AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition)theEObject;
 				T result = caseAbstractBranchTransition(abstractBranchTransition);
+				if (result == null) result = caseEntity(abstractBranchTransition);
+				if (result == null) result = caseIdentifier(abstractBranchTransition);
 				if (result == null) result = caseNamedElement(abstractBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -305,6 +324,8 @@ public class SeffSwitch<T> {
 				GuardedBranchTransition guardedBranchTransition = (GuardedBranchTransition)theEObject;
 				T result = caseGuardedBranchTransition(guardedBranchTransition);
 				if (result == null) result = caseAbstractBranchTransition(guardedBranchTransition);
+				if (result == null) result = caseEntity(guardedBranchTransition);
+				if (result == null) result = caseIdentifier(guardedBranchTransition);
 				if (result == null) result = caseNamedElement(guardedBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -317,6 +338,18 @@ public class SeffSwitch<T> {
 				if (result == null) result = caseEntity(setVariableAction);
 				if (result == null) result = caseIdentifier(setVariableAction);
 				if (result == null) result = caseNamedElement(setVariableAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.INTERNAL_CALL_ACTION: {
+				InternalCallAction internalCallAction = (InternalCallAction)theEObject;
+				T result = caseInternalCallAction(internalCallAction);
+				if (result == null) result = caseCallAction(internalCallAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(internalCallAction);
+				if (result == null) result = caseAbstractAction(internalCallAction);
+				if (result == null) result = caseEntity(internalCallAction);
+				if (result == null) result = caseIdentifier(internalCallAction);
+				if (result == null) result = caseNamedElement(internalCallAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -417,6 +450,21 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Demanding Internal Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Demanding Internal Behaviour</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour object) {
 		return null;
 	}
 
@@ -541,6 +589,21 @@ public class SeffSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallAction(CallAction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Probabilistic Branch Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -642,6 +705,21 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseSetVariableAction(SetVariableAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Internal Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Internal Call Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInternalCallAction(InternalCallAction object) {
 		return null;
 	}
 

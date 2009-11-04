@@ -40,7 +40,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -170,6 +170,29 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return resourceDemandingBehaviourItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceDemandingInternalBehaviourItemProvider resourceDemandingInternalBehaviourItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceDemandingInternalBehaviourAdapter() {
+		if (resourceDemandingInternalBehaviourItemProvider == null) {
+			resourceDemandingInternalBehaviourItemProvider = new ResourceDemandingInternalBehaviourItemProvider(this);
+		}
+
+		return resourceDemandingInternalBehaviourItemProvider;
 	}
 
 	/**
@@ -472,6 +495,29 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InternalCallActionItemProvider internalCallActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInternalCallActionAdapter() {
+		if (internalCallActionItemProvider == null) {
+			internalCallActionItemProvider = new InternalCallActionItemProvider(this);
+		}
+
+		return internalCallActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,7 +567,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -574,6 +620,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (startActionItemProvider != null) startActionItemProvider.dispose();
 		if (resourceDemandingSEFFItemProvider != null) resourceDemandingSEFFItemProvider.dispose();
 		if (resourceDemandingBehaviourItemProvider != null) resourceDemandingBehaviourItemProvider.dispose();
+		if (resourceDemandingInternalBehaviourItemProvider != null) resourceDemandingInternalBehaviourItemProvider.dispose();
 		if (releaseActionItemProvider != null) releaseActionItemProvider.dispose();
 		if (loopActionItemProvider != null) loopActionItemProvider.dispose();
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
@@ -587,6 +634,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();
 		if (setVariableActionItemProvider != null) setVariableActionItemProvider.dispose();
+		if (internalCallActionItemProvider != null) internalCallActionItemProvider.dispose();
 	}
 
 }

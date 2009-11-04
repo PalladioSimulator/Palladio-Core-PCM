@@ -40,7 +40,7 @@ public interface InterfaceRequiringEntity extends Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.

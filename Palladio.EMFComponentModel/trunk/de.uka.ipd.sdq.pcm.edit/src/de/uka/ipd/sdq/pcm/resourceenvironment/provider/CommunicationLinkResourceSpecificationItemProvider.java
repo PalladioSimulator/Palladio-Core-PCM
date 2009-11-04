@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,7 +37,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class CommunicationLinkResourceSpecificationItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +49,7 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -171,8 +172,10 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)object;
-		return getString("_UI_CommunicationLinkResourceSpecification_type") + " " + communicationLinkResourceSpecification.getFailureProbability();
+		String label = ((CommunicationLinkResourceSpecification)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CommunicationLinkResourceSpecification_type") :
+			getString("_UI_CommunicationLinkResourceSpecification_type") + " " + label;
 	}
 
 	/**

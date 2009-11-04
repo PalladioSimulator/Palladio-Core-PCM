@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -29,13 +30,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * @model
  * @generated
  */
-public interface CommunicationLinkResourceSpecification extends EObject {
+public interface CommunicationLinkResourceSpecification extends Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.util;
 
+import de.uka.ipd.sdq.pcm.core.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +34,7 @@ public class CoreSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

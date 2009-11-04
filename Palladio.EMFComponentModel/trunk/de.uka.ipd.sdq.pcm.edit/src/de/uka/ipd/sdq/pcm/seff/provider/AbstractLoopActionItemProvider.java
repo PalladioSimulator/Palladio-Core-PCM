@@ -43,7 +43,7 @@ public class AbstractLoopActionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -153,6 +153,11 @@ public class AbstractLoopActionItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
 				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+				 SeffFactory.eINSTANCE.createResourceDemandingInternalBehaviour()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -52,7 +52,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getInnerRequiredRole_RequiredDelegationConnector() <em>Inner Required Role Required Delegation Connector</em>}' reference.
@@ -223,7 +223,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_RequiredDelegationConnector() {
-		if (eContainerFeatureID != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR) return null;
+		if (eContainerFeatureID() != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR) return null;
 		return (ComposedStructure)eContainer();
 	}
 
@@ -243,7 +243,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	public void setParentStructure_RequiredDelegationConnector(ComposedStructure newParentStructure_RequiredDelegationConnector) {
-		if (newParentStructure_RequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_RequiredDelegationConnector != null)) {
+		if (newParentStructure_RequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_RequiredDelegationConnector != null)) {
 			if (EcoreUtil.isAncestor(this, newParentStructure_RequiredDelegationConnector))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -397,7 +397,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}

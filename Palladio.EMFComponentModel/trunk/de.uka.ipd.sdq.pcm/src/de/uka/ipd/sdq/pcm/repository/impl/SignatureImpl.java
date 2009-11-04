@@ -59,7 +59,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
@@ -169,7 +169,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 */
 	public Interface getInterface_Signature() {
-		if (eContainerFeatureID != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE) return null;
+		if (eContainerFeatureID() != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE) return null;
 		return (Interface)eContainer();
 	}
 
@@ -189,7 +189,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 */
 	public void setInterface_Signature(Interface newInterface_Signature) {
-		if (newInterface_Signature != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE && newInterface_Signature != null)) {
+		if (newInterface_Signature != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE && newInterface_Signature != null)) {
 			if (EcoreUtil.isAncestor(this, newInterface_Signature))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -349,7 +349,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE, Interface.class, msgs);
 		}

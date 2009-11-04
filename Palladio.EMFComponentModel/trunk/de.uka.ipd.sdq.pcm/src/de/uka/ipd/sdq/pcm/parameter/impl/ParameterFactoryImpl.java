@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -31,7 +32,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Creates the default factory implementation.
@@ -70,9 +71,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ParameterPackage.VARIABLE_USAGE: return createVariableUsage();
 			case ParameterPackage.VARIABLE_CHARACTERISATION: return createVariableCharacterisation();
 			case ParameterPackage.CHARACTERISED_VARIABLE: return createCharacterisedVariable();
-			case ParameterPackage.VARIABLE_USAGE: return createVariableUsage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

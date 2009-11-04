@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -44,6 +45,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getSeffTypeID <em>Seff Type ID</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getDescribedService__SEFF <em>Described Service SEFF</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getSteps_Behaviour <em>Steps Behaviour</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getResourceDemandingInternalBehaviours <em>Resource Demanding Internal Behaviours</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +57,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.
@@ -96,6 +98,16 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @ordered
 	 */
 	protected EList<AbstractAction> steps_Behaviour;
+
+	/**
+	 * The cached value of the '{@link #getResourceDemandingInternalBehaviours() <em>Resource Demanding Internal Behaviours</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceDemandingInternalBehaviours()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceDemandingInternalBehaviour> resourceDemandingInternalBehaviours;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +197,18 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 			steps_Behaviour = new EObjectContainmentEList<AbstractAction>(AbstractAction.class, this, SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR);
 		}
 		return steps_Behaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResourceDemandingInternalBehaviour> getResourceDemandingInternalBehaviours() {
+		if (resourceDemandingInternalBehaviours == null) {
+			resourceDemandingInternalBehaviours = new EObjectContainmentEList<ResourceDemandingInternalBehaviour>(ResourceDemandingInternalBehaviour.class, this, SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS);
+		}
+		return resourceDemandingInternalBehaviours;
 	}
 
 	/**
@@ -350,6 +374,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 		switch (featureID) {
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				return ((InternalEList<?>)getSteps_Behaviour()).basicRemove(otherEnd, msgs);
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
+				return ((InternalEList<?>)getResourceDemandingInternalBehaviours()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -369,6 +395,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 				return basicGetDescribedService__SEFF();
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				return getSteps_Behaviour();
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
+				return getResourceDemandingInternalBehaviours();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -392,6 +420,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 				getSteps_Behaviour().clear();
 				getSteps_Behaviour().addAll((Collection<? extends AbstractAction>)newValue);
 				return;
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
+				getResourceDemandingInternalBehaviours().clear();
+				getResourceDemandingInternalBehaviours().addAll((Collection<? extends ResourceDemandingInternalBehaviour>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -413,6 +445,9 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				getSteps_Behaviour().clear();
 				return;
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
+				getResourceDemandingInternalBehaviours().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -431,6 +466,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 				return describedService__SEFF != null;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				return steps_Behaviour != null && !steps_Behaviour.isEmpty();
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
+				return resourceDemandingInternalBehaviours != null && !resourceDemandingInternalBehaviours.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

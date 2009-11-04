@@ -46,7 +46,7 @@ public class ResourceEnvironmentItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -85,7 +85,7 @@ public class ResourceEnvironmentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKINGRESOURCE);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
 			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
 		}
 		return childrenFeatures;
@@ -138,7 +138,7 @@ public class ResourceEnvironmentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceEnvironment.class)) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -159,7 +159,7 @@ public class ResourceEnvironmentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKINGRESOURCE,
+				(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
 				 ResourceenvironmentFactory.eINSTANCE.createLinkingResource()));
 
 		newChildDescriptors.add

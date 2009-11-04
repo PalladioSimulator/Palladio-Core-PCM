@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.connectors.impl;
 
+import de.uka.ipd.sdq.pcm.core.connectors.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -26,7 +27,7 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Creates the default factory implementation.

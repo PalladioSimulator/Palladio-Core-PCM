@@ -39,7 +39,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>' containment reference list.

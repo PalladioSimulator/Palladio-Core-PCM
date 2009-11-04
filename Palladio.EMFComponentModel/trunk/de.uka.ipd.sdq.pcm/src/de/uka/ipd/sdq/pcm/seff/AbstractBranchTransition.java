@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
@@ -27,13 +28,13 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractBranchTransition extends NamedElement {
+public interface AbstractBranchTransition extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.

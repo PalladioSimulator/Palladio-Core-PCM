@@ -17,8 +17,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getToResourceContainer_LinkingResource <em>To Resource Container Linking Resource</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getFromResourceContainer_LinkingResource <em>From Resource Container Linking Resource</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getConnectedResourceContainers_LinkingResource <em>Connected Resource Containers Linking Resource</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource <em>Communication Link Resource Specifications Linking Resource</em>}</li>
  * </ul>
  * </p>
@@ -33,39 +32,23 @@ public interface LinkingResource extends Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>To Resource Container Linking Resource</b></em>' reference list.
+	 * Returns the value of the '<em><b>Connected Resource Containers Linking Resource</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>To Resource Container Linking Resource</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Connected Resource Containers Linking Resource</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To Resource Container Linking Resource</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_ToResourceContainer_LinkingResource()
+	 * @return the value of the '<em>Connected Resource Containers Linking Resource</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_ConnectedResourceContainers_LinkingResource()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<ResourceContainer> getToResourceContainer_LinkingResource();
-
-	/**
-	 * Returns the value of the '<em><b>From Resource Container Linking Resource</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>From Resource Container Linking Resource</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From Resource Container Linking Resource</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_FromResourceContainer_LinkingResource()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	EList<ResourceContainer> getFromResourceContainer_LinkingResource();
+	EList<ResourceContainer> getConnectedResourceContainers_LinkingResource();
 
 	/**
 	 * Returns the value of the '<em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment reference.

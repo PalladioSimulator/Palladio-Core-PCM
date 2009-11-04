@@ -47,7 +47,7 @@ public class InterfaceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -134,6 +134,7 @@ public class InterfaceItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__PROTOCOLS_INTERFACE);
 			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE);
+			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__REQUIRED_CHARACTERISATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -190,6 +191,7 @@ public class InterfaceItemProvider
 		switch (notification.getFeatureID(Interface.class)) {
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -211,6 +213,11 @@ public class InterfaceItemProvider
 			(createChildParameter
 				(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE,
 				 RepositoryFactory.eINSTANCE.createSignature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.INTERFACE__REQUIRED_CHARACTERISATIONS,
+				 RepositoryFactory.eINSTANCE.createRequiredCharacterisation()));
 	}
 
 	/**

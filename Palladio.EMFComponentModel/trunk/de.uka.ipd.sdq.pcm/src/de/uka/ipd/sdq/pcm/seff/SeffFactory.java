@@ -21,7 +21,7 @@ public interface SeffFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -65,6 +65,15 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceDemandingBehaviour createResourceDemandingBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Resource Demanding Internal Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Demanding Internal Behaviour</em>'.
+	 * @generated
+	 */
+	ResourceDemandingInternalBehaviour createResourceDemandingInternalBehaviour();
 
 	/**
 	 * Returns a new object of class '<em>Release Action</em>'.
@@ -182,6 +191,15 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	SetVariableAction createSetVariableAction();
+
+	/**
+	 * Returns a new object of class '<em>Internal Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Internal Call Action</em>'.
+	 * @generated
+	 */
+	InternalCallAction createInternalCallAction();
 
 	/**
 	 * Returns the package supported by this factory.

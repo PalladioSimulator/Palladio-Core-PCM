@@ -39,7 +39,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
@@ -86,7 +86,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
-		if (eContainerFeatureID != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
+		if (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
 		return (ComposedStructure)eContainer();
 	}
 
@@ -106,7 +106,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
-		if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
+		if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
 			if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -234,7 +234,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}

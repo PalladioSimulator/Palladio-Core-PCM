@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -43,7 +44,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * Creates the default factory implementation.
@@ -86,6 +87,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.START_ACTION: return createStartAction();
 			case SeffPackage.RESOURCE_DEMANDING_SEFF: return createResourceDemandingSEFF();
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return createResourceDemandingBehaviour();
+			case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: return createResourceDemandingInternalBehaviour();
 			case SeffPackage.RELEASE_ACTION: return createReleaseAction();
 			case SeffPackage.LOOP_ACTION: return createLoopAction();
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
@@ -99,6 +101,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
 			case SeffPackage.SET_VARIABLE_ACTION: return createSetVariableAction();
+			case SeffPackage.INTERNAL_CALL_ACTION: return createInternalCallAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -142,6 +145,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public ResourceDemandingBehaviour createResourceDemandingBehaviour() {
 		ResourceDemandingBehaviourImpl resourceDemandingBehaviour = new ResourceDemandingBehaviourImpl();
 		return resourceDemandingBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceDemandingInternalBehaviour createResourceDemandingInternalBehaviour() {
+		ResourceDemandingInternalBehaviourImpl resourceDemandingInternalBehaviour = new ResourceDemandingInternalBehaviourImpl();
+		return resourceDemandingInternalBehaviour;
 	}
 
 	/**
@@ -272,6 +285,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public SetVariableAction createSetVariableAction() {
 		SetVariableActionImpl setVariableAction = new SetVariableActionImpl();
 		return setVariableAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InternalCallAction createInternalCallAction() {
+		InternalCallActionImpl internalCallAction = new InternalCallActionImpl();
+		return internalCallAction;
 	}
 
 	/**

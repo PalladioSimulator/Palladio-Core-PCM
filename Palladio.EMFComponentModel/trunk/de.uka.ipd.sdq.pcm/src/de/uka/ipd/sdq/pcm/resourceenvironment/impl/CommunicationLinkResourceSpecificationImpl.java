@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -33,13 +34,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  *
  * @generated
  */
-public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl implements CommunicationLinkResourceSpecification {
+public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl implements CommunicationLinkResourceSpecification {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
@@ -280,7 +281,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
-				return new Double(getFailureProbability());
+				return getFailureProbability();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				if (resolve) return getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 				return basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
@@ -301,7 +302,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
-				setFailureProbability(((Double)newValue).doubleValue());
+				setFailureProbability((Double)newValue);
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setCommunicationLinkResourceType_CommunicationLinkResourceSpecification((CommunicationLinkResourceType)newValue);

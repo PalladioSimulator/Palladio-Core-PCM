@@ -46,7 +46,7 @@ public class ResourceDemandingBehaviourItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -209,6 +209,11 @@ public class ResourceDemandingBehaviourItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
 				 SeffFactory.eINSTANCE.createSetVariableAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createInternalCallAction()));
 	}
 
 	/**

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
+import de.uka.ipd.sdq.pcm.parameter.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -39,7 +40,7 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -88,16 +89,16 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	protected ParameterSwitch<Adapter> modelSwitch =
 		new ParameterSwitch<Adapter>() {
 			@Override
+			public Adapter caseVariableUsage(VariableUsage object) {
+				return createVariableUsageAdapter();
+			}
+			@Override
 			public Adapter caseVariableCharacterisation(VariableCharacterisation object) {
 				return createVariableCharacterisationAdapter();
 			}
 			@Override
 			public Adapter caseCharacterisedVariable(CharacterisedVariable object) {
 				return createCharacterisedVariableAdapter();
-			}
-			@Override
-			public Adapter caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {

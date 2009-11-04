@@ -40,7 +40,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -239,6 +239,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return interfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RequiredCharacterisationItemProvider requiredCharacterisationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequiredCharacterisationAdapter() {
+		if (requiredCharacterisationItemProvider == null) {
+			requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
+		}
+
+		return requiredCharacterisationItemProvider;
 	}
 
 	/**
@@ -521,7 +544,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -576,6 +599,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (requiredCharacterisationItemProvider != null) requiredCharacterisationItemProvider.dispose();
 		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();

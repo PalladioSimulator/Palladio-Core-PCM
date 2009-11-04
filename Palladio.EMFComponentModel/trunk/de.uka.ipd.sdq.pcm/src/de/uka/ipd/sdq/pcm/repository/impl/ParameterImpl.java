@@ -41,7 +41,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, Karlsruhe Institute of Technology / University of Karlsruhe, Germany and SE, FZI Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getDatatype__Parameter() <em>Datatype Parameter</em>}' reference.
@@ -198,7 +198,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public Signature getSignature_Parameter() {
-		if (eContainerFeatureID != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER) return null;
+		if (eContainerFeatureID() != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER) return null;
 		return (Signature)eContainer();
 	}
 
@@ -218,7 +218,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setSignature_Parameter(Signature newSignature_Parameter) {
-		if (newSignature_Parameter != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER && newSignature_Parameter != null)) {
+		if (newSignature_Parameter != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER && newSignature_Parameter != null)) {
 			if (EcoreUtil.isAncestor(this, newSignature_Parameter))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -270,7 +270,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE, Signature.class, msgs);
 		}
