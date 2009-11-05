@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui,
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
  de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0",
- de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
+ de.uka.ipd.sdq.statistics
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.dsexplore.analysis.simucom
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

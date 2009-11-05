@@ -97,6 +97,11 @@
 			<property name="zipargs" value="" />
 		</ant>
 	</target>
+	<target name="assemble.de.uka.ipd.sdq.statistics.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
 	<target name="assemble.de.uka.ipd.sdq.dsexplore.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
