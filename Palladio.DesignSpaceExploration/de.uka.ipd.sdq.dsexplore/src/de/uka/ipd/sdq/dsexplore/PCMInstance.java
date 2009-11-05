@@ -95,8 +95,7 @@ public class PCMInstance {
 		this.launchConfiguration = configuration;
 
 		logger.debug("PCM Instance Constructor called");
-		this.setName(configuration.getAttribute(SimuComConfig.EXPERIMENT_RUN,
-				"Initial instance"));
+		this.setName(configuration.getName());
 
 		this.storagePath = configuration.getAttribute("outputPath", ".");
 

@@ -66,7 +66,7 @@ public class Opt4JStarter {
 		Opt4JStarter.upperConstraints = upperConstraints;
 		
 		if (newProblem){
-		Opt4JStarter.problem = new DSEProblem(pcmInstance);
+			Opt4JStarter.problem = new DSEProblem(pcmInstance);
 			Opt4JStarter.problem.saveProblem();
 		} else {
 			Opt4JStarter.problem = new DSEProblem(pcmInstance, false);
