@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Implements the "Crossing the mean" heuristic for filtering the warm-up period
- * of a steady state simulation.
+ * of a steady state simulation. The warm-up period will rather be underestimated.
+ * <p>
+ * Please note that there is no common interface for warm-up filters so far!
+ * Thus the interface will likely change soon.
  * 
  * @author Philipp Merkle
  * 

@@ -5,6 +5,9 @@ import java.util.List;
 /**
  * Implements the "Marginal Confidence Rule" (MCR) for filtering the warm-up
  * period of a steady state simulation.
+ * <p>
+ * Please note that there is no common interface for warm-up filters so far!
+ * Thus the interface will likely change soon.
  * 
  * @author Philipp Merkle
  * 
@@ -21,9 +24,8 @@ public class MCRWarmUpFilter {
 		
 		int truncatedSamplesSize = samples.size();
 		double truncatedSamplesSum = 0;
-
-		for (int i = 0; i < samples.size(); i++) {
-			truncatedSamplesSum += samples.get(i);
+		for (Double d : samples) {
+			truncatedSamplesSum += d;
 		}
 
 		double minValue = Double.MAX_VALUE;
