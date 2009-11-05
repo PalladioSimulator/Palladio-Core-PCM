@@ -20,12 +20,6 @@ the Palladio Research Group, University of Karlsruhe.
    </license>
 
    <requires>
-      <import feature="de.uka.ipd.sdq.pcm.feature" version="3.1.0.qualifier"/>
-      <import feature="de.uka.ipd.sdq.pcmsolver.feature" version="3.1.0.qualifier"/>
-      <import feature="de.uka.ipd.sdq.sensorframework.feature" version="3.1.0.qualifier"/>
-      <import feature="de.uka.ipd.sdq.simucom.feature" version="3.1.0.qualifier"/>
-      <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0.qualifier"/>
-      <import feature="de.uka.ipd.sdq.statistics.feature" version="1.0.0.qualifier"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.debug.ui"/>
