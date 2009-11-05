@@ -5,12 +5,14 @@
       version="1.0.0"
       plugin="de.uka.ipd.sdq.dsexplore">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="http://sdq.ipd.kit.edu/">
+      Feature for the optimisation of PCM models. Realising the PerOpteryx
+functionality (http://sdqweb.ipd.uka.de/wiki/PerOpteryx).
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+      This plugin is protected by copyright held by the members of
+the Palladio Research Group, University of Karlsruhe.
    </copyright>
 
    <license url="http://www.example.com/license">
@@ -24,6 +26,50 @@
       <import feature="de.uka.ipd.sdq.simucom.feature" version="3.1.0.qualifier"/>
       <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0.qualifier"/>
       <import feature="de.uka.ipd.sdq.statistics.feature" version="1.0.0.qualifier"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="de.uka.ipd.sdq.pcm.designdecision" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.cost" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.inject" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="org.opt4j" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featureconfig" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.statistics" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcmsolver" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.mdsd" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.codegen.simucontroller"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"/>
+      <import plugin="org.rosuda.JRI"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework.adapter"/>
+      <import plugin="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="de.uka.ipd.sdq.identifier"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
+      <import plugin="de.uka.ipd.sdq.units.edit"/>
+      <import plugin="org.eclipse.uml2.common.edit"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.editor"/>
+      <import plugin="LQNModel" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
