@@ -39,13 +39,6 @@
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.dsexplore.analysis.lqnsolver"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.dsexplore.analysis.reliability"
          download-size="0"
          install-size="0"
@@ -103,6 +96,13 @@
 
    <plugin
          id="org.opt4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.dsexplore.analysis.lqn"
          download-size="0"
          install-size="0"
          version="0.0.0"

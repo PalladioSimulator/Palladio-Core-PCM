@@ -788,6 +788,87 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="features"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dsexplore.feature"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.dsexplore.feature"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.DesignSpaceExploration/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dsexplore"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dsexplore"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.DesignSpaceExploration/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dsexplore.analysis.lqn"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dsexplore.analysis.lqn"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.DesignSpaceExploration/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dsexplore.analysis.simucom"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dsexplore.analysis.simucom"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.DesignSpaceExploration/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dsexplore.analysis.reliability"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dsexplore.analysis.reliability"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.DesignSpaceExploration/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.cost"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.cost"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFCostModel/trunk"/>
+     </antcall>
+    <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.cost.edit"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.cost.edit"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFCostModel/trunk"/>
+     </antcall>
+     <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.cost.editor"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.cost.editor"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFCostModel/trunk"/>
+     </antcall>
+    <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.designdecision"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.designdecision"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFDesignDecisionModel/trunk"/>
+     </antcall>
+    <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.designdecision.edit"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.designdecision.edit"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFDesignDecisionModel/trunk"/>
+     </antcall>
+    <antcall target="svn.co">
+       <param name="target" value="plugins"/>
+       <param name="element.id" value="de.uka.ipd.sdq.pcm.designdecision.editor"/>
+       <param name="project.name" value="de.uka.ipd.sdq.pcm.designdecision.editor"/>
+       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFDesignDecisionModel/trunk"/>
+     </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="org.opt4j"/>
+      <param name="project.name" value="org.opt4j"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="com.google.inject"/>
+      <param name="project.name" value="com.google.inject"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+    </antcall>
+
+  	
+  	
+    <antcall target="svn.co">
+      <param name="target" value="features"/>
       <param name="element.id" value="de.uka.ipd.sdq.tests"/>
       <param name="project.name" value="/de.uka.ipd.sdq.tests"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk"/>
