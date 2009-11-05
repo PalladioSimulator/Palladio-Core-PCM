@@ -31,6 +31,8 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.spa.expression.Expression;
 
 /**
+ * TODO: It seems that this class is never used, and the functionality expected here is implemented elsewhere. 
+ * 
  * The DependencySolver (DS) is a tool to substitute parameter names inside PCM
  * stochastic expressions with characterisations originating from the usage
  * model. In the usage model, the domain expert has to specify a variable
