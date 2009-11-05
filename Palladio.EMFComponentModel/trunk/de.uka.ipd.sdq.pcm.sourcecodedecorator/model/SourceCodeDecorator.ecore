@@ -95,8 +95,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="actioncontrolflowlink"
           ordered="false" upperBound="-1" eType="#//PCMLink/ActionControlFlowLink"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="loggingPositionIds" ordered="false"
-          upperBound="-1" eType="#//loggerlink/LoggingPositionIdLink" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="loggingPositionLinks"
+          ordered="false" upperBound="-1" eType="#//loggerlink/LoggingPositionIdLink"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="loggerlink" nsURI="http:///SourceCodeDecorator/loggerLink.ecore"

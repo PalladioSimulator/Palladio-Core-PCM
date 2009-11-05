@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkRepositoryImpl#getComponentfilelink <em>Componentfilelink</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkRepositoryImpl#getSeffmethodlink <em>Seffmethodlink</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkRepositoryImpl#getActioncontrolflowlink <em>Actioncontrolflowlink</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkRepositoryImpl#getLoggingPositionIds <em>Logging Position Ids</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.impl.PCMLinkRepositoryImpl#getLoggingPositionLinks <em>Logging Position Links</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,14 +71,14 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 	protected EList<ActionControlFlowLink> actioncontrolflowlink;
 
 	/**
-	 * The cached value of the '{@link #getLoggingPositionIds() <em>Logging Position Ids</em>}' containment reference list.
+	 * The cached value of the '{@link #getLoggingPositionLinks() <em>Logging Position Links</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLoggingPositionIds()
+	 * @see #getLoggingPositionLinks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LoggingPositionIdLink> loggingPositionIds;
+	protected EList<LoggingPositionIdLink> loggingPositionLinks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,11 +140,11 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LoggingPositionIdLink> getLoggingPositionIds() {
-		if (loggingPositionIds == null) {
-			loggingPositionIds = new EObjectContainmentEList<LoggingPositionIdLink>(LoggingPositionIdLink.class, this, PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS);
+	public EList<LoggingPositionIdLink> getLoggingPositionLinks() {
+		if (loggingPositionLinks == null) {
+			loggingPositionLinks = new EObjectContainmentEList<LoggingPositionIdLink>(LoggingPositionIdLink.class, this, PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS);
 		}
-		return loggingPositionIds;
+		return loggingPositionLinks;
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 				return ((InternalEList<?>)getSeffmethodlink()).basicRemove(otherEnd, msgs);
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK:
 				return ((InternalEList<?>)getActioncontrolflowlink()).basicRemove(otherEnd, msgs);
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
-				return ((InternalEList<?>)getLoggingPositionIds()).basicRemove(otherEnd, msgs);
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
+				return ((InternalEList<?>)getLoggingPositionLinks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,8 +181,8 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 				return getSeffmethodlink();
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK:
 				return getActioncontrolflowlink();
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
-				return getLoggingPositionIds();
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
+				return getLoggingPositionLinks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,9 +208,9 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 				getActioncontrolflowlink().clear();
 				getActioncontrolflowlink().addAll((Collection<? extends ActionControlFlowLink>)newValue);
 				return;
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
-				getLoggingPositionIds().clear();
-				getLoggingPositionIds().addAll((Collection<? extends LoggingPositionIdLink>)newValue);
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
+				getLoggingPositionLinks().clear();
+				getLoggingPositionLinks().addAll((Collection<? extends LoggingPositionIdLink>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,8 +233,8 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK:
 				getActioncontrolflowlink().clear();
 				return;
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
-				getLoggingPositionIds().clear();
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
+				getLoggingPositionLinks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -254,8 +254,8 @@ public class PCMLinkRepositoryImpl extends IdentifierImpl implements PCMLinkRepo
 				return seffmethodlink != null && !seffmethodlink.isEmpty();
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK:
 				return actioncontrolflowlink != null && !actioncontrolflowlink.isEmpty();
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
-				return loggingPositionIds != null && !loggingPositionIds.isEmpty();
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
+				return loggingPositionLinks != null && !loggingPositionLinks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

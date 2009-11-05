@@ -245,13 +245,13 @@ public interface PCMLinkPackage extends EPackage {
 	int PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Logging Position Ids</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Logging Position Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+	int PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -403,15 +403,15 @@ public interface PCMLinkPackage extends EPackage {
 	EReference getPCMLinkRepository_Actioncontrolflowlink();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionIds <em>Logging Position Ids</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionLinks <em>Logging Position Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Logging Position Ids</em>'.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionIds()
+	 * @return the meta object for the containment reference list '<em>Logging Position Links</em>'.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionLinks()
 	 * @see #getPCMLinkRepository()
 	 * @generated
 	 */
-	EReference getPCMLinkRepository_LoggingPositionIds();
+	EReference getPCMLinkRepository_LoggingPositionLinks();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -548,12 +548,12 @@ public interface PCMLinkPackage extends EPackage {
 		EReference PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK = eINSTANCE.getPCMLinkRepository_Actioncontrolflowlink();
 
 		/**
-		 * The meta object literal for the '<em><b>Logging Position Ids</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Logging Position Links</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS = eINSTANCE.getPCMLinkRepository_LoggingPositionIds();
+		EReference PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS = eINSTANCE.getPCMLinkRepository_LoggingPositionLinks();
 
 	}
 

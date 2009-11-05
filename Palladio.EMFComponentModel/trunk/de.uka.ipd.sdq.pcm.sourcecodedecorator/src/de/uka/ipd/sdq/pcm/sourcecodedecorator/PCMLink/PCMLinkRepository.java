@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink;
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getComponentfilelink <em>Componentfilelink</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getSeffmethodlink <em>Seffmethodlink</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getActioncontrolflowlink <em>Actioncontrolflowlink</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionIds <em>Logging Position Ids</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkRepository#getLoggingPositionLinks <em>Logging Position Links</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,19 +80,19 @@ public interface PCMLinkRepository extends Identifier {
 	EList<ActionControlFlowLink> getActioncontrolflowlink();
 
 	/**
-	 * Returns the value of the '<em><b>Logging Position Ids</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Logging Position Links</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggingPositionIdLink}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Logging Position Ids</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Logging Position Links</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Logging Position Ids</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage#getPCMLinkRepository_LoggingPositionIds()
+	 * @return the value of the '<em>Logging Position Links</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage#getPCMLinkRepository_LoggingPositionLinks()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<LoggingPositionIdLink> getLoggingPositionIds();
+	EList<LoggingPositionIdLink> getLoggingPositionLinks();
 
 } // PCMLinkRepository

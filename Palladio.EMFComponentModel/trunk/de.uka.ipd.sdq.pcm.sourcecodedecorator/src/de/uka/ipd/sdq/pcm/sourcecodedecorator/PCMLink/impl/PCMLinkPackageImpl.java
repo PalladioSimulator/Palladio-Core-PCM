@@ -275,7 +275,7 @@ public class PCMLinkPackageImpl extends EPackageImpl implements PCMLinkPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPCMLinkRepository_LoggingPositionIds() {
+	public EReference getPCMLinkRepository_LoggingPositionLinks() {
 		return (EReference)pcmLinkRepositoryEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -323,7 +323,7 @@ public class PCMLinkPackageImpl extends EPackageImpl implements PCMLinkPackage {
 		createEReference(pcmLinkRepositoryEClass, PCM_LINK_REPOSITORY__COMPONENTFILELINK);
 		createEReference(pcmLinkRepositoryEClass, PCM_LINK_REPOSITORY__SEFFMETHODLINK);
 		createEReference(pcmLinkRepositoryEClass, PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK);
-		createEReference(pcmLinkRepositoryEClass, PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS);
+		createEReference(pcmLinkRepositoryEClass, PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS);
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class PCMLinkPackageImpl extends EPackageImpl implements PCMLinkPackage {
 		initEReference(getPCMLinkRepository_Componentfilelink(), this.getComponentFileLink(), null, "componentfilelink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMLinkRepository_Seffmethodlink(), this.getSEFFMethodLink(), null, "seffmethodlink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMLinkRepository_Actioncontrolflowlink(), this.getActionControlFlowLink(), null, "actioncontrolflowlink", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPCMLinkRepository_LoggingPositionIds(), theLoggerlinkPackage.getLoggingPositionIdLink(), null, "loggingPositionIds", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMLinkRepository_LoggingPositionLinks(), theLoggerlinkPackage.getLoggingPositionIdLink(), null, "loggingPositionLinks", null, 0, -1, PCMLinkRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

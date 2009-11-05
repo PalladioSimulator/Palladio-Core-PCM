@@ -65,7 +65,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/componentfilelink"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/seffmethodlink"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/actioncontrolflowlink"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/loggingPositionIds"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLink/PCMLinkRepository/loggingPositionLinks"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Loggerlink" basePackage="de.uka.ipd.sdq.pcm.sourcecodedecorator"

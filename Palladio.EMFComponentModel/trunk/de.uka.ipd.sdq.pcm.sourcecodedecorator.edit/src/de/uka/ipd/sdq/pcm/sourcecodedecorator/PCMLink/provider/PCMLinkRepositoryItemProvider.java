@@ -89,7 +89,7 @@ public class PCMLinkRepositoryItemProvider
 			childrenFeatures.add(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__COMPONENTFILELINK);
 			childrenFeatures.add(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__SEFFMETHODLINK);
 			childrenFeatures.add(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK);
-			childrenFeatures.add(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS);
+			childrenFeatures.add(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +147,7 @@ public class PCMLinkRepositoryItemProvider
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__COMPONENTFILELINK:
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__SEFFMETHODLINK:
 			case PCMLinkPackage.PCM_LINK_REPOSITORY__ACTIONCONTROLFLOWLINK:
-			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS:
+			case PCMLinkPackage.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,32 +182,32 @@ public class PCMLinkRepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createBeforeReturnValueLoggingPositionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createBeforeExternalCallLoggingPositionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createMethodCallLoggingPositionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createAfterExternalCallLoggingPositionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createBranchLoggingPositionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_IDS,
+				(PCMLinkPackage.Literals.PCM_LINK_REPOSITORY__LOGGING_POSITION_LINKS,
 				 LoggerlinkFactory.eINSTANCE.createLoopLoggingPositionLink()));
 	}
 
