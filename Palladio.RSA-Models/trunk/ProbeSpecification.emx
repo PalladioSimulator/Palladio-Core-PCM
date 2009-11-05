@@ -731,7 +731,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_XkDkuYAlEd6EbfU5qF1O9Q"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Xj9eEYAlEd6EbfU5qF1O9Q" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
+          <element xmi:type="uml:Class" href="features/Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xj9eEoAlEd6EbfU5qF1O9Q" x="15216" y="2457"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_v1e3DlWYEd6ID4NNrTXRsg"/>
@@ -1434,7 +1434,7 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_v1e2GFWYEd6ID4NNrTXRsg" name="position" visibility="private" type="_v1e2AFWYEd6ID4NNrTXRsg"/>
       <ownedAttribute xmi:id="_eBk-cVW3Ed6cUZW3lUUTvg" name="annotatedElement" visibility="private" association="_eBk-cFW3Ed6cUZW3lUUTvg">
-        <type xmi:type="uml:Class" href="Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
+        <type xmi:type="uml:Class" href="features/Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eBuIYVW3Ed6cUZW3lUUTvg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eBuIYFW3Ed6cUZW3lUUTvg" value="1"/>
       </ownedAttribute>
