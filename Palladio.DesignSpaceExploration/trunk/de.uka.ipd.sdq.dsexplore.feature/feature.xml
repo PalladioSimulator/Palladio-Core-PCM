@@ -23,6 +23,7 @@
       <import feature="de.uka.ipd.sdq.sensorframework.feature" version="3.1.0.qualifier"/>
       <import feature="de.uka.ipd.sdq.simucom.feature" version="3.1.0.qualifier"/>
       <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0.qualifier"/>
+      <import feature="de.uka.ipd.sdq.statistics.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
