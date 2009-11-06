@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.performance.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.performance.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

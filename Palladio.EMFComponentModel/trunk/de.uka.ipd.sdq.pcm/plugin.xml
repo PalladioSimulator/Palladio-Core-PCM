@@ -100,5 +100,13 @@
        class = "de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"
        genModel = "model/pcm.genmodel" /> 
   </extension>
+  <extension
+        point="org.eclipse.emf.ecore.generated_package">
+     <package
+           class="de.uka.ipd.sdq.pcm.Package"
+           genModel="model/pcm.genmodel"
+           uri="http://sdq.ipd.uka.de/PalladioComponentModel/1.0">
+     </package>
+  </extension>
 
 </plugin>

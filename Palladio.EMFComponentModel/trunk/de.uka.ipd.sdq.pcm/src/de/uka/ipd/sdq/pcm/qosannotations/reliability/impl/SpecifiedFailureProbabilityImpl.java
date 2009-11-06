@@ -102,7 +102,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ReliabilityPackage.SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY:
-				return new Double(getFailureProbability());
+				return getFailureProbability();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,7 +116,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ReliabilityPackage.SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY:
-				setFailureProbability(((Double)newValue).doubleValue());
+				setFailureProbability((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

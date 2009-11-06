@@ -169,7 +169,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @generated
 	 */
 	public AbstractInternalControlFlowAction getAction_ParametricResourceDemand() {
-		if (eContainerFeatureID != PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
+		if (eContainerFeatureID() != PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
 		return (AbstractInternalControlFlowAction)eContainer();
 	}
 
@@ -189,7 +189,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @generated
 	 */
 	public void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction newAction_ParametricResourceDemand) {
-		if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID != PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
+		if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID() != PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
 			if (EcoreUtil.isAncestor(this, newAction_ParametricResourceDemand))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -243,7 +243,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION, AbstractInternalControlFlowAction.class, msgs);
 		}

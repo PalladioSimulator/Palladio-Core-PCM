@@ -273,7 +273,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_AssemblyConnector() {
-		if (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR) return null;
+		if (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR) return null;
 		return (ComposedStructure)eContainer();
 	}
 
@@ -293,7 +293,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 */
 	public void setParentStructure_AssemblyConnector(ComposedStructure newParentStructure_AssemblyConnector) {
-		if (newParentStructure_AssemblyConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR && newParentStructure_AssemblyConnector != null)) {
+		if (newParentStructure_AssemblyConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR && newParentStructure_AssemblyConnector != null)) {
 			if (EcoreUtil.isAncestor(this, newParentStructure_AssemblyConnector))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -447,7 +447,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}

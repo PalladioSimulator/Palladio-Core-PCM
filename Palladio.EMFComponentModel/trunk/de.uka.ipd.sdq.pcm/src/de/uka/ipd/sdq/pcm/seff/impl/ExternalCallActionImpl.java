@@ -282,7 +282,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 				if (resolve) return getRole_ExternalService();
 				return basicGetRole_ExternalService();
 			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-				return new Integer(getRetryCount());
+				return getRetryCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,7 +311,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 				setRole_ExternalService((Role)newValue);
 				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-				setRetryCount(((Integer)newValue).intValue());
+				setRetryCount((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

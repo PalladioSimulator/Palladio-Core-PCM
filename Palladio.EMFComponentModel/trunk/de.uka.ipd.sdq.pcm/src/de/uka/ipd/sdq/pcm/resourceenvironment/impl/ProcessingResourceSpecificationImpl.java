@@ -309,9 +309,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
-				return new Double(getMTTR());
+				return getMTTR();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
-				return new Double(getMTTF());
+				return getMTTF();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -332,10 +332,10 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
-				setMTTR(((Double)newValue).doubleValue());
+				setMTTR((Double)newValue);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
-				setMTTF(((Double)newValue).doubleValue());
+				setMTTF((Double)newValue);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy((SchedulingPolicy)newValue);

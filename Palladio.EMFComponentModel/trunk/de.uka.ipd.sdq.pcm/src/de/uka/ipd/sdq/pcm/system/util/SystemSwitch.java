@@ -104,7 +104,6 @@ public class SystemSwitch<T> {
 			case SystemPackage.SYSTEM: {
 				de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System)theEObject;
 				T result = caseSystem(system);
-				if (result == null) result = caseEntity(system);
 				if (result == null) result = caseComposedProvidingRequiringEntity(system);
 				if (result == null) result = caseIdentifier(system);
 				if (result == null) result = caseNamedElement(system);
@@ -113,6 +112,7 @@ public class SystemSwitch<T> {
 				if (result == null) result = caseInterfaceProvidingEntity(system);
 				if (result == null) result = caseInterfaceRequiringEntity(system);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(system);
+				if (result == null) result = caseEntity(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

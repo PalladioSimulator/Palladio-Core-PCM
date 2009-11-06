@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.entity.*;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -159,10 +160,10 @@ public class EntitySwitch<T> {
 				T result = caseComposedProvidingRequiringEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseComposedStructure(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(composedProvidingRequiringEntity);
-				if (result == null) result = caseEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceRequiringEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(composedProvidingRequiringEntity);
+				if (result == null) result = caseEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseIdentifier(composedProvidingRequiringEntity);
 				if (result == null) result = caseNamedElement(composedProvidingRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);

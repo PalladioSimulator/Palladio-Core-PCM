@@ -102,7 +102,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return new Double(getBranchProbability());
+				return getBranchProbability();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,7 +116,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability(((Double)newValue).doubleValue());
+				setBranchProbability((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

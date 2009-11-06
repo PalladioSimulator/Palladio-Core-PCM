@@ -280,7 +280,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
-				return new Double(getFailureProbability());
+				return getFailureProbability();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				if (resolve) return getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 				return basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
@@ -301,7 +301,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
-				setFailureProbability(((Double)newValue).doubleValue());
+				setFailureProbability((Double)newValue);
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setCommunicationLinkResourceType_CommunicationLinkResourceSpecification((CommunicationLinkResourceType)newValue);

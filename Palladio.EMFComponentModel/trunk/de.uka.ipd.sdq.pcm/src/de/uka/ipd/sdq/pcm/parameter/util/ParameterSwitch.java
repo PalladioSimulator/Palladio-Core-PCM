@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
+import de.uka.ipd.sdq.pcm.parameter.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

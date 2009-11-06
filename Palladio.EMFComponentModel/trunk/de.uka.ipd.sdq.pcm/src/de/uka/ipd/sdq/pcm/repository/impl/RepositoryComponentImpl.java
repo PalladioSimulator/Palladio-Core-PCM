@@ -63,7 +63,7 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
 	 * @generated
 	 */
 	public Repository getRepository_RepositoryComponent() {
-		if (eContainerFeatureID != RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT) return null;
+		if (eContainerFeatureID() != RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT) return null;
 		return (Repository)eContainer();
 	}
 
@@ -83,7 +83,7 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
 	 * @generated
 	 */
 	public void setRepository_RepositoryComponent(Repository newRepository_RepositoryComponent) {
-		if (newRepository_RepositoryComponent != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT && newRepository_RepositoryComponent != null)) {
+		if (newRepository_RepositoryComponent != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT && newRepository_RepositoryComponent != null)) {
 			if (EcoreUtil.isAncestor(this, newRepository_RepositoryComponent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -135,7 +135,7 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, Repository.class, msgs);
 		}

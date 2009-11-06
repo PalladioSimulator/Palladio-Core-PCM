@@ -6,7 +6,8 @@ Bundle-Version: 3.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.pcm.allocation,
+Export-Package: de.uka.ipd.sdq.pcm,
+ de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.allocation.impl,
  de.uka.ipd.sdq.pcm.allocation.util,
  de.uka.ipd.sdq.pcm.core,
@@ -21,6 +22,7 @@ Export-Package: de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.core.entity.util,
  de.uka.ipd.sdq.pcm.core.impl,
  de.uka.ipd.sdq.pcm.core.util,
+ de.uka.ipd.sdq.pcm.impl,
  de.uka.ipd.sdq.pcm.parameter,
  de.uka.ipd.sdq.pcm.parameter.impl,
  de.uka.ipd.sdq.pcm.parameter.util,

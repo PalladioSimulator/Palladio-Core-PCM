@@ -1,52 +1,85 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system.impl;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
+package de.uka.ipd.sdq.pcm.impl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.CorePackage;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
-import de.uka.ipd.sdq.pcm.impl.PackageImpl;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
+
 import de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl;
+
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
+
 import de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl;
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
+import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,19 +87,13 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
+public class PackageImpl extends EPackageImpl implements de.uka.ipd.sdq.pcm.Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -79,12 +106,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#eNS_URI
+	 * @see de.uka.ipd.sdq.pcm.Package#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private SystemPackageImpl() {
-		super(eNS_URI, SystemFactory.eINSTANCE);
+	private PackageImpl() {
+		super(eNS_URI);
 	}
 
 	/**
@@ -97,7 +124,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link SystemPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link de.uka.ipd.sdq.pcm.Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,11 +133,11 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static SystemPackage init() {
-		if (isInited) return (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+	public static de.uka.ipd.sdq.pcm.Package init() {
+		if (isInited) return (de.uka.ipd.sdq.pcm.Package)EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.Package.eNS_URI);
 
 		// Obtain or create and register package
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SystemPackageImpl());
+		PackageImpl thePackage = (PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new PackageImpl());
 
 		isInited = true;
 
@@ -131,6 +158,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 		de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl thePerformancePackage_1 = (de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) instanceof de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) : de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
@@ -138,7 +166,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
 		// Create package meta-data objects
-		theSystemPackage.createPackageContents();
+		thePackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
@@ -151,6 +179,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
+		theSystemPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
 		thePerformancePackage_1.createPackageContents();
 		theReliabilityPackage.createPackageContents();
@@ -158,7 +187,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theSubsystemPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theSystemPackage.initializePackageContents();
+		thePackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
@@ -171,6 +200,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
+		theSystemPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
 		thePerformancePackage_1.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
@@ -178,39 +208,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theSubsystemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theSystemPackage.freeze();
+		thePackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(SystemPackage.eNS_URI, theSystemPackage);
-		return theSystemPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSystem() {
-		return systemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSystem_QosAnnotations_System() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SystemFactory getSystemFactory() {
-		return (SystemFactory)getEFactoryInstance();
+		EPackage.Registry.INSTANCE.put(de.uka.ipd.sdq.pcm.Package.eNS_URI, thePackage);
+		return thePackage;
 	}
 
 	/**
@@ -231,9 +234,6 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		if (isCreated) return;
 		isCreated = true;
 
-		// Create classes and their features
-		systemEClass = createEClass(SYSTEM);
-		createEReference(systemEClass, SYSTEM__QOS_ANNOTATIONS_SYSTEM);
 	}
 
 	/**
@@ -260,23 +260,36 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		ProtocolPackage theProtocolPackage = (ProtocolPackage)EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI);
+		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
+		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
+		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
+		SystemPackage theSystemPackage = (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
 		QosannotationsPackage theQosannotationsPackage = (QosannotationsPackage)EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI);
+		UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage)EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
+		SubsystemPackage theSubsystemPackage = (SubsystemPackage)EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI);
 
-		// Create type parameters
+		// Add subpackages
+		getESubpackages().add(theCorePackage);
+		getESubpackages().add(theRepositoryPackage);
+		getESubpackages().add(theProtocolPackage);
+		getESubpackages().add(theParameterPackage);
+		getESubpackages().add(theSeffPackage);
+		getESubpackages().add(theResourcetypePackage);
+		getESubpackages().add(theAllocationPackage);
+		getESubpackages().add(theResourceenvironmentPackage);
+		getESubpackages().add(theSystemPackage);
+		getESubpackages().add(theQosannotationsPackage);
+		getESubpackages().add(theUsagemodelPackage);
+		getESubpackages().add(theSubsystemPackage);
 
-		// Set bounds for type parameters
-
-		// Add supertypes to classes
-		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		systemEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
-
-		// Initialize classes and features; add operations and parameters
-		initEClass(systemEClass, de.uka.ipd.sdq.pcm.system.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystem_QosAnnotations_System(), theQosannotationsPackage.getQoSAnnotations(), null, "qosAnnotations_System", null, 0, -1, de.uka.ipd.sdq.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //SystemPackageImpl
+} //PackageImpl

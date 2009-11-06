@@ -174,7 +174,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return new Double(getBranchProbability());
+				return getBranchProbability();
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
 				return getBranchedBehaviour_BranchTransition();
 		}
@@ -190,7 +190,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability(((Double)newValue).doubleValue());
+				setBranchProbability((Double)newValue);
 				return;
 			case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
 				setBranchedBehaviour_BranchTransition((ScenarioBehaviour)newValue);

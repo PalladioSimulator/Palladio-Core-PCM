@@ -112,7 +112,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * @generated
 	 */
 	public ResourceInterfaceRequiringEntity getResourceRequiringEntity_ResourceRequiredRole() {
-		if (eContainerFeatureID != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE) return null;
+		if (eContainerFeatureID() != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE) return null;
 		return (ResourceInterfaceRequiringEntity)eContainer();
 	}
 
@@ -132,7 +132,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * @generated
 	 */
 	public void setResourceRequiringEntity_ResourceRequiredRole(ResourceInterfaceRequiringEntity newResourceRequiringEntity_ResourceRequiredRole) {
-		if (newResourceRequiringEntity_ResourceRequiredRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE && newResourceRequiringEntity_ResourceRequiredRole != null)) {
+		if (newResourceRequiringEntity_ResourceRequiredRole != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE && newResourceRequiringEntity_ResourceRequiredRole != null)) {
 			if (EcoreUtil.isAncestor(this, newResourceRequiringEntity_ResourceRequiredRole))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -184,7 +184,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				return eInternalContainer().eInverseRemove(this, EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY, ResourceInterfaceRequiringEntity.class, msgs);
 		}

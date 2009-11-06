@@ -37,7 +37,7 @@ public interface SystemFactory extends EFactory {
 	 * @return a new object of class '<em>System</em>'.
 	 * @generated
 	 */
-	de.uka.ipd.sdq.pcm.system.System createSystem();
+	System createSystem();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -223,7 +223,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_ProvidedDelegationConnector() {
-		if (eContainerFeatureID != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR) return null;
+		if (eContainerFeatureID() != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR) return null;
 		return (ComposedStructure)eContainer();
 	}
 
@@ -243,7 +243,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	public void setParentStructure_ProvidedDelegationConnector(ComposedStructure newParentStructure_ProvidedDelegationConnector) {
-		if (newParentStructure_ProvidedDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR && newParentStructure_ProvidedDelegationConnector != null)) {
+		if (newParentStructure_ProvidedDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR && newParentStructure_ProvidedDelegationConnector != null)) {
 			if (EcoreUtil.isAncestor(this, newParentStructure_ProvidedDelegationConnector))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -397,7 +397,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}

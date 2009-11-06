@@ -174,7 +174,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public Repository getRepository_Interface() {
-		if (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
+		if (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
 		return (Repository)eContainer();
 	}
 
@@ -194,7 +194,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public void setRepository_Interface(Repository newRepository_Interface) {
-		if (newRepository_Interface != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository_Interface != null)) {
+		if (newRepository_Interface != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository_Interface != null)) {
 			if (EcoreUtil.isAncestor(this, newRepository_Interface))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -355,7 +355,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
 		}

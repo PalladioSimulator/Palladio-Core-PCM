@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.subsystem.*;
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
@@ -110,10 +111,10 @@ public class SubsystemSwitch<T> {
 				if (result == null) result = caseRepositoryComponent(subSystem);
 				if (result == null) result = caseComposedStructure(subSystem);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(subSystem);
-				if (result == null) result = caseEntity(subSystem);
 				if (result == null) result = caseInterfaceProvidingEntity(subSystem);
 				if (result == null) result = caseInterfaceRequiringEntity(subSystem);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(subSystem);
+				if (result == null) result = caseEntity(subSystem);
 				if (result == null) result = caseIdentifier(subSystem);
 				if (result == null) result = caseNamedElement(subSystem);
 				if (result == null) result = defaultCase(theEObject);

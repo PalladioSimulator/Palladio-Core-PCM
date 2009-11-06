@@ -286,7 +286,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-				return new Integer(getPopulation());
+				return getPopulation();
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
 				return getThinkTime_ClosedWorkload();
 		}
@@ -302,7 +302,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-				setPopulation(((Integer)newValue).intValue());
+				setPopulation((Integer)newValue);
 				return;
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
 				setThinkTime_ClosedWorkload((PCMRandomVariable)newValue);

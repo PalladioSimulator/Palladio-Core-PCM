@@ -112,7 +112,7 @@ public class RequiredRoleImpl extends RoleImpl implements RequiredRole {
 	 * @generated
 	 */
 	public InterfaceRequiringEntity getRequiringEntity_RequiredRole() {
-		if (eContainerFeatureID != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE) return null;
+		if (eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE) return null;
 		return (InterfaceRequiringEntity)eContainer();
 	}
 
@@ -132,7 +132,7 @@ public class RequiredRoleImpl extends RoleImpl implements RequiredRole {
 	 * @generated
 	 */
 	public void setRequiringEntity_RequiredRole(InterfaceRequiringEntity newRequiringEntity_RequiredRole) {
-		if (newRequiringEntity_RequiredRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE && newRequiringEntity_RequiredRole != null)) {
+		if (newRequiringEntity_RequiredRole != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE && newRequiringEntity_RequiredRole != null)) {
 			if (EcoreUtil.isAncestor(this, newRequiringEntity_RequiredRole))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -184,7 +184,7 @@ public class RequiredRoleImpl extends RoleImpl implements RequiredRole {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
 				return eInternalContainer().eInverseRemove(this, EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY, InterfaceRequiringEntity.class, msgs);
 		}
