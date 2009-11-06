@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework;
 import java.io.Serializable;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
+
 /**
  * @author roman
  * 
@@ -24,6 +26,11 @@ public class SimuComConfig implements Serializable {
 	public static String SIMULATION_TIME = "simTime";
 	public static String VERBOSE_LOGGING = "verboseLogging";
 	public static String SIMULATE_FAILURES = "simulateFailures";
+	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
+	public static String CONFIDENCE_LEVEL = "confidenceLevel";
+	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
+	public static String CONFIDENCE_MODELELEMENT_URI = "confidenceModelElementURI";
+	public static String CONFIDENCE_MODELELEMENT_NAME = "confidenceModelElementName";
 	
 	/** configuration options */
 	private String nameExperimentRun;
@@ -34,9 +41,14 @@ public class SimuComConfig implements Serializable {
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
 	private boolean isDebug;
+	private boolean useConfidence;
+	private int confidenceLevel;
+	private int confidenceHalfWidth;
+	private URI confidenceModelElementURI;
+	private String confidenceModelElementName;
 
 	/**
-	 * @param a map which maps configuation option IDs to their values
+	 * @param configuration a map which maps configuration option IDs to their values
 	 */
 	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
 		try {
@@ -54,8 +66,18 @@ public class SimuComConfig implements Serializable {
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
+			this.useConfidence = (Boolean) configuration.get(
+					USE_CONFIDENCE);
+			this.confidenceLevel = Integer.valueOf((String)configuration.get(
+					CONFIDENCE_LEVEL));
+			this.confidenceHalfWidth = Integer.valueOf((String)configuration.get(
+					CONFIDENCE_HALFWIDTH));
+			this.confidenceModelElementName = (String) configuration.get(
+					CONFIDENCE_MODELELEMENT_NAME);
+			this.confidenceModelElementURI = URI.createURI((String)configuration.get(
+					CONFIDENCE_MODELELEMENT_URI));
 		} catch (Exception e) {
-			throw new RuntimeException("Setting up properties failed, please check launch config", e);
+			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
 		}
 	}
 
@@ -87,6 +109,26 @@ public class SimuComConfig implements Serializable {
 		return this.isDebug;
 	}
 	
+	public boolean isUseConfidence() {
+		return useConfidence;
+	}
+
+	public int getConfidenceLevel() {
+		return confidenceLevel;
+	}
+
+	public int getConfidenceHalfWidth() {
+		return confidenceHalfWidth;
+	}
+	
+	public String getConfidenceModelElementName() {
+		return confidenceModelElementName;
+	}
+	
+	public URI getConfidenceModelElementURI() {
+		return confidenceModelElementURI;
+	}
+
 	public String getEngine() {
 		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
 	}
