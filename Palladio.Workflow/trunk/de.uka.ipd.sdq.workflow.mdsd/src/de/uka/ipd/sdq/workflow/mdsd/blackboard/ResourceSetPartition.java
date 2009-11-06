@@ -39,7 +39,7 @@ public class ResourceSetPartition {
 	 */
 	public void loadModel(String modelURI) {
 		Resource r;
-		if (modelURI.indexOf("://") >= 0) { 
+		if (URI.createURI(modelURI).isPlatform() || modelURI.indexOf("://") >= 0) { 
 			r = rs.getResource(URI.createURI(modelURI), true);
 		} else {
 			r = rs.getResource(URI.createFileURI(modelURI), true);
