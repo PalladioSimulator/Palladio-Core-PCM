@@ -154,6 +154,32 @@
     <listeners></listeners>
   </project>  
 
-
+  <!-- #### BELOW: ByCounter Build ################################### -->
+  <project name="Palladio.ByCounter" requiremodification="false">
+    <modificationset>
+      <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild>
+	  <svn RepositoryLocation="svn://i43pc13.ipd.uka.de/code/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+    </modificationset>
+    <schedule interval="180"> <!-- in seconds; 86400: 1 day -->
+      <ant buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule>
+    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="http://sdqweb.ipd.uka.de/cruisecontrol/dashboard" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="mkuper@ipd.uka.de" skipusers="true">
+        <always address="mkuper@ipd.uka.de"></always>
+        <always address="martin.krogmann@student.kit.edu"></always>
+      </htmlemail>
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+      <!-- <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure> -->
+    </publishers>
+    <bootstrappers>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/"></svnbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>
 
 </cruisecontrol>
