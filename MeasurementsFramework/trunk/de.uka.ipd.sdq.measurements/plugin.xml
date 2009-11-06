@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///measurements.ecore"
+            class="measurements.MeasurementsPackage"
+            genModel="model/measurements.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="measurements"
+            class="measurements.util.MeasurementsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///measurements/scheduler.ecore"
+            class="measurements.scheduler.SchedulerPackage"
+            genModel="model/measurements.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="scheduler"
+            class="measurements.scheduler.util.SchedulerResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
