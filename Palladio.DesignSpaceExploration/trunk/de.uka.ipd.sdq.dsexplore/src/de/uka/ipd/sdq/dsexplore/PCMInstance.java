@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
-import de.uka.ipd.sdq.featureconfig.Configuration;
+//import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -434,7 +434,7 @@ public boolean equals(Object o) {
 		a.setTargetResourceEnvironment_Allocation(re);
 			
 		//Currently we do not need a connector config for solvers and if simulate linking resources is not checked.
-		de.uka.ipd.sdq.featureconfig.Configuration cfg = null;
+		//de.uka.ipd.sdq.featureconfig.Configuration cfg = null;
 //		if (this.connectorConfig != null){
 //			 cfg = (de.uka.ipd.sdq.featureconfig.Configuration)EcoreUtil.copy(this.connectorConfig);
 //		}
