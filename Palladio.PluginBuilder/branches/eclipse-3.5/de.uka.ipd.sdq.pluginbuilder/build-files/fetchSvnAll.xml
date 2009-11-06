@@ -921,5 +921,35 @@
       <param name="project.name" value="/de.uka.ipd.sdq.workflow.tests"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Workflow/trunk"/>
     </antcall>
+  	<antcall target="svn.co">
+  	 <param name="target" value="features"/>
+     <param name="element.id" value="de.uka.ipd.sdq.cip.feature"/>
+     <param name="project.name" value="/de.uka.ipd.sdq.cip.feature"/>
+     <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.CompletionsIntegrator/trunk"/>
+   	</antcall>
+   <antcall target="svn.co">
+     <param name="target" value="plugins"/>
+     <param name="element.id" value="de.uka.ipd.sdq.cip"/>
+     <param name="project.name" value="/de.uka.ipd.sdq.cip"/>
+     <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.CompletionsIntegrator/trunk"/>
+   </antcall>
+  	<antcall target="svn.co">
+     <param name="target" value="plugins"/>
+     <param name="element.id" value="de.uka.ipd.sdq.cip.launchconfig"/>
+     <param name="project.name" value="/de.uka.ipd.sdq.cip.launchconfig"/>
+     <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.CompletionsIntegrator/trunk"/>
+   </antcall>
+	<antcall target="svn.co">
+     <param name="target" value="plugins"/>
+     <param name="element.id" value="de.uka.ipd.sdq.cip.completions"/>
+     <param name="project.name" value="/de.uka.ipd.sdq.cip.completions"/>
+     <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.CompletionsIntegrator/trunk"/>
+   </antcall>
+	<antcall target="svn.co">
+     <param name="target" value="plugins"/>
+     <param name="element.id" value="de.ikv.medini.qvt.plugin"/>
+     <param name="project.name" value="/de.ikv.medini.qvt.plugin"/>
+     <param name="url" value="svn://i43pc13.ipd.uka.de/code/Palladio.Wrapper/trunk"/>
+   </antcall>
   </target>
 </project>
