@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.cip.completions">
+      <completion
+            id="de.uka.ipd.sdq.cip.messagingannotation"
+            metamodel="MessagingAnnotation/MessagingAnnotation.ecore"
+            name="MessagingAnnotation"
+            qvt_file="MessagingAnnotation/MOMTransformation.qvt">
+      </completion>
+      <completion
+            id="de.uka.ipd.sdq.cip.threadpool"
+            name="ThreadPool"
+            qvt_file="ThreadPool/ThreadPoolTransformation.qvt">
+      </completion>
+      <completion
+            id="de.uka.ipd.sdq.cip.pubsubannotation"
+            metamodel="PubSubAnnotation/PubSubAnnotation.ecore"
+            name="PubSubAnnotation"
+            qvt_file="PubSubAnnotation/Simulate1ToNConnector.qvt">
+      </completion>
+   </extension>
+
+</plugin>
