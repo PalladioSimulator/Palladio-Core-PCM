@@ -1399,10 +1399,6 @@
       <generalization xmi:id="_AyxgwFWdEd6ID4NNrTXRsg" general="_ttDNEFWcEd6ID4NNrTXRsg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_v1VFA1WYEd6ID4NNrTXRsg" name="Probe" isAbstract="true">
-      <generalization xmi:id="_v1VFBVWYEd6ID4NNrTXRsg" general="_v1e2BVWYEd6ID4NNrTXRsg"/>
-      <generalization xmi:id="_v1VFBlWYEd6ID4NNrTXRsg" general="_v1e2B1WYEd6ID4NNrTXRsg"/>
-      <generalization xmi:id="_v1VFCFWYEd6ID4NNrTXRsg" general="_v1e2C1WYEd6ID4NNrTXRsg"/>
-      <generalization xmi:id="_v1VFCVWYEd6ID4NNrTXRsg" general="_v1e2DVWYEd6ID4NNrTXRsg"/>
       <generalization xmi:id="_Qn_FUH9zEd6nq9eIJnyp2A">
         <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
       </generalization>
