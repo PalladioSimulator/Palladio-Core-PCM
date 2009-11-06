@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="measurements.presentation.MeasurementsModelWizardID"
+            name="%_UI_MeasurementsModelWizard_label"
+            class="measurements.presentation.MeasurementsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MeasurementsModelFile.gif">
+         <description>%_UI_MeasurementsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="measurements.presentation.MeasurementsEditorID"
+            name="%_UI_MeasurementsEditor_label"
+            icon="icons/full/obj16/MeasurementsModelFile.gif"
+            extensions="measurements"
+            class="measurements.presentation.MeasurementsEditor"
+            contributorClass="measurements.presentation.MeasurementsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="measurements.scheduler.presentation.SchedulerModelWizardID"
+            name="%_UI_SchedulerModelWizard_label"
+            class="measurements.scheduler.presentation.SchedulerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SchedulerModelFile.gif">
+         <description>%_UI_SchedulerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="measurements.scheduler.presentation.SchedulerEditorID"
+            name="%_UI_SchedulerEditor_label"
+            icon="icons/full/obj16/SchedulerModelFile.gif"
+            extensions="scheduler"
+            class="measurements.scheduler.presentation.SchedulerEditor"
+            contributorClass="measurements.scheduler.presentation.SchedulerActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
