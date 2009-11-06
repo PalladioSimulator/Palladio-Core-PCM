@@ -7,7 +7,7 @@ Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.1.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
- de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0";visibility:=reexport,
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
  de.uka.ipd.sdq.completions;bundle-version="1.0.0",
  org.eclipse.ui,
