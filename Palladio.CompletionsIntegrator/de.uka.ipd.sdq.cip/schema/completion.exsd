@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="de.uka.ipd.sdq.cip" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="de.uka.ipd.sdq.cip" id="completions" name="Completions"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a configurable mechanism for launching completion. Each completion type has a name, a id, a QVT file to execute and optional a metamodel required by the transformation. Each completion can depend on one or more other completions.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="completion" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="completion">
+      <complexType>
+         <sequence>
+            <element ref="depends" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this completion type.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a readable name for this completion type.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="qvt_file" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a qvt to execute for this completion type.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="metamodel" type="string">
+            <annotation>
+               <documentation>
+                  specifies a metamodel for the QVT completion.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="depends">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the identifier of an existing complition type, that this completion depends on.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="de.uka.ipd.sdq.cip.completions/completion/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         0.2.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of a completion type extension point:
+&lt;pre&gt; 
+&lt;extension point=&quot;de.uka.ipd.sdq.cip.completions&quot;&gt;
+  &lt;completion
+    id=&quot;com.example.firstCompletion&quot;
+    metamodel=&quot;firstCompletion.ecore&quot;
+    name=&quot;First Completion&quot;
+    qvt_file=&quot;firstCompletion.qvt&quot;&gt;
+    &lt;depends id=&quot;com.example.secondCompletion&quot;&quot;/&gt;
+ &lt;/completion&gt;
+ &lt;completion
+    id=&quot;com.example.secondCompletion&quot;
+    name=&quot;Second Completion&quot;
+    qvt_file=&quot;secondCompletion.qvt&quot;&gt;
+ &lt;/completion&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+
+In the example above, there are two specified types of completion. The first completion type depends on the second one.
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2009 Thomas Schuischel
+      </documentation>
+   </annotation>
+
+</schema>
