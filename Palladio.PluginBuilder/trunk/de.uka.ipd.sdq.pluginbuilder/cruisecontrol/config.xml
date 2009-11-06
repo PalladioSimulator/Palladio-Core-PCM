@@ -1,5 +1,5 @@
 <cruisecontrol>
-  <dashboard url="http://sdqweb.ipd.uka.de/cruisecontrol/dashboard/">
+  <dashboard url="http://sdqweb.ipd.uka.de/cruisecontrol/dashboard/" />
 
   <!-- #### BELOW: PCM Eclipse 3.5 Build ################################### -->
   <project name="PCM Eclipse 3.5 build" requiremodification="true">
