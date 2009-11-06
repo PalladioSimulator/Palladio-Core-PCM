@@ -9,6 +9,7 @@ Export-Package: de.uka.ipd.sdq.workflow.mdsd,
  de.uka.ipd.sdq.workflow.mdsd.blackboard,
  de.uka.ipd.sdq.workflow.mdsd.emf,
  de.uka.ipd.sdq.workflow.mdsd.emf.qvto,
+ de.uka.ipd.sdq.workflow.mdsd.emf.qvtr,
  de.uka.ipd.sdq.workflow.mdsd.oaw
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
@@ -28,4 +29,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0",
  org.eclipse.core.resources;bundle-version="3.5.0",
  org.eclipse.debug.ui;bundle-version="3.5.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
- de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0"
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.ikv.medini.qvt.plugin;bundle-version="1.4.0"
