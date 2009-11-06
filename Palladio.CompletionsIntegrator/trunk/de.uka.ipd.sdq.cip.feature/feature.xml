@@ -38,7 +38,6 @@ the Palladio Research Group, University of Karlsruhe.
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.units"/>
-      <import plugin="de.uka.ipd.sdq.completions"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="de.uka.ipd.sdq.cip" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources" version="3.5.1" match="greaterOrEqual"/>
@@ -71,6 +70,20 @@ the Palladio Research Group, University of Karlsruhe.
 
    <plugin
          id="de.uka.ipd.sdq.cip.launchconfig"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.completions"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.workflow.pcm"
          download-size="0"
          install-size="0"
          version="0.0.0"
