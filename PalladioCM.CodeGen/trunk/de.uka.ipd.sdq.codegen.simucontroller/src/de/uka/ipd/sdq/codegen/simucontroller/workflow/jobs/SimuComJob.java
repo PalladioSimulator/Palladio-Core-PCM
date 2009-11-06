@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.CoreException;
 
+import de.uka.ipd.sdq.cip.workflow.jobs.CompletionTransformationChainJob;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
@@ -45,27 +46,36 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		
 		// 2. Validate PCM Models
 		this.addJob(new ValidateModelJob(configuration));
+		
+		// 3. Apply Completions
+		configuration.getCompletionConfig().setResourceRepository(configuration.getResourceTypeFile());
+		configuration.getCompletionConfig().setFeatureConfigFile(configuration.getFeatureConfigFile());
+		configuration.getCompletionConfig().setModelPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+		this.addJob(new CompletionTransformationChainJob(configuration.getCompletionConfig()));
 
-		// 3. Apply connector completion transformation
+		// 4. Revalidate PCM Models
+		//this.addJob(new ValidateModelJob(configuration));
+		
+		// 5. Apply connector completion transformation
 		if (configuration.getSimulateLinkingResources()) {
 			this.addJob(new ApplyConnectorCompletionsJob(configuration));
 		}
 		
-		// 3. Create new Eclipse plugin project
+		// 6. Create new Eclipse plugin project
 		this.addJob(new CreatePluginProjectJob(configuration));
 
-		// 4. Generate the plugin's code using oAW
+		// 7. Generate the plugin's code using oAW
 		this.addJob(new TransformPCMToCodeJob(configuration));
 		this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
 
-		// 5. Compile the plugin
+		// 8. Compile the plugin
 		this.addJob(new CompilePluginCodeJob(configuration));
 
-		// 6. Jar the compiled code into a JAR bundle
+		// 9. Jar the compiled code into a JAR bundle
 		IJobWithResult<byte[]> buildBundleJob = new BuildPluginJarJob(configuration);
 		this.addJob(buildBundleJob);
 		
-		// 7. Transfer the JAR to a free simulation dock and simulate it
+		// 10. Transfer the JAR to a free simulation dock and simulate it
 		this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
 	}
 }

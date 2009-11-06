@@ -2,14 +2,16 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import javax.management.RuntimeErrorException;
 
+import de.uka.ipd.sdq.cip.launchconfig.AbstractPCMCompletionWorkflowRunConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 
 /**
  */
 public class SimuComWorkflowConfiguration 
-extends AbstractCodeGenerationWorkflowRunConfiguration {
+extends AbstractPCMCompletionWorkflowRunConfiguration{
 
 	private SimuComConfig simuComConfig = null;
 	private SensitivityAnalysisConfiguration sensitivityAnalysisConfiguration = null;

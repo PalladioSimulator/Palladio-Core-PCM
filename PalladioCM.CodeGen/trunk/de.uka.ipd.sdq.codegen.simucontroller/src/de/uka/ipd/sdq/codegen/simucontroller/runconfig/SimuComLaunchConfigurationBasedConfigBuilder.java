@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.uka.ipd.sdq.cip.runconfig.CompletionConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
@@ -49,6 +50,7 @@ extends
 		}
 		
 		config.setSimuComConfiguration(new SimuComConfig(properties, 0, config.isDebug()));
+		config.setCompletionConfig(new CompletionConfiguration(properties));
 	}
 	
 }
