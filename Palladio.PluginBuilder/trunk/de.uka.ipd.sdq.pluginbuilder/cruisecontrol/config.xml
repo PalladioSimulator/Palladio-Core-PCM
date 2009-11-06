@@ -4,7 +4,7 @@
   <!-- #### BELOW: PCM Eclipse 3.5 Build ################################### -->
   <project name="PCM Eclipse 3.5 build" requiremodification="true">
     <modificationset>
-      <-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
 	  <svn RepositoryLocation="svn://i43pc13.ipd.uka.de/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
