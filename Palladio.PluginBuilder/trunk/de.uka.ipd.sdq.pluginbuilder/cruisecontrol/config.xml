@@ -173,9 +173,9 @@
       <onsuccess>
 		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
       </onsuccess>
-      <onfailure>
+      <!-- <onfailure>
       	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
-      </onfailure>
+      </onfailure> -->
     </publishers>
     <bootstrappers>
       <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/"></svnbootstrapper>
