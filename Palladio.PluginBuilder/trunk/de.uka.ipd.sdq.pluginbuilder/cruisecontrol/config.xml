@@ -157,10 +157,10 @@
   <!-- #### BELOW: ByCounter Build ################################### -->
   <project name="Palladio.ByCounter" requiremodification="false">
     <modificationset>
-      <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild>
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
 	  <svn RepositoryLocation="svn://i43pc13.ipd.uka.de/code/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
-    <schedule interval="180"> <!-- in seconds; 86400: 1 day -->
+    <schedule interval="360"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/de.uka.sdq.ipd.ByCounter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
     </schedule>
     <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
