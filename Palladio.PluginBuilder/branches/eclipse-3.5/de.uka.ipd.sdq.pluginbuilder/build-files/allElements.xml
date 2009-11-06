@@ -31,6 +31,10 @@
 			<property name="id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature" />
 		</ant>
 		<ant antfile="${genericTargets}" target="${target}">
+		  <property name="type" value="feature" />
+		  <property name="id" value="de.uka.ipd.sdq.cip.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.simucom.feature" />
 		</ant>
@@ -50,10 +54,7 @@
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.tests" />
 		</ant>
-		<ant antfile="${genericTargets}" target="${target}">
-		  <property name="type" value="feature" />
-		  <property name="id" value="de.uka.ipd.sdq.cip.feature" />
-		</ant>
+		
 		
 	</target>
 
@@ -95,6 +96,11 @@
 			<property name="zipargs" value="" />
 		</ant>
 	</target>
+ 	<target name="assemble.de.uka.ipd.sdq.cip.feature">
+ 	  <ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+ 	    <property name="zipargs" value="" />
+ 	  </ant>
+ 	</target>
 	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
@@ -120,11 +126,7 @@
 			<property name="zipargs" value="" />
 		</ant>
 	</target>
- 	<target name="assemble.de.uka.ipd.sdq.cip.feature">
- 	  <ant antfile="${assembleScriptName}" dir="${buildDirectory}">
- 	    <property name="zipargs" value="" />
- 	  </ant>
- 	</target>
+
 
 	
 	<!-- assmble targets for RCP build -->	
