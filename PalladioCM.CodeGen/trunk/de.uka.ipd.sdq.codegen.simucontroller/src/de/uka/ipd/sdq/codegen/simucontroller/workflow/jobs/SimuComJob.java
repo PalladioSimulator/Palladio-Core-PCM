@@ -47,14 +47,18 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		// 2. Validate PCM Models
 		this.addJob(new ValidateModelJob(configuration));
 		
-		// 3. Apply Completions
-		configuration.getCompletionConfig().setResourceRepository(configuration.getResourceTypeFile());
-		configuration.getCompletionConfig().setFeatureConfigFile(configuration.getFeatureConfigFile());
-		configuration.getCompletionConfig().setModelPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		this.addJob(new CompletionTransformationChainJob(configuration.getCompletionConfig()));
-
-		// 4. Revalidate PCM Models
-		//this.addJob(new ValidateModelJob(configuration));
+		if(configuration.getCompletionConfig().getActiveCompletionCount() > 0)
+		{
+			// 3. Apply Completions
+			configuration.getCompletionConfig().setResourceRepository(configuration.getResourceTypeFile());
+			configuration.getCompletionConfig().setFeatureConfigFile(configuration.getFeatureConfigFile());
+			configuration.getCompletionConfig().setModelPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+			this.addJob(new CompletionTransformationChainJob(configuration.getCompletionConfig()));
+	
+			// 4. Revalidate PCM Models
+			if(configuration.getCompletionConfig().shouldRevalidate())
+				this.addJob(new ValidateModelJob(configuration));
+		}
 		
 		// 5. Apply connector completion transformation
 		if (configuration.getSimulateLinkingResources()) {
