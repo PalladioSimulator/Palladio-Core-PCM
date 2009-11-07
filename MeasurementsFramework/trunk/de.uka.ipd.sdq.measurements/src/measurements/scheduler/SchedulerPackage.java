@@ -108,13 +108,22 @@ public interface SchedulerPackage extends EPackage {
 	int RESOURCE_STRATEGY_MEASUREMENT_TASK__MACHINE = MeasurementsPackage.MACHINE_TASK__MACHINE;
 
 	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Demand</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 0;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource Strategy Measurement Task</em>' class.
@@ -123,7 +132,62 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK_FEATURE_COUNT = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 1;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK_FEATURE_COUNT = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link measurements.scheduler.impl.ParallelProcessTaskImpl <em>Parallel Process Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see measurements.scheduler.impl.ParallelProcessTaskImpl
+	 * @see measurements.scheduler.impl.SchedulerPackageImpl#getParallelProcessTask()
+	 * @generated
+	 */
+	int PARALLEL_PROCESS_TASK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_PROCESS_TASK__ID = MeasurementsPackage.PARALLEL_TASK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_PROCESS_TASK__DESCRIPTION = MeasurementsPackage.PARALLEL_TASK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_PROCESS_TASK__NAME = MeasurementsPackage.PARALLEL_TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_PROCESS_TASK__TASKS = MeasurementsPackage.PARALLEL_TASK__TASKS;
+
+	/**
+	 * The number of structural features of the '<em>Parallel Process Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_PROCESS_TASK_FEATURE_COUNT = MeasurementsPackage.PARALLEL_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}' enum.
@@ -133,7 +197,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @see measurements.scheduler.impl.SchedulerPackageImpl#getResourceStrategyDemand()
 	 * @generated
 	 */
-	int RESOURCE_STRATEGY_DEMAND = 1;
+	int RESOURCE_STRATEGY_DEMAND = 2;
 
 
 	/**
@@ -147,6 +211,17 @@ public interface SchedulerPackage extends EPackage {
 	EClass getResourceStrategyMeasurementTask();
 
 	/**
+	 * Returns the meta object for the attribute '{@link measurements.scheduler.ResourceStrategyMeasurementTask#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see measurements.scheduler.ResourceStrategyMeasurementTask#getDuration()
+	 * @see #getResourceStrategyMeasurementTask()
+	 * @generated
+	 */
+	EAttribute getResourceStrategyMeasurementTask_Duration();
+
+	/**
 	 * Returns the meta object for the attribute '{@link measurements.scheduler.ResourceStrategyMeasurementTask#getDemand <em>Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +231,16 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResourceStrategyMeasurementTask_Demand();
+
+	/**
+	 * Returns the meta object for class '{@link measurements.scheduler.ParallelProcessTask <em>Parallel Process Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parallel Process Task</em>'.
+	 * @see measurements.scheduler.ParallelProcessTask
+	 * @generated
+	 */
+	EClass getParallelProcessTask();
 
 	/**
 	 * Returns the meta object for enum '{@link measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}'.
@@ -200,12 +285,30 @@ public interface SchedulerPackage extends EPackage {
 		EClass RESOURCE_STRATEGY_MEASUREMENT_TASK = eINSTANCE.getResourceStrategyMeasurementTask();
 
 		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION = eINSTANCE.getResourceStrategyMeasurementTask_Duration();
+
+		/**
 		 * The meta object literal for the '<em><b>Demand</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND = eINSTANCE.getResourceStrategyMeasurementTask_Demand();
+
+		/**
+		 * The meta object literal for the '{@link measurements.scheduler.impl.ParallelProcessTaskImpl <em>Parallel Process Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see measurements.scheduler.impl.ParallelProcessTaskImpl
+		 * @see measurements.scheduler.impl.SchedulerPackageImpl#getParallelProcessTask()
+		 * @generated
+		 */
+		EClass PARALLEL_PROCESS_TASK = eINSTANCE.getParallelProcessTask();
 
 		/**
 		 * The meta object literal for the '{@link measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}' enum.

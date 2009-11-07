@@ -59,17 +59,24 @@
         lowerBound="1" eType="#//MachineReference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoopTask" eSuperTypes="#//AbstractTask">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfIterations" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
         eType="#//AbstractTask" containment="true"/>
   </eClassifiers>
   <eSubpackages name="scheduler" nsURI="http:///measurements/scheduler.ecore" nsPrefix="measurements.scheduler">
     <eClassifiers xsi:type="ecore:EEnum" name="ResourceStrategyDemand">
-      <eLiterals name="MandelbrotDemand"/>
-      <eLiterals name="FibonacciDemand" value="1"/>
+      <eLiterals name="WaitDemand"/>
+      <eLiterals name="MandelbrotDemand" value="1"/>
+      <eLiterals name="FibonacciDemand" value="2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceStrategyMeasurementTask" eSuperTypes="#//MachineTask">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="demand" ordered="false"
           lowerBound="1" eType="#//scheduler/ResourceStrategyDemand"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelProcessTask" eSuperTypes="#//ParallelTask"/>
   </eSubpackages>
 </ecore:EPackage>

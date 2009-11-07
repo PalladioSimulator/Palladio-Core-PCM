@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link measurements.impl.LoopTaskImpl#getNumberOfIterations <em>Number Of Iterations</em>}</li>
  *   <li>{@link measurements.impl.LoopTaskImpl#getTask <em>Task</em>}</li>
  * </ul>
  * </p>
@@ -32,6 +33,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
+	/**
+	 * The default value of the '{@link #getNumberOfIterations() <em>Number Of Iterations</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfIterations()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NUMBER_OF_ITERATIONS_EDEFAULT = 1;
+	/**
+	 * The cached value of the '{@link #getNumberOfIterations() <em>Number Of Iterations</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfIterations()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numberOfIterations = NUMBER_OF_ITERATIONS_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getTask() <em>Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -59,6 +78,27 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	protected EClass eStaticClass() {
 		return MeasurementsPackage.Literals.LOOP_TASK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getNumberOfIterations() {
+		return numberOfIterations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNumberOfIterations(int newNumberOfIterations) {
+		int oldNumberOfIterations = numberOfIterations;
+		numberOfIterations = newNumberOfIterations;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS, oldNumberOfIterations, numberOfIterations));
 	}
 
 	/**
@@ -126,6 +166,8 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+				return getNumberOfIterations();
 			case MeasurementsPackage.LOOP_TASK__TASK:
 				return getTask();
 		}
@@ -140,6 +182,9 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+				setNumberOfIterations((Integer)newValue);
+				return;
 			case MeasurementsPackage.LOOP_TASK__TASK:
 				setTask((AbstractTask)newValue);
 				return;
@@ -155,6 +200,9 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+				setNumberOfIterations(NUMBER_OF_ITERATIONS_EDEFAULT);
+				return;
 			case MeasurementsPackage.LOOP_TASK__TASK:
 				setTask((AbstractTask)null);
 				return;
@@ -170,10 +218,28 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+				return numberOfIterations != NUMBER_OF_ITERATIONS_EDEFAULT;
 			case MeasurementsPackage.LOOP_TASK__TASK:
 				return task != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (numberOfIterations: ");
+		result.append(numberOfIterations);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LoopTaskImpl

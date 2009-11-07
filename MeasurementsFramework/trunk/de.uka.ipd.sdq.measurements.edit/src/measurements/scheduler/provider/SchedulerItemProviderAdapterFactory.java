@@ -99,6 +99,29 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link measurements.scheduler.ParallelProcessTask} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParallelProcessTaskItemProvider parallelProcessTaskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link measurements.scheduler.ParallelProcessTask}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParallelProcessTaskAdapter() {
+		if (parallelProcessTaskItemProvider == null) {
+			parallelProcessTaskItemProvider = new ParallelProcessTaskItemProvider(this);
+		}
+
+		return parallelProcessTaskItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +221,7 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	 */
 	public void dispose() {
 		if (resourceStrategyMeasurementTaskItemProvider != null) resourceStrategyMeasurementTaskItemProvider.dispose();
+		if (parallelProcessTaskItemProvider != null) parallelProcessTaskItemProvider.dispose();
 	}
 
 }

@@ -462,8 +462,17 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLoopTask_NumberOfIterations() {
+		return (EAttribute)loopTaskEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getLoopTask_Task() {
-		return (EReference)loopTaskEClass.getEStructuralFeatures().get(0);
+		return (EReference)loopTaskEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -534,6 +543,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		createEReference(machineTaskEClass, MACHINE_TASK__MACHINE);
 
 		loopTaskEClass = createEClass(LOOP_TASK);
+		createEAttribute(loopTaskEClass, LOOP_TASK__NUMBER_OF_ITERATIONS);
 		createEReference(loopTaskEClass, LOOP_TASK__TASK);
 	}
 
@@ -626,6 +636,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		initEReference(getMachineTask_Machine(), this.getMachineReference(), null, "machine", null, 1, 1, MachineTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loopTaskEClass, LoopTask.class, "LoopTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLoopTask_NumberOfIterations(), ecorePackage.getEInt(), "numberOfIterations", "1", 1, 1, LoopTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoopTask_Task(), this.getAbstractTask(), null, "task", null, 1, 1, LoopTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource

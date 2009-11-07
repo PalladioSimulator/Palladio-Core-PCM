@@ -75,18 +75,22 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//MachineTask/machine"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//LoopTask">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//LoopTask/numberOfIterations"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//LoopTask/task"/>
     </genClasses>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="measurements"
         resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="measurements.ecore#//scheduler/ResourceStrategyDemand">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/WaitDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/MandelbrotDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/FibonacciDemand"/>
       </genEnums>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//scheduler/ResourceStrategyMeasurementTask">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//scheduler/ResourceStrategyMeasurementTask/duration"/>
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//scheduler/ResourceStrategyMeasurementTask/demand"/>
       </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//scheduler/ParallelProcessTask"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

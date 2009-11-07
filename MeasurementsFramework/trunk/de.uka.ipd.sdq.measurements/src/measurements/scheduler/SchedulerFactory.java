@@ -35,6 +35,15 @@ public interface SchedulerFactory extends EFactory {
 	ResourceStrategyMeasurementTask createResourceStrategyMeasurementTask();
 
 	/**
+	 * Returns a new object of class '<em>Parallel Process Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel Process Task</em>'.
+	 * @generated
+	 */
+	ParallelProcessTask createParallelProcessTask();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

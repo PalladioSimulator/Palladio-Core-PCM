@@ -623,13 +623,22 @@ public interface MeasurementsPackage extends EPackage {
 	int LOOP_TASK__NAME = ABSTRACT_TASK__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Number Of Iterations</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_TASK__NUMBER_OF_ITERATIONS = ABSTRACT_TASK_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Task</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__TASK = ABSTRACT_TASK_FEATURE_COUNT + 0;
+	int LOOP_TASK__TASK = ABSTRACT_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Loop Task</em>' class.
@@ -638,7 +647,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 1;
+	int LOOP_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 2;
 
 
 	/**
@@ -949,6 +958,17 @@ public interface MeasurementsPackage extends EPackage {
 	EClass getLoopTask();
 
 	/**
+	 * Returns the meta object for the attribute '{@link measurements.LoopTask#getNumberOfIterations <em>Number Of Iterations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number Of Iterations</em>'.
+	 * @see measurements.LoopTask#getNumberOfIterations()
+	 * @see #getLoopTask()
+	 * @generated
+	 */
+	EAttribute getLoopTask_NumberOfIterations();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link measurements.LoopTask#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,6 +1256,14 @@ public interface MeasurementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LOOP_TASK = eINSTANCE.getLoopTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Of Iterations</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOOP_TASK__NUMBER_OF_ITERATIONS = eINSTANCE.getLoopTask_NumberOfIterations();
 
 		/**
 		 * The meta object literal for the '<em><b>Task</b></em>' containment reference feature.

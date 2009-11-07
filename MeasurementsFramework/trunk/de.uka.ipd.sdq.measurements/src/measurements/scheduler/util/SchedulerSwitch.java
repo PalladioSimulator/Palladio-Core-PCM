@@ -13,6 +13,7 @@ import java.util.List;
 import measurements.AbstractTask;
 import measurements.MachineTask;
 
+import measurements.ParallelTask;
 import measurements.scheduler.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -101,6 +102,15 @@ public class SchedulerSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SchedulerPackage.PARALLEL_PROCESS_TASK: {
+				ParallelProcessTask parallelProcessTask = (ParallelProcessTask)theEObject;
+				T result = caseParallelProcessTask(parallelProcessTask);
+				if (result == null) result = caseParallelTask(parallelProcessTask);
+				if (result == null) result = caseAbstractTask(parallelProcessTask);
+				if (result == null) result = caseIdentifier(parallelProcessTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -117,6 +127,21 @@ public class SchedulerSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceStrategyMeasurementTask(ResourceStrategyMeasurementTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parallel Process Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parallel Process Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParallelProcessTask(ParallelProcessTask object) {
 		return null;
 	}
 
@@ -162,6 +187,21 @@ public class SchedulerSwitch<T> {
 	 * @generated
 	 */
 	public T caseMachineTask(MachineTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parallel Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parallel Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParallelTask(ParallelTask object) {
 		return null;
 	}
 

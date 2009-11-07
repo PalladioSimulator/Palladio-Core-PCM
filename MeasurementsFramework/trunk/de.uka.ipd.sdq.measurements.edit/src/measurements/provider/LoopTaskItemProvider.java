@@ -21,12 +21,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -64,8 +66,31 @@ public class LoopTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNumberOfIterationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Number Of Iterations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNumberOfIterationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoopTask_numberOfIterations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoopTask_numberOfIterations_feature", "_UI_LoopTask_type"),
+				 MeasurementsPackage.Literals.LOOP_TASK__NUMBER_OF_ITERATIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -135,6 +160,9 @@ public class LoopTaskItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LoopTask.class)) {
+			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MeasurementsPackage.LOOP_TASK__TASK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -172,6 +200,11 @@ public class LoopTaskItemProvider
 			(createChildParameter
 				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
 				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
 	}
 
 }

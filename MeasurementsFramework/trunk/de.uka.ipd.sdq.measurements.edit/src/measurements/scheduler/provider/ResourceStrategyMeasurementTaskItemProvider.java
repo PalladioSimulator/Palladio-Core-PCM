@@ -66,9 +66,32 @@ public class ResourceStrategyMeasurementTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDurationPropertyDescriptor(object);
 			addDemandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceStrategyMeasurementTask_duration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceStrategyMeasurementTask_duration_feature", "_UI_ResourceStrategyMeasurementTask_type"),
+				 SchedulerPackage.Literals.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -130,6 +153,7 @@ public class ResourceStrategyMeasurementTaskItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceStrategyMeasurementTask.class)) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

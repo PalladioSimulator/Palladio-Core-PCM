@@ -12,6 +12,7 @@ import measurements.MeasurementsPackage;
 
 import measurements.impl.MeasurementsPackageImpl;
 
+import measurements.scheduler.ParallelProcessTask;
 import measurements.scheduler.ResourceStrategyDemand;
 import measurements.scheduler.ResourceStrategyMeasurementTask;
 import measurements.scheduler.SchedulerFactory;
@@ -37,6 +38,13 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * @generated
 	 */
 	private EClass resourceStrategyMeasurementTaskEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parallelProcessTaskEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,8 +136,26 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceStrategyMeasurementTask_Demand() {
+	public EAttribute getResourceStrategyMeasurementTask_Duration() {
 		return (EAttribute)resourceStrategyMeasurementTaskEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResourceStrategyMeasurementTask_Demand() {
+		return (EAttribute)resourceStrategyMeasurementTaskEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParallelProcessTask() {
+		return parallelProcessTaskEClass;
 	}
 
 	/**
@@ -170,7 +196,10 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		// Create classes and their features
 		resourceStrategyMeasurementTaskEClass = createEClass(RESOURCE_STRATEGY_MEASUREMENT_TASK);
+		createEAttribute(resourceStrategyMeasurementTaskEClass, RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION);
 		createEAttribute(resourceStrategyMeasurementTaskEClass, RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND);
+
+		parallelProcessTaskEClass = createEClass(PARALLEL_PROCESS_TASK);
 
 		// Create enums
 		resourceStrategyDemandEEnum = createEEnum(RESOURCE_STRATEGY_DEMAND);
@@ -208,13 +237,18 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		// Add supertypes to classes
 		resourceStrategyMeasurementTaskEClass.getESuperTypes().add(theMeasurementsPackage.getMachineTask());
+		parallelProcessTaskEClass.getESuperTypes().add(theMeasurementsPackage.getParallelTask());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(resourceStrategyMeasurementTaskEClass, ResourceStrategyMeasurementTask.class, "ResourceStrategyMeasurementTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResourceStrategyMeasurementTask_Duration(), ecorePackage.getEInt(), "duration", null, 1, 1, ResourceStrategyMeasurementTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getResourceStrategyMeasurementTask_Demand(), this.getResourceStrategyDemand(), "demand", null, 1, 1, ResourceStrategyMeasurementTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(parallelProcessTaskEClass, ParallelProcessTask.class, "ParallelProcessTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(resourceStrategyDemandEEnum, ResourceStrategyDemand.class, "ResourceStrategyDemand");
+		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.WAIT_DEMAND);
 		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.MANDELBROT_DEMAND);
 		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.FIBONACCI_DEMAND);
 	}

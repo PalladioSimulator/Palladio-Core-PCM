@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link measurements.scheduler.impl.ResourceStrategyMeasurementTaskImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link measurements.scheduler.impl.ResourceStrategyMeasurementTaskImpl#getDemand <em>Demand</em>}</li>
  * </ul>
  * </p>
@@ -33,6 +34,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl implements ResourceStrategyMeasurementTask {
 	/**
+	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int DURATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected int duration = DURATION_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getDemand() <em>Demand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,7 +61,7 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ResourceStrategyDemand DEMAND_EDEFAULT = ResourceStrategyDemand.MANDELBROT_DEMAND;
+	protected static final ResourceStrategyDemand DEMAND_EDEFAULT = ResourceStrategyDemand.WAIT_DEMAND;
 
 	/**
 	 * The cached value of the '{@link #getDemand() <em>Demand</em>}' attribute.
@@ -76,6 +97,27 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getDuration() {
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDuration(int newDuration) {
+		int oldDuration = duration;
+		duration = newDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION, oldDuration, duration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceStrategyDemand getDemand() {
 		return demand;
 	}
@@ -100,6 +142,8 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
+				return getDuration();
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				return getDemand();
 		}
@@ -114,6 +158,9 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
+				setDuration((Integer)newValue);
+				return;
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				setDemand((ResourceStrategyDemand)newValue);
 				return;
@@ -129,6 +176,9 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
+				setDuration(DURATION_EDEFAULT);
+				return;
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				setDemand(DEMAND_EDEFAULT);
 				return;
@@ -144,6 +194,8 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
+				return duration != DURATION_EDEFAULT;
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				return demand != DEMAND_EDEFAULT;
 		}
@@ -160,7 +212,9 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (demand: ");
+		result.append(" (duration: ");
+		result.append(duration);
+		result.append(", demand: ");
 		result.append(demand);
 		result.append(')');
 		return result.toString();

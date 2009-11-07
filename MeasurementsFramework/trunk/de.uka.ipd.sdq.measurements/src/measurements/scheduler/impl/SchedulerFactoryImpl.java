@@ -62,6 +62,7 @@ public class SchedulerFactoryImpl extends EFactoryImpl implements SchedulerFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK: return createResourceStrategyMeasurementTask();
+			case SchedulerPackage.PARALLEL_PROCESS_TASK: return createParallelProcessTask();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +106,16 @@ public class SchedulerFactoryImpl extends EFactoryImpl implements SchedulerFacto
 	public ResourceStrategyMeasurementTask createResourceStrategyMeasurementTask() {
 		ResourceStrategyMeasurementTaskImpl resourceStrategyMeasurementTask = new ResourceStrategyMeasurementTaskImpl();
 		return resourceStrategyMeasurementTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParallelProcessTask createParallelProcessTask() {
+		ParallelProcessTaskImpl parallelProcessTask = new ParallelProcessTaskImpl();
+		return parallelProcessTask;
 	}
 
 	/**

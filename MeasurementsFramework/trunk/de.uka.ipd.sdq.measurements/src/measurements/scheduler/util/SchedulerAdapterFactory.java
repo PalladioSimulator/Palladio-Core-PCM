@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import measurements.AbstractTask;
 import measurements.MachineTask;
 
+import measurements.ParallelTask;
 import measurements.scheduler.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -81,6 +82,10 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 				return createResourceStrategyMeasurementTaskAdapter();
 			}
 			@Override
+			public Adapter caseParallelProcessTask(ParallelProcessTask object) {
+				return createParallelProcessTaskAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -91,6 +96,10 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMachineTask(MachineTask object) {
 				return createMachineTaskAdapter();
+			}
+			@Override
+			public Adapter caseParallelTask(ParallelTask object) {
+				return createParallelTaskAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -123,6 +132,20 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceStrategyMeasurementTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link measurements.scheduler.ParallelProcessTask <em>Parallel Process Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see measurements.scheduler.ParallelProcessTask
+	 * @generated
+	 */
+	public Adapter createParallelProcessTaskAdapter() {
 		return null;
 	}
 
@@ -165,6 +188,20 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMachineTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link measurements.ParallelTask <em>Parallel Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see measurements.ParallelTask
+	 * @generated
+	 */
+	public Adapter createParallelTaskAdapter() {
 		return null;
 	}
 

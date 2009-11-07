@@ -213,6 +213,11 @@ public class TaskSetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
 				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
 
