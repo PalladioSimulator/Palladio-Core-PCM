@@ -61,5 +61,37 @@
             contributorClass="measurements.scheduler.presentation.SchedulerActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category">
+      </category>
+      <wizard
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            class="measurements.presentation.MeasurementsModelWizard"
+            icon="icons/full/obj16/MeasurementsModelFile.gif"
+            id="measurements.presentation.TaskSetModelWizardID"
+            name="%_UI_TaskSetModelWizard_label">
+         <description>
+            %_UI_TaskSetModelWizard_description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="measurements.presentation.MeasurementsEditor"
+            contributorClass="measurements.presentation.MeasurementsActionBarContributor"
+            default="false"
+            extensions="taskset"
+            icon="icons/full/obj16/MeasurementsModelFile.gif"
+            id="measurements.presentation.TaskSetEditorID"
+            name="%_UI_TaskSetEditor_label">
+      </editor>
+   </extension>
 
 </plugin>
