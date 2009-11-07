@@ -1689,43 +1689,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B1xtUsq2Ed6sNo1ojYVtLw" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_tWK88MqyEd6sNo1ojYVtLw" name="TaskSet">
-      <generalization xmi:id="_90NAMMqzEd6sNo1ojYVtLw">
-        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
-      </generalization>
-      <ownedAttribute xmi:id="_Iqks0Mq0Ed6sNo1ojYVtLw" name="name" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_l6gAIcqzEd6sNo1ojYVtLw" name="rootTask" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_l6gAIMqzEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l6gAI8qzEd6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l6gAIsqzEd6sNo1ojYVtLw" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_QkJYgMqxEd6sNo1ojYVtLw" name="probeSpecRepository" visibility="public" aggregation="composite" association="_Qj_ngMqxEd6sNo1ojYVtLw">
-        <type xmi:type="uml:Class" href="platform:/resource/RSA-Models/ProbeSpecification.emx#_WJFMcFWcEd6ID4NNrTXRsg?ProbeSpecification/ProbeSpecRepository?"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkJYgsqxEd6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QkJYgcqxEd6sNo1ojYVtLw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_x0xJIMu4Ed6K4YLGNFfpeQ" name="machineReferences" visibility="public" type="_uoSkwMq1Ed6sNo1ojYVtLw" aggregation="composite" association="_x0nYIMu4Ed6K4YLGNFfpeQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x0xJIsu4Ed6K4YLGNFfpeQ" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x0xJIcu4Ed6K4YLGNFfpeQ"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_K_NT0MqyEd6sNo1ojYVtLw" name="SequenceTask">
-      <generalization xmi:id="_RZw8cMqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
-      <ownedAttribute xmi:id="_a0tz8cqyEd6sNo1ojYVtLw" name="tasks" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_a0tz8MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a0tz88qyEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a0tz8sqyEd6sNo1ojYVtLw" value="1"/>
-      </ownedAttribute>
-    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_yjYhUMq1Ed6sNo1ojYVtLw" name="PlainMachineReference">
       <generalization xmi:id="_8qFEgMq1Ed6sNo1ojYVtLw" general="_uoSkwMq1Ed6sNo1ojYVtLw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_L85rIMqyEd6sNo1ojYVtLw" name="ParallelTask">
-      <generalization xmi:id="_RDkC8MqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
-      <ownedAttribute xmi:id="_eOIm0cqyEd6sNo1ojYVtLw" name="tasks" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_eOIm0MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eOIm08qyEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eOIm0sqyEd6sNo1ojYVtLw" value="1"/>
-      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_BF7XAMqxEd6sNo1ojYVtLw" name="MeasurementScript">
       <ownedAttribute xmi:id="_F95gocqzEd6sNo1ojYVtLw" name="taskSets" visibility="public" type="_tWK88MqyEd6sNo1ojYVtLw" association="_F95goMqzEd6sNo1ojYVtLw">
@@ -1735,13 +1700,6 @@
       <ownedAttribute xmi:id="_5iVs8cq0Ed6sNo1ojYVtLw" name="machineDescriptions" visibility="public" type="_xn17kMq0Ed6sNo1ojYVtLw" aggregation="composite" association="_5iVs8Mq0Ed6sNo1ojYVtLw">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5iVs88q0Ed6sNo1ojYVtLw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5iVs8sq0Ed6sNo1ojYVtLw"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Fb08EMq4Ed6sNo1ojYVtLw" name="MachineTask" isAbstract="true">
-      <generalization xmi:id="_HInOAMq4Ed6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
-      <ownedAttribute xmi:id="_VaBeIcq4Ed6sNo1ojYVtLw" name="machine" visibility="public" type="_uoSkwMq1Ed6sNo1ojYVtLw" association="_VaBeIMq4Ed6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VaBeI8q4Ed6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VaBeIsq4Ed6sNo1ojYVtLw" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_uoSkwMq1Ed6sNo1ojYVtLw" name="MachineReference" isAbstract="true">
@@ -1776,40 +1734,6 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XKHNosq2Ed6sNo1ojYVtLw"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_OSOjwMqyEd6sNo1ojYVtLw" name="LoopTask">
-      <generalization xmi:id="_R8CjEMqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
-      <ownedAttribute xmi:id="_iujbIMu8Ed6K4YLGNFfpeQ" name="numberOfIterations" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_pdpJUMu8Ed6K4YLGNFfpeQ" value="1">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-        </defaultValue>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_U2Bn8cqyEd6sNo1ojYVtLw" name="task" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_U2Bn8MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2LY8cqyEd6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2LY8MqyEd6sNo1ojYVtLw" value="1"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_NDYyEMqyEd6sNo1ojYVtLw" name="AbstractTask" isAbstract="true">
-      <generalization xmi:id="_-RQvoMqzEd6sNo1ojYVtLw">
-        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
-      </generalization>
-      <ownedAttribute xmi:id="_PXlXYMq0Ed6sNo1ojYVtLw" name="description" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ra22scq0Ed6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ra22sMq0Ed6sNo1ojYVtLw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_FidsYMq0Ed6sNo1ojYVtLw" name="name" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NvRVwcq0Ed6sNo1ojYVtLw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NvRVwMq0Ed6sNo1ojYVtLw"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_U2Bn8MqyEd6sNo1ojYVtLw" memberEnd="_U2Bn8cqyEd6sNo1ojYVtLw _U2LY8sqyEd6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_U2LY8sqyEd6sNo1ojYVtLw" name="" visibility="private" type="_OSOjwMqyEd6sNo1ojYVtLw" association="_U2Bn8MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZF13UMqyEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZFstYMqyEd6sNo1ojYVtLw"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_XKHNoMq2Ed6sNo1ojYVtLw" memberEnd="_XKHNocq2Ed6sNo1ojYVtLw _XKHNpMq2Ed6sNo1ojYVtLw">
       <ownedEnd xmi:id="_XKHNpMq2Ed6sNo1ojYVtLw" name="" visibility="private" type="_xn17kMq0Ed6sNo1ojYVtLw" association="_XKHNoMq2Ed6sNo1ojYVtLw"/>
     </packagedElement>
@@ -1817,12 +1741,6 @@
       <ownedEnd xmi:id="_aB_ZtMq2Ed6sNo1ojYVtLw" name="" visibility="private" type="_w1QyoMq1Ed6sNo1ojYVtLw" association="_aB_ZsMq2Ed6sNo1ojYVtLw">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aB_Ztsq2Ed6sNo1ojYVtLw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aB_Ztcq2Ed6sNo1ojYVtLw"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_VaBeIMq4Ed6sNo1ojYVtLw" memberEnd="_VaBeIcq4Ed6sNo1ojYVtLw _VaLPIMq4Ed6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_VaLPIMq4Ed6sNo1ojYVtLw" name="" visibility="private" type="_Fb08EMq4Ed6sNo1ojYVtLw" association="_VaBeIMq4Ed6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VaLPIsq4Ed6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VaLPIcq4Ed6sNo1ojYVtLw"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_F95goMqzEd6sNo1ojYVtLw" memberEnd="_F95gocqzEd6sNo1ojYVtLw _F95gpMqzEd6sNo1ojYVtLw">
@@ -1833,27 +1751,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_5iVs8Mq0Ed6sNo1ojYVtLw" memberEnd="_5iVs8cq0Ed6sNo1ojYVtLw _5iVs9Mq0Ed6sNo1ojYVtLw">
       <ownedEnd xmi:id="_5iVs9Mq0Ed6sNo1ojYVtLw" name="" visibility="private" type="_BF7XAMqxEd6sNo1ojYVtLw" association="_5iVs8Mq0Ed6sNo1ojYVtLw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_eOIm0MqyEd6sNo1ojYVtLw" memberEnd="_eOIm0cqyEd6sNo1ojYVtLw _eOSX0MqyEd6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_eOSX0MqyEd6sNo1ojYVtLw" name="" visibility="private" type="_L85rIMqyEd6sNo1ojYVtLw" association="_eOIm0MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h_Z5AcqyEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h_Z5AMqyEd6sNo1ojYVtLw"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_a0tz8MqyEd6sNo1ojYVtLw" memberEnd="_a0tz8cqyEd6sNo1ojYVtLw _a0tz9MqyEd6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_a0tz9MqyEd6sNo1ojYVtLw" name="" visibility="private" type="_K_NT0MqyEd6sNo1ojYVtLw" association="_a0tz8MqyEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dSh6McqyEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dSh6MMqyEd6sNo1ojYVtLw"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_Qj_ngMqxEd6sNo1ojYVtLw" memberEnd="_QkJYgMqxEd6sNo1ojYVtLw _QkJYg8qxEd6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_QkJYg8qxEd6sNo1ojYVtLw" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_Qj_ngMqxEd6sNo1ojYVtLw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_l6gAIMqzEd6sNo1ojYVtLw" memberEnd="_l6gAIcqzEd6sNo1ojYVtLw _l6gAJMqzEd6sNo1ojYVtLw">
-      <ownedEnd xmi:id="_l6gAJMqzEd6sNo1ojYVtLw" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_l6gAIMqzEd6sNo1ojYVtLw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sJ13QcqzEd6sNo1ojYVtLw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sJ13QMqzEd6sNo1ojYVtLw"/>
-      </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_B1xtUMq2Ed6sNo1ojYVtLw" memberEnd="_B1xtUcq2Ed6sNo1ojYVtLw _B17eUMq2Ed6sNo1ojYVtLw">
       <ownedEnd xmi:id="_B17eUMq2Ed6sNo1ojYVtLw" name="" visibility="private" type="_36GuYMq1Ed6sNo1ojYVtLw" association="_B1xtUMq2Ed6sNo1ojYVtLw">
@@ -2011,8 +1908,114 @@
         <generalization xmi:id="_1yEIUMu8Ed6K4YLGNFfpeQ" general="_L85rIMqyEd6sNo1ojYVtLw"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_x0nYIMu4Ed6K4YLGNFfpeQ" memberEnd="_x0xJIMu4Ed6K4YLGNFfpeQ _x06TEMu4Ed6K4YLGNFfpeQ">
-      <ownedEnd xmi:id="_x06TEMu4Ed6K4YLGNFfpeQ" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_x0nYIMu4Ed6K4YLGNFfpeQ"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_QKYv0MvREd6K4YLGNFfpeQ" name="tasks">
+      <eAnnotations xmi:id="_QKig0MvREd6K4YLGNFfpeQ" source="uml2.diagrams"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NDYyEMqyEd6sNo1ojYVtLw" name="AbstractTask" isAbstract="true">
+        <generalization xmi:id="_-RQvoMqzEd6sNo1ojYVtLw">
+          <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+        </generalization>
+        <ownedAttribute xmi:id="_PXlXYMq0Ed6sNo1ojYVtLw" name="description" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ra22scq0Ed6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ra22sMq0Ed6sNo1ojYVtLw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_FidsYMq0Ed6sNo1ojYVtLw" name="name" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NvRVwcq0Ed6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NvRVwMq0Ed6sNo1ojYVtLw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_OSOjwMqyEd6sNo1ojYVtLw" name="LoopTask">
+        <generalization xmi:id="_R8CjEMqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
+        <ownedAttribute xmi:id="_iujbIMu8Ed6K4YLGNFfpeQ" name="numberOfIterations" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_pdpJUMu8Ed6K4YLGNFfpeQ" value="1">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_U2Bn8cqyEd6sNo1ojYVtLw" name="task" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_U2Bn8MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_U2LY8cqyEd6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U2LY8MqyEd6sNo1ojYVtLw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Fb08EMq4Ed6sNo1ojYVtLw" name="MachineTask" isAbstract="true">
+        <generalization xmi:id="_HInOAMq4Ed6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
+        <ownedAttribute xmi:id="_VaBeIcq4Ed6sNo1ojYVtLw" name="machine" visibility="public" type="_uoSkwMq1Ed6sNo1ojYVtLw" association="_VaBeIMq4Ed6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VaBeI8q4Ed6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VaBeIsq4Ed6sNo1ojYVtLw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L85rIMqyEd6sNo1ojYVtLw" name="ParallelTask">
+        <generalization xmi:id="_RDkC8MqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
+        <ownedAttribute xmi:id="_eOIm0cqyEd6sNo1ojYVtLw" name="tasks" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_eOIm0MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eOIm08qyEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eOIm0sqyEd6sNo1ojYVtLw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_K_NT0MqyEd6sNo1ojYVtLw" name="SequenceTask">
+        <generalization xmi:id="_RZw8cMqyEd6sNo1ojYVtLw" general="_NDYyEMqyEd6sNo1ojYVtLw"/>
+        <ownedAttribute xmi:id="_a0tz8cqyEd6sNo1ojYVtLw" name="tasks" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_a0tz8MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a0tz88qyEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a0tz8sqyEd6sNo1ojYVtLw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tWK88MqyEd6sNo1ojYVtLw" name="TaskSet">
+        <generalization xmi:id="_90NAMMqzEd6sNo1ojYVtLw">
+          <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+        </generalization>
+        <ownedAttribute xmi:id="_Iqks0Mq0Ed6sNo1ojYVtLw" name="name" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_l6gAIcqzEd6sNo1ojYVtLw" name="rootTask" visibility="public" type="_NDYyEMqyEd6sNo1ojYVtLw" aggregation="composite" association="_l6gAIMqzEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l6gAI8qzEd6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l6gAIsqzEd6sNo1ojYVtLw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_QkJYgMqxEd6sNo1ojYVtLw" name="probeSpecRepository" visibility="public" aggregation="composite" association="_Qj_ngMqxEd6sNo1ojYVtLw">
+          <type xmi:type="uml:Class" href="platform:/resource/RSA-Models/ProbeSpecification.emx#_WJFMcFWcEd6ID4NNrTXRsg?ProbeSpecification/ProbeSpecRepository?"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QkJYgsqxEd6sNo1ojYVtLw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QkJYgcqxEd6sNo1ojYVtLw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_x0xJIMu4Ed6K4YLGNFfpeQ" name="machineReferences" visibility="public" type="_uoSkwMq1Ed6sNo1ojYVtLw" aggregation="composite" association="_x0nYIMu4Ed6K4YLGNFfpeQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x0xJIsu4Ed6K4YLGNFfpeQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x0xJIcu4Ed6K4YLGNFfpeQ"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_l6gAIMqzEd6sNo1ojYVtLw" memberEnd="_l6gAIcqzEd6sNo1ojYVtLw _l6gAJMqzEd6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_l6gAJMqzEd6sNo1ojYVtLw" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_l6gAIMqzEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sJ13QcqzEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sJ13QMqzEd6sNo1ojYVtLw"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Qj_ngMqxEd6sNo1ojYVtLw" memberEnd="_QkJYgMqxEd6sNo1ojYVtLw _QkJYg8qxEd6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_QkJYg8qxEd6sNo1ojYVtLw" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_Qj_ngMqxEd6sNo1ojYVtLw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_x0nYIMu4Ed6K4YLGNFfpeQ" memberEnd="_x0xJIMu4Ed6K4YLGNFfpeQ _x06TEMu4Ed6K4YLGNFfpeQ">
+        <ownedEnd xmi:id="_x06TEMu4Ed6K4YLGNFfpeQ" name="" visibility="private" type="_tWK88MqyEd6sNo1ojYVtLw" association="_x0nYIMu4Ed6K4YLGNFfpeQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_a0tz8MqyEd6sNo1ojYVtLw" memberEnd="_a0tz8cqyEd6sNo1ojYVtLw _a0tz9MqyEd6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_a0tz9MqyEd6sNo1ojYVtLw" name="" visibility="private" type="_K_NT0MqyEd6sNo1ojYVtLw" association="_a0tz8MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dSh6McqyEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dSh6MMqyEd6sNo1ojYVtLw"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_eOIm0MqyEd6sNo1ojYVtLw" memberEnd="_eOIm0cqyEd6sNo1ojYVtLw _eOSX0MqyEd6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_eOSX0MqyEd6sNo1ojYVtLw" name="" visibility="private" type="_L85rIMqyEd6sNo1ojYVtLw" association="_eOIm0MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h_Z5AcqyEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h_Z5AMqyEd6sNo1ojYVtLw"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VaBeIMq4Ed6sNo1ojYVtLw" memberEnd="_VaBeIcq4Ed6sNo1ojYVtLw _VaLPIMq4Ed6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_VaLPIMq4Ed6sNo1ojYVtLw" name="" visibility="private" type="_Fb08EMq4Ed6sNo1ojYVtLw" association="_VaBeIMq4Ed6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VaLPIsq4Ed6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VaLPIcq4Ed6sNo1ojYVtLw"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_U2Bn8MqyEd6sNo1ojYVtLw" memberEnd="_U2Bn8cqyEd6sNo1ojYVtLw _U2LY8sqyEd6sNo1ojYVtLw">
+        <ownedEnd xmi:id="_U2LY8sqyEd6sNo1ojYVtLw" name="" visibility="private" type="_OSOjwMqyEd6sNo1ojYVtLw" association="_U2Bn8MqyEd6sNo1ojYVtLw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZF13UMqyEd6sNo1ojYVtLw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZFstYMqyEd6sNo1ojYVtLw"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
     <profileApplication xmi:id="_ypR2tcrxEd6sNo1ojYVtLw">
       <eAnnotations xmi:id="_ypR2tsrxEd6sNo1ojYVtLw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -2039,6 +2042,7 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_2dNbUMrxEd6sNo1ojYVtLw" base_Package="_ypR2sMrxEd6sNo1ojYVtLw" packageName="measurements" nsPrefix="measurements" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/1.0" basePackage="de.uka.ipd.sdq"/>
-  <Ecore:EPackage xmi:id="_C0eS8MryEd6sNo1ojYVtLw" base_Package="__7i-AMrxEd6sNo1ojYVtLw" packageName="scheduler" nsPrefix="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0" basePackage="de.uka.ipd.sdq.measurements" prefix="scheduler"/>
+  <Ecore:EPackage xmi:id="_2dNbUMrxEd6sNo1ojYVtLw" base_Package="_ypR2sMrxEd6sNo1ojYVtLw" packageName="measurements" nsPrefix="measurements" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/1.0" basePackage="de.uka.ipd.sdq" prefix="Measurements"/>
+  <Ecore:EPackage xmi:id="_C0eS8MryEd6sNo1ojYVtLw" base_Package="__7i-AMrxEd6sNo1ojYVtLw" packageName="scheduler" nsPrefix="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0" basePackage="de.uka.ipd.sdq.measurements" prefix="Scheduler"/>
+  <Ecore:EPackage xmi:id="_U3ibcMvREd6K4YLGNFfpeQ" base_Package="_QKYv0MvREd6K4YLGNFfpeQ" packageName="tasks" nsPrefix="tasks" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Tasks/1.0" basePackage="de.uka.ipd.sdq.measurements" prefix="Tasks"/>
 </xmi:XMI>
