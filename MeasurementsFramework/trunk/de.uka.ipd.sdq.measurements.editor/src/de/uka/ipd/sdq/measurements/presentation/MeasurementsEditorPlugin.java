@@ -6,19 +6,14 @@
  */
 package de.uka.ipd.sdq.measurements.presentation;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.pipesandfilters.provider.PipesandfiltersEditPlugin;
-
-import de.uka.ipd.sdq.probespec.provider.ProbeSpecificationEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.pipesandfilters.provider.PipesandfiltersEditPlugin;
+import de.uka.ipd.sdq.probespec.provider.ProbeSpecificationEditPlugin;
 
 /**
  * This is the central singleton for the Measurements editor plugin.

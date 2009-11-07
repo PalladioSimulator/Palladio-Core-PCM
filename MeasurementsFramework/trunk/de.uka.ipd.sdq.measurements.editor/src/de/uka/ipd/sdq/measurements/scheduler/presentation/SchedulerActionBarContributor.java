@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.presentation;
+package de.uka.ipd.sdq.measurements.scheduler.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,13 +38,15 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
+import de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin;
+
 /**
- * This is the action bar contributor for the Measurements model editor.
+ * This is the action bar contributor for the Scheduler model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MeasurementsActionBarContributor
+public class SchedulerActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -147,7 +149,7 @@ public class MeasurementsActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementsActionBarContributor() {
+	public SchedulerActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -162,8 +164,8 @@ public class MeasurementsActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		toolBarManager.add(new Separator("measurements-settings"));
-		toolBarManager.add(new Separator("measurements-additions"));
+		toolBarManager.add(new Separator("scheduler-settings"));
+		toolBarManager.add(new Separator("scheduler-additions"));
 	}
 
 	/**
@@ -177,7 +179,7 @@ public class MeasurementsActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(MeasurementsEditorPlugin.INSTANCE.getString("_UI_MeasurementsEditor_menu"), "de.uka.ipd.sdq.measurementsMenuID");
+		IMenuManager submenuManager = new MenuManager(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerEditor_menu"), "de.uka.ipd.sdq.measurements.schedulerMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

@@ -88,42 +88,6 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIRTUAL_MACHINE_REFERENCE__ID = MeasurementsPackage.MACHINE_REFERENCE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIRTUAL_MACHINE_REFERENCE__NAME = MeasurementsPackage.MACHINE_REFERENCE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Host Machine</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIRTUAL_MACHINE_REFERENCE__HOST_MACHINE = MeasurementsPackage.MACHINE_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Virtual Machine Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIRTUAL_MACHINE_REFERENCE_FEATURE_COUNT = MeasurementsPackage.MACHINE_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int MACHINE_REFERENCE__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
@@ -145,6 +109,42 @@ public interface MeasurementsPackage extends EPackage {
 	int MACHINE_REFERENCE_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_MACHINE_REFERENCE__ID = MACHINE_REFERENCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_MACHINE_REFERENCE__NAME = MACHINE_REFERENCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Host Machine</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_MACHINE_REFERENCE__HOST_MACHINE = MACHINE_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Virtual Machine Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIRTUAL_MACHINE_REFERENCE_FEATURE_COUNT = MACHINE_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.PlainMachineReferenceImpl <em>Plain Machine Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,7 +161,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAIN_MACHINE_REFERENCE__ID = MeasurementsPackage.MACHINE_REFERENCE__ID;
+	int PLAIN_MACHINE_REFERENCE__ID = MACHINE_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -170,7 +170,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAIN_MACHINE_REFERENCE__NAME = MeasurementsPackage.MACHINE_REFERENCE__NAME;
+	int PLAIN_MACHINE_REFERENCE__NAME = MACHINE_REFERENCE__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Plain Machine Reference</em>' class.
@@ -179,7 +179,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAIN_MACHINE_REFERENCE_FEATURE_COUNT = MeasurementsPackage.MACHINE_REFERENCE_FEATURE_COUNT + 0;
+	int PLAIN_MACHINE_REFERENCE_FEATURE_COUNT = MACHINE_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.TaskSetImpl <em>Task Set</em>}' class.
@@ -308,7 +308,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_TASK__ID = MeasurementsPackage.ABSTRACT_TASK__ID;
+	int SEQUENCE_TASK__ID = ABSTRACT_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -317,7 +317,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_TASK__DESCRIPTION = MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION;
+	int SEQUENCE_TASK__DESCRIPTION = ABSTRACT_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -326,7 +326,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_TASK__NAME = MeasurementsPackage.ABSTRACT_TASK__NAME;
+	int SEQUENCE_TASK__NAME = ABSTRACT_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -335,7 +335,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_TASK__TASKS = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 0;
+	int SEQUENCE_TASK__TASKS = ABSTRACT_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Sequence Task</em>' class.
@@ -344,7 +344,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_TASK_FEATURE_COUNT = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 1;
+	int SEQUENCE_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.ParallelTaskImpl <em>Parallel Task</em>}' class.
@@ -363,7 +363,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_TASK__ID = MeasurementsPackage.ABSTRACT_TASK__ID;
+	int PARALLEL_TASK__ID = ABSTRACT_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -372,7 +372,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_TASK__DESCRIPTION = MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION;
+	int PARALLEL_TASK__DESCRIPTION = ABSTRACT_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -381,7 +381,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_TASK__NAME = MeasurementsPackage.ABSTRACT_TASK__NAME;
+	int PARALLEL_TASK__NAME = ABSTRACT_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -390,7 +390,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_TASK__TASKS = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 0;
+	int PARALLEL_TASK__TASKS = ABSTRACT_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Task</em>' class.
@@ -399,7 +399,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_TASK_FEATURE_COUNT = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 1;
+	int PARALLEL_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.MeasurementScriptImpl <em>Measurement Script</em>}' class.
@@ -547,7 +547,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_TASK__ID = MeasurementsPackage.ABSTRACT_TASK__ID;
+	int MACHINE_TASK__ID = ABSTRACT_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -556,7 +556,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_TASK__DESCRIPTION = MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION;
+	int MACHINE_TASK__DESCRIPTION = ABSTRACT_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -565,7 +565,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_TASK__NAME = MeasurementsPackage.ABSTRACT_TASK__NAME;
+	int MACHINE_TASK__NAME = ABSTRACT_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Machine</b></em>' reference.
@@ -574,7 +574,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_TASK__MACHINE = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 0;
+	int MACHINE_TASK__MACHINE = ABSTRACT_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Machine Task</em>' class.
@@ -583,7 +583,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_TASK_FEATURE_COUNT = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 1;
+	int MACHINE_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.LoopTaskImpl <em>Loop Task</em>}' class.
@@ -602,7 +602,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__ID = MeasurementsPackage.ABSTRACT_TASK__ID;
+	int LOOP_TASK__ID = ABSTRACT_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -611,7 +611,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__DESCRIPTION = MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION;
+	int LOOP_TASK__DESCRIPTION = ABSTRACT_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -620,7 +620,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__NAME = MeasurementsPackage.ABSTRACT_TASK__NAME;
+	int LOOP_TASK__NAME = ABSTRACT_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Iterations</b></em>' attribute.
@@ -629,7 +629,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__NUMBER_OF_ITERATIONS = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 0;
+	int LOOP_TASK__NUMBER_OF_ITERATIONS = ABSTRACT_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Task</b></em>' containment reference.
@@ -638,7 +638,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK__TASK = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 1;
+	int LOOP_TASK__TASK = ABSTRACT_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Loop Task</em>' class.
@@ -647,7 +647,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_TASK_FEATURE_COUNT = MeasurementsPackage.ABSTRACT_TASK_FEATURE_COUNT + 2;
+	int LOOP_TASK_FEATURE_COUNT = ABSTRACT_TASK_FEATURE_COUNT + 2;
 
 
 	/**

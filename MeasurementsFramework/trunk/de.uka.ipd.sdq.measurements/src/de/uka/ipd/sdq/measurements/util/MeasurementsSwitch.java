@@ -92,7 +92,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.VIRTUAL_MACHINE_REFERENCE: {
 				VirtualMachineReference virtualMachineReference = (VirtualMachineReference)theEObject;
 				T result = caseVirtualMachineReference(virtualMachineReference);
-				if (result == null) result = caseMeasurements_MachineReference(virtualMachineReference);
+				if (result == null) result = caseMachineReference(virtualMachineReference);
 				if (result == null) result = caseIdentifier(virtualMachineReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -107,7 +107,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.PLAIN_MACHINE_REFERENCE: {
 				PlainMachineReference plainMachineReference = (PlainMachineReference)theEObject;
 				T result = casePlainMachineReference(plainMachineReference);
-				if (result == null) result = caseMeasurements_MachineReference(plainMachineReference);
+				if (result == null) result = caseMachineReference(plainMachineReference);
 				if (result == null) result = caseIdentifier(plainMachineReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -129,7 +129,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.SEQUENCE_TASK: {
 				SequenceTask sequenceTask = (SequenceTask)theEObject;
 				T result = caseSequenceTask(sequenceTask);
-				if (result == null) result = caseMeasurements_AbstractTask(sequenceTask);
+				if (result == null) result = caseAbstractTask(sequenceTask);
 				if (result == null) result = caseIdentifier(sequenceTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -137,7 +137,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.PARALLEL_TASK: {
 				ParallelTask parallelTask = (ParallelTask)theEObject;
 				T result = caseParallelTask(parallelTask);
-				if (result == null) result = caseMeasurements_AbstractTask(parallelTask);
+				if (result == null) result = caseAbstractTask(parallelTask);
 				if (result == null) result = caseIdentifier(parallelTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -165,7 +165,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.MACHINE_TASK: {
 				MachineTask machineTask = (MachineTask)theEObject;
 				T result = caseMachineTask(machineTask);
-				if (result == null) result = caseMeasurements_AbstractTask(machineTask);
+				if (result == null) result = caseAbstractTask(machineTask);
 				if (result == null) result = caseIdentifier(machineTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -173,7 +173,7 @@ public class MeasurementsSwitch<T> {
 			case MeasurementsPackage.LOOP_TASK: {
 				LoopTask loopTask = (LoopTask)theEObject;
 				T result = caseLoopTask(loopTask);
-				if (result == null) result = caseMeasurements_AbstractTask(loopTask);
+				if (result == null) result = caseAbstractTask(loopTask);
 				if (result == null) result = caseIdentifier(loopTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -374,36 +374,6 @@ public class MeasurementsSwitch<T> {
 	 * @generated
 	 */
 	public T caseIdentifier(Identifier object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Machine Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Machine Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMeasurements_MachineReference(MachineReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMeasurements_AbstractTask(AbstractTask object) {
 		return null;
 	}
 

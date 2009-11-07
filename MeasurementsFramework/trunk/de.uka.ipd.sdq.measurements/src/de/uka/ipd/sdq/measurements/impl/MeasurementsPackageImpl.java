@@ -6,8 +6,13 @@
  */
 package de.uka.ipd.sdq.measurements.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.measurements.AbstractTask;
 import de.uka.ipd.sdq.measurements.LoopTask;
 import de.uka.ipd.sdq.measurements.MachineDescription;
@@ -22,19 +27,9 @@ import de.uka.ipd.sdq.measurements.PlainMachineReference;
 import de.uka.ipd.sdq.measurements.SequenceTask;
 import de.uka.ipd.sdq.measurements.TaskSet;
 import de.uka.ipd.sdq.measurements.VirtualMachineReference;
-
-import de.uka.ipd.sdq.measurements.scheduler.impl.schedulerPackageImpl;
-
-import de.uka.ipd.sdq.measurements.scheduler.schedulerPackage;
-
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
+import de.uka.ipd.sdq.measurements.scheduler.impl.SchedulerPackageImpl;
 import de.uka.ipd.sdq.probespec.probespecPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -177,21 +172,15 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		probespecPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		MeasurementsPackageImpl theMeasurementsPackage_1 = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
-		schedulerPackageImpl theschedulerPackage = (schedulerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(schedulerPackage.eNS_URI) instanceof schedulerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(schedulerPackage.eNS_URI) : schedulerPackage.eINSTANCE);
-		schedulerPackageImpl theschedulerPackage_1 = (schedulerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(schedulerPackage.eNS_URI) instanceof schedulerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(schedulerPackage.eNS_URI) : schedulerPackage.eINSTANCE);
+		SchedulerPackageImpl theSchedulerPackage = (SchedulerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SchedulerPackage.eNS_URI) instanceof SchedulerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SchedulerPackage.eNS_URI) : SchedulerPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theMeasurementsPackage.createPackageContents();
-		theMeasurementsPackage_1.createPackageContents();
-		theschedulerPackage.createPackageContents();
-		theschedulerPackage_1.createPackageContents();
+		theSchedulerPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theMeasurementsPackage.initializePackageContents();
-		theMeasurementsPackage_1.initializePackageContents();
-		theschedulerPackage.initializePackageContents();
-		theschedulerPackage_1.initializePackageContents();
+		theSchedulerPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theMeasurementsPackage.freeze();
@@ -577,34 +566,33 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		schedulerPackage theschedulerPackage_1 = (schedulerPackage)EPackage.Registry.INSTANCE.getEPackage(schedulerPackage.eNS_URI);
-		MeasurementsPackage theMeasurementsPackage_1 = (MeasurementsPackage)EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI);
+		SchedulerPackage theSchedulerPackage = (SchedulerPackage)EPackage.Registry.INSTANCE.getEPackage(SchedulerPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		probespecPackage theprobespecPackage = (probespecPackage)EPackage.Registry.INSTANCE.getEPackage(probespecPackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theschedulerPackage_1);
+		getESubpackages().add(theSchedulerPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		virtualMachineReferenceEClass.getESuperTypes().add(theMeasurementsPackage_1.getMachineReference());
+		virtualMachineReferenceEClass.getESuperTypes().add(this.getMachineReference());
 		machineReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		plainMachineReferenceEClass.getESuperTypes().add(theMeasurementsPackage_1.getMachineReference());
+		plainMachineReferenceEClass.getESuperTypes().add(this.getMachineReference());
 		taskSetEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		abstractTaskEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		sequenceTaskEClass.getESuperTypes().add(theMeasurementsPackage_1.getAbstractTask());
-		parallelTaskEClass.getESuperTypes().add(theMeasurementsPackage_1.getAbstractTask());
+		sequenceTaskEClass.getESuperTypes().add(this.getAbstractTask());
+		parallelTaskEClass.getESuperTypes().add(this.getAbstractTask());
 		machineDescriptionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		machineMappingEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		machineTaskEClass.getESuperTypes().add(theMeasurementsPackage_1.getAbstractTask());
-		loopTaskEClass.getESuperTypes().add(theMeasurementsPackage_1.getAbstractTask());
+		machineTaskEClass.getESuperTypes().add(this.getAbstractTask());
+		loopTaskEClass.getESuperTypes().add(this.getAbstractTask());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(virtualMachineReferenceEClass, VirtualMachineReference.class, "VirtualMachineReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVirtualMachineReference_HostMachine(), theMeasurementsPackage_1.getPlainMachineReference(), null, "hostMachine", null, 1, 1, VirtualMachineReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVirtualMachineReference_HostMachine(), this.getPlainMachineReference(), null, "hostMachine", null, 1, 1, VirtualMachineReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(machineReferenceEClass, MachineReference.class, "MachineReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMachineReference_Name(), ecorePackage.getEString(), "name", null, 1, 1, MachineReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -613,38 +601,41 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 
 		initEClass(taskSetEClass, TaskSet.class, "TaskSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskSet_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getTaskSet_RootTask(), theMeasurementsPackage_1.getAbstractTask(), null, "rootTask", null, 1, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTaskSet_RootTask(), this.getAbstractTask(), null, "rootTask", null, 1, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTaskSet_ProbeSpecRepository(), theprobespecPackage.getProbeSpecRepository(), null, "probeSpecRepository", null, 0, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getTaskSet_MachineReferences(), theMeasurementsPackage_1.getMachineReference(), null, "machineReferences", null, 0, -1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTaskSet_MachineReferences(), this.getMachineReference(), null, "machineReferences", null, 0, -1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(abstractTaskEClass, AbstractTask.class, "AbstractTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractTask_Description(), ecorePackage.getEString(), "description", null, 0, 1, AbstractTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getAbstractTask_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sequenceTaskEClass, SequenceTask.class, "SequenceTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSequenceTask_Tasks(), theMeasurementsPackage_1.getAbstractTask(), null, "tasks", null, 1, -1, SequenceTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSequenceTask_Tasks(), this.getAbstractTask(), null, "tasks", null, 1, -1, SequenceTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parallelTaskEClass, ParallelTask.class, "ParallelTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParallelTask_Tasks(), theMeasurementsPackage_1.getAbstractTask(), null, "tasks", null, 1, -1, ParallelTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParallelTask_Tasks(), this.getAbstractTask(), null, "tasks", null, 1, -1, ParallelTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(measurementScriptEClass, MeasurementScript.class, "MeasurementScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMeasurementScript_TaskSets(), theMeasurementsPackage_1.getTaskSet(), null, "taskSets", null, 1, -1, MeasurementScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMeasurementScript_MachineDescriptions(), theMeasurementsPackage_1.getMachineDescription(), null, "machineDescriptions", null, 0, -1, MeasurementScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurementScript_TaskSets(), this.getTaskSet(), null, "taskSets", null, 1, -1, MeasurementScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMeasurementScript_MachineDescriptions(), this.getMachineDescription(), null, "machineDescriptions", null, 0, -1, MeasurementScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(machineDescriptionEClass, MachineDescription.class, "MachineDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMachineDescription_Name(), ecorePackage.getEString(), "name", null, 1, 1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMachineDescription_Ip(), ecorePackage.getEString(), "ip", null, 1, 1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMachineDescription_MachineMappings(), theMeasurementsPackage_1.getMachineMapping(), null, "machineMappings", null, 0, -1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMachineDescription_MachineMappings(), this.getMachineMapping(), null, "machineMappings", null, 0, -1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(machineMappingEClass, MachineMapping.class, "MachineMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMachineMapping_MachineReference(), theMeasurementsPackage_1.getMachineReference(), null, "machineReference", null, 1, 1, MachineMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMachineMapping_MachineReference(), this.getMachineReference(), null, "machineReference", null, 1, 1, MachineMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(machineTaskEClass, MachineTask.class, "MachineTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMachineTask_Machine(), theMeasurementsPackage_1.getMachineReference(), null, "machine", null, 1, 1, MachineTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMachineTask_Machine(), this.getMachineReference(), null, "machine", null, 1, 1, MachineTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loopTaskEClass, LoopTask.class, "LoopTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoopTask_NumberOfIterations(), ecorePackage.getEInt(), "numberOfIterations", "1", 1, 1, LoopTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoopTask_Task(), theMeasurementsPackage_1.getAbstractTask(), null, "task", null, 1, 1, LoopTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoopTask_Task(), this.getAbstractTask(), null, "task", null, 1, 1, LoopTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Create resource
+		createResource(eNS_URI);
 	}
 
 } //MeasurementsPackageImpl

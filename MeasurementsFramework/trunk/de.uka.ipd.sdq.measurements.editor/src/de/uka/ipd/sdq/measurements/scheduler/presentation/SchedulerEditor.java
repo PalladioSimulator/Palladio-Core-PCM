@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.presentation;
+package de.uka.ipd.sdq.measurements.scheduler.presentation;
 
 
 import java.io.IOException;
@@ -124,6 +124,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+import de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin;
 import de.uka.ipd.sdq.measurements.provider.MeasurementsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.measurements.scheduler.provider.SchedulerItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pipesandfilters.provider.pipesandfiltersItemProviderAdapterFactory;
@@ -131,12 +132,12 @@ import de.uka.ipd.sdq.probespec.provider.probespecItemProviderAdapterFactory;
 
 
 /**
- * This is an example of a Measurements model editor.
+ * This is an example of a Scheduler model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MeasurementsEditor
+public class SchedulerEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -298,18 +299,18 @@ public class MeasurementsEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(MeasurementsEditor.this);
+						getActionBarContributor().setActiveEditor(SchedulerEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(MeasurementsEditor.this);
+						getActionBarContributor().setActiveEditor(SchedulerEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == MeasurementsEditor.this) {
+				else if (p == SchedulerEditor.this) {
 					handleActivate();
 				}
 			}
@@ -472,7 +473,7 @@ public class MeasurementsEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(MeasurementsEditor.this, false);
+										 getSite().getPage().closeEditor(SchedulerEditor.this, false);
 									 }
 								 }
 							 });
@@ -483,7 +484,7 @@ public class MeasurementsEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == MeasurementsEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == SchedulerEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -515,7 +516,7 @@ public class MeasurementsEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(MeasurementsEditor.this, false);
+				getSite().getPage().closeEditor(SchedulerEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -645,7 +646,7 @@ public class MeasurementsEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementsEditor() {
+	public SchedulerEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -981,7 +982,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1015,7 +1016,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1044,7 +1045,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1069,7 +1070,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1096,7 +1097,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1139,7 +1140,7 @@ public class MeasurementsEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), MeasurementsEditor.this) {
+					new ViewerPane(getSite().getPage(), SchedulerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1360,8 +1361,8 @@ public class MeasurementsEditor
 				new ExtendedPropertySheetPage(editingDomain) {
 					@Override
 					public void setSelectionToViewer(List<?> selection) {
-						MeasurementsEditor.this.setSelectionToViewer(selection);
-						MeasurementsEditor.this.setFocus();
+						SchedulerEditor.this.setSelectionToViewer(selection);
+						SchedulerEditor.this.setFocus();
 					}
 
 					@Override

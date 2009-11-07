@@ -7,21 +7,12 @@
 package de.uka.ipd.sdq.measurements.provider;
 
 
-import de.uka.ipd.sdq.measurements.LoopTask;
-import de.uka.ipd.sdq.measurements.MeasurementsFactory;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-
-import de.uka.ipd.sdq.measurements.scheduler.schedulerFactory;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,6 +22,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.measurements.LoopTask;
+import de.uka.ipd.sdq.measurements.MeasurementsFactory;
+import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.LoopTask} object.
@@ -200,48 +196,12 @@ public class LoopTaskItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createParallelTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createLoopTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return MeasurementsEditPlugin.INSTANCE;
+				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
 	}
 
 }

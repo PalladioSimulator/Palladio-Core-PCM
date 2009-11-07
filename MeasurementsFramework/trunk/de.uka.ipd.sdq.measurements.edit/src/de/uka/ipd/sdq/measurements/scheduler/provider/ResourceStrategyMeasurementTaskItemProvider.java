@@ -4,15 +4,23 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.scheduler.provider;
 
+
+import de.uka.ipd.sdq.measurements.provider.MachineTaskItemProvider;
+import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
+
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,18 +31,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.AbstractTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractTaskItemProvider
-	extends IdentifierItemProvider
+public class ResourceStrategyMeasurementTaskItemProvider
+	extends MachineTaskItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -47,7 +51,7 @@ public class AbstractTaskItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTaskItemProvider(AdapterFactory adapterFactory) {
+	public ResourceStrategyMeasurementTaskItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,26 +66,48 @@ public class AbstractTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addDurationPropertyDescriptor(object);
+			addDemandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Duration feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addDurationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AbstractTask_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTask_description_feature", "_UI_AbstractTask_type"),
-				 MeasurementsPackage.Literals.ABSTRACT_TASK__DESCRIPTION,
+				 getString("_UI_ResourceStrategyMeasurementTask_duration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceStrategyMeasurementTask_duration_feature", "_UI_ResourceStrategyMeasurementTask_type"),
+				 SchedulerPackage.Literals.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Demand feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDemandPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceStrategyMeasurementTask_demand_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceStrategyMeasurementTask_demand_feature", "_UI_ResourceStrategyMeasurementTask_type"),
+				 SchedulerPackage.Literals.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND,
 				 true,
 				 false,
 				 false,
@@ -91,25 +117,14 @@ public class AbstractTaskItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This returns ResourceStrategyMeasurementTask.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AbstractTask_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTask_name_feature", "_UI_AbstractTask_type"),
-				 MeasurementsPackage.Literals.ABSTRACT_TASK__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceStrategyMeasurementTask"));
 	}
 
 	/**
@@ -120,10 +135,10 @@ public class AbstractTaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbstractTask)object).getName();
+		String label = ((ResourceStrategyMeasurementTask)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AbstractTask_type") :
-			getString("_UI_AbstractTask_type") + " " + label;
+			getString("_UI_ResourceStrategyMeasurementTask_type") :
+			getString("_UI_ResourceStrategyMeasurementTask_type") + " " + label;
 	}
 
 	/**
@@ -137,9 +152,9 @@ public class AbstractTaskItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AbstractTask.class)) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+		switch (notification.getFeatureID(ResourceStrategyMeasurementTask.class)) {
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION:
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

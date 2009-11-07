@@ -4,15 +4,22 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.scheduler.provider;
 
+
+import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
+import de.uka.ipd.sdq.measurements.provider.ParallelTaskItemProvider;
+
+import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,17 +27,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.measurements.MachineTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.MachineTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MachineTaskItemProvider
-	extends AbstractTaskItemProvider
+public class ParallelProcessTaskItemProvider
+	extends ParallelTaskItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -43,7 +47,7 @@ public class MachineTaskItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MachineTaskItemProvider(AdapterFactory adapterFactory) {
+	public ParallelProcessTaskItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,31 +62,19 @@ public class MachineTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMachinePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Machine feature.
+	 * This returns ParallelProcessTask.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMachinePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MachineTask_machine_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MachineTask_machine_feature", "_UI_MachineTask_type"),
-				 MeasurementsPackage.Literals.MACHINE_TASK__MACHINE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParallelProcessTask"));
 	}
 
 	/**
@@ -93,10 +85,10 @@ public class MachineTaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MachineTask)object).getName();
+		String label = ((ParallelProcessTask)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MachineTask_type") :
-			getString("_UI_MachineTask_type") + " " + label;
+			getString("_UI_ParallelProcessTask_type") :
+			getString("_UI_ParallelProcessTask_type") + " " + label;
 	}
 
 	/**
@@ -122,6 +114,17 @@ public class MachineTaskItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MeasurementsEditPlugin.INSTANCE;
 	}
 
 }

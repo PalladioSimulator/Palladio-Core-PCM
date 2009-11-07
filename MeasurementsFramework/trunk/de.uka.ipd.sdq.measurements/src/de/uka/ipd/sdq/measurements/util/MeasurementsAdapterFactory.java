@@ -126,14 +126,6 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 				return createIdentifierAdapter();
 			}
 			@Override
-			public Adapter caseMeasurements_MachineReference(MachineReference object) {
-				return createMeasurements_MachineReferenceAdapter();
-			}
-			@Override
-			public Adapter caseMeasurements_AbstractTask(AbstractTask object) {
-				return createMeasurements_AbstractTaskAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -332,34 +324,6 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIdentifierAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MachineReference <em>Machine Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MachineReference
-	 * @generated
-	 */
-	public Adapter createMeasurements_MachineReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.AbstractTask <em>Abstract Task</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.AbstractTask
-	 * @generated
-	 */
-	public Adapter createMeasurements_AbstractTaskAdapter() {
 		return null;
 	}
 

@@ -7,26 +7,13 @@
 package de.uka.ipd.sdq.measurements.provider;
 
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
-
-import de.uka.ipd.sdq.measurements.MeasurementsFactory;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.TaskSet;
-
-import de.uka.ipd.sdq.measurements.scheduler.schedulerFactory;
-
-import de.uka.ipd.sdq.probespec.probespecFactory;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -36,6 +23,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
+import de.uka.ipd.sdq.measurements.MeasurementsFactory;
+import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.TaskSet;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
+import de.uka.ipd.sdq.probespec.probespecFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.TaskSet} object.
@@ -209,52 +203,17 @@ public class TaskSetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createParallelTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createLoopTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
+				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
 				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
-				 MeasurementsFactory.eINSTANCE.createVirtualMachineReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
-				 MeasurementsFactory.eINSTANCE.createPlainMachineReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
