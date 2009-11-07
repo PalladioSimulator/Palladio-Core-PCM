@@ -7,8 +7,9 @@
 package de.uka.ipd.sdq.measurements;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface MeasurementScript extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Task Sets</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.measurements.TaskSet}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.measurements.tasks.TaskSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task Sets</em>' reference list isn't clear,

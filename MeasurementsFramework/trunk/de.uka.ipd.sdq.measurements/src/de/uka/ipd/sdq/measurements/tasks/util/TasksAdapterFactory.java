@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.util;
+package de.uka.ipd.sdq.measurements.tasks.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -12,30 +12,30 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.measurements.MachineDescription;
-import de.uka.ipd.sdq.measurements.MachineMapping;
-import de.uka.ipd.sdq.measurements.MachineReference;
-import de.uka.ipd.sdq.measurements.MeasurementScript;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.PlainMachineReference;
-import de.uka.ipd.sdq.measurements.VirtualMachineReference;
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.LoopTask;
+import de.uka.ipd.sdq.measurements.tasks.MachineTask;
+import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
+import de.uka.ipd.sdq.measurements.tasks.SequenceTask;
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.measurements.MeasurementsPackage
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage
  * @generated
  */
-public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
+public class TasksAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static MeasurementsPackage modelPackage;
+	protected static TasksPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -43,9 +43,9 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementsAdapterFactory() {
+	public TasksAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = MeasurementsPackage.eINSTANCE;
+			modelPackage = TasksPackage.eINSTANCE;
 		}
 	}
 
@@ -74,31 +74,31 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MeasurementsSwitch<Adapter> modelSwitch =
-		new MeasurementsSwitch<Adapter>() {
+	protected TasksSwitch<Adapter> modelSwitch =
+		new TasksSwitch<Adapter>() {
 			@Override
-			public Adapter caseVirtualMachineReference(VirtualMachineReference object) {
-				return createVirtualMachineReferenceAdapter();
+			public Adapter caseAbstractTask(AbstractTask object) {
+				return createAbstractTaskAdapter();
 			}
 			@Override
-			public Adapter caseMachineReference(MachineReference object) {
-				return createMachineReferenceAdapter();
+			public Adapter caseLoopTask(LoopTask object) {
+				return createLoopTaskAdapter();
 			}
 			@Override
-			public Adapter casePlainMachineReference(PlainMachineReference object) {
-				return createPlainMachineReferenceAdapter();
+			public Adapter caseMachineTask(MachineTask object) {
+				return createMachineTaskAdapter();
 			}
 			@Override
-			public Adapter caseMeasurementScript(MeasurementScript object) {
-				return createMeasurementScriptAdapter();
+			public Adapter caseParallelTask(ParallelTask object) {
+				return createParallelTaskAdapter();
 			}
 			@Override
-			public Adapter caseMachineDescription(MachineDescription object) {
-				return createMachineDescriptionAdapter();
+			public Adapter caseSequenceTask(SequenceTask object) {
+				return createSequenceTaskAdapter();
 			}
 			@Override
-			public Adapter caseMachineMapping(MachineMapping object) {
-				return createMachineMappingAdapter();
+			public Adapter caseTaskSet(TaskSet object) {
+				return createTaskSetAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -125,86 +125,86 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.VirtualMachineReference <em>Virtual Machine Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask <em>Abstract Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.VirtualMachineReference
+	 * @see de.uka.ipd.sdq.measurements.tasks.AbstractTask
 	 * @generated
 	 */
-	public Adapter createVirtualMachineReferenceAdapter() {
+	public Adapter createAbstractTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MachineReference <em>Machine Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.LoopTask <em>Loop Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MachineReference
+	 * @see de.uka.ipd.sdq.measurements.tasks.LoopTask
 	 * @generated
 	 */
-	public Adapter createMachineReferenceAdapter() {
+	public Adapter createLoopTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.PlainMachineReference <em>Plain Machine Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.MachineTask <em>Machine Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.PlainMachineReference
+	 * @see de.uka.ipd.sdq.measurements.tasks.MachineTask
 	 * @generated
 	 */
-	public Adapter createPlainMachineReferenceAdapter() {
+	public Adapter createMachineTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MeasurementScript <em>Measurement Script</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.ParallelTask <em>Parallel Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MeasurementScript
+	 * @see de.uka.ipd.sdq.measurements.tasks.ParallelTask
 	 * @generated
 	 */
-	public Adapter createMeasurementScriptAdapter() {
+	public Adapter createParallelTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MachineDescription <em>Machine Description</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.SequenceTask <em>Sequence Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MachineDescription
+	 * @see de.uka.ipd.sdq.measurements.tasks.SequenceTask
 	 * @generated
 	 */
-	public Adapter createMachineDescriptionAdapter() {
+	public Adapter createSequenceTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MachineMapping <em>Machine Mapping</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.TaskSet <em>Task Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MachineMapping
+	 * @see de.uka.ipd.sdq.measurements.tasks.TaskSet
 	 * @generated
 	 */
-	public Adapter createMachineMappingAdapter() {
+	public Adapter createTaskSetAdapter() {
 		return null;
 	}
 
@@ -234,4 +234,4 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //MeasurementsAdapterFactory
+} //TasksAdapterFactory

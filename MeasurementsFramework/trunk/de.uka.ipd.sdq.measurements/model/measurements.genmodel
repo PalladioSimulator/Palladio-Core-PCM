@@ -33,27 +33,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//MachineReference/name"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//PlainMachineReference"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//TaskSet">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//TaskSet/name"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/rootTask"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/probeSpecRepository"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/machineReferences"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="measurements.ecore#//AbstractTask">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//AbstractTask/description"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//AbstractTask/name"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//SequenceTask">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//SequenceTask/tasks"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//ParallelTask">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//ParallelTask/tasks"/>
-    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//MeasurementScript">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//MeasurementScript/taskSets"/>
@@ -70,15 +49,39 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//MachineMapping/machineReference"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="measurements.ecore#//MachineTask">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//MachineTask/machine"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//LoopTask">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//LoopTask/numberOfIterations"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//LoopTask/task"/>
-    </genClasses>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Tasks" basePackage="de.uka.ipd.sdq.measurements"
+        resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//tasks">
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="measurements.ecore#//tasks/AbstractTask">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//tasks/AbstractTask/description"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//tasks/AbstractTask/name"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//tasks/LoopTask">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//tasks/LoopTask/numberOfIterations"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/LoopTask/task"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="measurements.ecore#//tasks/MachineTask">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/MachineTask/machine"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//tasks/ParallelTask">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/ParallelTask/tasks"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//tasks/SequenceTask">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/SequenceTask/tasks"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//tasks/TaskSet">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//tasks/TaskSet/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/TaskSet/rootTask"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/TaskSet/probeSpecRepository"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//tasks/TaskSet/machineReferences"/>
+      </genClasses>
+    </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="de.uka.ipd.sdq.measurements"
         resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="measurements.ecore#//scheduler/ResourceStrategyDemand">

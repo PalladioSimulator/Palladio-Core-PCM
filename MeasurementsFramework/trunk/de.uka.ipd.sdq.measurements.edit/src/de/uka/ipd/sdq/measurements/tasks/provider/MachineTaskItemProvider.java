@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 
 import java.util.Collection;
@@ -20,11 +20,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.measurements.MachineTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.tasks.MachineTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.MachineTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.tasks.MachineTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -76,7 +76,7 @@ public class MachineTaskItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MachineTask_machine_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MachineTask_machine_feature", "_UI_MachineTask_type"),
-				 MeasurementsPackage.Literals.MACHINE_TASK__MACHINE,
+				 TasksPackage.Literals.MACHINE_TASK__MACHINE,
 				 true,
 				 false,
 				 true,

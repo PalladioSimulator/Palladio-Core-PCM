@@ -6,17 +6,14 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler.impl;
 
-import de.uka.ipd.sdq.measurements.impl.MachineTaskImpl;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import de.uka.ipd.sdq.measurements.tasks.impl.MachineTaskImpl;
 
 /**
  * <!-- begin-user-doc -->

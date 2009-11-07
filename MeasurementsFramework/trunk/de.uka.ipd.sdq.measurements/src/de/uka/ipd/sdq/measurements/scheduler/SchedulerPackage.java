@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler;
 
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__ID = MeasurementsPackage.MACHINE_TASK__ID;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__ID = TasksPackage.MACHINE_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -87,7 +87,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DESCRIPTION = MeasurementsPackage.MACHINE_TASK__DESCRIPTION;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DESCRIPTION = TasksPackage.MACHINE_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -96,7 +96,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__NAME = MeasurementsPackage.MACHINE_TASK__NAME;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__NAME = TasksPackage.MACHINE_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Machine</b></em>' reference.
@@ -105,7 +105,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__MACHINE = MeasurementsPackage.MACHINE_TASK__MACHINE;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__MACHINE = TasksPackage.MACHINE_TASK__MACHINE;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -114,7 +114,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 0;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION = TasksPackage.MACHINE_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Demand</b></em>' attribute.
@@ -123,7 +123,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 1;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND = TasksPackage.MACHINE_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource Strategy Measurement Task</em>' class.
@@ -132,7 +132,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_STRATEGY_MEASUREMENT_TASK_FEATURE_COUNT = MeasurementsPackage.MACHINE_TASK_FEATURE_COUNT + 2;
+	int RESOURCE_STRATEGY_MEASUREMENT_TASK_FEATURE_COUNT = TasksPackage.MACHINE_TASK_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.scheduler.impl.ParallelProcessTaskImpl <em>Parallel Process Task</em>}' class.
@@ -151,7 +151,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_PROCESS_TASK__ID = MeasurementsPackage.PARALLEL_TASK__ID;
+	int PARALLEL_PROCESS_TASK__ID = TasksPackage.PARALLEL_TASK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -160,7 +160,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_PROCESS_TASK__DESCRIPTION = MeasurementsPackage.PARALLEL_TASK__DESCRIPTION;
+	int PARALLEL_PROCESS_TASK__DESCRIPTION = TasksPackage.PARALLEL_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -169,7 +169,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_PROCESS_TASK__NAME = MeasurementsPackage.PARALLEL_TASK__NAME;
+	int PARALLEL_PROCESS_TASK__NAME = TasksPackage.PARALLEL_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -178,7 +178,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_PROCESS_TASK__TASKS = MeasurementsPackage.PARALLEL_TASK__TASKS;
+	int PARALLEL_PROCESS_TASK__TASKS = TasksPackage.PARALLEL_TASK__TASKS;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Process Task</em>' class.
@@ -187,7 +187,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_PROCESS_TASK_FEATURE_COUNT = MeasurementsPackage.PARALLEL_TASK_FEATURE_COUNT + 0;
+	int PARALLEL_PROCESS_TASK_FEATURE_COUNT = TasksPackage.PARALLEL_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}' enum.

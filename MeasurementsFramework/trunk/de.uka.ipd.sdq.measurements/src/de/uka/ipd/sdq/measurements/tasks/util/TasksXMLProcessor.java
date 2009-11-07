@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.util;
+package de.uka.ipd.sdq.measurements.tasks.util;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents
@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.measurements.MeasurementsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MeasurementsXMLProcessor extends XMLProcessor {
+public class TasksXMLProcessor extends XMLProcessor {
 
 	/**
 	 * Public constructor to instantiate the helper.
@@ -28,13 +28,13 @@ public class MeasurementsXMLProcessor extends XMLProcessor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasurementsXMLProcessor() {
+	public TasksXMLProcessor() {
 		super((EPackage.Registry.INSTANCE));
-		MeasurementsPackage.eINSTANCE.eClass();
+		TasksPackage.eINSTANCE.eClass();
 	}
 	
 	/**
-	 * Register for "*" and "xml" file extensions the MeasurementsResourceFactoryImpl factory.
+	 * Register for "*" and "xml" file extensions the TasksResourceFactoryImpl factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -43,10 +43,10 @@ public class MeasurementsXMLProcessor extends XMLProcessor {
 	protected Map<String, Resource.Factory> getRegistrations() {
 		if (registrations == null) {
 			super.getRegistrations();
-			registrations.put(XML_EXTENSION, new MeasurementsResourceFactoryImpl());
-			registrations.put(STAR_EXTENSION, new MeasurementsResourceFactoryImpl());
+			registrations.put(XML_EXTENSION, new TasksResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new TasksResourceFactoryImpl());
 		}
 		return registrations;
 	}
 
-} //MeasurementsXMLProcessor
+} //TasksXMLProcessor

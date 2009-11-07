@@ -6,20 +6,18 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MachineTask;
-import de.uka.ipd.sdq.measurements.ParallelTask;
-
-import de.uka.ipd.sdq.measurements.scheduler.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.MachineTask;
+import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -164,13 +162,13 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.AbstractTask <em>Abstract Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask <em>Abstract Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.AbstractTask
+	 * @see de.uka.ipd.sdq.measurements.tasks.AbstractTask
 	 * @generated
 	 */
 	public Adapter createAbstractTaskAdapter() {
@@ -178,13 +176,13 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.MachineTask <em>Machine Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.MachineTask <em>Machine Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.MachineTask
+	 * @see de.uka.ipd.sdq.measurements.tasks.MachineTask
 	 * @generated
 	 */
 	public Adapter createMachineTaskAdapter() {
@@ -192,13 +190,13 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.ParallelTask <em>Parallel Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.measurements.tasks.ParallelTask <em>Parallel Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.measurements.ParallelTask
+	 * @see de.uka.ipd.sdq.measurements.tasks.ParallelTask
 	 * @generated
 	 */
 	public Adapter createParallelTaskAdapter() {

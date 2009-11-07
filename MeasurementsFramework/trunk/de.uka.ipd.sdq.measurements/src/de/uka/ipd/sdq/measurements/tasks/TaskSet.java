@@ -4,13 +4,13 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements;
-
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
+package de.uka.ipd.sdq.measurements.tasks;
 
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.MachineReference;
+import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,14 +20,14 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.TaskSet#getName <em>Name</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.TaskSet#getRootTask <em>Root Task</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.TaskSet#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.TaskSet#getMachineReferences <em>Machine References</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getName <em>Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getRootTask <em>Root Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getMachineReferences <em>Machine References</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getTaskSet()
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getTaskSet()
  * @model
  * @generated
  */
@@ -42,14 +42,14 @@ public interface TaskSet extends Identifier {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getTaskSet_Name()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getTaskSet_Name()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.TaskSet#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -68,14 +68,14 @@ public interface TaskSet extends Identifier {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root Task</em>' containment reference.
 	 * @see #setRootTask(AbstractTask)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getTaskSet_RootTask()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getTaskSet_RootTask()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	AbstractTask getRootTask();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.TaskSet#getRootTask <em>Root Task</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getRootTask <em>Root Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Root Task</em>' containment reference.
@@ -94,14 +94,14 @@ public interface TaskSet extends Identifier {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Probe Spec Repository</em>' containment reference.
 	 * @see #setProbeSpecRepository(ProbeSpecRepository)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getTaskSet_ProbeSpecRepository()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getTaskSet_ProbeSpecRepository()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	ProbeSpecRepository getProbeSpecRepository();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.TaskSet#getProbeSpecRepository <em>Probe Spec Repository</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.TaskSet#getProbeSpecRepository <em>Probe Spec Repository</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Probe Spec Repository</em>' containment reference.
@@ -120,7 +120,7 @@ public interface TaskSet extends Identifier {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Machine References</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getTaskSet_MachineReferences()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getTaskSet_MachineReferences()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */

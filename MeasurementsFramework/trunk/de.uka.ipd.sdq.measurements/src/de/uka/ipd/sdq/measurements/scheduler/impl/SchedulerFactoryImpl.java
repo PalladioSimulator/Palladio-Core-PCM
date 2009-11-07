@@ -6,16 +6,18 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler.impl;
 
-import de.uka.ipd.sdq.measurements.scheduler.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
+import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
 
 /**
  * <!-- begin-user-doc -->

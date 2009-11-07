@@ -4,8 +4,9 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements;
+package de.uka.ipd.sdq.measurements.tasks;
 
+import de.uka.ipd.sdq.measurements.MachineReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,11 +16,11 @@ package de.uka.ipd.sdq.measurements;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.MachineTask#getMachine <em>Machine</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.MachineTask#getMachine <em>Machine</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getMachineTask()
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getMachineTask()
  * @model abstract="true"
  * @generated
  */
@@ -34,14 +35,14 @@ public interface MachineTask extends AbstractTask {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Machine</em>' reference.
 	 * @see #setMachine(MachineReference)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getMachineTask_Machine()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getMachineTask_Machine()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	MachineReference getMachine();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.MachineTask#getMachine <em>Machine</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.MachineTask#getMachine <em>Machine</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Machine</em>' reference.

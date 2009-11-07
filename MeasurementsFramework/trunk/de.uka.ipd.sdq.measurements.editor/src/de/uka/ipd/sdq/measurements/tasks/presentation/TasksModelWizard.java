@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.scheduler.presentation;
+package de.uka.ipd.sdq.measurements.tasks.presentation;
 
 
 import java.util.ArrayList;
@@ -17,53 +17,78 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
+import org.eclipse.emf.common.CommonPlugin;
+
+import org.eclipse.emf.common.util.URI;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.emf.ecore.xmi.XMLResource;
+
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.CommonPlugin;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.StructuredSelection;
+
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
+
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.ModifyEvent;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.ISetSelectionTarget;
+
+import de.uka.ipd.sdq.measurements.tasks.TasksFactory;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
+import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
+
+
+import de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin;
+
+import org.eclipse.core.runtime.Path;
+
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.ISetSelectionTarget;
-
-import de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin;
-import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
-import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
-import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
 
 
 /**
@@ -72,7 +97,7 @@ import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SchedulerModelWizard extends Wizard implements INewWizard {
+public class TasksModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -80,7 +105,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -89,7 +114,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -97,7 +122,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SchedulerPackage schedulerPackage = SchedulerPackage.eINSTANCE;
+	protected TasksPackage tasksPackage = TasksPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -105,7 +130,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SchedulerFactory schedulerFactory = schedulerPackage.getSchedulerFactory();
+	protected TasksFactory tasksFactory = tasksPackage.getTasksFactory();
 
 	/**
 	 * This is the file creation page.
@@ -113,7 +138,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SchedulerModelWizardNewFileCreationPage newFileCreationPage;
+	protected TasksModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -121,7 +146,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SchedulerModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected TasksModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -157,7 +182,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(MeasurementsEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(MeasurementsEditorPlugin.INSTANCE.getImage("full/wizban/NewScheduler")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(MeasurementsEditorPlugin.INSTANCE.getImage("full/wizban/NewTasks")));
 	}
 
 	/**
@@ -169,7 +194,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : schedulerPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : tasksPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
@@ -189,8 +214,8 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)schedulerPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = schedulerFactory.create(eClass);
+		EClass eClass = (EClass)tasksPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = tasksFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -291,14 +316,14 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class SchedulerModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class TasksModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public SchedulerModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public TasksModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -338,7 +363,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class SchedulerModelWizardInitialObjectCreationPage extends WizardPage {
+	public class TasksModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -366,7 +391,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public SchedulerModelWizardInitialObjectCreationPage(String pageId) {
+		public TasksModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -376,7 +401,8 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE); {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -550,10 +576,10 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new SchedulerModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerModelWizard_label"));
-		newFileCreationPage.setDescription(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerModelWizard_description"));
-		newFileCreationPage.setFileName(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new TasksModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksModelWizard_label"));
+		newFileCreationPage.setDescription(MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksModelWizard_description"));
+		newFileCreationPage.setFileName(MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -579,7 +605,7 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -589,8 +615,8 @@ public class SchedulerModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new SchedulerModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(MeasurementsEditorPlugin.INSTANCE.getString("_UI_SchedulerModelWizard_label"));
+		initialObjectCreationPage = new TasksModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(MeasurementsEditorPlugin.INSTANCE.getString("_UI_TasksModelWizard_label"));
 		initialObjectCreationPage.setDescription(MeasurementsEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}

@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.measurements.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.measurements.MeasurementsPackage;
 import de.uka.ipd.sdq.measurements.PlainMachineReference;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

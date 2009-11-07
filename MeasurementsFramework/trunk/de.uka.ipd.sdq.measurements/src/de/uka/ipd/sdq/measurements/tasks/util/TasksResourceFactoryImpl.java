@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.scheduler.util;
+package de.uka.ipd.sdq.measurements.tasks.util;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,17 +15,17 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.measurements.scheduler.util.SchedulerResourceImpl
+ * @see de.uka.ipd.sdq.measurements.tasks.util.TasksResourceImpl
  * @generated
  */
-public class SchedulerResourceFactoryImpl extends ResourceFactoryImpl {
+public class TasksResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchedulerResourceFactoryImpl() {
+	public TasksResourceFactoryImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public class SchedulerResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		XMLResource result = new SchedulerResourceImpl(uri);
+		XMLResource result = new TasksResourceImpl(uri);
 		result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 		result.getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 
@@ -50,4 +50,4 @@ public class SchedulerResourceFactoryImpl extends ResourceFactoryImpl {
 		return result;
 	}
 
-} //SchedulerResourceFactoryImpl
+} //TasksResourceFactoryImpl

@@ -44,33 +44,6 @@ public interface MeasurementsFactory extends EFactory {
 	PlainMachineReference createPlainMachineReference();
 
 	/**
-	 * Returns a new object of class '<em>Task Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task Set</em>'.
-	 * @generated
-	 */
-	TaskSet createTaskSet();
-
-	/**
-	 * Returns a new object of class '<em>Sequence Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sequence Task</em>'.
-	 * @generated
-	 */
-	SequenceTask createSequenceTask();
-
-	/**
-	 * Returns a new object of class '<em>Parallel Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parallel Task</em>'.
-	 * @generated
-	 */
-	ParallelTask createParallelTask();
-
-	/**
 	 * Returns a new object of class '<em>Measurement Script</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,15 +69,6 @@ public interface MeasurementsFactory extends EFactory {
 	 * @generated
 	 */
 	MachineMapping createMachineMapping();
-
-	/**
-	 * Returns a new object of class '<em>Loop Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Loop Task</em>'.
-	 * @generated
-	 */
-	LoopTask createLoopTask();
 
 	/**
 	 * Returns the package supported by this factory.

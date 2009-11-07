@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements;
+package de.uka.ipd.sdq.measurements.tasks;
 
 
 /**
@@ -15,12 +15,12 @@ package de.uka.ipd.sdq.measurements;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.LoopTask#getNumberOfIterations <em>Number Of Iterations</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.LoopTask#getTask <em>Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.LoopTask#getNumberOfIterations <em>Number Of Iterations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.LoopTask#getTask <em>Task</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getLoopTask()
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getLoopTask()
  * @model
  * @generated
  */
@@ -36,14 +36,14 @@ public interface LoopTask extends AbstractTask {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Iterations</em>' attribute.
 	 * @see #setNumberOfIterations(int)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getLoopTask_NumberOfIterations()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getLoopTask_NumberOfIterations()
 	 * @model default="1" required="true" ordered="false"
 	 * @generated
 	 */
 	int getNumberOfIterations();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.LoopTask#getNumberOfIterations <em>Number Of Iterations</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.LoopTask#getNumberOfIterations <em>Number Of Iterations</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Number Of Iterations</em>' attribute.
@@ -62,14 +62,14 @@ public interface LoopTask extends AbstractTask {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task</em>' containment reference.
 	 * @see #setTask(AbstractTask)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getLoopTask_Task()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getLoopTask_Task()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	AbstractTask getTask();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.LoopTask#getTask <em>Task</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.LoopTask#getTask <em>Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task</em>' containment reference.

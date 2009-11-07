@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 
 import java.util.Collection;
@@ -24,11 +24,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.AbstractTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.tasks.AbstractTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -81,7 +82,7 @@ public class AbstractTaskItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AbstractTask_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTask_description_feature", "_UI_AbstractTask_type"),
-				 MeasurementsPackage.Literals.ABSTRACT_TASK__DESCRIPTION,
+				 TasksPackage.Literals.ABSTRACT_TASK__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -103,7 +104,7 @@ public class AbstractTaskItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AbstractTask_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractTask_name_feature", "_UI_AbstractTask_type"),
-				 MeasurementsPackage.Literals.ABSTRACT_TASK__NAME,
+				 TasksPackage.Literals.ABSTRACT_TASK__NAME,
 				 true,
 				 false,
 				 false,
@@ -138,8 +139,8 @@ public class AbstractTaskItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AbstractTask.class)) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+			case TasksPackage.ABSTRACT_TASK__DESCRIPTION:
+			case TasksPackage.ABSTRACT_TASK__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

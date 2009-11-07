@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.scheduler.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.measurements.scheduler.util.SchedulerAdapterFactory;
+import de.uka.ipd.sdq.measurements.tasks.util.TasksAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.measurements.scheduler.util.SchedulerAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class TasksItemProviderAdapterFactory extends TasksAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchedulerItemProviderAdapterFactory() {
+	public TasksItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -75,49 +75,95 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.tasks.LoopTask} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceStrategyMeasurementTaskItemProvider resourceStrategyMeasurementTaskItemProvider;
+	protected LoopTaskItemProvider loopTaskItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.tasks.LoopTask}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceStrategyMeasurementTaskAdapter() {
-		if (resourceStrategyMeasurementTaskItemProvider == null) {
-			resourceStrategyMeasurementTaskItemProvider = new ResourceStrategyMeasurementTaskItemProvider(this);
+	public Adapter createLoopTaskAdapter() {
+		if (loopTaskItemProvider == null) {
+			loopTaskItemProvider = new LoopTaskItemProvider(this);
 		}
 
-		return resourceStrategyMeasurementTaskItemProvider;
+		return loopTaskItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.tasks.ParallelTask} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParallelProcessTaskItemProvider parallelProcessTaskItemProvider;
+	protected ParallelTaskItemProvider parallelTaskItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.tasks.ParallelTask}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParallelProcessTaskAdapter() {
-		if (parallelProcessTaskItemProvider == null) {
-			parallelProcessTaskItemProvider = new ParallelProcessTaskItemProvider(this);
+	public Adapter createParallelTaskAdapter() {
+		if (parallelTaskItemProvider == null) {
+			parallelTaskItemProvider = new ParallelTaskItemProvider(this);
 		}
 
-		return parallelProcessTaskItemProvider;
+		return parallelTaskItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.tasks.SequenceTask} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SequenceTaskItemProvider sequenceTaskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.tasks.SequenceTask}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSequenceTaskAdapter() {
+		if (sequenceTaskItemProvider == null) {
+			sequenceTaskItemProvider = new SequenceTaskItemProvider(this);
+		}
+
+		return sequenceTaskItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.tasks.TaskSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskSetItemProvider taskSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.tasks.TaskSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskSetAdapter() {
+		if (taskSetItemProvider == null) {
+			taskSetItemProvider = new TaskSetItemProvider(this);
+		}
+
+		return taskSetItemProvider;
 	}
 
 	/**
@@ -219,8 +265,10 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (resourceStrategyMeasurementTaskItemProvider != null) resourceStrategyMeasurementTaskItemProvider.dispose();
-		if (parallelProcessTaskItemProvider != null) parallelProcessTaskItemProvider.dispose();
+		if (loopTaskItemProvider != null) loopTaskItemProvider.dispose();
+		if (parallelTaskItemProvider != null) parallelTaskItemProvider.dispose();
+		if (sequenceTaskItemProvider != null) sequenceTaskItemProvider.dispose();
+		if (taskSetItemProvider != null) taskSetItemProvider.dispose();
 	}
 
 }

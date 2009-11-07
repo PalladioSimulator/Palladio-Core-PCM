@@ -12,33 +12,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlainMachineReference" eSuperTypes="#//MachineReference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskSet" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootTask" ordered="false"
-        lowerBound="1" eType="#//AbstractTask" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="probeSpecRepository" ordered="false"
-        eType="ecore:EClass ../../de.uka.ipd.sdq.probespec/model/probespec.ecore#//ProbeSpecRepository"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="machineReferences" ordered="false"
-        upperBound="-1" eType="#//MachineReference" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractTask" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SequenceTask" eSuperTypes="#//AbstractTask">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//AbstractTask" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParallelTask" eSuperTypes="#//AbstractTask">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//AbstractTask" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MeasurementScript">
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskSets" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//TaskSet"/>
+        lowerBound="1" upperBound="-1" eType="#//tasks/TaskSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="machineDescriptions" ordered="false"
         upperBound="-1" eType="#//MachineDescription" containment="true"/>
   </eClassifiers>
@@ -54,17 +30,45 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="machineReference" ordered="false"
         lowerBound="1" eType="#//MachineReference"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MachineTask" abstract="true" eSuperTypes="#//AbstractTask">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="machine" ordered="false"
-        lowerBound="1" eType="#//MachineReference"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoopTask" eSuperTypes="#//AbstractTask">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfIterations" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        eType="#//AbstractTask" containment="true"/>
-  </eClassifiers>
+  <eSubpackages name="tasks" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Tasks/1.0"
+      nsPrefix="tasks">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractTask" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopTask" eSuperTypes="#//tasks/AbstractTask">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfIterations" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false"
+          lowerBound="1" eType="#//tasks/AbstractTask" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MachineTask" abstract="true" eSuperTypes="#//tasks/AbstractTask">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="machine" ordered="false"
+          lowerBound="1" eType="#//MachineReference"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelTask" eSuperTypes="#//tasks/AbstractTask">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//tasks/AbstractTask" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SequenceTask" eSuperTypes="#//tasks/AbstractTask">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//tasks/AbstractTask" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TaskSet" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootTask" ordered="false"
+          lowerBound="1" eType="#//tasks/AbstractTask" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="probeSpecRepository"
+          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.probespec/model/probespec.ecore#//ProbeSpecRepository"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="machineReferences" ordered="false"
+          upperBound="-1" eType="#//MachineReference" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
   <eSubpackages name="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0"
       nsPrefix="scheduler">
     <eClassifiers xsi:type="ecore:EEnum" name="ResourceStrategyDemand">
@@ -72,12 +76,12 @@
       <eLiterals name="MandelbrotDemand" value="1"/>
       <eLiterals name="FibonacciDemand" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceStrategyMeasurementTask" eSuperTypes="#//MachineTask">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceStrategyMeasurementTask" eSuperTypes="#//tasks/MachineTask">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="demand" ordered="false"
           lowerBound="1" eType="#//scheduler/ResourceStrategyDemand"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParallelProcessTask" eSuperTypes="#//ParallelTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelProcessTask" eSuperTypes="#//tasks/ParallelTask"/>
   </eSubpackages>
 </ecore:EPackage>

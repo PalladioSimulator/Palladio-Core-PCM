@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements;
+package de.uka.ipd.sdq.measurements.tasks;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
@@ -16,12 +16,12 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.AbstractTask#getDescription <em>Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.AbstractTask#getName <em>Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask#getDescription <em>Description</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getAbstractTask()
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getAbstractTask()
  * @model abstract="true"
  * @generated
  */
@@ -36,14 +36,14 @@ public interface AbstractTask extends Identifier {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getAbstractTask_Description()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getAbstractTask_Description()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.AbstractTask#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -62,14 +62,14 @@ public interface AbstractTask extends Identifier {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getAbstractTask_Name()
+	 * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage#getAbstractTask_Name()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.AbstractTask#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.tasks.AbstractTask#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.

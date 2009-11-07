@@ -126,6 +126,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin;
 import de.uka.ipd.sdq.measurements.provider.MeasurementsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.measurements.tasks.provider.TasksItemProviderAdapterFactory;
 import de.uka.ipd.sdq.measurements.scheduler.provider.SchedulerItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pipesandfilters.provider.pipesandfiltersItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probespec.provider.probespecItemProviderAdapterFactory;
@@ -664,6 +665,7 @@ public class SchedulerEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MeasurementsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TasksItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SchedulerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());

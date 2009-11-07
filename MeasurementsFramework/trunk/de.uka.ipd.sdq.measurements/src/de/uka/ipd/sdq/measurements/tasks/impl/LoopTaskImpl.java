@@ -4,19 +4,17 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.impl;
-
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.LoopTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+package de.uka.ipd.sdq.measurements.tasks.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.LoopTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +23,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.LoopTaskImpl#getNumberOfIterations <em>Number Of Iterations</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.LoopTaskImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.LoopTaskImpl#getNumberOfIterations <em>Number Of Iterations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.LoopTaskImpl#getTask <em>Task</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,7 +77,7 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MeasurementsPackage.Literals.LOOP_TASK;
+		return TasksPackage.Literals.LOOP_TASK;
 	}
 
 	/**
@@ -100,7 +98,7 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 		int oldNumberOfIterations = numberOfIterations;
 		numberOfIterations = newNumberOfIterations;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS, oldNumberOfIterations, numberOfIterations));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.LOOP_TASK__NUMBER_OF_ITERATIONS, oldNumberOfIterations, numberOfIterations));
 	}
 
 	/**
@@ -121,7 +119,7 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 		AbstractTask oldTask = task;
 		task = newTask;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MeasurementsPackage.LOOP_TASK__TASK, oldTask, newTask);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TasksPackage.LOOP_TASK__TASK, oldTask, newTask);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -136,14 +134,14 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 		if (newTask != task) {
 			NotificationChain msgs = null;
 			if (task != null)
-				msgs = ((InternalEObject)task).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.LOOP_TASK__TASK, null, msgs);
+				msgs = ((InternalEObject)task).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TasksPackage.LOOP_TASK__TASK, null, msgs);
 			if (newTask != null)
-				msgs = ((InternalEObject)newTask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.LOOP_TASK__TASK, null, msgs);
+				msgs = ((InternalEObject)newTask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TasksPackage.LOOP_TASK__TASK, null, msgs);
 			msgs = basicSetTask(newTask, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.LOOP_TASK__TASK, newTask, newTask));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.LOOP_TASK__TASK, newTask, newTask));
 	}
 
 	/**
@@ -154,7 +152,7 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MeasurementsPackage.LOOP_TASK__TASK:
+			case TasksPackage.LOOP_TASK__TASK:
 				return basicSetTask(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -168,9 +166,9 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+			case TasksPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
 				return getNumberOfIterations();
-			case MeasurementsPackage.LOOP_TASK__TASK:
+			case TasksPackage.LOOP_TASK__TASK:
 				return getTask();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -184,10 +182,10 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+			case TasksPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
 				setNumberOfIterations((Integer)newValue);
 				return;
-			case MeasurementsPackage.LOOP_TASK__TASK:
+			case TasksPackage.LOOP_TASK__TASK:
 				setTask((AbstractTask)newValue);
 				return;
 		}
@@ -202,10 +200,10 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+			case TasksPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
 				setNumberOfIterations(NUMBER_OF_ITERATIONS_EDEFAULT);
 				return;
-			case MeasurementsPackage.LOOP_TASK__TASK:
+			case TasksPackage.LOOP_TASK__TASK:
 				setTask((AbstractTask)null);
 				return;
 		}
@@ -220,9 +218,9 @@ public class LoopTaskImpl extends AbstractTaskImpl implements LoopTask {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
+			case TasksPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
 				return numberOfIterations != NUMBER_OF_ITERATIONS_EDEFAULT;
-			case MeasurementsPackage.LOOP_TASK__TASK:
+			case TasksPackage.LOOP_TASK__TASK:
 				return task != null;
 		}
 		return super.eIsSet(featureID);

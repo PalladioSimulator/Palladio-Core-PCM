@@ -6,14 +6,19 @@
  */
 package de.uka.ipd.sdq.measurements.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.measurements.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.MachineDescription;
+import de.uka.ipd.sdq.measurements.MachineMapping;
+import de.uka.ipd.sdq.measurements.MachineReference;
+import de.uka.ipd.sdq.measurements.MeasurementScript;
+import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.PlainMachineReference;
+import de.uka.ipd.sdq.measurements.VirtualMachineReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,36 +117,6 @@ public class MeasurementsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MeasurementsPackage.TASK_SET: {
-				TaskSet taskSet = (TaskSet)theEObject;
-				T result = caseTaskSet(taskSet);
-				if (result == null) result = caseIdentifier(taskSet);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MeasurementsPackage.ABSTRACT_TASK: {
-				AbstractTask abstractTask = (AbstractTask)theEObject;
-				T result = caseAbstractTask(abstractTask);
-				if (result == null) result = caseIdentifier(abstractTask);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MeasurementsPackage.SEQUENCE_TASK: {
-				SequenceTask sequenceTask = (SequenceTask)theEObject;
-				T result = caseSequenceTask(sequenceTask);
-				if (result == null) result = caseAbstractTask(sequenceTask);
-				if (result == null) result = caseIdentifier(sequenceTask);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MeasurementsPackage.PARALLEL_TASK: {
-				ParallelTask parallelTask = (ParallelTask)theEObject;
-				T result = caseParallelTask(parallelTask);
-				if (result == null) result = caseAbstractTask(parallelTask);
-				if (result == null) result = caseIdentifier(parallelTask);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MeasurementsPackage.MEASUREMENT_SCRIPT: {
 				MeasurementScript measurementScript = (MeasurementScript)theEObject;
 				T result = caseMeasurementScript(measurementScript);
@@ -159,22 +134,6 @@ public class MeasurementsSwitch<T> {
 				MachineMapping machineMapping = (MachineMapping)theEObject;
 				T result = caseMachineMapping(machineMapping);
 				if (result == null) result = caseIdentifier(machineMapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MeasurementsPackage.MACHINE_TASK: {
-				MachineTask machineTask = (MachineTask)theEObject;
-				T result = caseMachineTask(machineTask);
-				if (result == null) result = caseAbstractTask(machineTask);
-				if (result == null) result = caseIdentifier(machineTask);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MeasurementsPackage.LOOP_TASK: {
-				LoopTask loopTask = (LoopTask)theEObject;
-				T result = caseLoopTask(loopTask);
-				if (result == null) result = caseAbstractTask(loopTask);
-				if (result == null) result = caseIdentifier(loopTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -228,66 +187,6 @@ public class MeasurementsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task Set</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTaskSet(TaskSet object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractTask(AbstractTask object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sequence Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sequence Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSequenceTask(SequenceTask object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parallel Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parallel Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParallelTask(ParallelTask object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Measurement Script</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -329,36 +228,6 @@ public class MeasurementsSwitch<T> {
 	 * @generated
 	 */
 	public T caseMachineMapping(MachineMapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Machine Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Machine Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMachineTask(MachineTask object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Loop Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Loop Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLoopTask(LoopTask object) {
 		return null;
 	}
 

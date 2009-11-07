@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.scheduler.util;
+package de.uka.ipd.sdq.measurements.tasks.util;
 
 import java.util.List;
 
@@ -12,12 +12,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
-import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
-import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
 import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.LoopTask;
 import de.uka.ipd.sdq.measurements.tasks.MachineTask;
 import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
+import de.uka.ipd.sdq.measurements.tasks.SequenceTask;
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,17 +30,17 @@ import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage
+ * @see de.uka.ipd.sdq.measurements.tasks.TasksPackage
  * @generated
  */
-public class SchedulerSwitch<T> {
+public class TasksSwitch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SchedulerPackage modelPackage;
+	protected static TasksPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -47,9 +48,9 @@ public class SchedulerSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchedulerSwitch() {
+	public TasksSwitch() {
 		if (modelPackage == null) {
-			modelPackage = SchedulerPackage.eINSTANCE;
+			modelPackage = TasksPackage.eINSTANCE;
 		}
 	}
 
@@ -93,71 +94,54 @@ public class SchedulerSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_TASK: {
-				ResourceStrategyMeasurementTask resourceStrategyMeasurementTask = (ResourceStrategyMeasurementTask)theEObject;
-				T result = caseResourceStrategyMeasurementTask(resourceStrategyMeasurementTask);
-				if (result == null) result = caseMachineTask(resourceStrategyMeasurementTask);
-				if (result == null) result = caseAbstractTask(resourceStrategyMeasurementTask);
-				if (result == null) result = caseIdentifier(resourceStrategyMeasurementTask);
+			case TasksPackage.ABSTRACT_TASK: {
+				AbstractTask abstractTask = (AbstractTask)theEObject;
+				T result = caseAbstractTask(abstractTask);
+				if (result == null) result = caseIdentifier(abstractTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SchedulerPackage.PARALLEL_PROCESS_TASK: {
-				ParallelProcessTask parallelProcessTask = (ParallelProcessTask)theEObject;
-				T result = caseParallelProcessTask(parallelProcessTask);
-				if (result == null) result = caseParallelTask(parallelProcessTask);
-				if (result == null) result = caseAbstractTask(parallelProcessTask);
-				if (result == null) result = caseIdentifier(parallelProcessTask);
+			case TasksPackage.LOOP_TASK: {
+				LoopTask loopTask = (LoopTask)theEObject;
+				T result = caseLoopTask(loopTask);
+				if (result == null) result = caseAbstractTask(loopTask);
+				if (result == null) result = caseIdentifier(loopTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TasksPackage.MACHINE_TASK: {
+				MachineTask machineTask = (MachineTask)theEObject;
+				T result = caseMachineTask(machineTask);
+				if (result == null) result = caseAbstractTask(machineTask);
+				if (result == null) result = caseIdentifier(machineTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TasksPackage.PARALLEL_TASK: {
+				ParallelTask parallelTask = (ParallelTask)theEObject;
+				T result = caseParallelTask(parallelTask);
+				if (result == null) result = caseAbstractTask(parallelTask);
+				if (result == null) result = caseIdentifier(parallelTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TasksPackage.SEQUENCE_TASK: {
+				SequenceTask sequenceTask = (SequenceTask)theEObject;
+				T result = caseSequenceTask(sequenceTask);
+				if (result == null) result = caseAbstractTask(sequenceTask);
+				if (result == null) result = caseIdentifier(sequenceTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TasksPackage.TASK_SET: {
+				TaskSet taskSet = (TaskSet)theEObject;
+				T result = caseTaskSet(taskSet);
+				if (result == null) result = caseIdentifier(taskSet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Strategy Measurement Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Strategy Measurement Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceStrategyMeasurementTask(ResourceStrategyMeasurementTask object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parallel Process Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parallel Process Task</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParallelProcessTask(ParallelProcessTask object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdentifier(Identifier object) {
-		return null;
 	}
 
 	/**
@@ -172,6 +156,21 @@ public class SchedulerSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractTask(AbstractTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoopTask(LoopTask object) {
 		return null;
 	}
 
@@ -206,6 +205,51 @@ public class SchedulerSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceTask(SequenceTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskSet(TaskSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -220,4 +264,4 @@ public class SchedulerSwitch<T> {
 		return null;
 	}
 
-} //SchedulerSwitch
+} //TasksSwitch

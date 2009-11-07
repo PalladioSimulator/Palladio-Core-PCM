@@ -4,18 +4,15 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.impl;
-
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+package de.uka.ipd.sdq.measurements.tasks.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +21,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.AbstractTaskImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.AbstractTaskImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.AbstractTaskImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.AbstractTaskImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,7 +85,7 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MeasurementsPackage.Literals.ABSTRACT_TASK;
+		return TasksPackage.Literals.ABSTRACT_TASK;
 	}
 
 	/**
@@ -109,7 +106,7 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.ABSTRACT_TASK__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -130,7 +127,7 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.ABSTRACT_TASK__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.ABSTRACT_TASK__NAME, oldName, name));
 	}
 
 	/**
@@ -141,9 +138,9 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
+			case TasksPackage.ABSTRACT_TASK__DESCRIPTION:
 				return getDescription();
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+			case TasksPackage.ABSTRACT_TASK__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -157,10 +154,10 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
+			case TasksPackage.ABSTRACT_TASK__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+			case TasksPackage.ABSTRACT_TASK__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -175,10 +172,10 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
+			case TasksPackage.ABSTRACT_TASK__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+			case TasksPackage.ABSTRACT_TASK__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -193,9 +190,9 @@ public abstract class AbstractTaskImpl extends IdentifierImpl implements Abstrac
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.ABSTRACT_TASK__DESCRIPTION:
+			case TasksPackage.ABSTRACT_TASK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case MeasurementsPackage.ABSTRACT_TASK__NAME:
+			case TasksPackage.ABSTRACT_TASK__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);

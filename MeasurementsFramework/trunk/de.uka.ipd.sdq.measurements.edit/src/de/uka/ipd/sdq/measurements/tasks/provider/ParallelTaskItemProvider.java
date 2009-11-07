@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 
 import java.util.Collection;
@@ -12,33 +12,28 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
-import de.uka.ipd.sdq.measurements.MeasurementsFactory;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.TaskSet;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
-import de.uka.ipd.sdq.probespec.probespecFactory;
+import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksFactory;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.TaskSet} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.tasks.ParallelTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskSetItemProvider
-	extends IdentifierItemProvider
+public class ParallelTaskItemProvider
+	extends AbstractTaskItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -51,7 +46,7 @@ public class TaskSetItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TaskSetItemProvider(AdapterFactory adapterFactory) {
+	public ParallelTaskItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,31 +61,8 @@ public class TaskSetItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TaskSet_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TaskSet_name_feature", "_UI_TaskSet_type"),
-				 MeasurementsPackage.Literals.TASK_SET__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -105,9 +77,7 @@ public class TaskSetItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK);
-			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY);
-			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES);
+			childrenFeatures.add(TasksPackage.Literals.PARALLEL_TASK__TASKS);
 		}
 		return childrenFeatures;
 	}
@@ -126,14 +96,14 @@ public class TaskSetItemProvider
 	}
 
 	/**
-	 * This returns TaskSet.gif.
+	 * This returns ParallelTask.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskSet"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParallelTask"));
 	}
 
 	/**
@@ -144,10 +114,10 @@ public class TaskSetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TaskSet)object).getName();
+		String label = ((ParallelTask)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TaskSet_type") :
-			getString("_UI_TaskSet_type") + " " + label;
+			getString("_UI_ParallelTask_type") :
+			getString("_UI_ParallelTask_type") + " " + label;
 	}
 
 	/**
@@ -161,13 +131,8 @@ public class TaskSetItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TaskSet.class)) {
-			case MeasurementsPackage.TASK_SET__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+		switch (notification.getFeatureID(ParallelTask.class)) {
+			case TasksPackage.PARALLEL_TASK__TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -187,54 +152,28 @@ public class TaskSetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createLoopTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createParallelTask()));
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createParallelTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
-				 MeasurementsFactory.eINSTANCE.createLoopTask()));
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createSequenceTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
-				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
-				 MeasurementsFactory.eINSTANCE.createVirtualMachineReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
-				 MeasurementsFactory.eINSTANCE.createPlainMachineReference()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return MeasurementsEditPlugin.INSTANCE;
 	}
 
 }

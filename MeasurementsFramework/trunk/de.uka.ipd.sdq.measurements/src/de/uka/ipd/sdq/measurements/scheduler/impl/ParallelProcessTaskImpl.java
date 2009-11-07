@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler.impl;
 
-import de.uka.ipd.sdq.measurements.impl.ParallelTaskImpl;
+import org.eclipse.emf.ecore.EClass;
 
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
-
-import org.eclipse.emf.ecore.EClass;
+import de.uka.ipd.sdq.measurements.tasks.impl.ParallelTaskImpl;
 
 /**
  * <!-- begin-user-doc -->

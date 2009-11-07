@@ -4,31 +4,25 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.impl;
-
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MachineReference;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.TaskSet;
-
-import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
+package de.uka.ipd.sdq.measurements.tasks.impl;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+import de.uka.ipd.sdq.measurements.MachineReference;
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
+import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,10 +31,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.TaskSetImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.TaskSetImpl#getRootTask <em>Root Task</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.TaskSetImpl#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.TaskSetImpl#getMachineReferences <em>Machine References</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.TaskSetImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.TaskSetImpl#getRootTask <em>Root Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.TaskSetImpl#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.TaskSetImpl#getMachineReferences <em>Machine References</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,7 +107,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MeasurementsPackage.Literals.TASK_SET;
+		return TasksPackage.Literals.TASK_SET;
 	}
 
 	/**
@@ -134,7 +128,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.TASK_SET__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.TASK_SET__NAME, oldName, name));
 	}
 
 	/**
@@ -155,7 +149,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 		AbstractTask oldRootTask = rootTask;
 		rootTask = newRootTask;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MeasurementsPackage.TASK_SET__ROOT_TASK, oldRootTask, newRootTask);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TasksPackage.TASK_SET__ROOT_TASK, oldRootTask, newRootTask);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -170,14 +164,14 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 		if (newRootTask != rootTask) {
 			NotificationChain msgs = null;
 			if (rootTask != null)
-				msgs = ((InternalEObject)rootTask).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.TASK_SET__ROOT_TASK, null, msgs);
+				msgs = ((InternalEObject)rootTask).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TasksPackage.TASK_SET__ROOT_TASK, null, msgs);
 			if (newRootTask != null)
-				msgs = ((InternalEObject)newRootTask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.TASK_SET__ROOT_TASK, null, msgs);
+				msgs = ((InternalEObject)newRootTask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TasksPackage.TASK_SET__ROOT_TASK, null, msgs);
 			msgs = basicSetRootTask(newRootTask, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.TASK_SET__ROOT_TASK, newRootTask, newRootTask));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.TASK_SET__ROOT_TASK, newRootTask, newRootTask));
 	}
 
 	/**
@@ -198,7 +192,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 		ProbeSpecRepository oldProbeSpecRepository = probeSpecRepository;
 		probeSpecRepository = newProbeSpecRepository;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY, oldProbeSpecRepository, newProbeSpecRepository);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY, oldProbeSpecRepository, newProbeSpecRepository);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -213,14 +207,14 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 		if (newProbeSpecRepository != probeSpecRepository) {
 			NotificationChain msgs = null;
 			if (probeSpecRepository != null)
-				msgs = ((InternalEObject)probeSpecRepository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY, null, msgs);
+				msgs = ((InternalEObject)probeSpecRepository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY, null, msgs);
 			if (newProbeSpecRepository != null)
-				msgs = ((InternalEObject)newProbeSpecRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY, null, msgs);
+				msgs = ((InternalEObject)newProbeSpecRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY, null, msgs);
 			msgs = basicSetProbeSpecRepository(newProbeSpecRepository, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY, newProbeSpecRepository, newProbeSpecRepository));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY, newProbeSpecRepository, newProbeSpecRepository));
 	}
 
 	/**
@@ -230,7 +224,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	 */
 	public EList<MachineReference> getMachineReferences() {
 		if (machineReferences == null) {
-			machineReferences = new EObjectContainmentEList<MachineReference>(MachineReference.class, this, MeasurementsPackage.TASK_SET__MACHINE_REFERENCES);
+			machineReferences = new EObjectContainmentEList<MachineReference>(MachineReference.class, this, TasksPackage.TASK_SET__MACHINE_REFERENCES);
 		}
 		return machineReferences;
 	}
@@ -243,11 +237,11 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__ROOT_TASK:
 				return basicSetRootTask(null, msgs);
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return basicSetProbeSpecRepository(null, msgs);
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				return ((InternalEList<?>)getMachineReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -261,13 +255,13 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MeasurementsPackage.TASK_SET__NAME:
+			case TasksPackage.TASK_SET__NAME:
 				return getName();
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__ROOT_TASK:
 				return getRootTask();
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return getProbeSpecRepository();
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				return getMachineReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -282,16 +276,16 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MeasurementsPackage.TASK_SET__NAME:
+			case TasksPackage.TASK_SET__NAME:
 				setName((String)newValue);
 				return;
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__ROOT_TASK:
 				setRootTask((AbstractTask)newValue);
 				return;
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				setProbeSpecRepository((ProbeSpecRepository)newValue);
 				return;
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				getMachineReferences().clear();
 				getMachineReferences().addAll((Collection<? extends MachineReference>)newValue);
 				return;
@@ -307,16 +301,16 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.TASK_SET__NAME:
+			case TasksPackage.TASK_SET__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__ROOT_TASK:
 				setRootTask((AbstractTask)null);
 				return;
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				setProbeSpecRepository((ProbeSpecRepository)null);
 				return;
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				getMachineReferences().clear();
 				return;
 		}
@@ -331,13 +325,13 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.TASK_SET__NAME:
+			case TasksPackage.TASK_SET__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case MeasurementsPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__ROOT_TASK:
 				return rootTask != null;
-			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return probeSpecRepository != null;
-			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				return machineReferences != null && !machineReferences.isEmpty();
 		}
 		return super.eIsSet(featureID);

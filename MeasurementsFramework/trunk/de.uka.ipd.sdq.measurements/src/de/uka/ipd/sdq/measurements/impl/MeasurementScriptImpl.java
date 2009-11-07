@@ -9,7 +9,8 @@ package de.uka.ipd.sdq.measurements.impl;
 import de.uka.ipd.sdq.measurements.MachineDescription;
 import de.uka.ipd.sdq.measurements.MeasurementScript;
 import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.TaskSet;
+
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
 
 import java.util.Collection;
 

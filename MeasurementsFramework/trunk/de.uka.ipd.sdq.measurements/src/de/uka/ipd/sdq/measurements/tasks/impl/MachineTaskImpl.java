@@ -4,18 +4,16 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.impl;
-
-import de.uka.ipd.sdq.measurements.MachineReference;
-import de.uka.ipd.sdq.measurements.MachineTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+package de.uka.ipd.sdq.measurements.tasks.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.measurements.MachineReference;
+import de.uka.ipd.sdq.measurements.tasks.MachineTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.MachineTaskImpl#getMachine <em>Machine</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.MachineTaskImpl#getMachine <em>Machine</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,7 +55,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MeasurementsPackage.Literals.MACHINE_TASK;
+		return TasksPackage.Literals.MACHINE_TASK;
 	}
 
 	/**
@@ -71,7 +69,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 			machine = (MachineReference)eResolveProxy(oldMachine);
 			if (machine != oldMachine) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MeasurementsPackage.MACHINE_TASK__MACHINE, oldMachine, machine));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TasksPackage.MACHINE_TASK__MACHINE, oldMachine, machine));
 			}
 		}
 		return machine;
@@ -95,7 +93,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 		MachineReference oldMachine = machine;
 		machine = newMachine;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.MACHINE_TASK__MACHINE, oldMachine, machine));
+			eNotify(new ENotificationImpl(this, Notification.SET, TasksPackage.MACHINE_TASK__MACHINE, oldMachine, machine));
 	}
 
 	/**
@@ -106,7 +104,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MeasurementsPackage.MACHINE_TASK__MACHINE:
+			case TasksPackage.MACHINE_TASK__MACHINE:
 				if (resolve) return getMachine();
 				return basicGetMachine();
 		}
@@ -121,7 +119,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MeasurementsPackage.MACHINE_TASK__MACHINE:
+			case TasksPackage.MACHINE_TASK__MACHINE:
 				setMachine((MachineReference)newValue);
 				return;
 		}
@@ -136,7 +134,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.MACHINE_TASK__MACHINE:
+			case TasksPackage.MACHINE_TASK__MACHINE:
 				setMachine((MachineReference)null);
 				return;
 		}
@@ -151,7 +149,7 @@ public abstract class MachineTaskImpl extends AbstractTaskImpl implements Machin
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.MACHINE_TASK__MACHINE:
+			case TasksPackage.MACHINE_TASK__MACHINE:
 				return machine != null;
 		}
 		return super.eIsSet(featureID);

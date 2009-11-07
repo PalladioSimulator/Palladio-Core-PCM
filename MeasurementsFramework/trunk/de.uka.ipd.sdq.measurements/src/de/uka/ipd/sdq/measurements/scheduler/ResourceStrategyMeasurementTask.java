@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler;
 
-import de.uka.ipd.sdq.measurements.MachineTask;
+import de.uka.ipd.sdq.measurements.tasks.MachineTask;
 
 /**
  * <!-- begin-user-doc -->

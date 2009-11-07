@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler;
 
-import de.uka.ipd.sdq.measurements.ParallelTask;
+import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
 
 /**
  * <!-- begin-user-doc -->

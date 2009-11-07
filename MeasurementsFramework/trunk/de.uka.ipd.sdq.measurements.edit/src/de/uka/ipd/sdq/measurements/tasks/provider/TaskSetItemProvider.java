@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 
 import java.util.Collection;
@@ -12,28 +12,35 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import de.uka.ipd.sdq.measurements.MeasurementsFactory;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.SequenceTask;
+import de.uka.ipd.sdq.measurements.provider.MeasurementsEditPlugin;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
+import de.uka.ipd.sdq.measurements.tasks.TaskSet;
+import de.uka.ipd.sdq.measurements.tasks.TasksFactory;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
+import de.uka.ipd.sdq.probespec.probespecFactory;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.SequenceTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.tasks.TaskSet} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SequenceTaskItemProvider
-	extends AbstractTaskItemProvider
+public class TaskSetItemProvider
+	extends IdentifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +53,7 @@ public class SequenceTaskItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SequenceTaskItemProvider(AdapterFactory adapterFactory) {
+	public TaskSetItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,8 +68,31 @@ public class SequenceTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TaskSet_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TaskSet_name_feature", "_UI_TaskSet_type"),
+				 TasksPackage.Literals.TASK_SET__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,7 +107,9 @@ public class SequenceTaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS);
+			childrenFeatures.add(TasksPackage.Literals.TASK_SET__ROOT_TASK);
+			childrenFeatures.add(TasksPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY);
+			childrenFeatures.add(TasksPackage.Literals.TASK_SET__MACHINE_REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -96,14 +128,14 @@ public class SequenceTaskItemProvider
 	}
 
 	/**
-	 * This returns SequenceTask.gif.
+	 * This returns TaskSet.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SequenceTask"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskSet"));
 	}
 
 	/**
@@ -114,10 +146,10 @@ public class SequenceTaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SequenceTask)object).getName();
+		String label = ((TaskSet)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SequenceTask_type") :
-			getString("_UI_SequenceTask_type") + " " + label;
+			getString("_UI_TaskSet_type") :
+			getString("_UI_TaskSet_type") + " " + label;
 	}
 
 	/**
@@ -131,8 +163,13 @@ public class SequenceTaskItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SequenceTask.class)) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+		switch (notification.getFeatureID(TaskSet.class)) {
+			case TasksPackage.TASK_SET__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case TasksPackage.TASK_SET__ROOT_TASK:
+			case TasksPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case TasksPackage.TASK_SET__MACHINE_REFERENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,28 +189,54 @@ public class SequenceTaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS,
-				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
+				 TasksFactory.eINSTANCE.createLoopTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS,
-				 MeasurementsFactory.eINSTANCE.createParallelTask()));
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
+				 TasksFactory.eINSTANCE.createParallelTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS,
-				 MeasurementsFactory.eINSTANCE.createLoopTask()));
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
+				 TasksFactory.eINSTANCE.createSequenceTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS,
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
 				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.SEQUENCE_TASK__TASKS,
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
+				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createVirtualMachineReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createPlainMachineReference()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MeasurementsEditPlugin.INSTANCE;
 	}
 
 }

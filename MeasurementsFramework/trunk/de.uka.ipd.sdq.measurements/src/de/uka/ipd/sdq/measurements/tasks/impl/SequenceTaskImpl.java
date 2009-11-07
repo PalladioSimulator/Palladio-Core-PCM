@@ -4,23 +4,20 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.impl;
-
-import de.uka.ipd.sdq.measurements.AbstractTask;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-import de.uka.ipd.sdq.measurements.SequenceTask;
+package de.uka.ipd.sdq.measurements.tasks.impl;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
+import de.uka.ipd.sdq.measurements.tasks.SequenceTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.measurements.impl.SequenceTaskImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.measurements.tasks.impl.SequenceTaskImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,7 +59,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MeasurementsPackage.Literals.SEQUENCE_TASK;
+		return TasksPackage.Literals.SEQUENCE_TASK;
 	}
 
 	/**
@@ -72,7 +69,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	 */
 	public EList<AbstractTask> getTasks() {
 		if (tasks == null) {
-			tasks = new EObjectContainmentEList<AbstractTask>(AbstractTask.class, this, MeasurementsPackage.SEQUENCE_TASK__TASKS);
+			tasks = new EObjectContainmentEList<AbstractTask>(AbstractTask.class, this, TasksPackage.SEQUENCE_TASK__TASKS);
 		}
 		return tasks;
 	}
@@ -85,7 +82,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -99,7 +96,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -114,7 +111,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends AbstractTask>)newValue);
 				return;
@@ -130,7 +127,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				getTasks().clear();
 				return;
 		}
@@ -145,7 +142,7 @@ public class SequenceTaskImpl extends AbstractTaskImpl implements SequenceTask {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MeasurementsPackage.SEQUENCE_TASK__TASKS:
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);

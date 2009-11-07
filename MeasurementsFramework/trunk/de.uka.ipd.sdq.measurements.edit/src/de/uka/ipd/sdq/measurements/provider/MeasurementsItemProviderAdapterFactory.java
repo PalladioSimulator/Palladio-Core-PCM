@@ -121,75 +121,6 @@ public class MeasurementsItemProviderAdapterFactory extends MeasurementsAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.TaskSet} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TaskSetItemProvider taskSetItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.TaskSet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTaskSetAdapter() {
-		if (taskSetItemProvider == null) {
-			taskSetItemProvider = new TaskSetItemProvider(this);
-		}
-
-		return taskSetItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.SequenceTask} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SequenceTaskItemProvider sequenceTaskItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.SequenceTask}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSequenceTaskAdapter() {
-		if (sequenceTaskItemProvider == null) {
-			sequenceTaskItemProvider = new SequenceTaskItemProvider(this);
-		}
-
-		return sequenceTaskItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.ParallelTask} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParallelTaskItemProvider parallelTaskItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.ParallelTask}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParallelTaskAdapter() {
-		if (parallelTaskItemProvider == null) {
-			parallelTaskItemProvider = new ParallelTaskItemProvider(this);
-		}
-
-		return parallelTaskItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.MeasurementScript} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,29 +187,6 @@ public class MeasurementsItemProviderAdapterFactory extends MeasurementsAdapterF
 		}
 
 		return machineMappingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.LoopTask} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LoopTaskItemProvider loopTaskItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.LoopTask}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLoopTaskAdapter() {
-		if (loopTaskItemProvider == null) {
-			loopTaskItemProvider = new LoopTaskItemProvider(this);
-		}
-
-		return loopTaskItemProvider;
 	}
 
 	/**
@@ -382,13 +290,9 @@ public class MeasurementsItemProviderAdapterFactory extends MeasurementsAdapterF
 	public void dispose() {
 		if (virtualMachineReferenceItemProvider != null) virtualMachineReferenceItemProvider.dispose();
 		if (plainMachineReferenceItemProvider != null) plainMachineReferenceItemProvider.dispose();
-		if (taskSetItemProvider != null) taskSetItemProvider.dispose();
-		if (sequenceTaskItemProvider != null) sequenceTaskItemProvider.dispose();
-		if (parallelTaskItemProvider != null) parallelTaskItemProvider.dispose();
 		if (measurementScriptItemProvider != null) measurementScriptItemProvider.dispose();
 		if (machineDescriptionItemProvider != null) machineDescriptionItemProvider.dispose();
 		if (machineMappingItemProvider != null) machineMappingItemProvider.dispose();
-		if (loopTaskItemProvider != null) loopTaskItemProvider.dispose();
 	}
 
 }

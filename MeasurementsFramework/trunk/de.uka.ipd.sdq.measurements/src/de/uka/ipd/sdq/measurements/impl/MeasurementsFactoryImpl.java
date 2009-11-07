@@ -6,15 +6,19 @@
  */
 package de.uka.ipd.sdq.measurements.impl;
 
-import de.uka.ipd.sdq.measurements.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.measurements.MachineDescription;
+import de.uka.ipd.sdq.measurements.MachineMapping;
+import de.uka.ipd.sdq.measurements.MeasurementScript;
+import de.uka.ipd.sdq.measurements.MeasurementsFactory;
+import de.uka.ipd.sdq.measurements.MeasurementsPackage;
+import de.uka.ipd.sdq.measurements.PlainMachineReference;
+import de.uka.ipd.sdq.measurements.VirtualMachineReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,13 +66,9 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 		switch (eClass.getClassifierID()) {
 			case MeasurementsPackage.VIRTUAL_MACHINE_REFERENCE: return createVirtualMachineReference();
 			case MeasurementsPackage.PLAIN_MACHINE_REFERENCE: return createPlainMachineReference();
-			case MeasurementsPackage.TASK_SET: return createTaskSet();
-			case MeasurementsPackage.SEQUENCE_TASK: return createSequenceTask();
-			case MeasurementsPackage.PARALLEL_TASK: return createParallelTask();
 			case MeasurementsPackage.MEASUREMENT_SCRIPT: return createMeasurementScript();
 			case MeasurementsPackage.MACHINE_DESCRIPTION: return createMachineDescription();
 			case MeasurementsPackage.MACHINE_MAPPING: return createMachineMapping();
-			case MeasurementsPackage.LOOP_TASK: return createLoopTask();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -99,36 +99,6 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TaskSet createTaskSet() {
-		TaskSetImpl taskSet = new TaskSetImpl();
-		return taskSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceTask createSequenceTask() {
-		SequenceTaskImpl sequenceTask = new SequenceTaskImpl();
-		return sequenceTask;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParallelTask createParallelTask() {
-		ParallelTaskImpl parallelTask = new ParallelTaskImpl();
-		return parallelTask;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MeasurementScript createMeasurementScript() {
 		MeasurementScriptImpl measurementScript = new MeasurementScriptImpl();
 		return measurementScript;
@@ -152,16 +122,6 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 	public MachineMapping createMachineMapping() {
 		MachineMappingImpl machineMapping = new MachineMappingImpl();
 		return machineMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LoopTask createLoopTask() {
-		LoopTaskImpl loopTask = new LoopTaskImpl();
-		return loopTask;
 	}
 
 	/**

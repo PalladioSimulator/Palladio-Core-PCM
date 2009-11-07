@@ -6,24 +6,22 @@
  */
 package de.uka.ipd.sdq.measurements.scheduler.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.measurements.MeasurementsPackage;
-
 import de.uka.ipd.sdq.measurements.impl.MeasurementsPackageImpl;
-
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
-
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
+import de.uka.ipd.sdq.measurements.tasks.impl.TasksPackageImpl;
 import de.uka.ipd.sdq.probespec.probespecPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,14 +102,17 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		// Obtain or create and register interdependencies
 		MeasurementsPackageImpl theMeasurementsPackage = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
+		TasksPackageImpl theTasksPackage = (TasksPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TasksPackage.eNS_URI) instanceof TasksPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TasksPackage.eNS_URI) : TasksPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSchedulerPackage.createPackageContents();
 		theMeasurementsPackage.createPackageContents();
+		theTasksPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSchedulerPackage.initializePackageContents();
 		theMeasurementsPackage.initializePackageContents();
+		theTasksPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSchedulerPackage.freeze();
@@ -229,15 +230,15 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		MeasurementsPackage theMeasurementsPackage = (MeasurementsPackage)EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI);
+		TasksPackage theTasksPackage = (TasksPackage)EPackage.Registry.INSTANCE.getEPackage(TasksPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		resourceStrategyMeasurementTaskEClass.getESuperTypes().add(theMeasurementsPackage.getMachineTask());
-		parallelProcessTaskEClass.getESuperTypes().add(theMeasurementsPackage.getParallelTask());
+		resourceStrategyMeasurementTaskEClass.getESuperTypes().add(theTasksPackage.getMachineTask());
+		parallelProcessTaskEClass.getESuperTypes().add(theTasksPackage.getParallelTask());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(resourceStrategyMeasurementTaskEClass, ResourceStrategyMeasurementTask.class, "ResourceStrategyMeasurementTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

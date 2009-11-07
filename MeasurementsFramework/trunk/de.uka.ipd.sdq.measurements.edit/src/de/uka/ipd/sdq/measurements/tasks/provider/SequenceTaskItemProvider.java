@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.measurements.provider;
+package de.uka.ipd.sdq.measurements.tasks.provider;
 
 
 import java.util.Collection;
@@ -13,28 +13,26 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.measurements.LoopTask;
-import de.uka.ipd.sdq.measurements.MeasurementsFactory;
-import de.uka.ipd.sdq.measurements.MeasurementsPackage;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
+import de.uka.ipd.sdq.measurements.tasks.SequenceTask;
+import de.uka.ipd.sdq.measurements.tasks.TasksFactory;
+import de.uka.ipd.sdq.measurements.tasks.TasksPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.LoopTask} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.measurements.tasks.SequenceTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoopTaskItemProvider
+public class SequenceTaskItemProvider
 	extends AbstractTaskItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +46,7 @@ public class LoopTaskItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoopTaskItemProvider(AdapterFactory adapterFactory) {
+	public SequenceTaskItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,31 +61,8 @@ public class LoopTaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNumberOfIterationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Number Of Iterations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNumberOfIterationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LoopTask_numberOfIterations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoopTask_numberOfIterations_feature", "_UI_LoopTask_type"),
-				 MeasurementsPackage.Literals.LOOP_TASK__NUMBER_OF_ITERATIONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,7 +77,7 @@ public class LoopTaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MeasurementsPackage.Literals.LOOP_TASK__TASK);
+			childrenFeatures.add(TasksPackage.Literals.SEQUENCE_TASK__TASKS);
 		}
 		return childrenFeatures;
 	}
@@ -121,14 +96,14 @@ public class LoopTaskItemProvider
 	}
 
 	/**
-	 * This returns LoopTask.gif.
+	 * This returns SequenceTask.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopTask"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SequenceTask"));
 	}
 
 	/**
@@ -139,10 +114,10 @@ public class LoopTaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LoopTask)object).getName();
+		String label = ((SequenceTask)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_LoopTask_type") :
-			getString("_UI_LoopTask_type") + " " + label;
+			getString("_UI_SequenceTask_type") :
+			getString("_UI_SequenceTask_type") + " " + label;
 	}
 
 	/**
@@ -156,11 +131,8 @@ public class LoopTaskItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(LoopTask.class)) {
-			case MeasurementsPackage.LOOP_TASK__NUMBER_OF_ITERATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MeasurementsPackage.LOOP_TASK__TASK:
+		switch (notification.getFeatureID(SequenceTask.class)) {
+			case TasksPackage.SEQUENCE_TASK__TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,27 +152,27 @@ public class LoopTaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createLoopTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createParallelTask()));
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createParallelTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
-				 MeasurementsFactory.eINSTANCE.createLoopTask()));
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
+				 TasksFactory.eINSTANCE.createSequenceTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
 	}
 
