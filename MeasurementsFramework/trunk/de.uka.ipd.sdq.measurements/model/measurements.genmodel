@@ -39,6 +39,8 @@
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/rootTask"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/probeSpecRepository"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//TaskSet/machineReferences"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="measurements.ecore#//AbstractTask">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//AbstractTask/description"/>
@@ -76,8 +78,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//LoopTask/task"/>
     </genClasses>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" resource="XML"
-        disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="measurements"
+        resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="measurements.ecore#//scheduler/ResourceStrategyDemand">
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/MandelbrotDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/FibonacciDemand"/>

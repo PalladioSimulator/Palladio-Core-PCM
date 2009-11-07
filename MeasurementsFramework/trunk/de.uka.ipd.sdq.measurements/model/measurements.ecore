@@ -20,6 +20,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="probeSpecRepository" ordered="false"
         eType="ecore:EClass ../../de.uka.ipd.sdq.probespec/model/probespec.ecore#//ProbeSpecRepository"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="machineReferences" ordered="false"
+        upperBound="-1" eType="#//MachineReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractTask" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"

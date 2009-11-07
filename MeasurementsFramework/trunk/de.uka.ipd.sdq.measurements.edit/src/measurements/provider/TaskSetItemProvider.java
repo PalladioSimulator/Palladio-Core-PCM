@@ -113,6 +113,7 @@ public class TaskSetItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK);
 			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY);
+			childrenFeatures.add(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -172,6 +173,7 @@ public class TaskSetItemProvider
 				return;
 			case MeasurementsPackage.TASK_SET__ROOT_TASK:
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,6 +215,16 @@ public class TaskSetItemProvider
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
 				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createVirtualMachineReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createPlainMachineReference()));
 	}
 
 	/**

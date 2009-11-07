@@ -282,6 +282,15 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTaskSet_MachineReferences() {
+		return (EReference)taskSetEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbstractTask() {
 		return abstractTaskEClass;
 	}
@@ -497,6 +506,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		createEAttribute(taskSetEClass, TASK_SET__NAME);
 		createEReference(taskSetEClass, TASK_SET__ROOT_TASK);
 		createEReference(taskSetEClass, TASK_SET__PROBE_SPEC_REPOSITORY);
+		createEReference(taskSetEClass, TASK_SET__MACHINE_REFERENCES);
 
 		abstractTaskEClass = createEClass(ABSTRACT_TASK);
 		createEAttribute(abstractTaskEClass, ABSTRACT_TASK__DESCRIPTION);
@@ -588,6 +598,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		initEAttribute(getTaskSet_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTaskSet_RootTask(), this.getAbstractTask(), null, "rootTask", null, 1, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTaskSet_ProbeSpecRepository(), theprobespecPackage.getProbeSpecRepository(), null, "probeSpecRepository", null, 0, 1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTaskSet_MachineReferences(), this.getMachineReference(), null, "machineReferences", null, 0, -1, TaskSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(abstractTaskEClass, AbstractTask.class, "AbstractTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractTask_Description(), ecorePackage.getEString(), "description", null, 0, 1, AbstractTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

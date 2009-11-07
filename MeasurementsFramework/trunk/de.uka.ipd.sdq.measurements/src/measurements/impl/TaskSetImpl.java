@@ -10,17 +10,22 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
 
+import java.util.Collection;
 import measurements.AbstractTask;
+import measurements.MachineReference;
 import measurements.MeasurementsPackage;
 import measurements.TaskSet;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link measurements.impl.TaskSetImpl#getName <em>Name</em>}</li>
  *   <li>{@link measurements.impl.TaskSetImpl#getRootTask <em>Root Task</em>}</li>
  *   <li>{@link measurements.impl.TaskSetImpl#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
+ *   <li>{@link measurements.impl.TaskSetImpl#getMachineReferences <em>Machine References</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +83,16 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	 * @ordered
 	 */
 	protected ProbeSpecRepository probeSpecRepository;
+
+	/**
+	 * The cached value of the '{@link #getMachineReferences() <em>Machine References</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMachineReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MachineReference> machineReferences;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,6 +225,18 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MachineReference> getMachineReferences() {
+		if (machineReferences == null) {
+			machineReferences = new EObjectContainmentEList<MachineReference>(MachineReference.class, this, MeasurementsPackage.TASK_SET__MACHINE_REFERENCES);
+		}
+		return machineReferences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -216,6 +244,8 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 				return basicSetRootTask(null, msgs);
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return basicSetProbeSpecRepository(null, msgs);
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+				return ((InternalEList<?>)getMachineReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -234,6 +264,8 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 				return getRootTask();
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return getProbeSpecRepository();
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+				return getMachineReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +275,7 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -254,6 +287,10 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 				return;
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				setProbeSpecRepository((ProbeSpecRepository)newValue);
+				return;
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+				getMachineReferences().clear();
+				getMachineReferences().addAll((Collection<? extends MachineReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -276,6 +313,9 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				setProbeSpecRepository((ProbeSpecRepository)null);
 				return;
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+				getMachineReferences().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,6 +334,8 @@ public class TaskSetImpl extends IdentifierImpl implements TaskSet {
 				return rootTask != null;
 			case MeasurementsPackage.TASK_SET__PROBE_SPEC_REPOSITORY:
 				return probeSpecRepository != null;
+			case MeasurementsPackage.TASK_SET__MACHINE_REFERENCES:
+				return machineReferences != null && !machineReferences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

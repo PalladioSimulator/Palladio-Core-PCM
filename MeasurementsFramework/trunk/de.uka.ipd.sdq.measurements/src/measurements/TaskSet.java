@@ -9,6 +9,7 @@ package measurements;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +22,7 @@ import de.uka.ipd.sdq.probespec.ProbeSpecRepository;
  *   <li>{@link measurements.TaskSet#getName <em>Name</em>}</li>
  *   <li>{@link measurements.TaskSet#getRootTask <em>Root Task</em>}</li>
  *   <li>{@link measurements.TaskSet#getProbeSpecRepository <em>Probe Spec Repository</em>}</li>
+ *   <li>{@link measurements.TaskSet#getMachineReferences <em>Machine References</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +108,21 @@ public interface TaskSet extends Identifier {
 	 * @generated
 	 */
 	void setProbeSpecRepository(ProbeSpecRepository value);
+
+	/**
+	 * Returns the value of the '<em><b>Machine References</b></em>' containment reference list.
+	 * The list contents are of type {@link measurements.MachineReference}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Machine References</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Machine References</em>' containment reference list.
+	 * @see measurements.MeasurementsPackage#getTaskSet_MachineReferences()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<MachineReference> getMachineReferences();
 
 } // TaskSet

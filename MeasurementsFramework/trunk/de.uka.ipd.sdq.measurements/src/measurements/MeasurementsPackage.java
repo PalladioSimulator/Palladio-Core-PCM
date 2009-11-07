@@ -228,13 +228,22 @@ public interface MeasurementsPackage extends EPackage {
 	int TASK_SET__PROBE_SPEC_REPOSITORY = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Machine References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_SET__MACHINE_REFERENCES = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Task Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_SET_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+	int TASK_SET_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link measurements.impl.AbstractTaskImpl <em>Abstract Task</em>}' class.
@@ -728,6 +737,17 @@ public interface MeasurementsPackage extends EPackage {
 	EReference getTaskSet_ProbeSpecRepository();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link measurements.TaskSet#getMachineReferences <em>Machine References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Machine References</em>'.
+	 * @see measurements.TaskSet#getMachineReferences()
+	 * @see #getTaskSet()
+	 * @generated
+	 */
+	EReference getTaskSet_MachineReferences();
+
+	/**
 	 * Returns the meta object for class '{@link measurements.AbstractTask <em>Abstract Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1040,6 +1060,14 @@ public interface MeasurementsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK_SET__PROBE_SPEC_REPOSITORY = eINSTANCE.getTaskSet_ProbeSpecRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Machine References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_SET__MACHINE_REFERENCES = eINSTANCE.getTaskSet_MachineReferences();
 
 		/**
 		 * The meta object literal for the '{@link measurements.impl.AbstractTaskImpl <em>Abstract Task</em>}' class.
