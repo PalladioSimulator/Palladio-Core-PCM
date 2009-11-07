@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="measurements"
-    nsURI="http:///measurements.ecore" nsPrefix="measurements">
+    nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/1.0" nsPrefix="measurements">
   <eClassifiers xsi:type="ecore:EClass" name="VirtualMachineReference" eSuperTypes="#//MachineReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hostMachine" ordered="false"
         lowerBound="1" eType="#//PlainMachineReference"/>
@@ -65,7 +65,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
         eType="#//AbstractTask" containment="true"/>
   </eClassifiers>
-  <eSubpackages name="scheduler" nsURI="http:///measurements/scheduler.ecore" nsPrefix="measurements.scheduler">
+  <eSubpackages name="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0"
+      nsPrefix="scheduler">
     <eClassifiers xsi:type="ecore:EEnum" name="ResourceStrategyDemand">
       <eLiterals name="WaitDemand"/>
       <eLiterals name="MandelbrotDemand" value="1"/>

@@ -8,8 +8,8 @@ Bundle-Activator: measurements.presentation.MeasurementsEditorPlugin$Implementat
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: measurements.presentation,
- measurements.scheduler.presentation
+Export-Package: de.uka.ipd.sdq.measurements.presentation,
+ de.uka.ipd.sdq.measurements.scheduler.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.uka.ipd.sdq.measurements.edit;visibility:=reexport,
