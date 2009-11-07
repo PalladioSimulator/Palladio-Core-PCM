@@ -2039,6 +2039,6 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_2dNbUMrxEd6sNo1ojYVtLw" base_Package="_ypR2sMrxEd6sNo1ojYVtLw"/>
-  <Ecore:EPackage xmi:id="_C0eS8MryEd6sNo1ojYVtLw" base_Package="__7i-AMrxEd6sNo1ojYVtLw"/>
+  <Ecore:EPackage xmi:id="_2dNbUMrxEd6sNo1ojYVtLw" base_Package="_ypR2sMrxEd6sNo1ojYVtLw" packageName="measurements" nsPrefix="measurements" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/1.0" basePackage="de.uka.ipd.sdq"/>
+  <Ecore:EPackage xmi:id="_C0eS8MryEd6sNo1ojYVtLw" base_Package="__7i-AMrxEd6sNo1ojYVtLw" packageName="scheduler" nsPrefix="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0" basePackage="de.uka.ipd.sdq.measurements" prefix="scheduler"/>
 </xmi:XMI>
