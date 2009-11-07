@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.cip.runconfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
@@ -10,6 +11,7 @@ import org.eclipse.core.resources.IProject;
 import de.uka.ipd.sdq.cip.ConstantsContainer;
 import de.uka.ipd.sdq.cip.completions.CompletionEntry;
 import de.uka.ipd.sdq.cip.completions.CompletionType;
+import de.uka.ipd.sdq.cip.workflow.jobs.CompletionTransformationJob;
 
 public class CompletionConfiguration implements Serializable {
 
@@ -24,6 +26,7 @@ public class CompletionConfiguration implements Serializable {
 	private IProject project;
 	private String resourceRepository;
 	private String featureConfigFile;
+	private boolean isRevalidateChecked = false; 
 	
 	@SuppressWarnings("unchecked")
 	public CompletionConfiguration(Map<String,Object> configuration) {
@@ -31,6 +34,7 @@ public class CompletionConfiguration implements Serializable {
 			HashMap<String,String> completions = (HashMap<String,String>) configuration.get(
 					ConstantsContainer.COMPLETION);
 			completionEntrys = CompletionType.getCompletionEntrys(completions);
+			isRevalidateChecked = (Boolean) configuration.get(ConstantsContainer.REVALIDATION);
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -83,5 +87,21 @@ public class CompletionConfiguration implements Serializable {
 	public String getFeatureConfigFile() {
 		return featureConfigFile;
 	}
-
+	
+	public boolean shouldRevalidate() {
+		return isRevalidateChecked;
+	}
+	
+	public long getActiveCompletionCount() {
+		long count = 0;
+		Iterator<CompletionEntry> iterator = completionEntrys.iterator();
+		while(iterator.hasNext()) {
+			CompletionEntry completionEntry = iterator.next();
+			
+			if(completionEntry.isActive())
+				count++;
+		}
+		
+		return count;
+	}
 }

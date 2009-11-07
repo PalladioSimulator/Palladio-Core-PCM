@@ -28,7 +28,8 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 public interface ConstantsContainer {
 	
 	/** Completion settings*/
-	public static final String COMPLETION = "completion";
+	public static final String COMPLETION = "de.uka.ipd.sdq.cip.completion";
+	public static final String REVALIDATION = "de.uka.ipd.sdq.cip.revalidate";
 	
 	/** Extension point values **/
 	public static final String ATT_ID			= "id";

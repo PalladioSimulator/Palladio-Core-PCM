@@ -44,7 +44,8 @@ public class CompletionTransformationChainJob extends
 			this.addJob(new CompletionTransformationJob(completionEntry, configuration));
 		}
 		
-		this.addJob(new SplitJob(configuration));
+		if(configuration.getActiveCompletionCount() > 0)
+			this.addJob(new SplitJob(configuration));
 		
 		
 	}
