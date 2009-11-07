@@ -36,37 +36,55 @@
       </editor>
    </extension>
 
-
-   <extension
-         point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category">
-      </category>
+            name="%_UI_Wizard_category"/>
       <wizard
+            id="de.uka.ipd.sdq.measurements.tasks.presentation.TasksModelWizardID"
+            name="%_UI_TasksModelWizard_label"
+            class="de.uka.ipd.sdq.measurements.tasks.presentation.TasksModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            class="de.uka.ipd.sdq.measurements.presentation.MeasurementsModelWizard"
-            icon="icons/full/obj16/MeasurementsModelFile.gif"
-            id="de.uka.ipd.sdq.measurements.presentation.TasksetModelWizardID"
-            name="%_UI_TaskSetModelWizard_label">
-         <description>
-            %_UI_TaskSetModelWizard_description
-         </description>
-         <selection
-               class="org.eclipse.core.resources.IResource">
-         </selection>
+            icon="icons/full/obj16/TasksModelFile.gif">
+         <description>%_UI_TasksModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
-   <extension
-         point="org.eclipse.ui.editors">
+
+   <extension point="org.eclipse.ui.editors">
       <editor
-            class="de.uka.ipd.sdq.measurements.presentation.MeasurementsEditor"
-            contributorClass="de.uka.ipd.sdq.measurements.presentation.MeasurementsActionBarContributor"
-            default="false"
+            id="de.uka.ipd.sdq.measurements.tasks.presentation.TasksEditorID"
+            name="%_UI_TasksEditor_label"
+            icon="icons/full/obj16/TasksModelFile.gif"
             extensions="taskset"
-            icon="icons/full/obj16/MeasurementsModelFile.gif"
-            id="de.uka.ipd.sdq.measurements.presentation.TaskSetEditorID"
-            name="%_UI_TaskSetEditor_label">
+            class="de.uka.ipd.sdq.measurements.tasks.presentation.TasksEditor"
+            contributorClass="de.uka.ipd.sdq.measurements.tasks.presentation.TasksActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.measurements.scheduler.presentation.SchedulerModelWizardID"
+            name="%_UI_SchedulerModelWizard_label"
+            class="de.uka.ipd.sdq.measurements.scheduler.presentation.SchedulerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SchedulerModelFile.gif">
+         <description>%_UI_SchedulerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.measurements.scheduler.presentation.SchedulerEditorID"
+            name="%_UI_SchedulerEditor_label"
+            icon="icons/full/obj16/SchedulerModelFile.gif"
+            extensions="scheduler"
+            class="de.uka.ipd.sdq.measurements.scheduler.presentation.SchedulerEditor"
+            contributorClass="de.uka.ipd.sdq.measurements.scheduler.presentation.SchedulerActionBarContributor">
       </editor>
    </extension>
 

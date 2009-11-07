@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.tasks.*;
 import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
 import de.uka.ipd.sdq.measurements.tasks.LoopTask;
 import de.uka.ipd.sdq.measurements.tasks.MachineTask;

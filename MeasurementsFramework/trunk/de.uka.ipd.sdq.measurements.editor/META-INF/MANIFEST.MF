@@ -9,7 +9,8 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.measurements.presentation,
- de.uka.ipd.sdq.measurements.scheduler.presentation
+ de.uka.ipd.sdq.measurements.scheduler.presentation,
+ de.uka.ipd.sdq.measurements.tasks.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.uka.ipd.sdq.measurements.edit;visibility:=reexport,

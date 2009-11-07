@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.scheduler.*;
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;

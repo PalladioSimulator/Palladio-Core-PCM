@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.measurements.*;
 import de.uka.ipd.sdq.measurements.MachineDescription;
 import de.uka.ipd.sdq.measurements.MachineMapping;
 import de.uka.ipd.sdq.measurements.MachineReference;

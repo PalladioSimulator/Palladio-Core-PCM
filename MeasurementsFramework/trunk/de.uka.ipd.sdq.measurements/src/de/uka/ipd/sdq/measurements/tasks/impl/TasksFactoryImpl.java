@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.measurements.tasks.impl;
 
+import de.uka.ipd.sdq.measurements.tasks.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

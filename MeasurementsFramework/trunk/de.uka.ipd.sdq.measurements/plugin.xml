@@ -12,9 +12,9 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/1.0"
             class="de.uka.ipd.sdq.measurements.MeasurementsPackage"
-            genModel="model/measurements.genmodel"
-            uri="http://sdq.ipd.uka.de/MeasurementsFramework/1.0"/>
+            genModel="model/measurements.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
@@ -22,12 +22,18 @@
             type="measurements"
             class="de.uka.ipd.sdq.measurements.util.MeasurementsResourceFactoryImpl"/>
    </extension>
-   <extension
-         point="org.eclipse.emf.ecore.extension_parser">
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/Tasks/1.0"
+            class="de.uka.ipd.sdq.measurements.tasks.TasksPackage"
+            genModel="model/measurements.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            class="de.uka.ipd.sdq.measurements.util.MeasurementsResourceFactoryImpl"
-            type="taskset">
-      </parser>
+            type="taskset"
+            class="de.uka.ipd.sdq.measurements.tasks.util.TasksResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
