@@ -23,8 +23,8 @@
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
   <foreignModel>file:/C:/20090630/measurements.uml</foreignModel>
-  <genPackages xsi:type="genmodel:GenPackage" prefix="Measurements" resource="XML"
-      disposableProviderFactory="true" ecorePackage="measurements.ecore#/">
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Measurements" basePackage="de.uka.ipd.sdq"
+      resource="XML" disposableProviderFactory="true" fileExtensions="taskset" ecorePackage="measurements.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//VirtualMachineReference">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference measurements.ecore#//VirtualMachineReference/hostMachine"/>
@@ -79,7 +79,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//LoopTask/task"/>
     </genClasses>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="measurements"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="de.uka.ipd.sdq.measurements"
         resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="measurements.ecore#//scheduler/ResourceStrategyDemand">
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/WaitDemand"/>

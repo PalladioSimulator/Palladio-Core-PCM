@@ -7,12 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: measurements,
- measurements.impl,
- measurements.scheduler,
- measurements.scheduler.impl,
- measurements.scheduler.util,
- measurements.util
+Export-Package: de.uka.ipd.sdq.measurements,
+ de.uka.ipd.sdq.measurements.impl,
+ de.uka.ipd.sdq.measurements.scheduler,
+ de.uka.ipd.sdq.measurements.scheduler.impl,
+ de.uka.ipd.sdq.measurements.scheduler.util,
+ de.uka.ipd.sdq.measurements.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
