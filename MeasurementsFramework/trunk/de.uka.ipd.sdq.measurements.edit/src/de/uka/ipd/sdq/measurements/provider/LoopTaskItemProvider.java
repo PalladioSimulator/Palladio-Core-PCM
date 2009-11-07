@@ -19,6 +19,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -199,12 +200,48 @@ public class LoopTaskItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 MeasurementsFactory.eINSTANCE.createParallelTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 MeasurementsFactory.eINSTANCE.createLoopTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
 				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
 				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.LOOP_TASK__TASK,
+				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MeasurementsEditPlugin.INSTANCE;
 	}
 
 }

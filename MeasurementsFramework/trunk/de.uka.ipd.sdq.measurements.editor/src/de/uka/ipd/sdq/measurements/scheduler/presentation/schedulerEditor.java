@@ -708,6 +708,8 @@ public class schedulerEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MeasurementsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new schedulerItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MeasurementsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new schedulerItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new pipesandfiltersItemProviderAdapterFactory());

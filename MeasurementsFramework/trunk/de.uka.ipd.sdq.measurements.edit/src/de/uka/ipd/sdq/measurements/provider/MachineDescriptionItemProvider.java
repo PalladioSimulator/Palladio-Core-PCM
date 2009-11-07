@@ -211,6 +211,11 @@ public class MachineDescriptionItemProvider
 			(createChildParameter
 				(MeasurementsPackage.Literals.MACHINE_DESCRIPTION__MACHINE_MAPPINGS,
 				 MeasurementsFactory.eINSTANCE.createMachineMapping()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.MACHINE_DESCRIPTION__MACHINE_MAPPINGS,
+				 MeasurementsFactory.eINSTANCE.createMachineMapping()));
 	}
 
 	/**

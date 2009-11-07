@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http:///measurements.ecore"
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/1.0"
             class="de.uka.ipd.sdq.measurements.provider.MeasurementsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -24,7 +24,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http:///measurements/scheduler.ecore"
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0"
             class="de.uka.ipd.sdq.measurements.scheduler.provider.SchedulerItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

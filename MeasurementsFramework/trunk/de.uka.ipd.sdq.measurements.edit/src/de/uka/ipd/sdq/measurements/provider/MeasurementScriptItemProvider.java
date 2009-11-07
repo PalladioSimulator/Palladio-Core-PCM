@@ -179,6 +179,11 @@ public class MeasurementScriptItemProvider
 			(createChildParameter
 				(MeasurementsPackage.Literals.MEASUREMENT_SCRIPT__MACHINE_DESCRIPTIONS,
 				 MeasurementsFactory.eINSTANCE.createMachineDescription()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.MEASUREMENT_SCRIPT__MACHINE_DESCRIPTIONS,
+				 MeasurementsFactory.eINSTANCE.createMachineDescription()));
 	}
 
 	/**

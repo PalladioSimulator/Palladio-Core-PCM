@@ -12,35 +12,35 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///measurements.ecore"
-            class="measurements.MeasurementsPackage"
-            genModel="model/measurements.genmodel"/>
+            class="de.uka.ipd.sdq.measurements.MeasurementsPackage"
+            genModel="model/measurements.genmodel"
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/1.0"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="measurements"
-            class="measurements.util.MeasurementsResourceFactoryImpl"/>
+            class="de.uka.ipd.sdq.measurements.util.MeasurementsResourceFactoryImpl"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            class="measurements.util.MeasurementsResourceFactoryImpl"
+            class="de.uka.ipd.sdq.measurements.util.MeasurementsResourceFactoryImpl"
             type="taskset">
       </parser>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///measurements/scheduler.ecore"
-            class="measurements.scheduler.SchedulerPackage"
+            uri="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0"
+            class="de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage"
             genModel="model/measurements.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="scheduler"
-            class="measurements.scheduler.util.SchedulerResourceFactoryImpl"/>
+            class="de.uka.ipd.sdq.measurements.scheduler.util.SchedulerResourceFactoryImpl"/>
    </extension>
 
 </plugin>

@@ -209,6 +209,31 @@ public class TaskSetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 MeasurementsFactory.eINSTANCE.createSequenceTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 MeasurementsFactory.eINSTANCE.createParallelTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 MeasurementsFactory.eINSTANCE.createLoopTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
+				 schedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__ROOT_TASK,
 				 schedulerFactory.eINSTANCE.createResourceStrategyMeasurementTask()));
 
 		newChildDescriptors.add
@@ -220,6 +245,16 @@ public class TaskSetItemProvider
 			(createChildParameter
 				(MeasurementsPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
 				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createVirtualMachineReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementsPackage.Literals.TASK_SET__MACHINE_REFERENCES,
+				 MeasurementsFactory.eINSTANCE.createPlainMachineReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.measurements.editor;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Activator: measurements.presentation.MeasurementsEditorPlugin$Implementation
+Bundle-Activator: de.uka.ipd.sdq.measurements.presentation.MeasurementsEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
