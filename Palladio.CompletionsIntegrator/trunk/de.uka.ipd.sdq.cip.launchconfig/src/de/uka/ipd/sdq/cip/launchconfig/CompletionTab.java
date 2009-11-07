@@ -68,15 +68,16 @@ import de.uka.ipd.sdq.cip.completions.CompletionType;
 public class CompletionTab extends
 		AbstractLaunchConfigurationTab {
 	
-	private Text fInputModelSet;
+	//private Text fInputModelSet;
 	//private Text fOutputModelSet;
-	private Text fTracesDirectory;
-	private Button fCustomTracesDirectory;
-	private Button customBrowseButton;
-	private Button fIntermediateModels;
+	//private Text fTracesDirectory;
+	//private Button fCustomTracesDirectory;
+	//private Button customBrowseButton;
+	//private Button fIntermediateModels;
+	private Button fRevalidateModels;
 	private CheckboxTableViewer fTransformations;
 	private ModifyListener modifyListener;
-	private SelectionListener selectionListener;
+	//private SelectionListener selectionListener;
 	private ArrayList<CompletionEntry> completionEntrys;
 
 	
@@ -91,7 +92,7 @@ public class CompletionTab extends
 				setTabModified();
 			}
 		};
-		selectionListener = new SelectionListener(){
+		/*selectionListener = new SelectionListener(){
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -103,7 +104,7 @@ public class CompletionTab extends
 				fTracesDirectory.setEnabled(fCustomTracesDirectory.getSelection());
 				customBrowseButton.setEnabled(fCustomTracesDirectory.getSelection());
 			}
-		};
+		};*/
 		
 		Composite mainComponent = new Composite(parent,SWT.NONE);
 		setControl(mainComponent);
@@ -133,7 +134,7 @@ public class CompletionTab extends
 		fTransformations = createTable(mainComponent,new String[]{"Completion","Annotation"});
 		//createTableButtons(mainComponent,fTransformations);
 		
-		fCustomTracesDirectory = new Button(mainComponent,SWT.CHECK);
+		/*fCustomTracesDirectory = new Button(mainComponent,SWT.CHECK);
 		fCustomTracesDirectory.setText("Traces Directory:");
 		fCustomTracesDirectory.addSelectionListener(selectionListener);
 		fTracesDirectory = createText(mainComponent);
@@ -141,9 +142,10 @@ public class CompletionTab extends
 		
 		fIntermediateModels = new Button(mainComponent,SWT.CHECK);
 		fIntermediateModels.setText("Delete intermediate model folder");
-		fIntermediateModels.addSelectionListener(selectionListener);
-		
-
+		fIntermediateModels.addSelectionListener(selectionListener);*/
+	
+		fRevalidateModels = new Button(mainComponent,SWT.CHECK);
+		fRevalidateModels.setText("Revalidate Models");
 		
 		
 		/*fQvtFile = createTextLine(mainComponent, modifyListener, "QVT File:",new SelectionAdapter () {
@@ -634,8 +636,17 @@ public class CompletionTab extends
 				selectedEntrys.add(entry);
 		}
 		fTransformations.setCheckedElements(selectedEntrys.toArray(new CompletionEntry[0]));
-		fTracesDirectory.setEnabled(fCustomTracesDirectory.getSelection());
-		customBrowseButton.setEnabled(fCustomTracesDirectory.getSelection());
+		/*fTracesDirectory.setEnabled(fCustomTracesDirectory.getSelection());
+		customBrowseButton.setEnabled(fCustomTracesDirectory.getSelection());*/
+		try {
+			boolean revalidate = configuration.getAttribute(
+					ConstantsContainer.REVALIDATION, false);
+			fRevalidateModels.setGrayed(revalidate);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/* (non-Javadoc)
@@ -652,7 +663,10 @@ public class CompletionTab extends
 		configuration.setAttribute(
 				ConstantsContainer.COMPLETION,
 				completionConfig);
-
+		
+		configuration.setAttribute(
+				ConstantsContainer.REVALIDATION,
+				fRevalidateModels.getGrayed());
 	}
 
 	/* (non-Javadoc)
