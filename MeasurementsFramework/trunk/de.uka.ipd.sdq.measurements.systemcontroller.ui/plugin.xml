@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="de.uka.ipd.sdq.measurements.ui.preferences"
+            class="de.uka.ipd.sdq.measurements.systemcontroller.ui.SystemControllerPreferencePage"
+            id="de.uka.ipd.sdq.measurements.systemcontroller.preferences"
+            name="SystemController">
+      </page>
+   </extension>
+
+</plugin>
