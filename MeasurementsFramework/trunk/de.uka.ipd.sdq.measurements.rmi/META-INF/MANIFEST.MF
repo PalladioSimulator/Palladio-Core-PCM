@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rmi
+Bundle-SymbolicName: de.uka.ipd.sdq.measurements.rmi
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.uka.ipd.sdq.measurements.rmi.tasks
+Bundle-Activator: de.uka.ipd.sdq.measurements.rmi.Activator
