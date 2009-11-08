@@ -1,0 +1,17 @@
+grant codeBase "file:/c:/Code/workspace_virt/de.uka.ipd.sdq.midis.measurements/bin" {
+	permission java.net.SocketPermission "127.0.0.1:1024-","accept, connect, listen, resolve";
+	permission java.net.SocketPermission "*:1024-65535","accept, connect, listen, resolve";
+    permission java.security.AllPermission;
+};
+
+grant codeBase "file:/c:/workspace_virt/de.uka.ipd.sdq.midis.measurements/bin" {
+	permission java.net.SocketPermission "127.0.0.1:1024-","accept, connect, listen, resolve";
+	permission java.net.SocketPermission "*:1024-65535","accept, connect, listen, resolve";
+    permission java.security.AllPermission;
+};
+
+grant {
+	permission java.util.PropertyPermission "*", "read";
+	permission java.lang.RuntimePermission "getClassLoader";
+	permission java.io.FilePermission "-", "read,write,delete";
+};
