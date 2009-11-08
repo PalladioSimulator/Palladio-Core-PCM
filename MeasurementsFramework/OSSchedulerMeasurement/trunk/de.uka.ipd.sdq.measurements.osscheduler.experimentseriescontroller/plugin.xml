@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.measurements.experimentseriescontroller.experimentseriescontroller">
+      <controller
+            class="de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller.OSSchedulerExperimentSeriesController"
+            id="de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller"
+            name="OS Scheduler Experiment Series Controller">
+      </controller>
+   </extension>
+
+</plugin>
