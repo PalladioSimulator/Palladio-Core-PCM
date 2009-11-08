@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/de.uka.ipd.sdq.measurements.driver.os/src/de/uka/ipd/sdq/measurements/driver/os/StartHost.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value=de.uka.ipd.sdq.measurements.driver.os.StartHost"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="de.uka.ipd.sdq.measurements.driver.os"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.policy=export/host.policy -Dhost.properties=src/conf/host.properties"/>
+</launchConfiguration>

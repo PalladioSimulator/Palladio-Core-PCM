@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project de.uka.ipd.sdq.measurements.driver.os">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="create_run_jar">
+		<jar destfile="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/osdriver.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="de.uka.ipd.sdq.measurements.driver.os.StartHost" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/bin" />
+			<zipfileset excludes="META-INF/*.SF" src="C:/Code/eclipse_3.5_measurements/plugins/org.apache.log4j_1.2.13.v200903072027.jar" />
+			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.common/bin" />
+			<zipfileset excludes="META-INF/*.SF" src="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.common/lib/resourcestrategies.jar" />
+			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.rmi/bin" />
+		</jar>
+		<copy todir="export">
+			<fileset dir=".">
+				<filename name="osdriver.jar" />
+			</fileset>
+		</copy>
+		<delete>
+			<fileset dir=".">
+				<filename name="osdriver.jar" />
+			</fileset>
+		</delete>
+	</target>
+</project>
