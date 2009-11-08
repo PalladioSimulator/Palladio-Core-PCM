@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchGroups">
+      <launchGroup
+            bannerImage="de.uka.ipd.sdq.measurements.configurator.launchGroup1"
+            id="de.uka.ipd.sdq.measurements.configurator.launchGroup1"
+            image="de.uka.ipd.sdq.measurements.configurator.launchGroup1"
+            label="label"
+            mode="de.uka.ipd.sdq.measurements.configurator.launchGroup1">
+      </launchGroup>
+   </extension>
+
+</plugin>
