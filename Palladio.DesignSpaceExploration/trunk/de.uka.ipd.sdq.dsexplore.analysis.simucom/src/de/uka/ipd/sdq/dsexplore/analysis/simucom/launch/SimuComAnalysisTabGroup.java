@@ -5,6 +5,7 @@ import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import de.uka.ipd.sdq.cip.launchconfig.CompletionTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
@@ -23,6 +24,7 @@ public class SimuComAnalysisTabGroup extends AbstractLaunchConfigurationTabGroup
 				new SimuComConfigurationTab(), 
 				new SimuConfigurationTab(),
 				new FeatureOptionsTab(),
+				new CompletionTab(),
 				new CommonTab()
 		};
 		setTabs(tabs);

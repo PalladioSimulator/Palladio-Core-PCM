@@ -151,6 +151,7 @@ public class DSEProblem {
 		determineAllocationDecisions(dds,initialCandidate);
 		//Quickfix: Add a Soap or RMI decision. This is not meta modelled. 
 		//determineSOAPOrRMIDecisions();
+		this.initialGenotypeList.add(initialCandidate);
 	}
 
 
