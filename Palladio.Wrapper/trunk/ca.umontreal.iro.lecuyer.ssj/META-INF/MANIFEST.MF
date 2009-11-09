@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Stochastic Simulation for Java
 Bundle-SymbolicName: ca.umontreal.iro.lecuyer.ssj
-Bundle-Version: 2.0
+Bundle-Version: 2.1.3
 Bundle-ClassPath: libs/Blas.jar,
  libs/colt.jar,
  libs/event-1.6.5.jar,
