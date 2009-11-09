@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            id="de.uka.ipd.sdq.measurements.osscheduler.ui.launchConfigurationType"
+            modes="run, debug"
+            name="OS Scheduler Mesurements"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.measurements.osscheduler.ui.OSSchedulerMeasurementsTabGroup"
+            id="de.uka.ipd.sdq.measurements.osscheduler.ui.launchConfigurationTabGroup"
+            type="de.uka.ipd.sdq.measurements.osscheduler.ui.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
