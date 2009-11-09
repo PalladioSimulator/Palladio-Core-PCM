@@ -318,6 +318,7 @@ litigation.
       <import plugin="de.ikv.medini.qvt.plugin" version="1.4.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.statistics"/>
    </requires>
 
    <plugin
