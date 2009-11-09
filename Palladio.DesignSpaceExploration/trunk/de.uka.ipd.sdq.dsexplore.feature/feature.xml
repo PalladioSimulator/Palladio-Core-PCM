@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.dsexplore.feature"
       label="Palladio DSE Feature"
-      version="1.0.0"
+      version="1.0.0.qualifier"
       plugin="de.uka.ipd.sdq.dsexplore">
 
    <description url="http://sdq.ipd.uka.de">
