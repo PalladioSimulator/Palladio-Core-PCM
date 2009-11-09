@@ -261,7 +261,32 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 //		});
 	}
 	
-
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);		
+		
+		if (!validateFilePath(textFeatureConfig.getText(),
+				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+			setErrorMessage("Source model file is missing!");
+			return false;
+		}
+		
+		
+//FIXME: re-enable
+//		if (!validateFilePath(textTargetConfig.getText(),
+//				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
+//			setErrorMessage("Target model file is missing!");
+//			return false;
+//		}
+//		if (editorWidget != null) {
+//			if (!editorValid) {
+//				setErrorMessage(editorWidget.getErrorMessage());
+//			}
+//			return false;
+//		}
+		
+		return true;
+	}
+	
 	private boolean validateFilePath(String filePath, String[] extensions){
 		if (filePath.equals(""))
 			return false;
@@ -349,7 +374,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			simulateLinkingResourcesButton.setSelection(true);
 		}
-
 		//FIXME: re-enable
 //		try {			
 //			textTargetConfig.setText(configuration.getAttribute(
@@ -380,32 +404,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 //				textTargetConfig.getText());
 	}
 
-	public boolean isValid(ILaunchConfiguration launchConfig) {
-		setErrorMessage(null);		
-		
-		if (!validateFilePath(textFeatureConfig.getText(),
-				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
-			setErrorMessage("Source model file is missing!");
-			return false;
-		}
-		
-		
-//FIXME: re-enable
-//		if (!validateFilePath(textTargetConfig.getText(),
-//				ConstantsContainer.FEATURECONFIG_EXTENSION)) {
-//			setErrorMessage("Target model file is missing!");
-//			return false;
-//		}
-//		if (editorWidget != null) {
-//			if (!editorValid) {
-//				setErrorMessage(editorWidget.getErrorMessage());
-//			}
-//			return false;
-//		}
-		
-		return true;
-	}
-	
+
 /*	TODO: Maybe this can be used to check whether models are needed 
     @Override
 	public boolean isValid(ILaunchConfiguration launchConfig) {

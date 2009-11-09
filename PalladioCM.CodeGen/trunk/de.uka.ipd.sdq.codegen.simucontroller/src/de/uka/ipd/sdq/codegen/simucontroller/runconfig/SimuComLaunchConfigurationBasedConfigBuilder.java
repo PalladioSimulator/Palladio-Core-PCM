@@ -37,8 +37,7 @@ extends
 		config.setPluginID(getStringAttribute(ConstantsContainer.PLUGIN_ID));
 		
 		config.setSensitivityAnalysisEnabled(
-				hasStringAttribute(ConstantsContainer.VARIABLE_TEXT)
-				&& !getStringAttribute(ConstantsContainer.VARIABLE_TEXT).equals("NO ELEMENT SELECTED"));
+				hasValidSensitvityVariableAttribute(ConstantsContainer.VARIABLE_TEXT));
 		if (config.isSensitivityAnalysisEnabled()) {
 			SensitivityAnalysisConfiguration sensitivityConfig = 
 				new SensitivityAnalysisConfiguration(getStringAttribute(ConstantsContainer.VARIABLE_TEXT), 
@@ -51,6 +50,16 @@ extends
 		
 		config.setSimuComConfiguration(new SimuComConfig(properties, 0, config.isDebug()));
 		config.setCompletionConfig(new CompletionConfiguration(properties));
+	}
+	
+	private boolean hasValidSensitvityVariableAttribute(String attribute) throws CoreException {
+		if (!configuration.hasAttribute(attribute))
+			return false;
+		Object value = getStringAttribute(attribute);
+		//Anne: I sometimes get a "NO ELEMENT SELECTED" result from the LaunchConfig even if I deleted the string from the field
+		//I have no idea how to fix it directly, so I need to catch it here. 
+		//It seems to only appear in the Design Space Exploration tab. 
+		return value instanceof String && !value.equals("") && !value.equals("NO ELEMENT SELECTED");
 	}
 	
 }
