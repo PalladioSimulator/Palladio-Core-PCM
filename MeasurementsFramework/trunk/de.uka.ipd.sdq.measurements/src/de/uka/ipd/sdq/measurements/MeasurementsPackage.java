@@ -238,13 +238,22 @@ public interface MeasurementsPackage extends EPackage {
 	int MACHINE_DESCRIPTION__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_DESCRIPTION__PORT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_DESCRIPTION__NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int MACHINE_DESCRIPTION__NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ip</b></em>' attribute.
@@ -253,7 +262,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_DESCRIPTION__IP = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int MACHINE_DESCRIPTION__IP = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Machine Mappings</b></em>' containment reference list.
@@ -262,7 +271,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_DESCRIPTION__MACHINE_MAPPINGS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+	int MACHINE_DESCRIPTION__MACHINE_MAPPINGS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Machine Description</em>' class.
@@ -271,7 +280,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_DESCRIPTION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+	int MACHINE_DESCRIPTION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.impl.MachineMappingImpl <em>Machine Mapping</em>}' class.
@@ -403,6 +412,17 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMachineDescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.measurements.MachineDescription#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see de.uka.ipd.sdq.measurements.MachineDescription#getPort()
+	 * @see #getMachineDescription()
+	 * @generated
+	 */
+	EAttribute getMachineDescription_Port();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.measurements.MachineDescription#getName <em>Name</em>}'.
@@ -561,6 +581,14 @@ public interface MeasurementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MACHINE_DESCRIPTION = eINSTANCE.getMachineDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MACHINE_DESCRIPTION__PORT = eINSTANCE.getMachineDescription_Port();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

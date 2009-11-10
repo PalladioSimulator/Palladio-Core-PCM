@@ -234,7 +234,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMachineDescription_Name() {
+	public EAttribute getMachineDescription_Port() {
 		return (EAttribute)machineDescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -243,7 +243,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMachineDescription_Ip() {
+	public EAttribute getMachineDescription_Name() {
 		return (EAttribute)machineDescriptionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -252,8 +252,17 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMachineDescription_Ip() {
+		return (EAttribute)machineDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMachineDescription_MachineMappings() {
-		return (EReference)machineDescriptionEClass.getEStructuralFeatures().get(2);
+		return (EReference)machineDescriptionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -315,6 +324,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		createEReference(measurementScriptEClass, MEASUREMENT_SCRIPT__MACHINE_DESCRIPTIONS);
 
 		machineDescriptionEClass = createEClass(MACHINE_DESCRIPTION);
+		createEAttribute(machineDescriptionEClass, MACHINE_DESCRIPTION__PORT);
 		createEAttribute(machineDescriptionEClass, MACHINE_DESCRIPTION__NAME);
 		createEAttribute(machineDescriptionEClass, MACHINE_DESCRIPTION__IP);
 		createEReference(machineDescriptionEClass, MACHINE_DESCRIPTION__MACHINE_MAPPINGS);
@@ -380,6 +390,7 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		initEReference(getMeasurementScript_MachineDescriptions(), this.getMachineDescription(), null, "machineDescriptions", null, 0, -1, MeasurementScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(machineDescriptionEClass, MachineDescription.class, "MachineDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMachineDescription_Port(), ecorePackage.getEInt(), "port", null, 1, 1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMachineDescription_Name(), ecorePackage.getEString(), "name", null, 1, 1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMachineDescription_Ip(), ecorePackage.getEString(), "ip", null, 1, 1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMachineDescription_MachineMappings(), this.getMachineMapping(), null, "machineMappings", null, 0, -1, MachineDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

@@ -19,6 +19,8 @@
         upperBound="-1" eType="#//MachineDescription" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineDescription" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" ordered="false" lowerBound="1"

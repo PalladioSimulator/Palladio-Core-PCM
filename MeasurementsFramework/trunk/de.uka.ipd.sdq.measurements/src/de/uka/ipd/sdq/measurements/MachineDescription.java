@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.measurements.MachineDescription#getPort <em>Port</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.MachineDescription#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.MachineDescription#getIp <em>Ip</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.MachineDescription#getMachineMappings <em>Machine Mappings</em>}</li>
@@ -29,6 +30,32 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @generated
  */
 public interface MachineDescription extends Identifier {
+	/**
+	 * Returns the value of the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Port</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Port</em>' attribute.
+	 * @see #setPort(int)
+	 * @see de.uka.ipd.sdq.measurements.MeasurementsPackage#getMachineDescription_Port()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getPort();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.measurements.MachineDescription#getPort <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Port</em>' attribute.
+	 * @see #getPort()
+	 * @generated
+	 */
+	void setPort(int value);
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

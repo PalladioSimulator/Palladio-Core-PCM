@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.measurements.MeasurementsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.measurements.impl.MachineDescriptionImpl#getPort <em>Port</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.impl.MachineDescriptionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.impl.MachineDescriptionImpl#getIp <em>Ip</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.measurements.impl.MachineDescriptionImpl#getMachineMappings <em>Machine Mappings</em>}</li>
@@ -38,6 +39,26 @@ import de.uka.ipd.sdq.measurements.MeasurementsPackage;
  * @generated
  */
 public class MachineDescriptionImpl extends IdentifierImpl implements MachineDescription {
+	/**
+	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PORT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int port = PORT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,6 +126,27 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 	@Override
 	protected EClass eStaticClass() {
 		return MeasurementsPackage.Literals.MACHINE_DESCRIPTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getPort() {
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPort(int newPort) {
+		int oldPort = port;
+		port = newPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementsPackage.MACHINE_DESCRIPTION__PORT, oldPort, port));
 	}
 
 	/**
@@ -183,6 +225,8 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MeasurementsPackage.MACHINE_DESCRIPTION__PORT:
+				return getPort();
 			case MeasurementsPackage.MACHINE_DESCRIPTION__NAME:
 				return getName();
 			case MeasurementsPackage.MACHINE_DESCRIPTION__IP:
@@ -202,6 +246,9 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MeasurementsPackage.MACHINE_DESCRIPTION__PORT:
+				setPort((Integer)newValue);
+				return;
 			case MeasurementsPackage.MACHINE_DESCRIPTION__NAME:
 				setName((String)newValue);
 				return;
@@ -224,6 +271,9 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MeasurementsPackage.MACHINE_DESCRIPTION__PORT:
+				setPort(PORT_EDEFAULT);
+				return;
 			case MeasurementsPackage.MACHINE_DESCRIPTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -245,6 +295,8 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MeasurementsPackage.MACHINE_DESCRIPTION__PORT:
+				return port != PORT_EDEFAULT;
 			case MeasurementsPackage.MACHINE_DESCRIPTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MeasurementsPackage.MACHINE_DESCRIPTION__IP:
@@ -265,7 +317,9 @@ public class MachineDescriptionImpl extends IdentifierImpl implements MachineDes
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (port: ");
+		result.append(port);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", ip: ");
 		result.append(ip);

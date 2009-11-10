@@ -40,6 +40,7 @@
           createChild="true" ecoreFeature="ecore:EReference measurements.ecore#//MeasurementScript/machineDescriptions"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//MachineDescription">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//MachineDescription/port"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//MachineDescription/name"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//MachineDescription/ip"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
