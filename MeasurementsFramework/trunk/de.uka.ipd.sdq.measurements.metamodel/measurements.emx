@@ -1723,6 +1723,9 @@
       <generalization xmi:id="_qh0zwMq3Ed6sNo1ojYVtLw">
         <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
       </generalization>
+      <ownedAttribute xmi:id="_tANJwM4wEd6mlefPN0rzNA" name="port" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_IstlYMq1Ed6sNo1ojYVtLw" name="name" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
