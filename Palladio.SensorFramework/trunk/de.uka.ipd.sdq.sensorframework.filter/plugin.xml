@@ -2,7 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.filter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.filter">
       <FilterFactory
             class="de.uka.ipd.sdq.sensorframework.filter.OutlierFilteredFactory"
             displayName="Outlier Filter"

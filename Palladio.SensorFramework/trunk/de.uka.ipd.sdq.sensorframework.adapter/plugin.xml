@@ -2,42 +2,42 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToHistogramFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.DataAdapter1">
       </DataAdapter>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.IdentitySensorAdapterFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.IdentitySensorAdapter">
       </DataAdapter>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToThroughputHistogramFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.DataAdapter2">
       </DataAdapter>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.StateSensorToPieFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.StateToPie">
       </DataAdapter>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToTimeSeriesFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.TimeSeries">
       </DataAdapter>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.sensorframework.adapter">
+         point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToQuantilFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.Quantil">
