@@ -2,7 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
@@ -22,7 +22,7 @@
       </extension>
 
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
@@ -42,7 +42,7 @@
       </extension>
             
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
