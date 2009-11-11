@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
+<stringAttribute key="allocationFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.allocation"/>
+<booleanAttribute key="clear" value="true"/>
+<intAttribute key="datasourceID" value="1"/>
+<stringAttribute key="experimentRun" value="Closed Workload Run"/>
+<stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
+<stringAttribute key="maximum" value=""/>
+<stringAttribute key="maximumMeasurementCount" value="-1"/>
+<stringAttribute key="minimum" value=""/>
+<stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="repositoryFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.repository"/>
+<stringAttribute key="resourceTypeFile" value="pathmap://PCM_MODELS/Palladio.resourcetype"/>
+<stringAttribute key="simTime" value="1000000"/>
+<booleanAttribute key="simulateLinkingResources" value="false"/>
+<stringAttribute key="stepwidth" value=""/>
+<stringAttribute key="systemFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.system"/>
+<stringAttribute key="usageFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc_usageScenario_bookSale_closedWorkload.usagemodel"/>
+<stringAttribute key="variable" value=""/>
+<booleanAttribute key="verboseLogging" value="false"/>
+</launchConfiguration>
