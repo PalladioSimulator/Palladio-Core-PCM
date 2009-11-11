@@ -29,7 +29,7 @@
          </editor>
       </extension>
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie"
                acceptsMultiple="false"
@@ -39,7 +39,7 @@
          </Visualisation>
       </extension>
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
@@ -49,7 +49,7 @@
          </Visualisation>
       </extension>
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries"
                acceptsMultiple="false"
@@ -59,7 +59,7 @@
          </Visualisation>
       </extension>
       <extension
-            point="de.uka.ipd.sdq.sensorframework.de.uka.ipd.sdq.sensorframework.visualisation">
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
