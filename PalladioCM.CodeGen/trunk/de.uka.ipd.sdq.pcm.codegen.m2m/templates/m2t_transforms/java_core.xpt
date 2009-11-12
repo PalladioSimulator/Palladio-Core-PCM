@@ -86,6 +86,7 @@ public class «this.javaName()»
 // Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
 // ComposedStructure
 «DEFINE ComponentImplementation FOR RepositoryComponent»
+ «ERROR this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers."» 
 «ENDDEFINE»
 
 «DEFINE ComponentImplementation FOR ImplementationComponentType»

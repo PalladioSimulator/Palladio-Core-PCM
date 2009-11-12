@@ -31,12 +31,13 @@
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDDEFINE»
 
+
 «DEFINE ComponentRoot FOR CompositeComponent»
-	«EXPAND CompositeComponentRoot FOR this»
+   «EXPAND CompositeComponentRoot FOR this»
 «ENDDEFINE»
 
 «DEFINE ComponentRoot FOR SubSystem»
-	«EXPAND CompositeComponentRoot FOR this»
+   «EXPAND CompositeComponentRoot FOR this»
 «ENDDEFINE»
 
 «DEFINE CompositeComponentRoot FOR ComposedProvidingRequiringEntity»
@@ -49,6 +50,6 @@
 	«ENDFILE»
 	«REM»
 	I guess this line is generating additional overhead, the components inside a CC should be generated already
-	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext»
+	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext»
 	«ENDREM»
 «ENDDEFINE»
