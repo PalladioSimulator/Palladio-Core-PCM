@@ -1,0 +1,74 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+«IMPORT completions»
+
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ExternalCallAction»
+ 	{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+	«LET javaVariableName("tries_"+ this.calledService_ExternalService.javaSignature()) AS triesVar»
+	int «triesVar» = 1 + «this.retryCount»; //The call plus the retries
+
+	//Execute the external call until it succeeds or the maximal try count is exeeded.
+	for(int i=0; i<«triesVar»; ++i) {
+		try {
+		    «EXPAND m2t_transforms::calls::Call(this,
+		       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+		    	this.inputParameterUsages_ExternalCallAction, this.outputVariableUsages_ExternalCallAction) FOR this.calledService_ExternalService»
+		    	break; // success, go on.
+    	}
+		catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
+			//failure occured
+			if(i == «triesVar»-1) //retry count exeeded?
+				throw ex; //yes, could not be handled => failure
+		}
+	}
+	«ENDLET»
+	}
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+   «ERROR "InternalAction is a template method and must be overridden"»
+«ENDDEFINE»
+ 
+«DEFINE Action FOR BranchAction»
+   «ERROR "BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR AcquireAction»
+   «ERROR "AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+«ENDDEFINE»
