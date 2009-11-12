@@ -28,7 +28,16 @@
 «ENDDEFINE»
 
 «DEFINE ComponentRoot FOR RepositoryComponent»
-   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+  «REM»FIXME: There seems to be a bug in xPand 0.7.2 that calls this template for SubSystems 
+  (It should call ComponentRoot FOR SubSystem). See Bug 523. Revisit this again when a new XPand is available. 
+  Note: it does not even work to compare IF this.metaType == subsystem::SubSystem, because it cannot find the 
+  type subsystem::SubSystem at runtime. «ENDREM»
+  «IF ""+this.metaType == "subsystem::SubSystem"»
+    «ERROR "Info: Caught wrongly expanded SubSystem "+this.entityName +"(type "+this.metaType+") in DEFINE ComponentRoot FOR RepositoryComponent."»
+    «EXPAND CompositeComponentRoot FOR (subsystem::SubSystem)this»
+  «ELSE»
+    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+  «ENDIF»
 «ENDDEFINE»
 
 
