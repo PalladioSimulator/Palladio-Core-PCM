@@ -82,8 +82,9 @@
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
 		
-		// Increase the counter for main measurements as a run through this usage model is complete
-		ctx.getModel().increaseMainMeasurementsCount();
+		// A run through this usage model is complete
+		// The counter for main measurements is incremented by the SimProcess.internalLifeCycle that called this 
+		// ctx.getModel().increaseMainMeasurementsCount();
 	}
 «ENDDEFINE»
 
