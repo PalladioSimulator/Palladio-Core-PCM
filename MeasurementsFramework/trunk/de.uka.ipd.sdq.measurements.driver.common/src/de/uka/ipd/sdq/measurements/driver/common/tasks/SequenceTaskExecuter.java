@@ -26,7 +26,7 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 		Iterator<RmiAbstractTask> taskIterator = ((RmiSequenceTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
-			AbstractTaskExecuter taskExecuter = TaskManager.getInstance().convertTask(rmiTask, 1);
+			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, 1);
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
 					synchronized (SequenceTaskExecuter.this) {

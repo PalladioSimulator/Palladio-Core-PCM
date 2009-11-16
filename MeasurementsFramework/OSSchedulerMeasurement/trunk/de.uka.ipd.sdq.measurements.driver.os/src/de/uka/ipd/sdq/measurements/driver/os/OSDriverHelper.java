@@ -5,10 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
-import de.uka.ipd.sdq.measurements.driver.common.Calibrator;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 
-public class MidisHostHelper {
+public class OSDriverHelper {
 
 	public static long calibrate(final RmiDemand demand, int degreeOfAccuracy, boolean signalOnFinish,
 			String masterURL, int masterPort) {
@@ -25,8 +24,8 @@ public class MidisHostHelper {
 
 	public static boolean updateJarFile(byte[] buffer) {
 		OSDriver.log("Receiving updated jar file...");
-		String fileName = "midishost_new";
-		String fileNameWithNumber = "midishost_new.jar";
+		String fileName = "osdriver_new";
+		String fileNameWithNumber = "osdriver_new.jar";
 		int fileNumber = 0;
 		try {
 			File file = new File(fileNameWithNumber);

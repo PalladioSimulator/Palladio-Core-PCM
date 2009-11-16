@@ -1,22 +1,17 @@
 package de.uka.ipd.sdq.measurements.driver.os;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import de.uka.ipd.sdq.measurements.driver.common.LoggerDelegate;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskExecuterFactory;
 import de.uka.ipd.sdq.measurements.driver.os.rmi.RMIServer;
+import de.uka.ipd.sdq.measurements.driver.os.tasks.OSDriverTaskExecuterFactory;
 
 public class OSDriver {
 
 	private static boolean DEBUG = false;
 	private static boolean LOGGING = true;
-	private static MidisHostLoggerDelegate loggerDelegate = null;
+	private static OSDriverLoggerDelegate loggerDelegate = null;
 
 	private static OSDriver midisHost = null;
 
@@ -40,13 +35,16 @@ public class OSDriver {
 	//private HashMap<String, GuestInterface> guestInterfaces = new HashMap<String, GuestInterface>();
 
 	private void initialize() {
-		if (System.getProperty(MidisHostConstants.JavaPropertyKey) != null) {
+		if (System.getProperty(OSDriverConstants.JavaPropertyKey) != null) {
 			PropertyManager.getInstance().initializeProperties(
 					new File(System
-							.getProperty(MidisHostConstants.JavaPropertyKey)));
+							.getProperty(OSDriverConstants.JavaPropertyKey)));
 		} else {
 			PropertyManager.getInstance().initializeProperties(null);
 		}
+		
+		// Register OS task sub factory.
+		TaskExecuterFactory.getInstance().registerSubFactory(new OSDriverTaskExecuterFactory());
 
 		// Check if logging should be done.
 		LOGGING = PropertyManager.getInstance().getLogging();
@@ -229,7 +227,7 @@ public class OSDriver {
 
 	public static LoggerDelegate getLoggerDelegate() {
 		if (loggerDelegate == null) {
-			loggerDelegate = new MidisHostLoggerDelegate();
+			loggerDelegate = new OSDriverLoggerDelegate();
 		}
 		return loggerDelegate;
 	}

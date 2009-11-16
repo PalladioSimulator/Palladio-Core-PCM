@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.driver.common;
+package de.uka.ipd.sdq.measurements.driver.os;
 
 import java.util.Properties;
 
@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum
 import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.MandelbrotDemand;
+import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 
 public class Calibrator implements Runnable {

@@ -33,7 +33,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 		Iterator<RmiAbstractTask> taskIterator = ((RmiParallelTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
-			AbstractTaskExecuter taskExecuter = TaskManager.getInstance().convertTask(rmiTask, 1);
+			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, 1);
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
 					synchronized (ParallelTaskExecuter.this) {

@@ -12,9 +12,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.security.AccessControlException;
 
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
-import de.uka.ipd.sdq.measurements.driver.os.Constants;
-import de.uka.ipd.sdq.measurements.driver.os.MidisHostConstants;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
+import de.uka.ipd.sdq.measurements.driver.os.OSDriverConstants;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
 
 public class RMIServer {
@@ -35,7 +34,7 @@ public class RMIServer {
 
 			hostIP = PropertyManager.getInstance().getHostRmiIp();
 			if (hostIP == null) {
-				OSDriver.logError("Failed to lookup Guest IP address. Start MidisHost with -D" + MidisHostConstants.JavaPropertyHostIP + "=<IP_ADDRESS>");
+				OSDriver.logError("Failed to lookup Driver IP address. Start MidisHost with -D" + OSDriverConstants.JavaPropertyOSDriverIP + "=<IP_ADDRESS>");
 			}
 			hostPort = PropertyManager.getInstance().getDriverRmiPort();
 
@@ -51,8 +50,8 @@ public class RMIServer {
 			LocateRegistry.createRegistry(hostPort);
 
 			try {
-				OSDriver.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + Constants.OSDriverRMIName);
-				Naming.rebind("rmi://" + hostIP + ":" + hostPort + "/" + Constants.OSDriverRMIName, stub);
+				OSDriver.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + OSDriverConstants.OSDriverRMIName);
+				Naming.rebind("rmi://" + hostIP + ":" + hostPort + "/" + OSDriverConstants.OSDriverRMIName, stub);
 			} catch (UnknownHostException e) {
 				OSDriver.logError("Failed to start RMI server, Host not known: " + hostIP + ":" + hostPort);
 				return false;
@@ -73,7 +72,7 @@ public class RMIServer {
 			return false;
 		}
 
-		OSDriver.log("Host RMI server started on " + "rmi://" + hostIP + ":" + hostPort + ".");
+		OSDriver.log("OS Driver RMI server started on " + "rmi://" + hostIP + ":" + hostPort + ".");
 
 		return true;
 	}

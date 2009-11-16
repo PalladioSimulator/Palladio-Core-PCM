@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.measurements.driver.os;
 
 import de.uka.ipd.sdq.measurements.driver.common.LoggerDelegate;
 
-public class MidisHostLoggerDelegate extends LoggerDelegate {
+public class OSDriverLoggerDelegate extends LoggerDelegate {
 
 	@Override
 	public void log(String logMessage) {

@@ -22,7 +22,7 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 		if (taskThreads == null) {
 			taskThreads = new Thread[numberOfIterations];
 		}
-		AbstractTaskExecuter taskExecuter = TaskManager.getInstance().convertTask(((RmiLoopTask)task).getNestedTask(), ((RmiLoopTask)task).getNumberOfIterations());
+		AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(((RmiLoopTask)task).getNestedTask(), ((RmiLoopTask)task).getNumberOfIterations());
 		taskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				synchronized (LoopTaskExecuter.this) {

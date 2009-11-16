@@ -19,34 +19,34 @@ public class PropertyManager extends AbstractPropertyManager {
 	}
 
 	public int getDriverRmiPort() {
-		return getIntProperty(MidisHostConstants.JavaPropertyHostRmiPort,
-				"OS Driver RMI port", Constants.OSDriverRMIRegistryPort);
+		return getIntProperty(OSDriverConstants.JavaPropertyOSDriverRmiPort,
+				"OS Driver RMI port", OSDriverConstants.OSDriverDefaultRMIRegistryPort);
 	}
 	
 	public String getCalibrationFilePath() {
 		return getStringProperty(
-				MidisHostConstants.JavaPropertyCalibrationFilePath,
+				OSDriverConstants.JavaPropertyOSDriverCalibrationFilePath,
 				"Calibration file path");
 	}
 
 	public String getHostRmiIp() {
-		return getStringProperty(MidisHostConstants.JavaPropertyHostIP,
+		return getStringProperty(OSDriverConstants.JavaPropertyOSDriverIP,
 				"Host RMI IP");
 	}
 
 	public boolean getLoggingDebug() {
 		return getBooleanProperty(
-				MidisHostConstants.JavaPropertyHostLoggingDebug,
+				OSDriverConstants.JavaPropertyOSDriverLoggingDebug,
 				"Host debug logging");
 	}
 
 	public boolean getLogging() {
 		return getBooleanProperty(
-				MidisHostConstants.JavaPropertyHostLogging, "Host logging");
+				OSDriverConstants.JavaPropertyOSDriverLogging, "Host logging");
 	}
 
 	@Override
 	protected String getDefaultPropertyPath() {
-		return "conf/host.properties";
+		return "conf/osdriver.properties";
 	}
 }

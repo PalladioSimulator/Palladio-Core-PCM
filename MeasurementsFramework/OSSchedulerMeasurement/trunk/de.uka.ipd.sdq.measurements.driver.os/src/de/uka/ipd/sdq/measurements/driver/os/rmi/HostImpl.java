@@ -1,15 +1,11 @@
 package de.uka.ipd.sdq.measurements.driver.os.rmi;
 
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.util.ArrayList;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
-import de.uka.ipd.sdq.measurements.driver.os.MidisHostHelper;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
+import de.uka.ipd.sdq.measurements.driver.os.OSDriverHelper;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 
@@ -68,7 +64,7 @@ public class HostImpl implements HostInterface {
 
 	public long calibrate(final RmiDemand demand, int degreeOfAccuracy, boolean signalOnFinish, String masterURL,
 			int masterPort) throws RemoteException {
-		return MidisHostHelper.calibrate(demand, degreeOfAccuracy, signalOnFinish, masterURL, masterPort);
+		return OSDriverHelper.calibrate(demand, degreeOfAccuracy, signalOnFinish, masterURL, masterPort);
 	}
 
 	public String ping() throws RemoteException {
@@ -80,7 +76,7 @@ public class HostImpl implements HostInterface {
 	}*/
 
 	public boolean updateJarFile(byte[] buffer) throws RemoteException {
-		return MidisHostHelper.updateJarFile(buffer);
+		return OSDriverHelper.updateJarFile(buffer);
 	}
 
 	public void cleanup() throws RemoteException {

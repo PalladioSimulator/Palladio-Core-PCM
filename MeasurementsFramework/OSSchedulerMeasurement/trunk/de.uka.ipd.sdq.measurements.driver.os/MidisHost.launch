@@ -8,5 +8,5 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value=de.uka.ipd.sdq.measurements.driver.os.StartHost"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="de.uka.ipd.sdq.measurements.driver.os"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.policy=export/host.policy -Dhost.properties=src/conf/host.properties"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.policy=export/host.policy -Dhost.properties=src/conf/osdriver.properties"/>
 </launchConfiguration>
