@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskManager;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriverHelper;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
@@ -44,7 +45,7 @@ public class HostImpl implements HostInterface {
 		// First, copy Host calibration files to Guests in case they do not have them available 
 		//MidisHostHelper.storeHostCalibrationFiles(false);
 
-		/*if (autoStartExecution == true) {
+		if (autoStartExecution == true) {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
@@ -53,13 +54,11 @@ public class HostImpl implements HostInterface {
 			}).start();
 			return true;
 		}
-		return TaskManager.getInstance().prepareTasks(rootTask, autoStartExecution);*/
-		return true;
+		return TaskManager.getInstance().prepareTasks(rootTask, autoStartExecution);
 	}
 
 	public boolean executeTasks() throws RemoteException {
-		return true;
-		//return TaskManager.getInstance().executeTasks();
+		return TaskManager.getInstance().executeTasks();
 	}
 
 	public long calibrate(final RmiDemand demand, int degreeOfAccuracy, boolean signalOnFinish, String masterURL,

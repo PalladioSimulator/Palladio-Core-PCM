@@ -25,6 +25,12 @@ public class TaskExecuterFactory implements TaskExecuterFactoryInterface{
 	
 	private List<TaskExecuterFactoryInterface> subFactories = null;
 	
+	/**
+	 * Convert the task into a corresponding TaskExecuter object.
+	 * If the TaskExecuterFactory does not know how to create certain executers,
+	 * the corresponding factory method of the registered subfactories are called
+	 * (Chain of Responsibility pattern)
+	 */
 	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations) {
 		if (rmiTask instanceof RmiSequenceTask) {
 			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations);
