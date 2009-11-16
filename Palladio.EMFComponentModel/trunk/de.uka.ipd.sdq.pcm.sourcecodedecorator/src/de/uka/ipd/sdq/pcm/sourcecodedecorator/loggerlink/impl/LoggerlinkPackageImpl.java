@@ -435,7 +435,7 @@ public class LoggerlinkPackageImpl extends EPackageImpl implements LoggerlinkPac
 		initEReference(getBeforeExternalCallLoggingPositionLink_LinkedExternalCallAction(), theSeffPackage.getExternalCallAction(), null, "linkedExternalCallAction", null, 1, 1, BeforeExternalCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(methodCallLoggingPositionLinkEClass, MethodCallLoggingPositionLink.class, "MethodCallLoggingPositionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification(), theSeffPackage.getServiceEffectSpecification(), null, "linkedServiceEffectSpecification", null, 1, 1, MethodCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification(), theSeffPackage.getResourceDemandingSEFF(), null, "linkedServiceEffectSpecification", null, 1, 1, MethodCallLoggingPositionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(inputLoggingPositionLinkEClass, InputLoggingPositionLink.class, "InputLoggingPositionLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

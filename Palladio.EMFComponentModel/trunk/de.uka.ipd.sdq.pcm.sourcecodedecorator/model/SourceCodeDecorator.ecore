@@ -116,7 +116,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MethodCallLoggingPositionLink" eSuperTypes="#//loggerlink/InputLoggingPositionLink">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkedServiceEffectSpecification"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ResourceDemandingSEFF"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InputLoggingPositionLink" abstract="true"
         eSuperTypes="#//loggerlink/LoggingPositionIdLink"/>

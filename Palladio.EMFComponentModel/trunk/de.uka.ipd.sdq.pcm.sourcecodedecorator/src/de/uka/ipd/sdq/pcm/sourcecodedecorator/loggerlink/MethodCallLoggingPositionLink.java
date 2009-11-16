@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink;
 
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 /**
@@ -34,12 +35,12 @@ public interface MethodCallLoggingPositionLink extends InputLoggingPositionLink 
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Linked Service Effect Specification</em>' reference.
-	 * @see #setLinkedServiceEffectSpecification(ServiceEffectSpecification)
+	 * @see #setLinkedServiceEffectSpecification(ResourceDemandingSEFF)
 	 * @see de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage#getMethodCallLoggingPositionLink_LinkedServiceEffectSpecification()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ServiceEffectSpecification getLinkedServiceEffectSpecification();
+	ResourceDemandingSEFF getLinkedServiceEffectSpecification();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.MethodCallLoggingPositionLink#getLinkedServiceEffectSpecification <em>Linked Service Effect Specification</em>}' reference.
@@ -49,6 +50,6 @@ public interface MethodCallLoggingPositionLink extends InputLoggingPositionLink 
 	 * @see #getLinkedServiceEffectSpecification()
 	 * @generated
 	 */
-	void setLinkedServiceEffectSpecification(ServiceEffectSpecification value);
+	void setLinkedServiceEffectSpecification(ResourceDemandingSEFF value);
 
 } // MethodCallLoggingPositionLink

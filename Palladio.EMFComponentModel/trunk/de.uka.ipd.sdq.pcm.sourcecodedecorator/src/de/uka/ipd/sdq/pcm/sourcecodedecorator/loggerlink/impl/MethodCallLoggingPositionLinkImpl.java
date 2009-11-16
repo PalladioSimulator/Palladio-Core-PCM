@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.impl;
 
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 import de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage;
@@ -40,7 +41,7 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	 * @generated
 	 * @ordered
 	 */
-	protected ServiceEffectSpecification linkedServiceEffectSpecification;
+	protected ResourceDemandingSEFF linkedServiceEffectSpecification;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,10 +66,10 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceEffectSpecification getLinkedServiceEffectSpecification() {
+	public ResourceDemandingSEFF getLinkedServiceEffectSpecification() {
 		if (linkedServiceEffectSpecification != null && linkedServiceEffectSpecification.eIsProxy()) {
 			InternalEObject oldLinkedServiceEffectSpecification = (InternalEObject)linkedServiceEffectSpecification;
-			linkedServiceEffectSpecification = (ServiceEffectSpecification)eResolveProxy(oldLinkedServiceEffectSpecification);
+			linkedServiceEffectSpecification = (ResourceDemandingSEFF)eResolveProxy(oldLinkedServiceEffectSpecification);
 			if (linkedServiceEffectSpecification != oldLinkedServiceEffectSpecification) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION, oldLinkedServiceEffectSpecification, linkedServiceEffectSpecification));
@@ -82,7 +83,7 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceEffectSpecification basicGetLinkedServiceEffectSpecification() {
+	public ResourceDemandingSEFF basicGetLinkedServiceEffectSpecification() {
 		return linkedServiceEffectSpecification;
 	}
 
@@ -91,8 +92,8 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLinkedServiceEffectSpecification(ServiceEffectSpecification newLinkedServiceEffectSpecification) {
-		ServiceEffectSpecification oldLinkedServiceEffectSpecification = linkedServiceEffectSpecification;
+	public void setLinkedServiceEffectSpecification(ResourceDemandingSEFF newLinkedServiceEffectSpecification) {
+		ResourceDemandingSEFF oldLinkedServiceEffectSpecification = linkedServiceEffectSpecification;
 		linkedServiceEffectSpecification = newLinkedServiceEffectSpecification;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION, oldLinkedServiceEffectSpecification, linkedServiceEffectSpecification));
@@ -122,7 +123,7 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION:
-				setLinkedServiceEffectSpecification((ServiceEffectSpecification)newValue);
+				setLinkedServiceEffectSpecification((ResourceDemandingSEFF)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,7 +138,7 @@ public class MethodCallLoggingPositionLinkImpl extends InputLoggingPositionLinkI
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case LoggerlinkPackage.METHOD_CALL_LOGGING_POSITION_LINK__LINKED_SERVICE_EFFECT_SPECIFICATION:
-				setLinkedServiceEffectSpecification((ServiceEffectSpecification)null);
+				setLinkedServiceEffectSpecification((ResourceDemandingSEFF)null);
 				return;
 		}
 		super.eUnset(featureID);
