@@ -64,6 +64,7 @@ public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfi
 		Button btnFileSystem = new Button(container, SWT.NONE);
 		btnFileSystem.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		btnFileSystem.setText("File System...");
+		btnFileSystem.addSelectionListener(new FileSystemButtonSelectionAdapter(measurementScriptFileText,Constants.MEASUREMENTSCRIPT_EXTENSION));
 		
 	}
 
@@ -84,14 +85,18 @@ public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfi
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-		
+		configuration.setAttribute(Constants.MEASUREMENTSCRIPT_FILE, measurementScriptFileText.getText());		
 	}
 
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public boolean canSave() {
+		return true;
 	}
 	
 	
@@ -110,6 +115,8 @@ class FileSystemButtonSelectionAdapter extends SelectionAdapter {
 		 */
 		public void widgetSelected(SelectionEvent e) {
 			setOpenFileDialogResultToTextField(this.field, this.extensions);
+			setDirty(true);
+			updateLaunchConfigurationDialog();
 		}
 	}
 
@@ -131,6 +138,8 @@ class FileSystemButtonSelectionAdapter extends SelectionAdapter {
 		@Override
 		public void widgetSelected(SelectionEvent e) {
 			setOpenFileDialogResultToTextField(this.field, this.extension);
+			setDirty(true);
+			updateLaunchConfigurationDialog();
 		}
 	}
 	
@@ -170,7 +179,7 @@ class FileSystemButtonSelectionAdapter extends SelectionAdapter {
 	private void setOpenFileDialogResultToTextField(Text textField, final String[] EXTENSION) {
 		String resultOpenFileDialog = openFileDialog(EXTENSION);
 		if (!resultOpenFileDialog.equals(new String(""))) {
-			textField.setText(resultOpenFileDialog);			
+			textField.setText(resultOpenFileDialog);
 		}
 		// Otherwise the default value of textField would not be changed.
 	}

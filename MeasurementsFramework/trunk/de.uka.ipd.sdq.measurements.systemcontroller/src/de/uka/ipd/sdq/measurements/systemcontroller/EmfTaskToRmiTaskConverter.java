@@ -46,6 +46,15 @@ public class EmfTaskToRmiTaskConverter {
 	}
 	
 	public RmiAbstractTask convert(AbstractTask emfTask) {
+		if (emfTask instanceof SequenceTask) {
+			return convertSequenceTask((SequenceTask)emfTask);
+		} else if (emfTask instanceof ParallelTask) {
+			return convertParallelTask((ParallelTask)emfTask);
+		} else if (emfTask instanceof LoopTask) {
+			return convertLoopTask((LoopTask)emfTask);
+		} else if (emfTask instanceof ResourceStrategyMeasurementTask) {
+			return convertResourceStrategyMeasurementTask((ResourceStrategyMeasurementTask)emfTask);
+		}
 		return null;
 	}
 	
@@ -79,7 +88,7 @@ public class EmfTaskToRmiTaskConverter {
 		return null;
 	}
 	
-	public RmiAbstractTask convert(SequenceTask emfTask) {
+	public RmiAbstractTask convertSequenceTask(SequenceTask emfTask) {
 		RmiSequenceTask rmiSequenceTask = new RmiSequenceTask(++idCounter);
 		prepareAbstractTask(rmiSequenceTask, emfTask);
 		List<RmiAbstractTask> tasks = new ArrayList<RmiAbstractTask>();
@@ -91,7 +100,7 @@ public class EmfTaskToRmiTaskConverter {
 		return rmiSequenceTask;
 	}
 	
-	public RmiAbstractTask convert(ParallelTask emfTask) {
+	public RmiAbstractTask convertParallelTask(ParallelTask emfTask) {
 		RmiParallelTask rmiParallelTask = new RmiParallelTask(++idCounter);
 		prepareAbstractTask(rmiParallelTask, emfTask);
 		List<RmiAbstractTask> tasks = new ArrayList<RmiAbstractTask>();
@@ -103,14 +112,15 @@ public class EmfTaskToRmiTaskConverter {
 		return rmiParallelTask;
 	}
 	
-	public RmiAbstractTask convert(LoopTask emfTask) {
+	public RmiAbstractTask convertLoopTask(LoopTask emfTask) {
 		RmiLoopTask rmiLoopTask = new RmiLoopTask(++idCounter);
 		prepareAbstractTask(rmiLoopTask, emfTask);
+		rmiLoopTask.setNumberOfIterations(emfTask.getNumberOfIterations());
 		rmiLoopTask.setNestedTask(convert(emfTask.getTask()));
 		return rmiLoopTask;
 	}
 	
-	public RmiAbstractTask convert(ResourceStrategyMeasurementTask emfTask) {
+	public RmiAbstractTask convertResourceStrategyMeasurementTask(ResourceStrategyMeasurementTask emfTask) {
 		RmiResourceStrategyMeasurementTask rmiResourceStrategyMeasurementTask = new RmiResourceStrategyMeasurementTask(++idCounter);
 		prepareMachineTask(rmiResourceStrategyMeasurementTask, emfTask);
 		rmiResourceStrategyMeasurementTask.setMeasurementTime(emfTask.getDuration());

@@ -4,4 +4,7 @@ Bundle-Name: MeasurementsConfigurator
 Bundle-SymbolicName: de.uka.ipd.sdq.measurements.configurator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.debug.ui
+Require-Bundle: org.eclipse.debug.ui,
+ de.uka.ipd.sdq.measurements;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.13"
+Export-Package: de.uka.ipd.sdq.measurements.configurator

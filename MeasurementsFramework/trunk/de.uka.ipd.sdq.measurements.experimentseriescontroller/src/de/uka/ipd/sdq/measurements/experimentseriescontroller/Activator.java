@@ -11,6 +11,11 @@ public class Activator extends Plugin  {
 
 	private SystemController systemController = null;
 
+	public SystemController getSystemController() {
+		return systemController;
+	}
+
+
 	public Activator() {
 	}
 
@@ -21,7 +26,7 @@ public class Activator extends Plugin  {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		de.uka.ipd.sdq.measurements.systemcontroller.Activator.getDefault();
+		systemController = de.uka.ipd.sdq.measurements.systemcontroller.Activator.getDefault().getSystemController();
 
 	}
 

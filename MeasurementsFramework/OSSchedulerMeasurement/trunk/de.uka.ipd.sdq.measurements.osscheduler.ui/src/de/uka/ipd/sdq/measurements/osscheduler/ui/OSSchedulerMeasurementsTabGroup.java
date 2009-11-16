@@ -2,12 +2,14 @@ package de.uka.ipd.sdq.measurements.osscheduler.ui;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
+
+import de.uka.ipd.sdq.measurements.osscheduler.ui.tabs.OSSchedulerMeasurementsConfigurationTab;
 
 public class OSSchedulerMeasurementsTabGroup extends AbstractLaunchConfigurationTabGroup {
 
-	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		// TODO Auto-generated method stub
+		setTabs(new ILaunchConfigurationTab[]{new OSSchedulerMeasurementsConfigurationTab()});
 		
 	}
 

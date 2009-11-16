@@ -5,6 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescon
 Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.uka.ipd.sdq.measurements.experimentseriescontroller;visibility:=reexport,
- org.eclipse.core.runtime;bundle-version="3.5.0"
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller
 Bundle-Activator: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller.Activator

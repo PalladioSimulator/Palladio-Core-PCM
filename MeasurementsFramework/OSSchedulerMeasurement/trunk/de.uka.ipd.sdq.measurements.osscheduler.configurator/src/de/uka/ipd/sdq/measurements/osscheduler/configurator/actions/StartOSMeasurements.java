@@ -55,7 +55,7 @@ public class StartOSMeasurements implements IWorkbenchWindowActionDelegate {
                     IConfigurationElement element = elements[j];
                     Object o = element.createExecutableExtension("class");
                     if (o instanceof OSSchedulerExperimentSeriesController) {
-                    	((OSSchedulerExperimentSeriesController)o).startMeasurements();
+                    	((OSSchedulerExperimentSeriesController)o).startMeasurements(null);
                     }
                     
                 }
