@@ -43,10 +43,6 @@ public class HostImpl implements HostInterface {
 		return true;
 	}
 
-	/*public boolean initializeGuest(String guestIP, int guestPort, String guestName) throws RemoteException {
-		return MidisHostHelper.initializeGuest(guestIP, guestPort, guestName);
-	}*/
-
 	public boolean prepareTasks(final RmiAbstractTask rootTask, final boolean autoStartExecution)
 			throws RemoteException {
 		// First, copy Host calibration files to Guests in case they do not have them available 
@@ -87,11 +83,6 @@ public class HostImpl implements HostInterface {
 		return MidisHostHelper.updateJarFile(buffer);
 	}
 
-	public boolean updateGuestJarFile(String guestIP, int guestPort, String guestName, byte[] buffer) {
-		//return MidisHostHelper.updateGuestJarFile(guestIP, guestPort, guestName, buffer);
-		return true;
-	}
-	
 	public void cleanup() throws RemoteException {
 		//TaskManager.getInstance().clearPreparedTasks();
 		Runtime r = Runtime.getRuntime();

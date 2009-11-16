@@ -8,7 +8,11 @@ public abstract class AbstractTaskResult implements Serializable {
 
 	private static final long serialVersionUID = 5834509774265325880L;
 
+	/** The ID of the task **/
 	private int taskId = 0;
+	/** The ID of the executed task instance
+	 * (e.g. a task nested in a LoopTask can be executed multiple times)
+	 */
 	private long taskExecuterId = 0L;
 	private long totalTime = 0L;
 	private RmiAbstractTask task = null;

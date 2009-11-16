@@ -12,7 +12,7 @@
 			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/bin" />
 			<zipfileset excludes="META-INF/*.SF" src="C:/Code/eclipse_3.5_measurements/plugins/org.apache.log4j_1.2.13.v200903072027.jar" />
 			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.common/bin" />
-			<zipfileset excludes="META-INF/*.SF" src="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.common/lib/resourcestrategies.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/lib/resourcestrategies.jar" />
 			<fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.rmi/bin" />
 		</jar>
 		<copy todir="export">

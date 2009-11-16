@@ -58,8 +58,7 @@ public interface HostInterface extends Remote {
 	//boolean initializeGuest(String guestIP, int guestPort, String guestName) throws RemoteException;
 
 	/**
-	 * Make all necessary task preparation. The host will call all guests for
-	 * their preparations.
+	 * Make all necessary task preparation.
 	 * 
 	 * @param rootTask
 	 *            the root task that contains all other tasks.
@@ -114,10 +113,12 @@ public interface HostInterface extends Remote {
 	//public ArrayList<AbstractTaskResult> getTemporaryResults()
 	//		throws RemoteException;
 
+	/**
+	 * Deploy a new Host jar file on the host.
+	 * 
+	 */
 	boolean updateJarFile(byte[] buffer) throws RemoteException;
 
-	boolean updateGuestJarFile(String guestIP, int guestPort, String guestName,
-			byte[] buffer) throws RemoteException;
 	
 	/**
 	 * Cleanup Host, e.g. clear all prepared tasks and call cleanup() on

@@ -61,7 +61,7 @@ public class EmfTaskToRmiTaskConverter {
 		MachineDescription description = getMachineDescription(emfTask.getMachine());
 		if (description != null) {
 			rmiMachineTask.setMachineIp(description.getIp());
-			//rmiMachineTask.setMachinePort(description.getPort());
+			rmiMachineTask.setMachinePort(description.getPort());
 			rmiMachineTask.setMachineName(description.getName());
 		}
 	}
