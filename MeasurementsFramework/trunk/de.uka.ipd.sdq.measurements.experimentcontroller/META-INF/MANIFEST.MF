@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Experimentcontroller
+Bundle-SymbolicName: de.uka.ipd.sdq.measurements.experimentcontroller;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
+Export-Package: de.uka.ipd.sdq.measurements.experimentcontroller
