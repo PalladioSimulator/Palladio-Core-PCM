@@ -1,3 +1,7 @@
+/**
+* TODO:  Thomas' Plugin nutzen für Debug !! ijoijoijffrih980p9´++j  hguoru4d7oz89465
+**/ 
+
 transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubAnnotation ) {
 
 	/*******************************************************************/
@@ -32,6 +36,12 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 	/* Get a connection that contains the given recevier element */
 	query getConnection ( receiverElement : PubSubAnnotation::Receiver ) : PubSubAnnotation::Connection {
 		PubSubAnnotation::Connection.allInstances()->any( connection | connection.receiver->includes( receiverElement ) )
+	}
+	
+	/* Returns the ResourceContainer on which the component reference by the given AssemblyContext is deployed */
+	query getResourceContainer (assemblyContextID : ecore::EString ) : pcm::resourceenvironment::ResourceContainer {
+		pcm::allocation::AllocationContext.allInstances()->
+			any(allocationContext | allocationContext.assemblyContext_AllocationContext.id = assemblyContextID).resourceContainer_AllocationContext
 	}
 	
 
@@ -101,7 +111,7 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		
 		enforce domain target adapterComponent : pcm::repository::BasicComponent {
 			requiredRoles_InterfaceRequiringEntity = fittingRequiredRole : pcm::repository::RequiredRole {
-				entityName = 'Required_' + interfaceName + '_toConnectWith_' + providedRoleName,
+				/* EntityName is given in Relation CreateRequiredRoles */
 				requiredInterface__RequiredRole = requiredInterface : pcm::repository::Interface {}
 			}
 		};	
@@ -170,6 +180,21 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		};
 	}
 	
+
+	/**************************************************************************************************/
+	/*Transformation step 1.b: Create and connect the adapters ExternalCallActions and create a chain */
+	/*                                                                                                */
+	/*This step is devided in two parts excluding each other for every annotated connection! The first*/
+	/*part creates the chain for a synchronous connection. The second part creates it for an asynchro-*/
+	/*nous connection by additionally putting each ExternalCallAction into an asynchronous ForkAction.*/
+	/**************************************************************************************************/
+
+
+	/*--------------------------------/
+	/ PART 1 - SYNCHRONOUS CONNECTION /
+	/--------------------------------*/
+
+
 	/**
 	* Creates an ExternalCallAction for each signature of each receiver element in the annotation. Additionally it adds calls the RequiredRole
 	* that was attached to the receiver element before.
@@ -184,16 +209,23 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		
 		enforce domain target fittingExternalCallAction : pcm::seff::ExternalCallAction {
 			entityName = 'Call_' + assemblyContextName,
+			calledService_ExternalService = copiedSeffsDescribedService : pcm::repository::Signature {
+			},
 			role_ExternalService = externalServiceRole : pcm::repository::Role {
 			}
 			
 		};
 		when {
+			-- This relation must hold only if the connection should be synchronous
+			not getConnection(annotatedReceiverElement).asynchronousConnection;
+			
 			-- Only create actions for signatures, that belong to the current receiver element of interest
 			getProvidedRole( annotatedReceiverElement.providedRoleID ).providedInterface__ProvidedRole.signatures__Interface
 																		->includes( seffsDescribedService );
 			-- Check that the calling role is attached to the receiver element
 			MarkReceiverToGeneratedRequiredRole( annotatedReceiverElement, externalServiceRole );
+			
+			Mark_repository_Signature(seffsDescribedService, copiedSeffsDescribedService);
 		}
 		where {
 			-- Check the called AssemblyContexts name for debugging
@@ -201,9 +233,7 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		}
 	}
 	
-	/**************************************************************************************/
-	/*Transformation step 1.b: Connect the created ExternalCallActions and create a chain */
-	/**************************************************************************************/
+
 	
 	
 	/**
@@ -228,6 +258,9 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 			}
 		};
 		when {
+			-- This relation must hold only if the connection should be synchronous
+			not annotatedConnection.asynchronousConnection;
+			
 			MarkCreatedSeff( annotatedConnection, seffsDescribedService, adapterSeff );
 			CreateExternalCallAction( receiverElement, seffsDescribedService, firstExternalCallAction );
 			-- To make sure this relation is only fulfilled once for a SEFF (as a SEFF has only 1 StartAction) check that there is no
@@ -260,6 +293,9 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 			}
 		};
 		when {
+			-- This relation must hold only if the connection should be synchronous
+			not getConnection(receiverElement1).asynchronousConnection;
+			
 			-- Both receiver elements must be part of the same connection
 			getConnection( receiverElement1 ) = getConnection( receiverElement2 );
 			-- The SEFF should already exist, as well as both of the ExternalCallActions must have been created already
@@ -295,6 +331,9 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		};
 		
 		when {
+			-- This relation must hold only if the connection should be synchronous
+			not annotatedConnection.asynchronousConnection;
+			
 			-- The SEFF and the ExternalCallAction must have been created already
 			MarkCreatedSeff( annotatedConnection, seffsDescribedService, adapterSeff );
 			CreateExternalCallAction( receiverElement, seffsDescribedService, lastExternalCallAction );
@@ -307,7 +346,113 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		}
 	
 	}	
+
+	/*---------------------------------/
+	/ PART 2 - ASYNCHRONOUS CONNECTION /
+	/---------------------------------*/
+
+
+	/**
+	* Creates a ForkAction sourrounded by the Required Start- and SoptAction. The ForkAction has to be completed by an other Relation
+	**/
+	top relation CreateForkAction {
 	
+		checkonly domain annotation annotatedConnection : PubSubAnnotation::Connection {
+		};
+		checkonly domain source seffsDescribedService : pcm::repository::Signature {
+		};
+		
+		enforce domain target adapterSeff : pcm::seff::ResourceDemandingSEFF {
+			steps_Behaviour = startAction : pcm::seff::StartAction {
+				successor_AbstractAction = forkAction : pcm::seff::ForkAction {}
+			},
+			steps_Behaviour = forkAction : pcm::seff::ForkAction {
+				predecessor_AbstractAction = startAction,
+				successor_AbstractAction = stopAction : pcm::seff::StopAction {
+				}
+			},
+			steps_Behaviour = stopAction : pcm::seff::StopAction {
+				predecessor_AbstractAction = forkAction
+			}
+		};
+		when {
+			-- This relation must hold only if the connection should be asynchronous
+			annotatedConnection.asynchronousConnection;
+			
+			MarkCreatedSeff( annotatedConnection, seffsDescribedService, adapterSeff );
+		}
+		where {
+			MarkForkActionToConnectionAndService( annotatedConnection, seffsDescribedService, forkAction );
+		}
+	}
+	
+	relation MarkForkActionToConnectionAndService {
+		checkonly domain annotation annotatedConnection : PubSubAnnotation::Connection {
+		};
+		checkonly domain source service : pcm::repository::Signature {
+		};
+		checkonly domain target forkAction : pcm::seff::ForkAction {
+		};
+	}
+	
+
+	/**
+	* Creates an ExternalCallAction embeded in an AsynchronousForkedBehaviour for the previously created ForkAction.
+	**/
+	top relation CreateAsynchronousExternalCallAction {
+		assemblyContextName : ecore::EString;
+	
+		checkonly domain annotation annotatedReceiverElement : PubSubAnnotation::Receiver {
+		};
+		checkonly domain source seffsDescribedService : pcm::repository::Signature {
+		};
+		
+		enforce domain target forkAction : pcm::seff::ForkAction {
+			asynchronousForkedBehaviours_ForkAction = asynchronousForkedBehaviour : pcm::seff::ForkedBehaviour {
+				steps_Behaviour = startAction : pcm::seff::StartAction {
+					successor_AbstractAction = externalCallAction : pcm::seff::ExternalCallAction {}
+				},
+				steps_Behaviour = externalCallAction : pcm::seff::ExternalCallAction {
+					predecessor_AbstractAction = startAction,
+					successor_AbstractAction = stopAction : pcm::seff::StopAction {},
+					
+					-- configure the exernal call
+					entityName = 'Call_' + assemblyContextName,
+					calledService_ExternalService = copiedSeffsDescribedService : pcm::repository::Signature {
+					},
+					role_ExternalService = externalServiceRole : pcm::repository::Role {
+					}
+				},
+				steps_Behaviour = stopAction : pcm::seff::StopAction {
+					predecessor_AbstractAction = externalCallAction
+				}	
+			}
+	
+			};
+		when {
+			-- This relation must hold only if the connection should be asynchronous
+			getConnection(annotatedReceiverElement).asynchronousConnection;
+			
+			-- Only create actions for signatures, that belong to the current receiver element of interest
+			getProvidedRole( annotatedReceiverElement.providedRoleID ).providedInterface__ProvidedRole.signatures__Interface
+																		->includes( seffsDescribedService );
+			-- Check that the calling role is attached to the receiver element
+			MarkReceiverToGeneratedRequiredRole( annotatedReceiverElement, externalServiceRole );
+			
+			MarkForkActionToConnectionAndService( getConnection(annotatedReceiverElement), seffsDescribedService, forkAction);
+			Mark_repository_Signature(seffsDescribedService, copiedSeffsDescribedService);
+		}
+		where {
+			-- Check the called AssemblyContexts name for debugging
+			assemblyContextName = getAssemblyContext( annotatedReceiverElement.assemblyContextID ).entityName;
+		}
+	}
+	
+
+
+
+
+
 	/**************************************************************************************************/
 	/*Transformation step 2: Create the Elements on the level of the system architect and connect them*/
 	/**************************************************************************************************/
@@ -409,7 +554,8 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 			-- Tag the created completion on to the connection it was created for
 			MarkCompletionComponentToConnection(annotatedConnection, completionComponent);
 			
-			MarkCompletionComponentAssemblyContext(completionComponent, completionComponentsAssemblyContext);
+			MarkCompletionComponentAssemblyContextToConnection(annotatedConnection, completionComponentsAssemblyContext);
+			MarkAdapterAssemblyContextToConnection(annotatedConnection, adapterComponentAssemblyContext);
 		}
 	}
 	
@@ -423,10 +569,17 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		};
 	}
 	
-	relation MarkCompletionComponentAssemblyContext {
-		checkonly domain target completionComponent : completions::Completion {
+	relation MarkCompletionComponentAssemblyContextToConnection {
+		checkonly domain target annotatedConnection : PubSubAnnotation::Connection {
 		};
 		checkonly domain target assemblyContext : pcm::core::composition::AssemblyContext {
+		};
+	}
+	
+	relation MarkAdapterAssemblyContextToConnection {
+		checkonly domain target annotatedConnection : PubSubAnnotation::Connection {
+		};
+		checkonly domain target adapterAssemblyContext : pcm::core::composition::AssemblyContext {
 		};
 	}
 	
@@ -435,8 +588,9 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 	* Completes the Completion with RequiredRoles and creates DelegationConnectors to the outer RequiredRoles
 	**/
 	top relation CreateRequiredRoles {
-		providedRoleName : ecore::EString;
+		providedAssemblyContextID : ecore::EString;
 		interfaceName : ecore::EString;
+		
 		checkonly domain annotation receiverElement : PubSubAnnotation::Receiver {
 			providedRoleID = _providedRoleID : ecore::EString {}			
 		};
@@ -444,7 +598,7 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 		enforce domain target completionComponent : completions::Completion {
 			-- The outer RequiredRole (fitting to the receivers ProvidedRole) to which the inner one will be delegated.
 			requiredRoles_InterfaceRequiringEntity = outerRequiredRole : pcm::repository::RequiredRole {
-				entityName = 'Outer_Required_' + interfaceName + '_toConnectWith_' + providedRoleName,
+				entityName = 'Outer_Required_' + interfaceName + '_toConnectWith_ ProvidedRole(' + _providedRoleID + ')_AssemblyContext(' + providedAssemblyContextID + ')',
 				requiredInterface__RequiredRole = connectionsInterface : pcm::repository::Interface {
 				}
 			},
@@ -452,50 +606,109 @@ transformation PCM_Completion ( source : pcm, target : pcm, annotation : PubSubA
 			requiredDelegationConnectors_ComposedStructure = requiredDelegationConnector : pcm::core::composition::RequiredDelegationConnector {
 				outerRequiredRole_RequiredDelegationConnector = outerRequiredRole,
 				innerRequiredRole_RequiredDelegationConnector = innerRequiredRole : pcm::repository::RequiredRole {
+					entityName = 'InnerRequiredRole_Connected_To_'  +   
+									'Outer_Required_' + interfaceName + '_toConnectWith_ ProvidedRole(' + _providedRoleID + ')_AssemblyContext(' + providedAssemblyContextID + ')'
 				},
 				assemblyContext_RequiredDelegationConnector = innerAssemblyContext : pcm::core::composition::AssemblyContext {
 				}
 			}
 		};
+		
+		/* At the moment it is assumed, that an instance of the palladio component model only contains exactly one system element */
 		checkonly domain source system : pcm::system::System {
 		};
+		
 		enforce domain target copiedSystem : pcm::system::System {
 			assemblyConnectors_ComposedStructure = generatedAssemblyConnector : pcm::core::composition::AssemblyConnector {
 				entityName = 'AssemblyConnector__From_Completion_To' + _providedRoleID,
 				providingAssemblyContext_AssemblyConnector = providedAssemblyContext : pcm::core::composition::AssemblyContext {},
 				providedRole_AssemblyConnector = receiverProvidedRole : pcm::repository::ProvidedRole {},
 				requiringAssemblyContext_AssemblyConnector = completionComponentAssemblyContext : pcm::core::composition::AssemblyContext {},
-				requiredRole_AssemblyConnector = outerRequiredRole : pcm::repository::RequiredRole {}
+				requiredRole_AssemblyConnector = outerRequiredRole
 			}
-		
 		};
-		
 		when {
-		
 			Mark_system_System(system, copiedSystem);
-		
 		
 			MarkCompletionComponentToConnection( getConnection(receiverElement), completionComponent );
 			MarkReceiverToGeneratedRequiredRole ( receiverElement, innerRequiredRole );
-			Mark_repository_Interface(getProvidedRole(receiverElement.providedRoleID).providedInterface__ProvidedRole, connectionsInterface);
+			Mark_repository_Interface( getProvidedRole(receiverElement.providedRoleID).providedInterface__ProvidedRole, connectionsInterface );
 			
-			Mark_composition_AssemblyContext(getAssemblyContext(receiverElement.assemblyContextID), providedAssemblyContext);
+			Mark_composition_AssemblyContext( getAssemblyContext(receiverElement.assemblyContextID), providedAssemblyContext );
 			Mark_repository_ProvidedRole( getProvidedRole(_providedRoleID), receiverProvidedRole);
 			
-			MarkCompletionComponentAssemblyContext(completionComponent, completionComponentAssemblyContext);
+			MarkCompletionComponentAssemblyContextToConnection( getConnection(receiverElement), completionComponentAssemblyContext );
 			}
 		where {
-			providedRoleName = getProvidedRole( _providedRoleID ).entityName;
 			interfaceName = connectionsInterface.entityName;
-			innerAssemblyContext = getAssemblyContext(completionComponent);
-		
+			innerAssemblyContext = getAssemblyContext( completionComponent );
+			providedAssemblyContextID = providedAssemblyContext.id;
 		}
 	}
 	
 
+	/***************************************************************************************************/
+	/*Transformation step 3: Allocate the AdapterComponent (right now on the Senders ResourceContainer)*/
+	/***************************************************************************************************/
 
 
-
+	top relation AllocateAdapterComponent {
+	
+		checkonly domain annotation annotatedConnection : PubSubAnnotation::Connection {
+		};
+		
+		/* At the moment it is assumed, that one instance of the palladio component model only contains exactly one allocation element */
+		checkonly domain source allocation : pcm::allocation::Allocation {
+		};
+		
+		enforce domain target copiedAllocation : pcm::allocation::Allocation {
+			allocationContexts_Allocation = adapterAllocationContext : pcm::allocation::AllocationContext {		
+				entityName = 'adapterAllocationContext_',
+			
+				assemblyContext_AllocationContext =  adapterAssemblyContext : pcm::core::composition::AssemblyContext {
+				},
+				resourceContainer_AllocationContext = senderResourceContainer : pcm::resourceenvironment::ResourceContainer {
+				}
+			}
+		};
+		
+		when {
+			Mark_allocation_Allocation(allocation, copiedAllocation);
+			Mark_resourceenvironment_ResourceContainer(getResourceContainer(annotatedConnection.sender.assemblyContextID), senderResourceContainer);
+			
+			MarkAdapterAssemblyContextToConnection(annotatedConnection, adapterAssemblyContext);
+		}
+	}
+	
+	/* Deploy the CompletionComponent on the senders Resourcecontainer */
+	top relation AllocateCompletionComponent {
+		checkonly domain annotation annotatedConnection : PubSubAnnotation::Connection {
+		};
+		
+		/* At the moment it is assumed, that one instance of the palladio component model only contains exactly one allocation element */
+		checkonly domain source allocation : pcm::allocation::Allocation {
+		};
+		
+		enforce domain target copiedAllocation : pcm::allocation::Allocation {
+			allocationContexts_Allocation = adapterAllocationContext : pcm::allocation::AllocationContext {		
+				entityName = 'completionComponentAllocationContext_',
+			
+				assemblyContext_AllocationContext =  completionComponentAssemblyContext : pcm::core::composition::AssemblyContext {
+				},
+				resourceContainer_AllocationContext = senderResourceContainer : pcm::resourceenvironment::ResourceContainer {
+				}
+			}
+		};
+		
+		when {
+			Mark_allocation_Allocation(allocation, copiedAllocation);
+			Mark_resourceenvironment_ResourceContainer(getResourceContainer(annotatedConnection.sender.assemblyContextID), senderResourceContainer);
+	
+			MarkCompletionComponentAssemblyContextToConnection(annotatedConnection, completionComponentAssemblyContext);
+		}
+		
+	
+	}
 
 
 
