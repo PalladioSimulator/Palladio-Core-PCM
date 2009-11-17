@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemcontroller;
+package de.uka.ipd.sdq.measurements.systemadapter;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.preferences.DefaultScope;
@@ -10,7 +10,7 @@ import org.osgi.service.prefs.BackingStoreException;
 public class Activator extends Plugin {
 
 	private static Activator plugin;
-	private SystemController systemController;
+	private SystemAdapter systemController;
 	
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.measurements.systemcontroller";
 	
@@ -30,7 +30,7 @@ public class Activator extends Plugin {
 		super.start(context);
 		plugin = this;
 		storeDefaultPreferences();
-		systemController = new SystemController();
+		systemController = new SystemAdapter();
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class Activator extends Plugin {
 		return plugin;
 	}
 	
-	public SystemController getSystemController() {
+	public SystemAdapter getSystemController() {
 		return systemController;
 	}
 	

@@ -5,9 +5,9 @@
          point="org.eclipse.ui.preferencePages">
       <page
             category="de.uka.ipd.sdq.measurements.ui.preferences"
-            class="de.uka.ipd.sdq.measurements.systemcontroller.ui.SystemControllerPreferencePage"
-            id="de.uka.ipd.sdq.measurements.systemcontroller.preferences"
-            name="SystemController">
+            class="de.uka.ipd.sdq.measurements.systemadapter.ui.SystemAdapterPreferencePage"
+            id="de.uka.ipd.sdq.measurements.systemadapter.preferences"
+            name="SystemAdapter">
       </page>
    </extension>
 

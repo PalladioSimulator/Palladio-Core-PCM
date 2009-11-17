@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemcontroller;
+package de.uka.ipd.sdq.measurements.systemadapter;
 
 import java.util.ArrayList;
 import java.util.Iterator;

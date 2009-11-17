@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemcontroller.ui;
+package de.uka.ipd.sdq.measurements.systemadapter.ui;
 
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;

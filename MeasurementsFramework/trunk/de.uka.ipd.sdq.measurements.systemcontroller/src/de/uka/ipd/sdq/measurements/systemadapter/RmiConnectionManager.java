@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemcontroller;
+package de.uka.ipd.sdq.measurements.systemadapter;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

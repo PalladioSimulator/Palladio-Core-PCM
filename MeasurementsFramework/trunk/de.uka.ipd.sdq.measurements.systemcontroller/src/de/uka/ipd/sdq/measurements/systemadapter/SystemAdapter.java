@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemcontroller;
+package de.uka.ipd.sdq.measurements.systemadapter;
 
 import java.rmi.RemoteException;
 
@@ -9,13 +9,13 @@ import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 
 
-public class SystemController {
+public class SystemAdapter {
 	
 	private HostInterface hostInterface = null;
 	
-	private static Logger logger = Logger.getLogger(SystemController.class);
+	private static Logger logger = Logger.getLogger(SystemAdapter.class);
 	
-	public SystemController() {
+	public SystemAdapter() {
 		System.out.println("SystemController!");
 		hostInterface = RmiConnectionManager.getInstance().initializeHost("192.168.2.192", 2101, "Driver");
 	}
