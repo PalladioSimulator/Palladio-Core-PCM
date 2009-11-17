@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SystemAdapter
+Bundle-SymbolicName: de.uka.ipd.sdq.measurements.osscheduler.systemadapter;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.uka.ipd.sdq.measurements.osscheduler.systemadapter.OSSchedulerSystemAdapterPlugin
