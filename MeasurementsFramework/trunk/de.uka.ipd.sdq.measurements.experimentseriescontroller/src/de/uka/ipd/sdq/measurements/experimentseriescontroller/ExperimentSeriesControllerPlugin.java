@@ -3,20 +3,20 @@ package de.uka.ipd.sdq.measurements.experimentseriescontroller;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
-import de.uka.ipd.sdq.measurements.systemcontroller.SystemController;
+import de.uka.ipd.sdq.measurements.systemadapter.SystemAdapter;
 
-public class Activator extends Plugin  {
+public class ExperimentSeriesControllerPlugin extends Plugin  {
 
-	private static Activator plugin;
+	private static ExperimentSeriesControllerPlugin plugin;
 
-	private SystemController systemController = null;
+	private SystemAdapter systemController = null;
 
-	public SystemController getSystemController() {
+	public SystemAdapter getSystemController() {
 		return systemController;
 	}
 
 
-	public Activator() {
+	public ExperimentSeriesControllerPlugin() {
 	}
 
 
@@ -26,7 +26,7 @@ public class Activator extends Plugin  {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		systemController = de.uka.ipd.sdq.measurements.systemcontroller.Activator.getDefault().getSystemController();
+		systemController = de.uka.ipd.sdq.measurements.systemadapter.SystemAdapterPlugin.getDefault().getSystemController();
 
 	}
 
@@ -39,7 +39,7 @@ public class Activator extends Plugin  {
 	}
 
 
-	public static Activator getDefault() {
+	public static ExperimentSeriesControllerPlugin getDefault() {
 		return plugin;
 	}
 

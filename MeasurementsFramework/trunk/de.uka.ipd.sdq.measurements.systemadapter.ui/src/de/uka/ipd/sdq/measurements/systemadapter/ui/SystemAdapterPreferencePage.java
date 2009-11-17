@@ -52,8 +52,8 @@ implements IWorkbenchPreferencePage {
 
 	@Override
 	public void init(IWorkbench workbench) {
-		IEclipsePreferences preferences = new InstanceScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.Activator.PLUGIN_ID);
-		IEclipsePreferences defaultPreferences = new DefaultScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.Activator.PLUGIN_ID);
+		IEclipsePreferences preferences = new InstanceScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.SystemAdapterPlugin.PLUGIN_ID);
+		IEclipsePreferences defaultPreferences = new DefaultScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.SystemAdapterPlugin.PLUGIN_ID);
 		ipString = preferences.get("rmiIp", defaultPreferences.get("rmiIp", ""));
 		portString = preferences.get("rmiPort", defaultPreferences.get("rmiPort", ""));
 		setDescription("Properties of the System Adapter");
@@ -61,7 +61,7 @@ implements IWorkbenchPreferencePage {
 	
 	@Override
 	protected void performApply() {
-		IEclipsePreferences preferences = new InstanceScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.Activator.PLUGIN_ID);
+		IEclipsePreferences preferences = new InstanceScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.SystemAdapterPlugin.PLUGIN_ID);
 		preferences.put("rmiIp", textRmiIp.getText());
 		preferences.put("rmiPort", textRmiPort.getText());
 		try {
@@ -74,7 +74,7 @@ implements IWorkbenchPreferencePage {
 	
 	@Override
 	protected void performDefaults() {
-		IEclipsePreferences preferences = new DefaultScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.Activator.PLUGIN_ID);
+		IEclipsePreferences preferences = new DefaultScope().getNode(de.uka.ipd.sdq.measurements.systemadapter.SystemAdapterPlugin.PLUGIN_ID);
 		textRmiIp.setText(preferences.get("rmiIp", null));
 		textRmiPort.setText(preferences.get("rmiPort", null));
 		super.performDefaults();

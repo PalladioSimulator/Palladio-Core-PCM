@@ -32,6 +32,17 @@ AbstractWorkflowBasedLaunchConfigurationDelegate<OSSchedulerMeasurementsConfigur
 			throws CoreException {
 		OSSchedulerMeasurementsConfiguration config = new OSSchedulerMeasurementsConfiguration();
 		config.setMeasurementScriptPath(configuration.getAttribute(Constants.MEASUREMENTSCRIPT_FILE, ""));
+		config.setMachineIP(configuration.getAttribute(Constants.MACHINE_IP, ""));
+		if (configuration.getAttribute(Constants.USE_MEASUREMENT_SCRIPT, "false").equals("true")) {
+			config.setUseMeasurementsScript(true);	
+		} else {
+			config.setUseMeasurementsScript(false);
+		}
+		try {
+			config.setMachinePort(Integer.parseInt(configuration.getAttribute(Constants.MACHINE_PORT, "0")));
+		} catch (NumberFormatException e) {
+			config.setMachinePort(0);	
+		}
 		return config;
 	}
 	

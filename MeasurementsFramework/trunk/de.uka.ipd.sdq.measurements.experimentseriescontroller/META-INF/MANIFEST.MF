@@ -5,7 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.measurements.experimentseriescontroller;sing
 Bundle-Version: 1.0.0.qualifier
 Export-Package: de.uka.ipd.sdq.measurements.experimentseriescontroller
 Bundle-ActivationPolicy: lazy
-Require-Bundle: de.uka.ipd.sdq.measurements.systemcontroller;bundle-version="1.0.0";visibility:=reexport,
+Require-Bundle: de.uka.ipd.sdq.measurements.systemadapter;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="3.5.0",
  de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
-Bundle-Activator: de.uka.ipd.sdq.measurements.experimentseriescontroller.Activator
+Bundle-Activator: de.uka.ipd.sdq.measurements.experimentseriescontroller.ExperimentSeriesControllerPlugin

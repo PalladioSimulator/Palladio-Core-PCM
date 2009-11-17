@@ -12,10 +12,12 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -30,6 +32,14 @@ import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
 
 public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text measurementScriptFileText;
+	private Text machineIPText;
+	private Text machinePortText;
+	private Composite composite;
+	private Composite measurementScriptComposite;
+	private Composite systemComposite;
+	private StackLayout compositeStackLayout;
+	private Button measurementScriptButton;
+	private Button systemButton;
 
 	/**
 	 * @wbp.parser.entryPoint
@@ -44,27 +54,95 @@ public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfi
 			}
 		};
 		setControl(container);
-		container.setLayout(new GridLayout(3, false));
+		container.setLayout(new GridLayout(2, false));
 		
-		Label lblMeasurementScript = new Label(container, SWT.NONE);
+		measurementScriptButton = new Button(container, SWT.RADIO);
+		measurementScriptButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		measurementScriptButton.setText("Provide Measurement Script");
+		measurementScriptButton.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (measurementScriptButton.getSelection() == true) {
+					compositeStackLayout.topControl = measurementScriptComposite;
+					composite.layout();
+					OSSchedulerMeasurementsConfigurationTab.this.setDirty(true);
+					OSSchedulerMeasurementsConfigurationTab.this.updateLaunchConfigurationDialog();
+				}
+			}
+			
+		});
+		
+		systemButton = new Button(container, SWT.RADIO);
+		systemButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		systemButton.setText("Specify System");
+		systemButton.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (systemButton.getSelection() == true) {
+					compositeStackLayout.topControl = systemComposite;
+					composite.layout();
+					OSSchedulerMeasurementsConfigurationTab.this.setDirty(true);
+					OSSchedulerMeasurementsConfigurationTab.this.updateLaunchConfigurationDialog();
+				}
+			}
+			
+		});
+		
+		
+		composite = new Composite(container, SWT.NONE);
+		compositeStackLayout = new StackLayout();
+		compositeStackLayout.topControl = measurementScriptComposite;
+		composite.setLayout(compositeStackLayout);
+		composite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
+		
+		measurementScriptComposite = new Composite(composite, SWT.NONE);
+		measurementScriptComposite.setLayout(new GridLayout(3, false));
+		
+		Label lblMeasurementScript = new Label(measurementScriptComposite, SWT.NONE);
+		lblMeasurementScript.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
 		lblMeasurementScript.setText("Measurement Script:");
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
 		
-		measurementScriptFileText = new Text(container, SWT.BORDER);
+		measurementScriptFileText = new Text(measurementScriptComposite, SWT.BORDER);
 		measurementScriptFileText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		measurementScriptFileText.addModifyListener(modifyListener);
 		
-		Button btnWorkspace = new Button(container, SWT.NONE);
-		btnWorkspace.addSelectionListener(new WorkspaceButtonSelectionListener(
+		Button workspaceButton = new Button(measurementScriptComposite, SWT.NONE);
+		workspaceButton.setText("Workspace...");
+		workspaceButton.addSelectionListener(new WorkspaceButtonSelectionListener(
 				measurementScriptFileText, Constants.MEASUREMENTSCRIPT_EXTENSION));
-		btnWorkspace.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		btnWorkspace.setText("Workspace...");
 		
-		Button btnFileSystem = new Button(container, SWT.NONE);
-		btnFileSystem.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		btnFileSystem.setText("File System...");
-		btnFileSystem.addSelectionListener(new FileSystemButtonSelectionAdapter(measurementScriptFileText,Constants.MEASUREMENTSCRIPT_EXTENSION));
+		Button fileSystemButton = new Button(measurementScriptComposite, SWT.NONE);
+		fileSystemButton.setText("File System...");
+		fileSystemButton.addSelectionListener(new FileSystemButtonSelectionAdapter(measurementScriptFileText,Constants.MEASUREMENTSCRIPT_EXTENSION));
+		
+		systemComposite = new Composite(composite, SWT.NONE);
+		systemComposite.setLayout(new GridLayout(2, false));
+		
+		Label lblMachineIp = new Label(systemComposite, SWT.NONE);
+		lblMachineIp.setText("Machine IP");
+		
+		machineIPText = new Text(systemComposite, SWT.BORDER);
+		machineIPText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		machineIPText.addModifyListener(modifyListener);
+		
+		Label lblMachinePort = new Label(systemComposite, SWT.NONE);
+		lblMachinePort.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblMachinePort.setText("Machine Port");
+		
+		machinePortText = new Text(systemComposite, SWT.BORDER);
+		machinePortText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		machinePortText.addModifyListener(modifyListener);
+
 		
 	}
 
@@ -78,6 +156,15 @@ public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfi
 		try {
 			measurementScriptFileText.setText(configuration.getAttribute(
 					Constants.MEASUREMENTSCRIPT_FILE, ""));
+			if (configuration.getAttribute(Constants.USE_MEASUREMENT_SCRIPT, "true").equals("true")) {
+				measurementScriptButton.setSelection(true);
+				compositeStackLayout.topControl = measurementScriptComposite;
+				composite.layout();
+			} else {
+				systemButton.setSelection(true);
+				compositeStackLayout.topControl = systemComposite;
+				composite.layout();
+			}
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"Measurement Script File", e.getMessage());
 		}		
@@ -85,7 +172,15 @@ public class OSSchedulerMeasurementsConfigurationTab extends AbstractLaunchConfi
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(Constants.MEASUREMENTSCRIPT_FILE, measurementScriptFileText.getText());		
+		configuration.setAttribute(Constants.MEASUREMENTSCRIPT_FILE, measurementScriptFileText.getText());
+		configuration.setAttribute(Constants.MACHINE_IP, machineIPText.getText());
+		configuration.setAttribute(Constants.MACHINE_PORT, machinePortText.getText());
+		if (measurementScriptButton.getSelection()) {
+			configuration.setAttribute(Constants.USE_MEASUREMENT_SCRIPT, "true");
+		} else {
+			configuration.setAttribute(Constants.USE_MEASUREMENT_SCRIPT, "false");
+		}
+		
 	}
 
 	@Override

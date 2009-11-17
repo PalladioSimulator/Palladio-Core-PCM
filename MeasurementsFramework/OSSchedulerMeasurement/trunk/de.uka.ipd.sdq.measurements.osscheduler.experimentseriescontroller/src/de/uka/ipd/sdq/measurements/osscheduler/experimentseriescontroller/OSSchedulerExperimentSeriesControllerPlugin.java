@@ -3,11 +3,11 @@ package de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
-public class Activator extends Plugin  {
+public class OSSchedulerExperimentSeriesControllerPlugin extends Plugin  {
 
-	private static Activator plugin;
+	private static OSSchedulerExperimentSeriesControllerPlugin plugin;
 
-	public Activator() {
+	public OSSchedulerExperimentSeriesControllerPlugin() {
 	}
 
 
@@ -17,7 +17,7 @@ public class Activator extends Plugin  {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		de.uka.ipd.sdq.measurements.experimentseriescontroller.Activator.getDefault();
+		de.uka.ipd.sdq.measurements.experimentseriescontroller.ExperimentSeriesControllerPlugin.getDefault();
 
 	}
 
@@ -30,7 +30,7 @@ public class Activator extends Plugin  {
 	}
 
 
-	public static Activator getDefault() {
+	public static OSSchedulerExperimentSeriesControllerPlugin getDefault() {
 		return plugin;
 	}
 

@@ -8,4 +8,4 @@ Require-Bundle: de.uka.ipd.sdq.measurements.experimentseriescontroller;visibilit
  org.eclipse.core.runtime;bundle-version="3.5.0",
  de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller
-Bundle-Activator: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller.Activator
+Bundle-Activator: de.uka.ipd.sdq.measurements.osscheduler.experimentseriescontroller.OSSchedulerExperimentSeriesControllerPlugin

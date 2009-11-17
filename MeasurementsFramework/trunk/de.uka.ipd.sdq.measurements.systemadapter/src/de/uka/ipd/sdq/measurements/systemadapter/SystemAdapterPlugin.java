@@ -7,9 +7,9 @@ import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.BackingStoreException;
 
-public class Activator extends Plugin {
+public class SystemAdapterPlugin extends Plugin {
 
-	private static Activator plugin;
+	private static SystemAdapterPlugin plugin;
 	private SystemAdapter systemController;
 	
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.measurements.systemcontroller";
@@ -19,7 +19,7 @@ public class Activator extends Plugin {
 	public static final String RMI_IP_PROPERTY = "rmiIp";
 
 	
-	public Activator() {
+	public SystemAdapterPlugin() {
 	}
 
 
@@ -45,7 +45,7 @@ public class Activator extends Plugin {
 		}
 	}
 	
-	public static Activator getDefault() {
+	public static SystemAdapterPlugin getDefault() {
 		return plugin;
 	}
 	

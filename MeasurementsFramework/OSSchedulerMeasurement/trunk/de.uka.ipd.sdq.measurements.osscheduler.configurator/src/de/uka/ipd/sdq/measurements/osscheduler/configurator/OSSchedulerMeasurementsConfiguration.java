@@ -7,6 +7,33 @@ public class OSSchedulerMeasurementsConfiguration extends
 AbstractWorkflowBasedRunConfiguration {
 	
 	private String measurementScriptPath = null;
+	private String machineIP = null;
+	private int machinePort = 0;
+	private boolean useMeasurementsScript = false;
+	
+	public boolean isUseMeasurementsScript() {
+		return useMeasurementsScript;
+	}
+
+	public void setUseMeasurementsScript(boolean useMeasurementsScript) {
+		this.useMeasurementsScript = useMeasurementsScript;
+	}
+
+	public String getMachineIP() {
+		return machineIP;
+	}
+
+	public void setMachineIP(String machineIP) {
+		this.machineIP = machineIP;
+	}
+
+	public int getMachinePort() {
+		return machinePort;
+	}
+
+	public void setMachinePort(int machinePort) {
+		this.machinePort = machinePort;
+	}
 
 	public String getMeasurementScriptPath() {
 		return measurementScriptPath;
