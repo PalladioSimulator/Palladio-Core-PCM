@@ -6,6 +6,13 @@ import org.osgi.framework.BundleContext;
 public class OSSchedulerExperimentControllerPlugin extends Plugin {
 	
 	private static OSSchedulerExperimentControllerPlugin plugin;
+	
+	private OSSchedulerExperimentController osSchedulerExperimentController = null;
+
+	public OSSchedulerExperimentController getOsSchedulerExperimentController() {
+		return osSchedulerExperimentController;
+	}
+
 
 	public OSSchedulerExperimentControllerPlugin() {
 	}
@@ -17,6 +24,8 @@ public class OSSchedulerExperimentControllerPlugin extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		System.out.println("YES!");
+		osSchedulerExperimentController = new OSSchedulerExperimentController();
 
 	}
 

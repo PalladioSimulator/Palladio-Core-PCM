@@ -1,10 +1,11 @@
-package de.uka.ipd.sdq.measurements.systemadapter;
+package de.uka.ipd.sdq.measurements.osscheduler.systemadapter;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
@@ -17,7 +18,7 @@ import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
  */
 public class RmiConnectionManager {
 
-	private static Logger logger = Logger.getLogger(RmiConnectionManager.class.getName());
+	private static Logger logger = Logger.getLogger(RmiConnectionManager.class);
 
 	public static RmiConnectionManager instance = null;
 
@@ -43,13 +44,13 @@ public class RmiConnectionManager {
 
 		} catch (RemoteException e) {
 			// e.printStackTrace();
-			logger.severe("Failed to reach Host via RMI. (URL: " + hostUrl + ")");
+			logger.error("Failed to reach Host via RMI. (URL: " + hostUrl + ")");
 			return null;
 		} catch (MalformedURLException e) {
-			logger.severe("Host RMI URL is not valid: " + hostUrl);
+			logger.error("Host RMI URL is not valid: " + hostUrl);
 			return null;
 		} catch (NotBoundException e) {
-			logger.severe("Host is not bound to the specified name. (URL: " + hostUrl + ")");
+			logger.error("Host is not bound to the specified name. (URL: " + hostUrl + ")");
 			return null;
 		}
 
@@ -64,7 +65,7 @@ public class RmiConnectionManager {
 				logger.info("Host connection test succeeded.");
 			}
 		} catch (RemoteException e) {
-			logger.severe("Error during Host connection test!");
+			logger.error("Error during Host connection test!");
 			return null;
 		}
 		logger.info("RMI connection to Host established.");

@@ -47,7 +47,7 @@ public class TaskManager {
 		return true;
 	}
 	
-	public boolean executeTasks() {
+	public boolean executeTasksAsync() {
 		if (rootTaskExecuter == null) {
 			/*Host.logError("Root task executer null!");
 			try {
@@ -60,9 +60,20 @@ public class TaskManager {
 		rootTaskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				//Host.getInstance().allTasksCompleted(rootTaskExecuter);
+				System.out.println("All tasks executed.");
 			}
 		});
 		new Thread(rootTaskExecuter).start();
+		return true;
+	}
+	
+	public boolean executeTasks() {
+		if (rootTaskExecuter == null) {
+			return false;
+		}
+		rootTaskExecuter.run();
+		System.out.println("All tasks executed.");
+
 		return true;
 	}
 

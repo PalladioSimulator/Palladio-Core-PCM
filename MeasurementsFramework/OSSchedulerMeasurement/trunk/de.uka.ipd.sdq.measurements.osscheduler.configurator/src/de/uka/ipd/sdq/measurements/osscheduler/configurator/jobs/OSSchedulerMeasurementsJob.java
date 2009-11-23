@@ -49,6 +49,7 @@ public class OSSchedulerMeasurementsJob implements IJob {
                     Object o = element.createExecutableExtension("class");
                     if (o instanceof OSSchedulerExperimentSeriesController) {
                     	((OSSchedulerExperimentSeriesController)o).startMeasurements(script);
+                    	break;
                     }
                     
                 }

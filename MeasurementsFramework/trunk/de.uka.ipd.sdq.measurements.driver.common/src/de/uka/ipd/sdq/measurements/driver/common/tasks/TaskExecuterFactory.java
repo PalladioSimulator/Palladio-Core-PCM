@@ -34,13 +34,16 @@ public class TaskExecuterFactory implements TaskExecuterFactoryInterface{
 	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations) {
 		if (rmiTask instanceof RmiSequenceTask) {
 			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations);
+			sequenceTaskExecuter.prepare();
 			return sequenceTaskExecuter;
 		} else if (rmiTask instanceof RmiParallelTask) {
 			ParallelTaskExecuter parallelTaskExecuter = new ParallelTaskExecuter((RmiParallelTask)rmiTask, numberOfTaskIterations);
+			parallelTaskExecuter.prepare();
 			return parallelTaskExecuter;
 
 		} else if (rmiTask instanceof RmiLoopTask) {
 			LoopTaskExecuter loopTaskExecuter = new LoopTaskExecuter((RmiLoopTask)rmiTask, numberOfTaskIterations);
+			loopTaskExecuter.prepare();
 			return loopTaskExecuter;
 		}
 		// We cannot convert the task. Look if a subfactory can convert the task.

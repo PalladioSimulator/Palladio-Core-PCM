@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.measurements.systemadapter;
+package de.uka.ipd.sdq.measurements.osscheduler.systemadapter;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,9 +38,9 @@ public class EmfTaskToRmiTaskConverter {
 	private static int idCounter = 0;
 	
 	TaskSet taskSet = null;
-	EList<MachineDescription> machineDescriptions = null;
+	List<MachineDescription> machineDescriptions = null;
 	
-	public EmfTaskToRmiTaskConverter(TaskSet taskSet, EList<MachineDescription> machineDescriptions) {
+	public EmfTaskToRmiTaskConverter(TaskSet taskSet, List<MachineDescription> machineDescriptions) {
 		this.taskSet = taskSet;
 		this.machineDescriptions = machineDescriptions;
 	}

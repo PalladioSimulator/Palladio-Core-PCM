@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiLoopTask;
 
 public class LoopTaskExecuter extends AbstractTaskExecuter {
 
-	private List<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
 	private Thread[] taskThreads = null;
 
 	public LoopTaskExecuter(RmiLoopTask task, int numberOfIterations) {
@@ -30,7 +29,6 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 				}
 			}
 		});
-		tasks.add(taskExecuter);
 		taskThreads[iteration] = new Thread(taskExecuter);
 	}
 	

@@ -6,7 +6,7 @@ import org.osgi.framework.BundleContext;
 public class OSSchedulerExperimentSeriesControllerPlugin extends Plugin  {
 
 	private static OSSchedulerExperimentSeriesControllerPlugin plugin;
-
+	
 	public OSSchedulerExperimentSeriesControllerPlugin() {
 	}
 
@@ -17,7 +17,8 @@ public class OSSchedulerExperimentSeriesControllerPlugin extends Plugin  {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		de.uka.ipd.sdq.measurements.experimentseriescontroller.ExperimentSeriesControllerPlugin.getDefault();
+		//experimentController = experimentController
+		//de.uka.ipd.sdq.measurements.experimentseriescontroller.ExperimentSeriesControllerPlugin.getDefault();
 
 	}
 

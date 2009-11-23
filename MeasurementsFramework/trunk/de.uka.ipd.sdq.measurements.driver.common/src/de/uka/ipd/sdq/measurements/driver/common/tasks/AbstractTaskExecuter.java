@@ -21,16 +21,16 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 	private long startSystemNanoTime = 0L;
 	private int numberOfExecutedTasks = 0;
 	protected boolean finishSignal = false;
+	
+	protected String myId;
 
 	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations) {
 		this();
+		myId = System.nanoTime() + " hash: " + this.hashCode();
 		this.task = task;
 		this.numberOfIterations = numberOfIterations;
 		startTimes = new long[numberOfIterations];
 		endTimes = new long[numberOfIterations];
-		for (int i=0; i<numberOfIterations; i++) {
-			prepare(i);
-		}
 	}
 
 	protected RmiAbstractTask task = null;
@@ -51,6 +51,12 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 			if (finishSignal == true) {
 				break;
 			}
+		}
+	}
+	
+	public void prepare() {
+		for (int i=0; i<numberOfIterations; i++) {
+			prepare(i);
 		}
 	}
 	

@@ -5,5 +5,9 @@ Bundle-SymbolicName: de.uka.ipd.sdq.measurements.osscheduler.experimentcontrolle
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
  de.uka.ipd.sdq.measurements.experimentcontroller;bundle-version="1.0.0",
- de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
+ de.uka.ipd.sdq.measurements;bundle-version="1.0.0",
+ de.uka.ipd.sdq.measurements.osscheduler.systemadapter;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.13"
 Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.measurements.osscheduler.experimentcontroller
+Bundle-Activator: de.uka.ipd.sdq.measurements.osscheduler.experimentcontroller.OSSchedulerExperimentControllerPlugin

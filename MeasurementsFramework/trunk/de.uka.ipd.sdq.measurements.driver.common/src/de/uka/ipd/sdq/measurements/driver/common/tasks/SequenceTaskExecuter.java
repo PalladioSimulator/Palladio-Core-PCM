@@ -13,6 +13,7 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 
 	public SequenceTaskExecuter(RmiSequenceTask task, int numberOfIterations) {
 		super(task, numberOfIterations);
+		System.out.println("CONST SEQ!");
 		//MidisHost.logDebug("Preparing sequential task (ID: " + task.getId() + ") ...");
 		//MidisHost.logDebug("Sequential task (ID: " + task.getId() + ") prepared.");
 	}
@@ -22,6 +23,9 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 		if (taskExecuters == null) {
 			taskExecuters = new List[numberOfIterations];
 		}
+		System.out.println("PREPARING SEQUENCE " + task.getId() + " IT " + iteration);
+		System.out.println("TASK EXECUTERS LENGTH " + taskExecuters.length);
+		System.out.println("PREPARE ID: " + myId);
 		ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
 		Iterator<RmiAbstractTask> taskIterator = ((RmiSequenceTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
@@ -42,6 +46,9 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 	@Override
 	protected void doWork(int iteration) {
 		//MidisHost.logDebug("Running sequence task " + task.getId() + " ...");
+		System.out.println("RUNNING SEQUENCE " + task.getId() + " IT " + iteration);
+		System.out.println("EXEC ID: " + myId);
+		System.out.println("TASK EXECUTERS LENGTH " + taskExecuters.length);
 		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
 		while (taskIterator.hasNext()) {
 			new Thread(taskIterator.next()).start();

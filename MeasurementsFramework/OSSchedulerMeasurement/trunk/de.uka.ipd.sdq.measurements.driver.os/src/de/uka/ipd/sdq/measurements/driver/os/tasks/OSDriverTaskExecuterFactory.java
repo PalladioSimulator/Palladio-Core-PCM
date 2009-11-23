@@ -17,6 +17,7 @@ public class OSDriverTaskExecuterFactory implements TaskExecuterFactoryInterface
 			OSDriver.logDebug("Preparing measurement for machine " + measurementTask.getMachineIp() + ":" + measurementTask.getMachinePort());
 			ResourceStrategyMeasurementTaskExecuter measurementTaskExecuter = new ResourceStrategyMeasurementTaskExecuter(measurementTask,
 					numberOfTaskIterations);
+			measurementTaskExecuter.prepare();
 			return measurementTaskExecuter;
 		}
 		return null;
