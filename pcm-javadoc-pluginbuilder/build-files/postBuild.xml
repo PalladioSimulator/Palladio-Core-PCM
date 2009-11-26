@@ -122,9 +122,9 @@
 	<!-- ================================================= -->
 	<target name="javadoc-pcm" description="Generate JavaDoc for the project">		
 			<echo>starting to create JavaDoc PCM...</echo>		
-			<mkdir dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder.3.5/javadoc/"/>
+			<mkdir dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/javadoc/"/>
 		    <javadoc 
-		    	destdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder.3.5/javadoc/"
+		    	destdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/javadoc/"
 		    	author="true" 
 		    	defaultexcludes="yes" 
 		    	use="true" 
@@ -134,7 +134,7 @@
 
 		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/>
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
 	</target>
