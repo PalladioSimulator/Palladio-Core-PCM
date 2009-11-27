@@ -46,7 +46,11 @@
 	
 	<import file="allElements.xml"/>
 	<import file="subversionSupport.xml"/>
-	
+	<!-- StB: Copied from original Eclipse 3.5 Build file templates, missing in pluginbuilder -->
+	<property name="defaultAssemblyEnabled" value="true" />
+	<target name="defaultAssemble">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}" />
+	</target>	
 	
 	<!-- ===================================================================== -->
 	<!-- Check out map files from correct repository -->
@@ -82,12 +86,6 @@
 			<available file="${buildDirectory}/plugins"/>
 		</condition>
 		<fail unless="is.fetch" message="There was no plug-in fetched. Was the configuration generated? Is the repository correct?"/>
-
-                <!-- fetch binary plugins from ORBIT project -->
-                <echo message="Fetching ORBIT plugins" />
-                <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20090529135407/bundles/org.apache.log4j_1.2.13.v200903072027.jar"
-                        dest="${buildDirectory}/plugins/org.apache.log4j_1.2.13.v200903072027.jar" /> 
-
 		<antcall target="replaceVersions"/>		
 	</target>
 	

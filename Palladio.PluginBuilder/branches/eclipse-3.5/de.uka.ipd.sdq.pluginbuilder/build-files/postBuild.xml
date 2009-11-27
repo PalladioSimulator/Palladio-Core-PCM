@@ -81,8 +81,9 @@
     </target>
 	
 	<target name="-p2">
+		<!-- StB: modified to check for p2.gathering instead of legacy p2.metadata -->
 		<condition property="is.p2" value="true">
-				<equals  arg1="${generate.p2.metadata}" arg2="true"/>
+				<equals  arg1="${p2.gathering}" arg2="true"/>
 		</condition>
 		<property name="p2archive" value="${buildResultsDirectory}/p2-repository-${version.full}.zip"/>
 		<antcall target="-createP2Archive"/>
