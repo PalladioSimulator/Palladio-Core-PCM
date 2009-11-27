@@ -86,6 +86,12 @@
 			<available file="${buildDirectory}/plugins"/>
 		</condition>
 		<fail unless="is.fetch" message="There was no plug-in fetched. Was the configuration generated? Is the repository correct?"/>
+
+                <!-- fetch binary plugins from ORBIT project -->
+                <echo message="Fetching ORBIT plugins" />
+                <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20090529135407/bundles/org.apache.log4j_1.2.13.v200903072027.jar"
+                        dest="${buildDirectory}/plugins/org.apache.log4j_1.2.13.v200903072027.jar" /> 
+
 		<antcall target="replaceVersions"/>		
 	</target>
 	
