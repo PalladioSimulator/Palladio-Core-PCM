@@ -29,6 +29,14 @@
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
+		    <fileset dir="${buildDirectory}/results/">
+			<include name="p2-repository*.zip"/>
+		    </fileset>
+	  	</scp>			
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true">
 			<fileset dir="${buildDirectory}">
 				<include name="*.txt" />				
 			</fileset>
@@ -54,6 +62,7 @@
 				trust="true" 
 				command="cd ${uploadTargetDir}; 
 			mv test*.html testresults.html; 
+			mv p2-repository*.zip p2-pository-nightly.zip;
 			"/> 
 	</target>
 	
