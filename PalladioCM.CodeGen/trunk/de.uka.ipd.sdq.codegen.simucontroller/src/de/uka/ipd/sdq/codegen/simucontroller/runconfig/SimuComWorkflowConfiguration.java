@@ -17,7 +17,6 @@ extends AbstractPCMCompletionWorkflowRunConfiguration{
 	private SensitivityAnalysisConfiguration sensitivityAnalysisConfiguration = null;
 	private boolean sensitivityAnalysisEnabled;
 	private boolean simulateLinkingResources;
-	private boolean simulateFailures;
 
 	public boolean isSensitivityAnalysisEnabled() {
 		return sensitivityAnalysisEnabled;
@@ -48,20 +47,11 @@ extends AbstractPCMCompletionWorkflowRunConfiguration{
 		return simulateLinkingResources;
 	}
 
-	public boolean getSimulateFailures() {
-		return simulateFailures;
-	}
-	
 	public void setSimulateLinkingResources(boolean simulateLinkingResources) {
 		checkFixed();
 		this.simulateLinkingResources = simulateLinkingResources;
 	}
 	
-	public void setSimulateFailures(boolean simulateFailures) {
-		checkFixed();
-		this.simulateFailures = simulateFailures;
-	}
-
 	public void setSensitivityAnalysisConfiguration(
 			SensitivityAnalysisConfiguration sensitivityConfig) {
 		checkFixed();
