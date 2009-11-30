@@ -144,12 +144,12 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 			ModelTransfTarget m = (ModelTransfTarget) outModel;
 			try {
 				logger.debug("Saving model " + m.getUri());
-				toFile(m.getRoots(), URI.createFileURI(m.getUri().toString()));
+				toFile(m.getRoots(), m.getUri());
 			} catch (IOException e) {
 				logger.error("Failed saving transformation result model");
 				throw new JobFailedException("Failed to save output model of QVT transformation",e);
 			}
-			logger.debug("Loading model: " + URI.createFileURI(m.getUri().toString()));
+			logger.debug("Loading model: " + m.getUri());
 			myPartition.loadModel(m.getUri().toString());
 		}
 		blackboard.addPartition(configuration.getPartitionId(), myPartition);
