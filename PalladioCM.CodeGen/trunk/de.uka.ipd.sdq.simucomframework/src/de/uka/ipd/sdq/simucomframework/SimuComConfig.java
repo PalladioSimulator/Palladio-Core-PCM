@@ -36,7 +36,7 @@ public class SimuComConfig implements Serializable {
 	private String nameExperimentRun;
 	private long simuTime;
 	private boolean verboseLogging;
-	private boolean simulateFailures;
+	private boolean simulateFailures = false;
 	private long datasourceID;
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
@@ -51,12 +51,10 @@ public class SimuComConfig implements Serializable {
 	 * @param configuration a map which maps configuration option IDs to their values. 
 	 * The required keys are SimuComConfig.EXPERIMENT_RUN, SimuComConfig.SIMULATION_TIME 
 	 * SimuComConfig.MAXIMUM_MEASUREMENT_COUNT SimuComConfig.VERBOSE_LOGGING, 
-	 * SimuComConfig.SIMULATE_FAILURES SimuComConfig.DATASOURCE_ID. An optional key is
+	 * SimuComConfig.DATASOURCE_ID. Optional keys are SimuComConfig.SIMULATE_FAILURES and
 	 * USE_CONFIDENCE. If USE_CONFIDENCE is set to true, you also need to set 
 	 * SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.CONFIDENCE_HALFWIDTH, 
 	 * SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.CONFIDENCE_MODELELEMENT_URI 
-	 * 
-	 * FIXME: Passing a map with untyped values here is quite error prone. Make it better.
 	 * 
 	 */
 	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
@@ -69,12 +67,15 @@ public class SimuComConfig implements Serializable {
 					MAXIMUM_MEASUREMENT_COUNT));
 			this.verboseLogging = (Boolean)configuration.get(
 					VERBOSE_LOGGING);
-			this.simulateFailures = (Boolean)configuration.get(
-					SIMULATE_FAILURES);
 			this.datasourceID = (Integer)configuration.get(
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
+			
+			if (configuration.containsKey(SIMULATE_FAILURES)){
+				this.simulateFailures = (Boolean)configuration.get(
+						SIMULATE_FAILURES);
+			}
 			
 			// confidence information is optional in the map. It this.useConfidence defaults to false.
 			if (configuration.containsKey(USE_CONFIDENCE)) {
