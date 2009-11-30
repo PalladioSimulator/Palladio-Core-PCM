@@ -69,6 +69,11 @@ public class ConfidenceStopCondition extends Condition implements Observer {
 		this.estimator = estimator;
 		this.confidenceLevel = confidenceLevel;
 		this.halfWidth = halfWidth;
+		
+		if (model.getConfig()
+				.getConfidenceModelElementName() == null){
+			throw new RuntimeException("SimuCom tried to set up a ConfidenceStopCondition, but no usage scenario name was given to measure the confidence for.");
+		}
 		this.usageScenarioName = model.getConfig()
 				.getConfidenceModelElementName();
 

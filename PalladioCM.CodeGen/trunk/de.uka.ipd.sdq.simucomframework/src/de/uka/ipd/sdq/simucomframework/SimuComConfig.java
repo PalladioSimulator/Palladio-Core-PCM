@@ -41,14 +41,23 @@ public class SimuComConfig implements Serializable {
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
 	private boolean isDebug;
-	private boolean useConfidence;
-	private int confidenceLevel;
-	private int confidenceHalfWidth;
+	private boolean useConfidence = false;
+	private int confidenceLevel = 0;
+	private int confidenceHalfWidth = 0;
 	private URI confidenceModelElementURI;
 	private String confidenceModelElementName;
 
 	/**
-	 * @param configuration a map which maps configuration option IDs to their values
+	 * @param configuration a map which maps configuration option IDs to their values. 
+	 * The required keys are SimuComConfig.EXPERIMENT_RUN, SimuComConfig.SIMULATION_TIME 
+	 * SimuComConfig.MAXIMUM_MEASUREMENT_COUNT SimuComConfig.VERBOSE_LOGGING, 
+	 * SimuComConfig.SIMULATE_FAILURES SimuComConfig.DATASOURCE_ID. An optional key is
+	 * USE_CONFIDENCE. If USE_CONFIDENCE is set to true, you also need to set 
+	 * SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.CONFIDENCE_HALFWIDTH, 
+	 * SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.CONFIDENCE_MODELELEMENT_URI 
+	 * 
+	 * FIXME: Passing a map with untyped values here is quite error prone. Make it better.
+	 * 
 	 */
 	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
 		try {
@@ -66,16 +75,23 @@ public class SimuComConfig implements Serializable {
 					DATASOURCE_ID);
 			this.runNumber = runNo;
 			this.isDebug = debug;
-			this.useConfidence = (Boolean) configuration.get(
-					USE_CONFIDENCE);
-			this.confidenceLevel = Integer.valueOf((String)configuration.get(
-					CONFIDENCE_LEVEL));
-			this.confidenceHalfWidth = Integer.valueOf((String)configuration.get(
-					CONFIDENCE_HALFWIDTH));
-			this.confidenceModelElementName = (String) configuration.get(
-					CONFIDENCE_MODELELEMENT_NAME);
-			this.confidenceModelElementURI = URI.createURI((String)configuration.get(
-					CONFIDENCE_MODELELEMENT_URI));
+			
+			// confidence information is optional in the map. It this.useConfidence defaults to false.
+			if (configuration.containsKey(USE_CONFIDENCE)) {
+				this.useConfidence = (Boolean) configuration
+						.get(USE_CONFIDENCE);
+				this.confidenceLevel = Integer.valueOf((String) configuration
+						.get(CONFIDENCE_LEVEL));
+				this.confidenceHalfWidth = Integer
+						.valueOf((String) configuration
+								.get(CONFIDENCE_HALFWIDTH));
+				this.confidenceModelElementName = (String) configuration
+						.get(CONFIDENCE_MODELELEMENT_NAME);
+				this.confidenceModelElementURI = URI
+						.createURI((String) configuration
+								.get(CONFIDENCE_MODELELEMENT_URI));
+
+			}
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
 		}
