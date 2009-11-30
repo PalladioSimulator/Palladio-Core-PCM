@@ -9,7 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -21,10 +23,15 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.m2m.internal.qvt.oml.ast.env.ModelExtentContents;
 import org.eclipse.m2m.internal.qvt.oml.common.MdaException;
 import org.eclipse.m2m.internal.qvt.oml.common.launch.ShallowProcess;
+import org.eclipse.m2m.internal.qvt.oml.common.launch.BaseProcess.IRunnable;
 import org.eclipse.m2m.internal.qvt.oml.compiler.QvtCompilerOptions;
 import org.eclipse.m2m.internal.qvt.oml.emf.util.ModelContent;
 import org.eclipse.m2m.internal.qvt.oml.evaluator.QvtRuntimeException;
+import org.eclipse.m2m.internal.qvt.oml.library.Context;
+import org.eclipse.m2m.internal.qvt.oml.runtime.generator.TransformationRunner;
 import org.eclipse.m2m.internal.qvt.oml.runtime.launch.QvtLaunchConfigurationDelegateBase;
+import org.eclipse.m2m.internal.qvt.oml.runtime.launch.QvtLaunchUtil;
+import org.eclipse.m2m.internal.qvt.oml.runtime.launch.QvtValidator;
 import org.eclipse.m2m.internal.qvt.oml.runtime.project.QvtInterpretedTransformation;
 import org.eclipse.m2m.internal.qvt.oml.runtime.project.QvtModule;
 import org.eclipse.m2m.internal.qvt.oml.runtime.project.QvtTransformation;
@@ -34,6 +41,7 @@ import org.eclipse.m2m.internal.qvt.oml.runtime.project.QvtTransformation.Transf
 import org.eclipse.m2m.internal.qvt.oml.runtime.project.QvtTransformation.TransformationParameter.DirectionKind;
 import org.eclipse.m2m.internal.qvt.oml.runtime.util.UriMappingAwareResourceSet;
 import org.eclipse.m2m.internal.qvt.oml.trace.Trace;
+import org.eclipse.m2m.qvt.oml.util.WriterLog;
 
 /**
  * QVT OperationalMapping Transformation Helper, based on qvt-oml belongs to M2M umbrella
@@ -192,10 +200,10 @@ public class QVTOHelper {
 		final List<Trace> outTraces = new ArrayList<Trace>(1);
 		final List<String> outConsole = new ArrayList<String>(1);
 		
-		ShallowProcess.IRunnable r = new ShallowProcess.IRunnable() {
+		IRunnable innerRunnable = new ShallowProcess.IRunnable() {
 			public void run() throws Exception {
 				try {
-					QvtLaunchConfigurationDelegateBase.doLaunch(transformation, inModels, inConfigProperties, outExtents, outMainParams, outTraces, outConsole);
+					runTransformation(transformation, inModels, inConfigProperties, outExtents, outMainParams, outTraces, outConsole);
 					transformation.cleanup();
 				} catch (MdaException ex) {
 					logger.error("Transformation execution failed",ex);
@@ -204,12 +212,13 @@ public class QVTOHelper {
 			}
 		};
 		try {
-			r = QvtLaunchConfigurationDelegateBase.getSafeRunnable(transformation, r);
-			r.run();
+			QvtLaunchConfigurationDelegateBase.getSafeRunnable(transformation, innerRunnable).run();
 		} catch (Exception e) {
-			logger.error("Transformation runnable did not succeed",e);
+			logger.trace("Transformation runnable did not succeed",e);
+			logger.error("QVT Operations Transformation failed. See QVT Console for further information...");
+			dumpQVTConsole(Level.ERROR,outConsole);
 			if (e instanceof QvtRuntimeException) {
-				logStackTrace((QvtRuntimeException)e);
+				logStackTrace(Level.TRACE,(QvtRuntimeException)e);
 			}
 			throw new TransformationException("Transformation failed", e);
 		}
@@ -218,15 +227,71 @@ public class QVTOHelper {
 			outModel.setRoots(outExtents.get(i).getAllRootElements());
 			outModel.setInitialElements(outExtents.get(i).getInitialElements());
 		}
-		
+		dumpQVTConsole(Level.DEBUG,outConsole);
 		return new TransfExecutionResult((outConsole==null || outConsole.size()<1)?"":outConsole.get(0), (outTraces==null || outTraces.size()<1)?null:outTraces.get(0), outMainParams, outModels);
 	}
 
-	private static void logStackTrace(QvtRuntimeException e) {
+	protected static void runTransformation(QvtTransformation transformation, List<ModelContent> inObjs, Map<String, Object> configProps,
+    		List<ModelExtentContents> outExtents, List<EObject> outMainParams, List<Trace> outTraces, List<String> outConsole) throws MdaException {
+        // Copied from QvtLaunchConfigurationDelegateBase.class to fix their crapy error handling. 
+		// May need updating when new QVTO releases appear
+		
+		IStatus status = QvtValidator.validateTransformation(transformation, inObjs);                    
+        if (status.getSeverity() > IStatus.WARNING) {
+        	logger.error("Transformation script is invalid");
+        	throw new MdaException(status);
+        }      	
+    	
+        Context context = QvtLaunchUtil.createContext(configProps);
+
+		final StringWriter consoleLogger = new StringWriter();
+		context.setLog(new WriterLog(consoleLogger));
+    	
+		try {
+	        TransformationRunner.In in = new TransformationRunner.In(inObjs.toArray(new ModelContent[inObjs.size()]), context);
+	        TransformationRunner.Out out = transformation.run(in);
+
+	        outExtents.addAll(out.getExtents());
+
+	        for (Object outValue : out.getOutParamValues()) {
+	        	if (outValue instanceof EObject) {
+	        		outMainParams.add((EObject) outValue);
+	        	}
+	        	else {
+	        		outMainParams.add(null);
+	        	}
+	        }
+	        if (out.getTrace() != null) {
+	        	outTraces.add(out.getTrace());
+	        }
+		} catch (MdaException e) {
+			throw e;
+		}
+		finally {
+			outConsole.add(consoleLogger.getBuffer().toString());	
+		}
+	}
+
+	/**
+	 * @param outConsole
+	 */
+	private static void dumpQVTConsole(Level p, List<String> outConsole) {
+		logger.log(p, "QVT Console output");
+		for (String s : outConsole) {
+			logger.log(p, s);
+		}
+	}
+
+	/**
+	 * Dump the stack trace of the QVTO Engine
+	 * @param trace 
+	 * @param e The exception thrown by the QVTO Engine
+	 */
+	private static void logStackTrace(Level level, QvtRuntimeException e) {
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		e.printQvtStackTrace(pw);
-		logger.error(sw.toString());
+		logger.log(level,sw.toString());
 	}
 
 	/**

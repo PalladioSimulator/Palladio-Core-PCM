@@ -37,14 +37,14 @@ import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.TransformationException;
  */
 public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJob<MDSDBlackboard> {
 	
-	private Logger logger = Logger.getLogger(QVTOTransformationJob.class);
+	private static final Logger logger = Logger.getLogger(QVTOTransformationJob.class);
 
 	private ArrayList<SeverityAndIssue> result;
 	private MDSDBlackboard blackboard;
 	private URI scriptURI;
 	private List<IModel> models;
 
-	private ResourceSetPartition  myPartition;
+	private ResourceSetPartition myPartition;
 
 	private Map<String, Object> options;
 	
@@ -53,12 +53,19 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	private URI traceURI;
 
 	public QVTOTransformationJob(QVTOTransformationJobConf conf, ResourceSetPartition partition) {
+		super();
+
+		this.scriptURI = URI.createURI(conf.getScriptFile());
+		if (this.scriptURI == null) {
+			throw new IllegalArgumentException("Transformation script URI is null, check transformation filename");
+		}
+		
 		this.configuration = conf;
 		this.myPartition = partition;
 		this.models = conf.getModels();
 		this.options = conf.getOptions();
-		this.scriptURI = URI.createURI(conf.getScriptFile());
 		this.traceURI = URI.createURI(conf.getTraceFile());
+		this.result = new ArrayList<SeverityAndIssue>();
 	}
 
 	/*
@@ -77,59 +84,75 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	 * IProgressMonitor)
 	 */
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
-		this.result = new ArrayList<SeverityAndIssue>();
+		TransfExecutionResult result = runTransformation();
+		
+		logger.debug("Initialising EPackages for storing the output models");
+		myPartition.initialiseResourceSetEPackages(configuration.getPartitionResourceSetEPackages());
+		
+		storeOutputModels(result);
+		storeTraceModel(result);
+	}
 
-		if (scriptURI == null) {
-			throw new JobFailedException("Transformation script is null!");
-		}
-
-		logger.info("Starting Transformation...");		
+	/**
+	 * @return
+	 * @throws JobFailedException
+	 */
+	private TransfExecutionResult runTransformation() throws JobFailedException {
+		logger.info("Starting Transformation...");	
+		
 		TransfExecutionResult result = null;
 		try {
 			result = QVTOHelper.runTransf(scriptURI, options, models);
 		} catch (TransformationException e) {
-			e.printStackTrace();
+			logger.error("Transformation job failed",e);
 			throw new JobFailedException("Transformation execution failed", e);
 		}
-		logger.info("Transformation executed.");
+		logger.info("Transformation executed successfully");
+		logger.debug("Printing transformation console (lenght "+result.getConsoleOutput().length()+")...");
+		logger.debug(result.getConsoleOutput());
+		logger.info("Transformation job finished");
 		
-		//logger.debug("Creating PCM Model Partition");
-		//ResourceSetPartition myPartion = new ResourceSetPartition();
-		
-		logger.debug("Initialising PCM EPackages");
-		myPartition.initialiseResourceSetEPackages(configuration.getPartitionResourceSetEPackages());
-		
-		logger.info("Saving models...");
-		//ResourceSetPartition pcmPartition = new ResourceSetPartition();
-		for(IModelTransfTarget outModel : result.getOutModels()) {
-			if(outModel instanceof ModelTransfTarget) {
-				ModelTransfTarget m = (ModelTransfTarget) outModel;
-				try {
-					logger.debug("Saving model " + m.getUri());
-					//toFile(m.getRoots(), m.getUri());
-					toFile(m.getRoots(), URI.createFileURI(m.getUri().toString()));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				logger.debug("Loading model: " + URI.createFileURI(m.getUri().toString()));
-				//myPartition.loadModel(URI.createFileURI(m.getUri().toString()));
-				myPartition.loadModel(m.getUri().toString());
-			}
-		}
-		blackboard.addPartition(configuration.getPartitionId(), myPartition);
-		
+		return result;
+	}
+
+	/**
+	 * @param result
+	 * @throws JobFailedException
+	 */
+	private void storeTraceModel(TransfExecutionResult result)
+			throws JobFailedException {
 		if(traceURI != null) {
 			logger.info("Saving trace...");
 			try {
 				result.saveTrace(traceURI);
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("Failed saving transformation trace model");
+				throw new JobFailedException("Failed to save trace model of QVT transformation",e);
 			}
 		}
-		
-		logger.debug("Printing transformation console (lenght "+result.getConsoleOutput().length()+")...");
-		logger.debug(result.getConsoleOutput());
-		logger.info("Transformation job finished.");
+	}
+
+	/**
+	 * @param result
+	 * @throws JobFailedException
+	 */
+	private void storeOutputModels(TransfExecutionResult result)
+			throws JobFailedException {
+		logger.info("Saving output models...");
+		for(IModelTransfTarget outModel : result.getOutModels()) {
+			assert outModel instanceof ModelTransfTarget;
+			ModelTransfTarget m = (ModelTransfTarget) outModel;
+			try {
+				logger.debug("Saving model " + m.getUri());
+				toFile(m.getRoots(), URI.createFileURI(m.getUri().toString()));
+			} catch (IOException e) {
+				logger.error("Failed saving transformation result model");
+				throw new JobFailedException("Failed to save output model of QVT transformation",e);
+			}
+			logger.debug("Loading model: " + URI.createFileURI(m.getUri().toString()));
+			myPartition.loadModel(m.getUri().toString());
+		}
+		blackboard.addPartition(configuration.getPartitionId(), myPartition);
 	}
 
 	/**
@@ -159,7 +182,7 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 			/* Why is r null? */
 			r.getContents().addAll(objs);
 		} catch (NullPointerException e) {
-			e.printStackTrace();
+			logger.error("No contents found in resource",e);
 			throw new IOException("Resource saving failed "+ tofile.toString());
 		}
 		r.save(options);
@@ -192,10 +215,9 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	 * .ipd.sdq.workflow.Blackboard)
 	 */
 	public void setBlackboard(MDSDBlackboard blackboard) {
+		assert blackboard != null;
+		
 		logger.debug("Blackboard set.");
-		if (blackboard == null) {
-			logger.debug("Blackboard null!");	
-		}
 		this.blackboard = blackboard;
 	}
 }
