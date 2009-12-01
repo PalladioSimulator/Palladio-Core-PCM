@@ -76,7 +76,7 @@
     </log>
     <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
     <publishers>
-      <htmlemail buildresultsurl="buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/"" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de" skipusers="true">
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Steffen Becker" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de" skipusers="true">
         <always address="q-impress-commits@ow2.org"></always>
         <always address="q-impress-wp4@q-impress.eu"></always>
       </htmlemail>
