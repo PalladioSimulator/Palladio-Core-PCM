@@ -7,7 +7,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_DcmJIZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_DcmJIpuuEd6drucJ1qoe4Q" successor_AbstractAction="_J4eAYJuuEd6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_DcmJI5uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_L6Gg8JuuEd6drucJ1qoe4Q"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_J4eAYJuuEd6drucJ1qoe4Q" entityName="compute" predecessor_AbstractAction="_DcmJIpuuEd6drucJ1qoe4Q" successor_AbstractAction="_L6Gg8JuuEd6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_J4eAYJuuEd6drucJ1qoe4Q" entityName="compute" predecessor_AbstractAction="_DcmJIpuuEd6drucJ1qoe4Q" successor_AbstractAction="_L6Gg8JuuEd6drucJ1qoe4Q" failureProbability="0.1">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.8,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -51,7 +51,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Hcma4ZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_Hcma4puuEd6drucJ1qoe4Q" successor_AbstractAction="_YCTo4JuuEd6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_Hcma45uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_ZdplgJuuEd6drucJ1qoe4Q"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_YCTo4JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_Hcma4puuEd6drucJ1qoe4Q" successor_AbstractAction="_ZdplgJuuEd6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_YCTo4JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_Hcma4puuEd6drucJ1qoe4Q" successor_AbstractAction="_ZdplgJuuEd6drucJ1qoe4Q" failureProbability="0.05">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.6,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -73,7 +73,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_FR3osZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_FR3ospuuEd6drucJ1qoe4Q" successor_AbstractAction="_1ose8JuuEd6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_FR3os5uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_3YTbYJuuEd6drucJ1qoe4Q"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_1ose8JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_FR3ospuuEd6drucJ1qoe4Q" successor_AbstractAction="_3YTbYJuuEd6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_1ose8JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_FR3ospuuEd6drucJ1qoe4Q" successor_AbstractAction="_3YTbYJuuEd6drucJ1qoe4Q" failureProbability="0.02">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.5,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -94,7 +94,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_IPaX4ZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_IPaX4puuEd6drucJ1qoe4Q" successor_AbstractAction="_5o16oJuuEd6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_IPaX45uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_5o16oJuuEd6drucJ1qoe4Q"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_5o16oJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_IPaX4puuEd6drucJ1qoe4Q" successor_AbstractAction="_IPaX45uuEd6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_5o16oJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_IPaX4puuEd6drucJ1qoe4Q" successor_AbstractAction="_IPaX45uuEd6drucJ1qoe4Q" failureProbability="0.01">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -108,13 +108,13 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mzSCgZuxEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_mzSCgpuxEd6drucJ1qoe4Q" successor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_mzSCg5uxEd6drucJ1qoe4Q" predecessor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_p5dwUJuxEd6drucJ1qoe4Q" entityName="C5" predecessor_AbstractAction="_mzSCgpuxEd6drucJ1qoe4Q" successor_AbstractAction="_q4WacJuxEd6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_p5dwUJuxEd6drucJ1qoe4Q" entityName="C5" predecessor_AbstractAction="_mzSCgpuxEd6drucJ1qoe4Q" successor_AbstractAction="_q4WacJuxEd6drucJ1qoe4Q" failureProbability="0.01">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.2,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_q4WacJuxEd6drucJ1qoe4Q" entityName="C6" predecessor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q" successor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_q4WacJuxEd6drucJ1qoe4Q" entityName="C6" predecessor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q" successor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ" failureProbability="0.01">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -135,13 +135,13 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Vs4a4Zu0Ed6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_Vs4a4pu0Ed6drucJ1qoe4Q" successor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_Vs4a45u0Ed6drucJ1qoe4Q" predecessor_AbstractAction="_c8KsEJu0Ed6drucJ1qoe4Q"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_cLutoJu0Ed6drucJ1qoe4Q" entityName="C7" predecessor_AbstractAction="_Vs4a4pu0Ed6drucJ1qoe4Q" successor_AbstractAction="_c8KsEJu0Ed6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_cLutoJu0Ed6drucJ1qoe4Q" entityName="C7" predecessor_AbstractAction="_Vs4a4pu0Ed6drucJ1qoe4Q" successor_AbstractAction="_c8KsEJu0Ed6drucJ1qoe4Q" failureProbability="0.05">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_c8KsEJu0Ed6drucJ1qoe4Q" entityName="C8" predecessor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q" successor_AbstractAction="_Vs4a45u0Ed6drucJ1qoe4Q">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_c8KsEJu0Ed6drucJ1qoe4Q" entityName="C8" predecessor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q" successor_AbstractAction="_Vs4a45u0Ed6drucJ1qoe4Q" failureProbability="0.05">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
