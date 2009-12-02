@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_4N04tJuvEd6drucJ1qoe4Q" type="PCM Usage Model" name="default.usagemodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_4QgZQJuvEd6drucJ1qoe4Q" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_4QgZQ5uvEd6drucJ1qoe4Q" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_4QgZRpuvEd6drucJ1qoe4Q" type="3001">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_4QgZR5uvEd6drucJ1qoe4Q"/>
+        <element xmi:type="Start" href="default.usagemodel#_4N04spuvEd6drucJ1qoe4Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4QgZSJuvEd6drucJ1qoe4Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_4QgZSZuvEd6drucJ1qoe4Q" type="3002">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_4QgZSpuvEd6drucJ1qoe4Q"/>
+        <element xmi:type="Stop" href="default.usagemodel#_4N04s5uvEd6drucJ1qoe4Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4QgZS5uvEd6drucJ1qoe4Q" x="91" y="325"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_67R9cJuvEd6drucJ1qoe4Q" type="3003">
+        <children xmi:type="notation:Node" xmi:id="_67R9c5uvEd6drucJ1qoe4Q" type="5004"/>
+        <children xmi:type="notation:Node" xmi:id="_67bHYJuvEd6drucJ1qoe4Q" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_jnwIIJ7GEd6Y0ZIX-BIknQ" type="3012">
+            <children xmi:type="notation:Node" xmi:id="_jnwII57GEd6Y0ZIX-BIknQ" type="5012"/>
+            <children xmi:type="notation:Node" xmi:id="_jnwIJJ7GEd6Y0ZIX-BIknQ" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_j3GywJ7GEd6Y0ZIX-BIknQ" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_j3GywZ7GEd6Y0ZIX-BIknQ"/>
+              </children>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_jnwIJZ7GEd6Y0ZIX-BIknQ"/>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_jnwIJp7GEd6Y0ZIX-BIknQ" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_jnwIJ57GEd6Y0ZIX-BIknQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_jnwIKJ7GEd6Y0ZIX-BIknQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_jnwIIZ7GEd6Y0ZIX-BIknQ"/>
+            <element xmi:type="_1:VariableUsage" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jnwIIp7GEd6Y0ZIX-BIknQ"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_67bHYZuvEd6drucJ1qoe4Q"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_67bHYpuvEd6drucJ1qoe4Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_67R9cZuvEd6drucJ1qoe4Q"/>
+        <element xmi:type="EntryLevelSystemCall" href="default.usagemodel#_5kjbEJuvEd6drucJ1qoe4Q"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_67R9cpuvEd6drucJ1qoe4Q" x="113" y="120"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_4QgZRJuvEd6drucJ1qoe4Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_4QgZRZuvEd6drucJ1qoe4Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_4QgZQZuvEd6drucJ1qoe4Q"/>
+    <element xmi:type="ScenarioBehaviour" href="default.usagemodel#_4N04sZuvEd6drucJ1qoe4Q"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4QgZQpuvEd6drucJ1qoe4Q" width="611" height="531"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8W61AJuvEd6drucJ1qoe4Q" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_8XEmAJuvEd6drucJ1qoe4Q" type="5010"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_8W61AZuvEd6drucJ1qoe4Q"/>
+    <element xmi:type="OpenWorkload" href="default.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8W61ApuvEd6drucJ1qoe4Q" x="395" y="95"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_4N04tZuvEd6drucJ1qoe4Q"/>
+  <element xmi:type="UsageScenario" href="default.usagemodel#_4N04sJuvEd6drucJ1qoe4Q"/>
+  <edges xmi:type="notation:Edge" xmi:id="_7XvP8JuvEd6drucJ1qoe4Q" type="4002" source="_4QgZRpuvEd6drucJ1qoe4Q" target="_67R9cJuvEd6drucJ1qoe4Q">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_7XvP8ZuvEd6drucJ1qoe4Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7XvP8puvEd6drucJ1qoe4Q"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7XvP85uvEd6drucJ1qoe4Q" points="[10, 10, -122, -112]$[103, 110, -29, -12]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7X5A8JuvEd6drucJ1qoe4Q" id="(0.232,0.24)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_7q9t8JuvEd6drucJ1qoe4Q" type="4002" source="_67R9cJuvEd6drucJ1qoe4Q" target="_4QgZSZuvEd6drucJ1qoe4Q">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_7q9t8ZuvEd6drucJ1qoe4Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7q9t8puvEd6drucJ1qoe4Q"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7q9t85uvEd6drucJ1qoe4Q" points="[-9, 25, 62, -178]$[-73, 210, -2, 7]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7q9t9JuvEd6drucJ1qoe4Q" id="(0.43333334,0.76666665)"/>
+  </edges>
+</notation:Diagram>

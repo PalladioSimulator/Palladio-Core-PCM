@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_zIeaYJutEd6drucJ1qoe4Q" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_6e51YJutEd6drucJ1qoe4Q" entityName="C1">
+    <providedRoles_InterfaceProvidingEntity id="_DcmJIJuuEd6drucJ1qoe4Q" entityName="Provided_Interface1_C1" providedInterface__ProvidedRole="_2ADrgJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_D7vjQJuuEd6drucJ1qoe4Q" entityName="Required_Interface2_C1" requiredInterface__RequiredRole="_3HbjQJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_EWj3AJuuEd6drucJ1qoe4Q" entityName="Required_Interface3_C1" requiredInterface__RequiredRole="_3-a1oJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_DcmJIZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_DcmJIpuuEd6drucJ1qoe4Q" successor_AbstractAction="_J4eAYJuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_DcmJI5uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_L6Gg8JuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_J4eAYJuuEd6drucJ1qoe4Q" entityName="compute" predecessor_AbstractAction="_DcmJIpuuEd6drucJ1qoe4Q" successor_AbstractAction="_L6Gg8JuuEd6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.8,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_L6Gg8JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_J4eAYJuuEd6drucJ1qoe4Q" successor_AbstractAction="_DcmJI5uuEd6drucJ1qoe4Q">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.2">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_MkkaQZuuEd6drucJ1qoe4Q" successor_AbstractAction="_R5qPoJuuEd6drucJ1qoe4Q"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_MkkaQpuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_R5qPoJuuEd6drucJ1qoe4Q"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_R5qPoJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_MkkaQZuuEd6drucJ1qoe4Q" successor_AbstractAction="_MkkaQpuuEd6drucJ1qoe4Q" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" role_ExternalService="_D7vjQJuuEd6drucJ1qoe4Q">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="c.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="c"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" branchProbability="0.8">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_Q7q9YZuuEd6drucJ1qoe4Q" successor_AbstractAction="_TxBZ4JuuEd6drucJ1qoe4Q"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_Q7q9YpuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_TxBZ4JuuEd6drucJ1qoe4Q"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_TxBZ4JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_Q7q9YZuuEd6drucJ1qoe4Q" successor_AbstractAction="_Q7q9YpuuEd6drucJ1qoe4Q" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_EWj3AJuuEd6drucJ1qoe4Q">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="c.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="c"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_8RyvUJutEd6drucJ1qoe4Q" entityName="C2">
+    <providedRoles_InterfaceProvidingEntity id="_Hcma4JuuEd6drucJ1qoe4Q" entityName="Provided_Interface2_C2" providedInterface__ProvidedRole="_3HbjQJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_H0ldEJuuEd6drucJ1qoe4Q" entityName="Required_Interface4_C2" requiredInterface__RequiredRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Hcma4ZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_Hcma4puuEd6drucJ1qoe4Q" successor_AbstractAction="_YCTo4JuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_Hcma45uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_ZdplgJuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_YCTo4JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_Hcma4puuEd6drucJ1qoe4Q" successor_AbstractAction="_ZdplgJuuEd6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.6,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ZdplgJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_YCTo4JuuEd6drucJ1qoe4Q" successor_AbstractAction="_Hcma45uuEd6drucJ1qoe4Q" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_H0ldEJuuEd6drucJ1qoe4Q">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="c.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="c"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_8xFTYJutEd6drucJ1qoe4Q" entityName="C3">
+    <providedRoles_InterfaceProvidingEntity id="_FR3osJuuEd6drucJ1qoe4Q" entityName="Provided_Interface3_C3" providedInterface__ProvidedRole="_3-a1oJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_GnszMJuuEd6drucJ1qoe4Q" entityName="Required_Interface4_C3" requiredInterface__RequiredRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_FR3osZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_FR3ospuuEd6drucJ1qoe4Q" successor_AbstractAction="_1ose8JuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_FR3os5uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_3YTbYJuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_1ose8JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_FR3ospuuEd6drucJ1qoe4Q" successor_AbstractAction="_3YTbYJuuEd6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.5,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3YTbYJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_1ose8JuuEd6drucJ1qoe4Q" successor_AbstractAction="_FR3os5uuEd6drucJ1qoe4Q" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_GnszMJuuEd6drucJ1qoe4Q">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="c.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="c"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_9mR2AJutEd6drucJ1qoe4Q" entityName="C4">
+    <providedRoles_InterfaceProvidingEntity id="_IPaX4JuuEd6drucJ1qoe4Q" entityName="Provided_Interface4_C4" providedInterface__ProvidedRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_IPaX4ZuuEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_IPaX4puuEd6drucJ1qoe4Q" successor_AbstractAction="_5o16oJuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_IPaX45uuEd6drucJ1qoe4Q" predecessor_AbstractAction="_5o16oJuuEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_5o16oJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_IPaX4puuEd6drucJ1qoe4Q" successor_AbstractAction="_IPaX45uuEd6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_lSuOsJuxEd6drucJ1qoe4Q" entityName="C5and6">
+    <providedRoles_InterfaceProvidingEntity id="_mzSCgJuxEd6drucJ1qoe4Q" entityName="Provided_Interface2_C5and6" providedInterface__ProvidedRole="_3HbjQJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_nXfi0JuxEd6drucJ1qoe4Q" entityName="Required_Interface4_C5and6" requiredInterface__RequiredRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mzSCgZuxEd6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_mzSCgpuxEd6drucJ1qoe4Q" successor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_mzSCg5uxEd6drucJ1qoe4Q" predecessor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_p5dwUJuxEd6drucJ1qoe4Q" entityName="C5" predecessor_AbstractAction="_mzSCgpuxEd6drucJ1qoe4Q" successor_AbstractAction="_q4WacJuxEd6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.2,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_q4WacJuxEd6drucJ1qoe4Q" entityName="C6" predecessor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q" successor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_66nKoJ7GEd6Y0ZIX-BIknQ" predecessor_AbstractAction="_q4WacJuxEd6drucJ1qoe4Q" successor_AbstractAction="_mzSCg5uxEd6drucJ1qoe4Q" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_nXfi0JuxEd6drucJ1qoe4Q">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="c.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="c"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_UQf8cJu0Ed6drucJ1qoe4Q" entityName="C7and8">
+    <providedRoles_InterfaceProvidingEntity id="_Vs4a4Ju0Ed6drucJ1qoe4Q" entityName="Provided_Interface4_C7and8" providedInterface__ProvidedRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Vs4a4Zu0Ed6drucJ1qoe4Q" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_Vs4a4pu0Ed6drucJ1qoe4Q" successor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_Vs4a45u0Ed6drucJ1qoe4Q" predecessor_AbstractAction="_c8KsEJu0Ed6drucJ1qoe4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_cLutoJu0Ed6drucJ1qoe4Q" entityName="C7" predecessor_AbstractAction="_Vs4a4pu0Ed6drucJ1qoe4Q" successor_AbstractAction="_c8KsEJu0Ed6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_c8KsEJu0Ed6drucJ1qoe4Q" entityName="C8" predecessor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q" successor_AbstractAction="_Vs4a45u0Ed6drucJ1qoe4Q">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="CompositeComponent" id="_GrfvMJyMEd6Gn-xRPLZ8iw" entityName="C2and3">
+    <assemblyContexts_ComposedStructure id="_HFfRoJyOEd61pPDdBSXsMg" entityName="Assembly_C2 &lt;C2>" encapsulatedComponent_AssemblyContext="_8RyvUJutEd6drucJ1qoe4Q"/>
+    <assemblyContexts_ComposedStructure id="_Hd6_wJyOEd61pPDdBSXsMg" entityName="Assembly_C3 &lt;C3>" encapsulatedComponent_AssemblyContext="_8xFTYJutEd6drucJ1qoe4Q"/>
+    <providedDelegationConnectors_ComposedStructure id="_KFHEcJyOEd61pPDdBSXsMg" entityName="ProvDelegation Provided_Interface2_C2and3 -> Provided_Interface2_C2" innerProvidedRole_ProvidedDelegationConnector="_Hcma4JuuEd6drucJ1qoe4Q" outerProvidedRole_ProvidedDelegationConnector="_KJEpUJyMEd6Gn-xRPLZ8iw" assemblyContext_ProvidedDelegationConnector="_HFfRoJyOEd61pPDdBSXsMg"/>
+    <providedDelegationConnectors_ComposedStructure id="_KeAFkJyOEd61pPDdBSXsMg" entityName="ProvDelegation Provided_Interface3_C2and3 -> Provided_Interface3_C3" innerProvidedRole_ProvidedDelegationConnector="_FR3osJuuEd6drucJ1qoe4Q" outerProvidedRole_ProvidedDelegationConnector="_KwHbMJyMEd6Gn-xRPLZ8iw" assemblyContext_ProvidedDelegationConnector="_Hd6_wJyOEd61pPDdBSXsMg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_K1sM0JyOEd61pPDdBSXsMg" entityName="ReqDelegation Required_Interface4_C2 -> Required_Interface4_C2and3" innerRequiredRole_RequiredDelegationConnector="_H0ldEJuuEd6drucJ1qoe4Q" outerRequiredRole_RequiredDelegationConnector="_N4ruoJyMEd6Gn-xRPLZ8iw" assemblyContext_RequiredDelegationConnector="_HFfRoJyOEd61pPDdBSXsMg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_LA3iEJyOEd61pPDdBSXsMg" entityName="ReqDelegation Required_Interface4_C3 -> Required_Interface4_C2and3" innerRequiredRole_RequiredDelegationConnector="_GnszMJuuEd6drucJ1qoe4Q" outerRequiredRole_RequiredDelegationConnector="_N4ruoJyMEd6Gn-xRPLZ8iw" assemblyContext_RequiredDelegationConnector="_Hd6_wJyOEd61pPDdBSXsMg"/>
+    <providedRoles_InterfaceProvidingEntity id="_KJEpUJyMEd6Gn-xRPLZ8iw" entityName="Provided_Interface2_C2and3" providedInterface__ProvidedRole="_3HbjQJutEd6drucJ1qoe4Q"/>
+    <providedRoles_InterfaceProvidingEntity id="_KwHbMJyMEd6Gn-xRPLZ8iw" entityName="Provided_Interface3_C2and3" providedInterface__ProvidedRole="_3-a1oJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_N4ruoJyMEd6Gn-xRPLZ8iw" entityName="Required_Interface4_C2and3" requiredInterface__RequiredRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="CompositeComponent" id="_ICXbgJyMEd6Gn-xRPLZ8iw" entityName="C5and6and3">
+    <assemblyContexts_ComposedStructure id="_RUPkoJyOEd61pPDdBSXsMg" entityName="Assembly_C5and6 &lt;C5and6>" encapsulatedComponent_AssemblyContext="_lSuOsJuxEd6drucJ1qoe4Q"/>
+    <assemblyContexts_ComposedStructure id="_Sak6kJyOEd61pPDdBSXsMg" entityName="Assembly_C3 &lt;C3>" encapsulatedComponent_AssemblyContext="_8xFTYJutEd6drucJ1qoe4Q"/>
+    <providedDelegationConnectors_ComposedStructure id="_USFOwJyOEd61pPDdBSXsMg" entityName="ProvDelegation Provided_Interface2_C5and6and3 -> Provided_Interface2_C5and6" innerProvidedRole_ProvidedDelegationConnector="_mzSCgJuxEd6drucJ1qoe4Q" outerProvidedRole_ProvidedDelegationConnector="_LMIBwJyMEd6Gn-xRPLZ8iw" assemblyContext_ProvidedDelegationConnector="_RUPkoJyOEd61pPDdBSXsMg"/>
+    <providedDelegationConnectors_ComposedStructure id="_UmMdkJyOEd61pPDdBSXsMg" entityName="ProvDelegation Provided_Interface3_C5and6and3 -> Provided_Interface3_C3" innerProvidedRole_ProvidedDelegationConnector="_FR3osJuuEd6drucJ1qoe4Q" outerProvidedRole_ProvidedDelegationConnector="_LoJPYJyMEd6Gn-xRPLZ8iw" assemblyContext_ProvidedDelegationConnector="_Sak6kJyOEd61pPDdBSXsMg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_TkoS4JyOEd61pPDdBSXsMg" entityName="ReqDelegation Required_Interface4_C5and6 -> Required_Interface4_C5and6and3" innerRequiredRole_RequiredDelegationConnector="_nXfi0JuxEd6drucJ1qoe4Q" outerRequiredRole_RequiredDelegationConnector="_NNxJYJyMEd6Gn-xRPLZ8iw" assemblyContext_RequiredDelegationConnector="_RUPkoJyOEd61pPDdBSXsMg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_Txcm4JyOEd61pPDdBSXsMg" entityName="ReqDelegation Required_Interface4_C3 -> Required_Interface4_C5and6and3" innerRequiredRole_RequiredDelegationConnector="_GnszMJuuEd6drucJ1qoe4Q" outerRequiredRole_RequiredDelegationConnector="_NNxJYJyMEd6Gn-xRPLZ8iw" assemblyContext_RequiredDelegationConnector="_Sak6kJyOEd61pPDdBSXsMg"/>
+    <providedRoles_InterfaceProvidingEntity id="_LMIBwJyMEd6Gn-xRPLZ8iw" entityName="Provided_Interface2_C5and6and3" providedInterface__ProvidedRole="_3HbjQJutEd6drucJ1qoe4Q"/>
+    <providedRoles_InterfaceProvidingEntity id="_LoJPYJyMEd6Gn-xRPLZ8iw" entityName="Provided_Interface3_C5and6and3" providedInterface__ProvidedRole="_3-a1oJutEd6drucJ1qoe4Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_NNxJYJyMEd6Gn-xRPLZ8iw" entityName="Required_Interface4_C5and6and3" requiredInterface__RequiredRole="_5GiUQJutEd6drucJ1qoe4Q"/>
+  </components__Repository>
+  <interfaces__Repository id="_2ADrgJutEd6drucJ1qoe4Q" entityName="Interface1">
+    <signatures__Interface serviceName="doSth">
+      <parameters__Signature parameterName="c">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.3"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_3HbjQJutEd6drucJ1qoe4Q" entityName="Interface2">
+    <signatures__Interface serviceName="doSth">
+      <parameters__Signature parameterName="c">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.3"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_3-a1oJutEd6drucJ1qoe4Q" entityName="Interface3">
+    <signatures__Interface serviceName="doSth">
+      <parameters__Signature parameterName="c">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.3"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_5GiUQJutEd6drucJ1qoe4Q" entityName="Interface4">
+    <signatures__Interface serviceName="doSth">
+      <parameters__Signature parameterName="c">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.3"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+</Repository>
