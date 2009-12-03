@@ -133,8 +133,13 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 	private ArrayList<SeverityAndIssue> getSeverityAndIssues(
 			Issues issues) {
 		ArrayList<SeverityAndIssue> result = new ArrayList<SeverityAndIssue>();
-		for (MWEDiagnostic issue : issues.getErrors())
-			result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage(),(EObject)issue.getElement()));
+		for (MWEDiagnostic issue : issues.getErrors()){
+			if (issue.getElement() instanceof EObject){
+				result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage(),(EObject)issue.getElement()));
+			} else 
+				result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage()+issue.getElement().toString(),null));
+		}
+		
 		for (MWEDiagnostic issue : issues.getWarnings())
 			result.add(new SeverityAndIssue(SeverityAndIssue.WARNING,issue.getMessage(),(EObject)issue.getElement()));
 		return result;

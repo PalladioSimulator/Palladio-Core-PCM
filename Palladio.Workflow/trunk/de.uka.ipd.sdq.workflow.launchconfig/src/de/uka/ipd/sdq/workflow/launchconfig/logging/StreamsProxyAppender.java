@@ -32,8 +32,8 @@ public class StreamsProxyAppender extends AppenderSkeleton {
 
 			public int decide(LoggingEvent logEvent) {
 				if (StreamsProxyAppender.this.myClassloader == Thread.currentThread().getContextClassLoader())
-					return 1;
-				return -1;
+					return Filter.ACCEPT;
+				return Filter.DENY;
 			}
 			
 		});
