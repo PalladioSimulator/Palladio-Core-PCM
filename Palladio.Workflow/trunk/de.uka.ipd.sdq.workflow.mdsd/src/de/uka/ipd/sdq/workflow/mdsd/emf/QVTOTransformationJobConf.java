@@ -12,8 +12,9 @@ public class QVTOTransformationJobConf {
 	private List<IModel> models;
 	private String scriptFile;
 	private String traceFile;
-	
 	private String partitionId;
+	public EPackage[] partitionResourceSetEPackages;
+	private boolean shouldPersistOutput = true;
 	
 	public String getPartitionId() {
 		return partitionId;
@@ -21,8 +22,6 @@ public class QVTOTransformationJobConf {
 	public void setPartitionId(String partitionId) {
 		this.partitionId = partitionId;
 	}
-	
-	public EPackage[] partitionResourceSetEPackages;
 	
 	public EPackage[] getPartitionResourceSetEPackages() {
 		return partitionResourceSetEPackages;
@@ -55,5 +54,13 @@ public class QVTOTransformationJobConf {
 	public String getTraceFile() {
 		return traceFile;
 	}
-
+	public boolean shouldPersistOutput() {
+		return this.shouldPersistOutput;
+	}
+	/**
+	 * @param shouldPersistOutput the shouldPersistOutput to set
+	 */
+	public void setShouldPersistOutput(boolean shouldPersistOutput) {
+		this.shouldPersistOutput = shouldPersistOutput;
+	}
 }

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.workflow.mdsd.blackboard;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -51,8 +53,13 @@ public class ResourceSetPartition {
 	 * Resolve all model proxies, i.e., load all dependent models
 	 */
 	public void resolveAllProxies() {
-		for (Resource r : this.rs.getResources()) {
-			EcoreUtil.resolveAll(r);
-		}
+		ArrayList<Resource> currentResources = null; 
+		do {
+			// Copy list to avoid concurrent modification exceptions
+			currentResources = new ArrayList<Resource>(this.rs.getResources());
+			for (Resource r : currentResources) {
+				EcoreUtil.resolveAll(r);
+			}
+		} while (currentResources.size() != this.rs.getResources().size());
 	}
 }

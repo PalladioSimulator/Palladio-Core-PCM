@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
@@ -144,13 +145,11 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 			ModelTransfTarget m = (ModelTransfTarget) outModel;
 			try {
 				logger.debug("Saving model " + m.getUri());
-				toFile(m.getRoots(), m.getUri());
+				addToPartition(myPartition,m.getRoots(), m.getUri(),configuration.shouldPersistOutput());
 			} catch (IOException e) {
 				logger.error("Failed saving transformation result model");
 				throw new JobFailedException("Failed to save output model of QVT transformation",e);
 			}
-			logger.debug("Loading model: " + m.getUri());
-			myPartition.loadModel(m.getUri().toString());
 		}
 		blackboard.addPartition(configuration.getPartitionId(), myPartition);
 	}
@@ -160,32 +159,33 @@ public class QVTOTransformationJob implements IJobWithResult<ArrayList<SeverityA
 	 * 
 	 * @param objs
 	 *            model to save
-	 * @param tofile
+	 * @param resourceURI
 	 *            filename where the model would be saved
 	 * @throws Exception
 	 *             raised in case an error occurs and the model is not saved.
 	 * @author Andrea Ciancone
+	 * @param resourceSet 
 	 */
-	public void toFile(List<EObject> objs, URI tofile) throws IOException {
-		  
-        Map<String, Object> options = new HashMap<String, Object>();
-        options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-        
-        for(EObject obj: objs) {
-        	if(obj instanceof EStructuralFeature.Internal.DynamicValueHolder) {
-        		options.put("SCHEMA_LOCATION", Boolean.TRUE);
-        	}
-        }
-		Resource r = new ResourceSetImpl().createResource(tofile);
-
-		try {
-			/* Why is r null? */
-			r.getContents().addAll(objs);
-		} catch (NullPointerException e) {
-			logger.error("No contents found in resource",e);
-			throw new IOException("Resource saving failed "+ tofile.toString());
+	public void addToPartition(ResourceSetPartition resourceSet, List<EObject> objs, URI resourceURI, boolean persist) throws IOException {
+        Resource r = resourceSet.getResourceSet().createResource(resourceURI);
+		if (r != null) {
+			if (persist) {
+		        Map<String, Object> options = new HashMap<String, Object>();
+		        options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+		        
+		        for(EObject obj: objs) {
+		        	if(obj instanceof EStructuralFeature.Internal.DynamicValueHolder) {
+		        		options.put("SCHEMA_LOCATION", Boolean.TRUE);
+		        	}
+		        }
+			
+				r.getContents().addAll(objs);
+				r.save(options);
+			}
+		} else {
+			logger.error("Could not create resource");
+			throw new IOException("Resource saving failed "+ resourceURI.toString());
 		}
-		r.save(options);
 	}
 
 	/*
