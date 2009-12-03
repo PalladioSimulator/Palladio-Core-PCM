@@ -9,7 +9,7 @@
         </childrelation>
       </children>
       <children name="Options">
-        <childrelation xsi:type="de.uka.ipd.sdq:FeatureGroup" min="0" max="-1">
+        <childrelation xsi:type="de.uka.ipd.sdq:FeatureGroup" min="0" max="2">
           <children name="Encryption"/>
           <children name="Authentication"/>
         </childrelation>
