@@ -87,16 +87,14 @@ public abstract class PredefinedInstanceEvaluator {
 			
 			List<Exception> exceptionList = new ArrayList<Exception>();
 			
-			ResultsWriter resultsWriter = new ResultsWriter(); 
+			ResultsWriter.writeIndividualsToFile(individuals, "allCandidates", 1, exceptionList);
 			
-			resultsWriter.writeIndividualsToFile(individuals, "allCandidates", 1, exceptionList);
-			
-			resultsWriter.writeIndividualsToFile(optimalCandidates, "optimalCandidates", 1, exceptionList);
+			ResultsWriter.writeIndividualsToFile(optimalCandidates, "optimalCandidates", 1, exceptionList);
 
 			
-			resultsWriter.printOutIndividuals(individuals, "Predefined instances");
+			ResultsWriter.printOutIndividuals(individuals, "Predefined instances");
 			
-			resultsWriter.printOutIndividuals(optimalCandidates, "Pareto-optimal predefined instances");
+			ResultsWriter.printOutIndividuals(optimalCandidates, "Pareto-optimal predefined instances");
 			
 			
 			

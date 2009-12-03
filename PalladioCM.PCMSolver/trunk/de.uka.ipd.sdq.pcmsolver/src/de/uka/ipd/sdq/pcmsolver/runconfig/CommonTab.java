@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.runconfig;
 
+import javax.management.RuntimeErrorException;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -51,14 +53,17 @@ public class CommonTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
-		try{
+		
+		throw new RuntimeException("Warning! Obsolete CommonTab has been used! Delete the java file.");
+/*		try{
 			checkVerboseLogging.setSelection(configuration.getAttribute(
 					MessageStrings.VERBOSE_LOGGING, false));
+			
 		}catch(CoreException e){
 			checkVerboseLogging.setSelection(false);
 		}
 		
-		updateLaunchConfigurationDialog();
+		updateLaunchConfigurationDialog();*/
 	}
 
 	@Override
@@ -68,7 +73,8 @@ public class CommonTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING, checkVerboseLogging.getSelection());
+		throw new RuntimeException("Warning! Obsolete CommonTab has been used! Delete the java file.");
+		//configuration.setAttribute(MessageStrings.VERBOSE_LOGGING, checkVerboseLogging.getSelection());
 	}
 
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.google.inject.Inject;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.dsexplore.helper.ResultsWriter;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 //import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -38,6 +40,9 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  *
  */
 public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
+	
+	/* TODO: Move this to some other class, e.g. a configuration class */
+	private DecimalFormat format = new DecimalFormat("0.#######");
 	
 	//private final DSEProblem problem;
 	
@@ -186,13 +191,13 @@ public class DSEDecoder implements Decoder<DoubleGenotype, PCMPhenotype> {
 
 	private static String getDecisionString(double gene, DegreeOfFreedom designDecision) {
 		String result = "";
-		int intgene = (int)gene;		
 		/**
 		 * TODO Make the selection of the appropriate applyChange method more implicit. Maybe move the method to DesignDecision itself.  
 		 */
 		if (ProcessingRateDegree.class.isInstance(designDecision)){
-			result = String.valueOf(gene);
+			result = new ResultsWriter().formatDouble(gene);
 		} else if (EnumerationDegree.class.isInstance(designDecision)){
+			int intgene = (int)gene;		
 			result = ((EnumerationDegree)designDecision).getDomainOfEntities().get(intgene).getEntityName();
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());

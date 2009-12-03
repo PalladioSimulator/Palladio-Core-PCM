@@ -6,6 +6,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
 import de.uka.ipd.sdq.cip.launchconfig.CompletionTab;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 /**
@@ -19,7 +20,7 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-        ILaunchConfigurationTab commonTab = new CommonTab();
+        ILaunchConfigurationTab commonTab = new DebugEnabledCommonTab();
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new FileNamesInputTab(), // Default tab
 				new SimuComConfigurationTab(),

@@ -4,6 +4,7 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 /**
@@ -36,7 +37,8 @@ public class PCMSolverReliabilityTabGroup extends
 		// Assemble the tab pages:
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new FileNamesInputTab(),
-				new OptionsTab()
+				new OptionsTab(),
+				new DebugEnabledCommonTab()
 		};
 		
 		// Do the setup:

@@ -69,12 +69,11 @@ public class DSEListener implements OptimizerIterationListener {
 		
 		List<Exception> exceptionList = new ArrayList<Exception>();
 		
-		ResultsWriter resultsWriter = new ResultsWriter(); 
-		resultsWriter.writeIndividualsToFile(individuals, "allCandidates", iteration, exceptionList);
+		ResultsWriter.writeIndividualsToFile(individuals, "allCandidates", iteration, exceptionList);
 		
-		resultsWriter.writeIndividualsToFile(archive, "optimalCandidatesNSGA2", iteration, exceptionList);
+		ResultsWriter.writeIndividualsToFile(archive, "optimalCandidatesNSGA2", iteration, exceptionList);
 
-		resultsWriter.writeIndividualsToFile(individuals.getParetoOptimalIndividuals(), "ownOptimalCandidates", iteration, exceptionList);
+		ResultsWriter.writeIndividualsToFile(individuals.getParetoOptimalIndividuals(), "ownOptimalCandidates", iteration, exceptionList);
 
 			
 	}

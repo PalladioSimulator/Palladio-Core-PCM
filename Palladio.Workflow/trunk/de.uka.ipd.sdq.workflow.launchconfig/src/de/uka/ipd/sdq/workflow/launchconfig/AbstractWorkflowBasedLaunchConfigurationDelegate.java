@@ -113,12 +113,14 @@ public abstract class
 
 	/**
 	 * Setup the Eclipse IProcess used to communicate with the Eclipse UI and its logging
+	 * TODO: Anne has set this to protected because the logging has to be re-enabled during PerOpteryx.
+	 * Check later whether there is a better solution.  
 	 * @param configuration
 	 * @param launch
 	 * @return
 	 * @throws CoreException
 	 */
-	private List<LoggerAppenderStruct> setupProcessAndLogger(
+	protected List<LoggerAppenderStruct> setupProcessAndLogger(
 			ILaunchConfiguration configuration, ILaunch launch)
 			throws CoreException {
 		// Reconfigure apache commons logging to use Log4J as backend logger

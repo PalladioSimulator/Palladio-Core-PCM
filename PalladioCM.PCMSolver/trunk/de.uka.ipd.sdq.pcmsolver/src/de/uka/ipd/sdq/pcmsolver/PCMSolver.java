@@ -197,8 +197,9 @@ public class PCMSolver {
 		BasicConfigurator.configure(new WriterAppender(myLayout, messageConsole
 				.newMessageStream()));
 
+		//Anne: Now superfluous, logging is handled by the ...ConfgurationDelegates
 		// Adapt the logging level to the choice of the user:
-		boolean verboseLogging = false;
+/*		boolean verboseLogging = false;
 		try {
 			verboseLogging = configuration.getAttribute(
 					MessageStrings.VERBOSE_LOGGING, false);
@@ -206,7 +207,7 @@ public class PCMSolver {
 			e.printStackTrace();
 		}
 		Logger.getRootLogger().setLevel(
-				(verboseLogging) ? Level.DEBUG : Level.INFO);
+				(verboseLogging) ? Level.DEBUG : Level.INFO);*/
 	}
 
 	public SolverStrategy getStrategy() {

@@ -46,6 +46,11 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 
+/**
+ * TODO: Make this a Singleton instead of static? Even better: Handle the global stuff properly. Similar to SimuComModel.
+ * @author martens
+ *
+ */
 public class Opt4JStarter {
 	
 	public static List<IAnalysis> evaluators = null; 
@@ -155,15 +160,14 @@ public class Opt4JStarter {
 		} finally {
 			try {
 
-				ResultsWriter resultsWriter = new ResultsWriter(); 
 			
 			Collection<Individual> archive = getArchiveIndividuals();
-			resultsWriter.printOutIndividuals(archive, "NGSA2Archive");
+			ResultsWriter.printOutIndividuals(archive, "NGSA2Archive");
 
 			PopulationTracker allIndividuals = getAllIndividuals();
-			resultsWriter.printOutIndividuals(allIndividuals, "All Individuals");
+			ResultsWriter.printOutIndividuals(allIndividuals, "All Individuals");
 			
-			resultsWriter.printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
+			ResultsWriter.printOutIndividuals(allIndividuals.getParetoOptimalIndividuals(), "Own Optimal Candidates");
 			
 			} catch (Exception e){
 				logger.error("Optimisation failed, I could not save the results.");
@@ -267,7 +271,7 @@ public class Opt4JStarter {
 	public static PopulationTracker getAllIndividuals(){
 		return (PopulationTracker)task.getInstance(PopulationTracker.class);
 		}
-
+	
 	public static void tearDown(){
 		evaluators = null;
 			

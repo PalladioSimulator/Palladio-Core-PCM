@@ -34,10 +34,10 @@ public class LoggerHelper {
 		else
 			myAppender.setThreshold(Priority.WARN);
 		myAppender.setWriter(new PrintWriter(System.out));*/
-		BasicConfigurator.resetConfiguration();
-		BasicConfigurator.configure();
+		//BasicConfigurator.resetConfiguration();
+		//BasicConfigurator.configure();
 		//BasicConfigurator.configure(myAppender);
-		logger.debug("Verbose logging enabled!");
+		//logger.debug("Verbose logging enabled!");
 	}
 	
 }

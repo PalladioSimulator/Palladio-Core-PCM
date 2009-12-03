@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.cip.launchconfig.CompletionTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 
  /**
   * Provides a configuration tab group for the SimuCom analysis method.
@@ -24,8 +25,7 @@ public class SimuComAnalysisTabGroup extends AbstractLaunchConfigurationTabGroup
 				new SimuComConfigurationTab(), 
 				new SimuConfigurationTab(),
 				new FeatureOptionsTab(),
-				new CompletionTab(),
-				new CommonTab()
+				new CompletionTab()
 		};
 		setTabs(tabs);
 	}

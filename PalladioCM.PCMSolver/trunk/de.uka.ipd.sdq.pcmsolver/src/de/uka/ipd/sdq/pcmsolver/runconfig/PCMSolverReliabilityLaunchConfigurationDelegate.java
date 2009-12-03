@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.runconfig;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
@@ -11,6 +13,7 @@ import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
 
 /**
  * Launches the PCM Solver for Reliability analysis.
@@ -56,8 +59,7 @@ public class PCMSolverReliabilityLaunchConfigurationDelegate extends PCMSolverLa
 	public Pcm2MarkovStrategy getStrategy() {
 		return strategy;
 	}
-	
-	
+
 	
 	
 }

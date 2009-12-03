@@ -4,6 +4,7 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
 /**
@@ -24,7 +25,8 @@ public class DSETabGroup extends AbstractLaunchConfigurationTabGroup {
 				new FileNamesInputTab(), // Default tab
 				new DSEOptionsTab(),
 				new DSEAnalysisMethodTab(DSEConstantsContainer.PERFORMANCE),
-				new DSEAnalysisMethodTab(DSEConstantsContainer.RELIABILITY)
+				new DSEAnalysisMethodTab(DSEConstantsContainer.RELIABILITY),
+				new DebugEnabledCommonTab()
 		};
 		setTabs(tabs);
 	}

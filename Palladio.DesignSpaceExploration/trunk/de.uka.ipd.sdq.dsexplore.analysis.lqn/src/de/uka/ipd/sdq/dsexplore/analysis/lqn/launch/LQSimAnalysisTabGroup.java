@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Event;
 import de.uka.ipd.sdq.pcmsolver.runconfig.CommonTab;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MainConfigTab;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 
 /**
  * Provides a configuration tab group for the LQNSim analysis method.
@@ -24,8 +25,7 @@ public class LQSimAnalysisTabGroup extends AbstractLaunchConfigurationTabGroup {
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-			new MainConfigTabExt(),
-			new CommonTab()
+			new MainConfigTabExt()
 		};
 		setTabs(tabs);
 		

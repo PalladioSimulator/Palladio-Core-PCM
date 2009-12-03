@@ -41,11 +41,6 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/**
-	 * Checks for verbose logging.
-	 */
-	private Button checkVerboseLogging = null;
-
-	/**
 	 * Checks for Markov statistics.
 	 */
 	private Button checkMarkovStatistics = null;
@@ -84,11 +79,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Temporary models path.
 	 */
 	private Text textPath = null;
-
-	/**
-	 * Default setting for verbose logging.
-	 */
-	private static final boolean VERBOSEDEFAULT = false;
 
 	/**
 	 * Default setting for Markov statistics.
@@ -159,12 +149,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		loggingGroup.setText("Logging");
 		loggingGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false));
-
-		// Create the verbose logging check box:
-		checkVerboseLogging = new Button(loggingGroup, SWT.CHECK);
-		checkVerboseLogging.setText("Enable verbose logging");
-		checkVerboseLogging.setSelection(VERBOSEDEFAULT);
-		checkVerboseLogging.addListener(SWT.Selection, listener);
 
 		// Create the Markov statistics check box:
 		checkMarkovStatistics = new Button(loggingGroup, SWT.CHECK);
@@ -348,8 +332,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 		// Try to retrieve the settings from the given configuration:
 		try {
-			checkVerboseLogging.setSelection(configuration.getAttribute(
-					MessageStrings.VERBOSE_LOGGING, VERBOSEDEFAULT));
 			checkMarkovStatistics.setSelection(configuration.getAttribute(
 					MessageStrings.MARKOV_STATISTICS, STATISTICSDEFAULT));
 			checkSingleResults.setSelection(configuration.getAttribute(
@@ -369,7 +351,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 
 			// Defaults apply:
-			checkVerboseLogging.setSelection(VERBOSEDEFAULT);
 			checkMarkovStatistics.setSelection(STATISTICSDEFAULT);
 			checkSingleResults.setSelection(SINGLERESULTSDEFAULT);
 			setSensitivity(false);
@@ -427,8 +408,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	public void performApply(final ILaunchConfigurationWorkingCopy configuration) {
 
 		// Store the settings into the configuration:
-		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING,
-				checkVerboseLogging.getSelection());
 		configuration.setAttribute(MessageStrings.MARKOV_STATISTICS,
 				checkMarkovStatistics.getSelection());
 		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,
@@ -457,8 +436,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	public void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
 
 		// Load default settings into the configuration:
-		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING,
-				VERBOSEDEFAULT);
 		configuration.setAttribute(MessageStrings.MARKOV_STATISTICS,
 				STATISTICSDEFAULT);
 		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,

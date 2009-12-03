@@ -8,6 +8,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
+import de.uka.ipd.sdq.dsexplore.analysis.AnalysisLaunch;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ConfigurationHelper;
@@ -28,7 +29,7 @@ public class ReliabilityAnalysis implements IAnalysis {
 
 	/** Logger for log4j. */
 	private static Logger logger = 
-		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore.analysis.reliability.ReliabilityAnalysis");
 	
 
 	/**
@@ -102,8 +103,7 @@ public class ReliabilityAnalysis implements IAnalysis {
 
 		
 		// Start the solver:
-		solverDelegate.launch(this.config, this.mode, this.launch, this.monitor);
-
+		AnalysisLaunch.launchDelegate(solverDelegate, config, mode, launch, monitor);
 		this.pofod = 1 - solverDelegate.getStrategy().getSolvedValue();
 		
 		logger.debug("Finished reliability solver analysis");
