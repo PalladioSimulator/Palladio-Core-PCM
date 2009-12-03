@@ -13,19 +13,15 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 
 	public SequenceTaskExecuter(RmiSequenceTask task, int numberOfIterations) {
 		super(task, numberOfIterations);
-		System.out.println("CONST SEQ!");
 		//MidisHost.logDebug("Preparing sequential task (ID: " + task.getId() + ") ...");
 		//MidisHost.logDebug("Sequential task (ID: " + task.getId() + ") prepared.");
 	}
 	
 	@Override
-	protected void prepare(int iteration) {
+	protected boolean prepare(int iteration) {
 		if (taskExecuters == null) {
 			taskExecuters = new List[numberOfIterations];
 		}
-		System.out.println("PREPARING SEQUENCE " + task.getId() + " IT " + iteration);
-		System.out.println("TASK EXECUTERS LENGTH " + taskExecuters.length);
-		System.out.println("PREPARE ID: " + myId);
 		ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
 		Iterator<RmiAbstractTask> taskIterator = ((RmiSequenceTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
@@ -41,14 +37,11 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 			tasks.add(taskExecuter);
 		}
 		taskExecuters[iteration] = tasks;
+		return true;
 	}
 	
 	@Override
 	protected void doWork(int iteration) {
-		//MidisHost.logDebug("Running sequence task " + task.getId() + " ...");
-		System.out.println("RUNNING SEQUENCE " + task.getId() + " IT " + iteration);
-		System.out.println("EXEC ID: " + myId);
-		System.out.println("TASK EXECUTERS LENGTH " + taskExecuters.length);
 		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
 		while (taskIterator.hasNext()) {
 			new Thread(taskIterator.next()).start();
@@ -60,6 +53,28 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 			}
 		}
 		//MidisHost.logDebug("Sequence task " + task.getId() + " completed.");
+	}
+
+	@Override
+	public void storeResults() {
+		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
+		for (int i=0; i<((RmiSequenceTask)task).getTasks().size(); i++) {
+			for (int j=0; j<numberOfIterations; j++) {
+				taskExecuters[j].get(i).storeResults();
+			}
+		}
+	}
+	
+	@Override
+	public void cleanup() {
+		if (taskExecuters != null) {
+			for (int i = 0; i < taskExecuters.length; i++) {
+				for (AbstractTaskExecuter executer : taskExecuters[i]) {
+					executer.cleanup();
+				}
+			}
+			taskExecuters = null;
+		}
 	}
 
 }

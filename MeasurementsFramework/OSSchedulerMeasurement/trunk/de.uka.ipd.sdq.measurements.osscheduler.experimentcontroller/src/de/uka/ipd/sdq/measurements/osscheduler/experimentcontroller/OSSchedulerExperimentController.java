@@ -16,7 +16,7 @@ public class OSSchedulerExperimentController extends ExperimentController {
 	private final static Logger logger = Logger.getLogger(OSSchedulerExperimentController.class);
 
 	@Override
-	public void performExperiment(List<MachineDescription> machineDescriptions, TaskSet taskSet) {
+	public void performExperiment(List<MachineDescription> machineDescriptions, TaskSet taskSet, int dataSourceId) {
 
 		logger.info("Preparing experiment " + taskSet.getName() + " ...");
 		if (!prepareExperiment(machineDescriptions, taskSet)) {
@@ -24,7 +24,7 @@ public class OSSchedulerExperimentController extends ExperimentController {
 		}
 		logger.info("Experiment prepared.");
 		logger.info("Executing experiment " + taskSet.getName() + " ...");
-		if (!executeExperiment()) {
+		if (!executeExperiment(dataSourceId)) {
 			return;
 		}
 		logger.info("Experiment executed.");
@@ -52,9 +52,9 @@ public class OSSchedulerExperimentController extends ExperimentController {
 		return true;
 	}
 	
-	private boolean executeExperiment() {
+	private boolean executeExperiment(int dataSourceId) {
 		OSSchedulerSystemAdapter osSchedulerSystemAdapter = osSchedulerSystemAdapters.get(0);
-		return osSchedulerSystemAdapter.executeExperiment();
+		return osSchedulerSystemAdapter.executeExperiment(dataSourceId);
 	}
 	
 	private boolean prepareConnections(List<MachineDescription> machineDescriptions) {

@@ -12,5 +12,4 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.measurements.configurator;bundle-version="1.0.0",
  de.uka.ipd.sdq.measurements;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.measurements.osscheduler.configurator,
- de.uka.ipd.sdq.measurements.osscheduler.configurator.actions,
  de.uka.ipd.sdq.measurements.osscheduler.configurator.jobs

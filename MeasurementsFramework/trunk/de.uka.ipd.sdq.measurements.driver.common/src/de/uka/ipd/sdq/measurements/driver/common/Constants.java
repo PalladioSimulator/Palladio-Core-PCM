@@ -7,7 +7,8 @@ public class Constants {
 	public static final int DegreeOfAccuracyMedium = 1;
 	public static final int DegreeOfAccuracyHigh = 2;
 	
-	public static final String SystemControllerRMIName = "SystemController";
+	public static final String SystemAdapterRMIName = "SystemAdapter";
+	public static final String DriverRMIName = "Driver";
 	
 	public static final String RmiPingResult = "Ping";
 }

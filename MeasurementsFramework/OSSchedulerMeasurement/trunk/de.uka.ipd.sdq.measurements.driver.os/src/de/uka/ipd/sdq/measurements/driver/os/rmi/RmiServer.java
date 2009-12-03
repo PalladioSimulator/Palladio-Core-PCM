@@ -11,6 +11,7 @@ import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
 import java.security.AccessControlException;
 
+import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriverConstants;
@@ -44,14 +45,18 @@ public class RmiServer {
 			try {
 				stub = (HostInterface) UnicastRemoteObject.exportObject(hostInterface, hostPort);
 			} catch (ExportException e) {
-				OSDriver.logError("Failed to start RMI server, probably the port is already in use.");
+				if (e.detail instanceof IllegalArgumentException) {
+					OSDriver.logError("Failed to start RMI server, the RMI interface is invalid: " + e.detail.getMessage());
+				} else {
+					OSDriver.logError("Failed to start RMI server, probably the port is already in use.");	
+				}
 				return false;
 			}
 			LocateRegistry.createRegistry(hostPort);
 
 			try {
-				OSDriver.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + OSDriverConstants.OSDriverRMIName);
-				Naming.rebind("rmi://" + hostIP + ":" + hostPort + "/" + OSDriverConstants.OSDriverRMIName, stub);
+				OSDriver.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + Constants.DriverRMIName);
+				Naming.rebind("rmi://" + hostIP + ":" + hostPort + "/" + Constants.DriverRMIName, stub);
 			} catch (UnknownHostException e) {
 				OSDriver.logError("Failed to start RMI server, Host not known: " + hostIP + ":" + hostPort);
 				return false;

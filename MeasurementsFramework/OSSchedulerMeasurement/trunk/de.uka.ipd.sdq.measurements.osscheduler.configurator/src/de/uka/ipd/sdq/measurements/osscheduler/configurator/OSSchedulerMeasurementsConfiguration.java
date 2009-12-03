@@ -10,7 +10,16 @@ AbstractWorkflowBasedRunConfiguration {
 	private String machineIP = null;
 	private int machinePort = 0;
 	private boolean useMeasurementsScript = false;
+	private int measurementsResultsDataSourceId = -1;
 	
+	public int getMeasurementsResultsDataSourceId() {
+		return measurementsResultsDataSourceId;
+	}
+
+	public void setMeasurementsResultsDataSourceId(int measurementsResultsDataSourceId) {
+		this.measurementsResultsDataSourceId = measurementsResultsDataSourceId;
+	}
+
 	public boolean isUseMeasurementsScript() {
 		return useMeasurementsScript;
 	}

@@ -1,18 +1,18 @@
-package de.uka.ipd.sdq.measurements.osscheduler.systemadapter;
+package de.uka.ipd.sdq.measurements.osscheduler.ui;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
-public class OSSchedulerSystemAdapterPlugin extends Plugin {
-	
-	private static OSSchedulerSystemAdapterPlugin plugin;
-	
-	public static final String PLUGIN_ID = "de.uka.ipd.sdq.measurements.osscheduler.systemadapter";
+public class OSSchedulerUIPlugin extends Plugin {
 
-	public OSSchedulerSystemAdapterPlugin() {
+	private static OSSchedulerUIPlugin plugin;
+	
+	public static final String PLUGIN_ID = "de.uka.ipd.sdq.measurements.osscheduler.ui";
+	
+	public OSSchedulerUIPlugin() {
+		
 	}
-
-
+	
 	/**
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
@@ -31,8 +31,7 @@ public class OSSchedulerSystemAdapterPlugin extends Plugin {
 	}
 
 
-	public static OSSchedulerSystemAdapterPlugin getDefault() {
+	public static OSSchedulerUIPlugin getDefault() {
 		return plugin;
 	}
-
 }

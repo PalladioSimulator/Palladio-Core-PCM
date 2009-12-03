@@ -1,13 +1,11 @@
 package de.uka.ipd.sdq.measurements.driver.common.tasks;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiLoopTask;
 
 public class LoopTaskExecuter extends AbstractTaskExecuter {
 
-	private Thread[] taskThreads = null;
+	//private Thread[] taskThreads = null;
+	private AbstractTaskExecuter[] taskExecuters = null;
 
 	public LoopTaskExecuter(RmiLoopTask task, int numberOfIterations) {
 		super(task, numberOfIterations);
@@ -17,9 +15,12 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 	}
 
 	@Override
-	protected void prepare(int iteration) {
-		if (taskThreads == null) {
+	protected boolean prepare(int iteration) {
+		/*if (taskThreads == null) {
 			taskThreads = new Thread[numberOfIterations];
+		}*/
+		if (taskExecuters == null) {
+			taskExecuters = new AbstractTaskExecuter[numberOfIterations];
 		}
 		AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(((RmiLoopTask)task).getNestedTask(), ((RmiLoopTask)task).getNumberOfIterations());
 		taskExecuter.addTaskListener(new TaskListener() {
@@ -29,20 +30,42 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 				}
 			}
 		});
-		taskThreads[iteration] = new Thread(taskExecuter);
+		taskExecuters[iteration] = taskExecuter;
+		//taskThreads[iteration] = new Thread(taskExecuter);
+		return true;
 	}
 	
 	@Override
 	protected void doWork(int iteration) {
 		//MidisHost.logDebug("Running loop task " + task.getId() + " ...");
 		try {
-			taskThreads[iteration].start();
+			new Thread(taskExecuters[iteration]).start();
+			//taskThreads[iteration].start();
 			this.wait();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//MidisHost.logDebug("Loop task " + task.getId() + " completed.");
+	}
+	
+	@Override
+	public void storeResults() {
+		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
+		for (int i=0; i<taskExecuters.length; i++) {
+			taskExecuters[i].storeResults();
+		}
+	}
+	
+	@Override
+	public void cleanup() {
+		if (taskExecuters != null) {
+			for (int i = 0; i < taskExecuters.length; i++) {
+				taskExecuters[i].cleanup();
+				// taskThreads[i].
+			}
+			taskExecuters = null;
+		}
 	}
 	
 }

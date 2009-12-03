@@ -19,14 +19,12 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 	private long[] endTimes;
 	private long startSystemTime = 0L;
 	private long startSystemNanoTime = 0L;
+	private boolean performAllIterations = true;
 	private int numberOfExecutedTasks = 0;
 	protected boolean finishSignal = false;
-	
-	protected String myId;
 
 	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations) {
 		this();
-		myId = System.nanoTime() + " hash: " + this.hashCode();
 		this.task = task;
 		this.numberOfIterations = numberOfIterations;
 		startTimes = new long[numberOfIterations];
@@ -35,32 +33,46 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 
 	protected RmiAbstractTask task = null;
 	protected int numberOfIterations = 1;
+	protected int numberOfExecutedIterations = 0;
 
 	public RmiAbstractTask getTask() {
 		return task;
 	}
 	
-	public synchronized void work() {
+	
+	
+	private synchronized void work() {
 		startSystemTime = System.currentTimeMillis();
 		startSystemNanoTime = System.nanoTime();
-		for (int i=0; i<numberOfIterations; i++) {
-			startTimes[i] = System.nanoTime();
-			doWork(i);
-			endTimes[i] = System.nanoTime();
+		if (performAllIterations == true) {
+			for (numberOfExecutedIterations=0; numberOfExecutedIterations<numberOfIterations; numberOfExecutedIterations++) {
+				startTimes[numberOfExecutedIterations] = System.nanoTime();
+				doWork(numberOfExecutedIterations);
+				endTimes[numberOfExecutedIterations] = System.nanoTime();
+				numberOfExecutedTasks++;
+				if (finishSignal == true) {
+					break;
+				}
+			}
+		} else {
+			startTimes[numberOfExecutedIterations] = System.nanoTime();
+			doWork(numberOfExecutedIterations);
+			endTimes[numberOfExecutedIterations] = System.nanoTime();
+			numberOfExecutedIterations++;
 			numberOfExecutedTasks++;
-			if (finishSignal == true) {
-				break;
+		}
+	}
+	
+	public boolean prepare() {
+		for (int i=0; i<numberOfIterations; i++) {
+			if (!prepare(i)) {
+				return false;
 			}
 		}
+		return true;
 	}
 	
-	public void prepare() {
-		for (int i=0; i<numberOfIterations; i++) {
-			prepare(i);
-		}
-	}
-	
-	protected abstract void prepare(int iteration);
+	protected abstract boolean prepare(int iteration);
 	
 	protected abstract void doWork(int iteration);
 	
@@ -69,11 +81,15 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 		fireTaskCompleted(task.getId(), numberOfExecutedTasks);
 	}
 	
+	public abstract void storeResults();
+	
+	public abstract void cleanup();
+		
 	public RmiResult getTaskResult() {
 		if (task.getSensor() == false) {
 			return null;
 		}
-		RmiResult result = new RmiResult();
+		RmiResult result = new RmiResult(task);
 		long[] results = new long[startTimes.length];
 		for (int i=0; i<startTimes.length; i++) {
 			results[i] = endTimes[i] - startTimes[i];
@@ -85,6 +101,11 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 	public boolean signalizeFinish() {
 		finishSignal = true;
 		return true;
+	}
+
+	public void setPerformAllIterations(boolean allIterations) {
+		performAllIterations = allIterations;
+		
 	}
 	
 

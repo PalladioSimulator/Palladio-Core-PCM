@@ -6,7 +6,9 @@ public interface TaskExecuter {
 	
 	public RmiAbstractTask getTask();
 	
-	public void work();
+	public void storeResults();
+	
+	public void cleanup();
 	
 	/**
 	 * Ask the task to cancel its ongoing work.

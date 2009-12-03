@@ -30,8 +30,18 @@ public class PropertyManager extends AbstractPropertyManager {
 	}
 
 	public String getHostRmiIp() {
-		return getStringProperty(OSDriverConstants.JavaPropertyOSDriverIP,
+		return getStringProperty(OSDriverConstants.JavaPropertyOSDriverRmiIP,
 				"Host RMI IP");
+	}
+	
+	public String getParentHostRmiIp() {
+		return getStringProperty(OSDriverConstants.JavaPropertyOSDriverRmiParentHostIP,
+				"Parent Host RMI IP");
+	}
+	
+	public int getParentHostRmiPort() {
+		return getIntProperty(OSDriverConstants.JavaPropertyOSDriverRmiParentHostPort,
+				"Parent Host RMI Port", OSDriverConstants.OSDriverDefaultRMIRegistryPort);
 	}
 
 	public boolean getLoggingDebug() {

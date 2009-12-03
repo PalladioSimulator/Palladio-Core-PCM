@@ -1,6 +1,12 @@
 package de.uka.ipd.sdq.measurements.driver.common.tasks;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Vector;
+
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
+import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 
 public class TaskManager {
 	
@@ -12,18 +18,18 @@ public class TaskManager {
 		}
 		return instance;
 	}
-
+	
 	private TaskManager() {
+		rootTasks = new ArrayList<AbstractTaskExecuter>();
 	}
 	
-	private AbstractTaskExecuter rootTaskExecuter = null;
-	
-	public boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution) {
-		//clearPreparedTasks();
+	private ArrayList<AbstractTaskExecuter> rootTasks = null;
+
+	public boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution, int numberOfIterations) {
 		if (autostartExecution == false) {
-			return prepareTask(rootTask);
+			return prepareTask(rootTask, numberOfIterations);
 		}
-		boolean result = prepareTask(rootTask);
+		boolean result = prepareTask(rootTask, numberOfIterations);
 		if (result == false) {
 			/*try {
 				Host.logError("Task preparation failed.");
@@ -38,16 +44,23 @@ public class TaskManager {
 			} catch (RemoteException e) {
 				Host.logError("Failed to call Master.");
 			}*/
-			return executeTasks();
+			return executeTasks(rootTask.getId());
 		}
 	}
 
-	private boolean prepareTask(RmiAbstractTask task) {
-		rootTaskExecuter = TaskExecuterFactory.getInstance().convertTask(task, 1);
+	private boolean prepareTask(RmiAbstractTask task, int numberOfIterations) {
+		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(task, numberOfIterations));
 		return true;
 	}
 	
-	public boolean executeTasksAsync() {
+	public boolean executeTasksAsync(int taskId, boolean allIterations) {
+		AbstractTaskExecuter rootTaskExecuter = null;
+		for (AbstractTaskExecuter task : rootTasks) {
+			if (task.getTask().getId() == taskId) {
+				rootTaskExecuter = task;
+				break;
+			}
+		}
 		if (rootTaskExecuter == null) {
 			/*Host.logError("Root task executer null!");
 			try {
@@ -60,14 +73,31 @@ public class TaskManager {
 		rootTaskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				//Host.getInstance().allTasksCompleted(rootTaskExecuter);
-				System.out.println("All tasks executed.");
+				fireTaskCompleted(taskId, completedIterations);
 			}
 		});
+		rootTaskExecuter.setPerformAllIterations(allIterations);
 		new Thread(rootTaskExecuter).start();
 		return true;
 	}
 	
-	public boolean executeTasks() {
+	public AbstractTaskExecuter getRootTask(int rootTaskId) {
+		for (AbstractTaskExecuter rootTaskExecuter : rootTasks) {
+			if (rootTaskExecuter.getTask().getId() == rootTaskId) {
+				return rootTaskExecuter;
+			}
+		}
+		return null;
+	}
+		
+	private boolean executeTasks(int taskId) {
+		AbstractTaskExecuter rootTaskExecuter = null;
+		for (AbstractTaskExecuter task : rootTasks) {
+			if (task.getTask().getId() == taskId) {
+				rootTaskExecuter = task;
+				break;
+			}
+		}
 		if (rootTaskExecuter == null) {
 			return false;
 		}
@@ -76,5 +106,75 @@ public class TaskManager {
 
 		return true;
 	}
+	
+	/**
+	 * Clear all data structures of the prepared task. This also involves deleting all results stored
+	 * in the task data structures.
+	 */
+	public void clearPreparedTasks() {
+		rootTasks.clear();
+		/*preparedGuestTasks.clear();
+		totalNumberOfTasks = 0L;
+		currentTaskNumber = 0L;
+		for (GuestInterface guest : MidisHost.getInstance().getGuests()) {
+			try {
+				guest.cleanup();
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		}
+		executerId = 0L;*/
+	}
+	
+	//private HashMap<Integer, AbstractTaskExecuter> taskExecuters = null;
 
+	
+	public HashMap<Integer, ArrayList<RmiResult>> getResults(int rootTaskId) {
+		AbstractTaskExecuter taskExecuter = getRootTask(rootTaskId);
+		taskExecuter.storeResults();
+		return TaskResultStorage.getInstance().getAllResults();
+	}
+	
+	//
+	// Event handling
+	//
+
+	private transient Vector<TaskListener> taskListeners;
+
+	synchronized public void addTaskListener(TaskListener listener) {
+		if (taskListeners == null) {
+			taskListeners = new Vector<TaskListener>();
+		}
+		taskListeners.addElement(listener);
+	}
+
+	synchronized public void removeTaskListener(TaskListener listener) {
+		if (taskListeners == null) {
+			taskListeners = new Vector<TaskListener>();
+		}
+		taskListeners.removeElement(listener);
+	}
+
+	/** Fire to all registered listeners */
+	@SuppressWarnings("unchecked")
+	protected void fireTaskCompleted(int taskId, int completedIterations) {
+		// If we have no listeners, do nothing.
+		if ((taskListeners != null) && !taskListeners.isEmpty()) {
+			// Make a copy of the listener list in case anyone adds or removes
+			// listeners.
+			Vector<TaskListener> targets;
+			synchronized (taskListeners) {
+				targets = (Vector<TaskListener>) taskListeners.clone();
+			}
+
+			// Walk through the listener list and call the listener method in
+			// each.
+			Enumeration<TaskListener> e = targets.elements();
+			while (e.hasMoreElements()) {
+				TaskListener l = (TaskListener) e.nextElement();
+				l.taskCompleted(taskId, completedIterations);
+			}
+		}
+	}
+	
 }

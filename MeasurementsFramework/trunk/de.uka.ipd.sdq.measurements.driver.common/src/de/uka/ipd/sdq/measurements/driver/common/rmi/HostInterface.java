@@ -3,9 +3,11 @@ package de.uka.ipd.sdq.measurements.driver.common.rmi;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
+import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 
 /**
  * This interface has to be provided via RMI by the host. It is used by the
@@ -28,17 +30,18 @@ public interface HostInterface extends Remote {
 
 	/**
 	 * 
-	 * Let the Host perform an RMI lookup for the Master's RMI port
+	 * Let the Host perform an RMI lookup for the System Adapter's RMI port
 	 * 
 	 * @param masterURL
-	 *            the URL of the Master
+	 *            the URL of the System Adapter
 	 * @param port
-	 *            the RMI port of the Master
+	 *            the RMI port of the System Adapter
 	 * @return
 	 * @throws RemoteException
 	 */
-	boolean lookupMaster(String masterURL, int port) throws RemoteException;
-
+	boolean lookupSystemAdapter(String systemAdapterURL, int port) throws RemoteException;
+	
+	
 	/**
 	 * Let the Host initialize an RMI connection to a Guest.
 	 * 
@@ -68,16 +71,25 @@ public interface HostInterface extends Remote {
 	 * @return true if the preparation succeeded.
 	 * @throws RemoteException
 	 */
-	boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution) throws RemoteException;
+	boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution, int numberOfIterations) throws RemoteException;
 
 	/**
 	 * Initiate the task execution on the host. The host will call all guests to
-	 * start task execution.
+	 * start task execution. If the task has multiple iterations, all iterations are executed.
 	 * 
 	 * @return
 	 * @throws RemoteException
 	 */
-	boolean executeTasks() throws RemoteException;
+	boolean executeTasks(int taskId) throws RemoteException;
+	
+	/**
+	 * Initiate the task execution on the host. The host will call all guests to
+	 * start task execution. If the task has multiple iterations, only one iteration is executed.
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
+	public boolean executeOneTaskExecution(final int rootTaskId) throws RemoteException;
 
 	/**
 	 * Performs a calibration on the Host. This method does only have to be
@@ -128,4 +140,12 @@ public interface HostInterface extends Remote {
 	 */
 	void cleanup() throws RemoteException;
 
+	/**
+	 * Called by a child process if a child task is completed.
+	 * @param taskId
+	 * @param completedIterations
+	 */
+	void childTaskCompleted(int taskId, int completedIterations) throws RemoteException;
+
+	HashMap<Integer, ArrayList<RmiResult>> getTaskResults(int taskId) throws RemoteException;
 }

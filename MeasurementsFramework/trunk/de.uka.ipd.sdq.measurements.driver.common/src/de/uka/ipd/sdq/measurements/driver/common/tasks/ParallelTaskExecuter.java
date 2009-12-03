@@ -8,29 +8,31 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
 
 public class ParallelTaskExecuter extends AbstractTaskExecuter {
-		
+
 	private List<AbstractTaskExecuter>[] taskExecuters = null;
 	private List<Integer> completedNestedTasks = new ArrayList<Integer>();
-	
+
 	private int numberOfCompletedTasks = 0;
 	private boolean stopUponFirstTaskCompleted = false;
 	private boolean firstTaskCompleted = false;
-	
+
 	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations) {
 		super(task, numberOfIterations);
-		//MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() + ") ...");
-		//stopUponFirstTaskCompleted = task.getStopUponFirstTaskCompleted();
+		// MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() +
+		// ") ...");
+		// stopUponFirstTaskCompleted = task.getStopUponFirstTaskCompleted();
 		stopUponFirstTaskCompleted = false;
-		//MidisHost.logDebug("Parallel task (ID: " + task.getId() + ") prepared.");	
-		
+		// MidisHost.logDebug("Parallel task (ID: " + task.getId() +
+		// ") prepared.");
+
 	}
-	
-	protected void prepare(int iteration) {
+
+	protected boolean prepare(int iteration) {
 		if (taskExecuters == null) {
 			taskExecuters = new List[numberOfIterations];
 		}
 		ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
-		Iterator<RmiAbstractTask> taskIterator = ((RmiParallelTask)task).getTasks().iterator();
+		Iterator<RmiAbstractTask> taskIterator = ((RmiParallelTask) task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
 			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, 1);
@@ -49,8 +51,9 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			tasks.add(taskExecuter);
 		}
 		taskExecuters[iteration] = tasks;
+		return true;
 	}
-	
+
 	protected void doWork(int iteration) {
 		numberOfCompletedTasks = 0;
 		completedNestedTasks.clear();
@@ -76,6 +79,28 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+
+	@Override
+	public void storeResults() {
+		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
+		for (int i = 0; i < ((RmiParallelTask) task).getTasks().size(); i++) {
+			for (int j = 0; j < numberOfIterations; j++) {
+				taskExecuters[j].get(i).storeResults();
+			}
+		}
+	}
+
+	@Override
+	public void cleanup() {
+		if (taskExecuters != null) {
+			for (int i = 0; i < taskExecuters.length; i++) {
+				for (AbstractTaskExecuter executer : taskExecuters[i]) {
+					executer.cleanup();
+				}
+			}
+			taskExecuters = null;
 		}
 	}
 

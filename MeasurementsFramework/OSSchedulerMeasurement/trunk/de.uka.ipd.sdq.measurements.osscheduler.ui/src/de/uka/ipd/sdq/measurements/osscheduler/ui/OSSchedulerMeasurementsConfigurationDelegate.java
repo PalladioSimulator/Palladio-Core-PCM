@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Level;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
@@ -32,6 +33,12 @@ AbstractWorkflowBasedLaunchConfigurationDelegate<OSSchedulerMeasurementsConfigur
 			throws CoreException {
 		OSSchedulerMeasurementsConfiguration config = new OSSchedulerMeasurementsConfiguration();
 		config.setMeasurementScriptPath(configuration.getAttribute(Constants.MEASUREMENTSCRIPT_FILE, ""));
+		try {
+			config.setMeasurementsResultsDataSourceId(configuration.getAttribute(Constants.MEASUREMENTS_RESULTS_DATASOURCE_ID, -1));
+		} catch(CoreException e) {
+			OSSchedulerUIPlugin.getDefault().getLog().log(new Status(Status.ERROR, "de.uka.ipd.sdq.measurements.osscheduler.ui", "Invalid Data source specfified."));
+			config.setMeasurementsResultsDataSourceId(-1);
+		}
 		config.setMachineIP(configuration.getAttribute(Constants.MACHINE_IP, ""));
 		if (configuration.getAttribute(Constants.USE_MEASUREMENT_SCRIPT, "false").equals("true")) {
 			config.setUseMeasurementsScript(true);	

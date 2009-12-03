@@ -15,9 +15,11 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiLoopTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiMachineTask;
+import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelProcessTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiSequenceTask;
+import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
@@ -54,6 +56,8 @@ public class EmfTaskToRmiTaskConverter {
 			return convertLoopTask((LoopTask)emfTask);
 		} else if (emfTask instanceof ResourceStrategyMeasurementTask) {
 			return convertResourceStrategyMeasurementTask((ResourceStrategyMeasurementTask)emfTask);
+		} else if (emfTask instanceof ParallelProcessTask) {
+			return convertParallelProcessTask((ParallelProcessTask)emfTask);
 		}
 		return null;
 	}
@@ -110,6 +114,18 @@ public class EmfTaskToRmiTaskConverter {
 		}
 		rmiParallelTask.setTasks(tasks);
 		return rmiParallelTask;
+	}
+	
+	public RmiAbstractTask convertParallelProcessTask(ParallelProcessTask emfTask) {
+		RmiParallelProcessTask rmiParallelProcessTask = new RmiParallelProcessTask(++idCounter);
+		prepareAbstractTask(rmiParallelProcessTask, emfTask);
+		List<RmiAbstractTask> tasks = new ArrayList<RmiAbstractTask>();
+		Iterator<AbstractTask> taskIterator = emfTask.getTasks().iterator();
+		while (taskIterator.hasNext()) {
+			tasks.add(convert(taskIterator.next()));
+		}
+		rmiParallelProcessTask.setTasks(tasks);
+		return rmiParallelProcessTask;
 	}
 	
 	public RmiAbstractTask convertLoopTask(LoopTask emfTask) {

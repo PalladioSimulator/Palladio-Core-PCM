@@ -1,17 +1,22 @@
 package de.uka.ipd.sdq.measurements.driver.os;
 
 import java.io.File;
+import java.rmi.RemoteException;
 
 import de.uka.ipd.sdq.measurements.driver.common.LoggerDelegate;
+import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskExecuterFactory;
-import de.uka.ipd.sdq.measurements.driver.os.rmi.RMIServer;
+import de.uka.ipd.sdq.measurements.driver.os.rmi.RmiClient;
+import de.uka.ipd.sdq.measurements.driver.os.rmi.RmiServer;
 import de.uka.ipd.sdq.measurements.driver.os.tasks.OSDriverTaskExecuterFactory;
+import de.uka.ipd.sdq.measurements.rmi.SystemAdapterRmiInterface;
 
 public class OSDriver {
 
 	private static boolean DEBUG = false;
 	private static boolean LOGGING = true;
 	private static OSDriverLoggerDelegate loggerDelegate = null;
+	public static boolean IS_SUB_PROCESS = false; 
 
 	private static OSDriver midisHost = null;
 
@@ -26,15 +31,48 @@ public class OSDriver {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		OSDriver.getInstance().initialize();
+		if ((args != null) && (args.length >0)) {
+			for (String arg : args) {
+				System.out.println("ARG: " + arg);
+			}
+		}
+		OSDriver.getInstance().initialize(args);
 
 	}
 
-	private RMIServer rmiServer = null;
+	private RmiServer rmiServer = null;
 	//private MasterInterface masterInterface = null;
+	private SystemAdapterRmiInterface systemAdapterRmiInterface = null;
+	public SystemAdapterRmiInterface getSystemAdapterRmiInterface() {
+		return systemAdapterRmiInterface;
+	}
+
+	public void setSystemAdapterRmiInterface(SystemAdapterRmiInterface systemAdapterRmiInterface) {
+		this.systemAdapterRmiInterface = systemAdapterRmiInterface;
+	}
+
+	private HostInterface parentHostInterface = null;
 	//private HashMap<String, GuestInterface> guestInterfaces = new HashMap<String, GuestInterface>();
 
-	private void initialize() {
+	public HostInterface getParentHost() {
+		return parentHostInterface;
+	}
+
+	public void setParentHost(HostInterface parentHostInterface) {
+		this.parentHostInterface = parentHostInterface;
+	}
+
+	private void initialize(String[] args) {
+		// Check if the driver has been launched as a subprocess.
+		if ((args != null) && (args.length >0)) {
+			for (String arg : args) {
+				if (arg.toLowerCase().endsWith("subprocess")) {
+					IS_SUB_PROCESS = true;
+					break;
+				}
+			}
+		}
+		
 		if (System.getProperty(OSDriverConstants.JavaPropertyKey) != null) {
 			PropertyManager.getInstance().initializeProperties(
 					new File(System
@@ -42,18 +80,36 @@ public class OSDriver {
 		} else {
 			PropertyManager.getInstance().initializeProperties(null);
 		}
+	
 		
 		// Register OS task sub factory.
 		TaskExecuterFactory.getInstance().registerSubFactory(new OSDriverTaskExecuterFactory());
 
+		
 		// Check if logging should be done.
-		LOGGING = PropertyManager.getInstance().getLogging();
-		DEBUG = PropertyManager.getInstance().getLoggingDebug();
+		// Logging is only done if the driver is not launched as a subprocess.
+		if (IS_SUB_PROCESS == false) {
+			LOGGING = PropertyManager.getInstance().getLogging();
+			DEBUG = PropertyManager.getInstance().getLoggingDebug();
+		} else {
+			LOGGING = true;
+			DEBUG = true;
+		}
 
-		rmiServer = new RMIServer();
+		rmiServer = new RmiServer();
 		if (!rmiServer.initialize()) {
 			logError("Failed to start RMI server. Exiting.");
 			System.exit(-1);
+		}
+		
+		// If we are a SubProcess, we look for a connection to the main Driver.
+		if (IS_SUB_PROCESS == true) {
+			if (!RmiClient.lookupParentHost()) {
+				logError("Failed to lookup parent Driver.");
+				System.exit(-1);
+			}
+		} else {
+			//ChildProcessManager.getInstance().startChildProcess();
 		}
 
 		// If the Java application is terminated normally, this
@@ -89,6 +145,7 @@ public class OSDriver {
 			public void run() {
 				// Wait 1 sec to allow for
 				// returning RMI calls
+				
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -98,7 +155,12 @@ public class OSDriver {
 
 			}
 		}).start();
-		
+		if (systemAdapterRmiInterface != null) {
+			try {
+				systemAdapterRmiInterface.driverShutdown();
+			} catch (RemoteException e) {
+			}
+		}		
 		if (rmiServer != null) {
 			rmiServer.shutdown();
 		}
@@ -207,7 +269,11 @@ public class OSDriver {
 
 	public static void log(String logMessage) {
 		if (OSDriver.LOGGING) {
-			System.out.println(logMessage);
+			if (IS_SUB_PROCESS) {
+				
+			} else {
+				System.out.println(logMessage);
+			}
 		}
 	}
 
