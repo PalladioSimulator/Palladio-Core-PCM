@@ -13,9 +13,12 @@
 
 «DEFINE LatexHeader FOR List[Package]-»
 %
-% This file contains the generated LaTeX documentation for the UML Model «this.toString()»
+% This file contains the generated LaTeX documentation for the UML Model 
 % Generated via openArchitectureWare
-%
+% packages:
+% «FOREACH this AS currentPackage»
+% «currentPackage.fullName()»
+% «ENDFOREACH»
 \documentclass[12pt]{report}
 «EXPAND WriteManualInclude FOR "usepackages.tex"-»
 
