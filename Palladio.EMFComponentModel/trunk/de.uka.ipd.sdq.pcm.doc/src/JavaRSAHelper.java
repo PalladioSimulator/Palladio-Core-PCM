@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
@@ -34,9 +35,15 @@ public class JavaRSAHelper {
 	 * if set to false: RSA 7.5 mode
 	 * RSA image file name encoding varies across different versions
 	 */
-	private static final boolean RSA_7_0_MODE = true;
+	private static final boolean RSA_7_0_MODE = false;
 	
 	private static Properties myProperties = new Properties();
+	
+	/**
+	 * hashmap for non full stop file name mapping
+	 * key: id; value: obfuscated id; each without file extension
+	 */
+	private static HashMap<String, String> fileNamesMap;
 	
 	static {
 		try {
@@ -82,6 +89,7 @@ public class JavaRSAHelper {
 	}
 	
 	private static List<String> getDiagramIDs(String packageID, String resourceURI) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+		prepareImageFileNameMap();
 		ArrayList<String> myResult = new ArrayList<String>();
 		String xmlFileName = resourceURI.replaceAll(".uml", ".emx");
 		File xmlFile = new File (xmlFileName);
@@ -107,7 +115,7 @@ public class JavaRSAHelper {
 					svgFileName = convertToRSAEncoding(s); 
 				} else {
 					// for RSA 7.5 exports:
-					svgFileName = s; //FIXME 
+					svgFileName = fileNamesMap.get(s); 
 				}
 				convertSVG(svgFileName+".svg");
 
@@ -129,6 +137,38 @@ public class JavaRSAHelper {
 			System.out.println("out of sync or you exported the UML file by creating new IDs. Please check this");
 		}
 		return myResult;
+	}
+
+	/**
+	 * svg file name conversion of RSA 7.5
+	 */
+	private static void prepareImageFileNameMap() {
+		fileNamesMap = new HashMap<String,String>();
+		String svgInputImagesDirectory = myProperties.getProperty("htmlDocDirectory") + "/images/";
+		
+		File[] files = new File(svgInputImagesDirectory).listFiles();
+		for(int x = 0; x < files.length; x++) {
+			fileNamesMap.put(removeAllDotsExceptTheLast(files[x].getName()), removeFileExtension(files[x].getName()));
+		}
+		
+	}
+	
+	/**
+	 * convert _AB.SAd.asfee.a.b1.svg to _ABSAdasfeeab1.svg 
+	 * @param fileName
+	 * @return
+	 */
+	private static String removeAllDotsExceptTheLast(String fileName) {
+		fileName = removeFileExtension(fileName);
+		fileName = fileName.replace(".", "");
+		
+		return fileName;
+	}
+	
+	private static String removeFileExtension(String fileName) {
+		fileName = fileName.replace(".svg", "");
+		fileName = fileName.replace(".SVG", "");
+		return fileName;
 	}
 
 	private static void convertSVG(String filename) {
