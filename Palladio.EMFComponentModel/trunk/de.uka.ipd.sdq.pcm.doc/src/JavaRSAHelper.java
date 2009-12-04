@@ -30,6 +30,12 @@ public class JavaRSAHelper {
 	private static final String HTML_DOC_DIR = "htmlDocDirectory";
 	private static final String IMAGE_OUTPUT_DIR = "imageOutputDirectory";
 	
+	/**
+	 * if set to false: RSA 7.5 mode
+	 * RSA image file name encoding varies across different versions
+	 */
+	private static final boolean RSA_7_0_MODE = true;
+	
 	private static Properties myProperties = new Properties();
 	
 	static {
@@ -95,7 +101,14 @@ public class JavaRSAHelper {
 			for (int i = 0; i < result2.getLength(); i++){
 				Node n = result2.item(i);
 				String s = n.getAttributes().getNamedItem("xmi:id").getNodeValue();
-				String svgFileName = convertToRSAEncoding(s); 
+				String svgFileName;
+				if(RSA_7_0_MODE) {
+					// for RSA 7.0 exports:
+					svgFileName = convertToRSAEncoding(s); 
+				} else {
+					// for RSA 7.5 exports:
+					svgFileName = s; //FIXME 
+				}
 				convertSVG(svgFileName+".svg");
 
 				String xpath3 = ".//styles[@type=\"umlnotation:UMLDiagramStyle\"]";
@@ -170,6 +183,11 @@ public class JavaRSAHelper {
 	      }
 	}
 
+	/**
+	 * For RSA 7.0 file name encoding
+	 * @param guid
+	 * @return
+	 */
 	private static String convertToRSAEncoding(String guid) {
 		StringBuffer result = new StringBuffer();
 		for (int i=0; i < guid.length(); i++) {
