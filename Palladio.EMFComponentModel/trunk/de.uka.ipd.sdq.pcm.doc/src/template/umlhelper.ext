@@ -5,10 +5,10 @@ List[String] getDiagrams(uml::Package p) :
 ;
 
 String fullName(NamedElement e) :
-	if e.eContainer != null then ((NamedElement)e.eContainer).fullName() + "::" + e.name.toString() else e.name;
+	if (e != null && e.eContainer != null) then ((NamedElement)e.eContainer).fullName() + "::" + e.name.toString() else e.name;
 
 String fullIndex(NamedElement e) :
-	if e.eContainer != null then ((NamedElement)e.eContainer).fullName() + "!" + e.name.toString() else e.name;
+	if (e != null && e.eContainer != null) then ((NamedElement)e.eContainer).fullName() + "!" + e.name.toString() else e.name;
  
  String saveLatexString(String s) :
     if (s == null || s.trim() == "") then

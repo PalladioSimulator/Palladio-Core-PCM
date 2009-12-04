@@ -1,7 +1,8 @@
 «EXTENSION template::umlhelper»
 «IMPORT uml»
 
-«DEFINE Root FOR List[Package]»
+«DEFINE Root FOR List[Package]-»
+
 «FILE "doc.tex"»
 «EXPAND LatexHeader FOR this»
 «FOREACH this.typeSelect(Package) AS pack»
