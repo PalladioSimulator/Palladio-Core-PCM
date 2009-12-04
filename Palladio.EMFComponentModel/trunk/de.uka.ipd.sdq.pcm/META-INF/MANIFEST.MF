@@ -6,8 +6,8 @@ Bundle-Version: 3.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.pcm,
- de.uka.ipd.sdq.pcm.allocation,
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.allocation.impl,
  de.uka.ipd.sdq.pcm.allocation.util,
  de.uka.ipd.sdq.pcm.core,
@@ -22,7 +22,6 @@ Export-Package: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.core.entity.util,
  de.uka.ipd.sdq.pcm.core.impl,
  de.uka.ipd.sdq.pcm.core.util,
- de.uka.ipd.sdq.pcm.impl,
  de.uka.ipd.sdq.pcm.parameter,
  de.uka.ipd.sdq.pcm.parameter.impl,
  de.uka.ipd.sdq.pcm.parameter.util,
@@ -53,7 +52,6 @@ Export-Package: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.seff.performance.impl,
  de.uka.ipd.sdq.pcm.seff.performance.util,
  de.uka.ipd.sdq.pcm.seff.util,
- de.uka.ipd.sdq.pcm.stochasticexpressions.parser,
  de.uka.ipd.sdq.pcm.subsystem,
  de.uka.ipd.sdq.pcm.subsystem.impl,
  de.uka.ipd.sdq.pcm.subsystem.util,
@@ -65,6 +63,9 @@ Export-Package: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.usagemodel.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ocl;visibility:=reexport,
+ org.eclipse.ocl.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
@@ -73,4 +74,3 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.ocl.ecore;bundle-version="1.2.1"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
