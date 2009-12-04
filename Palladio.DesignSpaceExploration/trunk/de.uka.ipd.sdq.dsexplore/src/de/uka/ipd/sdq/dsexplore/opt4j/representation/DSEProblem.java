@@ -13,6 +13,7 @@ import org.opt4j.genotype.DoubleGenotype;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.designdecisions.alternativecomponents.AlternativeComponent;
+import de.uka.ipd.sdq.dsexplore.helper.DegreeOfFreedomHelper;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.helper.FixDesignDecisionReferenceSwitch;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -311,7 +312,7 @@ public class DSEProblem {
 		
 		List<DegreeOfFreedom> decisions = this.pcmProblem.getDesigndecision();
 		for (DegreeOfFreedom designDecision : decisions) {
-			result += designDecision.toString()+";";
+			result += DegreeOfFreedomHelper.getDegreeDescription(designDecision)+";";
 		}
 		
 		return result;

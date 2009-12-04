@@ -42,7 +42,7 @@ public class GenotypeReader {
 	        
 	      } catch( Exception ex ) {
 	        throw new CoreException(new Status(Status.ERROR,
-					"de.uka.ipd.sdq.dsexplore", 0, "Could not evaluate predefined instances. Leave field blank for evolutionary search or type \"random\" for a random search."+ex.getMessage(), ex));
+					"de.uka.ipd.sdq.dsexplore", 0, "Could not evaluate predefined instances. Leave field blank for evolutionary search or type \"random\" for a random search. "+ex.getMessage(), ex));
 	      }
 	}
 	private static BufferedReader getReaderFor(File file) throws FileNotFoundException {
@@ -125,7 +125,7 @@ public class GenotypeReader {
 		List<DegreeOfFreedom> orderedDesignDecisions = new ArrayList<DegreeOfFreedom>();
 		for (String headlineEntry : headlineArray) {
 			for (DegreeOfFreedom decision : decisionList) {
-				if (decision.toString().equals(headlineEntry)){
+				if (DegreeOfFreedomHelper.getDegreeDescription(decision).equals(headlineEntry)){
 					orderedDesignDecisions.add(decision);
 				}
 			}
