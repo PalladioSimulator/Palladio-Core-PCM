@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.core.connectors.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.core.connectors.util.ConnectorsResourceFactoryImpl
  * @generated
  */
-public class ConnectorsResourceImpl extends XMLResourceImpl {
+public class ConnectorsResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

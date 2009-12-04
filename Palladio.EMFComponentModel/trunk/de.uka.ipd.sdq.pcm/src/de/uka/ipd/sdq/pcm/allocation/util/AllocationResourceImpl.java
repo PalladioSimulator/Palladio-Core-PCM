@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.allocation.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.allocation.util.AllocationResourceFactoryImpl
  * @generated
  */
-public class AllocationResourceImpl extends XMLResourceImpl {
+public class AllocationResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

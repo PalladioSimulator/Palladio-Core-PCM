@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.subsystem.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.subsystem.util.SubsystemResourceFactoryImpl
  * @generated
  */
-public class SubsystemResourceImpl extends XMLResourceImpl {
+public class SubsystemResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

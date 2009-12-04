@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.qosannotations.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.qosannotations.util.QosannotationsResourceFactoryImpl
  * @generated
  */
-public class QosannotationsResourceImpl extends XMLResourceImpl {
+public class QosannotationsResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

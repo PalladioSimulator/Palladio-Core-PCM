@@ -37,7 +37,7 @@
         </genOperations>
       </genClasses>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Entity" basePackage="de.uka.ipd.sdq.pcm.core"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/entity">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/entity">
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//core/entity/Entity"/>
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//core/entity/NamedElement">
           <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/entity/NamedElement/entityName"/>
@@ -63,11 +63,11 @@
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Connectors" basePackage="de.uka.ipd.sdq.pcm.core"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//core/connectors/Connector"/>
       </nestedGenPackages>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Composition" basePackage="de.uka.ipd.sdq.pcm.core"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/composition">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/composition">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/ProvidedDelegationConnector">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/innerProvidedRole_ProvidedDelegationConnector"/>
@@ -155,7 +155,7 @@
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Repository" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//repository">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//repository">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//repository/ParameterModifier">
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/none"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/in"/>
@@ -372,7 +372,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Seff" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/StopAction">
         <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/StopAction/StopActionSuccessorMustNotBeDefined">
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/StopAction/StopActionSuccessorMustNotBeDefined/diagnostics"/>
@@ -492,7 +492,7 @@
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"/>
       </genClasses>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Performance" basePackage="de.uka.ipd.sdq.pcm.seff"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff/performance">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff/performance">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/performance/ParametricResourceDemand">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
               createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/specification_ParametericResourceDemand"/>
@@ -504,7 +504,7 @@
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourcetype" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourcetype">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourcetype">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//resourcetype/ResourceType"/>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourcetype/ResourceRepository">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -514,7 +514,7 @@
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourcetype/ProcessingResourceType"/>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Allocation" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//allocation">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//allocation">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//allocation/AllocationContext">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/resourceContainer_AllocationContext"/>
@@ -535,7 +535,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourceenvironment"
-        basePackage="de.uka.ipd.sdq.pcm" resource="XML" disposableProviderFactory="true"
+        basePackage="de.uka.ipd.sdq.pcm" resource="XMI" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//resourceenvironment">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//resourceenvironment/SchedulingPolicy">
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/DELAY"/>
@@ -580,14 +580,14 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="System" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//system">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//system">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//system/System">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/qosAnnotations_System"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Qosannotations" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedQoSAnnotation/signature_SpecifiedQoSAnnation"/>
@@ -611,7 +611,7 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/QoSAnnotations/specifiedOutputParameterAbstractions_QoSAnnotations"/>
       </genClasses>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Performance" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/performance">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/performance">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/performance/SystemSpecifiedExecutionTime"/>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/performance/ComponentSpecifiedExecutionTime">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -619,14 +619,14 @@
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Reliability" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/reliability">
+          resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/reliability">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/reliability/SpecifiedFailureProbability">
           <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//qosannotations/reliability/SpecifiedFailureProbability/failureProbability"/>
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Usagemodel" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//usagemodel">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//usagemodel">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//usagemodel/Workload"/>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//usagemodel/UsageScenario">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -736,7 +736,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Subsystem" basePackage="de.uka.ipd.sdq.pcm"
-        resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//subsystem">
+        resource="XMI" disposableProviderFactory="true" ecorePackage="pcm.ecore#//subsystem">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//subsystem/SubSystem"/>
     </nestedGenPackages>
   </genPackages>
