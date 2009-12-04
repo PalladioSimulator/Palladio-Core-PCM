@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SimuCom Analysis for Design Space Exploration Plug-in
+Bundle-Name: SimuCom Analysis for DSE
 Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.analysis.simucom;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.dsexplore.analysis.simucom.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

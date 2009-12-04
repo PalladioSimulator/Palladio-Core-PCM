@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Cost Model Edit Support
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.cost.edit;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.cost.provider.CostModelEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: SDQ
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.pcm.cost.provider
 Require-Bundle: org.eclipse.core.runtime,

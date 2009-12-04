@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Design Space Exploration Plug-in
+Bundle-Name: Design Space Exploration (PerOpteryx)
 Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.dsexplore.DSEPluginActivator
@@ -24,4 +24,4 @@ Bundle-ClassPath: .,
  log4j/
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-BuddyPolicy: dependent 
-Bundle-Vendor: %providerName
+Bundle-Vendor: SDQ
