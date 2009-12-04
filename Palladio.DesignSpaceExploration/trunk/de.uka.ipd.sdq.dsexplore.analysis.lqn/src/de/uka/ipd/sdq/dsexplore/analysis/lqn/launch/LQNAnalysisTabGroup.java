@@ -9,7 +9,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 
-import de.uka.ipd.sdq.pcmsolver.runconfig.CommonTab;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MainConfigTab;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
