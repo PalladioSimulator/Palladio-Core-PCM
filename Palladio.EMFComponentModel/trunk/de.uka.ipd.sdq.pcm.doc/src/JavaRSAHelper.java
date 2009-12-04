@@ -136,15 +136,15 @@ public class JavaRSAHelper {
 			System.out.println("Error: Output directory for converted images does not exist. Create it first and re-run the transformation.");
 			return;
 		}
-		
-        String commandLinePDF = inkscapeEXE + " -f "+inputDirectory+filename + " -A " + newPDFFilename; 
+				
+        String commandLinePDF = inkscapeEXE + " --g-fatal-warnings -A " + newPDFFilename + " -f "+inputDirectory+filename; 
 	    int errorCode = executeProcess(commandLinePDF);
 	    if (errorCode == 0)
 	    	System.out.println("File converted. New file "+newPDFFilename);
 	    else
 	    	System.out.println("Converting SVG to PDF failed. Check Inkscape and the SVG input file.");
 
-        String commandLineEPS = inkscapeEXE + " -f "+inputDirectory+filename + " -E " + newEPSFilename; 
+        String commandLineEPS = inkscapeEXE + " --g-fatal-warnings -E " + newEPSFilename + " -f "+inputDirectory+filename;
 	    errorCode = executeProcess(commandLineEPS);
 	    if (errorCode == 0)
 	    	System.out.println("File converted. New file "+newEPSFilename);
