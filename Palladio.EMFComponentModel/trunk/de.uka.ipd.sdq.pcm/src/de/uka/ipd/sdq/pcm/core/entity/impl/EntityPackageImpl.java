@@ -33,7 +33,6 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
 import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
-import de.uka.ipd.sdq.pcm.impl.PackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;

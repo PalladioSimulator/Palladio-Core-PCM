@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
-import de.uka.ipd.sdq.pcm.impl.PackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
