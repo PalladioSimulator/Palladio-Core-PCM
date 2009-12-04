@@ -4,6 +4,10 @@ List[String] getDiagrams(uml::Package p) :
 	JAVA JavaRSAHelper.getDiagrams(org.eclipse.uml2.uml.Package)
 ;
 
+String decodeFileName(String fileName) :
+	JAVA JavaRSAHelper.removeAllDotsExceptTheLast(java.lang.String)
+;
+
 String fullName(NamedElement e) :
 	if (e != null && e.eContainer != null) then ((NamedElement)e.eContainer).fullName() + "::" + e.name.toString() else e.name;
 

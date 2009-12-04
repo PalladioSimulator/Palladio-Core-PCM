@@ -158,7 +158,7 @@ public class JavaRSAHelper {
 	 * @param fileName
 	 * @return
 	 */
-	private static String removeAllDotsExceptTheLast(String fileName) {
+	public static String removeAllDotsExceptTheLast(String fileName) {
 		fileName = removeFileExtension(fileName);
 		fileName = fileName.replace(".", "");
 		
@@ -178,8 +178,12 @@ public class JavaRSAHelper {
 		File baseFile = new File(inputDirectory+filename);
 
 		String outputDirectory = myProperties.getProperty(IMAGE_OUTPUT_DIR) + File.separatorChar;
-		String newPDFFilename = outputDirectory + filename.replaceAll(".svg", ".pdf");
-		String newEPSFilename = outputDirectory + filename.replaceAll(".svg", ".eps");
+		String outputFileName = filename;
+		if(!RSA_7_0_MODE) {
+			outputFileName = removeAllDotsExceptTheLast(outputFileName) + ".svg";
+		}
+		String newPDFFilename = outputDirectory + outputFileName.replaceAll(".svg", ".pdf");
+		String newEPSFilename = outputDirectory + outputFileName.replaceAll(".svg", ".eps");
 		
 		if (!baseFile.exists()) {
 			System.out.println("WARNING: Cannot find file: "+inputDirectory+filename+"\nDid you forget to export the SVG based HTML doc?");

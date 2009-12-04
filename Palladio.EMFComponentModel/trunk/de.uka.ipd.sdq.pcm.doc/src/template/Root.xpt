@@ -17,9 +17,9 @@
 % This file contains the generated LaTeX documentation for the UML Model 
 % Generated via openArchitectureWare
 % packages:
-% «FOREACH this AS currentPackage»
+«FOREACH this AS currentPackage»
 % «currentPackage.fullName()»
-% «ENDFOREACH»
+«ENDFOREACH»
 \documentclass[12pt]{report}
 «EXPAND WriteManualInclude FOR "usepackages.tex"-»
 
@@ -67,7 +67,7 @@
 \paragraph{Figure «s.get(1).saveLatexString()-» Description}«s.get(2).saveLatexString()-» (see Figure~\ref{fig:«s.get(0)-»})
 \begin{center}
 \begin{figure}[htbp]
-\includegraphics[width=\textwidth]{«s.get(0)-»}
+\includegraphics[width=\textwidth]{«s.get(0).decodeFileName()-»}
 \caption{«s.get(1).saveLatexString()-»}
 \label{fig:«s.get(0)-»}
 \end{figure}
