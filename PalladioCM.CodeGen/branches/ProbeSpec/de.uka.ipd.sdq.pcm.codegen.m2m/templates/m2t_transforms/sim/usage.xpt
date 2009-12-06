@@ -19,7 +19,7 @@
 		* instanciation mechanismn.
 		**/
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
-		{							
+		{
 			// Override abstract framework method and return the workloads of this usage model
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
 				«LET this.usageScenario_UsageModel.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
@@ -32,6 +32,10 @@
 					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
 				};
 				«ENDLET»
+			}
+			
+			protected de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory getCalculatorRepositoryFactory() {
+				return CalculatorRepositoryFactory.getInstance();
 			}
 
 			// Return the generated resource container class

@@ -1,0 +1,43 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT usagemodel»
+
+«DEFINE CalculatorRoot FOR UsageModel»
+	«FILE "Main/CalculatorRepositoryFactory.java"»
+		package main;
+		import de.uka.ipd.sdq.simucomframework.calculator.CalculatorRepository;
+		import de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory;
+		import de.uka.ipd.sdq.probespec.framework.SampleBlackboard;
+		import de.uka.ipd.sdq.pipesandfilters.framework.recorder.*;
+		import de.uka.ipd.sdq.pipesandfilters.framework.*;
+		import de.uka.ipd.sdq.probespec.framework.calculator.*;
+		
+		public class CalculatorRepositoryFactory implements ICalculatorRepositoryFactory {
+		
+			private static CalculatorRepositoryFactory instance = new CalculatorRepositoryFactory();
+			
+			public CalculatorRepository createCalculatorRepository(SampleBlackboard blackboard) {
+				CalculatorRepository repository = new CalculatorRepository();
+				
+				«EXPAND CreateCalculatorForUsageScenario FOREACH this.usageScenario_UsageModel»
+				
+				return repository;
+			}
+		
+			public static CalculatorRepositoryFactory getInstance() {
+				return instance;
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«REM»Creates one calculator for each UsageScenario«ENDREM»
+«DEFINE CreateCalculatorForUsageScenario FOR UsageScenario»
+	// Initialise calculator for «this.entityName»
+	Recorder recorder = new RawRecorder(new ConsoleWriteStrategy());
+	PipesAndFiltersManager pipesAndFiltersManager = new PipesAndFiltersManager(recorder);
+	Calculator calculator = new ResponseTimeCalculator(blackboard,
+			"start«this.entityName»", "end«this.entityName»");
+	calculator.setPipesAndFiltersManager(pipesAndFiltersManager);
+	repository.addCalculator("«this.entityName»", calculator);
+«ENDDEFINE»

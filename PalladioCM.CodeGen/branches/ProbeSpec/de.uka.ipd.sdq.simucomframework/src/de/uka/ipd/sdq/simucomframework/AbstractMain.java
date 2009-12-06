@@ -5,6 +5,7 @@ import java.util.Observer;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
@@ -78,6 +79,7 @@ implements
 		model = 
 			SimuComFactory.getSimuComModel(config,getStatus(),isRemoteRun); 
 		model.initialiseResourceContainer(getResourceContainerFactory());
+		model.initialiseCalculatorRepository(getCalculatorRepositoryFactory());
 		model.setUsageScenarios(getWorkloads());
 		model.getSimulationControl().addTimeObserver(new Observer(){
 
@@ -167,6 +169,8 @@ implements
 	 * @return A factory which is used to create the simulated resource environment
 	 */
 	protected abstract IResourceContainerFactory getResourceContainerFactory();
+	
+	protected abstract ICalculatorRepositoryFactory getCalculatorRepositoryFactory();
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#getStatus()

@@ -14,6 +14,7 @@
 // standalone
 //-----------------------------------
 «DEFINE UsageModel(Allocation a) FOR UsageModel»
+	«EXPAND calculators::CalculatorRoot FOR this»
 	«EXPAND UsageScenarioTM(a) FOREACH this.usageScenario_UsageModel»
 	«EXPAND MainTM FOR this»
 «ENDDEFINE» 
