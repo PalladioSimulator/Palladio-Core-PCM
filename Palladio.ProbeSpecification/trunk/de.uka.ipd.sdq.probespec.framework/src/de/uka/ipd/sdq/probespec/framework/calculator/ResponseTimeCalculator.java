@@ -129,11 +129,11 @@ public class ResponseTimeCalculator extends Calculator {
 	 */
 	private void calculate(ProbeSample<Long, Duration> r1,
 			ProbeSample<Long, Duration> r2) throws CalculatorException {
-
+		
+		// TODO Assert r1.unit == r2. unit!?
 		Measure<Long, Duration> result = Measure.valueOf(r2.getMeasure()
-				.longValue(SI.MILLI(SI.SECOND))
-				- r1.getMeasure().longValue(SI.MILLI(SI.SECOND)), SI
-				.MILLI(SI.SECOND));
+				.longValue(r1.getMeasure().getUnit())
+				- r1.getMeasure().longValue(r1.getMeasure().getUnit()), r1.getMeasure().getUnit());
 
 		Vector<Measure<?, ? extends Quantity>> resultTuple = new Vector<Measure<?, ? extends Quantity>>();
 
