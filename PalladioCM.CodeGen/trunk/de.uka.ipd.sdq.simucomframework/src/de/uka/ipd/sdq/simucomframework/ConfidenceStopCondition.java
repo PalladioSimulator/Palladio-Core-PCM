@@ -81,10 +81,6 @@ public class ConfidenceStopCondition extends Condition implements Observer {
 	}
 
 	private void initialize() {
-		// TODO Remove log4j initialization --------
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.INFO);
-		// ------------------------------------------
 		logger = Logger.getLogger(ConfidenceStopCondition.class.getName());
 
 		// observe run in order to obtain measurements
