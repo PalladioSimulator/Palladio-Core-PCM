@@ -122,7 +122,11 @@ public class CreateSimuComMetaDataFilesJob implements IJob {
 		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
 		out.println(" org.apache.log4j,"); //$NON-NLS-1$
 		out.println(" org.eclipse.osgi,"); //$NON-NLS-1$
-		out.println(" de.uka.ipd.sdq.scheduler"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.scheduler,"); //$NON-NLS-1$
+		out.println(" org.jscience,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.probespec.framework,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.pipesandfilters,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.pipesandfilters.framework"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
 		out.println("Bundle-ClassPath: bin/,");
 		out.println(" .");
