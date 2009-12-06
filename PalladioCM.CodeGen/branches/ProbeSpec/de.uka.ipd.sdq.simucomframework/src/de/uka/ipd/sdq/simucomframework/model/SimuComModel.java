@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
+import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
+import de.uka.ipd.sdq.probespec.framework.SampleBlackboard;
+import de.uka.ipd.sdq.probespec.framework.probes.AProbeStrategyFactory;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
@@ -16,7 +19,10 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
+import de.uka.ipd.sdq.simucomframework.calculator.CalculatorRepository;
+import de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory;
 import de.uka.ipd.sdq.simucomframework.exceptions.DatasourceConfigurationInvalidException;
+import de.uka.ipd.sdq.simucomframework.probes.SimuComProbeStrategyFactory;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -50,6 +56,10 @@ public class SimuComModel {
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
 	private SimuComStatus simulationStatus = null;
+	private AProbeStrategyFactory probeStrategyFactory;
+	private SampleBlackboard sampleBlackboard;
+	private PipesAndFiltersManager pipesAndFiltersManager;
+	protected CalculatorRepository calculatorRepository;
 	
 	public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
@@ -61,6 +71,17 @@ public class SimuComModel {
 			initialiseNewSensorframework();
 		else
 			initialiseTempSensorframework();
+		probeStrategyFactory = new SimuComProbeStrategyFactory();
+		sampleBlackboard = new SampleBlackboard();
+	}
+	
+	/**
+	 * TODO Comment!
+	 * 
+	 * @param factory
+	 */
+	public void initialiseCalculatorRepository(ICalculatorRepositoryFactory factory) {
+		calculatorRepository = factory.createCalculatorRepository(sampleBlackboard);	
 	}
 
 	private void initialiseSimStatus() {
@@ -238,4 +259,17 @@ public class SimuComModel {
 	public SimuComStatus getSimulationStatus() {
 		return simulationStatus;
 	}
+
+	public AProbeStrategyFactory getProbeStrategyFactory() {
+		return probeStrategyFactory;
+	}
+
+	public SampleBlackboard getSampleBlackboard() {
+		return sampleBlackboard;
+	}
+
+	public PipesAndFiltersManager getPipesAndFiltersManager() {
+		return pipesAndFiltersManager;
+	}
+	
 }
