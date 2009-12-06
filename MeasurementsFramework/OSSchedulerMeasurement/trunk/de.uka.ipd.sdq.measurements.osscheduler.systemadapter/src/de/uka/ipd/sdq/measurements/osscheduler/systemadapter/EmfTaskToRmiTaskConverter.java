@@ -22,12 +22,17 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiSequenceTask;
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
+import de.uka.ipd.sdq.measurements.scheduler.impl.ParallelProcessTaskImpl;
+import de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementTaskImpl;
 import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
 import de.uka.ipd.sdq.measurements.tasks.LoopTask;
 import de.uka.ipd.sdq.measurements.tasks.MachineTask;
 import de.uka.ipd.sdq.measurements.tasks.ParallelTask;
 import de.uka.ipd.sdq.measurements.tasks.SequenceTask;
 import de.uka.ipd.sdq.measurements.tasks.TaskSet;
+import de.uka.ipd.sdq.measurements.tasks.impl.LoopTaskImpl;
+import de.uka.ipd.sdq.measurements.tasks.impl.ParallelTaskImpl;
+import de.uka.ipd.sdq.measurements.tasks.impl.SequenceTaskImpl;
 import de.uka.ipd.sdq.probespec.BinaryCalculator;
 import de.uka.ipd.sdq.probespec.Calculator;
 import de.uka.ipd.sdq.probespec.ProbeSet;
@@ -48,15 +53,15 @@ public class EmfTaskToRmiTaskConverter {
 	}
 	
 	public RmiAbstractTask convert(AbstractTask emfTask) {
-		if (emfTask instanceof SequenceTask) {
+		if (emfTask.getClass().equals(SequenceTaskImpl.class)) {
 			return convertSequenceTask((SequenceTask)emfTask);
-		} else if (emfTask instanceof ParallelTask) {
+		} else if (emfTask.getClass().equals(ParallelTaskImpl.class)) {
 			return convertParallelTask((ParallelTask)emfTask);
-		} else if (emfTask instanceof LoopTask) {
+		} else if (emfTask.getClass().equals(LoopTaskImpl.class)) {
 			return convertLoopTask((LoopTask)emfTask);
-		} else if (emfTask instanceof ResourceStrategyMeasurementTask) {
+		} else if (emfTask.getClass().equals(ResourceStrategyMeasurementTaskImpl.class)) {
 			return convertResourceStrategyMeasurementTask((ResourceStrategyMeasurementTask)emfTask);
-		} else if (emfTask instanceof ParallelProcessTask) {
+		} else if (emfTask.getClass().equals(ParallelProcessTaskImpl.class)) {
 			return convertParallelProcessTask((ParallelProcessTask)emfTask);
 		}
 		return null;
@@ -152,6 +157,8 @@ public class EmfTaskToRmiTaskConverter {
 			return RmiDemand.FIBONACCI_DEMAND;
 		case WAIT_DEMAND:
 			return RmiDemand.WAIT_DEMAND;
+		case READ_FROM_HDD_DEMAND:
+			return RmiDemand.READ_FROM_HDD_DEMAND;
 		}
 		return null;
 	}

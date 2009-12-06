@@ -58,7 +58,7 @@ public class ResourceStrategyMeasurementTaskImpl extends MachineTaskImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ResourceStrategyDemand DEMAND_EDEFAULT = ResourceStrategyDemand.WAIT_DEMAND;
+	protected static final ResourceStrategyDemand DEMAND_EDEFAULT = ResourceStrategyDemand.MANDELBROT_DEMAND;
 
 	/**
 	 * The cached value of the '{@link #getDemand() <em>Demand</em>}' attribute.

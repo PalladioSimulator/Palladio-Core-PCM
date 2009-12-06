@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskListener;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskManager;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.ChildProcessManager;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriverHelper;
@@ -123,10 +124,6 @@ public class HostImpl implements HostInterface {
 		return Constants.RmiPingResult;
 	}
 
-	/*public ArrayList<AbstractTaskResult> getTemporaryResults() throws RemoteException {
-		return OSDriver.getInstance().getTemporaryResults();
-	}*/
-
 	public boolean updateJarFile(byte[] buffer) throws RemoteException {
 		return OSDriverHelper.updateJarFile(buffer);
 	}
@@ -139,12 +136,18 @@ public class HostImpl implements HostInterface {
 		
 	}
 	
-	public HashMap<Integer, ArrayList<RmiResult>> getTaskResults(int taskId) throws RemoteException {
-		return TaskManager.getInstance().getResults(taskId);
+	public HashMap<Integer, ArrayList<RmiResult>> getTaskResults() throws RemoteException {
+		TaskManager.getInstance().storeAllResults();
+		ChildProcessManager.getInstance().storeChildResults();
+		return TaskResultStorage.getInstance().getAllResults();
 	}
 
 	public void childTaskCompleted(int taskId, int completedIterations) {
 		ChildProcessManager.getInstance().childTaskCompleted(taskId, completedIterations);
+	}
+
+	public void finishTask(int taskId) throws RemoteException {
+		TaskManager.getInstance().finishTask(taskId);
 	}
 
 }

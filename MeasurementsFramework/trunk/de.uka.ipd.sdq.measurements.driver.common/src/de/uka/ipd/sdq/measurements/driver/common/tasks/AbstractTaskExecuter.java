@@ -6,7 +6,7 @@ import java.util.Vector;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 
-public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
+public abstract class AbstractTaskExecuter extends Thread implements TaskExecuter {
 
 	/**
 	 * The default constructor is private and therefore must not be used.
@@ -83,15 +83,23 @@ public abstract class AbstractTaskExecuter implements TaskExecuter, Runnable {
 	
 	public abstract void storeResults();
 	
-	public abstract void cleanup();
+	public void cleanup() {
+		System.out.println("Clenaing up...");
+		doCleanup();
+		startTimes = new long[numberOfIterations];
+		endTimes = new long[numberOfIterations];
+		task = null;
+	}
+	
+	protected abstract void doCleanup();
 		
 	public RmiResult getTaskResult() {
 		if (task.getSensor() == false) {
 			return null;
 		}
 		RmiResult result = new RmiResult(task);
-		long[] results = new long[startTimes.length];
-		for (int i=0; i<startTimes.length; i++) {
+		long[] results = new long[numberOfExecutedTasks];
+		for (int i=0; i<numberOfExecutedTasks; i++) {
 			results[i] = endTimes[i] - startTimes[i];
 		}
 		result.setResults(results);

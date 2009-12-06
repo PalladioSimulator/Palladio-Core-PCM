@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project de.uka.ipd.sdq.resourcestrategies">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/lib/resourcestrategies.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Main-Class" value="test"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/Code/workspace_measurements/de.uka.ipd.sdq.resourcestrategies/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Code/eclipse_3.5_measurements/plugins/org.apache.log4j_1.2.13.v200903072027.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Code/eclipse_3.5_measurements/plugins/uc.ac.ucl.ee.flanagan_1.0.0.20060218/libs/flanagan.jar"/>
+        </jar>
+    </target>
+</project>

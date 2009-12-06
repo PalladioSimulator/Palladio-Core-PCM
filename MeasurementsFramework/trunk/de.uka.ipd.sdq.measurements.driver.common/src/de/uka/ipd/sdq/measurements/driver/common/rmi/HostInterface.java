@@ -147,5 +147,7 @@ public interface HostInterface extends Remote {
 	 */
 	void childTaskCompleted(int taskId, int completedIterations) throws RemoteException;
 
-	HashMap<Integer, ArrayList<RmiResult>> getTaskResults(int taskId) throws RemoteException;
+	HashMap<Integer, ArrayList<RmiResult>> getTaskResults() throws RemoteException;
+
+	void finishTask(int taskId) throws RemoteException;
 }

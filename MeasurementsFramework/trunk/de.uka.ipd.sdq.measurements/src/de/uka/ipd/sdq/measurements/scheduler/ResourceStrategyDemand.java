@@ -23,16 +23,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ResourceStrategyDemand implements Enumerator {
 	/**
-	 * The '<em><b>Wait Demand</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #WAIT_DEMAND_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	WAIT_DEMAND(0, "WaitDemand", "WaitDemand"),
-
-	/**
 	 * The '<em><b>Mandelbrot Demand</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,7 +30,7 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MANDELBROT_DEMAND(1, "MandelbrotDemand", "MandelbrotDemand"),
+	MANDELBROT_DEMAND(0, "MandelbrotDemand", "MandelbrotDemand"),
 
 	/**
 	 * The '<em><b>Fibonacci Demand</b></em>' literal object.
@@ -50,22 +40,23 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FIBONACCI_DEMAND(2, "FibonacciDemand", "FibonacciDemand");
-
-	/**
-	 * The '<em><b>Wait Demand</b></em>' literal value.
+	FIBONACCI_DEMAND(1, "FibonacciDemand", "FibonacciDemand"), /**
+	 * The '<em><b>Wait Demand</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Wait Demand</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #WAIT_DEMAND
-	 * @model name="WaitDemand"
+	 * @see #WAIT_DEMAND_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WAIT_DEMAND_VALUE = 0;
+	WAIT_DEMAND(2, "WaitDemand", "WaitDemand"), /**
+	 * The '<em><b>Read From Hdd Demand</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #READ_FROM_HDD_DEMAND_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	READ_FROM_HDD_DEMAND(3, "ReadFromHddDemand", "ReadFromHddDemand");
 
 	/**
 	 * The '<em><b>Mandelbrot Demand</b></em>' literal value.
@@ -80,7 +71,7 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MANDELBROT_DEMAND_VALUE = 1;
+	public static final int MANDELBROT_DEMAND_VALUE = 0;
 
 	/**
 	 * The '<em><b>Fibonacci Demand</b></em>' literal value.
@@ -95,7 +86,37 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FIBONACCI_DEMAND_VALUE = 2;
+	public static final int FIBONACCI_DEMAND_VALUE = 1;
+
+	/**
+	 * The '<em><b>Wait Demand</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Wait Demand</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WAIT_DEMAND
+	 * @model name="WaitDemand"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WAIT_DEMAND_VALUE = 2;
+
+	/**
+	 * The '<em><b>Read From Hdd Demand</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Read From Hdd Demand</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #READ_FROM_HDD_DEMAND
+	 * @model name="ReadFromHddDemand"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int READ_FROM_HDD_DEMAND_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Resource Strategy Demand</b></em>' enumerators.
@@ -105,9 +126,10 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 */
 	private static final ResourceStrategyDemand[] VALUES_ARRAY =
 		new ResourceStrategyDemand[] {
-			WAIT_DEMAND,
 			MANDELBROT_DEMAND,
 			FIBONACCI_DEMAND,
+			WAIT_DEMAND,
+			READ_FROM_HDD_DEMAND,
 		};
 
 	/**
@@ -158,9 +180,10 @@ public enum ResourceStrategyDemand implements Enumerator {
 	 */
 	public static ResourceStrategyDemand get(int value) {
 		switch (value) {
-			case WAIT_DEMAND_VALUE: return WAIT_DEMAND;
 			case MANDELBROT_DEMAND_VALUE: return MANDELBROT_DEMAND;
 			case FIBONACCI_DEMAND_VALUE: return FIBONACCI_DEMAND;
+			case WAIT_DEMAND_VALUE: return WAIT_DEMAND;
+			case READ_FROM_HDD_DEMAND_VALUE: return READ_FROM_HDD_DEMAND;
 		}
 		return null;
 	}

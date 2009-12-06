@@ -23,14 +23,16 @@ public class RmiServer {
 	}
 
 	HostImpl hostInterface = null;
+	HostInterface stub = null;
+	
+	private int hostPort = 0;
+	private String hostIP = null;
 
 	public boolean initialize() {
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		OSDriver.log("Starting RMI services...");
-		String hostIP = null;
-		int hostPort = 0;
 		try {
 
 			hostIP = PropertyManager.getInstance().getHostRmiIp();
@@ -41,14 +43,15 @@ public class RmiServer {
 
 
 			hostInterface = new HostImpl();
-			HostInterface stub = null;
+			stub = null;
 			try {
 				stub = (HostInterface) UnicastRemoteObject.exportObject(hostInterface, hostPort);
 			} catch (ExportException e) {
 				if (e.detail instanceof IllegalArgumentException) {
 					OSDriver.logError("Failed to start RMI server, the RMI interface is invalid: " + e.detail.getMessage());
 				} else {
-					OSDriver.logError("Failed to start RMI server, probably the port is already in use.");	
+					OSDriver.logError("Failed to start RMI server, probably the port is already in use: " + hostIP + ":" + hostPort);
+					e.printStackTrace();
 				}
 				return false;
 			}

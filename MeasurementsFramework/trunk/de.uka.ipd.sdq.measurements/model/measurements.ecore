@@ -74,9 +74,10 @@
   <eSubpackages name="scheduler" nsURI="http://sdq.ipd.uka.de/MeasurementsFramework/Scheduler/1.0"
       nsPrefix="scheduler">
     <eClassifiers xsi:type="ecore:EEnum" name="ResourceStrategyDemand">
-      <eLiterals name="WaitDemand"/>
-      <eLiterals name="MandelbrotDemand" value="1"/>
-      <eLiterals name="FibonacciDemand" value="2"/>
+      <eLiterals name="MandelbrotDemand"/>
+      <eLiterals name="FibonacciDemand" value="1"/>
+      <eLiterals name="WaitDemand" value="2"/>
+      <eLiterals name="ReadFromHddDemand" value="3"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceStrategyMeasurementTask" eSuperTypes="#//tasks/MachineTask">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" ordered="false"

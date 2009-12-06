@@ -86,9 +86,10 @@
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Scheduler" basePackage="de.uka.ipd.sdq.measurements"
         resource="XML" disposableProviderFactory="true" ecorePackage="measurements.ecore#//scheduler">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="measurements.ecore#//scheduler/ResourceStrategyDemand">
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/WaitDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/MandelbrotDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/FibonacciDemand"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/WaitDemand"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="measurements.ecore#//scheduler/ResourceStrategyDemand/ReadFromHddDemand"/>
       </genEnums>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//scheduler/ResourceStrategyMeasurementTask">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//scheduler/ResourceStrategyMeasurementTask/duration"/>

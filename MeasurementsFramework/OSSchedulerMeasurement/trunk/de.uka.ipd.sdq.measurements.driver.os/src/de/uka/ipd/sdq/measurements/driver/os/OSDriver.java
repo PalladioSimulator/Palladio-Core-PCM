@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.measurements.driver.os;
 import java.io.File;
 import java.rmi.RemoteException;
 
+import org.apache.log4j.PropertyConfigurator;
+
 import de.uka.ipd.sdq.measurements.driver.common.LoggerDelegate;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskExecuterFactory;
@@ -36,6 +38,8 @@ public class OSDriver {
 				System.out.println("ARG: " + arg);
 			}
 		}
+		StringBuffer configure = new StringBuffer("export/log4j.properties");
+	 	PropertyConfigurator.configure(configure.toString());
 		OSDriver.getInstance().initialize(args);
 
 	}
@@ -139,6 +143,9 @@ public class OSDriver {
 	}*/
 
 	public boolean shutdown() {
+		
+		ChildProcessManager.getInstance().stopAllChildProcesses();
+		
 		// Start the final shutdown thread.
 		new Thread(new Runnable() {
 
@@ -160,9 +167,6 @@ public class OSDriver {
 				systemAdapterRmiInterface.driverShutdown();
 			} catch (RemoteException e) {
 			}
-		}		
-		if (rmiServer != null) {
-			rmiServer.shutdown();
 		}
 
 		return true;

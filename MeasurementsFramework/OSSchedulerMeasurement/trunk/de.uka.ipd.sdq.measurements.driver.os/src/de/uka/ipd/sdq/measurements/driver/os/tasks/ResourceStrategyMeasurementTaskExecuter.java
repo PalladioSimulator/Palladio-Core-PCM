@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.measurements.driver.os.tasks;
 
+import java.io.File;
+import java.net.URL;
 import java.util.Properties;
 
 import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
@@ -7,6 +9,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.MandelbrotDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.WaitDemand;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
@@ -29,6 +32,13 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 			break;
 		case WAIT_DEMAND:
 			theStrategy = new WaitDemand();
+			break;
+		case READ_FROM_HDD_DEMAND:
+			if (measurementTime > Integer.MAX_VALUE) {
+				measurementTime = Integer.MAX_VALUE;
+			}
+			URL url = ResourceStrategyMeasurementTaskExecuter.class.getProtectionDomain().getCodeSource().getLocation();
+			theStrategy = new ReadLargeChunksDemand(url.getPath()+"temp/" + task.getId() + "/", numberOfIterations, (int)measurementTime);
 			break;
 		default:
 			theStrategy = new FibonacciDemand();
@@ -67,8 +77,12 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 	}
 	
 	@Override
-	public void cleanup() {
-		// Nothing to do here.
+	protected void doCleanup() {
+		theStrategy.cleanup();
+		// Delete folder where the files have been stored in
+		URL url = ResourceStrategyMeasurementTaskExecuter.class.getProtectionDomain().getCodeSource().getLocation();
+		File file = new File(url.getPath()+"temp/" + task.getId() + "/");
+		file.delete();
 	}
 
 }

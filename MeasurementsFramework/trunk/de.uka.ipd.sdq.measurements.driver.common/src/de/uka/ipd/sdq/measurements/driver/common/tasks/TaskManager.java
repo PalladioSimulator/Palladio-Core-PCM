@@ -2,11 +2,9 @@ package de.uka.ipd.sdq.measurements.driver.common.tasks;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Vector;
 
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
-import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 
 public class TaskManager {
 	
@@ -112,7 +110,11 @@ public class TaskManager {
 	 * in the task data structures.
 	 */
 	public void clearPreparedTasks() {
+		for (AbstractTaskExecuter rootTask : rootTasks) {
+			rootTask.cleanup();
+		}
 		rootTasks.clear();
+		TaskResultStorage.getInstance().cleanup();
 		/*preparedGuestTasks.clear();
 		totalNumberOfTasks = 0L;
 		currentTaskNumber = 0L;
@@ -126,13 +128,12 @@ public class TaskManager {
 		executerId = 0L;*/
 	}
 	
-	//private HashMap<Integer, AbstractTaskExecuter> taskExecuters = null;
-
-	
-	public HashMap<Integer, ArrayList<RmiResult>> getResults(int rootTaskId) {
-		AbstractTaskExecuter taskExecuter = getRootTask(rootTaskId);
-		taskExecuter.storeResults();
-		return TaskResultStorage.getInstance().getAllResults();
+	public void storeAllResults() {
+		
+		for (AbstractTaskExecuter rootTaskExecuter : rootTasks) {
+			rootTaskExecuter.storeResults();
+		}
+		
 	}
 	
 	//
@@ -175,6 +176,27 @@ public class TaskManager {
 				l.taskCompleted(taskId, completedIterations);
 			}
 		}
+	}
+
+	public void finishTask(int taskId) {
+		AbstractTaskExecuter rootTaskExecuter = null;
+		for (AbstractTaskExecuter task : rootTasks) {
+			if (task.getTask().getId() == taskId) {
+				rootTaskExecuter = task;
+				break;
+			}
+		}
+		if (rootTaskExecuter == null) {
+			return;
+		}
+		try {
+			synchronized (rootTaskExecuter) {
+				rootTaskExecuter.signalizeFinish();
+				rootTaskExecuter.notify();
+			}
+		} catch (IllegalMonitorStateException e) {
+		}
+		
 	}
 	
 }

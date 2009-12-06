@@ -34,11 +34,7 @@ public class OSSchedulerSystemAdapter {
 	public int getMachinePort() {
 		return machinePort;
 	}
-	
-	//private String myMachineIP = "192.76.146.182";
-	private String myMachineIP = "192.168.2.132";
-	private int myMachinePort = 2100;
-	
+		
 	private RmiServer rmiServer = null;
 	private final SystemAdapterRmiImpl rmiImpl = new SystemAdapterRmiImpl();
 	private int currentlyRunningExperimentRootTaskId = -1;
@@ -48,7 +44,7 @@ public class OSSchedulerSystemAdapter {
 		machineIP = ip;
 		machinePort = port;
 		rmiServer = new RmiServer();
-		rmiServer.start(myMachineIP, myMachinePort, rmiImpl);
+		rmiServer.start(rmiImpl);
 	}
 	
 	public boolean checkConnection() {
@@ -97,7 +93,7 @@ public class OSSchedulerSystemAdapter {
 	}
 	
 	public void initializeConnection() {
-		hostInterface = RmiConnectionManager.getInstance().initializeHost(machineIP, machinePort, "Driver", myMachineIP, myMachinePort);
+		hostInterface = RmiConnectionManager.getInstance().initializeHost(machineIP, machinePort, "Driver", rmiServer.getRmiIp(), rmiServer.getRmiPort());
 	}
 	
 	public boolean executeExperiment(final int dataSourceId) {
@@ -142,7 +138,7 @@ public class OSSchedulerSystemAdapter {
 		}
 		HashMap<Integer, ArrayList<RmiResult>> experimentResults = null;
 		try {
-			experimentResults = hostInterface.getTaskResults(currentlyRunningExperimentRootTaskId);
+			experimentResults = hostInterface.getTaskResults();
 		} catch (RemoteException e) {
 			logger.error("Failed to get results for task " + currentlyRunningExperimentRootTaskId);
 			OSSchedulerSystemAdapterPlugin.getDefault().getLog().log(new Status(Status.ERROR, OSSchedulerSystemAdapterPlugin.PLUGIN_ID, "Failed to get results for task " + currentlyRunningExperimentRootTaskId, e));

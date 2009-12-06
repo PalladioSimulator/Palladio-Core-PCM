@@ -48,6 +48,10 @@ public class TaskResultStorage {
 			}
 		}
 	}
+
+	public void cleanup() {
+		allResults.clear();
+	}
 	
 
 }

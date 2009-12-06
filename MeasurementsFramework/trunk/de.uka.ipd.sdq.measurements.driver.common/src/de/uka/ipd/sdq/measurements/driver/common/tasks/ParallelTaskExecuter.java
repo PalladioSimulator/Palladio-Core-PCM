@@ -13,7 +13,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 	private List<Integer> completedNestedTasks = new ArrayList<Integer>();
 
 	private int numberOfCompletedTasks = 0;
-	private boolean stopUponFirstTaskCompleted = false;
+	private boolean stopUponFirstTaskCompleted = true;
 	private boolean firstTaskCompleted = false;
 
 	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations) {
@@ -21,7 +21,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 		// MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() +
 		// ") ...");
 		// stopUponFirstTaskCompleted = task.getStopUponFirstTaskCompleted();
-		stopUponFirstTaskCompleted = false;
+		stopUponFirstTaskCompleted = true;
 		// MidisHost.logDebug("Parallel task (ID: " + task.getId() +
 		// ") prepared.");
 
@@ -69,7 +69,13 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 					while (taskIterator2.hasNext()) {
 						AbstractTaskExecuter taskExecuter = taskIterator2.next();
 						if (!completedNestedTasks.contains(taskExecuter.getTask().getId())) {
-							taskExecuter.signalizeFinish();
+							try {
+								synchronized (taskExecuter) {
+									taskExecuter.signalizeFinish();
+									taskExecuter.notify();
+								}
+							} catch (IllegalMonitorStateException e) {
+							}
 							break;
 						}
 					}
@@ -93,7 +99,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 	}
 
 	@Override
-	public void cleanup() {
+	protected void doCleanup() {
 		if (taskExecuters != null) {
 			for (int i = 0; i < taskExecuters.length; i++) {
 				for (AbstractTaskExecuter executer : taskExecuters[i]) {

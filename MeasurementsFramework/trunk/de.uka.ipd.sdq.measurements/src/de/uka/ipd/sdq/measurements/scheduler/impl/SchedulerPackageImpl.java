@@ -249,9 +249,10 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		// Initialize enums and add enum literals
 		initEEnum(resourceStrategyDemandEEnum, ResourceStrategyDemand.class, "ResourceStrategyDemand");
-		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.WAIT_DEMAND);
 		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.MANDELBROT_DEMAND);
 		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.FIBONACCI_DEMAND);
+		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.WAIT_DEMAND);
+		addEEnumLiteral(resourceStrategyDemandEEnum, ResourceStrategyDemand.READ_FROM_HDD_DEMAND);
 	}
 
 } //SchedulerPackageImpl

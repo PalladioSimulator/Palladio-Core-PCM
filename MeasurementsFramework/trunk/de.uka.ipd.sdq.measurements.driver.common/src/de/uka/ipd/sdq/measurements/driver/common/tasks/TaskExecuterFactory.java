@@ -32,16 +32,16 @@ public class TaskExecuterFactory implements TaskExecuterFactoryInterface{
 	 * (Chain of Responsibility pattern)
 	 */
 	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations) {
-		if (rmiTask instanceof RmiSequenceTask) {
+		if (rmiTask.getClass().equals(RmiSequenceTask.class)) {
 			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations);
 			sequenceTaskExecuter.prepare();
 			return sequenceTaskExecuter;
-		} else if (rmiTask instanceof RmiParallelTask) {
+		} else if (rmiTask.getClass().equals(RmiParallelTask.class)) {
 			ParallelTaskExecuter parallelTaskExecuter = new ParallelTaskExecuter((RmiParallelTask)rmiTask, numberOfTaskIterations);
 			parallelTaskExecuter.prepare();
 			return parallelTaskExecuter;
 
-		} else if (rmiTask instanceof RmiLoopTask) {
+		} else if (rmiTask.getClass().equals(RmiLoopTask.class)) {
 			LoopTaskExecuter loopTaskExecuter = new LoopTaskExecuter((RmiLoopTask)rmiTask, numberOfTaskIterations);
 			loopTaskExecuter.prepare();
 			return loopTaskExecuter;

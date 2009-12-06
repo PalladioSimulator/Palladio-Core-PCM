@@ -4,7 +4,6 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiLoopTask;
 
 public class LoopTaskExecuter extends AbstractTaskExecuter {
 
-	//private Thread[] taskThreads = null;
 	private AbstractTaskExecuter[] taskExecuters = null;
 
 	public LoopTaskExecuter(RmiLoopTask task, int numberOfIterations) {
@@ -26,6 +25,7 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 		taskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				synchronized (LoopTaskExecuter.this) {
+					LoopTaskExecuter.this.nestedTaskFinished = true;
 					LoopTaskExecuter.this.notify();
 				}
 			}
@@ -35,34 +35,54 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 		return true;
 	}
 	
+	private boolean nestedTaskFinished = false;
+	//private Thread currentThread = null;
+		
 	@Override
 	protected void doWork(int iteration) {
-		//MidisHost.logDebug("Running loop task " + task.getId() + " ...");
+		System.out.println("Running loop task " + task.getId() + " ...");
+		synchronized (LoopTaskExecuter.this) {
+			nestedTaskFinished = false;
+		}
+		
+		//currentThread = new Thread(taskExecuters[iteration]);
+		//currentThread.start();
+		taskExecuters[iteration].start();
 		try {
-			new Thread(taskExecuters[iteration]).start();
 			//taskThreads[iteration].start();
 			this.wait();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//MidisHost.logDebug("Loop task " + task.getId() + " completed.");
+		if (nestedTaskFinished == false) {
+			if ((taskExecuters[iteration] != null) && (taskExecuters[iteration].isAlive())) {
+				try {
+					taskExecuters[iteration].signalizeFinish();
+					synchronized (taskExecuters[iteration]) {
+						taskExecuters[iteration].notify();
+					}
+				} catch (IllegalMonitorStateException e) {
+				}
+			}
+		}
+		System.out.println("Loop task " + task.getId() + " completed.");
 	}
 	
 	@Override
 	public void storeResults() {
 		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
+		System.out.println("Storing for loop task " + task.getId());
 		for (int i=0; i<taskExecuters.length; i++) {
 			taskExecuters[i].storeResults();
 		}
 	}
 	
 	@Override
-	public void cleanup() {
+	protected void doCleanup() {
 		if (taskExecuters != null) {
 			for (int i = 0; i < taskExecuters.length; i++) {
 				taskExecuters[i].cleanup();
-				// taskThreads[i].
 			}
 			taskExecuters = null;
 		}

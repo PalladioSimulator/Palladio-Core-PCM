@@ -19,5 +19,22 @@
             type="de.uka.ipd.sdq.measurements.osscheduler.ui.launchConfigurationType">
       </launchConfigurationTabGroup>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="de.uka.ipd.sdq.measurements.osscheduler.preferences"
+            class="de.uka.ipd.sdq.measurements.osscheduler.ui.preferences.OSSchedulerSystemAdapterPreferencePage"
+            id="de.uka.ipd.sdq.measurements.osscheduler.systemadapter.preferences"
+            name="OS Scheduler SystemAdapter">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="de.uka.ipd.sdq.measurements.osscheduler.ui.preferences.MainPreferencePage"
+            id="de.uka.ipd.sdq.measurements.osscheduler.preferences"
+            name="OS Scheduler Measurements">
+      </page>
+   </extension>
 
 </plugin>

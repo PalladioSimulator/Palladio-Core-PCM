@@ -27,6 +27,7 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
 			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, 1);
+			System.out.println("Preparing " + taskExecuter.getTask().getClass().getSimpleName());
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
 					synchronized (SequenceTaskExecuter.this) {
@@ -44,7 +45,8 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 	protected void doWork(int iteration) {
 		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
 		while (taskIterator.hasNext()) {
-			new Thread(taskIterator.next()).start();
+			AbstractTaskExecuter executer = taskIterator.next();
+			executer.start();
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
@@ -66,7 +68,7 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 	}
 	
 	@Override
-	public void cleanup() {
+	protected void doCleanup() {
 		if (taskExecuters != null) {
 			for (int i = 0; i < taskExecuters.length; i++) {
 				for (AbstractTaskExecuter executer : taskExecuters[i]) {

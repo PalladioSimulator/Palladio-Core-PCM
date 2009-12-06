@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.measurements.driver.os;
 
+import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Vector;
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskListener;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.rmi.RmiClient;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
@@ -34,13 +36,17 @@ public class ChildProcessManager {
 	private ChildProcessManager() {
 		runningProcesses = new ArrayList<ChildProcess>();
 		childRmiInterfaces = new HostInterface[MAX_NUMBER_OF_CHILD_PROCESSES];
-		
+		taskListeners = new Vector[MAX_NUMBER_OF_CHILD_PROCESSES];
+		childProcesses = new HashMap<Integer, Integer>();
+		newRmiPort = PropertyManager.getInstance().getDriverRmiPort();
 	}
+	
+	int newRmiPort = 0;
 		
 	private boolean startChildProcess() {
 		String hostUrl = PropertyManager.getInstance().getHostRmiIp();
 		int rmiPort = PropertyManager.getInstance().getDriverRmiPort();
-		int newRmiPort = rmiPort + 1;
+		newRmiPort++;
 		List<String> processArguments = new ArrayList<String>();
 		processArguments.add("java");
 		processArguments.add("-ea");
@@ -65,7 +71,14 @@ public class ChildProcessManager {
 				OSDriver.log("Starting child process on " + hostUrl + ":" + newRmiPort);
 			}
 			ProcessBuilder processBuilder = new ProcessBuilder(processArguments);
+			processBuilder.directory(new File("C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/export/"));
 			Process process = processBuilder.start();
+			if (OSDriver.getLoggingDebugEnabled()) {
+				ChildProcessFileLog c = new ChildProcessFileLog(process.getInputStream(), "output" + newRmiPort + ".txt");
+				ChildProcessFileLog c2 = new ChildProcessFileLog(process.getErrorStream(), "outputerr" + newRmiPort + ".txt");
+				new Thread(c).start();
+				new Thread(c2).start();
+			}
 			
 			runningProcesses.add(new ChildProcess(process, hostUrl, newRmiPort));
 
@@ -157,37 +170,12 @@ public class ChildProcessManager {
 		try {
 			return host.prepareTasks(rootTask, false, numberOfIterations);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (OSDriver.getLoggingEnabled()) {
+				OSDriver.logError("Failed to prepare child task: " + e.getMessage());	
+			}
 			return false;
 		}
 	}
-	
-	public void cleanupAllChildProcesses() {
-		for (int i=0; i<childRmiInterfaces.length; i++) {
-			if (childRmiInterfaces[i] != null) {
-				try {
-					childRmiInterfaces[i].cleanup();
-				} catch (RemoteException e) {
-					//TODO
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-	
-	private ChildProcess getChildProcess(int childProcessNumber) {
-		while (runningProcesses.get(childProcessNumber) == null) {
-			if (!startChildProcess()) {
-				if (OSDriver.getLoggingEnabled()) {
-					OSDriver.logError("Failed to start child process.");
-				}
-				return null;
-			}
-		}
-		return runningProcesses.get(childProcessNumber);
-	}
-	
 	
 	public void executeTask(int taskId, int childProcessNumber, int iteration) {
 		if ((childProcessNumber < 0) || (childProcessNumber >= MAX_NUMBER_OF_CHILD_PROCESSES)) {
@@ -204,6 +192,7 @@ public class ChildProcessManager {
 		}
 		try {
 			childProcesses.put(taskId, childProcessNumber);
+			System.out.println("Executing task " + taskId + " on child process " + childProcessNumber + ", iteration " + iteration);
 			childRmiInterfaces[childProcessNumber].executeOneTaskExecution(taskId);
 		} catch (RemoteException e) {
 			if (OSDriver.getLoggingEnabled()) {
@@ -213,21 +202,89 @@ public class ChildProcessManager {
 		
 	}
 	
+	public void cleanupAllChildProcesses() {
+		for (int i=0; i<childRmiInterfaces.length; i++) {
+			if (childRmiInterfaces[i] != null) {
+				try {
+					childRmiInterfaces[i].cleanup();
+				} catch (RemoteException e) {
+					//TODO
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	private ChildProcess getChildProcess(int childProcessNumber) {
+		while (runningProcesses.size() <= childProcessNumber) {
+			if (!startChildProcess()) {
+				if (OSDriver.getLoggingEnabled()) {
+					OSDriver.logError("Failed to start child process.");
+				}
+				return null;
+			}
+		}
+		return runningProcesses.get(childProcessNumber);
+	}
+	
+	
 	private HashMap<Integer, Integer> childProcesses;
 	
 	private int getChildProcessNumber(int taskId) {
 		return childProcesses.get(taskId);
 	}
 	
-	public HashMap<Integer, ArrayList<RmiResult>> getTaskResultsFromChildProcess(int taskId) throws RemoteException {
-		int number = getChildProcessNumber(taskId);
-		if (childRmiInterfaces.length > number) {
-			return childRmiInterfaces[number].getTaskResults(taskId);
+	public HashMap<Integer, ArrayList<RmiResult>> getTaskResultsFromChildProcess(int childProcessNumber) {
+		if (childRmiInterfaces.length > childProcessNumber) {
+			try {
+				return childRmiInterfaces[childProcessNumber].getTaskResults();
+			} catch (RemoteException e) {
+				if (OSDriver.getLoggingEnabled()) {
+					OSDriver.logError("Failed to get results from child process " + childProcessNumber + ": " + e.getMessage());
+				}
+			}
 		}
 		return new HashMap<Integer, ArrayList<RmiResult>>();
 	}
+	
+	public void storeChildResults() {
+		for (int i = 0; i<childRmiInterfaces.length; i++) {
+			if (childRmiInterfaces[i] != null) {
+				TaskResultStorage.getInstance().storeResults(getTaskResultsFromChildProcess(i));
+			}
+		}
+	}
+	
+	public void finishTask(int taskId, int childProcessNumber) {
+		if ((childProcessNumber < 0) || (childProcessNumber >= MAX_NUMBER_OF_CHILD_PROCESSES)) {
+			if (OSDriver.getLoggingEnabled()) {
+				OSDriver.logError("Cannot finish task for child process " + childProcessNumber + ". Only " + MAX_NUMBER_OF_CHILD_PROCESSES + " child processes are allowed.");
+			}
+			return;
+		}
+		if (childRmiInterfaces[childProcessNumber] == null) {
+			if (OSDriver.getLoggingEnabled()) {
+				OSDriver.logError("RMI interface for child process " + childProcessNumber + " is not set.");
+			}
+			return;
+		}
+		try {
+			if (OSDriver.getLoggingDebugEnabled()) {
+				OSDriver.logDebug("Try to finish task " + taskId + " on child process " + childProcessNumber);
+			}
+			childRmiInterfaces[childProcessNumber].finishTask(taskId);
+		} catch (RemoteException e) {
+			if (OSDriver.getLoggingEnabled()) {
+				OSDriver.logError("Failed to execute task " + taskId + " on child process via RMI.");
+			}
+		}
+		
+	}
 
 	public void childTaskCompleted(int taskId, int completedIterations) {
+		if (OSDriver.getLoggingDebugEnabled()) {
+			OSDriver.logDebug("ChildProcessManager: Child task completed! Task ID: " + taskId + ", Completed iterations: " +  completedIterations);
+		}
 		fireTaskCompleted(taskId, completedIterations, getChildProcessNumber(taskId));
 	}
 	
@@ -265,6 +322,10 @@ public class ChildProcessManager {
 	@SuppressWarnings("unchecked")
 	protected void fireTaskCompleted(int taskId, int completedIterations, int childProcessNumber) {
 		// If we have no listeners, do nothing.
+		if (OSDriver.getLoggingDebugEnabled()) {
+			OSDriver.logDebug("ChildProcessManager: Task completed, notifying all listeners for task " + taskId + ", child process number " + childProcessNumber);
+		}
+		
 		if ((taskListeners[childProcessNumber] != null) && !taskListeners[childProcessNumber].isEmpty()) {
 
 			// Make a copy of the listener list in case anyone adds or removes
@@ -278,10 +339,22 @@ public class ChildProcessManager {
 			// each.
 			Enumeration<TaskListener> e = targets.elements();
 			while (e.hasMoreElements()) {
-				TaskListener l = (TaskListener) e.nextElement();
+				TaskListener l = e.nextElement();
 				l.taskCompleted(taskId, completedIterations);
 			}
+		} else {
+			if (OSDriver.getLoggingEnabled()) {
+				OSDriver.logError("ChildProcessManager: No listeners for task " + taskId + ", child process number: " + childProcessNumber);
+			}
 		}
+	}
+
+	public void stopAllChildProcesses() {
+		for (ChildProcess c : runningProcesses) {
+			c.getProcess().destroy();
+			
+		}
+		
 	}
 
 }
