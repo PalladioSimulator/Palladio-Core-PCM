@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskListener;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskManager;
@@ -24,28 +25,28 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 public class HostImpl implements HostInterface {
 
 	public boolean shutdown() throws RemoteException {
-		OSDriver.log("Shutting down...");
+		DriverLogger.log("Shutting down...");
 		return OSDriver.getInstance().shutdown();
 	}
 
 	public boolean lookupSystemAdapter(final String masterURL, final int port) throws RemoteException {
 		SystemAdapterRmiInterface systemAdapterInterface = null;
 		try {
-			if (OSDriver.getLoggingDebugEnabled()) {
-				OSDriver.logDebug("Looking up System Adapter on " + masterURL + ":" + port);
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebug("Looking up System Adapter on " + masterURL + ":" + port);
 			}
 			//masterInterface = Naming.lookup("rmi://" + masterURL + ":" + port + "/Master");
 			Registry registry = LocateRegistry.getRegistry(masterURL, port);
 			systemAdapterInterface = (SystemAdapterRmiInterface) registry.lookup(Constants.SystemAdapterRMIName);
 			OSDriver.getInstance().setSystemAdapterRmiInterface(systemAdapterInterface);
 		} catch (NotBoundException e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 			return false;
 		} catch (Exception e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 		}
 		return true;
@@ -78,11 +79,15 @@ public class HostImpl implements HostInterface {
 	}
 	
 	private boolean executeTasks(final int rootTaskId, boolean performAllIterations) {
+		
 		if (OSDriver.IS_SUB_PROCESS) {
 			TaskManager.getInstance().addTaskListener(new TaskListener() {
 
 				public void taskCompleted(int taskId, int completedIterations) {
 					if (rootTaskId == taskId) {
+						if (DriverLogger.LOGGING) {
+							DriverLogger.log("All tasks executed.");
+						}
 						try {
 							OSDriver.getInstance().getParentHost().childTaskCompleted(taskId, completedIterations);
 						} catch (RemoteException e) {
@@ -100,6 +105,9 @@ public class HostImpl implements HostInterface {
 				public void taskCompleted(int taskId, int completedIterations) {
 					if (rootTaskId == taskId) {
 						try {
+							if (DriverLogger.LOGGING) {
+								DriverLogger.log("All tasks executed.");
+							}
 							//OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(TaskManager.getInstance().getResults(rootTaskId));
 							OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(ExperimentResult.SUCCESS, rootTaskId);
 						} catch (RemoteException e) {
@@ -129,6 +137,9 @@ public class HostImpl implements HostInterface {
 	}
 
 	public void cleanup() throws RemoteException {
+		if (DriverLogger.LOGGING) {
+			System.out.println("Cleaning up...");	
+		}
 		TaskManager.getInstance().clearPreparedTasks();
 		ChildProcessManager.getInstance().cleanupAllChildProcesses();
 		Runtime r = Runtime.getRuntime();

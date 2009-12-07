@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.MandelbrotDemand
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.WaitDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.FinishIndicator;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementTask;
@@ -20,8 +21,8 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 	protected IDemandStrategy theStrategy = null;
 	private long measurementTime = 0L;
 
-	public ResourceStrategyMeasurementTaskExecuter(RmiResourceStrategyMeasurementTask task, int numberOfIterations) {
-		super(task, numberOfIterations);
+	public ResourceStrategyMeasurementTaskExecuter(RmiResourceStrategyMeasurementTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+		super(task, numberOfIterations, finishIndicator);
 		measurementTime = task.getMeasurementTime();
 		switch (task.getDemand()) {
 		case FIBONACCI_DEMAND:
@@ -49,7 +50,9 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 
 	@Override
 	protected void doWork(int iteration) {
+		//System.out.println("RES STRAT " + task.getId()+ " Iter. " + iteration + " consuming " + measurementTime + "... TOTAL: " +  numberOfIterations);
 		theStrategy.consume(measurementTime);
+		//System.out.println("RES STRAT " + task.getId()+ " Iter. " + iteration + " consumed!");
 
 	}
 	
@@ -74,6 +77,11 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 	@Override
 	public void storeResults() {
 		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
+	}
+	
+	@Override
+	protected void signalizeFinish() {
+		// Do nothing.
 	}
 	
 	@Override

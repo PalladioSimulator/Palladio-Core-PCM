@@ -9,12 +9,9 @@ import java.util.PropertyResourceBundle;
 
 public abstract class AbstractPropertyManager {
 
-	private LoggerDelegate logger = null;
-
 	private PropertyResourceBundle resourceBundle = null;
 
-	protected AbstractPropertyManager(LoggerDelegate logger) {
-		this.logger = logger;
+	protected AbstractPropertyManager() {
 	}
 
 	protected abstract String getDefaultPropertyPath();
@@ -24,10 +21,14 @@ public abstract class AbstractPropertyManager {
 			// Try to initialize default file
 			return initializeDefaultProperties();
 		} else if (!file.exists()) {
-			logger.log("Specified property file " + file.getName() + " does not exist. Initializing default property file.");
+			if (DriverLogger.LOGGING) {
+				DriverLogger.log("Specified property file " + file.getName() + " does not exist. Initializing default property file.");
+			}
 			return initializeDefaultProperties();
 		} else if (!file.canRead()) {
-			logger.log("Can't access property file " + file.getName() + ". Initializing default property file.");
+			if (DriverLogger.LOGGING) {
+				DriverLogger.log("Can't access property file " + file.getName() + ". Initializing default property file.");
+			}
 			return initializeDefaultProperties();
 		}
 		return loadProperties(file);
@@ -37,7 +38,9 @@ public abstract class AbstractPropertyManager {
 		java.io.InputStream propertyFileInputStream = this.getClass().getClassLoader().getResourceAsStream(
 				getDefaultPropertyPath());
 		if (propertyFileInputStream == null) {
-			logger.logError("Can't access default property file " + getDefaultPropertyPath() + ".");
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Can't access default property file " + getDefaultPropertyPath() + ".");
+			}
 			return false;
 		}
 		return loadDefaultProperties(propertyFileInputStream);
@@ -47,10 +50,14 @@ public abstract class AbstractPropertyManager {
 		try {
 			resourceBundle = new PropertyResourceBundle(propertyFileInputStream);
 		} catch (IOException e) {
-			logger.logError("Error while reading default property file.");
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Error while reading default property file.");
+			}
 			return false;
 		}
-		logger.log("Using default property file.");
+		if (DriverLogger.LOGGING) {
+			DriverLogger.log("Using default property file.");
+		}
 		return true;
 	}
 
@@ -59,10 +66,14 @@ public abstract class AbstractPropertyManager {
 			resourceBundle = new PropertyResourceBundle(new FileInputStream(
 					propertyFile));
 		} catch (IOException e) {
-			logger.logError("Error while reading property file " + propertyFile.getName() + ".");
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Error while reading property file " + propertyFile.getName() + ".");
+			}
 			return false;
 		}
-		logger.log("Using property file: " + propertyFile.getPath());
+		if (DriverLogger.LOGGING) {
+			DriverLogger.log("Using property file: " + propertyFile.getPath());
+		}
 		return true;
 	}
 
@@ -79,16 +90,24 @@ public abstract class AbstractPropertyManager {
 		try {
 			propertyString = resourceBundle.getString(propertyKey);
 		} catch (MissingResourceException e) {
-			logger.logDebugError("Failed to retrieve " + propertyName + ".");
-			logger.logError("Using default value for " + propertyName + ".");
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Failed to retrieve " + propertyName + ".");
+			}
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Using default value for " + propertyName + ".");
+			}
 			propertyInt = defaultValue;
 			return propertyInt;
 		}
 		try {
 			propertyInt = Integer.parseInt(propertyString);
 		} catch (NumberFormatException e) {
-			logger.logDebugError("Failed to retrieve " + propertyName + " from property entry " + propertyString + ".");
-			logger.logError("Using default value for " + propertyName + ".");
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Failed to retrieve " + propertyName + " from property entry " + propertyString + ".");
+			}
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Using default value for " + propertyName + ".");
+			}
 			propertyInt = defaultValue;
 		}
 		return propertyInt;
@@ -99,7 +118,9 @@ public abstract class AbstractPropertyManager {
 		try {
 			propertyString = System.getProperty(propertyKey);
 		} catch (SecurityException e) {
-			logger.logDebugError("Failed to retrieve " + propertyName + ". May not access property. Please adapt security manager.");
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Failed to retrieve " + propertyName + ". May not access property. Please adapt security manager.");
+			}
 		}
 		if (propertyString != null) {
 			return propertyString;
@@ -107,7 +128,9 @@ public abstract class AbstractPropertyManager {
 		try {
 			propertyString = resourceBundle.getString(propertyKey);
 		} catch (MissingResourceException e) {
-			logger.logDebugError("Failed to retrieve " + propertyName + ".");
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Failed to retrieve " + propertyName + ".");
+			}
 		}
 		return propertyString;
 	}
@@ -127,7 +150,9 @@ public abstract class AbstractPropertyManager {
 		try {
 			propertyString = resourceBundle.getString(propertyKey);
 		} catch (MissingResourceException e) {
-			logger.logDebugError("Failed to retrieve " + propertyName + ".");
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Failed to retrieve " + propertyName + ".");
+			}
 		}
 		if (propertyString != null) {
 			if ((propertyString.toLowerCase().equals("false")) || propertyString.equals("0")) {

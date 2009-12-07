@@ -10,18 +10,22 @@ public class ChildProcessFileLog implements Runnable {
 
 	InputStream stream;
 	FileOutputStream outputStream;
+	boolean writeToFile = false;
 	public ChildProcessFileLog(InputStream stream, String filename) {
 		this.stream = stream;
-		File file = new File(filename);
-		try {
-			file.createNewFile();
-			outputStream = new FileOutputStream(filename);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (filename != null) {
+			writeToFile = true;
+			File file = new File(filename);
+			try {
+				file.createNewFile();
+				outputStream = new FileOutputStream(filename);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -29,18 +33,28 @@ public class ChildProcessFileLog implements Runnable {
 	@Override
 	public void run() {
 		int c = 0;
-		while (c!= -1) {
-		try {
-			
-			c = stream.read();
-			if (c!=-1) {
-				outputStream.write(c);
-				outputStream.flush();
+		if (writeToFile) {
+			while (c!= -1) {
+				try {
+					
+					c = stream.read();
+					if (c!=-1) {
+						outputStream.write(c);
+						outputStream.flush();
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} else {
+			while (c!= -1) {
+				try {
+					c = stream.read();					
+				} catch (IOException e) {
+
+				}
+			}	
 		}
 	}
 

@@ -15,7 +15,7 @@ public class PropertyManager extends AbstractPropertyManager {
 	}
 
 	private PropertyManager() {
-		super(OSDriver.getLoggerDelegate());
+		super();
 	}
 
 	public int getDriverRmiPort() {

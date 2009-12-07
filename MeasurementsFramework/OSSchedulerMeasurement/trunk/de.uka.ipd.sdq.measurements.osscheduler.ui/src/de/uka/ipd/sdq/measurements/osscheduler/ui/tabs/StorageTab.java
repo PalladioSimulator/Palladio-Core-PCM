@@ -97,10 +97,8 @@ public class StorageTab extends AbstractLaunchConfigurationTab {
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		System.out.println("X");
 		configuration.setAttribute(Constants.MEASUREMENTS_RESULTS_DATASOURCE_ID,
 				selectedDataSourceID);
-		System.out.println("Y");
 	}
 
 	@Override

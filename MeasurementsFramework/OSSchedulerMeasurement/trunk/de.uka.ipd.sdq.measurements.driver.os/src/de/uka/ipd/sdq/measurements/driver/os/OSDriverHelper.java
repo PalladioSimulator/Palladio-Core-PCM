@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 
 public class OSDriverHelper {
@@ -23,7 +24,7 @@ public class OSDriverHelper {
 	}
 
 	public static boolean updateJarFile(byte[] buffer) {
-		OSDriver.log("Receiving updated jar file...");
+		DriverLogger.log("Receiving updated jar file...");
 		String fileName = "osdriver_new";
 		String fileNameWithNumber = "osdriver_new.jar";
 		int fileNumber = 0;
@@ -40,10 +41,10 @@ public class OSDriverHelper {
 			output.close();
 
 		} catch (Exception e) {
-			OSDriver.logError("File update failed!");
+			DriverLogger.logError("File update failed!");
 			return false;
 		}
-		OSDriver.log("File updated successfully.");
+		DriverLogger.log("File updated successfully.");
 		return true;
 	}
 

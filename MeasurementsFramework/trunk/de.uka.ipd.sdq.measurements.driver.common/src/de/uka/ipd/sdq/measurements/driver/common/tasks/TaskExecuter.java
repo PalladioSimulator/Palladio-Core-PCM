@@ -14,6 +14,6 @@ public interface TaskExecuter {
 	 * Ask the task to cancel its ongoing work.
 	 * @return true if the task received the signal.
 	 */
-	public boolean signalizeFinish();
+	//public boolean signalizeFinish();
 
 }

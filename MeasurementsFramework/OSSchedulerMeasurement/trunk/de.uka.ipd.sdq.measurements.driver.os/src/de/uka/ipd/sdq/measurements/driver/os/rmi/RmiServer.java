@@ -12,8 +12,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.security.AccessControlException;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
-import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriverConstants;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
 
@@ -32,12 +32,12 @@ public class RmiServer {
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
 		}
-		OSDriver.log("Starting RMI services...");
+		DriverLogger.log("Starting RMI services...");
 		try {
 
 			hostIP = PropertyManager.getInstance().getHostRmiIp();
 			if (hostIP == null) {
-				OSDriver.logError("Failed to lookup Driver IP address. Start MidisHost with -D" + OSDriverConstants.JavaPropertyOSDriverRmiIP + "=<IP_ADDRESS>");
+				DriverLogger.logError("Failed to lookup Driver IP address. Start MidisHost with -D" + OSDriverConstants.JavaPropertyOSDriverRmiIP + "=<IP_ADDRESS>");
 			}
 			hostPort = PropertyManager.getInstance().getDriverRmiPort();
 
@@ -48,9 +48,9 @@ public class RmiServer {
 				stub = (HostInterface) UnicastRemoteObject.exportObject(hostInterface, hostPort);
 			} catch (ExportException e) {
 				if (e.detail instanceof IllegalArgumentException) {
-					OSDriver.logError("Failed to start RMI server, the RMI interface is invalid: " + e.detail.getMessage());
+					DriverLogger.logError("Failed to start RMI server, the RMI interface is invalid: " + e.detail.getMessage());
 				} else {
-					OSDriver.logError("Failed to start RMI server, probably the port is already in use: " + hostIP + ":" + hostPort);
+					DriverLogger.logError("Failed to start RMI server, probably the port is already in use: " + hostIP + ":" + hostPort);
 					e.printStackTrace();
 				}
 				return false;
@@ -58,16 +58,16 @@ public class RmiServer {
 			LocateRegistry.createRegistry(hostPort);
 
 			try {
-				OSDriver.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + Constants.DriverRMIName);
+				DriverLogger.logDebug("Binding: " + "rmi://" + hostIP + ":" + hostPort + "/" + Constants.DriverRMIName);
 				Naming.rebind("rmi://" + hostIP + ":" + hostPort + "/" + Constants.DriverRMIName, stub);
 			} catch (UnknownHostException e) {
-				OSDriver.logError("Failed to start RMI server, Host not known: " + hostIP + ":" + hostPort);
+				DriverLogger.logError("Failed to start RMI server, Host not known: " + hostIP + ":" + hostPort);
 				return false;
 			} catch (AccessControlException e) {
-				OSDriver.logError("Failed to start RMI server, access denied. Please adapt security manager.");
+				DriverLogger.logError("Failed to start RMI server, access denied. Please adapt security manager.");
 				return false;
 			} catch (ConnectException e) {
-				OSDriver.logError("Failed to start RMI server on " + hostIP + ":" + hostPort + ".");
+				DriverLogger.logError("Failed to start RMI server on " + hostIP + ":" + hostPort + ".");
 				return false;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -80,18 +80,18 @@ public class RmiServer {
 			return false;
 		}
 
-		OSDriver.log("OS Driver RMI server started on " + "rmi://" + hostIP + ":" + hostPort + ".");
+		DriverLogger.log("OS Driver RMI server started on " + "rmi://" + hostIP + ":" + hostPort + ".");
 
 		return true;
 	}
 
 	public boolean shutdown() {
 		try {
-			OSDriver.log("Stopping RMI server...");
+			DriverLogger.log("Stopping RMI server...");
 			UnicastRemoteObject.unexportObject(hostInterface, true);
 			return true;
 		} catch (NoSuchObjectException e) {
-			OSDriver.logError("Failed to shutdown RMI server.");
+			DriverLogger.logError("Failed to shutdown RMI server.");
 			return false;
 		}
 	}

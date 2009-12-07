@@ -14,7 +14,7 @@ public class ShutdownHost {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String hostUrl = "192.168.2.177";
+		String hostUrl = "192.168.2.132";
 		int port = 2101;
 		HostInterface hostInterface = null;
 		try {

@@ -9,15 +9,16 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
 
 public class ParallelTaskExecuter extends AbstractTaskExecuter {
 
-	private List<AbstractTaskExecuter>[] taskExecuters = null;
+	private List<AbstractTaskExecuter> taskExecuters = null;
+	private List<FinishIndicator> finishIndicators = null;
 	private List<Integer> completedNestedTasks = new ArrayList<Integer>();
 
 	private int numberOfCompletedTasks = 0;
 	private boolean stopUponFirstTaskCompleted = true;
 	private boolean firstTaskCompleted = false;
 
-	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations) {
-		super(task, numberOfIterations);
+	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+		super(task, numberOfIterations, finishIndicator);
 		// MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() +
 		// ") ...");
 		// stopUponFirstTaskCompleted = task.getStopUponFirstTaskCompleted();
@@ -26,16 +27,24 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 		// ") prepared.");
 
 	}
+	
+	private boolean prepared = false;
 
 	protected boolean prepare(int iteration) {
-		if (taskExecuters == null) {
-			taskExecuters = new List[numberOfIterations];
+		if (prepared) {
+			return true;
 		}
-		ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
-		Iterator<RmiAbstractTask> taskIterator = ((RmiParallelTask) task).getTasks().iterator();
-		while (taskIterator.hasNext()) {
-			RmiAbstractTask rmiTask = taskIterator.next();
-			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, 1);
+		if (taskExecuters == null) {
+			//taskExecuters = new List[numberOfIterations];
+			taskExecuters = new ArrayList<AbstractTaskExecuter>();
+		}
+		if (finishIndicators == null) {
+			finishIndicators = new ArrayList<FinishIndicator>();
+		}
+		for (int i=0; i < ((RmiParallelTask) task).getTasks().size(); i++) {
+			RmiAbstractTask rmiTask = ((RmiParallelTask) task).getTasks().get(i);
+			FinishIndicator nestedFinishIndicator = new FinishIndicator();
+			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, numberOfIterations, nestedFinishIndicator);
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
 					synchronized (ParallelTaskExecuter.this) {
@@ -48,37 +57,53 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 					}
 				}
 			});
-			tasks.add(taskExecuter);
+			finishIndicators.add(nestedFinishIndicator);
+			taskExecuters.add(taskExecuter);
 		}
-		taskExecuters[iteration] = tasks;
+		prepared = true;
 		return true;
 	}
 
 	protected void doWork(int iteration) {
 		numberOfCompletedTasks = 0;
 		completedNestedTasks.clear();
-		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
+		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters.iterator();
 		while (taskIterator.hasNext()) {
-			AbstractTaskExecuter taskExecuter = taskIterator.next();
-			new Thread(taskExecuter).start();
+			final AbstractTaskExecuter taskExecuter = taskIterator.next();
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					taskExecuter.runSynchronously(1, true);
+				}
+				
+			}).start();
+			//new Thread(taskExecuter).start();
 		}
-		while (numberOfCompletedTasks < taskExecuters[iteration].size()) {
+		while (numberOfCompletedTasks < taskExecuters.size()) {
 			try {
 				if (firstTaskCompleted == true) {
-					Iterator<AbstractTaskExecuter> taskIterator2 = taskExecuters[iteration].iterator();
-					while (taskIterator2.hasNext()) {
+					for (int i=0; i<taskExecuters.size(); i++) {
+						AbstractTaskExecuter taskExecuter = taskExecuters.get(i);
+						if (!completedNestedTasks.contains(taskExecuter.getTask().getId())) {
+							finishIndicators.get(i).setFinishSignal(true);
+							break;
+						}
+					}
+					/*while (taskIterator2.hasNext()) {
 						AbstractTaskExecuter taskExecuter = taskIterator2.next();
 						if (!completedNestedTasks.contains(taskExecuter.getTask().getId())) {
-							try {
+							/*try {
 								synchronized (taskExecuter) {
 									taskExecuter.signalizeFinish();
 									taskExecuter.notify();
 								}
 							} catch (IllegalMonitorStateException e) {
 							}
+							
 							break;
 						}
-					}
+					}*/
 				}
 				this.wait();
 			} catch (InterruptedException e) {
@@ -87,25 +112,37 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			}
 		}
 	}
+	
+	@Override
+	protected void signalizeFinish() {
+		for (FinishIndicator finishIndicator : finishIndicators) {
+			finishIndicator.setFinishSignal(true);
+		}
+		finishSignal = true;
+		/*if (currentRunningNestedExecuter != null) {
+			currentRunningNestedExecuter.signalizeFinish();
+		}*/
+	}
 
 	@Override
 	public void storeResults() {
 		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
 		for (int i = 0; i < ((RmiParallelTask) task).getTasks().size(); i++) {
-			for (int j = 0; j < numberOfIterations; j++) {
+			/*for (int j = 0; j < numberOfIterations; j++) {
 				taskExecuters[j].get(i).storeResults();
-			}
+			}*/
+			taskExecuters.get(i).storeResults();
 		}
 	}
 
 	@Override
 	protected void doCleanup() {
 		if (taskExecuters != null) {
-			for (int i = 0; i < taskExecuters.length; i++) {
-				for (AbstractTaskExecuter executer : taskExecuters[i]) {
+			//for (int i = 0; i < taskExecuters.length; i++) {
+				for (AbstractTaskExecuter executer : taskExecuters) {
 					executer.cleanup();
 				}
-			}
+			//}
 			taskExecuters = null;
 		}
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 
 public class TaskManager {
@@ -19,9 +20,11 @@ public class TaskManager {
 	
 	private TaskManager() {
 		rootTasks = new ArrayList<AbstractTaskExecuter>();
+		rootTaskFinishIndicators = new ArrayList<FinishIndicator>(); 
 	}
 	
 	private ArrayList<AbstractTaskExecuter> rootTasks = null;
+	private ArrayList<FinishIndicator> rootTaskFinishIndicators = null;
 
 	public boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution, int numberOfIterations) {
 		if (autostartExecution == false) {
@@ -47,7 +50,9 @@ public class TaskManager {
 	}
 
 	private boolean prepareTask(RmiAbstractTask task, int numberOfIterations) {
-		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(task, numberOfIterations));
+		FinishIndicator finishIndicator = new FinishIndicator(); 
+		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(task, numberOfIterations, finishIndicator));
+		rootTaskFinishIndicators.add(finishIndicator);
 		return true;
 	}
 	
@@ -100,7 +105,6 @@ public class TaskManager {
 			return false;
 		}
 		rootTaskExecuter.run();
-		System.out.println("All tasks executed.");
 
 		return true;
 	}
@@ -180,22 +184,27 @@ public class TaskManager {
 
 	public void finishTask(int taskId) {
 		AbstractTaskExecuter rootTaskExecuter = null;
-		for (AbstractTaskExecuter task : rootTasks) {
-			if (task.getTask().getId() == taskId) {
-				rootTaskExecuter = task;
+		FinishIndicator rootTaskFinishIndicator = null;
+		for (int i=0; i<rootTasks.size(); i++) {
+		//for (AbstractTaskExecuter task : rootTasks) {
+			if (rootTasks.get(i).getTask().getId() == taskId) {
+				rootTaskExecuter = rootTasks.get(i);
+				rootTaskFinishIndicator = rootTaskFinishIndicators.get(i);
 				break;
 			}
 		}
 		if (rootTaskExecuter == null) {
 			return;
 		}
-		try {
+		rootTaskFinishIndicator.setFinishSignal(true);
+		/*try {
+			
 			synchronized (rootTaskExecuter) {
 				rootTaskExecuter.signalizeFinish();
 				rootTaskExecuter.notify();
 			}
 		} catch (IllegalMonitorStateException e) {
-		}
+		}*/
 		
 	}
 	

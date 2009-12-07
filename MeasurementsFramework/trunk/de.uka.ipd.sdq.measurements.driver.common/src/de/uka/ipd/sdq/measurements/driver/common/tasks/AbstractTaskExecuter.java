@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.measurements.driver.common.tasks;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 
@@ -22,44 +23,68 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	private boolean performAllIterations = true;
 	private int numberOfExecutedTasks = 0;
 	protected boolean finishSignal = false;
-
-	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations) {
+	protected FinishIndicator finishIndicator;
+	private boolean doMeasuring = false;
+	
+	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations, FinishIndicator finishIndicator) {
 		this();
 		this.task = task;
+		doMeasuring = task.getSensor();
+		this.finishIndicator = finishIndicator;
 		this.numberOfIterations = numberOfIterations;
-		startTimes = new long[numberOfIterations];
-		endTimes = new long[numberOfIterations];
+		if (doMeasuring) {
+			startTimes = new long[numberOfIterations];
+			endTimes = new long[numberOfIterations];
+		}
 	}
 
 	protected RmiAbstractTask task = null;
 	protected int numberOfIterations = 1;
-	protected int numberOfExecutedIterations = 0;
+	//protected int numberOfExecutedIterations = 0;
 
 	public RmiAbstractTask getTask() {
 		return task;
 	}
 	
-	
-	
-	private synchronized void work() {
-		startSystemTime = System.currentTimeMillis();
-		startSystemNanoTime = System.nanoTime();
+	private synchronized void work(int numberOfIterationsToRun) {
+		if (doMeasuring) {
+			startSystemTime = System.currentTimeMillis();
+			startSystemNanoTime = System.nanoTime();
+		}
 		if (performAllIterations == true) {
-			for (numberOfExecutedIterations=0; numberOfExecutedIterations<numberOfIterations; numberOfExecutedIterations++) {
-				startTimes[numberOfExecutedIterations] = System.nanoTime();
+			for (int numberOfExecutedIterations=0; numberOfExecutedIterations<numberOfIterations; numberOfExecutedIterations++) {
+				if (doMeasuring) {
+					startTimes[numberOfExecutedIterations] = System.nanoTime();
+				}
 				doWork(numberOfExecutedIterations);
-				endTimes[numberOfExecutedIterations] = System.nanoTime();
+				if (doMeasuring) {
+					endTimes[numberOfExecutedIterations] = System.nanoTime();
+				}
 				numberOfExecutedTasks++;
-				if (finishSignal == true) {
+				if ((finishIndicator != null) && (finishIndicator.getFinishSignal())) {
+				//if (finishSignal == true) {
+					signalizeFinish();
 					break;
 				}
 			}
 		} else {
-			startTimes[numberOfExecutedIterations] = System.nanoTime();
-			doWork(numberOfExecutedIterations);
-			endTimes[numberOfExecutedIterations] = System.nanoTime();
-			numberOfExecutedIterations++;
-			numberOfExecutedTasks++;
+			int numberOfExecutedIterations=0;
+			for (int i=numberOfExecutedTasks; i<(numberOfExecutedTasks+numberOfIterationsToRun); i++) {
+				if (doMeasuring) {
+					startTimes[i] = System.nanoTime();
+				}
+				doWork(i);
+				if (doMeasuring) {
+					endTimes[i] = System.nanoTime();
+				}
+				numberOfExecutedIterations++;
+				//if (finishSignal == true) {
+				if ((finishIndicator != null) && (finishIndicator.getFinishSignal())) {
+					signalizeFinish();
+					break;
+				}
+			}
+			numberOfExecutedTasks += numberOfExecutedIterations;
 		}
 	}
 	
@@ -75,19 +100,29 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	protected abstract boolean prepare(int iteration);
 	
 	protected abstract void doWork(int iteration);
+		
+	public int runSynchronously(int numberOfIterationsToRun, boolean fireUponFinish) {
+		work(numberOfIterationsToRun);
+		if (fireUponFinish) {
+			fireTaskCompleted(task.getId(), numberOfExecutedTasks);
+		}
+		return numberOfExecutedTasks;
+	}
 	
 	public void run() {
-		this.work();
+		this.work(numberOfIterations);
 		fireTaskCompleted(task.getId(), numberOfExecutedTasks);
 	}
 	
 	public abstract void storeResults();
 	
 	public void cleanup() {
-		System.out.println("Clenaing up...");
+		if (DriverLogger.DEBUG) {
+			DriverLogger.logDebug("Cleaning up...");
+		}
 		doCleanup();
-		startTimes = new long[numberOfIterations];
-		endTimes = new long[numberOfIterations];
+		startTimes = null;
+		endTimes = null;
 		task = null;
 	}
 	
@@ -106,10 +141,10 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 		return result;
 	}
 	
-	public boolean signalizeFinish() {
+	protected abstract void signalizeFinish();/* {
 		finishSignal = true;
 		return true;
-	}
+	}*/
 
 	public void setPerformAllIterations(boolean allIterations) {
 		performAllIterations = allIterations;

@@ -31,24 +31,24 @@ public class TaskExecuterFactory implements TaskExecuterFactoryInterface{
 	 * the corresponding factory method of the registered subfactories are called
 	 * (Chain of Responsibility pattern)
 	 */
-	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations) {
+	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, FinishIndicator finishIndicator) {
 		if (rmiTask.getClass().equals(RmiSequenceTask.class)) {
-			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations);
+			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations, finishIndicator);
 			sequenceTaskExecuter.prepare();
 			return sequenceTaskExecuter;
 		} else if (rmiTask.getClass().equals(RmiParallelTask.class)) {
-			ParallelTaskExecuter parallelTaskExecuter = new ParallelTaskExecuter((RmiParallelTask)rmiTask, numberOfTaskIterations);
+			ParallelTaskExecuter parallelTaskExecuter = new ParallelTaskExecuter((RmiParallelTask)rmiTask, numberOfTaskIterations, finishIndicator);
 			parallelTaskExecuter.prepare();
 			return parallelTaskExecuter;
 
 		} else if (rmiTask.getClass().equals(RmiLoopTask.class)) {
-			LoopTaskExecuter loopTaskExecuter = new LoopTaskExecuter((RmiLoopTask)rmiTask, numberOfTaskIterations);
+			LoopTaskExecuter loopTaskExecuter = new LoopTaskExecuter((RmiLoopTask)rmiTask, numberOfTaskIterations, finishIndicator);
 			loopTaskExecuter.prepare();
 			return loopTaskExecuter;
 		}
 		// We cannot convert the task. Look if a subfactory can convert the task.
 		for (TaskExecuterFactoryInterface factory : subFactories) {
-			AbstractTaskExecuter executer = factory.convertTask(rmiTask, numberOfTaskIterations);
+			AbstractTaskExecuter executer = factory.convertTask(rmiTask, numberOfTaskIterations, finishIndicator);
 			if (executer != null) {
 				// We found a factory that converted the task.
 				return executer;

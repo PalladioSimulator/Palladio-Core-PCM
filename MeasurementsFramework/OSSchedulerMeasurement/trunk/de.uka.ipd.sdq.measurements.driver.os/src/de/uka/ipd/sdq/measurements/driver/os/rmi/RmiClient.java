@@ -6,6 +6,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
+import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
 import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
@@ -24,21 +25,21 @@ public class RmiClient {
 		int port = PropertyManager.getInstance().getParentHostRmiPort();
 		HostInterface hostInterface = null;
 		try {
-			if (OSDriver.getLoggingDebugEnabled()) {
-				OSDriver.logDebug("Looking up parent driver on " + hostUrl + ":" + port);
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebug("Looking up parent driver on " + hostUrl + ":" + port);
 			}
 			//masterInterface = Naming.lookup("rmi://" + masterURL + ":" + port + "/Master");
 			Registry registry = LocateRegistry.getRegistry(hostUrl, port);
 			hostInterface = (HostInterface) registry.lookup(Constants.DriverRMIName);
 			OSDriver.getInstance().setParentHost(hostInterface);
 		} catch (NotBoundException e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 			return false;
 		} catch (Exception e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 			return false;
 		}
@@ -53,20 +54,20 @@ public class RmiClient {
 	public static HostInterface getChildHost(String hostUrl, int port) {
 		HostInterface hostInterface = null;
 		try {
-			if (OSDriver.getLoggingDebugEnabled()) {
-				OSDriver.logDebug("Looking up child driver on " + hostUrl + ":" + port);
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebug("Looking up child driver on " + hostUrl + ":" + port);
 			}
 			//masterInterface = Naming.lookup("rmi://" + masterURL + ":" + port + "/Master");
 			Registry registry = LocateRegistry.getRegistry(hostUrl, port);
 			hostInterface = (HostInterface) registry.lookup(Constants.DriverRMIName);
 		} catch (NotBoundException e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 			return null;
 		} catch (Exception e) {
-			if (OSDriver.getLoggingEnabled()) {
-				OSDriver.logError(e.getMessage());
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError(e.getMessage());
 			}
 			return null;
 		}
