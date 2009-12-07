@@ -49,11 +49,12 @@ extends	AbstractWorkflowBasedRunConfiguration {
 			CompletionsPackage.eINSTANCE,
 		};
 	
-	private String resourceTypeFile;
-	private String repositoryFile;
+	// BRG 04.12.09 configuration adoption to PCM model structure 
+//	private String resourceTypeFile;
+//	private String repositoryFile;
 	private String middlewareFile;
-	private String systemFile;
-	private String allocationFile;
+//	private String systemFile;
+	private List <String> allocationFiles;
 	private String usageModelFile;
 	private String featureConfigFile;
 
@@ -62,10 +63,11 @@ extends	AbstractWorkflowBasedRunConfiguration {
 	 */
 	public List<String> getPCMModelFiles() {
 		ArrayList<String> files = new ArrayList<String>();
-		files.add(this.resourceTypeFile);
-		files.add(this.repositoryFile);
-		files.add(systemFile);
-		files.add(allocationFile);
+	//BRG
+	//	files.add(this.resourceTypeFile);
+	//	files.add(this.repositoryFile);
+	//	files.add(systemFile);
+		files.addAll(allocationFiles);
 		files.add(usageModelFile);
 		
 		// TODO: Temporary workaround, this should be moved to its own config object
@@ -74,35 +76,30 @@ extends	AbstractWorkflowBasedRunConfiguration {
 		return files;
 	}
 
-	/**
-	 * @return Returns the filename of the PCM resource type model
-	 */
-	public String getResourceTypeFile() {
-		return resourceTypeFile;
-	}
 
-	/** Sets the PCM resource type model file name
-	 * @param resourceTypeFile The resource type model file name
-	 */
-	public void setResourceTypeFile(String resourceTypeFile) {
-		checkFixed();
-		this.resourceTypeFile = resourceTypeFile;
-	}
+	//BRG 
+	//public String getResourceTypeFile() {
+	//	return resourceTypeFile;
+	//}
 
-	/**
-	 * @return Returns the PCM repository's file name
-	 */
-	public String getRepositoryFile() {
-		return repositoryFile;
-	}
+//BRG
+//	public void setResourceTypeFile(String resourceTypeFile) {
+//		checkFixed();
+//		this.resourceTypeFile = resourceTypeFile;
+//	}
+
+
+//	public String getRepositoryFile() {
+//		return repositoryFile;
+//	}
 
 	/** Sets the PCM repository's file name
 	 * @param repositoryFile The PCM repository file name
 	 */
-	public void setRepositoryFile(String repositoryFile) {
-		checkFixed();
-		this.repositoryFile = repositoryFile;
-	}
+//	public void setRepositoryFile(String repositoryFile) {
+//		checkFixed();
+//		this.repositoryFile = repositoryFile;
+//	}
 
 	/**
 	 * @return Returns the filename of the PCM's middleware completion repository
@@ -119,22 +116,23 @@ extends	AbstractWorkflowBasedRunConfiguration {
 		this.middlewareFile = middlewareFile;
 	}
 
-	public String getSystemFile() {
-		return systemFile;
+	//BRG
+//	public String getSystemFile() {
+//		return systemFile;
+//	}
+
+//	public void setSystemFile(String systemFile) {
+//		checkFixed();
+//		this.systemFile = systemFile;
+//	}
+
+	public List<String> getAllocationFiles() {
+		return allocationFiles;
 	}
 
-	public void setSystemFile(String systemFile) {
+	public void setAllocationFiles(List<String> allocationFile) {
 		checkFixed();
-		this.systemFile = systemFile;
-	}
-
-	public String getAllocationFile() {
-		return allocationFile;
-	}
-
-	public void setAllocationFile(String allocationFile) {
-		checkFixed();
-		this.allocationFile = allocationFile;
+		this.allocationFiles = allocationFile;
 	}
 
 	public String getUsageModelFile() {

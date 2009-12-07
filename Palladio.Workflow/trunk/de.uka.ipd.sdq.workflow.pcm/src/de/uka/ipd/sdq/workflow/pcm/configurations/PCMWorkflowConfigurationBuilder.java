@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.workflow.pcm.configurations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
@@ -44,11 +47,16 @@ public class PCMWorkflowConfigurationBuilder extends
 	 * @throws CoreException
 	 */
 	private void setPCMFilenames(AbstractPCMWorkflowRunConfiguration config) throws CoreException {
+
+		//BRG
+		List <String> tempList = new ArrayList <String>();
 		
-		config.setRepositoryFile   ( getStringAttribute(ConstantsContainer.REPOSITORY_FILE) );
-		config.setResourceTypeFile ( getStringAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE) );
-		config.setSystemFile       ( getStringAttribute(ConstantsContainer.SYSTEM_FILE) );
-		config.setAllocationFile   ( getStringAttribute(ConstantsContainer.ALLOCATION_FILE) );
+		tempList.add(getStringAttribute(ConstantsContainer.ALLOCATION_FILE));
+//		config.setRepositoryFile   ( getStringAttribute(ConstantsContainer.REPOSITORY_FILE) );
+//		config.setResourceTypeFile ( getStringAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE) );
+//		config.setSystemFile       ( getStringAttribute(ConstantsContainer.SYSTEM_FILE) );
+//		config.setAllocationFiles   ( getStringAttribute(ConstantsContainer.ALLOCATION_FILE) );
+		config.setAllocationFiles(tempList);
 		config.setUsageModelFile   ( getStringAttribute(ConstantsContainer.USAGE_FILE) );
 		config.setMiddlewareFile   ( getStringAttribute(ConstantsContainer.MWREPOSITORY_FILE) );
 
