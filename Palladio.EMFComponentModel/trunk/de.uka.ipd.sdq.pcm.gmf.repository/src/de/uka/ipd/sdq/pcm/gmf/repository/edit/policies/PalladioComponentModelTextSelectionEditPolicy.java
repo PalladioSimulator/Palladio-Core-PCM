@@ -5,13 +5,13 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.editpolicies.SelectionEditPolicy;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 /**
@@ -29,6 +29,11 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	 * @generated
 	 */
 	private IFigure focusFeedbackFigure;
+
+	/**
+	 * @generated
+	 */
+	private FigureListener hostPositionListener;
 
 	/**
 	 * @generated
@@ -53,6 +58,7 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 		} else {
 			hideSelection();
 			addFeedback(selectionFeedbackFigure = createSelectionFeedbackFigure());
+			getHostFigure().addFigureListener(getHostPositionListener());
 			refreshSelectionFeedback();
 			hideFocus();
 		}
@@ -68,6 +74,7 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 		} else {
 			if (selectionFeedbackFigure != null) {
 				removeFeedback(selectionFeedbackFigure);
+				getHostFigure().removeFigureListener(getHostPositionListener());
 				selectionFeedbackFigure = null;
 			}
 			hideFocus();
@@ -188,5 +195,19 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	public void refreshFeedback() {
 		refreshSelectionFeedback();
 		refreshFocusFeedback();
+	}
+
+	/**
+	 * @generated
+	 */
+	private FigureListener getHostPositionListener() {
+		if (hostPositionListener == null) {
+			hostPositionListener = new FigureListener() {
+				public void figureMoved(IFigure source) {
+					refreshFeedback();
+				}
+			};
+		}
+		return hostPositionListener;
 	}
 }

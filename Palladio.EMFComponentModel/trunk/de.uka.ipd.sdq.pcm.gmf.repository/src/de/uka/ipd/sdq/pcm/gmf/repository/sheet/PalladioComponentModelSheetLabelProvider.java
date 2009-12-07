@@ -4,48 +4,43 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.sheet;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.viewers.DecoratingLabelProvider;
+import org.eclipse.jface.viewers.BaseLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorGroup;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
  */
-public class PalladioComponentModelSheetLabelProvider extends
-		DecoratingLabelProvider {
-
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelSheetLabelProvider() {
-		super(new AdapterFactoryLabelProvider(
-				PalladioComponentModelRepositoryDiagramEditorPlugin
-						.getInstance().getItemProvidersAdapterFactory()), null);
-	}
+public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider
+		implements ILabelProvider {
 
 	/**
 	 * @generated
 	 */
 	public String getText(Object element) {
-		Object selected = unwrap(element);
-		if (selected instanceof PalladioComponentModelNavigatorGroup) {
-			return ((PalladioComponentModelNavigatorGroup) selected)
+		element = unwrap(element);
+		if (element instanceof PalladioComponentModelNavigatorGroup) {
+			return ((PalladioComponentModelNavigatorGroup) element)
 					.getGroupName();
 		}
-		return super.getText(selected);
+		IElementType etype = getElementType(getView(element));
+		return etype == null ? "" : etype.getDisplayName();
 	}
 
 	/**
 	 * @generated
 	 */
 	public Image getImage(Object element) {
-		return super.getImage(unwrap(element));
+		IElementType etype = getElementType(getView(unwrap(element)));
+		return etype == null ? null : PalladioComponentModelElementTypes
+				.getImage(etype);
 	}
 
 	/**
@@ -53,16 +48,7 @@ public class PalladioComponentModelSheetLabelProvider extends
 	 */
 	private Object unwrap(Object element) {
 		if (element instanceof IStructuredSelection) {
-			return unwrap(((IStructuredSelection) element).getFirstElement());
-		}
-		if (element instanceof EditPart) {
-			return unwrapEditPart((EditPart) element);
-		}
-		if (element instanceof IAdaptable) {
-			View view = (View) ((IAdaptable) element).getAdapter(View.class);
-			if (view != null) {
-				return unwrapView(view);
-			}
+			return ((IStructuredSelection) element).getFirstElement();
 		}
 		return element;
 	}
@@ -70,18 +56,32 @@ public class PalladioComponentModelSheetLabelProvider extends
 	/**
 	 * @generated
 	 */
-	private Object unwrapEditPart(EditPart p) {
-		if (p.getModel() instanceof View) {
-			return unwrapView((View) p.getModel());
+	private View getView(Object element) {
+		if (element instanceof View) {
+			return (View) element;
 		}
-		return p.getModel();
+		if (element instanceof IAdaptable) {
+			return (View) ((IAdaptable) element).getAdapter(View.class);
+		}
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	private Object unwrapView(View view) {
-		return view.getElement() == null ? view : view.getElement();
+	private IElementType getElementType(View view) {
+		// For intermediate views climb up the containment hierarchy to find the one associated with an element type.
+		while (view != null) {
+			int vid = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+			IElementType etype = PalladioComponentModelElementTypes
+					.getElementType(vid);
+			if (etype != null) {
+				return etype;
+			}
+			view = view.eContainer() instanceof View ? (View) view.eContainer()
+					: null;
+		}
+		return null;
 	}
 
 }

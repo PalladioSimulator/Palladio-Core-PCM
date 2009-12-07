@@ -64,7 +64,8 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
 								RepositoryEditPart.MODEL_ID));
 		IPath filePath;
-		String fileName = domainModelURI.trimFileExtension().lastSegment();
+		String fileName = URI.decode(domainModelURI.trimFileExtension()
+				.lastSegment());
 		if (domainModelURI.isPlatformResource()) {
 			filePath = new Path(domainModelURI.trimSegments(1)
 					.toPlatformString(true));

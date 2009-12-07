@@ -17,7 +17,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.InterfaceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidesComponentTypeCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.SubSystemCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * @generated
@@ -28,53 +27,36 @@ public class RepositoryItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	public RepositoryItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.Repository_1000);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.Interface_2101 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Interfaces__Repository());
-			}
 			return getGEFWrapper(new InterfaceCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.BasicComponent_2102 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
 			return getGEFWrapper(new BasicComponentCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.CompositeComponent_2103 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
 			return getGEFWrapper(new CompositeComponentCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.CompleteComponentType_2104 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
 			return getGEFWrapper(new CompleteComponentTypeCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ProvidesComponentType_2105 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
 			return getGEFWrapper(new ProvidesComponentTypeCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.SubSystem_2106 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
 			return getGEFWrapper(new SubSystemCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

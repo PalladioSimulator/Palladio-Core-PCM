@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -16,7 +15,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
@@ -24,11 +25,11 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableLabelEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -106,6 +107,18 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new PalladioComponentModelTextSelectionEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new NonResizableLabelEditPolicy() {
+
+					protected List createSelectionHandles() {
+						MoveHandle mh = new MoveHandle(
+								(GraphicalEditPart) getHost());
+						mh.setBorder(null);
+						return Collections.singletonList(mh);
+					}
+				});
 	}
 
 	/**
@@ -225,6 +238,11 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -302,11 +320,9 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = CommonParserHint.DESCRIPTION;
-			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+			parser = PalladioComponentModelParserProvider.getParser(
 					PalladioComponentModelElementTypes.ProvidedRole_4101,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+					getParserElement(), CommonParserHint.DESCRIPTION);
 		}
 		return parser;
 	}
@@ -414,6 +430,11 @@ public class WrappingLabel2EditPart extends LabelEditPart implements
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

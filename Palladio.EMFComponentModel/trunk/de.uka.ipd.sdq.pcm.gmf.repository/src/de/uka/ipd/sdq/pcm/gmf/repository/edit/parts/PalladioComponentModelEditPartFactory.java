@@ -132,6 +132,7 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case WrappingLabel5EditPart.VISUAL_ID:
 				return new WrappingLabel5EditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

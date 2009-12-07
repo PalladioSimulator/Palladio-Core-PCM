@@ -3,28 +3,21 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
-import java.util.Collections;
 import java.util.Iterator;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.SemanticEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
-import org.eclipse.gmf.runtime.emf.type.core.IEditHelperContext;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -39,13 +32,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.MoveRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
-import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
@@ -63,6 +56,19 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	private final IElementType myElementType;
+
+	/**
+	 * @generated
+	 */
+	protected PalladioComponentModelBaseItemSemanticEditPolicy(
+			IElementType elementType) {
+		myElementType = elementType;
+	}
 
 	/**
 	 * Add visual id of edited editpart to extended data of the request
@@ -100,62 +106,70 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 */
 	protected Command getSemanticCommand(IEditCommandRequest request) {
 		IEditCommandRequest completedRequest = completeRequest(request);
-		Object editHelperContext = completedRequest.getEditHelperContext();
-		if (editHelperContext instanceof View
-				|| (editHelperContext instanceof IEditHelperContext && ((IEditHelperContext) editHelperContext)
-						.getEObject() instanceof View)) {
-			// no semantic commands are provided for pure design elements
-			return null;
-		}
-		if (editHelperContext == null) {
-			editHelperContext = ViewUtil
-					.resolveSemanticElement((View) getHost().getModel());
-		}
-		IElementType elementType = ElementTypeRegistry.getInstance()
-				.getElementType(editHelperContext);
-		if (elementType == ElementTypeRegistry.getInstance().getType(
-				"org.eclipse.gmf.runtime.emf.type.core.default")) { //$NON-NLS-1$ 
-			elementType = null;
-		}
 		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (elementType != null) {
-			if (semanticCommand != null) {
-				ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
-						.getICommand()
-						: new CommandProxy(semanticCommand);
-				completedRequest
-						.setParameter(
-								PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
-								command);
-			}
-			ICommand command = elementType.getEditCommand(completedRequest);
-			if (command != null) {
-				if (!(command instanceof CompositeTransactionalCommand)) {
-					TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-							.getEditingDomain();
-					command = new CompositeTransactionalCommand(editingDomain,
-							command.getLabel()).compose(command);
-				}
-				semanticCommand = new ICommandProxy(command);
-			}
-		}
-		boolean shouldProceed = true;
+		semanticCommand = getEditHelperCommand(completedRequest,
+				semanticCommand);
 		if (completedRequest instanceof DestroyRequest) {
-			shouldProceed = shouldProceed((DestroyRequest) completedRequest);
+			DestroyRequest destroyRequest = (DestroyRequest) completedRequest;
+			return shouldProceed(destroyRequest) ? addDeleteViewCommand(
+					semanticCommand, destroyRequest) : null;
 		}
-		if (shouldProceed) {
-			if (completedRequest instanceof DestroyRequest) {
-				TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-						.getEditingDomain();
-				Command deleteViewCommand = new ICommandProxy(
-						new DeleteCommand(editingDomain, (View) getHost()
-								.getModel()));
-				semanticCommand = semanticCommand == null ? deleteViewCommand
-						: semanticCommand.chain(deleteViewCommand);
+		return semanticCommand;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command addDeleteViewCommand(Command mainCommand,
+			DestroyRequest completedRequest) {
+		Command deleteViewCommand = getGEFWrapper(new DeleteCommand(
+				getEditingDomain(), (View) getHost().getModel()));
+		return mainCommand == null ? deleteViewCommand : mainCommand
+				.chain(deleteViewCommand);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Command getEditHelperCommand(IEditCommandRequest request,
+			Command editPolicyCommand) {
+		if (editPolicyCommand != null) {
+			ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
+					.getICommand()
+					: new CommandProxy(editPolicyCommand);
+			request.setParameter(
+					PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
+					command);
+		}
+		IElementType requestContextElementType = getContextElementType(request);
+		request.setParameter(
+				PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE,
+				requestContextElementType);
+		ICommand command = requestContextElementType.getEditCommand(request);
+		request.setParameter(
+				PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, null);
+		request
+				.setParameter(
+						PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE,
+						null);
+		if (command != null) {
+			if (!(command instanceof CompositeTransactionalCommand)) {
+				command = new CompositeTransactionalCommand(getEditingDomain(),
+						command.getLabel()).compose(command);
 			}
-			return semanticCommand;
+			return new ICommandProxy(command);
 		}
-		return null;
+		return editPolicyCommand;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IElementType getContextElementType(IEditCommandRequest request) {
+		IElementType requestContextElementType = PalladioComponentModelElementTypes
+				.getElementType(getVisualID(request));
+		return requestContextElementType != null ? requestContextElementType
+				: myElementType;
 	}
 
 	/**
@@ -275,21 +289,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
-	 */
-	protected final Command getMSLWrapper(ICommand cmd) {
-		// XXX deprecated: use getGEFWrapper() instead
-		return getGEFWrapper(cmd);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected EObject getSemanticElement() {
-		return ViewUtil.resolveSemanticElement((View) getHost().getModel());
-	}
-
-	/**
 	 * Returns editing domain from the host edit part.
 	 * 
 	 * @generated
@@ -299,51 +298,18 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * Creates command to destroy the link.
-	 * 
+	 * Clean all shortcuts to the host element from the same diagram
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(View view) {
-		EditPart editPart = (EditPart) getHost().getViewer()
-				.getEditPartRegistry().get(view);
-		DestroyElementRequest request = new DestroyElementRequest(
-				getEditingDomain(), false);
-		return editPart.getCommand(new EditCommandRequestWrapper(request,
-				Collections.EMPTY_MAP));
-	}
-
-	/**
-	 * Creates commands to destroy all host incoming and outgoing links.
-	 * 
-	 * @generated
-	 */
-	protected CompoundCommand getDestroyEdgesCommand() {
-		CompoundCommand cmd = new CompoundCommand();
-		View view = (View) getHost().getModel();
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		return cmd;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addDestroyShortcutsCommand(CompoundCommand command) {
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return;
-		}
+	protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
+		assert view.getEAnnotation("Shortcut") == null; //$NON-NLS-1$
 		for (Iterator it = view.getDiagram().getChildren().iterator(); it
 				.hasNext();) {
 			View nextView = (View) it.next();
 			if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
 				continue;
 			}
-			command.add(getDestroyElementCommand(nextView));
+			cmd.add(new DeleteCommand(getEditingDomain(), nextView));
 		}
 	}
 
@@ -378,6 +344,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 					return false;
 				}
 			}
+
 			return canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
 					source, target);
 		}
@@ -392,6 +359,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 					return false;
 				}
 			}
+
 			return canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
 					source, target);
 		}
@@ -401,7 +369,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistProvidedRole_4101(
 				InterfaceProvidingEntity source, Interface target) {
-
 			return true;
 		}
 
@@ -410,7 +377,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistRequiredRole_4102(
 				InterfaceRequiringEntity source, Interface target) {
-
 			return true;
 		}
 
@@ -419,7 +385,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
 				ImplementationComponentType source, CompleteComponentType target) {
-
 			return true;
 		}
 
@@ -428,7 +393,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
 				CompleteComponentType source, ProvidesComponentType target) {
-
 			return true;
 		}
 

@@ -3,13 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -30,6 +32,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
@@ -68,35 +71,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == PalladioComponentModelElementTypes.PassiveResource_3103) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new BasicComponentItemSemanticEditPolicy());
@@ -191,7 +166,9 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof BasicComponentEntityNameEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof BasicComponentSEFFCompartmentEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureBasicComponentCompartment();
@@ -245,7 +222,6 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
 		if (editPart instanceof BasicComponentSEFFCompartmentEditPart) {
 			return getPrimaryShape().getFigureBasicComponentCompartment();
 		}
@@ -255,15 +231,14 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
 			return getPrimaryShape().getFigureBasicComponentCompartment();
 		}
-		return super.getContentPaneFor(editPart);
+		return getContentPane();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
@@ -293,7 +268,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
+			layout.setSpacing(5);
 			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
@@ -312,9 +287,117 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected void setForegroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setForegroundColor(color);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setBackgroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setBackgroundColor(color);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setLineWidth(int width) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineWidth(width);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setLineType(int style) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineStyle(style);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 				.getType(BasicComponentEntityNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
+		types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
+		types
+				.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (targetEditPart instanceof InterfaceEditPart) {
+			types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
+		}
+		if (targetEditPart instanceof InterfaceEditPart) {
+			types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
+		}
+		if (targetEditPart instanceof CompleteComponentTypeEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
+			IElementType relationshipType) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.ProvidedRole_4101) {
+			types.add(PalladioComponentModelElementTypes.Interface_2101);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.RequiredRole_4102) {
+			types.add(PalladioComponentModelElementTypes.Interface_2101);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103) {
+			types
+					.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102) {
+				return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+						.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == PalladioComponentModelElementTypes.PassiveResource_3103) {
+				return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+						.getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
 	}
 
 	/**
@@ -345,6 +428,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 			layoutThis.marginHeight = 0;
 			this.setLayoutManager(layoutThis);
 
+			this.setLineWidth(1);
 			createContents();
 		}
 
@@ -373,6 +457,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 			fFigureBasicComponentCompartment = new RectangleFigure();
 			fFigureBasicComponentCompartment.setFill(false);
 			fFigureBasicComponentCompartment.setOutline(false);
+			fFigureBasicComponentCompartment.setLineWidth(1);
 
 			GridData constraintFFigureBasicComponentCompartment = new GridData();
 			constraintFFigureBasicComponentCompartment.verticalAlignment = GridData.FILL;

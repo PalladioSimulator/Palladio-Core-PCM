@@ -3,32 +3,17 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.providers;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ITraversalStrategy;
-import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
-import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.action.IAction;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.ValidateAction;
 
 /**
  * @generated
  */
-public class PalladioComponentModelValidationProvider extends
-		AbstractContributionItemProvider {
+public class PalladioComponentModelValidationProvider {
 	/**
 	 * @generated
 	 */
@@ -67,17 +52,6 @@ public class PalladioComponentModelValidationProvider extends
 		} else {
 			task.run();
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IAction createAction(String actionId,
-			IWorkbenchPartDescriptor partDescriptor) {
-		if (ValidateAction.VALIDATE_ACTION_KEY.equals(actionId)) {
-			return new ValidateAction(partDescriptor);
-		}
-		return super.createAction(actionId, partDescriptor);
 	}
 
 	/**

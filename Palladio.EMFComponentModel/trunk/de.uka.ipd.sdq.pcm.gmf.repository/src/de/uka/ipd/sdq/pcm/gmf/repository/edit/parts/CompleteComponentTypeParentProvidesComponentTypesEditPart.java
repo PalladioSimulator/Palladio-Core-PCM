@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.PolylineDecoration;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gef.EditPart;
@@ -69,6 +68,26 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 	}
 
 	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel5EditPart) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -101,6 +120,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		 * @generated
 		 */
 		public ParentProvidesTypeFigure() {
+			this.setLineWidth(1);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
@@ -123,6 +143,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
+			df.setLineWidth(1);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

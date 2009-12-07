@@ -13,17 +13,12 @@ public class PalladioComponentModelNodeDescriptor {
 	/**
 	 * @generated
 	 */
-	private EObject myModelElement;
+	private final EObject myModelElement;
 
 	/**
 	 * @generated
 	 */
-	private int myVisualID;
-
-	/**
-	 * @generated
-	 */
-	private String myType;
+	private final int myVisualID;
 
 	/**
 	 * @generated
@@ -46,17 +41,6 @@ public class PalladioComponentModelNodeDescriptor {
 	 */
 	public int getVisualID() {
 		return myVisualID;
-	}
-
-	/**
-	 * @generated
-	 */
-	public String getType() {
-		if (myType == null) {
-			myType = PalladioComponentModelVisualIDRegistry
-					.getType(getVisualID());
-		}
-		return myType;
 	}
 
 }

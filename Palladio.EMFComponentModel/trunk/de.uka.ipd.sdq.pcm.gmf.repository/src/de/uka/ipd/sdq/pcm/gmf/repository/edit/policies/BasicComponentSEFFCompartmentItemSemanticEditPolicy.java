@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceDemandingSEFFCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * @generated
@@ -19,14 +18,16 @@ public class BasicComponentSEFFCompartmentItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	public BasicComponentSEFFCompartmentItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.BasicComponent_2102);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(RepositoryPackage.eINSTANCE
-								.getBasicComponent_ServiceEffectSpecifications__BasicComponent());
-			}
 			return getGEFWrapper(new ResourceDemandingSEFFCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

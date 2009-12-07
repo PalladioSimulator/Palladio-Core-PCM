@@ -7,11 +7,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+
 /**
  * @generated
  */
 public class ProvidedRoleItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	public ProvidedRoleItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.ProvidedRole_4101);
+	}
 
 	/**
 	 * @generated

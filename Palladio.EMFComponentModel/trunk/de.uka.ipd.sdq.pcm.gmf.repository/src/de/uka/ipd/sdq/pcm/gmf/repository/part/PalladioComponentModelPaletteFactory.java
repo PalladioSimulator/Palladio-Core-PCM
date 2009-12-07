@@ -37,6 +37,7 @@ public class PalladioComponentModelPaletteFactory {
 	private PaletteContainer createBasicModelElements1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.BasicModelElements1Group_title);
+		paletteContainer.setId("createBasicModelElements1Group"); //$NON-NLS-1$
 		paletteContainer.setDescription(Messages.BasicModelElements1Group_desc);
 		paletteContainer.add(createInterface1CreationTool());
 		paletteContainer.add(createBasicComponent2CreationTool());
@@ -54,6 +55,7 @@ public class PalladioComponentModelPaletteFactory {
 	private PaletteContainer createInternalElements2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.InternalElements2Group_title);
+		paletteContainer.setId("createInternalElements2Group"); //$NON-NLS-1$
 		paletteContainer.setDescription(Messages.InternalElements2Group_desc);
 		paletteContainer.add(createSignature1CreationTool());
 		paletteContainer.add(createSEFF2CreationTool());
@@ -70,6 +72,7 @@ public class PalladioComponentModelPaletteFactory {
 	private PaletteContainer createComponentTypes3Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.ComponentTypes3Group_title);
+		paletteContainer.setId("createComponentTypes3Group"); //$NON-NLS-1$
 		paletteContainer.setDescription(Messages.ComponentTypes3Group_desc);
 		paletteContainer.add(createProvidesComponentType1CreationTool());
 		paletteContainer.add(createCompleteComponentType2CreationTool());
@@ -87,6 +90,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Interface1CreationTool_title,
 				Messages.Interface1CreationTool_desc, types);
+		entry.setId("createInterface1CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.Interface_2101));
@@ -103,6 +107,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.BasicComponent2CreationTool_title,
 				Messages.BasicComponent2CreationTool_desc, types);
+		entry.setId("createBasicComponent2CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.BasicComponent_2102));
@@ -119,6 +124,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CompositeComponent3CreationTool_title,
 				Messages.CompositeComponent3CreationTool_desc, types);
+		entry.setId("createCompositeComponent3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.CompositeComponent_2103));
@@ -135,6 +141,7 @@ public class PalladioComponentModelPaletteFactory {
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.RequiredRole4CreationTool_title,
 				Messages.RequiredRole4CreationTool_desc, types);
+		entry.setId("createRequiredRole4CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.RequiredRole_4102));
@@ -151,6 +158,7 @@ public class PalladioComponentModelPaletteFactory {
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.ProvidedRole5CreationTool_title,
 				Messages.ProvidedRole5CreationTool_desc, types);
+		entry.setId("createProvidedRole5CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidedRole_4101));
@@ -167,6 +175,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SubSystem6CreationTool_title,
 				Messages.SubSystem6CreationTool_desc, types);
+		entry.setId("createSubSystem6CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.SubSystem_2106));
@@ -183,6 +192,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Signature1CreationTool_title,
 				Messages.Signature1CreationTool_desc, types);
+		entry.setId("createSignature1CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.Signature_3101));
@@ -200,6 +210,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SEFF2CreationTool_title,
 				Messages.SEFF2CreationTool_desc, types);
+		entry.setId("createSEFF2CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102));
@@ -216,6 +227,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.PassiveResource3CreationTool_title,
 				Messages.PassiveResource3CreationTool_desc, types);
+		entry.setId("createPassiveResource3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.PassiveResource_3103));
@@ -232,6 +244,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ComponentParameter4CreationTool_title,
 				Messages.ComponentParameter4CreationTool_desc, types);
+		entry.setId("createComponentParameter4CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3104));
@@ -249,6 +262,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableCharacterisation5CreationTool_title,
 				Messages.VariableCharacterisation5CreationTool_desc, types);
+		entry.setId("createVariableCharacterisation5CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.VariableCharacterisation_3105));
@@ -266,6 +280,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ProvidesComponentType1CreationTool_title,
 				Messages.ProvidesComponentType1CreationTool_desc, types);
+		entry.setId("createProvidesComponentType1CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidesComponentType_2105));
@@ -283,6 +298,7 @@ public class PalladioComponentModelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CompleteComponentType2CreationTool_title,
 				Messages.CompleteComponentType2CreationTool_desc, types);
+		entry.setId("createCompleteComponentType2CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentType_2104));
@@ -300,6 +316,7 @@ public class PalladioComponentModelPaletteFactory {
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.ConformsProvidedType3CreationTool_title,
 				Messages.ConformsProvidedType3CreationTool_desc, types);
+		entry.setId("createConformsProvidedType3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104));
@@ -317,6 +334,7 @@ public class PalladioComponentModelPaletteFactory {
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.ConformsCompleteType4CreationTool_title,
 				Messages.ConformsCompleteType4CreationTool_desc, types);
+		entry.setId("createConformsCompleteType4CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103));

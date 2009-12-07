@@ -3,11 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.navigator;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -43,7 +42,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
@@ -271,148 +269,138 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getInterface_2101Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.Interface_2101, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.Interface_2101, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(InterfaceEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5101); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getBasicComponent_2102Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.BasicComponent_2102, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.BasicComponent_2102, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(BasicComponentEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5102); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getCompositeComponent_2103Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.CompositeComponent_2103,
-				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(CompositeComponentEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.CompositeComponent_2103,
+						view.getElement() != null ? view.getElement() : view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(CompositeComponentEntityNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5103); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getCompleteComponentType_2104Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.CompleteComponentType_2104,
-				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(CompleteComponentTypeEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.CompleteComponentType_2104,
+						view.getElement() != null ? view.getElement() : view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(CompleteComponentTypeEntityNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5104); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getProvidesComponentType_2105Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ProvidesComponentType_2105,
-				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(ProvidesComponentTypeEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.ProvidesComponentType_2105,
+						view.getElement() != null ? view.getElement() : view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(ProvidesComponentTypeEntityNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5105); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getSubSystem_2106Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.SubSystem_2106, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.SubSystem_2106, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(SubSystemEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5107); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getSignature_3101Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.Signature_3101, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.Signature_3101, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(SignatureEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 3101); //$NON-NLS-1$
@@ -424,16 +412,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getResourceDemandingSEFF_3102Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+		IParser parser = PalladioComponentModelParserProvider.getParser(
 				PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102,
-				(view.getElement() != null ? view.getElement() : view),
+				view.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ResourceDemandingSEFFEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 3102); //$NON-NLS-1$
@@ -445,16 +432,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getPassiveResource_3103Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.PassiveResource_3103, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.PassiveResource_3103, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(PassiveResourceEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 3103); //$NON-NLS-1$
@@ -466,36 +452,36 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getVariableUsage_3104Text(View view) {
-
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3104, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.VariableUsage_3104, view
+						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(WrappingLabelEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5106); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getVariableCharacterisation_3105Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableCharacterisation_3105,
-				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(VariableCharacterisationEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.VariableCharacterisation_3105,
+						view.getElement() != null ? view.getElement() : view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(VariableCharacterisationEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 3105); //$NON-NLS-1$
@@ -507,42 +493,38 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getProvidedRole_4101Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ProvidedRole_4101, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.ProvidedRole_4101, view
+						.getElement() != null ? view.getElement() : view,
 				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6101); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getRequiredRole_4102Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.RequiredRole_4102, (view
-						.getElement() != null ? view.getElement() : view),
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.RequiredRole_4102, view
+						.getElement() != null ? view.getElement() : view,
 				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6102); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
@@ -550,21 +532,20 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getImplementationComponentTypeParentCompleteComponentTypes_4103Text(
 			View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
-				(view.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
+						view.getElement() != null ? view.getElement() : view,
+						CommonParserHint.DESCRIPTION);
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6103); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
@@ -572,35 +553,34 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getCompleteComponentTypeParentProvidesComponentTypes_4104Text(
 			View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
-				(view.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
+		IParser parser = PalladioComponentModelParserProvider
+				.getParser(
+						PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
+						view.getElement() != null ? view.getElement() : view,
+						CommonParserHint.DESCRIPTION);
 		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6104); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getUnknownElementText(View view) {
-		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
+		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getUnresolvedDomainElementProxyText(View view) {
-		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
+		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$  //$NON-NLS-2$
 	}
 
 	/**

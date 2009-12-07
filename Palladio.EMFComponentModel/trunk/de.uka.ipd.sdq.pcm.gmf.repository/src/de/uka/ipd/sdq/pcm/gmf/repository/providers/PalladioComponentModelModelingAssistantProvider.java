@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
@@ -48,30 +49,30 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof InterfaceEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.Signature_3101);
 			return types;
 		}
 		if (editPart instanceof BasicComponentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(2);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 			types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
 			return types;
 		}
 		if (editPart instanceof VariableUsageEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3105);
 			return types;
 		}
 		if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
 			return types;
 		}
 		if (editPart instanceof RepositoryEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(6);
 			types.add(PalladioComponentModelElementTypes.Interface_2101);
 			types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
 			types
@@ -92,11 +93,24 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof BasicComponentEditPart) {
+			return ((BasicComponentEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof CompositeComponentEditPart) {
+			return ((CompositeComponentEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
-			return types;
+			return ((CompleteComponentTypeEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ProvidesComponentTypeEditPart) {
+			return ((ProvidesComponentTypeEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof SubSystemEditPart) {
+			return ((SubSystemEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -108,22 +122,15 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof InterfaceEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
-			types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
-			return types;
+			return ((InterfaceEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof CompleteComponentTypeEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
-			return types;
+			return ((CompleteComponentTypeEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
-			return types;
+			return ((ProvidesComponentTypeEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -137,13 +144,25 @@ public class PalladioComponentModelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof BasicComponentEditPart) {
+			return ((BasicComponentEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof CompositeComponentEditPart) {
+			return ((CompositeComponentEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
-			List types = new ArrayList();
-			if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
-				types
-						.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
-			}
-			return types;
+			return ((CompleteComponentTypeEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ProvidesComponentTypeEditPart) {
+			return ((ProvidesComponentTypeEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SubSystemEditPart) {
+			return ((SubSystemEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -156,20 +175,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof InterfaceEditPart) {
-			List types = new ArrayList();
-			return types;
+			return ((InterfaceEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof CompleteComponentTypeEditPart) {
-			List types = new ArrayList();
-			return types;
+			return ((CompleteComponentTypeEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
-			List types = new ArrayList();
-			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
-				types
-						.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
-			}
-			return types;
+			return ((ProvidesComponentTypeEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -181,13 +196,25 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof BasicComponentEditPart) {
+			return ((BasicComponentEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof CompositeComponentEditPart) {
+			return ((CompositeComponentEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
-			List types = new ArrayList();
-			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
-				types
-						.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
-			}
-			return types;
+			return ((CompleteComponentTypeEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ProvidesComponentTypeEditPart) {
+			return ((ProvidesComponentTypeEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SubSystemEditPart) {
+			return ((SubSystemEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
 	}

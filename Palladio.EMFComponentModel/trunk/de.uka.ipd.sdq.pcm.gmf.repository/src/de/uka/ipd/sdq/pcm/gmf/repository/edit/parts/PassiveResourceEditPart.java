@@ -6,10 +6,8 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -26,7 +24,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -55,6 +52,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenCapacityDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -246,6 +244,11 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -323,11 +326,12 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.PassiveResource_3103,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = PalladioComponentModelParserProvider
+					.getParser(
+							PalladioComponentModelElementTypes.PassiveResource_3103,
+							getParserElement(),
+							PalladioComponentModelVisualIDRegistry
+									.getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -435,6 +439,11 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

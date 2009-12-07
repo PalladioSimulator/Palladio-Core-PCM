@@ -19,6 +19,22 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -332,6 +348,47 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 					.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
+	}
+
+	/**
+	 * @generated
+	 */
+	public static IElementType getElementType(int visualID) {
+		switch (visualID) {
+		case RepositoryEditPart.VISUAL_ID:
+			return Repository_1000;
+		case InterfaceEditPart.VISUAL_ID:
+			return Interface_2101;
+		case BasicComponentEditPart.VISUAL_ID:
+			return BasicComponent_2102;
+		case CompositeComponentEditPart.VISUAL_ID:
+			return CompositeComponent_2103;
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			return CompleteComponentType_2104;
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			return ProvidesComponentType_2105;
+		case SubSystemEditPart.VISUAL_ID:
+			return SubSystem_2106;
+		case SignatureEditPart.VISUAL_ID:
+			return Signature_3101;
+		case ResourceDemandingSEFFEditPart.VISUAL_ID:
+			return ResourceDemandingSEFF_3102;
+		case PassiveResourceEditPart.VISUAL_ID:
+			return PassiveResource_3103;
+		case VariableUsageEditPart.VISUAL_ID:
+			return VariableUsage_3104;
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return VariableCharacterisation_3105;
+		case ProvidedRoleEditPart.VISUAL_ID:
+			return ProvidedRole_4101;
+		case RequiredRoleEditPart.VISUAL_ID:
+			return RequiredRole_4102;
+		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
+			return ImplementationComponentTypeParentCompleteComponentTypes_4103;
+		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
+			return CompleteComponentTypeParentProvidesComponentTypes_4104;
+		}
+		return null;
 	}
 
 }
