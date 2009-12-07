@@ -40,13 +40,16 @@ public class ResourceSetPartition {
 	 * @param modelURI The URI of the model to be loaded
 	 */
 	public void loadModel(String modelURI) {
-		Resource r;
+//		Resource r;
 		if (URI.createURI(modelURI).isPlatform() || modelURI.indexOf("://") >= 0) { 
-			r = rs.getResource(URI.createURI(modelURI), true);
+			rs.getResource(URI.createURI(modelURI), true);
 		} else {
-			r = rs.getResource(URI.createFileURI(modelURI), true);
+			rs.getResource(URI.createFileURI(modelURI), true);
 		}
-		EcoreUtil.resolveAll(r);
+//BRG 07.12.09
+//		java.util.Map<EObject,Collection<EStructuralFeature.Setting>> map = EcoreUtil.CrossReferencer.find(Collections.singleton(r.getContents().get(0)));
+//		EcoreUtil.resolveAll(r);
+
 	}
 
 	/**
