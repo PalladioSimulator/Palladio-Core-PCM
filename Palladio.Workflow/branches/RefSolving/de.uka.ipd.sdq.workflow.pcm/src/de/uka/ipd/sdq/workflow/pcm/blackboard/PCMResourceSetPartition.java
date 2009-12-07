@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.system.System;
@@ -78,6 +80,14 @@ public class PCMResourceSetPartition extends ResourceSetPartition {
 	public ResourceRepository getResourceTypeRepository() {
 		return (ResourceRepository) getElement(ResourcetypePackage.eINSTANCE.getResourceRepository());
 	}
+	
+	/**
+	 * @return Returns the PCM Resource Environment used by the stored PCM model instance
+	 */
+	public ResourceEnvironment getResourceEnvironment() {
+		return (ResourceEnvironment) getElement(ResourceenvironmentPackage.eINSTANCE.getResourceEnvironment());
+	}
+	
 	
 	/**
 	 * Helper to find root object of specified class
