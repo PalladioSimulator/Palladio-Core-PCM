@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.workflow.mdsd.blackboard;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -49,17 +50,23 @@ public class ResourceSetPartition {
 		} else {
 			r = rs.getResource(URI.createFileURI(modelURI), true);
 		}
-		java.util.Map<EObject,Collection<EStructuralFeature.Setting>> map = EcoreUtil.CrossReferencer.find(Collections.singleton(r.getContents().get(0)));
-		//EcoreUtil.resolveAll(r);
-		//java.util.Map<EObject,Collection<EStructuralFeature.Setting>> map2 = EcoreUtil.CrossReferencer.find(Collections.singleton(r.getContents().get(0)));
+//BRG 07.12.09
+//		java.util.Map<EObject,Collection<EStructuralFeature.Setting>> map = EcoreUtil.CrossReferencer.find(Collections.singleton(r.getContents().get(0)));
+		EcoreUtil.resolveAll(r);
+
 	}
 
 	/**
 	 * Resolve all model proxies, i.e., load all dependent models
 	 */
 	public void resolveAllProxies() {
-		for (Resource r : this.rs.getResources()) {
-			EcoreUtil.resolveAll(r);
-		}
+		ArrayList<Resource> currentResources = null; 
+		do {
+			// Copy list to avoid concurrent modification exceptions
+			currentResources = new ArrayList<Resource>(this.rs.getResources());
+			for (Resource r : currentResources) {
+				EcoreUtil.resolveAll(r);
+			}
+		} while (currentResources.size() != this.rs.getResources().size());
 	}
 }
