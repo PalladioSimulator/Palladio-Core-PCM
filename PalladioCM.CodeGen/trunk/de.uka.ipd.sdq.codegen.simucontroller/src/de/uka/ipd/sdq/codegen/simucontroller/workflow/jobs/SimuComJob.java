@@ -50,7 +50,8 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		if(configuration.getCompletionConfig().getActiveCompletionCount() > 0)
 		{
 			// 3. Apply Completions
-			configuration.getCompletionConfig().setResourceRepository(configuration.getResourceTypeFile());
+			//BRG
+	//		configuration.getCompletionConfig().setResourceRepository(configuration.getResourceTypeFile());
 			configuration.getCompletionConfig().setFeatureConfigFile(configuration.getFeatureConfigFile());
 			configuration.getCompletionConfig().setModelPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 			this.addJob(new CompletionTransformationChainJob(configuration.getCompletionConfig()));
