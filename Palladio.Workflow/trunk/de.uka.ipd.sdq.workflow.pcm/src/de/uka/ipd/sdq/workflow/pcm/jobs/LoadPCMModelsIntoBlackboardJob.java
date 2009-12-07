@@ -72,7 +72,10 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		for (String modelFile : configuration.getPCMModelFiles()) {
 			myPartion.loadModel(modelFile);
 		}
+		myPartion.resolveAllProxies();
 		middlewareRepositoryPartition.loadModel(configuration.getMiddlewareFile());
+		middlewareRepositoryPartition.resolveAllProxies();
+		
 	}
 
 	/* (non-Javadoc)
