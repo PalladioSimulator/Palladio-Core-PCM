@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import uk.ac.kent.cs.kmf.util.OutputStreamLog;
+
 import uk.ac.kent.cs.kmf.util.ILog;
 
 import de.ikv.emf.qvt.EMFQvtProcessorImpl;

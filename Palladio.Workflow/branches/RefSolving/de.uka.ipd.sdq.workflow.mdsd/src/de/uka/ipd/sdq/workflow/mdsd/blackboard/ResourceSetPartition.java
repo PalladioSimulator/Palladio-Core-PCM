@@ -1,13 +1,9 @@
 package de.uka.ipd.sdq.workflow.mdsd.blackboard;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -44,15 +40,15 @@ public class ResourceSetPartition {
 	 * @param modelURI The URI of the model to be loaded
 	 */
 	public void loadModel(String modelURI) {
-		Resource r;
+//		Resource r;
 		if (URI.createURI(modelURI).isPlatform() || modelURI.indexOf("://") >= 0) { 
-			r = rs.getResource(URI.createURI(modelURI), true);
+			rs.getResource(URI.createURI(modelURI), true);
 		} else {
-			r = rs.getResource(URI.createFileURI(modelURI), true);
+			rs.getResource(URI.createFileURI(modelURI), true);
 		}
 //BRG 07.12.09
 //		java.util.Map<EObject,Collection<EStructuralFeature.Setting>> map = EcoreUtil.CrossReferencer.find(Collections.singleton(r.getContents().get(0)));
-		EcoreUtil.resolveAll(r);
+//		EcoreUtil.resolveAll(r);
 
 	}
 
