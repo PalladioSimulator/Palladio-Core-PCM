@@ -39,13 +39,14 @@ import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
 public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 
 	private static final String PCM_GLASSFISHREPOSITORY_FILE_URI = "pathmap://PCM_MODELS/Glassfish.repository";
-	private static final String PCM_RESOURCETYPE_FILE_URI = "pathmap://PCM_MODELS/Palladio.resourcetype";
+//BRG
+// private static final String PCM_RESOURCETYPE_FILE_URI = "pathmap://PCM_MODELS/Palladio.resourcetype";
 	
 	/** input fields */
-	private Text textResourceType;
-	private Text textResourceEnvironment;
-	private Text textRepository;
-	private Text textSystem;
+//	private Text textResourceType;
+//	private Text textResourceEnvironment;
+//	private Text textRepository;
+//	private Text textSystem;
 	private Text textAllocation;
 	private Text textUsage;
 	private Text mwtextRepository;
@@ -101,36 +102,36 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		setControl(container);
 		container.setLayout(new GridLayout());
 
-		/**
+/*		*//**
 		 * Create resource type section
-		 */
+		 *//*
 		textResourceType = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "Resource Type File", ConstantsContainer.RESOURCETYPE_EXTENSION, textResourceType);
 
-		/**
+		*//**
 		 * Create resource environment section
-		 */
+		 *//*
 		textResourceEnvironment = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "Resource Environment File", ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION, textResourceEnvironment);
 
-		/**
+		*//**
 		 * Create repository section
-		 */
+		 *//*
 		textRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "Repository File", ConstantsContainer.REPOSITORY_EXTENSION, textRepository);
-
+*/
 		/**
 		 * Create MW repository section
 		 */
 		mwtextRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "Middleware Repository File", ConstantsContainer.REPOSITORY_EXTENSION, mwtextRepository);
 
-		/**
+/*		*//**
 		 * Create system Section
-		 */
+		 *//*
 		textSystem = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFileInputSection(container, modifyListener, "System File", ConstantsContainer.SYSTEM_EXTENSION, textSystem);
-		
+		*/
 		/**
 		 * Create allocation section
 		 */
@@ -199,12 +200,12 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			RunConfigPlugin.errorLogger(getName(),"Allocation File", e.getMessage());
 		}
 
-		try {
+/*		try {
 			textRepository.setText(configuration.getAttribute(
 					ConstantsContainer.REPOSITORY_FILE, ""));
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"Repository File", e.getMessage());
-		}
+		}*/
 
 		try {
 			mwtextRepository.setText(configuration.getAttribute(
@@ -213,26 +214,26 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			RunConfigPlugin.errorLogger(getName(),"Middleware Repository File", e.getMessage());
 		}
 
-		try {
+/*		try {
 			textResourceType.setText(configuration.getAttribute(
 					ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"Resource Type File", e.getMessage());
-		}
+		}*/
 
-		try {
-			textResourceEnvironment.setText(configuration.getAttribute(
-					ConstantsContainer.RESOURCEENVIRONMENT_FILE, ""));
-		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"Resource Environment File", e.getMessage());
-		}
+//		try {
+//			textResourceEnvironment.setText(configuration.getAttribute(
+//					ConstantsContainer.RESOURCEENVIRONMENT_FILE, ""));
+//		} catch (CoreException e) {
+//			RunConfigPlugin.errorLogger(getName(),"Resource Environment File", e.getMessage());
+//		}
 
-		try {
-			textSystem.setText(configuration.getAttribute(
-					ConstantsContainer.SYSTEM_FILE, ""));
-		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"System File", e.getMessage());
-		}
+//		try {
+//			textSystem.setText(configuration.getAttribute(
+//					ConstantsContainer.SYSTEM_FILE, ""));
+//		} catch (CoreException e) {
+//			RunConfigPlugin.errorLogger(getName(),"System File", e.getMessage());
+//		}
 
 		try {
 			textUsage.setText(configuration.getAttribute(
@@ -246,18 +247,18 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(
-				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
-				textResourceType.getText());
-		configuration.setAttribute(
-				ConstantsContainer.RESOURCEENVIRONMENT_FILE,
-				textResourceEnvironment.getText());
-		configuration.setAttribute(ConstantsContainer.REPOSITORY_FILE,
-				textRepository.getText());
+//		configuration.setAttribute(
+//				ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
+//				textResourceType.getText());
+//		configuration.setAttribute(
+//				ConstantsContainer.RESOURCEENVIRONMENT_FILE,
+//				textResourceEnvironment.getText());
+//		configuration.setAttribute(ConstantsContainer.REPOSITORY_FILE,
+//				textRepository.getText());
 		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
 				mwtextRepository.getText());
-		configuration.setAttribute(ConstantsContainer.SYSTEM_FILE, textSystem
-				.getText());
+//		configuration.setAttribute(ConstantsContainer.SYSTEM_FILE, textSystem
+//				.getText());
 		configuration.setAttribute(ConstantsContainer.ALLOCATION_FILE,
 				textAllocation.getText());
 		configuration.setAttribute(ConstantsContainer.USAGE_FILE, textUsage
@@ -268,8 +269,8 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
-			PCM_RESOURCETYPE_FILE_URI);
+//		configuration.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
+//			PCM_RESOURCETYPE_FILE_URI);
 		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
 			PCM_GLASSFISHREPOSITORY_FILE_URI);
 	}
@@ -282,31 +283,31 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 		setErrorMessage(null);
 
-		if (!validateFilePath(textRepository.getText(),
-				ConstantsContainer.REPOSITORY_EXTENSION)) {
-			setErrorMessage("Repository is missing!");
-			return false;
-		}
+//		if (!validateFilePath(textRepository.getText(),
+//				ConstantsContainer.REPOSITORY_EXTENSION)) {
+//			setErrorMessage("Repository is missing!");
+//			return false;
+//		}
 		if (!validateFilePath(mwtextRepository.getText(),
 				ConstantsContainer.REPOSITORY_EXTENSION)) {
 			setErrorMessage("Middleware Repository is missing!");
 			return false;
 		}
-		if (!validateFilePath(textResourceType.getText(),
-				ConstantsContainer.RESOURCETYPE_EXTENSION)) {
-			setErrorMessage("ResourceTypeRepository is missing!");
-			return false;
-		}
-		if (!validateFilePath(textResourceEnvironment.getText(),
-				ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION)) {
-			setErrorMessage("ResourceEnvironment is missing!");
-			return false;
-		}
-		if (!validateFilePath(textSystem.getText(),
-				ConstantsContainer.SYSTEM_EXTENSION)) {
-			setErrorMessage("System is missing!");
-			return false;
-		}
+//		if (!validateFilePath(textResourceType.getText(),
+//				ConstantsContainer.RESOURCETYPE_EXTENSION)) {
+//			setErrorMessage("ResourceTypeRepository is missing!");
+//			return false;
+//		}
+//		if (!validateFilePath(textResourceEnvironment.getText(),
+//				ConstantsContainer.RESOURCEENVIRONMENT_EXTENSION)) {
+//			setErrorMessage("ResourceEnvironment is missing!");
+//			return false;
+//		}
+//		if (!validateFilePath(textSystem.getText(),
+//				ConstantsContainer.SYSTEM_EXTENSION)) {
+//			setErrorMessage("System is missing!");
+//			return false;
+//		}
 		if (!validateFilePath(textAllocation.getText(),
 				ConstantsContainer.ALLOCATION_EXTENSION)) {
 			setErrorMessage("Allocation is missing!");
