@@ -134,8 +134,8 @@
 
 		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
-		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/> -->
-		    	<!-- testing -->
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/>
+		    	<!-- testing 
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/">
 		    	  <filename name="**/*.java"/>
 		    	  <not>
@@ -153,7 +153,7 @@
 		    	  	<filename name="**/*uc.ac*"/>
 		    	  </not>
 		    	</fileset>
-		    	<!-- /testing -->
+		    	 /testing -->
 
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
