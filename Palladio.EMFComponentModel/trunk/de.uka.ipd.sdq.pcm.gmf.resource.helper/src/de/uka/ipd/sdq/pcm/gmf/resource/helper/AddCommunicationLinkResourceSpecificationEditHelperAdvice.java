@@ -75,29 +75,4 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 		return new SetValueCommand(setRequest);
 	}
 
-//	@Override
-//	public ICommand getBeforeEditCommand(IEditCommandRequest request) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public void configureRequest(IEditCommandRequest request) {
-//		//
-//	}
-
-//	@Override
-//	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-//		CommunicationLinkResourceSpecification spec = ResourceenvironmentFactory.eINSTANCE
-//				.createCommunicationLinkResourceSpecification();
-//
-//		SetRequest setRequest = new SetRequest(
-//				(LinkingResource) request.getElementsToEdit(),
-//				ResourceenvironmentPackage.eINSTANCE
-//						.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
-//				spec);
-//
-//		return new SetValueCommand(setRequest);
-//	}
-
 }

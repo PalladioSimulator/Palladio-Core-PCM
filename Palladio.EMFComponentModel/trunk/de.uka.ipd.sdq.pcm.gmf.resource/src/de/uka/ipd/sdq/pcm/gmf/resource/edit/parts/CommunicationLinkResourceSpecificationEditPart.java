@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.resource.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -24,7 +23,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.CommunicationLinkResourceSpecificationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenLatencyDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.OpenThroughputDialog;
@@ -116,6 +114,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureThroughputLabelFigure());
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -127,11 +130,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.getFigureLatencyLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof WrappingLabel3EditPart) {
-			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureThroughputLabelFigure());
-			return true;
-		}
 		return false;
 	}
 
@@ -139,13 +137,13 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof WrappingLabel2EditPart) {
-			return true;
-		}
-		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
