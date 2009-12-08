@@ -44,14 +44,21 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 		}
 	 	EObject requestElement = (EObject) request.getElementsToEdit().get(0);	 	
 		
-	 	// collect all EObjects in editing domain
-		EditingDomain editingDomain = TransactionUtil.getEditingDomain(requestElement);		 
-		EList<Resource> resources = editingDomain.getResourceSet().getResources();		
-		Collection<EObject> collectionOfAllLoadedEObjects = new ArrayList<EObject>();		
-		for(Resource r : resources) {			
-			collectionOfAllLoadedEObjects.addAll(r.getContents());			
-		}
+	 	Collection<EObject> collectionOfAllLoadedEObjects = getEObjectsOfEditingDomain(requestElement);
+		CommunicationLinkResourceType lanType = getLanType(collectionOfAllLoadedEObjects);
+		spec.setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(lanType);
+		
+		SetRequest setRequest = new SetRequest(
+				requestElement,
+				ResourceenvironmentPackage.eINSTANCE
+						.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
+				spec);
 
+		return new SetValueCommand(setRequest);
+	}
+
+	private CommunicationLinkResourceType getLanType(
+			Collection<EObject> collectionOfAllLoadedEObjects) {
 		EObjectAttributeValueCondition condition = new EObjectAttributeValueCondition(
 				ResourcetypePackage.eINSTANCE.getCommunicationLinkResourceType().getEIDAttribute(),
 				new org.eclipse.emf.query.conditions.strings.StringValue(LAN_COMMUNICATION_LINK_RESOURCE_TYPE) 
@@ -62,17 +69,18 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 		);
 		IQueryResult queryResult = statement.execute();
 		CommunicationLinkResourceType lanType = (CommunicationLinkResourceType)queryResult.iterator().next();
-		
-		spec.setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(lanType);
-		
-		
-		SetRequest setRequest = new SetRequest(
-				requestElement,
-				ResourceenvironmentPackage.eINSTANCE
-						.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
-				spec);
+		return lanType;
+	}
 
-		return new SetValueCommand(setRequest);
+	private Collection<EObject> getEObjectsOfEditingDomain(EObject requestElement) {
+		// collect all EObjects in editing domain
+		EditingDomain editingDomain = TransactionUtil.getEditingDomain(requestElement);		 
+		EList<Resource> resources = editingDomain.getResourceSet().getResources();		
+		Collection<EObject> collectionOfAllLoadedEObjects = new ArrayList<EObject>();		
+		for(Resource r : resources) {			
+			collectionOfAllLoadedEObjects.addAll(r.getContents());			
+		}
+		return collectionOfAllLoadedEObjects;
 	}
 
 }
