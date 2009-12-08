@@ -128,14 +128,14 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureMTTRFigure());
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
-			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
-			return true;
-		}
 		if (childEditPart instanceof WrappingLabelEditPart) {
 			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureProcessingRateFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureSchedulingPolicyFigure());
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
@@ -153,10 +153,10 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
+		if (childEditPart instanceof WrappingLabelEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof WrappingLabelEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {

@@ -127,9 +127,11 @@ public class PalladioComponentModelPaletteFactory {
 				Messages.Connection5CreationTool_desc, types);
 		entry.setId("createConnection5CreationTool"); //$NON-NLS-1$
 		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001));
-		entry.setLargeIcon(entry.getSmallIcon());
+				.setSmallIcon(PalladioComponentModelDiagramEditorPlugin
+						.findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
+		entry
+				.setLargeIcon(PalladioComponentModelDiagramEditorPlugin
+						.findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
 		return entry;
 	}
 

@@ -50,10 +50,12 @@
           description="Create new Connection">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path=""
-            bundle=""/>
+            path="/icons/full/obj16/CommunicationLink.gif"
+            bundle="de.uka.ipd.sdq.pcm.edit"/>
         <largeIcon
-            xsi:type="gmftool:BundleImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="/icons/full/obj16/CommunicationLink.gif"
+            bundle="de.uka.ipd.sdq.pcm.edit"/>
       </tools>
     </tools>
   </palette>

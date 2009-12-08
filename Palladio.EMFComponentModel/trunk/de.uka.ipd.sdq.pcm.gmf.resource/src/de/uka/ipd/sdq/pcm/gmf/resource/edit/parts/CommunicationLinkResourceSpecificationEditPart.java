@@ -114,6 +114,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureThroughputLabelFigure());
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -125,11 +130,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.getFigureLatencyLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof WrappingLabel3EditPart) {
-			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureThroughputLabelFigure());
-			return true;
-		}
 		return false;
 	}
 
@@ -137,13 +137,13 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof WrappingLabel2EditPart) {
-			return true;
-		}
-		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
