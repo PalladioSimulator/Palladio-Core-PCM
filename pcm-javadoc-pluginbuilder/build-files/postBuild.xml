@@ -122,9 +122,9 @@
 	<!-- ================================================= -->
 	<target name="javadoc-pcm" description="Generate JavaDoc for the project">		
 			<echo>starting to create JavaDoc PCM...</echo>		
-			<mkdir dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/javadoc/"/>
+			<mkdir dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder.3.5/javadoc/"/>
 		    <javadoc 
-		    	destdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/javadoc/"
+		    	destdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder.3.5/javadoc/"
 		    	author="true" 
 		    	defaultexcludes="yes" 
 		    	use="true" 
@@ -134,7 +134,27 @@
 
 		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
+		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/> -->
+		    	<!-- testing -->
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/">
+		    	  <filename name="**/*.java"/>
+		    	  <not>
+		    	    <filename name="**/*ca.umontreal*"/>
+		    	  	<filename name="**/*ch.ethz*"/>
+		    	  	<filename name="**/*de.desmoj*"/>
+		    	  	<filename name="**/*de.ikv*"/>
+		    	  	<filename name="**/*LQNModel*"/>
+		    	  	<filename name="**/*org.antlr*"/>
+		    	  	<filename name="**/*org.apache*"/>
+		    	  	<filename name="**/*org.hibernate*"/>
+		    	  	<filename name="**/*org.jfree*"/>
+		    	  	<filename name="**/*org.opt4j*"/>
+		    	  	<filename name="**/*org.rosuda*"/>
+		    	  	<filename name="**/*uc.ac*"/>
+		    	  </not>
+		    	</fileset>
+		    	<!-- /testing -->
+
 	    </javadoc>
 		<echo>...finished JavaDoc PCM.</echo>	
 	</target>
