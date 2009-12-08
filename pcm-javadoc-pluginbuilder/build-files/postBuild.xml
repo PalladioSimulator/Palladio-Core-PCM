@@ -136,7 +136,7 @@
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
 		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/> -->
 		    	
-		    	<fileset dir="$/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" casesensitive="yes">
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" casesensitive="yes">
 		    	  <include name="**/*.java"/>
 		    	  <exclude name="**/*ca.umontreal*"/>
 		    	  <exclude name="**/*ch.ethz*"/>
