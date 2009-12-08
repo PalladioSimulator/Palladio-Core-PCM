@@ -21,14 +21,14 @@
                class="de.uka.ipd.sdq.pcm.gmf.resource.helper.LatencyEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecificationAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_2002">
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002">
          </adviceBinding>
-         <adviceBinding 
+         <!--<adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.resource.helper.ThroughputEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecificationAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_2002">
-         </adviceBinding>
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002">
+         </adviceBinding>-->
       </metamodel>
    </extension>
 

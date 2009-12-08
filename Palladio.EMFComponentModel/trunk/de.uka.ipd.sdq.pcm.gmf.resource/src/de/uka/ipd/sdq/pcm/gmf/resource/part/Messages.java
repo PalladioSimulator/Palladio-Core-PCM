@@ -261,42 +261,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CommunicationLinkResourceSpecification2CreationTool_title;
+	public static String LinkingResource2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CommunicationLinkResourceSpecification2CreationTool_desc;
+	public static String LinkingResource2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LinkingResource3CreationTool_title;
+	public static String ProcessingResourceSpecification3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LinkingResource3CreationTool_desc;
+	public static String ProcessingResourceSpecification3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ProcessingResourceSpecification4CreationTool_title;
+	public static String Connection4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ProcessingResourceSpecification4CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Connection5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Connection5CreationTool_desc;
+	public static String Connection4CreationTool_desc;
 
 	/**
 	 * @generated

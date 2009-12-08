@@ -36,11 +36,9 @@ public class PalladioComponentModelPaletteFactory {
 		PaletteGroup paletteContainer = new PaletteGroup(Messages.Pcm1Group_title);
 		paletteContainer.setId("createPcm1Group"); //$NON-NLS-1$
 		paletteContainer.add(createResourceContainer1CreationTool());
-		paletteContainer
-				.add(createCommunicationLinkResourceSpecification2CreationTool());
-		paletteContainer.add(createLinkingResource3CreationTool());
-		paletteContainer.add(createProcessingResourceSpecification4CreationTool());
-		paletteContainer.add(createConnection5CreationTool());
+		paletteContainer.add(createLinkingResource2CreationTool());
+		paletteContainer.add(createProcessingResourceSpecification3CreationTool());
+		paletteContainer.add(createConnection4CreationTool());
 		return paletteContainer;
 	}
 
@@ -64,32 +62,13 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCommunicationLinkResourceSpecification2CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CommunicationLinkResourceSpecification2CreationTool_title,
-				Messages.CommunicationLinkResourceSpecification2CreationTool_desc,
-				types);
-		entry.setId("createCommunicationLinkResourceSpecification2CreationTool"); //$NON-NLS-1$
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createLinkingResource3CreationTool() {
+	private ToolEntry createLinkingResource2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.LinkingResource3CreationTool_title,
-				Messages.LinkingResource3CreationTool_desc, types);
-		entry.setId("createLinkingResource3CreationTool"); //$NON-NLS-1$
+				Messages.LinkingResource2CreationTool_title,
+				Messages.LinkingResource2CreationTool_desc, types);
+		entry.setId("createLinkingResource2CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResource_2003));
@@ -100,14 +79,14 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createProcessingResourceSpecification4CreationTool() {
+	private ToolEntry createProcessingResourceSpecification3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ProcessingResourceSpecification4CreationTool_title,
-				Messages.ProcessingResourceSpecification4CreationTool_desc, types);
-		entry.setId("createProcessingResourceSpecification4CreationTool"); //$NON-NLS-1$
+				Messages.ProcessingResourceSpecification3CreationTool_title,
+				Messages.ProcessingResourceSpecification3CreationTool_desc, types);
+		entry.setId("createProcessingResourceSpecification3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001));
@@ -118,14 +97,14 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createConnection5CreationTool() {
+	private ToolEntry createConnection4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(PalladioComponentModelElementTypes.LinkingResourceFromResourceContainer_LinkingResource_4001);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Connection5CreationTool_title,
-				Messages.Connection5CreationTool_desc, types);
-		entry.setId("createConnection5CreationTool"); //$NON-NLS-1$
+				Messages.Connection4CreationTool_title,
+				Messages.Connection4CreationTool_desc, types);
+		entry.setId("createConnection4CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelDiagramEditorPlugin
 						.findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$

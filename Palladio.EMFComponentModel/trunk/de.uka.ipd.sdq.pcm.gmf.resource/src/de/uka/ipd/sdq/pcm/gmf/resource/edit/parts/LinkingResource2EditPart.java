@@ -265,7 +265,7 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(27),
 					getMapMode().DPtoLP(27)));
 			this.setLineWidth(1);
-			this.setSize(getMapMode().DPtoLP(200), getMapMode().DPtoLP(40));
+			this.setSize(getMapMode().DPtoLP(200), getMapMode().DPtoLP(400));
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));

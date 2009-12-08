@@ -114,11 +114,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel3EditPart) {
-			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureThroughputLabelFigure());
-			return true;
-		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -130,6 +125,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.getFigureLatencyLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureThroughputLabelFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -137,13 +137,13 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel3EditPart) {
-			return true;
-		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof WrappingLabel2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
@@ -309,10 +309,20 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 
 			this.add(fFigureNetworkSwitchSpecificationNameFigure);
 
+			WrappingLabel latency0 = new WrappingLabel();
+			latency0.setText("Latency:");
+
+			this.add(latency0);
+
 			fFigureLatencyLabelFigure = new WrappingLabel();
 			fFigureLatencyLabelFigure.setText("");
 
 			this.add(fFigureLatencyLabelFigure);
+
+			WrappingLabel throughput0 = new WrappingLabel();
+			throughput0.setText("Throughput:");
+
+			this.add(throughput0);
 
 			fFigureThroughputLabelFigure = new WrappingLabel();
 			fFigureThroughputLabelFigure.setText("");

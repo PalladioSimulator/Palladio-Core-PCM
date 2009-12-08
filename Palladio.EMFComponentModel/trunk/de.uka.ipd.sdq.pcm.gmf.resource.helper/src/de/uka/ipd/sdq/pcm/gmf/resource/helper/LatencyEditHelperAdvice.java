@@ -20,7 +20,7 @@ public class LatencyEditHelperAdvice extends AbstractEditHelperAdvice
 		implements IEditHelperAdvice {
 
 	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+	protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
 		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification("");
 

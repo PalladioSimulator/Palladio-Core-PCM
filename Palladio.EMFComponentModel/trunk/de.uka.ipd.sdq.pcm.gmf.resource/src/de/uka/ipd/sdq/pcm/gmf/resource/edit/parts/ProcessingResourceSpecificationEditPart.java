@@ -123,11 +123,6 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureMTTRFigure());
-			return true;
-		}
 		if (childEditPart instanceof WrappingLabelEditPart) {
 			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureProcessingRateFigure());
@@ -143,6 +138,11 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureMTTFFigure());
 			return true;
 		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTRFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -150,9 +150,6 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			return true;
-		}
 		if (childEditPart instanceof WrappingLabelEditPart) {
 			return true;
 		}
@@ -160,6 +157,9 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
 		return false;

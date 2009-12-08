@@ -64,7 +64,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
           <diagramNode
               href="resourceeditor.gmfgraph#ProcessingResourceSpecification"/>
           <compartments>
@@ -88,7 +88,7 @@
           href="../../pcm.ecore#//resourceenvironment/LinkingResource"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="resourceeditor.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="resourceeditor.gmfgraph#NetworkSwitch"/>
       <children
@@ -117,9 +117,6 @@
             <diagramLabel
                 href="resourceeditor.gmfgraph#ThroughputLabel"/>
           </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="resourceeditor.gmfgraph#NetworkSwitchSpecification"/>
         </ownedChild>
@@ -134,7 +131,7 @@
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.4"/>
+        href="resourceeditor.gmftool#//@palette/@tools.0/@tools.3"/>
     <diagramLink
         href="resourceeditor.gmfgraph#NetworkConnection"/>
     <linkMetaFeature

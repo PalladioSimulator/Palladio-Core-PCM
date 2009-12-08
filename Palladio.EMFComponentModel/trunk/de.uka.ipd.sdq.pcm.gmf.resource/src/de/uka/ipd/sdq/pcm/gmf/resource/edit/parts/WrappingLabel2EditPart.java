@@ -198,14 +198,10 @@ public class WrappingLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**

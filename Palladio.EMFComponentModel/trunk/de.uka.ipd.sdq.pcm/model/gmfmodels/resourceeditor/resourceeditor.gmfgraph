@@ -167,16 +167,24 @@
             text="Network Switch Specification"/>
         <children
             xsi:type="gmfgraph:Label"
+            name="Latency"
+            text="Latency:"/>
+        <children
+            xsi:type="gmfgraph:Label"
             name="LatencyLabelFigure"
             text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="Throughput"
+            text="Throughput:"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ThroughputLabelFigure"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.4"/>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
