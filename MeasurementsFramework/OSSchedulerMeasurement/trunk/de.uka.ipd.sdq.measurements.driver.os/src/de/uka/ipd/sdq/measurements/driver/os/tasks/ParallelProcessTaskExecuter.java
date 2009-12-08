@@ -5,7 +5,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
-import de.uka.ipd.sdq.measurements.driver.common.tasks.FinishIndicator;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskFinishIndicator;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskExecuterFactory;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskListener;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
@@ -17,8 +17,8 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
 public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		
 	private AbstractTaskExecuter myOwnTaskExecuter = null;
-	private FinishIndicator myOwnTaskFinishIndicator = null;
-	private boolean[] isMyOwnTaskFinished = null;
+	private TaskFinishIndicator myOwnTaskFinishIndicator = null;
+	private boolean isMyOwnTaskFinished = false;
 	private int[] childProcessTaskIds = null;
 	private List<Integer> completedNestedTasks = new ArrayList<Integer>();
 	
@@ -26,7 +26,7 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 	private boolean stopUponFirstTaskCompleted = true;
 	private boolean firstTaskCompleted = false;
 	
-	public ParallelProcessTaskExecuter(RmiParallelProcessTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+	public ParallelProcessTaskExecuter(RmiParallelProcessTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		super(task, numberOfIterations, finishIndicator);
 		//MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() + ") ...");
 		//stopUponFirstTaskCompleted = task.getStopUponFirstTaskCompleted();
@@ -34,28 +34,20 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		
 	}
 	
-	private boolean isAlreadyPrepared = false;
 	private int numberOfChildTasks = 0;
 	
-	protected boolean prepare(final int iteration) {
-		// Do the following preparation only once.
-		if (isAlreadyPrepared == true) {
-			return true;
-		}
-		
-		if (isMyOwnTaskFinished == null) {
-			isMyOwnTaskFinished = new boolean[numberOfIterations];
-		}
-		
+	@Override
+	public boolean prepare() {
+				
 		// The first parallel task is not executed on a child process.
 		RmiAbstractTask ownRmiTask  = ((RmiParallelProcessTask)task).getTasks().get(0);
-		FinishIndicator finishIndicator = new FinishIndicator();
+		TaskFinishIndicator finishIndicator = new TaskFinishIndicator();
 		myOwnTaskExecuter = TaskExecuterFactory.getInstance().convertTask(ownRmiTask, numberOfIterations, finishIndicator);
 		myOwnTaskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				synchronized (ParallelProcessTaskExecuter.this) {
 					numberOfCompletedTasks++;
-					isMyOwnTaskFinished[iteration] = true;
+					isMyOwnTaskFinished = true;
 					if (stopUponFirstTaskCompleted == true) {
 						firstTaskCompleted = true;
 					}
@@ -64,6 +56,11 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 					myOwnTaskExecuter.removeTaskListener(this);
 				}
 			}
+
+			public void taskExecutionFailed(int taskId, int completedIterations) {
+				//TODO				
+			}
+			
 		});
 		myOwnTaskFinishIndicator = finishIndicator;
 		
@@ -92,7 +89,6 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 				numberOfChildTasks++;
 			}
 		}
-		isAlreadyPrepared = true;
 		return true;
 	}
 	
@@ -100,6 +96,7 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		numberOfCompletedTasks = 0;
 		int totalNumberOfTasks = numberOfChildTasks + 1;
 		completedNestedTasks.clear();
+		isMyOwnTaskFinished = false;
 		new Thread(new Runnable() {
 
 			@Override
@@ -130,6 +127,19 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 					}
 				}
 				
+				public void taskExecutionFailed(int taskId, int completedIterations) {
+					//TODO The ParallelProcessTaskExecuter should be notified that an internal task failed.
+					synchronized (ParallelProcessTaskExecuter.this) {
+						numberOfCompletedTasks++;
+						if (stopUponFirstTaskCompleted == true) {
+							firstTaskCompleted = true;
+						}
+						completedNestedTasks.add(taskId);
+						ParallelProcessTaskExecuter.this.notify();
+						ChildProcessManager.getInstance().removeTaskListener(this, childProcessNumber);
+					}
+				}
+				
 			}, procNumber);
 			ChildProcessManager.getInstance().executeTask(childProcessTaskIds[i], i, iteration);
 		}
@@ -137,16 +147,10 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		while (numberOfCompletedTasks < totalNumberOfTasks) {
 			try {
 				if (firstTaskCompleted == true) {
-					if (isMyOwnTaskFinished[iteration] == false) {
+					if (isMyOwnTaskFinished == false) {
 						// Task running in the own process has not yet finished.
 						myOwnTaskFinishIndicator.setFinishSignal(true);
-						/*try {
-							myOwnTaskExecuters[iteration].signalizeFinish();
-							synchronized (myOwnTaskExecuters[iteration]) {
-								myOwnTaskExecuters[iteration].notify();
-							}
-						} catch (IllegalMonitorStateException e) {
-						}*/
+						
 					} else {
 						for (int i=0; i<numberOfChildTasks; i++) {
 							if (!completedNestedTasks.contains(childProcessTaskIds[i])) {
@@ -172,9 +176,6 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 	@Override
 	public void storeResults() {
 		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
-		/*for (int i=0; i<myOwnTaskExecuters.length; i++) {
-			myOwnTaskExecuter.storeResults();
-		}*/
 		myOwnTaskExecuter.storeResults();
 		
 		// Child process results are stored separately. Do nothing more.
@@ -189,7 +190,6 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		myOwnTaskExecuter.cleanup();
 		completedNestedTasks.clear();
 		myOwnTaskExecuter = null;
-		isMyOwnTaskFinished = null;
 	}
 
 }

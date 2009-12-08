@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.MandelbrotDemand
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.WaitDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
-import de.uka.ipd.sdq.measurements.driver.common.tasks.FinishIndicator;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskFinishIndicator;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementTask;
@@ -21,7 +21,7 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 	protected IDemandStrategy theStrategy = null;
 	private long measurementTime = 0L;
 
-	public ResourceStrategyMeasurementTaskExecuter(RmiResourceStrategyMeasurementTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+	public ResourceStrategyMeasurementTaskExecuter(RmiResourceStrategyMeasurementTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		super(task, numberOfIterations, finishIndicator);
 		measurementTime = task.getMeasurementTime();
 		switch (task.getDemand()) {
@@ -55,22 +55,16 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 		//System.out.println("RES STRAT " + task.getId()+ " Iter. " + iteration + " consumed!");
 
 	}
-	
-	private boolean isAlreadyPrepared = false;
 
 	@Override
-	protected boolean prepare(int iteration) {
-		// Do preparation only once.
-		if (isAlreadyPrepared == false) {
-			String calibrationFilePath = PropertyManager.getInstance().getCalibrationFilePath();
-			if ((calibrationFilePath != null) && (!calibrationFilePath.equals(""))) {
-				Properties properties = new Properties();
-				properties.setProperty("CalibrationPath", calibrationFilePath);
-				theStrategy.setProperties(properties);
-			}
-			theStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, 1000);
-			isAlreadyPrepared = true;
+	public boolean prepare() {
+		String calibrationFilePath = PropertyManager.getInstance().getCalibrationFilePath();
+		if ((calibrationFilePath != null) && (!calibrationFilePath.equals(""))) {
+			Properties properties = new Properties();
+			properties.setProperty("CalibrationPath", calibrationFilePath);
+			theStrategy.setProperties(properties);
 		}
+		theStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, 1000);
 		return true;
 	}
 	

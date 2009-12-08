@@ -31,7 +31,7 @@ public class TaskExecuterFactory implements TaskExecuterFactoryInterface{
 	 * the corresponding factory method of the registered subfactories are called
 	 * (Chain of Responsibility pattern)
 	 */
-	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, FinishIndicator finishIndicator) {
+	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, TaskFinishIndicator finishIndicator) {
 		if (rmiTask.getClass().equals(RmiSequenceTask.class)) {
 			SequenceTaskExecuter sequenceTaskExecuter = new SequenceTaskExecuter((RmiSequenceTask)rmiTask, numberOfTaskIterations, finishIndicator);
 			sequenceTaskExecuter.prepare();

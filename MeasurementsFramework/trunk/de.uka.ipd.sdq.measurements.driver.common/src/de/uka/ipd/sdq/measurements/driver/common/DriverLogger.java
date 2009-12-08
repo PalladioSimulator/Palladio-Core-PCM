@@ -11,6 +11,13 @@ public class DriverLogger {
 			System.err.println(logMessage);
 		}
 	}
+	
+	public static void logError(String logMessage, Throwable t) {
+		if (LOGGING) {
+			System.err.println(logMessage);
+			System.err.println("  Exception: " + t.getMessage());
+		}
+	}
 
 	public static void log(String logMessage) {
 		if (LOGGING) {

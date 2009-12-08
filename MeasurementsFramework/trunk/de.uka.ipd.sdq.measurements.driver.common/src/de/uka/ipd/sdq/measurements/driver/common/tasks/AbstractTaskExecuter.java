@@ -18,20 +18,21 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	
 	private long[] startTimes;
 	private long[] endTimes;
-	private long startSystemTime = 0L;
-	private long startSystemNanoTime = 0L;
+	//private long startSystemTime = 0L;
+	//private long startSystemNanoTime = 0L;
 	private boolean performAllIterations = true;
 	private int numberOfExecutedTasks = 0;
 	protected boolean finishSignal = false;
-	protected FinishIndicator finishIndicator;
+	protected TaskFinishIndicator finishIndicator;
 	private boolean doMeasuring = false;
 	
-	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		this();
 		this.task = task;
 		doMeasuring = task.getSensor();
 		this.finishIndicator = finishIndicator;
 		this.numberOfIterations = numberOfIterations;
+		this.numberOfIterationsToRun = numberOfIterations;
 		if (doMeasuring) {
 			startTimes = new long[numberOfIterations];
 			endTimes = new long[numberOfIterations];
@@ -39,65 +40,41 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	}
 
 	protected RmiAbstractTask task = null;
+	// The total number of iterations
 	protected int numberOfIterations = 1;
+	// A task can also be called to run just a specific amount of iterations.
+	protected int numberOfIterationsToRun = 1;
 	//protected int numberOfExecutedIterations = 0;
 
 	public RmiAbstractTask getTask() {
 		return task;
 	}
 	
-	private synchronized void work(int numberOfIterationsToRun) {
-		if (doMeasuring) {
+	private synchronized void work(int iterationsToRun) {
+		/*if (doMeasuring) {
 			startSystemTime = System.currentTimeMillis();
 			startSystemNanoTime = System.nanoTime();
-		}
-		if (performAllIterations == true) {
-			for (int numberOfExecutedIterations=0; numberOfExecutedIterations<numberOfIterations; numberOfExecutedIterations++) {
-				if (doMeasuring) {
-					startTimes[numberOfExecutedIterations] = System.nanoTime();
-				}
-				doWork(numberOfExecutedIterations);
-				if (doMeasuring) {
-					endTimes[numberOfExecutedIterations] = System.nanoTime();
-				}
-				numberOfExecutedTasks++;
-				if ((finishIndicator != null) && (finishIndicator.getFinishSignal())) {
-				//if (finishSignal == true) {
-					signalizeFinish();
-					break;
-				}
+		}*/
+		int numberOfExecutedIterations=0;
+		for (int i=numberOfExecutedTasks; i<(numberOfExecutedTasks+iterationsToRun); i++) {
+			if (doMeasuring) {
+				startTimes[i] = System.nanoTime();
 			}
-		} else {
-			int numberOfExecutedIterations=0;
-			for (int i=numberOfExecutedTasks; i<(numberOfExecutedTasks+numberOfIterationsToRun); i++) {
-				if (doMeasuring) {
-					startTimes[i] = System.nanoTime();
-				}
-				doWork(i);
-				if (doMeasuring) {
-					endTimes[i] = System.nanoTime();
-				}
-				numberOfExecutedIterations++;
-				//if (finishSignal == true) {
-				if ((finishIndicator != null) && (finishIndicator.getFinishSignal())) {
-					signalizeFinish();
-					break;
-				}
+			doWork(i);
+			if (doMeasuring) {
+				endTimes[i] = System.nanoTime();
 			}
-			numberOfExecutedTasks += numberOfExecutedIterations;
+			numberOfExecutedIterations++;
+			//if (finishSignal == true) {
+			if ((finishIndicator != null) && (finishIndicator.getFinishSignal())) {
+				signalizeFinish();
+				break;
+			}
 		}
+		numberOfExecutedTasks += numberOfExecutedIterations;
 	}
-	
-	public boolean prepare() {
-		for (int i=0; i<numberOfIterations; i++) {
-			if (!prepare(i)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	protected abstract boolean prepare(int iteration);
+		
+	public abstract boolean prepare();
 	
 	protected abstract void doWork(int iteration);
 		
@@ -110,7 +87,7 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	}
 	
 	public void run() {
-		this.work(numberOfIterations);
+		this.work(numberOfIterationsToRun);
 		fireTaskCompleted(task.getId(), numberOfExecutedTasks);
 	}
 	
@@ -128,7 +105,7 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	
 	protected abstract void doCleanup();
 		
-	public RmiResult getTaskResult() {
+	public synchronized RmiResult getTaskResult() {
 		if (task.getSensor() == false) {
 			return null;
 		}
@@ -141,13 +118,10 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 		return result;
 	}
 	
-	protected abstract void signalizeFinish();/* {
-		finishSignal = true;
-		return true;
-	}*/
+	protected abstract void signalizeFinish();
 
-	public void setPerformAllIterations(boolean allIterations) {
-		performAllIterations = allIterations;
+	public void setNumberOfIterationsToRun(int numberOfIterationsToRun) {
+		this.numberOfIterationsToRun = numberOfIterationsToRun;
 		
 	}
 	

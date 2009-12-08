@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.measurements.driver.os;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
@@ -40,7 +41,7 @@ public class OSDriverHelper {
 			output.flush();
 			output.close();
 
-		} catch (Exception e) {
+		} catch (IOException e) {
 			DriverLogger.logError("File update failed!");
 			return false;
 		}

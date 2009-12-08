@@ -259,7 +259,7 @@ class FileSystemButtonSelectionAdapter extends SelectionAdapter {
 	 */
 	private void setOpenFileDialogResultToTextField(Text textField, final String EXTENSION) {
 		String resultOpenFileDialog = openResourceDialog(EXTENSION);
-		if (!resultOpenFileDialog.equals(new String(""))) {
+		if (!resultOpenFileDialog.equals("")) {
 			textField.setText(resultOpenFileDialog);			
 		}
 		// Otherwise the default value of textField would not be changed.
@@ -273,7 +273,7 @@ class FileSystemButtonSelectionAdapter extends SelectionAdapter {
 	 */
 	private void setOpenFileDialogResultToTextField(Text textField, final String[] EXTENSION) {
 		String resultOpenFileDialog = openFileDialog(EXTENSION);
-		if (!resultOpenFileDialog.equals(new String(""))) {
+		if (!resultOpenFileDialog.equals("")) {
 			textField.setText(resultOpenFileDialog);
 		}
 		// Otherwise the default value of textField would not be changed.

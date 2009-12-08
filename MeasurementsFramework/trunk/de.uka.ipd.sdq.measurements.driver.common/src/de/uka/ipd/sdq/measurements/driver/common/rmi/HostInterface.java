@@ -65,32 +65,20 @@ public interface HostInterface extends Remote {
 	 * 
 	 * @param rootTask
 	 *            the root task that contains all other tasks.
-	 * @param autostartExecution true if the prepared tasks should be executed
-	 * directly afterwards. In this case, the method returns true, but the 
-	 * preparation (and execution) goes on. 
 	 * @return true if the preparation succeeded.
 	 * @throws RemoteException
 	 */
-	boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution, int numberOfIterations) throws RemoteException;
+	boolean prepareTasks(RmiAbstractTask rootTask, int numberOfIterations) throws RemoteException;
 
 	/**
 	 * Initiate the task execution on the host. The host will call all guests to
-	 * start task execution. If the task has multiple iterations, all iterations are executed.
+	 * start task execution. The number of executions has to be specified.
 	 * 
 	 * @return
 	 * @throws RemoteException
 	 */
-	boolean executeTasks(int taskId) throws RemoteException;
+	boolean executeTasks(int taskId, int numberOfIterations) throws RemoteException;
 	
-	/**
-	 * Initiate the task execution on the host. The host will call all guests to
-	 * start task execution. If the task has multiple iterations, only one iteration is executed.
-	 * 
-	 * @return
-	 * @throws RemoteException
-	 */
-	public boolean executeOneTaskExecution(final int rootTaskId) throws RemoteException;
-
 	/**
 	 * Performs a calibration on the Host. This method does only have to be
 	 * called if no tasks are to be conducted on the Host.
@@ -146,6 +134,13 @@ public interface HostInterface extends Remote {
 	 * @param completedIterations
 	 */
 	void childTaskCompleted(int taskId, int completedIterations) throws RemoteException;
+	
+	/**
+	 * Called by a child process if a child task execution failed.
+	 * @param taskId
+	 * @param completedIterations
+	 */
+	void childTaskExecutionFailed(int taskId, int completedIterations) throws RemoteException;
 
 	HashMap<Integer, ArrayList<RmiResult>> getTaskResults() throws RemoteException;
 

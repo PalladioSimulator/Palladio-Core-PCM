@@ -11,7 +11,7 @@ public class TaskManager {
 	
 	private static TaskManager instance = null;
 
-	public static TaskManager getInstance() {
+	public static synchronized TaskManager getInstance() {
 		if (instance == null) {
 			instance = new TaskManager();
 		}
@@ -20,43 +20,20 @@ public class TaskManager {
 	
 	private TaskManager() {
 		rootTasks = new ArrayList<AbstractTaskExecuter>();
-		rootTaskFinishIndicators = new ArrayList<FinishIndicator>(); 
+		rootTaskFinishIndicators = new ArrayList<TaskFinishIndicator>(); 
 	}
 	
 	private ArrayList<AbstractTaskExecuter> rootTasks = null;
-	private ArrayList<FinishIndicator> rootTaskFinishIndicators = null;
+	private ArrayList<TaskFinishIndicator> rootTaskFinishIndicators = null;
 
-	public boolean prepareTasks(RmiAbstractTask rootTask, boolean autostartExecution, int numberOfIterations) {
-		if (autostartExecution == false) {
-			return prepareTask(rootTask, numberOfIterations);
-		}
-		boolean result = prepareTask(rootTask, numberOfIterations);
-		if (result == false) {
-			/*try {
-				Host.logError("Task preparation failed.");
-				Host.getInstance().getMaster().executionFailed("Task preparation failed.");
-			} catch (RemoteException e) {
-				Host.logError("Failed to call Master.");
-			}*/
-			return false;
-		} else {
-			/*try {
-				Host.getInstance().getMaster().startingExecution();
-			} catch (RemoteException e) {
-				Host.logError("Failed to call Master.");
-			}*/
-			return executeTasks(rootTask.getId());
-		}
-	}
-
-	private boolean prepareTask(RmiAbstractTask task, int numberOfIterations) {
-		FinishIndicator finishIndicator = new FinishIndicator(); 
-		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(task, numberOfIterations, finishIndicator));
+	public boolean prepareTasks(RmiAbstractTask rootTask,int numberOfIterations) {
+		TaskFinishIndicator finishIndicator = new TaskFinishIndicator(); 
+		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(rootTask, numberOfIterations, finishIndicator));
 		rootTaskFinishIndicators.add(finishIndicator);
-		return true;
+		return true;	
 	}
-	
-	public boolean executeTasksAsync(int taskId, boolean allIterations) {
+
+	public boolean executeTasks(int taskId, int numberOfIterationsToRun) {
 		AbstractTaskExecuter rootTaskExecuter = null;
 		for (AbstractTaskExecuter task : rootTasks) {
 			if (task.getTask().getId() == taskId) {
@@ -65,21 +42,23 @@ public class TaskManager {
 			}
 		}
 		if (rootTaskExecuter == null) {
-			/*Host.logError("Root task executer null!");
-			try {
-				Host.getInstance().getMaster().executionFailed("Root task executer null!");
-			} catch (RemoteException e) {
-				Host.logError("Failed to call Master.");
-			}*/
+			if (DriverLogger.DEBUG) {
+				DriverLogger.logDebugError("Root task executer null!");
+			}
+			fireTaskExecutionFailed(taskId, 0);
 			return false;
 		}
+		
 		rootTaskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
-				//Host.getInstance().allTasksCompleted(rootTaskExecuter);
 				fireTaskCompleted(taskId, completedIterations);
 			}
+
+			public void taskExecutionFailed(int taskId, int completedIterations) {
+				fireTaskExecutionFailed(taskId, completedIterations);
+			}
 		});
-		rootTaskExecuter.setPerformAllIterations(allIterations);
+		rootTaskExecuter.setNumberOfIterationsToRun(numberOfIterationsToRun);
 		new Thread(rootTaskExecuter).start();
 		return true;
 	}
@@ -92,22 +71,6 @@ public class TaskManager {
 		}
 		return null;
 	}
-		
-	private boolean executeTasks(int taskId) {
-		AbstractTaskExecuter rootTaskExecuter = null;
-		for (AbstractTaskExecuter task : rootTasks) {
-			if (task.getTask().getId() == taskId) {
-				rootTaskExecuter = task;
-				break;
-			}
-		}
-		if (rootTaskExecuter == null) {
-			return false;
-		}
-		rootTaskExecuter.run();
-
-		return true;
-	}
 	
 	/**
 	 * Clear all data structures of the prepared task. This also involves deleting all results stored
@@ -118,18 +81,8 @@ public class TaskManager {
 			rootTask.cleanup();
 		}
 		rootTasks.clear();
+		rootTaskFinishIndicators.clear();
 		TaskResultStorage.getInstance().cleanup();
-		/*preparedGuestTasks.clear();
-		totalNumberOfTasks = 0L;
-		currentTaskNumber = 0L;
-		for (GuestInterface guest : MidisHost.getInstance().getGuests()) {
-			try {
-				guest.cleanup();
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
-		}
-		executerId = 0L;*/
 	}
 	
 	public void storeAllResults() {
@@ -137,7 +90,22 @@ public class TaskManager {
 		for (AbstractTaskExecuter rootTaskExecuter : rootTasks) {
 			rootTaskExecuter.storeResults();
 		}
-		
+	}
+	
+	public void finishTask(int taskId) {
+		AbstractTaskExecuter rootTaskExecuter = null;
+		TaskFinishIndicator rootTaskFinishIndicator = null;
+		for (int i=0; i<rootTasks.size(); i++) {
+			if (rootTasks.get(i).getTask().getId() == taskId) {
+				rootTaskExecuter = rootTasks.get(i);
+				rootTaskFinishIndicator = rootTaskFinishIndicators.get(i);
+				break;
+			}
+		}
+		if (rootTaskExecuter == null) {
+			return;
+		}
+		rootTaskFinishIndicator.setFinishSignal(true);
 	}
 	
 	//
@@ -181,31 +149,27 @@ public class TaskManager {
 			}
 		}
 	}
+	
+	/** Fire to all registered listeners */
+	@SuppressWarnings("unchecked")
+	protected void fireTaskExecutionFailed(int taskId, int completedIterations) {
+		// If we have no listeners, do nothing.
+		if ((taskListeners != null) && !taskListeners.isEmpty()) {
+			// Make a copy of the listener list in case anyone adds or removes
+			// listeners.
+			Vector<TaskListener> targets;
+			synchronized (taskListeners) {
+				targets = (Vector<TaskListener>) taskListeners.clone();
+			}
 
-	public void finishTask(int taskId) {
-		AbstractTaskExecuter rootTaskExecuter = null;
-		FinishIndicator rootTaskFinishIndicator = null;
-		for (int i=0; i<rootTasks.size(); i++) {
-		//for (AbstractTaskExecuter task : rootTasks) {
-			if (rootTasks.get(i).getTask().getId() == taskId) {
-				rootTaskExecuter = rootTasks.get(i);
-				rootTaskFinishIndicator = rootTaskFinishIndicators.get(i);
-				break;
+			// Walk through the listener list and call the listener method in
+			// each.
+			Enumeration<TaskListener> e = targets.elements();
+			while (e.hasMoreElements()) {
+				TaskListener l = (TaskListener) e.nextElement();
+				l.taskExecutionFailed(taskId, completedIterations);
 			}
 		}
-		if (rootTaskExecuter == null) {
-			return;
-		}
-		rootTaskFinishIndicator.setFinishSignal(true);
-		/*try {
-			
-			synchronized (rootTaskExecuter) {
-				rootTaskExecuter.signalizeFinish();
-				rootTaskExecuter.notify();
-			}
-		} catch (IllegalMonitorStateException e) {
-		}*/
-		
 	}
 	
 }

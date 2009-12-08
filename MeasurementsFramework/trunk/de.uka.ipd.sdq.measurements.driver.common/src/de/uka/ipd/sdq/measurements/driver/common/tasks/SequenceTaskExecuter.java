@@ -11,36 +11,30 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiSequenceTask;
 public class SequenceTaskExecuter extends AbstractTaskExecuter {
 
 	private List<AbstractTaskExecuter> taskExecuters = null;
-	private List<FinishIndicator> finishIndicators = null;
+	private List<TaskFinishIndicator> finishIndicators = null;
 
-	public SequenceTaskExecuter(RmiSequenceTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+	public SequenceTaskExecuter(RmiSequenceTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		super(task, numberOfIterations, finishIndicator);
 		//MidisHost.logDebug("Preparing sequential task (ID: " + task.getId() + ") ...");
 		//MidisHost.logDebug("Sequential task (ID: " + task.getId() + ") prepared.");
 	}
 	
-	private boolean prepared = false;
-	
 	@Override
-	protected boolean prepare(int iteration) {
-		if (prepared) {
-			return true;
-		}
+	public boolean prepare() {
 		if (taskExecuters == null) {
 			//taskExecuters = new List[numberOfIterations];
 			taskExecuters = new ArrayList<AbstractTaskExecuter>();
 		}
 		if (finishIndicators == null) {
-			finishIndicators = new ArrayList<FinishIndicator>();
+			finishIndicators = new ArrayList<TaskFinishIndicator>();
 		}
 		//ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
 		Iterator<RmiAbstractTask> taskIterator = ((RmiSequenceTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
-			FinishIndicator finishIndicator = new FinishIndicator();
+			TaskFinishIndicator finishIndicator = new TaskFinishIndicator();
 			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, numberOfIterations, finishIndicator);
 			finishIndicators.add(finishIndicator);
-			taskExecuter.setPerformAllIterations(false);
 			if (DriverLogger.DEBUG) {
 				DriverLogger.logDebug("SequenceTaskExecuter Preparing " + taskExecuter.getTask().getClass().getSimpleName());
 			}
@@ -51,18 +45,17 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 					}
 				}
 			});*/
-			//tasks.add(taskExecuter);
+
 			taskExecuters.add(taskExecuter);
 		}
-		//taskExecuters.[iteration] = tasks;
-		prepared = true;
+
 		return true;
 	}
 	
 	@Override
 	protected void doWork(int iteration) {
 		//Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
-		Iterator<AbstractTaskExecuter> taskIterator = taskExecuters.iterator();
+		//Iterator<AbstractTaskExecuter> taskIterator = taskExecuters.iterator();
 		for (int i = 0; i<taskExecuters.size(); i++) {
 			taskExecuters.get(i).runSynchronously(1, false);
 			if (finishSignal == true) {
@@ -81,7 +74,7 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 	
 	@Override
 	protected void signalizeFinish() {
-		for (FinishIndicator finishIndicator : finishIndicators) {
+		for (TaskFinishIndicator finishIndicator : finishIndicators) {
 			finishIndicator.setFinishSignal(true);
 		}
 		finishSignal = true;

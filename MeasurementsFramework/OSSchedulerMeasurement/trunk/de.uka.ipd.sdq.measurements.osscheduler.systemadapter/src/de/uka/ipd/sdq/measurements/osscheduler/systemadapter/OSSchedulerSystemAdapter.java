@@ -83,7 +83,7 @@ public class OSSchedulerSystemAdapter {
 			return false;
 		}
 		try {
-			hostInterface.prepareTasks(rmiTask, false, 1);
+			hostInterface.prepareTasks(rmiTask, 1);
 		} catch (RemoteException e) {
 			logger.error("Failed to prepare task.");
 			OSSchedulerSystemAdapterPlugin.getDefault().getLog().log(new Status(Status.ERROR, OSSchedulerSystemAdapterPlugin.PLUGIN_ID, "Failed to prepare task.", e));
@@ -109,7 +109,7 @@ public class OSSchedulerSystemAdapter {
 			}
 		});
 		try {
-			hostInterface.executeTasks(rmiTask.getId());
+			hostInterface.executeTasks(rmiTask.getId(), 1);
 		} catch (RemoteException e) {
 			logger.error("Failed to execute experiment.");
 			OSSchedulerSystemAdapterPlugin.getDefault().getLog().log(new Status(Status.ERROR, OSSchedulerSystemAdapterPlugin.PLUGIN_ID, "Failed to execute experiment.", e));
@@ -122,7 +122,6 @@ public class OSSchedulerSystemAdapter {
 			} catch (InterruptedException e) {
 			}
 		}
-
 		if (experimentResult == null) {
 			logger.error("Experiment finished, but no experiment result status available.");
 			OSSchedulerSystemAdapterPlugin.getDefault().getLog().log(new Status(Status.ERROR, OSSchedulerSystemAdapterPlugin.PLUGIN_ID, "Experiment finished, but now experiment result status available."));

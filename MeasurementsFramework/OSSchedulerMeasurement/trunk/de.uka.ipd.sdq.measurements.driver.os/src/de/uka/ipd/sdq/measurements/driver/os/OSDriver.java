@@ -133,6 +133,10 @@ public class OSDriver {
 
 	public boolean shutdown() {
 		
+		if (DriverLogger.LOGGING) {
+			DriverLogger.log("Shutting down...");
+		}
+		
 		ChildProcessManager.getInstance().stopAllChildProcesses();
 		
 		// Start the final shutdown thread.
@@ -146,7 +150,9 @@ public class OSDriver {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 				}
-				DriverLogger.log("Exiting...");
+				if (DriverLogger.LOGGING) {
+					DriverLogger.log("Exiting...");
+				}
 				System.exit(0);
 
 			}

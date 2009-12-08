@@ -10,9 +10,8 @@ public interface SystemAdapterRmiInterface extends Remote {
 	 * 
 	 * @throws RemoteException
 	 */
-	//void experimentCompleted(HashMap<Integer, ArrayList<RmiResult>> allResults) throws RemoteException;
 	void experimentCompleted(ExperimentResult experimentResult, int rootTaskId) throws RemoteException;
-	
+		
 	/**
 	 * This method is called by the driver if it is shut down.
 	 * 

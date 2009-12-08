@@ -25,7 +25,7 @@ public class ChildProcessManager {
 	public static final int MAX_NUMBER_OF_CHILD_PROCESSES = 10;
 	private HostInterface[] childRmiInterfaces;
 
-	public static ChildProcessManager getInstance() {
+	public static synchronized ChildProcessManager getInstance() {
 		if (instance == null) {
 			instance = new ChildProcessManager();
 		}
@@ -139,57 +139,73 @@ public class ChildProcessManager {
 			return false;
 		}
 		// try to reach child process.
-		int NUMBER_OF_TRIES = 10;
-		HostInterface host = null;
-		for (int i=0; i<NUMBER_OF_TRIES; i++) {
-			host = RmiClient.getChildHost(process.getRmiIp(), process.getRmiPort());
-			if (host != null) {
-				break;
-			}
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-			}
-		}
-		String pingResult = null;
-		if (host != null) {
-			if (DriverLogger.LOGGING) {
-				DriverLogger.log("Trying to ping child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort() + "...");
-			}
-			try {
-				pingResult = host.ping();
-				if (pingResult != null) {
-					if (!pingResult.equals(Constants.RmiPingResult)) {
-						pingResult = null;
-					}
-				}
-			} catch (RemoteException e) {
-				pingResult = null;
-			}
-			if (pingResult == null) {
-				if (DriverLogger.LOGGING) {
-					DriverLogger.log("Pinging child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort() + " failed.");
-				}
-				host = null;
-			}
-			
-		}
-		
+		HostInterface host = getHostInterface(process.getRmiIp(), process.getRmiPort());
 		if (host == null) {
 			if (DriverLogger.LOGGING) {
-				DriverLogger.logError("Failed to reach child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort());
+				DriverLogger.logError("Failed to get RMI connection to child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort() + ".");
 			}
 			return false;
 		}
+		
+		if (DriverLogger.LOGGING) {
+			DriverLogger.log("Trying to ping child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort() + "...");
+		}
+		boolean pingResult = pingHost(host);
+		
+		if (pingResult == false) {
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("Pinging child process " + childProcessNumber + " on " + process.getRmiIp() + ":" + process.getRmiPort() + " failed.");
+			}
+			return false;
+		}
+		
 		childRmiInterfaces[childProcessNumber] = host;
 		try {
-			return host.prepareTasks(rootTask, false, numberOfIterations);
+			return host.prepareTasks(rootTask, numberOfIterations);
 		} catch (RemoteException e) {
 			if (DriverLogger.LOGGING) {
 				DriverLogger.logError("Failed to prepare child task: " + e.getMessage());	
 			}
 			return false;
 		}
+	}
+	
+	private HostInterface getHostInterface(String rmiIp, int rmiPort) {
+		int NUMBER_OF_TRIES = 10;
+		HostInterface host = null;
+		for (int i=0; i<NUMBER_OF_TRIES; i++) {
+			host = RmiClient.getChildHost(rmiIp, rmiPort);
+			if (host != null) {
+				break;
+			}
+			try {
+				// Wait a little bit. Maybe the child process is not ready yet.
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+			}
+		}
+		return host;
+	}
+	
+	private boolean pingHost(HostInterface host) {
+		if (host == null) {
+			return false;
+		}
+		String pingResult = null;
+		try {
+			pingResult = host.ping();
+			if (pingResult != null) {
+				if (!pingResult.equals(Constants.RmiPingResult)) {
+					pingResult = null;
+				}
+			}
+		} catch (RemoteException e) {
+			pingResult = null;
+		}
+		if (pingResult == null) {
+			return false;
+		}
+		return true;
 	}
 	
 	public void executeTask(int taskId, int childProcessNumber, int iteration) {
@@ -208,9 +224,9 @@ public class ChildProcessManager {
 		try {
 			childProcesses.put(taskId, childProcessNumber);
 			if (DriverLogger.DEBUG) {
-			DriverLogger.logDebug("Executing task " + taskId + " on child process " + childProcessNumber + ", iteration " + iteration);
+				DriverLogger.logDebug("Executing task " + taskId + " on child process " + childProcessNumber + ", iteration " + iteration);
 			}
-			childRmiInterfaces[childProcessNumber].executeOneTaskExecution(taskId);
+			childRmiInterfaces[childProcessNumber].executeTasks(taskId, 1);
 		} catch (RemoteException e) {
 			if (DriverLogger.LOGGING) {
 				DriverLogger.logError("Failed to execute task " + taskId + " on child process via RMI.");
@@ -225,8 +241,9 @@ public class ChildProcessManager {
 				try {
 					childRmiInterfaces[i].cleanup();
 				} catch (RemoteException e) {
-					//TODO
-					e.printStackTrace();
+					if (DriverLogger.LOGGING) {
+						DriverLogger.logError("Failed to cleanup child process (child process number " + i + ")", e);
+					}
 				}
 			}
 		}
@@ -305,6 +322,13 @@ public class ChildProcessManager {
 		fireTaskCompleted(taskId, completedIterations, getChildProcessNumber(taskId));
 	}
 	
+	public void childTaskExecutionFailed(int taskId, int completedIterations) {
+		if (DriverLogger.DEBUG) {
+			DriverLogger.logDebug("ChildProcessManager: Child task execution failed! Task ID: " + taskId + ", Completed iterations: " +  completedIterations);
+		}
+		fireTaskExecutionFailed(taskId, completedIterations, getChildProcessNumber(taskId));
+	}
+	
 	public void stopAllChildProcesses() {
 		for (ChildProcess c : runningProcesses) {
 			c.getProcess().destroy();
@@ -365,6 +389,37 @@ public class ChildProcessManager {
 			while (e.hasMoreElements()) {
 				TaskListener l = e.nextElement();
 				l.taskCompleted(taskId, completedIterations);
+			}
+		} else {
+			if (DriverLogger.LOGGING) {
+				DriverLogger.logError("ChildProcessManager: No listeners for task " + taskId + ", child process number: " + childProcessNumber);
+			}
+		}
+	}
+	
+	/** Fire to all registered listeners */
+	@SuppressWarnings("unchecked")
+	protected void fireTaskExecutionFailed(int taskId, int completedIterations, int childProcessNumber) {
+		// If we have no listeners, do nothing.
+		if (DriverLogger.DEBUG) {
+			DriverLogger.logDebug("ChildProcessManager: Task execution failed, notifying all listeners for task " + taskId + ", child process number " + childProcessNumber);
+		}
+		
+		if ((taskListeners[childProcessNumber] != null) && !taskListeners[childProcessNumber].isEmpty()) {
+
+			// Make a copy of the listener list in case anyone adds or removes
+			// listeners.
+			Vector<TaskListener> targets;
+			synchronized (taskListeners) {
+				targets = (Vector<TaskListener>) taskListeners[childProcessNumber].clone();
+			}
+
+			// Walk through the listener list and call the listener method in
+			// each.
+			Enumeration<TaskListener> e = targets.elements();
+			while (e.hasMoreElements()) {
+				TaskListener l = e.nextElement();
+				l.taskExecutionFailed(taskId, completedIterations);
 			}
 		} else {
 			if (DriverLogger.LOGGING) {

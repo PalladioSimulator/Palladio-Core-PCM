@@ -10,14 +10,14 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
 public class ParallelTaskExecuter extends AbstractTaskExecuter {
 
 	private List<AbstractTaskExecuter> taskExecuters = null;
-	private List<FinishIndicator> finishIndicators = null;
+	private List<TaskFinishIndicator> finishIndicators = null;
 	private List<Integer> completedNestedTasks = new ArrayList<Integer>();
 
 	private int numberOfCompletedTasks = 0;
 	private boolean stopUponFirstTaskCompleted = true;
 	private boolean firstTaskCompleted = false;
 
-	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations, FinishIndicator finishIndicator) {
+	public ParallelTaskExecuter(RmiParallelTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		super(task, numberOfIterations, finishIndicator);
 		// MidisHost.logDebug("Preparing parallel task (ID: " + task.getId() +
 		// ") ...");
@@ -27,23 +27,17 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 		// ") prepared.");
 
 	}
-	
-	private boolean prepared = false;
 
-	protected boolean prepare(int iteration) {
-		if (prepared) {
-			return true;
-		}
+	public boolean prepare() {
 		if (taskExecuters == null) {
-			//taskExecuters = new List[numberOfIterations];
 			taskExecuters = new ArrayList<AbstractTaskExecuter>();
 		}
 		if (finishIndicators == null) {
-			finishIndicators = new ArrayList<FinishIndicator>();
+			finishIndicators = new ArrayList<TaskFinishIndicator>();
 		}
 		for (int i=0; i < ((RmiParallelTask) task).getTasks().size(); i++) {
 			RmiAbstractTask rmiTask = ((RmiParallelTask) task).getTasks().get(i);
-			FinishIndicator nestedFinishIndicator = new FinishIndicator();
+			TaskFinishIndicator nestedFinishIndicator = new TaskFinishIndicator();
 			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, numberOfIterations, nestedFinishIndicator);
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
@@ -56,11 +50,23 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 						ParallelTaskExecuter.this.notify();
 					}
 				}
+
+				public void taskExecutionFailed(int taskId, int completedIterations) {
+					//TODO The ParallelTaskExecuter should be notified that an internal task failed.
+					synchronized (ParallelTaskExecuter.this) {
+						numberOfCompletedTasks++;
+						if (stopUponFirstTaskCompleted == true) {
+							firstTaskCompleted = true;
+						}
+						completedNestedTasks.add(taskId);
+						ParallelTaskExecuter.this.notify();
+					}
+					
+				}
 			});
 			finishIndicators.add(nestedFinishIndicator);
 			taskExecuters.add(taskExecuter);
 		}
-		prepared = true;
 		return true;
 	}
 
@@ -115,7 +121,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 	
 	@Override
 	protected void signalizeFinish() {
-		for (FinishIndicator finishIndicator : finishIndicators) {
+		for (TaskFinishIndicator finishIndicator : finishIndicators) {
 			finishIndicator.setFinishSignal(true);
 		}
 		finishSignal = true;
@@ -128,9 +134,6 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 	public void storeResults() {
 		TaskResultStorage.getInstance().storeTaskResult(task.getId(), getTaskResult());
 		for (int i = 0; i < ((RmiParallelTask) task).getTasks().size(); i++) {
-			/*for (int j = 0; j < numberOfIterations; j++) {
-				taskExecuters[j].get(i).storeResults();
-			}*/
 			taskExecuters.get(i).storeResults();
 		}
 	}

@@ -17,6 +17,6 @@ public interface TaskExecuterFactoryInterface {
 	 * @param numberOfTaskIterations
 	 * @return the created task executer
 	 */
-	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, FinishIndicator finishIndicator);
+	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, TaskFinishIndicator finishIndicator);
 
 }

@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 public class OSSchedulerMeasurementsJob implements IJob {
 	
 	private OSSchedulerMeasurementsConfiguration config = null;
-	private final String ExperimentSeriesControllerID = "de.uka.ipd.sdq.measurements.experimentseriescontroller.experimentseriescontroller";
+	private static final String ExperimentSeriesControllerID = "de.uka.ipd.sdq.measurements.experimentseriescontroller.experimentseriescontroller";
 	
 	public OSSchedulerMeasurementsJob(OSSchedulerMeasurementsConfiguration config) throws CoreException {
 		this.config = config;

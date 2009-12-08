@@ -5,7 +5,6 @@ import java.rmi.registry.Registry;
 
 import de.uka.ipd.sdq.measurements.driver.common.Constants;
 import de.uka.ipd.sdq.measurements.driver.common.rmi.HostInterface;
-import de.uka.ipd.sdq.measurements.driver.os.OSDriver;
 
 
 public class ShutdownHost {
@@ -14,7 +13,7 @@ public class ShutdownHost {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String hostUrl = "192.168.2.132";
+		String hostUrl = "141.21.4.217";
 		int port = 2101;
 		HostInterface hostInterface = null;
 		try {

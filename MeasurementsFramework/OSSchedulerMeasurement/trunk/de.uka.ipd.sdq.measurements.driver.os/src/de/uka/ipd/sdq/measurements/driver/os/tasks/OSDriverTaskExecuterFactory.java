@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.measurements.driver.os.tasks;
 
 import de.uka.ipd.sdq.measurements.driver.common.DriverLogger;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
-import de.uka.ipd.sdq.measurements.driver.common.tasks.FinishIndicator;
+import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskFinishIndicator;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskExecuterFactoryInterface;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiAbstractTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelProcessTask;
@@ -13,7 +13,7 @@ public class OSDriverTaskExecuterFactory implements TaskExecuterFactoryInterface
 	public OSDriverTaskExecuterFactory() {
 	}
 
-	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, FinishIndicator finishIndicator) {
+	public AbstractTaskExecuter convertTask(RmiAbstractTask rmiTask, int numberOfTaskIterations, TaskFinishIndicator finishIndicator) {
 		if (rmiTask.getClass().equals(RmiResourceStrategyMeasurementTask.class)) {
 			RmiResourceStrategyMeasurementTask measurementTask = (RmiResourceStrategyMeasurementTask) rmiTask;
 			DriverLogger.logDebug("Preparing measurement for machine " + measurementTask.getMachineIp() + ":" + measurementTask.getMachinePort());

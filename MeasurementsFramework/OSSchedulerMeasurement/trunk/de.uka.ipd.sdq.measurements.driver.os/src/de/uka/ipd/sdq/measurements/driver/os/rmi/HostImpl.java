@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResult;
 public class HostImpl implements HostInterface {
 
 	public boolean shutdown() throws RemoteException {
-		DriverLogger.log("Shutting down...");
 		return OSDriver.getInstance().shutdown();
 	}
 
@@ -53,33 +52,26 @@ public class HostImpl implements HostInterface {
 	}
 	
 
-	public boolean prepareTasks(final RmiAbstractTask rootTask, final boolean autoStartExecution, final int numberOfIterations)
+	public boolean prepareTasks(final RmiAbstractTask rootTask, final int numberOfIterations)
 			throws RemoteException {
 		// First, copy Host calibration files to Guests in case they do not have them available 
 		//MidisHostHelper.storeHostCalibrationFiles(false);
 
-		if (autoStartExecution == true) {
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					TaskManager.getInstance().prepareTasks(rootTask, autoStartExecution, numberOfIterations);
-				};
-			}).start();
-			return true;
-		}
-		return TaskManager.getInstance().prepareTasks(rootTask, autoStartExecution, numberOfIterations);
+		return TaskManager.getInstance().prepareTasks(rootTask, numberOfIterations);
 	}
 	
-	public boolean executeOneTaskExecution(final int rootTaskId) throws RemoteException {
+	/*public boolean executeOneTaskExecution(final int rootTaskId) throws RemoteException {
 		return executeTasks(rootTaskId, false);
 	}
 
 	public boolean executeTasks(final int rootTaskId) throws RemoteException {
 		return executeTasks(rootTaskId, true);
-	}
+	}*/
 	
-	private boolean executeTasks(final int rootTaskId, boolean performAllIterations) {
-		
+	public boolean executeTasks(final int rootTaskId, int numberOfIterations) {
+		if (DriverLogger.LOGGING) {
+			DriverLogger.log("Executing tasks...");
+		}
 		if (OSDriver.IS_SUB_PROCESS) {
 			TaskManager.getInstance().addTaskListener(new TaskListener() {
 
@@ -91,11 +83,28 @@ public class HostImpl implements HostInterface {
 						try {
 							OSDriver.getInstance().getParentHost().childTaskCompleted(taskId, completedIterations);
 						} catch (RemoteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							if (DriverLogger.LOGGING) {
+								DriverLogger.logError("Failed to notify parent driver about task completion.", e);
+							}
 						}
 						TaskManager.getInstance().removeTaskListener(this);
 					}
+				}
+
+				public void taskExecutionFailed(int taskId, int completedIterations) {
+					if (rootTaskId == taskId) {
+						if (DriverLogger.LOGGING) {
+							DriverLogger.logError("Task execution failed.");
+						}
+						try {
+							OSDriver.getInstance().getParentHost().childTaskExecutionFailed(taskId, completedIterations);
+						} catch (RemoteException e) {
+							if (DriverLogger.LOGGING) {
+								DriverLogger.logError("Failed to notify parent driver about task execution failure.", e);
+							}
+						}
+						TaskManager.getInstance().removeTaskListener(this);
+					}	
 				}
 				
 			});
@@ -108,11 +117,27 @@ public class HostImpl implements HostInterface {
 							if (DriverLogger.LOGGING) {
 								DriverLogger.log("All tasks executed.");
 							}
-							//OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(TaskManager.getInstance().getResults(rootTaskId));
-							OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(ExperimentResult.SUCCESS, rootTaskId);
+							OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(ExperimentResult.SUCCESS, taskId);
 						} catch (RemoteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							if (DriverLogger.LOGGING) {
+								DriverLogger.logError("Failed to notify SystemAdapter about task completion.", e);
+							}
+						}
+						TaskManager.getInstance().removeTaskListener(this);
+					}
+				}
+
+				public void taskExecutionFailed(int taskId, int completedIterations) {
+					if (rootTaskId == taskId) {
+						try {
+							if (DriverLogger.LOGGING) {
+								DriverLogger.logError("Task execution failed.");
+							}
+							OSDriver.getInstance().getSystemAdapterRmiInterface().experimentCompleted(ExperimentResult.FAILURE, taskId);
+						} catch (RemoteException e) {
+							if (DriverLogger.LOGGING) {
+								DriverLogger.logError("Failed to notify System Adapter about task execution failure.", e);
+							}
 						}
 						TaskManager.getInstance().removeTaskListener(this);
 					}
@@ -120,7 +145,7 @@ public class HostImpl implements HostInterface {
 				
 			});
 		}
-		return TaskManager.getInstance().executeTasksAsync(rootTaskId, performAllIterations);
+		return TaskManager.getInstance().executeTasks(rootTaskId, numberOfIterations);
 	}
 
 	public long calibrate(final RmiDemand demand, int degreeOfAccuracy, boolean signalOnFinish, String masterURL,
@@ -138,7 +163,7 @@ public class HostImpl implements HostInterface {
 
 	public void cleanup() throws RemoteException {
 		if (DriverLogger.LOGGING) {
-			System.out.println("Cleaning up...");	
+			DriverLogger.log("Cleaning up...");	
 		}
 		TaskManager.getInstance().clearPreparedTasks();
 		ChildProcessManager.getInstance().cleanupAllChildProcesses();
@@ -156,9 +181,14 @@ public class HostImpl implements HostInterface {
 	public void childTaskCompleted(int taskId, int completedIterations) {
 		ChildProcessManager.getInstance().childTaskCompleted(taskId, completedIterations);
 	}
+	
+	public void childTaskExecutionFailed(int taskId, int completedIterations) throws RemoteException {
+		ChildProcessManager.getInstance().childTaskExecutionFailed(taskId, completedIterations);
+	}
 
 	public void finishTask(int taskId) throws RemoteException {
 		TaskManager.getInstance().finishTask(taskId);
 	}
+
 
 }
