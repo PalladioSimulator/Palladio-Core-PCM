@@ -134,7 +134,24 @@
 
 		        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/>
+		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" includes="**/*.java"/> -->
+		    	
+		    	<fileset dir="$/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/" casesensitive="yes">
+		    	  <include name="**/*.java"/>
+		    	  <exclude name="**/*ca.umontreal*"/>
+		    	  <exclude name="**/*ch.ethz*"/>
+		    	  <exclude name="**/*de.desmoj*"/>
+		    	  <exclude name="**/*de.ikv*"/>
+		    	  <exclude name="**/*LQNModel*"/>
+		    	  <exclude name="**/*org.antlr*"/>
+		    	  <exclude name="**/*org.apache*"/>
+		    	  <exclude name="**/*org.hibernate*"/>
+		    	  <exclude name="**/*org.jfree*"/>
+		    	  <exclude name="**/*org.opt4j*"/>
+		    	  <exclude name="**/*org.rosuda*"/>
+		    	  <exclude name="**/*uc.ac*"/>
+		    	</fileset>
+
 		    	<!-- testing 
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/plugins/">
 		    	  <filename name="**/*.java"/>
