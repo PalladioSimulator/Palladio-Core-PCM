@@ -86,20 +86,15 @@ public class PalladioComponentModelInitDiagramFileAction implements
 					.logError("Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
 		}
 		if (diagramRoot == null) {
-			MessageDialog
-					.openError(
-							getShell(),
-							Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle,
-							Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage);
+			MessageDialog.openError(getShell(),
+					Messages.InitDiagramFile_ResourceErrorDialogTitle,
+					Messages.InitDiagramFile_ResourceErrorDialogMessage);
 			return;
 		}
 		Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(
 				domainModelURI, diagramRoot, editingDomain);
-		wizard
-				.setWindowTitle(NLS
-						.bind(
-								Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileWizardTitle,
-								ResourceDemandingSEFFEditPart.MODEL_ID));
+		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle,
+				ResourceDemandingSEFFEditPart.MODEL_ID));
 		PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard,
 				"InitDiagramFile"); //$NON-NLS-1$
 	}

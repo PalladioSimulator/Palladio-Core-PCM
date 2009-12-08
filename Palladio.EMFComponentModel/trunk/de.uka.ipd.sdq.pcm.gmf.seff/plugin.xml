@@ -5,15 +5,12 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 -->
 <plugin>
 
-   <extension point="org.eclipse.team.core.fileTypes">
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes
-         type="text"
-         extension="seff_diagram">
-      </fileTypes>
+      <fileTypes type="text" extension="seff_diagram"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
          type="seff_diagram"
@@ -21,7 +18,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </parser>
    </extension>
 
-   <extension point="org.eclipse.ui.editors">
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
          id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"
@@ -51,23 +48,23 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
         </category>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus">
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
       <?gmfgen generated="true"?>
       <objectContribution
-            adaptable="false"
-            id="de.uka.ipd.sdq.pcm.gmf.seff.LoadResource"
-            objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart">
+            id="de.uka.ipd.sdq.pcm.gmf.seff.InitDiagram"
+            nameFilter="*.repository"
+            objectClass="org.eclipse.core.resources.IFile">
          <action
-               class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelLoadResourceAction"
+               label="%initDiagramActionLabel"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelInitDiagramFileAction"
+               menubarPath="additions"
                enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.seff.LoadResourceAction"
-               label="%loadResourceActionLabel"
-               menubarPath="additions">
+               id="de.uka.ipd.sdq.pcm.gmf.seff.InitDiagramAction">
          </action>
-      </objectContribution>           
+      </objectContribution>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
@@ -116,61 +113,46 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </GlobalActionHandlerProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
-      <?gmfgen generated="true"?>
-      <contributionItemProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelContributionItemProvider">
-         <Priority name="Low"/>
-         <partContribution id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
-            <partAction menubarPath="/file/print" id="printPreviewAction"/>
-         </partContribution>
-      </contributionItemProvider>
-   </extension>
-
-   <extension point="org.eclipse.core.runtime.preferences">
+   
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
       <initializer class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
-   <extension point="org.eclipse.ui.preferencePages">
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff"
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff.appearance"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.appearance"
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff.appearance"
             category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff.connections"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.connections"
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff.connections"
             category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff.printing"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.printing"
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff.printing"
             category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
             category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramRulersAndGridPreferencePage">
       </page>
-      <page
-            id="de.uka.ipd.sdq.pcm.diagram.seff.pathmaps"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.pathmaps"
-            category="de.uka.ipd.sdq.pcm.diagram.seff"
-            class="org.eclipse.gmf.runtime.emf.ui.preferences.PathmapsPreferencePage">
-      </page>
    </extension>
 
-   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="de.uka.ipd.sdq.pcm.gmf.seff"
@@ -181,7 +163,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </propertyContributor>
    </extension>
 
-   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
       <?gmfgen generated="true"?>   
       <propertyTabs contributorId="de.uka.ipd.sdq.pcm.gmf.seff">
          <propertyTab
@@ -199,7 +181,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </propertyTabs>
    </extension>
 
-   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
       <?gmfgen generated="true"?>   
       <propertySections contributorId="de.uka.ipd.sdq.pcm.gmf.seff">
          <propertySection id="property.section.ConnectorAppearancePropertySection" 
@@ -233,45 +215,74 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </propertySections>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
       <viewProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="PCM SEFF Model"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2012,2010,2011,3032,3033,3034,3035,3003,3004,3005,3006,3007,3031,3009,3010,3011,3012,3026,3020,3023,3027,3013,3014,3024,3036,3037,3017,3018"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
       <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelEditPartProvider">
          <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="PCM SEFF Model"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2012,2010,2011,3032,3033,3034,3035,3003,3004,3005,3006,3007,3031,3009,3010,3011,3012,3026,3020,3023,3027,3013,3014,3024,3036,3037,3017,3018"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5002,5009,5010,5011,5012,5015,5016,5023,5029,5022,5024,5033,5034,5003,5004,5005,5008,5007,5006,5028,5020,5026,5013,5014,5027,5035,5018"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7001,7021,7030,7031,7004,7006,7007,7009,7010,7023,7024,7026,7014,7025,7032,7018,7011,7012,7016,7019"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders">
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelModelingAssistantProvider">
          <Priority name="Lowest"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart" id="ResourceDemandingSEFF_1000"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart" id="StartAction_2001"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart" id="StopAction_2002"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart" id="ExternalCallAction_2003"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart" id="LoopAction_2004"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart" id="BranchAction_2005"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart" id="InternalAction_2006"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart" id="CollectionIteratorAction_2007"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart" id="SetVariableAction_2008"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart" id="AcquireAction_2012"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart" id="ReleaseAction_2010"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart" id="ForkAction_2011"/>
+         <context elements="ResourceDemandingSEFF_1000,StartAction_2001,StopAction_2002,ExternalCallAction_2003,LoopAction_2004,BranchAction_2005,InternalAction_2006,CollectionIteratorAction_2007,SetVariableAction_2008,AcquireAction_2012,ReleaseAction_2010,ForkAction_2011"/>
       </modelingAssistantProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders">
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
       <IconProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
       <ParserProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
          <metamodelType
@@ -647,7 +658,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
    </extension>
 
-   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
       <?gmfgen generated="true"?>
       <clientContext id="de.uka.ipd.sdq.pcm.gmf.seff.TypeContext">
          <enablement>
@@ -699,7 +710,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </binding>
    </extension>
 
-   <extension point="org.eclipse.ui.navigator.viewer">
+   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
       <?gmfgen generated="true"?>
       <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
@@ -715,7 +726,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </viewerActionBinding>
    </extension>
 
-   <extension point="org.eclipse.ui.navigator.navigatorContent">
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
       <?gmfgen generated="true"?>
       <navigatorContent
             id="de.uka.ipd.sdq.pcm.gmf.seff.resourceContent" 
@@ -767,17 +778,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="repository"/>
                </and>
-               <and>
-                  <instanceof value="org.eclipse.emf.ecore.EObject"/>
-                  <test property="de.uka.ipd.sdq.pcm.gmf.seff.isDomainModelElement"/>
-               </and>
+               <instanceof value="de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <and>
-       	       <instanceof value="org.eclipse.emf.ecore.EObject"/>
-       	       <test property="de.uka.ipd.sdq.pcm.gmf.seff.isDomainModelElement"/>
-       	    </and>
+            <instanceof value="de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
@@ -791,7 +796,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </actionProvider>
    </extension>
    
-   <extension point="org.eclipse.ui.navigator.linkHelper">
+   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
       <?gmfgen generated="true"?>
       <linkHelper
             id="de.uka.ipd.sdq.pcm.gmf.seff.navigatorLinkHelper"
@@ -806,22 +811,8 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <instanceof value="de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
-   </extension><extension point="org.eclipse.ui.popupMenus">
-      <?gmfgen generated="true"?>
-      <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.seff.InitDiagram"
-            nameFilter="*.repository"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.seff.InitDiagramAction">
-         </action>
-      </objectContribution>
    </extension>
-<extension point="org.eclipse.core.expressions.propertyTesters">
+<extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
       <?gmfgen generated="true"?>
        <propertyTester
            id="de.uka.ipd.sdq.pcm.gmf.seff.URIEditorInputPropertyTester"
@@ -831,28 +822,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
            class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelUriEditorInputTester">
        </propertyTester>
    </extension>
-<extension point="org.eclipse.core.expressions.propertyTesters">
-      <?gmfgen generated="true"?>
-       <propertyTester
-           id="de.uka.ipd.sdq.pcm.gmf.seff.DomainModelElementPropertyTester"
-           type="org.eclipse.emf.ecore.EObject"
-           namespace="de.uka.ipd.sdq.pcm.gmf.seff"
-           properties="isDomainModelElement"
-           class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDomainModelElementTester">
-       </propertyTester>
-   </extension><extension id="ValidationContributionItemProvider" name="Validation"
-      point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
-      <?gmfgen generated="true"?>
-      <contributionItemProvider
-         class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelValidationProvider">
-         <Priority name="Low"/>
-         <partContribution id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
-            <partMenuGroup menubarPath="/diagramMenu/" id="validationGroup"/>
-            <partAction id="validateAction" menubarPath="/diagramMenu/validationGroup"/>
-         </partContribution>
-      </contributionItemProvider>
-   </extension>
-<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders">
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
       <?gmfgen generated="true"?>
       <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelMarkerNavigationProvider">
          <MarkerType name="de.uka.ipd.sdq.pcm.gmf.seff.diagnostic"/>
@@ -864,15 +834,15 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
       <persistent value="true"/>
-   </extension>
-<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelValidationDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
-   </extension><extension point="org.eclipse.ui.contexts">
+   </extension>
+<extension point="org.eclipse.ui.contexts" id="ui-context">
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
@@ -881,7 +851,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
    </extension>
-<extension point="org.eclipse.ui.commands">
+<extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
@@ -890,7 +860,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          id="de.uka.ipd.sdq.pcm.gmf.seff.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
-<extension point="org.eclipse.ui.bindings">
+<extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
          commandId="de.uka.ipd.sdq.pcm.gmf.seff.updateDiagram"
@@ -898,6 +868,51 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
+<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/SeffDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelCreationWizard"
+  	     id="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+<extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="de.uka.ipd.sdq.pcm.gmf.seff.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+<extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="de.uka.ipd.sdq.pcm.gmf.seff.LoadResourceAction"
+         name="Load Resource"
+         categoryId="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"
+         defaultHandler="de.uka.ipd.sdq.pcm.gmf.seff.part.LoadResourceAction"/>
+   </extension>
+
+<extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
 
 
 

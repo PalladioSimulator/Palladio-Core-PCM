@@ -19,6 +19,44 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -507,6 +545,91 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 					.add(AbstractActionSuccessor_AbstractAction_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
+	}
+
+	/**
+	 * @generated
+	 */
+	public static IElementType getElementType(int visualID) {
+		switch (visualID) {
+		case ResourceDemandingSEFFEditPart.VISUAL_ID:
+			return ResourceDemandingSEFF_1000;
+		case StartActionEditPart.VISUAL_ID:
+			return StartAction_2001;
+		case StopActionEditPart.VISUAL_ID:
+			return StopAction_2002;
+		case ExternalCallActionEditPart.VISUAL_ID:
+			return ExternalCallAction_2003;
+		case LoopActionEditPart.VISUAL_ID:
+			return LoopAction_2004;
+		case BranchActionEditPart.VISUAL_ID:
+			return BranchAction_2005;
+		case InternalActionEditPart.VISUAL_ID:
+			return InternalAction_2006;
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+			return CollectionIteratorAction_2007;
+		case SetVariableActionEditPart.VISUAL_ID:
+			return SetVariableAction_2008;
+		case AcquireActionEditPart.VISUAL_ID:
+			return AcquireAction_2012;
+		case ReleaseActionEditPart.VISUAL_ID:
+			return ReleaseAction_2010;
+		case ForkActionEditPart.VISUAL_ID:
+			return ForkAction_2011;
+		case VariableUsageEditPart.VISUAL_ID:
+			return VariableUsage_3032;
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return VariableCharacterisation_3033;
+		case VariableUsage2EditPart.VISUAL_ID:
+			return VariableUsage_3034;
+		case VariableCharacterisation2EditPart.VISUAL_ID:
+			return VariableCharacterisation_3035;
+		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour_3003;
+		case StartAction2EditPart.VISUAL_ID:
+			return StartAction_3004;
+		case StopAction2EditPart.VISUAL_ID:
+			return StopAction_3005;
+		case LoopAction2EditPart.VISUAL_ID:
+			return LoopAction_3006;
+		case InternalAction2EditPart.VISUAL_ID:
+			return InternalAction_3007;
+		case ParametricResourceDemandEditPart.VISUAL_ID:
+			return ParametricResourceDemand_3031;
+		case BranchAction2EditPart.VISUAL_ID:
+			return BranchAction_3009;
+		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+			return ProbabilisticBranchTransition_3010;
+		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour_3011;
+		case ExternalCallAction2EditPart.VISUAL_ID:
+			return ExternalCallAction_3012;
+		case AcquireAction2EditPart.VISUAL_ID:
+			return AcquireAction_3026;
+		case ReleaseAction2EditPart.VISUAL_ID:
+			return ReleaseAction_3020;
+		case ForkAction2EditPart.VISUAL_ID:
+			return ForkAction_3023;
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			return ForkedBehaviour_3027;
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
+			return CollectionIteratorAction_3013;
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour_3014;
+		case SetVariableAction2EditPart.VISUAL_ID:
+			return SetVariableAction_3024;
+		case VariableUsage3EditPart.VISUAL_ID:
+			return VariableUsage_3036;
+		case VariableCharacterisation3EditPart.VISUAL_ID:
+			return VariableCharacterisation_3037;
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
+			return GuardedBranchTransition_3017;
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour_3018;
+		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
+			return AbstractActionSuccessor_AbstractAction_4001;
+		}
+		return null;
 	}
 
 }

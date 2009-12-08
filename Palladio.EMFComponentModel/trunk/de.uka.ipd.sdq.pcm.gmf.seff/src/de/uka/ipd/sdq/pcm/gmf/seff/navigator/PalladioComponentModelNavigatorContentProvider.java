@@ -278,51 +278,65 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_ResourceDemandingSEFF_1000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view), StartActionEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(StartActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					StopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					ExternalCallActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					LoopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					BranchActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					InternalActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalActionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					CollectionIteratorActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					SetVariableActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					AcquireActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					ReleaseActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkActionEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			links
 					.addChildren(createNavigatorItems(connectedViews, links,
 							false));
@@ -340,14 +354,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_StartAction_2001_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -367,14 +383,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_StopAction_2002_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -394,27 +412,34 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_ExternalCallAction_2003_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ExternalCallActionInputVariableUsageEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionInputVariableUsageEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsageEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsage2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsage2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -435,18 +460,20 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_LoopAction_2004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -466,27 +493,35 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_BranchAction_2005_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(ProbabilisticBranchTransitionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					GuardedBranchTransitionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(GuardedBranchTransitionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -507,20 +542,24 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_InternalAction_2006_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					InternalActionResourceDemand2EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ParametricResourceDemandEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(InternalActionResourceDemand2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(ParametricResourceDemandEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -541,18 +580,20 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_CollectionIteratorAction_2007_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviour3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -572,21 +613,25 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_SetVariableAction_2008_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					SetVariableActionVariableSetter2EditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableActionVariableSetter2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsage3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsage3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -606,14 +651,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_AcquireAction_2012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -633,14 +680,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_ReleaseAction_2010_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -661,20 +710,23 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_ForkAction_2011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ForkActionForkedBehaviours2EditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ForkActionForkedBehaviours2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkedBehaviourEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -688,11 +740,14 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case VariableUsageEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					VariableUsageVariableCharacterisationEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					VariableCharacterisationEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsageVariableCharacterisationEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableCharacterisationEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -700,11 +755,14 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case VariableUsage2EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					VariableUsageVariableCharacterisation2EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					VariableCharacterisation2EditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsageVariableCharacterisation2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableCharacterisation2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -714,79 +772,102 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					CollectionIteratorAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					SetVariableAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -800,14 +881,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_StartAction_3004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -827,14 +910,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_StopAction_3005_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -855,18 +940,20 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_LoopAction_3006_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -887,20 +974,24 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_InternalAction_3007_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					InternalActionResourceDemandEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ParametricResourceDemandEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(InternalActionResourceDemandEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(ParametricResourceDemandEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -920,27 +1011,35 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_BranchAction_3009_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(ProbabilisticBranchTransitionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					GuardedBranchTransitionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(GuardedBranchTransitionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -955,8 +1054,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviour2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -966,79 +1065,102 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					CollectionIteratorAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					SetVariableAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1052,27 +1174,34 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_ExternalCallAction_3012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsageEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsageEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsage2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsage2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1092,14 +1221,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_AcquireAction_3026_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1119,14 +1250,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_ReleaseAction_3020_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
-					.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1147,20 +1280,23 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_ForkAction_3023_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ForkActionForkedBehavioursEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ForkActionForkedBehavioursEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkedBehaviourEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1174,65 +1310,95 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case ForkedBehaviourEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					CollectionIteratorAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1247,18 +1413,20 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_CollectionIteratorAction_3013_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviour3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1274,72 +1442,93 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					CollectionIteratorAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1354,20 +1543,23 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_SetVariableAction_3024_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					SetVariableActionVariableSetterEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(SetVariableActionVariableSetterEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					VariableUsage3EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsage3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1381,11 +1573,14 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case VariableUsage3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					VariableUsageVariableCharacterisation3EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					VariableCharacterisation3EditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableUsageVariableCharacterisation3EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(VariableCharacterisation3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1394,8 +1589,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case GuardedBranchTransitionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view),
-					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(ResourceDemandingBehaviour4EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1405,79 +1600,102 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			Collection result = new ArrayList();
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					ForkAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					CollectionIteratorAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					SetVariableAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1492,179 +1710,227 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_AbstractActionSuccessor_AbstractAction_4001_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(Collections
-					.singleton(view), StartActionEditPart.VISUAL_ID);
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(StartActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					StopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ExternalCallActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					LoopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					BranchActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					InternalActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalActionEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					CollectionIteratorActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					SetVariableActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					AcquireActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ReleaseActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ForkActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					ForkAction2EditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					CollectionIteratorAction2EditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					SetVariableAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					StartActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					StopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ExternalCallActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					LoopActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					BranchActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					InternalActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalActionEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CollectionIteratorActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					SetVariableActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					AcquireActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ReleaseActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ForkActionEditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StartAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					StartAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(StopAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					StopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(LoopAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					LoopAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(InternalAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					InternalAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(BranchAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					BranchAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ExternalCallAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ExternalCallAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(AcquireAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					AcquireAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ReleaseAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ReleaseAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(ForkAction2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					ForkAction2EditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CollectionIteratorAction2EditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					SetVariableAction2EditPart.VISUAL_ID);
+					PalladioComponentModelVisualIDRegistry
+							.getType(SetVariableAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {
@@ -1682,9 +1948,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getLinksSourceByType(Collection edges, int visualID) {
+	private Collection getLinksSourceByType(Collection edges, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = edges.iterator(); it.hasNext();) {
 			Edge nextEdge = (Edge) it.next();
 			View nextEdgeSource = nextEdge.getSource();
@@ -1699,9 +1964,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getLinksTargetByType(Collection edges, int visualID) {
+	private Collection getLinksTargetByType(Collection edges, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = edges.iterator(); it.hasNext();) {
 			Edge nextEdge = (Edge) it.next();
 			View nextEdgeTarget = nextEdge.getTarget();
@@ -1716,9 +1980,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getOutgoingLinksByType(Collection nodes, int visualID) {
+	private Collection getOutgoingLinksByType(Collection nodes, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = nodes.iterator(); it.hasNext();) {
 			View nextNode = (View) it.next();
 			result.addAll(selectViewsByType(nextNode.getSourceEdges(), type));
@@ -1729,9 +1992,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getIncomingLinksByType(Collection nodes, int visualID) {
+	private Collection getIncomingLinksByType(Collection nodes, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = nodes.iterator(); it.hasNext();) {
 			View nextNode = (View) it.next();
 			result.addAll(selectViewsByType(nextNode.getTargetEdges(), type));
@@ -1742,9 +2004,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getChildrenByType(Collection nodes, int visualID) {
+	private Collection getChildrenByType(Collection nodes, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = nodes.iterator(); it.hasNext();) {
 			View nextNode = (View) it.next();
 			result.addAll(selectViewsByType(nextNode.getChildren(), type));
@@ -1755,9 +2016,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
-	private Collection getDiagramLinksByType(Collection diagrams, int visualID) {
+	private Collection getDiagramLinksByType(Collection diagrams, String type) {
 		Collection result = new ArrayList();
-		String type = PalladioComponentModelVisualIDRegistry.getType(visualID);
 		for (Iterator it = diagrams.iterator(); it.hasNext();) {
 			Diagram nextDiagram = (Diagram) it.next();
 			result.addAll(selectViewsByType(nextDiagram.getEdges(), type));

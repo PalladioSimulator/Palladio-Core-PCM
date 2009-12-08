@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -24,7 +23,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -53,6 +51,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableCharacterisation3ItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
@@ -240,6 +239,11 @@ public class VariableCharacterisation3EditPart extends CompartmentEditPart
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -317,11 +321,12 @@ public class VariableCharacterisation3EditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.VariableCharacterisation_3037,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = PalladioComponentModelParserProvider
+					.getParser(
+							PalladioComponentModelElementTypes.VariableCharacterisation_3037,
+							getParserElement(),
+							PalladioComponentModelVisualIDRegistry
+									.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -429,6 +434,11 @@ public class VariableCharacterisation3EditPart extends CompartmentEditPart
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

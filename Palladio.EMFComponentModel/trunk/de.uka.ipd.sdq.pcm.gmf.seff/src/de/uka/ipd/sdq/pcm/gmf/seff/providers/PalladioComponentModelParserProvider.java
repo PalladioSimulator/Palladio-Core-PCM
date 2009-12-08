@@ -11,11 +11,11 @@ import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
@@ -28,7 +28,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPa
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
@@ -62,19 +61,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getExternalCallActionEntityName_5002Parser() {
 		if (externalCallActionEntityName_5002Parser == null) {
-			externalCallActionEntityName_5002Parser = createExternalCallActionEntityName_5002Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalCallActionEntityName_5002Parser = parser;
 		}
 		return externalCallActionEntityName_5002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createExternalCallActionEntityName_5002Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -87,19 +79,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getLoopActionEntityName_5009Parser() {
 		if (loopActionEntityName_5009Parser == null) {
-			loopActionEntityName_5009Parser = createLoopActionEntityName_5009Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			loopActionEntityName_5009Parser = parser;
 		}
 		return loopActionEntityName_5009Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createLoopActionEntityName_5009Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -112,19 +97,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getBranchActionEntityName_5011Parser() {
 		if (branchActionEntityName_5011Parser == null) {
-			branchActionEntityName_5011Parser = createBranchActionEntityName_5011Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			branchActionEntityName_5011Parser = parser;
 		}
 		return branchActionEntityName_5011Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createBranchActionEntityName_5011Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -137,19 +115,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getInternalActionEntityName_5012Parser() {
 		if (internalActionEntityName_5012Parser == null) {
-			internalActionEntityName_5012Parser = createInternalActionEntityName_5012Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			internalActionEntityName_5012Parser = parser;
 		}
 		return internalActionEntityName_5012Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createInternalActionEntityName_5012Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -162,22 +133,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getCollectionIteratorActionEntityName_5015Parser() {
 		if (collectionIteratorActionEntityName_5015Parser == null) {
-			collectionIteratorActionEntityName_5015Parser = createCollectionIteratorActionEntityName_5015Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}"); //$NON-NLS-1$
+			collectionIteratorActionEntityName_5015Parser = parser;
 		}
 		return collectionIteratorActionEntityName_5015Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createCollectionIteratorActionEntityName_5015Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0}");
-		parser.setEditorPattern("{0}");
-		parser.setEditPattern("{0}");
-		return parser;
 	}
 
 	/**
@@ -190,19 +154,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getSetVariableActionEntityName_5023Parser() {
 		if (setVariableActionEntityName_5023Parser == null) {
-			setVariableActionEntityName_5023Parser = createSetVariableActionEntityName_5023Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			setVariableActionEntityName_5023Parser = parser;
 		}
 		return setVariableActionEntityName_5023Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSetVariableActionEntityName_5023Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -215,19 +172,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getAcquireActionEntityName_5029Parser() {
 		if (acquireActionEntityName_5029Parser == null) {
-			acquireActionEntityName_5029Parser = createAcquireActionEntityName_5029Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			acquireActionEntityName_5029Parser = parser;
 		}
 		return acquireActionEntityName_5029Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createAcquireActionEntityName_5029Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -240,19 +190,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getReleaseActionEntityName_5022Parser() {
 		if (releaseActionEntityName_5022Parser == null) {
-			releaseActionEntityName_5022Parser = createReleaseActionEntityName_5022Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			releaseActionEntityName_5022Parser = parser;
 		}
 		return releaseActionEntityName_5022Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createReleaseActionEntityName_5022Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -265,19 +208,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getForkActionEntityName_5024Parser() {
 		if (forkActionEntityName_5024Parser == null) {
-			forkActionEntityName_5024Parser = createForkActionEntityName_5024Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			forkActionEntityName_5024Parser = parser;
 		}
 		return forkActionEntityName_5024Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createForkActionEntityName_5024Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -290,22 +226,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getVariableCharacterisation_3033Parser() {
 		if (variableCharacterisation_3033Parser == null) {
-			variableCharacterisation_3033Parser = createVariableCharacterisation_3033Parser();
+			EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+					.getVariableCharacterisation_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+			variableCharacterisation_3033Parser = parser;
 		}
 		return variableCharacterisation_3033Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createVariableCharacterisation_3033Parser() {
-		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
-				.getVariableCharacterisation_Type(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0} = {1}");
-		parser.setEditorPattern("{0} = {1}");
-		parser.setEditPattern("{0} = {1}");
-		return parser;
 	}
 
 	/**
@@ -318,22 +247,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getVariableCharacterisation_3035Parser() {
 		if (variableCharacterisation_3035Parser == null) {
-			variableCharacterisation_3035Parser = createVariableCharacterisation_3035Parser();
+			EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+					.getVariableCharacterisation_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+			variableCharacterisation_3035Parser = parser;
 		}
 		return variableCharacterisation_3035Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createVariableCharacterisation_3035Parser() {
-		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
-				.getVariableCharacterisation_Type(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0} = {1}");
-		parser.setEditorPattern("{0} = {1}");
-		parser.setEditPattern("{0} = {1}");
-		return parser;
 	}
 
 	/**
@@ -346,19 +268,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getLoopActionEntityName_5003Parser() {
 		if (loopActionEntityName_5003Parser == null) {
-			loopActionEntityName_5003Parser = createLoopActionEntityName_5003Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			loopActionEntityName_5003Parser = parser;
 		}
 		return loopActionEntityName_5003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createLoopActionEntityName_5003Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -371,19 +286,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getInternalActionEntityName_5005Parser() {
 		if (internalActionEntityName_5005Parser == null) {
-			internalActionEntityName_5005Parser = createInternalActionEntityName_5005Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			internalActionEntityName_5005Parser = parser;
 		}
 		return internalActionEntityName_5005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createInternalActionEntityName_5005Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -396,19 +304,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getBranchActionEntityName_5008Parser() {
 		if (branchActionEntityName_5008Parser == null) {
-			branchActionEntityName_5008Parser = createBranchActionEntityName_5008Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			branchActionEntityName_5008Parser = parser;
 		}
 		return branchActionEntityName_5008Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createBranchActionEntityName_5008Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -421,22 +322,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getProbabilisticBranchTransitionBranchProbability_5007Parser() {
 		if (probabilisticBranchTransitionBranchProbability_5007Parser == null) {
-			probabilisticBranchTransitionBranchProbability_5007Parser = createProbabilisticBranchTransitionBranchProbability_5007Parser();
+			EAttribute[] features = new EAttribute[] { SeffPackage.eINSTANCE
+					.getProbabilisticBranchTransition_BranchProbability() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("Probability: {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("Probability: {0}"); //$NON-NLS-1$
+			parser.setEditPattern("Probability: {0}"); //$NON-NLS-1$
+			probabilisticBranchTransitionBranchProbability_5007Parser = parser;
 		}
 		return probabilisticBranchTransitionBranchProbability_5007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createProbabilisticBranchTransitionBranchProbability_5007Parser() {
-		EAttribute[] features = new EAttribute[] { SeffPackage.eINSTANCE
-				.getProbabilisticBranchTransition_BranchProbability(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("Probability: {0}");
-		parser.setEditorPattern("Probability: {0}");
-		parser.setEditPattern("Probability: {0}");
-		return parser;
 	}
 
 	/**
@@ -449,19 +343,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getExternalCallActionEntityName_5006Parser() {
 		if (externalCallActionEntityName_5006Parser == null) {
-			externalCallActionEntityName_5006Parser = createExternalCallActionEntityName_5006Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalCallActionEntityName_5006Parser = parser;
 		}
 		return externalCallActionEntityName_5006Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createExternalCallActionEntityName_5006Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -474,19 +361,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getAcquireActionEntityName_5028Parser() {
 		if (acquireActionEntityName_5028Parser == null) {
-			acquireActionEntityName_5028Parser = createAcquireActionEntityName_5028Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			acquireActionEntityName_5028Parser = parser;
 		}
 		return acquireActionEntityName_5028Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createAcquireActionEntityName_5028Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -499,19 +379,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getReleaseActionEntityName_5020Parser() {
 		if (releaseActionEntityName_5020Parser == null) {
-			releaseActionEntityName_5020Parser = createReleaseActionEntityName_5020Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			releaseActionEntityName_5020Parser = parser;
 		}
 		return releaseActionEntityName_5020Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createReleaseActionEntityName_5020Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -524,19 +397,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getForkActionEntityName_5026Parser() {
 		if (forkActionEntityName_5026Parser == null) {
-			forkActionEntityName_5026Parser = createForkActionEntityName_5026Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			forkActionEntityName_5026Parser = parser;
 		}
 		return forkActionEntityName_5026Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createForkActionEntityName_5026Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -549,22 +415,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getCollectionIteratorActionEntityName_5013Parser() {
 		if (collectionIteratorActionEntityName_5013Parser == null) {
-			collectionIteratorActionEntityName_5013Parser = createCollectionIteratorActionEntityName_5013Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}"); //$NON-NLS-1$
+			collectionIteratorActionEntityName_5013Parser = parser;
 		}
 		return collectionIteratorActionEntityName_5013Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createCollectionIteratorActionEntityName_5013Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0}");
-		parser.setEditorPattern("{0}");
-		parser.setEditPattern("{0}");
-		return parser;
 	}
 
 	/**
@@ -577,19 +436,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getSetVariableActionEntityName_5027Parser() {
 		if (setVariableActionEntityName_5027Parser == null) {
-			setVariableActionEntityName_5027Parser = createSetVariableActionEntityName_5027Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			setVariableActionEntityName_5027Parser = parser;
 		}
 		return setVariableActionEntityName_5027Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSetVariableActionEntityName_5027Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -602,22 +454,15 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getVariableCharacterisation_3037Parser() {
 		if (variableCharacterisation_3037Parser == null) {
-			variableCharacterisation_3037Parser = createVariableCharacterisation_3037Parser();
+			EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+					.getVariableCharacterisation_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+			variableCharacterisation_3037Parser = parser;
 		}
 		return variableCharacterisation_3037Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createVariableCharacterisation_3037Parser() {
-		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
-				.getVariableCharacterisation_Type(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0} = {1}");
-		parser.setEditorPattern("{0} = {1}");
-		parser.setEditPattern("{0} = {1}");
-		return parser;
 	}
 
 	/**
@@ -630,19 +475,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	private IParser getGuardedBranchTransitionEntityName_5018Parser() {
 		if (guardedBranchTransitionEntityName_5018Parser == null) {
-			guardedBranchTransitionEntityName_5018Parser = createGuardedBranchTransitionEntityName_5018Parser();
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			guardedBranchTransitionEntityName_5018Parser = parser;
 		}
 		return guardedBranchTransitionEntityName_5018Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGuardedBranchTransitionEntityName_5018Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
 	}
 
 	/**
@@ -698,6 +536,16 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getGuardedBranchTransitionEntityName_5018Parser();
 		}
 		return null;
+	}
+
+	/**
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object,
+			String parserHint) {
+		return ParserService.getInstance().getParser(
+				new HintAdapter(type, object, parserHint));
 	}
 
 	/**

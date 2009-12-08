@@ -292,6 +292,7 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

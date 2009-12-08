@@ -71,6 +71,7 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends
 		 * @generated
 		 */
 		public ControlFlowConnectionFigure() {
+			this.setLineWidth(1);
 
 			setTargetDecoration(createTargetDecoration());
 		}
@@ -80,6 +81,7 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
+			df.setLineWidth(1);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

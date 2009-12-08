@@ -4,21 +4,16 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.providers;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
-import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.action.IAction;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.seff.part.ValidateAction;
 
 /**
  * @generated
  */
-public class PalladioComponentModelValidationProvider extends
-		AbstractContributionItemProvider {
+public class PalladioComponentModelValidationProvider {
 	/**
 	 * @generated
 	 */
@@ -57,17 +52,6 @@ public class PalladioComponentModelValidationProvider extends
 		} else {
 			task.run();
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IAction createAction(String actionId,
-			IWorkbenchPartDescriptor partDescriptor) {
-		if (ValidateAction.VALIDATE_ACTION_KEY.equals(actionId)) {
-			return new ValidateAction(partDescriptor);
-		}
-		return super.createAction(actionId, partDescriptor);
 	}
 
 	/**

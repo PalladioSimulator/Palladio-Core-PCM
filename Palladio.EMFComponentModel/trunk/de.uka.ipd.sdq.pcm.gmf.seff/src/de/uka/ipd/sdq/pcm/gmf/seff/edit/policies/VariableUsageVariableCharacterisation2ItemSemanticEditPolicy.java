@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableCharacterisation2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
  * @generated
@@ -19,14 +18,16 @@ public class VariableUsageVariableCharacterisation2ItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public VariableUsageVariableCharacterisation2ItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.VariableUsage_3034);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.VariableCharacterisation_3035 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(ParameterPackage.eINSTANCE
-								.getVariableUsage_VariableCharacterisation_VariableUsage());
-			}
 			return getGEFWrapper(new VariableCharacterisation2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

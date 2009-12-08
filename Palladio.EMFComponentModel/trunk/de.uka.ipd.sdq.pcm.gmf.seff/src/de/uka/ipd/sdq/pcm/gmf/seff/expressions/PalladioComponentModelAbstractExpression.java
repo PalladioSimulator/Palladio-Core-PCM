@@ -73,7 +73,7 @@ public abstract class PalladioComponentModelAbstractExpression {
 			} catch (Exception e) {
 				PalladioComponentModelSeffDiagramEditorPlugin
 						.getInstance()
-						.logError("Expression evaluation failure: " + body(), e);//$NON-NLS-1$
+						.logError("Expression evaluation failure: " + body(), e); //$NON-NLS-1$
 			}
 		}
 		return null;

@@ -3,12 +3,47 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.providers;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
+import org.eclipse.gmf.runtime.common.core.service.IOperation;
+import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.core.providers.IViewProvider;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOperation;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateEdgeViewOperation;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateNodeViewOperation;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateViewForKindOperation;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateViewOperation;
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
+import org.eclipse.gmf.runtime.diagram.ui.preferences.IPreferenceConstants;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
+import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.notation.Connector;
+import org.eclipse.gmf.runtime.notation.DecorationNode;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.MeasurementUnit;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
+import org.eclipse.gmf.runtime.notation.Routing;
+import org.eclipse.gmf.runtime.notation.Shape;
+import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.datatype.RelativeBendpoint;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.PreferenceConverter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.FontData;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
@@ -96,163 +131,100 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel6EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel7EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartmentViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionInputVariableUsage2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionInputVariableUsageViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionOutputVariableUsage2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionOutputVariableUsageViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehaviours2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehavioursViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourBehaviourCompartmentViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemand2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBranchProbabilityViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartment4ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartmentViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingSEFFViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionVariableSetter2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionVariableSetterViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisation2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisation3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisationViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsage2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsage3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisation2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisation3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisationViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel3ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel4ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel5ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel6ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabel7ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrappingLabelViewFactory;
 
 /**
  * @generated
  */
-public class PalladioComponentModelViewProvider extends AbstractViewProvider {
+public class PalladioComponentModelViewProvider extends AbstractProvider
+		implements IViewProvider {
 
 	/**
 	 * @generated
 	 */
-	protected Class getDiagramViewClass(IAdaptable semanticAdapter,
-			String diagramKind) {
-		EObject semanticElement = getSemanticElement(semanticAdapter);
-		if (ResourceDemandingSEFFEditPart.MODEL_ID.equals(diagramKind)
-				&& PalladioComponentModelVisualIDRegistry
-						.getDiagramVisualID(semanticElement) != -1) {
-			return ResourceDemandingSEFFViewFactory.class;
+	public final boolean provides(IOperation operation) {
+		if (operation instanceof CreateViewForKindOperation) {
+			return provides((CreateViewForKindOperation) operation);
 		}
-		return null;
+		assert operation instanceof CreateViewOperation;
+		if (operation instanceof CreateDiagramViewOperation) {
+			return provides((CreateDiagramViewOperation) operation);
+		} else if (operation instanceof CreateEdgeViewOperation) {
+			return provides((CreateEdgeViewOperation) operation);
+		} else if (operation instanceof CreateNodeViewOperation) {
+			return provides((CreateNodeViewOperation) operation);
+		}
+		return false;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Class getNodeViewClass(IAdaptable semanticAdapter,
-			View containerView, String semanticHint) {
-		if (containerView == null) {
-			return null;
+	protected boolean provides(CreateViewForKindOperation op) {
+		/*
+		 if (op.getViewKind() == Node.class)
+		 return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 if (op.getViewKind() == Edge.class)
+		 return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+		 */
+		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean provides(CreateDiagramViewOperation op) {
+		return ResourceDemandingSEFFEditPart.MODEL_ID.equals(op
+				.getSemanticHint())
+				&& PalladioComponentModelVisualIDRegistry
+						.getDiagramVisualID(getSemanticElement(op
+								.getSemanticAdapter())) != -1;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean provides(CreateNodeViewOperation op) {
+		if (op.getContainerView() == null) {
+			return false;
 		}
-		IElementType elementType = getSemanticElementType(semanticAdapter);
-		EObject domainElement = getSemanticElement(semanticAdapter);
+		IElementType elementType = getSemanticElementType(op
+				.getSemanticAdapter());
+		EObject domainElement = getSemanticElement(op.getSemanticAdapter());
 		int visualID;
-		if (semanticHint == null) {
+		if (op.getSemanticHint() == null) {
 			// Semantic hint is not specified. Can be a result of call from CanonicalEditPolicy.
 			// In this situation there should be NO elementType, visualID will be determined
 			// by VisualIDRegistry.getNodeVisualID() for domainElement.
 			if (elementType != null || domainElement == null) {
-				return null;
+				return false;
 			}
 			visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-					containerView, domainElement);
+					op.getContainerView(), domainElement);
 		} else {
-			visualID = PalladioComponentModelVisualIDRegistry
-					.getVisualID(semanticHint);
+			visualID = PalladioComponentModelVisualIDRegistry.getVisualID(op
+					.getSemanticHint());
 			if (elementType != null) {
-				// Semantic hint is specified together with element type.
-				// Both parameters should describe exactly the same diagram element.
-				// In addition we check that visualID returned by VisualIDRegistry.getNodeVisualID() for
-				// domainElement (if specified) is the same as in element type.
 				if (!PalladioComponentModelElementTypes
 						.isKnownElementType(elementType)
 						|| (!(elementType instanceof IHintedType))) {
-					return null; // foreign element type
+					return false; // foreign element type
 				}
 				String elementTypeHint = ((IHintedType) elementType)
 						.getSemanticHint();
-				if (!semanticHint.equals(elementTypeHint)) {
-					return null; // if semantic hint is specified it should be the same as in element type
+				if (!op.getSemanticHint().equals(elementTypeHint)) {
+					return false; // if semantic hint is specified it should be the same as in element type
 				}
 				if (domainElement != null
 						&& visualID != PalladioComponentModelVisualIDRegistry
-								.getNodeVisualID(containerView, domainElement)) {
-					return null; // visual id for node EClass should match visual id from element type
+								.getNodeVisualID(op.getContainerView(),
+										domainElement)) {
+					return false; // visual id for node EClass should match visual id from element type
 				}
 			} else {
-				// Element type is not specified. Domain element should be present (except pure design elements).
-				// This method is called with EObjectAdapter as parameter from:
-				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
-				//   - generated ViewFactory.decorateView() for parent element
 				if (!ResourceDemandingSEFFEditPart.MODEL_ID
 						.equals(PalladioComponentModelVisualIDRegistry
-								.getModelID(containerView))) {
-					return null; // foreign diagram
+								.getModelID(op.getContainerView()))) {
+					return false; // foreign diagram
 				}
 				switch (visualID) {
 				case StartActionEditPart.VISUAL_ID:
@@ -293,449 +265,1980 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry
-									.getNodeVisualID(containerView,
+									.getNodeVisualID(op.getContainerView(),
 											domainElement)) {
-						return null; // visual id in semantic hint should match visual id for domain element
-					}
-					break;
-				case ExternalCallActionEntityNameEditPart.VISUAL_ID:
-				case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
-				case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
-					if (ExternalCallActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case LoopActionEntityNameEditPart.VISUAL_ID:
-				case WrappingLabelEditPart.VISUAL_ID:
-					if (LoopActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case BranchActionEntityNameEditPart.VISUAL_ID:
-				case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
-					if (BranchActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case InternalActionEntityNameEditPart.VISUAL_ID:
-				case InternalActionResourceDemand2EditPart.VISUAL_ID:
-					if (InternalActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
-				case WrappingLabel2EditPart.VISUAL_ID:
-					if (CollectionIteratorActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SetVariableActionEntityNameEditPart.VISUAL_ID:
-				case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
-					if (SetVariableActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case AcquireActionEntityNameEditPart.VISUAL_ID:
-					if (AcquireActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ReleaseActionEntityNameEditPart.VISUAL_ID:
-					if (ReleaseActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ForkActionEntityNameEditPart.VISUAL_ID:
-				case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
-					if (ForkActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrappingLabel3EditPart.VISUAL_ID:
-				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
-					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrappingLabel4EditPart.VISUAL_ID:
-				case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
-					if (VariableUsage2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviourEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case LoopActionEntityName2EditPart.VISUAL_ID:
-				case WrappingLabel5EditPart.VISUAL_ID:
-					if (LoopAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case InternalActionEntityName2EditPart.VISUAL_ID:
-				case InternalActionResourceDemandEditPart.VISUAL_ID:
-					if (InternalAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case BranchActionEntityName2EditPart.VISUAL_ID:
-				case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
-					if (BranchAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-					if (ProbabilisticBranchTransitionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ExternalCallActionEntityName2EditPart.VISUAL_ID:
-				case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
-				case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
-					if (ExternalCallAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case AcquireActionEntityName2EditPart.VISUAL_ID:
-					if (AcquireAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ReleaseActionEntityName2EditPart.VISUAL_ID:
-					if (ReleaseAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ForkActionEntityName2EditPart.VISUAL_ID:
-				case ForkActionForkedBehavioursEditPart.VISUAL_ID:
-					if (ForkAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-					if (ForkedBehaviourEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
-				case WrappingLabel6EditPart.VISUAL_ID:
-					if (CollectionIteratorAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SetVariableActionEntityName2EditPart.VISUAL_ID:
-				case SetVariableActionVariableSetterEditPart.VISUAL_ID:
-					if (SetVariableAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrappingLabel7EditPart.VISUAL_ID:
-				case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
-					if (VariableUsage3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
-					if (GuardedBranchTransitionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour4EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
+						return false; // visual id in semantic hint should match visual id for domain element
 					}
 					break;
 				default:
-					return null;
+					return false;
 				}
 			}
 		}
-		return getNodeViewClass(containerView, visualID);
+		return StartActionEditPart.VISUAL_ID == visualID
+				|| StopActionEditPart.VISUAL_ID == visualID
+				|| ExternalCallActionEditPart.VISUAL_ID == visualID
+				|| LoopActionEditPart.VISUAL_ID == visualID
+				|| BranchActionEditPart.VISUAL_ID == visualID
+				|| InternalActionEditPart.VISUAL_ID == visualID
+				|| CollectionIteratorActionEditPart.VISUAL_ID == visualID
+				|| SetVariableActionEditPart.VISUAL_ID == visualID
+				|| AcquireActionEditPart.VISUAL_ID == visualID
+				|| ReleaseActionEditPart.VISUAL_ID == visualID
+				|| ForkActionEditPart.VISUAL_ID == visualID
+				|| VariableUsageEditPart.VISUAL_ID == visualID
+				|| VariableCharacterisationEditPart.VISUAL_ID == visualID
+				|| VariableUsage2EditPart.VISUAL_ID == visualID
+				|| VariableCharacterisation2EditPart.VISUAL_ID == visualID
+				|| ResourceDemandingBehaviourEditPart.VISUAL_ID == visualID
+				|| StartAction2EditPart.VISUAL_ID == visualID
+				|| StopAction2EditPart.VISUAL_ID == visualID
+				|| LoopAction2EditPart.VISUAL_ID == visualID
+				|| InternalAction2EditPart.VISUAL_ID == visualID
+				|| ParametricResourceDemandEditPart.VISUAL_ID == visualID
+				|| BranchAction2EditPart.VISUAL_ID == visualID
+				|| ProbabilisticBranchTransitionEditPart.VISUAL_ID == visualID
+				|| ResourceDemandingBehaviour2EditPart.VISUAL_ID == visualID
+				|| ExternalCallAction2EditPart.VISUAL_ID == visualID
+				|| AcquireAction2EditPart.VISUAL_ID == visualID
+				|| ReleaseAction2EditPart.VISUAL_ID == visualID
+				|| ForkAction2EditPart.VISUAL_ID == visualID
+				|| ForkedBehaviourEditPart.VISUAL_ID == visualID
+				|| CollectionIteratorAction2EditPart.VISUAL_ID == visualID
+				|| ResourceDemandingBehaviour3EditPart.VISUAL_ID == visualID
+				|| SetVariableAction2EditPart.VISUAL_ID == visualID
+				|| VariableUsage3EditPart.VISUAL_ID == visualID
+				|| VariableCharacterisation3EditPart.VISUAL_ID == visualID
+				|| GuardedBranchTransitionEditPart.VISUAL_ID == visualID
+				|| ResourceDemandingBehaviour4EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Class getNodeViewClass(View containerView, int visualID) {
-		if (containerView == null
-				|| !PalladioComponentModelVisualIDRegistry.canCreateNode(
-						containerView, visualID)) {
-			return null;
+	protected boolean provides(CreateEdgeViewOperation op) {
+		IElementType elementType = getSemanticElementType(op
+				.getSemanticAdapter());
+		if (!PalladioComponentModelElementTypes.isKnownElementType(elementType)
+				|| (!(elementType instanceof IHintedType))) {
+			return false; // foreign element type
+		}
+		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
+		if (elementTypeHint == null
+				|| (op.getSemanticHint() != null && !elementTypeHint.equals(op
+						.getSemanticHint()))) {
+			return false; // our hint is visual id and must be specified, and it should be the same as in element type
+		}
+		int visualID = PalladioComponentModelVisualIDRegistry
+				.getVisualID(elementTypeHint);
+		EObject domainElement = getSemanticElement(op.getSemanticAdapter());
+		if (domainElement != null
+				&& visualID != PalladioComponentModelVisualIDRegistry
+						.getLinkWithClassVisualID(domainElement)) {
+			return false; // visual id for link EClass should match visual id from element type
+		}
+		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Diagram createDiagram(IAdaptable semanticAdapter,
+			String diagramKind, PreferencesHint preferencesHint) {
+		Diagram diagram = NotationFactory.eINSTANCE.createDiagram();
+		diagram.getStyles().add(NotationFactory.eINSTANCE.createDiagramStyle());
+		diagram.setType(ResourceDemandingSEFFEditPart.MODEL_ID);
+		diagram.setElement(getSemanticElement(semanticAdapter));
+		diagram.setMeasurementUnit(MeasurementUnit.PIXEL_LITERAL);
+		return diagram;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createNode(IAdaptable semanticAdapter, View containerView,
+			String semanticHint, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		final EObject domainElement = getSemanticElement(semanticAdapter);
+		final int visualID;
+		if (semanticHint == null) {
+			visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
+		} else {
+			visualID = PalladioComponentModelVisualIDRegistry
+					.getVisualID(semanticHint);
 		}
 		switch (visualID) {
 		case StartActionEditPart.VISUAL_ID:
-			return StartActionViewFactory.class;
+			return createStartAction_2001(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case StopActionEditPart.VISUAL_ID:
-			return StopActionViewFactory.class;
+			return createStopAction_2002(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ExternalCallActionEditPart.VISUAL_ID:
-			return ExternalCallActionViewFactory.class;
-		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
-			return ExternalCallActionEntityNameViewFactory.class;
+			return createExternalCallAction_2003(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case LoopActionEditPart.VISUAL_ID:
-			return LoopActionViewFactory.class;
-		case LoopActionEntityNameEditPart.VISUAL_ID:
-			return LoopActionEntityNameViewFactory.class;
-		case WrappingLabelEditPart.VISUAL_ID:
-			return WrappingLabelViewFactory.class;
+			return createLoopAction_2004(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case BranchActionEditPart.VISUAL_ID:
-			return BranchActionViewFactory.class;
-		case BranchActionEntityNameEditPart.VISUAL_ID:
-			return BranchActionEntityNameViewFactory.class;
+			return createBranchAction_2005(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case InternalActionEditPart.VISUAL_ID:
-			return InternalActionViewFactory.class;
-		case InternalActionEntityNameEditPart.VISUAL_ID:
-			return InternalActionEntityNameViewFactory.class;
+			return createInternalAction_2006(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
-			return CollectionIteratorActionViewFactory.class;
-		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
-			return CollectionIteratorActionEntityNameViewFactory.class;
-		case WrappingLabel2EditPart.VISUAL_ID:
-			return WrappingLabel2ViewFactory.class;
+			return createCollectionIteratorAction_2007(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case SetVariableActionEditPart.VISUAL_ID:
-			return SetVariableActionViewFactory.class;
-		case SetVariableActionEntityNameEditPart.VISUAL_ID:
-			return SetVariableActionEntityNameViewFactory.class;
+			return createSetVariableAction_2008(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case AcquireActionEditPart.VISUAL_ID:
-			return AcquireActionViewFactory.class;
-		case AcquireActionEntityNameEditPart.VISUAL_ID:
-			return AcquireActionEntityNameViewFactory.class;
+			return createAcquireAction_2012(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ReleaseActionEditPart.VISUAL_ID:
-			return ReleaseActionViewFactory.class;
-		case ReleaseActionEntityNameEditPart.VISUAL_ID:
-			return ReleaseActionEntityNameViewFactory.class;
+			return createReleaseAction_2010(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ForkActionEditPart.VISUAL_ID:
-			return ForkActionViewFactory.class;
-		case ForkActionEntityNameEditPart.VISUAL_ID:
-			return ForkActionEntityNameViewFactory.class;
+			return createForkAction_2011(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case VariableUsageEditPart.VISUAL_ID:
-			return VariableUsageViewFactory.class;
-		case WrappingLabel3EditPart.VISUAL_ID:
-			return WrappingLabel3ViewFactory.class;
+			return createVariableUsage_3032(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return VariableCharacterisationViewFactory.class;
+			return createVariableCharacterisation_3033(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case VariableUsage2EditPart.VISUAL_ID:
-			return VariableUsage2ViewFactory.class;
-		case WrappingLabel4EditPart.VISUAL_ID:
-			return WrappingLabel4ViewFactory.class;
+			return createVariableUsage_3034(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case VariableCharacterisation2EditPart.VISUAL_ID:
-			return VariableCharacterisation2ViewFactory.class;
+			return createVariableCharacterisation_3035(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourViewFactory.class;
+			return createResourceDemandingBehaviour_3003(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case StartAction2EditPart.VISUAL_ID:
-			return StartAction2ViewFactory.class;
+			return createStartAction_3004(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case StopAction2EditPart.VISUAL_ID:
-			return StopAction2ViewFactory.class;
+			return createStopAction_3005(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case LoopAction2EditPart.VISUAL_ID:
-			return LoopAction2ViewFactory.class;
-		case LoopActionEntityName2EditPart.VISUAL_ID:
-			return LoopActionEntityName2ViewFactory.class;
-		case WrappingLabel5EditPart.VISUAL_ID:
-			return WrappingLabel5ViewFactory.class;
+			return createLoopAction_3006(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case InternalAction2EditPart.VISUAL_ID:
-			return InternalAction2ViewFactory.class;
-		case InternalActionEntityName2EditPart.VISUAL_ID:
-			return InternalActionEntityName2ViewFactory.class;
+			return createInternalAction_3007(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return ParametricResourceDemandViewFactory.class;
+			return createParametricResourceDemand_3031(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case BranchAction2EditPart.VISUAL_ID:
-			return BranchAction2ViewFactory.class;
-		case BranchActionEntityName2EditPart.VISUAL_ID:
-			return BranchActionEntityName2ViewFactory.class;
+			return createBranchAction_3009(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
-			return ProbabilisticBranchTransitionViewFactory.class;
-		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-			return ProbabilisticBranchTransitionBranchProbabilityViewFactory.class;
+			return createProbabilisticBranchTransition_3010(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour2ViewFactory.class;
+			return createResourceDemandingBehaviour_3011(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ExternalCallAction2EditPart.VISUAL_ID:
-			return ExternalCallAction2ViewFactory.class;
-		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
-			return ExternalCallActionEntityName2ViewFactory.class;
+			return createExternalCallAction_3012(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case AcquireAction2EditPart.VISUAL_ID:
-			return AcquireAction2ViewFactory.class;
-		case AcquireActionEntityName2EditPart.VISUAL_ID:
-			return AcquireActionEntityName2ViewFactory.class;
+			return createAcquireAction_3026(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ReleaseAction2EditPart.VISUAL_ID:
-			return ReleaseAction2ViewFactory.class;
-		case ReleaseActionEntityName2EditPart.VISUAL_ID:
-			return ReleaseActionEntityName2ViewFactory.class;
+			return createReleaseAction_3020(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ForkAction2EditPart.VISUAL_ID:
-			return ForkAction2ViewFactory.class;
-		case ForkActionEntityName2EditPart.VISUAL_ID:
-			return ForkActionEntityName2ViewFactory.class;
+			return createForkAction_3023(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ForkedBehaviourEditPart.VISUAL_ID:
-			return ForkedBehaviourViewFactory.class;
+			return createForkedBehaviour_3027(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
-			return CollectionIteratorAction2ViewFactory.class;
-		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
-			return CollectionIteratorActionEntityName2ViewFactory.class;
-		case WrappingLabel6EditPart.VISUAL_ID:
-			return WrappingLabel6ViewFactory.class;
+			return createCollectionIteratorAction_3013(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour3ViewFactory.class;
+			return createResourceDemandingBehaviour_3014(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case SetVariableAction2EditPart.VISUAL_ID:
-			return SetVariableAction2ViewFactory.class;
-		case SetVariableActionEntityName2EditPart.VISUAL_ID:
-			return SetVariableActionEntityName2ViewFactory.class;
+			return createSetVariableAction_3024(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case VariableUsage3EditPart.VISUAL_ID:
-			return VariableUsage3ViewFactory.class;
-		case WrappingLabel7EditPart.VISUAL_ID:
-			return WrappingLabel7ViewFactory.class;
+			return createVariableUsage_3036(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case VariableCharacterisation3EditPart.VISUAL_ID:
-			return VariableCharacterisation3ViewFactory.class;
+			return createVariableCharacterisation_3037(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
-			return GuardedBranchTransitionViewFactory.class;
-		case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:
-			return GuardedBranchTransitionEntityNameViewFactory.class;
+			return createGuardedBranchTransition_3017(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour4ViewFactory.class;
-		case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
-			return ExternalCallActionInputVariableUsageViewFactory.class;
-		case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
-			return ExternalCallActionOutputVariableUsageViewFactory.class;
-		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
-			return VariableUsageVariableCharacterisationViewFactory.class;
-		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
-			return VariableUsageVariableCharacterisation2ViewFactory.class;
-		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBehaviourCompartmentViewFactory.class;
-		case InternalActionResourceDemandEditPart.VISUAL_ID:
-			return InternalActionResourceDemandViewFactory.class;
-		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
-			return BranchActionBranchTransitionCompartmentViewFactory.class;
-		case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBehaviourCompartment2ViewFactory.class;
-		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
-			return ExternalCallActionInputVariableUsage2ViewFactory.class;
-		case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
-			return ExternalCallActionOutputVariableUsage2ViewFactory.class;
-		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
-			return ForkActionForkedBehavioursViewFactory.class;
-		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-			return ForkedBehaviourBehaviourCompartmentViewFactory.class;
-		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBehaviourCompartment3ViewFactory.class;
-		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
-			return SetVariableActionVariableSetterViewFactory.class;
-		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
-			return VariableUsageVariableCharacterisation3ViewFactory.class;
-		case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBehaviourCompartment4ViewFactory.class;
-		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
-			return BranchActionBranchTransitionCompartment2ViewFactory.class;
-		case InternalActionResourceDemand2EditPart.VISUAL_ID:
-			return InternalActionResourceDemand2ViewFactory.class;
-		case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
-			return SetVariableActionVariableSetter2ViewFactory.class;
-		case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
-			return ForkActionForkedBehaviours2ViewFactory.class;
+			return createResourceDemandingBehaviour_3018(domainElement,
+					containerView, index, persisted, preferencesHint);
 		}
+		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Class getEdgeViewClass(IAdaptable semanticAdapter,
-			View containerView, String semanticHint) {
+	public Edge createEdge(IAdaptable semanticAdapter, View containerView,
+			String semanticHint, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (!PalladioComponentModelElementTypes.isKnownElementType(elementType)
-				|| (!(elementType instanceof IHintedType))) {
-			return null; // foreign element type
-		}
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null) {
-			return null; // our hint is visual id and must be specified
+		switch (PalladioComponentModelVisualIDRegistry
+				.getVisualID(elementTypeHint)) {
+		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
+			return createAbstractActionSuccessor_AbstractAction_4001(
+					containerView, index, persisted, preferencesHint);
 		}
-		if (semanticHint != null && !semanticHint.equals(elementTypeHint)) {
-			return null; // if semantic hint is specified it should be the same as in element type
-		}
-		int visualID = PalladioComponentModelVisualIDRegistry
-				.getVisualID(elementTypeHint);
-		EObject domainElement = getSemanticElement(semanticAdapter);
-		if (domainElement != null
-				&& visualID != PalladioComponentModelVisualIDRegistry
-						.getLinkWithClassVisualID(domainElement)) {
-			return null; // visual id for link EClass should match visual id from element type
-		}
-		return getEdgeViewClass(visualID);
+		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Class getEdgeViewClass(int visualID) {
-		switch (visualID) {
-		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
-			return AbstractActionSuccessor_AbstractActionViewFactory.class;
+	public Node createStartAction_2001(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(StartActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createStopAction_2002(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(StopActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createExternalCallAction_2003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ExternalCallActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5002 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionEntityNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionInputVariableUsageEditPart.VISUAL_ID),
+				true, true, false, false);
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID),
+				true, true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createLoopAction_2004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(LoopActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5009 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(LoopActionEntityNameEditPart.VISUAL_ID));
+		Node label5010 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabelEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createBranchAction_2005(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(BranchActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5011 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(BranchActionEntityNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createInternalAction_2006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(InternalActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5012 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(InternalActionEntityNameEditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(InternalActionResourceDemand2EditPart.VISUAL_ID),
+				true, true, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createCollectionIteratorAction_2007(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(CollectionIteratorActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5015 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(CollectionIteratorActionEntityNameEditPart.VISUAL_ID));
+		Node label5016 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel2EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSetVariableAction_2008(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(SetVariableActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5023 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(SetVariableActionEntityNameEditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(SetVariableActionVariableSetter2EditPart.VISUAL_ID),
+				true, true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAcquireAction_2012(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(AcquireActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5029 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(AcquireActionEntityNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createReleaseAction_2010(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ReleaseActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5022 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ReleaseActionEntityNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createForkAction_2011(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ForkActionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5024 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ForkActionEntityNameEditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(ForkActionForkedBehaviours2EditPart.VISUAL_ID), false,
+				true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableUsage_3032(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableUsageEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label5033 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageVariableCharacterisationEditPart.VISUAL_ID),
+				true, true, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableCharacterisation_3033(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableCharacterisationEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableUsage_3034(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableUsage2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label5034 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel4EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageVariableCharacterisation2EditPart.VISUAL_ID),
+				true, true, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableCharacterisation_3035(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableCharacterisation2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createResourceDemandingBehaviour_3003(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ResourceDemandingBehaviourEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createStartAction_3004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(StartAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createStopAction_3005(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(StopAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createLoopAction_3006(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(LoopAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5003 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(LoopActionEntityName2EditPart.VISUAL_ID));
+		Node label5004 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel5EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createInternalAction_3007(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(InternalAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5005 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(InternalActionEntityName2EditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(InternalActionResourceDemandEditPart.VISUAL_ID), true,
+				true, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createParametricResourceDemand_3031(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ParametricResourceDemandEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createBranchAction_3009(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(BranchAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5008 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(BranchActionEntityName2EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createProbabilisticBranchTransition_3010(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ProbabilisticBranchTransitionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5007 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createResourceDemandingBehaviour_3011(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ResourceDemandingBehaviour2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createExternalCallAction_3012(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ExternalCallAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5006 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionEntityName2EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID),
+				true, true, false, false);
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID),
+				true, true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAcquireAction_3026(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(AcquireAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5028 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(AcquireActionEntityName2EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createReleaseAction_3020(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ReleaseAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5020 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ReleaseActionEntityName2EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createForkAction_3023(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ForkAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5026 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ForkActionEntityName2EditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(ForkActionForkedBehavioursEditPart.VISUAL_ID), false,
+				true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createForkedBehaviour_3027(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ForkedBehaviourEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createCollectionIteratorAction_3013(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5013 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(CollectionIteratorActionEntityName2EditPart.VISUAL_ID));
+		Node label5014 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel6EditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createResourceDemandingBehaviour_3014(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ResourceDemandingBehaviour3EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSetVariableAction_3024(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(SetVariableAction2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5027 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(SetVariableActionEntityName2EditPart.VISUAL_ID));
+		createCompartment(node, PalladioComponentModelVisualIDRegistry
+				.getType(SetVariableActionVariableSetterEditPart.VISUAL_ID),
+				true, true, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableUsage_3036(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableUsage3EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label5035 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel7EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageVariableCharacterisation3EditPart.VISUAL_ID),
+				true, true, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariableCharacterisation_3037(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(VariableCharacterisation3EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createGuardedBranchTransition_3017(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(GuardedBranchTransitionEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5018 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(GuardedBranchTransitionEntityNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createResourceDemandingBehaviour_3018(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(ResourceDemandingBehaviour4EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createAbstractActionSuccessor_AbstractAction_4001(
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList points = new ArrayList(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge
+				.setType(PalladioComponentModelVisualIDRegistry
+						.getType(AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
+		edge.setElement(null);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+					.getRoutingStyle_Routing(), routing);
+		}
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	private void stampShortcut(View containerView, Node target) {
+		if (!ResourceDemandingSEFFEditPart.MODEL_ID
+				.equals(PalladioComponentModelVisualIDRegistry
+						.getModelID(containerView))) {
+			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
+					.createEAnnotation();
+			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
+			shortcutAnnotation.getDetails().put(
+					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
+			target.getEAnnotations().add(shortcutAnnotation);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private Node createLabel(View owner, String hint) {
+		DecorationNode rv = NotationFactory.eINSTANCE.createDecorationNode();
+		rv.setType(hint);
+		ViewUtil.insertChildView(owner, rv, ViewUtil.APPEND, true);
+		return rv;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Node createCompartment(View owner, String hint,
+			boolean canCollapse, boolean hasTitle, boolean canSort,
+			boolean canFilter) {
+		//SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
+		//rv.setShowTitle(showTitle);
+		//rv.setCollapsed(isCollapsed);
+		Node rv;
+		if (canCollapse) {
+			rv = NotationFactory.eINSTANCE.createBasicCompartment();
+		} else {
+			rv = NotationFactory.eINSTANCE.createDecorationNode();
+		}
+		if (hasTitle) {
+			TitleStyle ts = NotationFactory.eINSTANCE.createTitleStyle();
+			ts.setShowTitle(true);
+			rv.getStyles().add(ts);
+		}
+		if (canSort) {
+			rv.getStyles().add(NotationFactory.eINSTANCE.createSortingStyle());
+		}
+		if (canFilter) {
+			rv.getStyles()
+					.add(NotationFactory.eINSTANCE.createFilteringStyle());
+		}
+		rv.setType(hint);
+		ViewUtil.insertChildView(owner, rv, ViewUtil.APPEND, true);
+		return rv;
+	}
+
+	/**
+	 * @generated
+	 */
+	private EObject getSemanticElement(IAdaptable semanticAdapter) {
+		if (semanticAdapter == null) {
+			return null;
+		}
+		EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
+		if (eObject != null) {
+			return EMFCoreUtil.resolve(TransactionUtil
+					.getEditingDomain(eObject), eObject);
 		}
 		return null;
 	}

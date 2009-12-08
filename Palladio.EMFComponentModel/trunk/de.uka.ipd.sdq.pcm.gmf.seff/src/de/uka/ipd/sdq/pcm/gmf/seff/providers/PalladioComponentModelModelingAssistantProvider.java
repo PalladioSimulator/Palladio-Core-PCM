@@ -24,14 +24,22 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionInputVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionInputVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionOutputVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionOutputVariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehaviours2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
@@ -41,13 +49,21 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetter2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetterEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
@@ -67,83 +83,83 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof LoopActionEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 			return types;
 		}
 		if (editPart instanceof InternalActionEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ParametricResourceDemand_3031);
 			return types;
 		}
 		if (editPart instanceof CollectionIteratorActionEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 			return types;
 		}
 		if (editPart instanceof VariableUsageEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3033);
 			return types;
 		}
 		if (editPart instanceof VariableUsage2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3035);
 			return types;
 		}
 		if (editPart instanceof LoopAction2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 			return types;
 		}
 		if (editPart instanceof InternalAction2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ParametricResourceDemand_3031);
 			return types;
 		}
 		if (editPart instanceof ProbabilisticBranchTransitionEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
 			return types;
 		}
 		if (editPart instanceof CollectionIteratorAction2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 			return types;
 		}
 		if (editPart instanceof VariableUsage3EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3037);
 			return types;
 		}
 		if (editPart instanceof GuardedBranchTransitionEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionInputVariableUsageEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(11);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
 			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
@@ -161,7 +177,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(2);
 			types
 					.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
 			types
@@ -169,7 +185,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartment2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(11);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
 			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
@@ -187,22 +203,22 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionInputVariableUsage2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionOutputVariableUsage2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.ForkedBehaviour_3027);
 			return types;
 		}
 		if (editPart instanceof ForkedBehaviourBehaviourCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(10);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
 			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
@@ -218,7 +234,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartment3EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(10);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
 			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
@@ -234,12 +250,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3036);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartment4EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(11);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
 			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
@@ -257,7 +273,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(2);
 			types
 					.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
 			types
@@ -265,17 +281,17 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof SetVariableActionVariableSetter2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3036);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehaviours2EditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.ForkedBehaviour_3027);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(11);
 			types.add(PalladioComponentModelElementTypes.StartAction_2001);
 			types.add(PalladioComponentModelElementTypes.StopAction_2002);
 			types
@@ -301,6 +317,94 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof StartActionEditPart) {
+			return ((StartActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof StopActionEditPart) {
+			return ((StopActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ExternalCallActionEditPart) {
+			return ((ExternalCallActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof LoopActionEditPart) {
+			return ((LoopActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof BranchActionEditPart) {
+			return ((BranchActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof InternalActionEditPart) {
+			return ((InternalActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof CollectionIteratorActionEditPart) {
+			return ((CollectionIteratorActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof SetVariableActionEditPart) {
+			return ((SetVariableActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof AcquireActionEditPart) {
+			return ((AcquireActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ReleaseActionEditPart) {
+			return ((ReleaseActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ForkActionEditPart) {
+			return ((ForkActionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof StartAction2EditPart) {
+			return ((StartAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof StopAction2EditPart) {
+			return ((StopAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof LoopAction2EditPart) {
+			return ((LoopAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof InternalAction2EditPart) {
+			return ((InternalAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof BranchAction2EditPart) {
+			return ((BranchAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
+			return ((ExternalCallAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof AcquireAction2EditPart) {
+			return ((AcquireAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ReleaseAction2EditPart) {
+			return ((ReleaseAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ForkAction2EditPart) {
+			return ((ForkAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof CollectionIteratorAction2EditPart) {
+			return ((CollectionIteratorAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof SetVariableAction2EditPart) {
+			return ((SetVariableAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -310,6 +414,94 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof StartActionEditPart) {
+			return ((StartActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof StopActionEditPart) {
+			return ((StopActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ExternalCallActionEditPart) {
+			return ((ExternalCallActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof LoopActionEditPart) {
+			return ((LoopActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof BranchActionEditPart) {
+			return ((BranchActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof InternalActionEditPart) {
+			return ((InternalActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof CollectionIteratorActionEditPart) {
+			return ((CollectionIteratorActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof SetVariableActionEditPart) {
+			return ((SetVariableActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof AcquireActionEditPart) {
+			return ((AcquireActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ReleaseActionEditPart) {
+			return ((ReleaseActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ForkActionEditPart) {
+			return ((ForkActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof StartAction2EditPart) {
+			return ((StartAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof StopAction2EditPart) {
+			return ((StopAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof LoopAction2EditPart) {
+			return ((LoopAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof InternalAction2EditPart) {
+			return ((InternalAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof BranchAction2EditPart) {
+			return ((BranchAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ExternalCallAction2EditPart) {
+			return ((ExternalCallAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof AcquireAction2EditPart) {
+			return ((AcquireAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ReleaseAction2EditPart) {
+			return ((ReleaseAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ForkAction2EditPart) {
+			return ((ForkAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof CollectionIteratorAction2EditPart) {
+			return ((CollectionIteratorAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof SetVariableAction2EditPart) {
+			return ((SetVariableAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -322,6 +514,94 @@ public class PalladioComponentModelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof StartActionEditPart) {
+			return ((StartActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof StopActionEditPart) {
+			return ((StopActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ExternalCallActionEditPart) {
+			return ((ExternalCallActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof LoopActionEditPart) {
+			return ((LoopActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof BranchActionEditPart) {
+			return ((BranchActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof InternalActionEditPart) {
+			return ((InternalActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof CollectionIteratorActionEditPart) {
+			return ((CollectionIteratorActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SetVariableActionEditPart) {
+			return ((SetVariableActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof AcquireActionEditPart) {
+			return ((AcquireActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ReleaseActionEditPart) {
+			return ((ReleaseActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ForkActionEditPart) {
+			return ((ForkActionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof StartAction2EditPart) {
+			return ((StartAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof StopAction2EditPart) {
+			return ((StopAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof LoopAction2EditPart) {
+			return ((LoopAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof InternalAction2EditPart) {
+			return ((InternalAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof BranchAction2EditPart) {
+			return ((BranchAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
+			return ((ExternalCallAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof AcquireAction2EditPart) {
+			return ((AcquireAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ReleaseAction2EditPart) {
+			return ((ReleaseAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ForkAction2EditPart) {
+			return ((ForkAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof CollectionIteratorAction2EditPart) {
+			return ((CollectionIteratorAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SetVariableAction2EditPart) {
+			return ((SetVariableAction2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -332,6 +612,94 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof StartActionEditPart) {
+			return ((StartActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof StopActionEditPart) {
+			return ((StopActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ExternalCallActionEditPart) {
+			return ((ExternalCallActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof LoopActionEditPart) {
+			return ((LoopActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof BranchActionEditPart) {
+			return ((BranchActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof InternalActionEditPart) {
+			return ((InternalActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof CollectionIteratorActionEditPart) {
+			return ((CollectionIteratorActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof SetVariableActionEditPart) {
+			return ((SetVariableActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof AcquireActionEditPart) {
+			return ((AcquireActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ReleaseActionEditPart) {
+			return ((ReleaseActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ForkActionEditPart) {
+			return ((ForkActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof StartAction2EditPart) {
+			return ((StartAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof StopAction2EditPart) {
+			return ((StopAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof LoopAction2EditPart) {
+			return ((LoopAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof InternalAction2EditPart) {
+			return ((InternalAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof BranchAction2EditPart) {
+			return ((BranchAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ExternalCallAction2EditPart) {
+			return ((ExternalCallAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof AcquireAction2EditPart) {
+			return ((AcquireAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ReleaseAction2EditPart) {
+			return ((ReleaseAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ForkAction2EditPart) {
+			return ((ForkAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof CollectionIteratorAction2EditPart) {
+			return ((CollectionIteratorAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof SetVariableAction2EditPart) {
+			return ((SetVariableAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -342,6 +710,94 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof StartActionEditPart) {
+			return ((StartActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof StopActionEditPart) {
+			return ((StopActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ExternalCallActionEditPart) {
+			return ((ExternalCallActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof LoopActionEditPart) {
+			return ((LoopActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof BranchActionEditPart) {
+			return ((BranchActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof InternalActionEditPart) {
+			return ((InternalActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof CollectionIteratorActionEditPart) {
+			return ((CollectionIteratorActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SetVariableActionEditPart) {
+			return ((SetVariableActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof AcquireActionEditPart) {
+			return ((AcquireActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ReleaseActionEditPart) {
+			return ((ReleaseActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ForkActionEditPart) {
+			return ((ForkActionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof StartAction2EditPart) {
+			return ((StartAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof StopAction2EditPart) {
+			return ((StopAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof LoopAction2EditPart) {
+			return ((LoopAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof InternalAction2EditPart) {
+			return ((InternalAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof BranchAction2EditPart) {
+			return ((BranchAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
+			return ((ExternalCallAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof AcquireAction2EditPart) {
+			return ((AcquireAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ReleaseAction2EditPart) {
+			return ((ReleaseAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ForkAction2EditPart) {
+			return ((ForkAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof CollectionIteratorAction2EditPart) {
+			return ((CollectionIteratorAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SetVariableAction2EditPart) {
+			return ((SetVariableAction2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 

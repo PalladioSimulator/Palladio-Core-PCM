@@ -3,11 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
+import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
@@ -24,14 +28,17 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.CollectionIteratorAction2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.CollectionIteratorAction2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
@@ -123,15 +130,15 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof WrappingLabel6EditPart) {
+			((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureCollectionIteratorParameterLabelFigure());
+			return true;
+		}
 		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
 			((CollectionIteratorActionEntityName2EditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCollectionIteratorNameLabelFigure());
-			return true;
-		}
-		if (childEditPart instanceof WrappingLabel6EditPart) {
-			((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureCollectionIteratorParameterLabelFigure());
 			return true;
 		}
 		return false;
@@ -141,7 +148,12 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof WrappingLabel6EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
+			return true;
+		}
 		return false;
 	}
 
@@ -169,16 +181,14 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
-		return super.getContentPaneFor(editPart);
+		return getContentPane();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
@@ -208,7 +218,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
+			layout.setSpacing(5);
 			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
@@ -227,9 +237,324 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected void setForegroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setForegroundColor(color);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setBackgroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setBackgroundColor(color);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setLineWidth(int width) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineWidth(width);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setLineType(int style) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineStyle(style);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 				.getType(CollectionIteratorActionEntityName2EditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		types
+				.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (targetEditPart instanceof StartActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof StopActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ExternalCallActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof LoopActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof BranchActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof InternalActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof CollectionIteratorActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof SetVariableActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof AcquireActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ReleaseActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ForkActionEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof StartAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof StopAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof LoopAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof InternalAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof BranchAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ExternalCallAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof AcquireAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ReleaseAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof ForkAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		if (targetEditPart instanceof SetVariableAction2EditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
+			IElementType relationshipType) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StartAction_2001);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StopAction_2002);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_2003);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.LoopAction_2004);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.BranchAction_2005);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.InternalAction_2006);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StartAction_3004);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StopAction_3005);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.InternalAction_3007);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		types
+				.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
+			IElementType relationshipType) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StartAction_2001);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StopAction_2002);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_2003);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.LoopAction_2004);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.BranchAction_2005);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.InternalAction_2006);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StartAction_3004);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.StopAction_3005);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.InternalAction_3007);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+		}
+		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+			types
+					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
+		}
+		return types;
 	}
 
 	/**
@@ -261,6 +586,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setLineWidth(1);
 			createContents();
 		}
 

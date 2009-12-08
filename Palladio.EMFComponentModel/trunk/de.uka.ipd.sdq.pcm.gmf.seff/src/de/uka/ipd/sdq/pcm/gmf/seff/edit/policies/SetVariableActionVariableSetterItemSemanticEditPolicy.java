@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage3CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -19,14 +18,16 @@ public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	public SetVariableActionVariableSetterItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.SetVariableAction_3024);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.VariableUsage_3036 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(SeffPackage.eINSTANCE
-								.getSetVariableAction_LocalVariableUsages_SetVariableAction());
-			}
 			return getGEFWrapper(new VariableUsage3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

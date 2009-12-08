@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -20,6 +19,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
@@ -27,7 +27,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -50,6 +49,7 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
 
@@ -96,6 +96,8 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new PalladioComponentModelTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -105,6 +107,7 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 						List handles = new ArrayList();
 						NonResizableHandleKit.addMoveHandle(
 								(GraphicalEditPart) getHost(), handles);
+						((MoveHandle) handles.get(0)).setBorder(null);
 						return handles;
 					}
 
@@ -233,6 +236,11 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -310,11 +318,12 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.SetVariableAction_2008,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = PalladioComponentModelParserProvider
+					.getParser(
+							PalladioComponentModelElementTypes.SetVariableAction_2008,
+							getParserElement(),
+							PalladioComponentModelVisualIDRegistry
+									.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEntityNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -422,6 +431,11 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
 			((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
+			((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}
