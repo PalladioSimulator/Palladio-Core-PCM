@@ -39,6 +39,10 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			RmiAbstractTask rmiTask = ((RmiParallelTask) task).getTasks().get(i);
 			TaskFinishIndicator nestedFinishIndicator = new TaskFinishIndicator();
 			AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rmiTask, numberOfIterations, nestedFinishIndicator);
+			if (taskExecuter.prepare() == false) {
+				preparationFailed();
+				return false;
+			}
 			taskExecuter.addTaskListener(new TaskListener() {
 				public void taskCompleted(int taskId, int completedIterations) {
 					synchronized (ParallelTaskExecuter.this) {
@@ -78,7 +82,6 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			final AbstractTaskExecuter taskExecuter = taskIterator.next();
 			new Thread(new Runnable() {
 
-				@Override
 				public void run() {
 					taskExecuter.runSynchronously(1, true);
 				}
@@ -125,9 +128,7 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			finishIndicator.setFinishSignal(true);
 		}
 		finishSignal = true;
-		/*if (currentRunningNestedExecuter != null) {
-			currentRunningNestedExecuter.signalizeFinish();
-		}*/
+
 	}
 
 	@Override
@@ -149,5 +150,5 @@ public class ParallelTaskExecuter extends AbstractTaskExecuter {
 			taskExecuters = null;
 		}
 	}
-
+	
 }

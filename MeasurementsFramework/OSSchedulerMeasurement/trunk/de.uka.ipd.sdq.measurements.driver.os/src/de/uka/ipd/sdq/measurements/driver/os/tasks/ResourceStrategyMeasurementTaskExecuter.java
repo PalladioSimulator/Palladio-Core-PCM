@@ -14,12 +14,13 @@ import de.uka.ipd.sdq.measurements.driver.common.tasks.AbstractTaskExecuter;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskFinishIndicator;
 import de.uka.ipd.sdq.measurements.driver.common.tasks.TaskResultStorage;
 import de.uka.ipd.sdq.measurements.driver.os.PropertyManager;
+import de.uka.ipd.sdq.measurements.rmi.tasks.RmiDemand;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementTask;
 
 public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecuter {
 
 	protected IDemandStrategy theStrategy = null;
-	private long measurementTime = 0L;
+	protected long measurementTime = 0L;
 
 	public ResourceStrategyMeasurementTaskExecuter(RmiResourceStrategyMeasurementTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		super(task, numberOfIterations, finishIndicator);
@@ -82,9 +83,11 @@ public class ResourceStrategyMeasurementTaskExecuter extends AbstractTaskExecute
 	protected void doCleanup() {
 		theStrategy.cleanup();
 		// Delete folder where the files have been stored in
-		URL url = ResourceStrategyMeasurementTaskExecuter.class.getProtectionDomain().getCodeSource().getLocation();
-		File file = new File(url.getPath()+"temp/" + task.getId() + "/");
-		file.delete();
+		if (((RmiResourceStrategyMeasurementTask)task).getDemand().equals(RmiDemand.READ_FROM_HDD_DEMAND)) {
+			URL url = ResourceStrategyMeasurementTaskExecuter.class.getProtectionDomain().getCodeSource().getLocation();
+			File file = new File(url.getPath()+"temp/" + task.getId() + "/");
+			file.delete();
+		}
 	}
 
 }

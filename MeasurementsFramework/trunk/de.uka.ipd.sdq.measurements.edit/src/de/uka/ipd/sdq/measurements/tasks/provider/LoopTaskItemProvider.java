@@ -202,6 +202,11 @@ public class LoopTaskItemProvider
 			(createChildParameter
 				(TasksPackage.Literals.LOOP_TASK__TASK,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.LOOP_TASK__TASK,
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementAfterIoTask()));
 	}
 
 }

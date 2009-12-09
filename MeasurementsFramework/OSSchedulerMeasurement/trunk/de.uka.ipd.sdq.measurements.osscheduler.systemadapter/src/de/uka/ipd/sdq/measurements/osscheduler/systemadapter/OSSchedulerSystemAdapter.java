@@ -83,13 +83,12 @@ public class OSSchedulerSystemAdapter {
 			return false;
 		}
 		try {
-			hostInterface.prepareTasks(rmiTask, 1);
+			return hostInterface.prepareTasks(rmiTask, 1);
 		} catch (RemoteException e) {
 			logger.error("Failed to prepare task.");
 			OSSchedulerSystemAdapterPlugin.getDefault().getLog().log(new Status(Status.ERROR, OSSchedulerSystemAdapterPlugin.PLUGIN_ID, "Failed to prepare task.", e));
 			return false;
 		}
-		return true;
 	}
 	
 	public void initializeConnection() {

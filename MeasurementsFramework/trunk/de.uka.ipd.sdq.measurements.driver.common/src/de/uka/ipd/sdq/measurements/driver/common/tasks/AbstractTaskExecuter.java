@@ -13,18 +13,18 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	 * The default constructor is private and therefore must not be used.
 	 */
 	private AbstractTaskExecuter() {
+		taskListeners = new Vector<TaskListener>();
 	}
 
 	
-	private long[] startTimes;
-	private long[] endTimes;
+	protected long[] startTimes;
+	protected long[] endTimes;
 	//private long startSystemTime = 0L;
 	//private long startSystemNanoTime = 0L;
-	private boolean performAllIterations = true;
-	private int numberOfExecutedTasks = 0;
+	protected int numberOfExecutedTasks = 0;
 	protected boolean finishSignal = false;
 	protected TaskFinishIndicator finishIndicator;
-	private boolean doMeasuring = false;
+	protected boolean doMeasuring = false;
 	
 	protected AbstractTaskExecuter(RmiAbstractTask task, int numberOfIterations, TaskFinishIndicator finishIndicator) {
 		this();
@@ -50,7 +50,7 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 		return task;
 	}
 	
-	private synchronized void work(int iterationsToRun) {
+	protected void work(int iterationsToRun) {
 		/*if (doMeasuring) {
 			startSystemTime = System.currentTimeMillis();
 			startSystemNanoTime = System.nanoTime();
@@ -73,7 +73,7 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 		}
 		numberOfExecutedTasks += numberOfExecutedIterations;
 	}
-		
+			
 	public abstract boolean prepare();
 	
 	protected abstract void doWork(int iteration);
@@ -119,6 +119,10 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 	}
 	
 	protected abstract void signalizeFinish();
+	
+	protected void preparationFailed() {
+		doCleanup();
+	}
 
 	public void setNumberOfIterationsToRun(int numberOfIterationsToRun) {
 		this.numberOfIterationsToRun = numberOfIterationsToRun;
@@ -132,18 +136,12 @@ public abstract class AbstractTaskExecuter extends Thread implements TaskExecute
 
 	private transient Vector<TaskListener> taskListeners;
 
-	/** Register a listener for MasterModel events */
-	synchronized public void addTaskListener(TaskListener listener) {
-		if (taskListeners == null) {
-			taskListeners = new Vector<TaskListener>();
-		}
+	/** Register a listener for Task events */
+	public void addTaskListener(TaskListener listener) {
 		taskListeners.addElement(listener);
 	}
 
-	synchronized public void removeTaskListener(TaskListener listener) {
-		if (taskListeners == null) {
-			taskListeners = new Vector<TaskListener>();
-		}
+	public void removeTaskListener(TaskListener listener) {
 		taskListeners.removeElement(listener);
 	}
 

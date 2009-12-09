@@ -68,7 +68,7 @@ public class OSDriver {
 				}
 			}
 		}
-		
+				
 		if (!IS_SUB_PROCESS) {
 			StringBuffer configure = new StringBuffer("export/log4j.properties");
 		 	PropertyConfigurator.configure(configure.toString());

@@ -174,6 +174,11 @@ public class SequenceTaskItemProvider
 			(createChildParameter
 				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.SEQUENCE_TASK__TASKS,
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementAfterIoTask()));
 	}
 
 }

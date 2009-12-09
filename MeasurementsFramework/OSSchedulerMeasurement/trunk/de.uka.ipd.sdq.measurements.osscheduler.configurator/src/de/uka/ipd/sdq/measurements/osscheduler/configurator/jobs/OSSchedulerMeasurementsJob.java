@@ -48,7 +48,7 @@ public class OSSchedulerMeasurementsJob implements IJob {
                     IConfigurationElement element = elements[j];
                     Object o = element.createExecutableExtension("class");
                     if (o instanceof OSSchedulerExperimentSeriesController) {
-                    	((OSSchedulerExperimentSeriesController)o).startMeasurements(script, config.getMeasurementsResultsDataSourceId());
+                    	((OSSchedulerExperimentSeriesController)o).startMeasurements(script, config.getMeasurementsResultsDataSourceId(), monitor);
                     	break;
                     }
                     

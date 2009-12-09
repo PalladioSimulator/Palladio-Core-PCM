@@ -10,13 +10,14 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.measurements.osscheduler.configurator.OSSchedulerMeasurementsConfiguration;
 import de.uka.ipd.sdq.measurements.osscheduler.configurator.jobs.OSSchedulerMeasurementsJob;
+import de.uka.ipd.sdq.workflow.Blackboard;
 import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.Workflow;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
+import de.uka.ipd.sdq.workflow.ui.UIBasedWorkflow;
 
 public class OSSchedulerMeasurementsConfigurationDelegate extends
-AbstractWorkflowBasedLaunchConfigurationDelegate<OSSchedulerMeasurementsConfiguration, Workflow> {
+AbstractWorkflowBasedLaunchConfigurationDelegate<OSSchedulerMeasurementsConfiguration, UIBasedWorkflow<Blackboard<String>>> {
 	
 	private static final String LOG_PATTERN = "%-5p: %m\n";
 

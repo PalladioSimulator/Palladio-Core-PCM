@@ -43,6 +43,11 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		RmiAbstractTask ownRmiTask  = ((RmiParallelProcessTask)task).getTasks().get(0);
 		TaskFinishIndicator finishIndicator = new TaskFinishIndicator();
 		myOwnTaskExecuter = TaskExecuterFactory.getInstance().convertTask(ownRmiTask, numberOfIterations, finishIndicator);
+		if (myOwnTaskExecuter.prepare() == false) {
+			myOwnTaskExecuter = null;
+			preparationFailed();
+			return false;
+		}
 		myOwnTaskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				synchronized (ParallelProcessTaskExecuter.this) {
@@ -80,6 +85,8 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 					if (DriverLogger.LOGGING) {
 						DriverLogger.logError("Failed to prepare child task (ID: " + rmiTask.getId() + ") on child process " + (i-1));
 					}
+					preparationFailed();
+					return false;
 				} else {
 					if (DriverLogger.DEBUG) {
 						DriverLogger.logDebug("Prepared child task (ID: " + rmiTask.getId() + ") on child process " + (i-1));
@@ -99,7 +106,6 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 		isMyOwnTaskFinished = false;
 		new Thread(new Runnable() {
 
-			@Override
 			public void run() {
 				myOwnTaskExecuter.runSynchronously(1, true);
 			}
@@ -162,8 +168,9 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 				}
 				this.wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				if (DriverLogger.LOGGING) {
+					DriverLogger.logError("ParallelProcessTaskExecuter interrupted!", e);
+				}
 			}
 		}
 	}
@@ -184,12 +191,11 @@ public class ParallelProcessTaskExecuter extends AbstractTaskExecuter {
 	
 	@Override
 	protected void doCleanup() {
-		/*for (int i=0; i<myOwnTaskExecuters.length; i++) {
-			myOwnTaskExecuters[i].cleanup();
-		}*/
-		myOwnTaskExecuter.cleanup();
+		if (myOwnTaskExecuter != null) {
+			myOwnTaskExecuter.cleanup();
+			myOwnTaskExecuter = null;
+		}
 		completedNestedTasks.clear();
-		myOwnTaskExecuter = null;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.IProgressMonitor;
 
 import de.uka.ipd.sdq.measurements.MachineDescription;
 import de.uka.ipd.sdq.measurements.experimentcontroller.ExperimentController;
@@ -16,7 +17,7 @@ public class OSSchedulerExperimentController extends ExperimentController {
 	private final static Logger logger = Logger.getLogger(OSSchedulerExperimentController.class);
 
 	@Override
-	public void performExperiment(List<MachineDescription> machineDescriptions, TaskSet taskSet, int dataSourceId) {
+	public void performExperiment(List<MachineDescription> machineDescriptions, TaskSet taskSet, int dataSourceId, IProgressMonitor monitor) {
 
 		logger.info("Preparing experiment " + taskSet.getName() + " ...");
 		if (!prepareExperiment(machineDescriptions, taskSet)) {
@@ -47,6 +48,7 @@ public class OSSchedulerExperimentController extends ExperimentController {
 		logger.info("Preparing experiment on machine " + osSchedulerSystemAdapter.getMachineIP() + ":" + osSchedulerSystemAdapter.getMachinePort() + " ...");
 		if (!osSchedulerSystemAdapter.prepareExperiment(machineDescriptions, taskSet)) {
 			logger.error("Preparing experiment on machine " + osSchedulerSystemAdapter.getMachineIP() + ":" + osSchedulerSystemAdapter.getMachinePort() + " failed.");
+			return false;
 		}
 		
 		return true;

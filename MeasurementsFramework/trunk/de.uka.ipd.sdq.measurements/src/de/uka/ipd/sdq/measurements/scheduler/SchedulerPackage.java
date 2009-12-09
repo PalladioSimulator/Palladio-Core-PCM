@@ -190,6 +190,79 @@ public interface SchedulerPackage extends EPackage {
 	int PARALLEL_PROCESS_TASK_FEATURE_COUNT = TasksPackage.PARALLEL_TASK_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementAfterIoTaskImpl <em>Resource Strategy Measurement After Io Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementAfterIoTaskImpl
+	 * @see de.uka.ipd.sdq.measurements.scheduler.impl.SchedulerPackageImpl#getResourceStrategyMeasurementAfterIoTask()
+	 * @generated
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__ID = RESOURCE_STRATEGY_MEASUREMENT_TASK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__DESCRIPTION = RESOURCE_STRATEGY_MEASUREMENT_TASK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__NAME = RESOURCE_STRATEGY_MEASUREMENT_TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Machine</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__MACHINE = RESOURCE_STRATEGY_MEASUREMENT_TASK__MACHINE;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__DURATION = RESOURCE_STRATEGY_MEASUREMENT_TASK__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Demand</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK__DEMAND = RESOURCE_STRATEGY_MEASUREMENT_TASK__DEMAND;
+
+	/**
+	 * The number of structural features of the '<em>Resource Strategy Measurement After Io Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK_FEATURE_COUNT = RESOURCE_STRATEGY_MEASUREMENT_TASK_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,7 +270,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.measurements.scheduler.impl.SchedulerPackageImpl#getResourceStrategyDemand()
 	 * @generated
 	 */
-	int RESOURCE_STRATEGY_DEMAND = 2;
+	int RESOURCE_STRATEGY_DEMAND = 3;
 
 
 	/**
@@ -241,6 +314,16 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParallelProcessTask();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask <em>Resource Strategy Measurement After Io Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Strategy Measurement After Io Task</em>'.
+	 * @see de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask
+	 * @generated
+	 */
+	EClass getResourceStrategyMeasurementAfterIoTask();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}'.
@@ -309,6 +392,16 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARALLEL_PROCESS_TASK = eINSTANCE.getParallelProcessTask();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementAfterIoTaskImpl <em>Resource Strategy Measurement After Io Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementAfterIoTaskImpl
+		 * @see de.uka.ipd.sdq.measurements.scheduler.impl.SchedulerPackageImpl#getResourceStrategyMeasurementAfterIoTask()
+		 * @generated
+		 */
+		EClass RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK = eINSTANCE.getResourceStrategyMeasurementAfterIoTask();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand <em>Resource Strategy Demand</em>}' enum.

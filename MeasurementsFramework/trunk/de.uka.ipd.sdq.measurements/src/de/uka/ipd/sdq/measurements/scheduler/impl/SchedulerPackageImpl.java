@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.measurements.MeasurementsPackage;
 import de.uka.ipd.sdq.measurements.impl.MeasurementsPackageImpl;
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerFactory;
 import de.uka.ipd.sdq.measurements.scheduler.SchedulerPackage;
@@ -43,6 +44,13 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * @generated
 	 */
 	private EClass parallelProcessTaskEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceStrategyMeasurementAfterIoTaskEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +172,15 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getResourceStrategyMeasurementAfterIoTask() {
+		return resourceStrategyMeasurementAfterIoTaskEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getResourceStrategyDemand() {
 		return resourceStrategyDemandEEnum;
 	}
@@ -202,6 +219,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		parallelProcessTaskEClass = createEClass(PARALLEL_PROCESS_TASK);
 
+		resourceStrategyMeasurementAfterIoTaskEClass = createEClass(RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK);
+
 		// Create enums
 		resourceStrategyDemandEEnum = createEEnum(RESOURCE_STRATEGY_DEMAND);
 	}
@@ -239,6 +258,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		// Add supertypes to classes
 		resourceStrategyMeasurementTaskEClass.getESuperTypes().add(theTasksPackage.getMachineTask());
 		parallelProcessTaskEClass.getESuperTypes().add(theTasksPackage.getParallelTask());
+		resourceStrategyMeasurementAfterIoTaskEClass.getESuperTypes().add(this.getResourceStrategyMeasurementTask());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(resourceStrategyMeasurementTaskEClass, ResourceStrategyMeasurementTask.class, "ResourceStrategyMeasurementTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -246,6 +266,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		initEAttribute(getResourceStrategyMeasurementTask_Demand(), this.getResourceStrategyDemand(), "demand", null, 1, 1, ResourceStrategyMeasurementTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parallelProcessTaskEClass, ParallelProcessTask.class, "ParallelProcessTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(resourceStrategyMeasurementAfterIoTaskEClass, ResourceStrategyMeasurementAfterIoTask.class, "ResourceStrategyMeasurementAfterIoTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(resourceStrategyDemandEEnum, ResourceStrategyDemand.class, "ResourceStrategyDemand");

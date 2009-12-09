@@ -174,6 +174,11 @@ public class ParallelTaskItemProvider
 			(createChildParameter
 				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
 				 SchedulerFactory.eINSTANCE.createParallelProcessTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TasksPackage.Literals.PARALLEL_TASK__TASKS,
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementAfterIoTask()));
 	}
 
 }

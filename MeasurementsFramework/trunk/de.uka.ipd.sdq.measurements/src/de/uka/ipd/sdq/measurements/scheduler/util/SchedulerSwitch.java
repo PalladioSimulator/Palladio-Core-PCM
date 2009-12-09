@@ -112,6 +112,16 @@ public class SchedulerSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SchedulerPackage.RESOURCE_STRATEGY_MEASUREMENT_AFTER_IO_TASK: {
+				ResourceStrategyMeasurementAfterIoTask resourceStrategyMeasurementAfterIoTask = (ResourceStrategyMeasurementAfterIoTask)theEObject;
+				T result = caseResourceStrategyMeasurementAfterIoTask(resourceStrategyMeasurementAfterIoTask);
+				if (result == null) result = caseResourceStrategyMeasurementTask(resourceStrategyMeasurementAfterIoTask);
+				if (result == null) result = caseMachineTask(resourceStrategyMeasurementAfterIoTask);
+				if (result == null) result = caseAbstractTask(resourceStrategyMeasurementAfterIoTask);
+				if (result == null) result = caseIdentifier(resourceStrategyMeasurementAfterIoTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -143,6 +153,21 @@ public class SchedulerSwitch<T> {
 	 * @generated
 	 */
 	public T caseParallelProcessTask(ParallelProcessTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Strategy Measurement After Io Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Strategy Measurement After Io Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceStrategyMeasurementAfterIoTask(ResourceStrategyMeasurementAfterIoTask object) {
 		return null;
 	}
 

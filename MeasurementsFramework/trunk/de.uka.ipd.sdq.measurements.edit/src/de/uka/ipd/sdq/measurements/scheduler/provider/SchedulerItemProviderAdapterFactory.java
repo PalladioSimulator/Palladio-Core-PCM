@@ -121,6 +121,29 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceStrategyMeasurementAfterIoTaskItemProvider resourceStrategyMeasurementAfterIoTaskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceStrategyMeasurementAfterIoTaskAdapter() {
+		if (resourceStrategyMeasurementAfterIoTaskItemProvider == null) {
+			resourceStrategyMeasurementAfterIoTaskItemProvider = new ResourceStrategyMeasurementAfterIoTaskItemProvider(this);
+		}
+
+		return resourceStrategyMeasurementAfterIoTaskItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +244,7 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	public void dispose() {
 		if (resourceStrategyMeasurementTaskItemProvider != null) resourceStrategyMeasurementTaskItemProvider.dispose();
 		if (parallelProcessTaskItemProvider != null) parallelProcessTaskItemProvider.dispose();
+		if (resourceStrategyMeasurementAfterIoTaskItemProvider != null) resourceStrategyMeasurementAfterIoTaskItemProvider.dispose();
 	}
 
 }

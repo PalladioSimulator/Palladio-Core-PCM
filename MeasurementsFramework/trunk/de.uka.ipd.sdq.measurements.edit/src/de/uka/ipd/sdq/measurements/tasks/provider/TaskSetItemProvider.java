@@ -214,6 +214,11 @@ public class TaskSetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(TasksPackage.Literals.TASK_SET__ROOT_TASK,
+				 SchedulerFactory.eINSTANCE.createResourceStrategyMeasurementAfterIoTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(TasksPackage.Literals.TASK_SET__PROBE_SPEC_REPOSITORY,
 				 probespecFactory.eINSTANCE.createProbeSpecRepository()));
 

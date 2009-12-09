@@ -43,7 +43,12 @@ public class ChildProcessManager {
 	}
 	
 	int newRmiPort = 0;
-		
+	
+	/**
+	 * Invoke a new OS Driver process as child process.
+	 * 
+	 * @return true if starting the process succeeded. This does not mean that the process started correctly or is still running.
+	 */
 	private boolean startChildProcess() {
 		String hostUrl = PropertyManager.getInstance().getHostRmiIp();
 		int rmiPort = PropertyManager.getInstance().getDriverRmiPort();
@@ -81,7 +86,9 @@ public class ChildProcessManager {
 				DriverLogger.log("Starting child process on " + hostUrl + ":" + newRmiPort);
 			}
 			ProcessBuilder processBuilder = new ProcessBuilder(processArguments);
-			processBuilder.directory(new File("C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/export/"));
+			//String runningDirectory = System.getProperty("user.dir");
+			String runningDirectory = "C:/Code/workspace_measurements/de.uka.ipd.sdq.measurements.driver.os/export/";
+			processBuilder.directory(new File(runningDirectory));
 			Process process = processBuilder.start();
 			if (DriverLogger.DEBUG) {
 				ChildProcessFileLog c = new ChildProcessFileLog(process.getInputStream(), "output" + newRmiPort + ".txt");

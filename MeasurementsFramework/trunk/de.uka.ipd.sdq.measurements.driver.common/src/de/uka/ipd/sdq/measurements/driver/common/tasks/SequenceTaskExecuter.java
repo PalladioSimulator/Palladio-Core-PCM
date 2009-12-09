@@ -22,13 +22,11 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 	@Override
 	public boolean prepare() {
 		if (taskExecuters == null) {
-			//taskExecuters = new List[numberOfIterations];
 			taskExecuters = new ArrayList<AbstractTaskExecuter>();
 		}
 		if (finishIndicators == null) {
 			finishIndicators = new ArrayList<TaskFinishIndicator>();
 		}
-		//ArrayList<AbstractTaskExecuter> tasks = new ArrayList<AbstractTaskExecuter>();
 		Iterator<RmiAbstractTask> taskIterator = ((RmiSequenceTask)task).getTasks().iterator();
 		while (taskIterator.hasNext()) {
 			RmiAbstractTask rmiTask = taskIterator.next();
@@ -38,14 +36,10 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 			if (DriverLogger.DEBUG) {
 				DriverLogger.logDebug("SequenceTaskExecuter Preparing " + taskExecuter.getTask().getClass().getSimpleName());
 			}
-			/*taskExecuter.addTaskListener(new TaskListener() {
-				public void taskCompleted(int taskId, int completedIterations) {
-					synchronized (SequenceTaskExecuter.this) {
-						SequenceTaskExecuter.this.notify();
-					}
-				}
-			});*/
-
+			if (taskExecuter.prepare() == false) {
+				preparationFailed();
+				return false;
+			}
 			taskExecuters.add(taskExecuter);
 		}
 
@@ -57,7 +51,9 @@ public class SequenceTaskExecuter extends AbstractTaskExecuter {
 		//Iterator<AbstractTaskExecuter> taskIterator = taskExecuters[iteration].iterator();
 		//Iterator<AbstractTaskExecuter> taskIterator = taskExecuters.iterator();
 		for (int i = 0; i<taskExecuters.size(); i++) {
-			taskExecuters.get(i).runSynchronously(1, false);
+			synchronized (taskExecuters.get(i)) {
+				taskExecuters.get(i).runSynchronously(1, false);
+			}
 			if (finishSignal == true) {
 				break;
 			}

@@ -44,6 +44,15 @@ public interface SchedulerFactory extends EFactory {
 	ParallelProcessTask createParallelProcessTask();
 
 	/**
+	 * Returns a new object of class '<em>Resource Strategy Measurement After Io Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Strategy Measurement After Io Task</em>'.
+	 * @generated
+	 */
+	ResourceStrategyMeasurementAfterIoTask createResourceStrategyMeasurementAfterIoTask();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

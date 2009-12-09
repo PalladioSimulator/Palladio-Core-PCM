@@ -96,6 +96,7 @@
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute measurements.ecore#//scheduler/ResourceStrategyMeasurementTask/demand"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//scheduler/ParallelProcessTask"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="measurements.ecore#//scheduler/ResourceStrategyMeasurementAfterIoTask"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

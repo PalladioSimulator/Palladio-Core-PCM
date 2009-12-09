@@ -20,15 +20,21 @@ public class TaskManager {
 	
 	private TaskManager() {
 		rootTasks = new ArrayList<AbstractTaskExecuter>();
-		rootTaskFinishIndicators = new ArrayList<TaskFinishIndicator>(); 
+		rootTaskFinishIndicators = new ArrayList<TaskFinishIndicator>();
+		taskListeners = new Vector<TaskListener>();
 	}
 	
 	private ArrayList<AbstractTaskExecuter> rootTasks = null;
 	private ArrayList<TaskFinishIndicator> rootTaskFinishIndicators = null;
 
-	public boolean prepareTasks(RmiAbstractTask rootTask,int numberOfIterations) {
-		TaskFinishIndicator finishIndicator = new TaskFinishIndicator(); 
-		rootTasks.add(TaskExecuterFactory.getInstance().convertTask(rootTask, numberOfIterations, finishIndicator));
+	public boolean prepareTasks(RmiAbstractTask rootTask, int numberOfIterations) {
+		TaskFinishIndicator finishIndicator = new TaskFinishIndicator();
+		AbstractTaskExecuter taskExecuter = TaskExecuterFactory.getInstance().convertTask(rootTask, numberOfIterations, finishIndicator);
+		if (taskExecuter.prepare() == false) {
+			taskExecuter.cleanup();
+			return false;
+		}
+		rootTasks.add(taskExecuter);
 		rootTaskFinishIndicators.add(finishIndicator);
 		return true;	
 	}
@@ -114,17 +120,11 @@ public class TaskManager {
 
 	private transient Vector<TaskListener> taskListeners;
 
-	synchronized public void addTaskListener(TaskListener listener) {
-		if (taskListeners == null) {
-			taskListeners = new Vector<TaskListener>();
-		}
+	public void addTaskListener(TaskListener listener) {
 		taskListeners.addElement(listener);
 	}
 
-	synchronized public void removeTaskListener(TaskListener listener) {
-		if (taskListeners == null) {
-			taskListeners = new Vector<TaskListener>();
-		}
+	public void removeTaskListener(TaskListener listener) {
 		taskListeners.removeElement(listener);
 	}
 

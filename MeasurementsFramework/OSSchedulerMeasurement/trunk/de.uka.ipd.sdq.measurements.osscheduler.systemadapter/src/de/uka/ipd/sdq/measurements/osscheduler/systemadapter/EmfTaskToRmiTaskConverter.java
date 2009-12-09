@@ -17,12 +17,15 @@ import de.uka.ipd.sdq.measurements.rmi.tasks.RmiLoopTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiMachineTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelProcessTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiParallelTask;
+import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementAfterIoTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.rmi.tasks.RmiSequenceTask;
 import de.uka.ipd.sdq.measurements.scheduler.ParallelProcessTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyDemand;
+import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementAfterIoTask;
 import de.uka.ipd.sdq.measurements.scheduler.ResourceStrategyMeasurementTask;
 import de.uka.ipd.sdq.measurements.scheduler.impl.ParallelProcessTaskImpl;
+import de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementAfterIoTaskImpl;
 import de.uka.ipd.sdq.measurements.scheduler.impl.ResourceStrategyMeasurementTaskImpl;
 import de.uka.ipd.sdq.measurements.tasks.AbstractTask;
 import de.uka.ipd.sdq.measurements.tasks.LoopTask;
@@ -63,6 +66,8 @@ public class EmfTaskToRmiTaskConverter {
 			return convertResourceStrategyMeasurementTask((ResourceStrategyMeasurementTask)emfTask);
 		} else if (emfTask.getClass().equals(ParallelProcessTaskImpl.class)) {
 			return convertParallelProcessTask((ParallelProcessTask)emfTask);
+		} else if (emfTask.getClass().equals(ResourceStrategyMeasurementAfterIoTaskImpl.class)) {
+			return convertResourceStrategyMeasurementAfterIoTask((ResourceStrategyMeasurementAfterIoTask)emfTask);
 		}
 		return null;
 	}
@@ -143,10 +148,14 @@ public class EmfTaskToRmiTaskConverter {
 	
 	public RmiAbstractTask convertResourceStrategyMeasurementTask(ResourceStrategyMeasurementTask emfTask) {
 		RmiResourceStrategyMeasurementTask rmiResourceStrategyMeasurementTask = new RmiResourceStrategyMeasurementTask(++idCounter);
-		prepareMachineTask(rmiResourceStrategyMeasurementTask, emfTask);
-		rmiResourceStrategyMeasurementTask.setMeasurementTime(emfTask.getDuration());
-		rmiResourceStrategyMeasurementTask.setDemand(getRmiDemand(emfTask.getDemand()));
+		prepareResourceStrategyMeasurementTask(rmiResourceStrategyMeasurementTask, emfTask);
 		return rmiResourceStrategyMeasurementTask;
+	}
+	
+	private void prepareResourceStrategyMeasurementTask(RmiResourceStrategyMeasurementTask rmiTask, ResourceStrategyMeasurementTask emfTask) {
+		prepareMachineTask(rmiTask, emfTask);
+		rmiTask.setMeasurementTime(emfTask.getDuration());
+		rmiTask.setDemand(getRmiDemand(emfTask.getDemand()));
 	}
 	
 	private RmiDemand getRmiDemand(ResourceStrategyDemand demand) {
@@ -161,6 +170,12 @@ public class EmfTaskToRmiTaskConverter {
 			return RmiDemand.READ_FROM_HDD_DEMAND;
 		}
 		return null;
+	}
+	
+	public RmiAbstractTask convertResourceStrategyMeasurementAfterIoTask(ResourceStrategyMeasurementAfterIoTask emfTask) {
+		RmiResourceStrategyMeasurementAfterIoTask rmiResourceStrategyMeasurementAfterIoTask = new RmiResourceStrategyMeasurementAfterIoTask(++idCounter);
+		prepareResourceStrategyMeasurementTask(rmiResourceStrategyMeasurementAfterIoTask, emfTask);
+		return rmiResourceStrategyMeasurementAfterIoTask;
 	}
 	
 	

@@ -24,6 +24,11 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 		numberOfNestedTaskIterations = ((RmiLoopTask)task).getNumberOfIterations();
 		//System.out.println("LOOP preparing " + numberOfNestedTaskIterations*numberOfIterations + " iterations");
 		taskExecuter = TaskExecuterFactory.getInstance().convertTask(((RmiLoopTask)task).getNestedTask(), numberOfNestedTaskIterations*numberOfIterations, nestedFinishIndicator);
+		if (taskExecuter.prepare() == false) {
+			taskExecuter = null;
+			preparationFailed();
+			return false;
+		}
 		/*taskExecuter.addTaskListener(new TaskListener() {
 			public void taskCompleted(int taskId, int completedIterations) {
 				synchronized (LoopTaskExecuter.this) {
@@ -64,8 +69,10 @@ public class LoopTaskExecuter extends AbstractTaskExecuter {
 	
 	@Override
 	protected void doCleanup() {
-		taskExecuter.cleanup();
-		taskExecuter = null;
+		if (taskExecuter != null) {
+			taskExecuter.cleanup();
+			taskExecuter = null;
+		}
 		nestedFinishIndicator = null;
 	}
 	
