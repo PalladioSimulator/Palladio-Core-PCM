@@ -159,7 +159,7 @@ public class SplitJob implements IBlackboardInteractingJob<MDSDBlackboard>{
 			}
 		}
 		
-		pcmResourceSetPartition.loadModel(config.getResourceRepository());
+		//pcmResourceSetPartition.loadModel(config.getResourceRepository());
 		pcmResourceSetPartition.loadModel(config.getFeatureConfigFile());
 		
 		this.blackboard.addPartition(config.getModelPartition(), pcmResourceSetPartition);
