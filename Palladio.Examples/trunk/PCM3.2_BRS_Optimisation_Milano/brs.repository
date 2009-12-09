@@ -326,7 +326,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="_1:StartAction" id="_qh8VcLcLEd2_9rSHIHHezA" successor_AbstractAction="_zZioQLcLEd2_9rSHIHHezA"/>
             <steps_Behaviour xsi:type="_1:StopAction" id="_qh8VcbcLEd2_9rSHIHHezA" predecessor_AbstractAction="_2QY5kLcLEd2_9rSHIHHezA"/>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="_zZioQLcLEd2_9rSHIHHezA" entityName="acceptReport" predecessor_AbstractAction="_qh8VcLcLEd2_9rSHIHHezA" successor_AbstractAction="_2QY5kLcLEd2_9rSHIHHezA" failureProbability="1.2E-5">
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_zZioQLcLEd2_9rSHIHHezA" entityName="acceptReport" predecessor_AbstractAction="_qh8VcLcLEd2_9rSHIHHezA" successor_AbstractAction="_2QY5kLcLEd2_9rSHIHHezA" failureProbability="1.2E-6">
               <resourceDemand_Action>
                 <specification_ParametericResourceDemand specification="1.0*noise.VALUE"/>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -353,7 +353,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="_1:StartAction" id="_wOlIIbcLEd2_9rSHIHHezA" successor_AbstractAction="__zpYgLcLEd2_9rSHIHHezA"/>
             <steps_Behaviour xsi:type="_1:StopAction" id="_wOlIIrcLEd2_9rSHIHHezA" predecessor_AbstractAction="_CGlEcLcMEd2_9rSHIHHezA"/>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="__zpYgLcLEd2_9rSHIHHezA" entityName="acceptView" predecessor_AbstractAction="_wOlIIbcLEd2_9rSHIHHezA" successor_AbstractAction="_CGlEcLcMEd2_9rSHIHHezA" failureProbability="5.5E-5">
+            <steps_Behaviour xsi:type="_1:InternalAction" id="__zpYgLcLEd2_9rSHIHHezA" entityName="acceptView" predecessor_AbstractAction="_wOlIIbcLEd2_9rSHIHHezA" successor_AbstractAction="_CGlEcLcMEd2_9rSHIHHezA" failureProbability="5.5E-6">
               <resourceDemand_Action>
                 <specification_ParametericResourceDemand specification="1.0*noise.VALUE"/>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
