@@ -457,6 +457,18 @@
     <children xmi:type="notation:Node" xmi:id="_L6Gg8ZuuEd6drucJ1qoe4Q" type="2005">
       <children xmi:type="notation:Node" xmi:id="_L6Gg9JuuEd6drucJ1qoe4Q" type="5011"/>
       <children xmi:type="notation:Node" xmi:id="_L6Gg9ZuuEd6drucJ1qoe4Q" type="7011">
+        <children xmi:type="notation:Node" xmi:id="_IQGx4OTgEd664JddQMq0TA" type="3010">
+          <children xmi:type="notation:Node" xmi:id="_IQIAAOTgEd664JddQMq0TA" type="5007"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IQGx4eTgEd664JddQMq0TA" fontName="Segoe UI"/>
+          <element xmi:type="_1:ProbabilisticBranchTransition" href="default.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@branches_Branch.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IQGx4uTgEd664JddQMq0TA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IQIAAeTgEd664JddQMq0TA" type="3010">
+          <children xmi:type="notation:Node" xmi:id="_IQInEOTgEd664JddQMq0TA" type="5007"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IQIAAuTgEd664JddQMq0TA" fontName="Segoe UI"/>
+          <element xmi:type="_1:ProbabilisticBranchTransition" href="default.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@branches_Branch.1"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IQIAA-TgEd664JddQMq0TA" x="265" y="16"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_L6Gg9puuEd6drucJ1qoe4Q"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_L6Gg95uuEd6drucJ1qoe4Q"/>
       </children>
