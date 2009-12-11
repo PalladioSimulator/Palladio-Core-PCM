@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
   <uml:Model xmi:id="_wQr8YCh8Edue7oeC4NTCGg" name="pcm">
     <eAnnotations xmi:id="_2bbAUCh8Edue7oeC4NTCGg" source="http://www.eclipse.org/emf/2002/Ecore"/>
     <ownedComment xmi:id="_KQQ8oLIPEd2cRs6GwUwg9g" annotatedElement="_wQr8YCh8Edue7oeC4NTCGg">
@@ -2583,18 +2583,6 @@ Example: To model a layered architecture, of which each layer is potentially spl
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
-    <profileApplication xmi:id="_wQr8bSh8Edue7oeC4NTCGg">
-      <eAnnotations xmi:id="_wQr8bih8Edue7oeC4NTCGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
-      </eAnnotations>
-      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
-    </profileApplication>
-    <profileApplication xmi:id="_wQr8cCh8Edue7oeC4NTCGg">
-      <eAnnotations xmi:id="_wQr8cSh8Edue7oeC4NTCGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
-      </eAnnotations>
-      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
-    </profileApplication>
     <profileApplication xmi:id="_L7BCsCivEduNHNn-nQsgCQ">
       <eAnnotations xmi:id="_L7KMoCivEduNHNn-nQsgCQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
@@ -2609,12 +2597,6 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0" basePackage="" prefix="Composition"/>
   <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" basePackage="" prefix="Allocation"/>
   <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" basePackage="" prefix="Repository"/>
-  <Default:Documentation xmi:id="_U2glMJZwEdyvM-KRcbKtDQ" base_Comment="_7gFgQJvjEdqN_b565_mSbQ"/>
-  <Default:Documentation xmi:id="_U2hMQJZwEdyvM-KRcbKtDQ" base_Comment="_pfXlcJvmEdqN_b565_mSbQ"/>
-  <Default:Documentation xmi:id="_U2hMQZZwEdyvM-KRcbKtDQ" base_Comment="_v8sVkJvjEdqN_b565_mSbQ"/>
-  <Default:Documentation xmi:id="_U2hMQpZwEdyvM-KRcbKtDQ" base_Comment="_0sfFgJvjEdqN_b565_mSbQ"/>
-  <Default:Documentation xmi:id="_U2hzUJZwEdyvM-KRcbKtDQ" base_Comment="_1Xd8MJvjEdqN_b565_mSbQ"/>
-  <Default:Documentation xmi:id="_U2jBcJZwEdyvM-KRcbKtDQ" base_Comment="_Z-XIUKN-EdqfKJQ-jd0-uQ"/>
   <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0" basePackage="" prefix="Protocol"/>
   <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" basePackage="" prefix="Resourceenvironment"/>
   <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" basePackage="" prefix="Usagemodel"/>
@@ -2625,196 +2607,12 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0" basePackage="" prefix="Qosannotations"/>
   <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/4.0" basePackage="" prefix="Performance"/>
   <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="reliability" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Reliability/4.0" prefix="Reliability"/>
-  <Default:Documentation xmi:id="_ElYt0H5kEd2w8a0eK9hypA" base_Comment="_ElI2MH5kEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_qCzxkH5kEd2w8a0eK9hypA" base_Comment="_qCrOsH5kEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_BSN3cH5lEd2w8a0eK9hypA" base_Comment="_BSF7oH5lEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_F9vLYH5lEd2w8a0eK9hypA" base_Comment="_F9odsH5lEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_tvGnsH5lEd2w8a0eK9hypA" base_Comment="_tu_S8H5lEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_60X00H5lEd2w8a0eK9hypA" base_Comment="_60RuMH5lEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_Jvl28H5mEd2w8a0eK9hypA" base_Comment="_JvdUEH5mEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_qyQmoH5mEd2w8a0eK9hypA" base_Comment="_qyKgAH5mEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_4ABBYH5mEd2w8a0eK9hypA" base_Comment="_3_6TsH5mEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="__dNLsH5mEd2w8a0eK9hypA" base_Comment="__dKvcH5mEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_RqBhcH5nEd2w8a0eK9hypA" base_Comment="_Rp_sQH5nEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_jldzUH5nEd2w8a0eK9hypA" base_Comment="_jlYTwH5nEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_3OfBUH5nEd2w8a0eK9hypA" base_Comment="_3OZhwH5nEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_IZy2wH5oEd2w8a0eK9hypA" base_Comment="_IZvzcH5oEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_ZaZRAH5oEd2w8a0eK9hypA" base_Comment="_ZaTKYH5oEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_hd7poH5oEd2w8a0eK9hypA" base_Comment="_hd2xIH5oEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_5C2sgH5oEd2w8a0eK9hypA" base_Comment="_5CxM8H5oEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_g4FVIH5pEd2w8a0eK9hypA" base_Comment="_g4BDsH5pEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_kfdrgH5pEd2w8a0eK9hypA" base_Comment="_kfbPQH5pEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_wd9d0H5pEd2w8a0eK9hypA" base_Comment="_wd5MYH5pEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_2-Fi8H5pEd2w8a0eK9hypA" base_Comment="_2-BRgH5pEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_LqcV4H5tEd2w8a0eK9hypA" base_Comment="_LqYEcH5tEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_NXY_4H5tEd2w8a0eK9hypA" base_Comment="_NXVVgH5tEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_bkHkUH5tEd2w8a0eK9hypA" base_Comment="_bkCEwH5tEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_TZSbcH5uEd2w8a0eK9hypA" base_Comment="_TZOKAH5uEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_0mausH5uEd2w8a0eK9hypA" base_Comment="_0mZgkH5uEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_-vOKsH5uEd2w8a0eK9hypA" base_Comment="_-vKgUH5uEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_BtvKQH5vEd2w8a0eK9hypA" base_Comment="_Btq40H5vEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_OQJh8H5vEd2w8a0eK9hypA" base_Comment="_OQF3kH5vEd2w8a0eK9hypA"/>
-  <Default:Documentation xmi:id="_XOueAIAFEd2DHtWYu7Q_tA" base_Comment="_XG-QMIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_Zp_mkIAFEd2DHtWYu7Q_tA" base_Comment="_ZpsroIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_cF3MEIAFEd2DHtWYu7Q_tA" base_Comment="_cFuCIIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_ijFHIIAFEd2DHtWYu7Q_tA" base_Comment="_ii7WIIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_nK3xoYAFEd2DHtWYu7Q_tA" base_Comment="_nK3xoIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_r-bnQIAFEd2DHtWYu7Q_tA" base_Comment="_r-SdUIAFEd2DHtWYu7Q_tA"/>
-  <Default:Documentation xmi:id="_zdYIEITGEd2vDt35AcA8Pg" base_Comment="_zdOXEITGEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_Br0jwYTHEd2vDt35AcA8Pg" base_Comment="_Br0jwITHEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_GbxEsITHEd2vDt35AcA8Pg" base_Comment="_Gbn6wITHEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_ZEZXQITIEd2vDt35AcA8Pg" base_Comment="_ZEQNUITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_cSKTwYTIEd2vDt35AcA8Pg" base_Comment="_cSKTwITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_fTIKYYTIEd2vDt35AcA8Pg" base_Comment="_fTIKYITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_pWu9UITIEd2vDt35AcA8Pg" base_Comment="_pWlMUITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_snwpMITIEd2vDt35AcA8Pg" base_Comment="_snnfQITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_uBVEMITIEd2vDt35AcA8Pg" base_Comment="_uBLTMITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_xc7BUYTIEd2vDt35AcA8Pg" base_Comment="_xc7BUITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_5G_xEYTIEd2vDt35AcA8Pg" base_Comment="_5G_xEITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_776IsYTIEd2vDt35AcA8Pg" base_Comment="_776IsITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_-oV5wYTIEd2vDt35AcA8Pg" base_Comment="_-oV5wITIEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_FYPgQITJEd2vDt35AcA8Pg" base_Comment="_FYFvQITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_P1uy0YTJEd2vDt35AcA8Pg" base_Comment="_P1uy0ITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_TltrkYTJEd2vDt35AcA8Pg" base_Comment="_TltrkITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_XZ2rkYTJEd2vDt35AcA8Pg" base_Comment="_XZ2rkITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_cyHwwYTJEd2vDt35AcA8Pg" base_Comment="_cyHwwITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_fHfssITJEd2vDt35AcA8Pg" base_Comment="_fHWiwITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_l9y2IYTJEd2vDt35AcA8Pg" base_Comment="_l9y2IITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_rv9CAYTJEd2vDt35AcA8Pg" base_Comment="_rv9CAITJEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_HvyxAYTKEd2vDt35AcA8Pg" base_Comment="_HvyxAITKEd2vDt35AcA8Pg"/>
-  <Default:Documentation xmi:id="_tPuW8IVeEd2pasxENQ18jg" base_Comment="_tLG8sIVeEd2pasxENQ18jg"/>
-  <Default:Documentation xmi:id="_aAWikIVfEd2pasxENQ18jg" base_Comment="_aAMxkIVfEd2pasxENQ18jg"/>
-  <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
-  <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
   <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0" prefix="Subsystem"/>
   <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0" prefix="Performance"/>
   <Ecore:EReference xmi:id="_2N-RwKGhEd2ZzfSAo7TyCQ" isTransient="true" base_Property="_6Sm8IaMYEdqfKJQ-jd0-uQ"/>
-  <Default:Documentation xmi:id="_XUdFcKHZEd2av7jcZUzHwg" base_Comment="_XM2ooKHZEd2av7jcZUzHwg"/>
-  <Default:Documentation xmi:id="_3vIBAaHZEd2av7jcZUzHwg" base_Comment="_3vIBAKHZEd2av7jcZUzHwg"/>
-  <Default:Documentation xmi:id="_1lMqoaHaEd2av7jcZUzHwg" base_Comment="_1lMqoKHaEd2av7jcZUzHwg"/>
-  <Default:Documentation xmi:id="_z8WoEaHbEd2av7jcZUzHwg" base_Comment="_z8WoEKHbEd2av7jcZUzHwg"/>
-  <Default:Documentation xmi:id="_1W890aHbEd2av7jcZUzHwg" base_Comment="_1W890KHbEd2av7jcZUzHwg"/>
-  <Default:Documentation xmi:id="_7HYV0Kc1Ed2mBdDaN9hoZQ" base_Comment="_7A-L0Kc1Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_pJsLwac2Ed2mBdDaN9hoZQ" base_Comment="_pJsLwKc2Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_Hiy4Mac3Ed2mBdDaN9hoZQ" base_Comment="_Hiy4MKc3Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_tSNq4ac3Ed2mBdDaN9hoZQ" base_Comment="_tSNq4Kc3Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_B_Fikac4Ed2mBdDaN9hoZQ" base_Comment="_B_FikKc4Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_W9Sa0ac4Ed2mBdDaN9hoZQ" base_Comment="_W9Sa0Kc4Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_njAP4ac4Ed2mBdDaN9hoZQ" base_Comment="_njAP4Kc4Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_xVwjYac4Ed2mBdDaN9hoZQ" base_Comment="_xVwjYKc4Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_6JdNoac4Ed2mBdDaN9hoZQ" base_Comment="_6JdNoKc4Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_NOSwgac5Ed2mBdDaN9hoZQ" base_Comment="_NOSwgKc5Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_Cwgtkac6Ed2mBdDaN9hoZQ" base_Comment="_CwgtkKc6Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_qxJ8Aac6Ed2mBdDaN9hoZQ" base_Comment="_qxJ8AKc6Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_HHiiwac7Ed2mBdDaN9hoZQ" base_Comment="_HHiiwKc7Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_Pg4MQac7Ed2mBdDaN9hoZQ" base_Comment="_Pg4MQKc7Ed2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_LNyXsadBEd2mBdDaN9hoZQ" base_Comment="_LNyXsKdBEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_L9xDIadBEd2mBdDaN9hoZQ" base_Comment="_L9xDIKdBEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_UlDCAadBEd2mBdDaN9hoZQ" base_Comment="_UlDCAKdBEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_zWhyMadBEd2mBdDaN9hoZQ" base_Comment="_zWhyMKdBEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_-6e9kadBEd2mBdDaN9hoZQ" base_Comment="_-6e9kKdBEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_PA19IadCEd2mBdDaN9hoZQ" base_Comment="_PA19IKdCEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_EbM-sadDEd2mBdDaN9hoZQ" base_Comment="_EbM-sKdDEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_jVJHUadDEd2mBdDaN9hoZQ" base_Comment="_jVJHUKdDEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_8LqU8adDEd2mBdDaN9hoZQ" base_Comment="_8LqU8KdDEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_8y230adDEd2mBdDaN9hoZQ" base_Comment="_8y230KdDEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_9b1jYadDEd2mBdDaN9hoZQ" base_Comment="_9b1jYKdDEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_SALKIadEEd2mBdDaN9hoZQ" base_Comment="_SALKIKdEEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_Z0_xUadEEd2mBdDaN9hoZQ" base_Comment="_Z0_xUKdEEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_QPxuEadFEd2mBdDaN9hoZQ" base_Comment="_QPxuEKdFEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_g_vrUadFEd2mBdDaN9hoZQ" base_Comment="_g_vrUKdFEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_o86WMadFEd2mBdDaN9hoZQ" base_Comment="_o86WMKdFEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_KKG64adGEd2mBdDaN9hoZQ" base_Comment="_KKG64KdGEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_SfUSUadGEd2mBdDaN9hoZQ" base_Comment="_SfUSUKdGEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_W8ZhoadGEd2mBdDaN9hoZQ" base_Comment="_W8ZhoKdGEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_hOwiQadGEd2mBdDaN9hoZQ" base_Comment="_hOwiQKdGEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_NWSGgadHEd2mBdDaN9hoZQ" base_Comment="_NWSGgKdHEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_PEQEMadHEd2mBdDaN9hoZQ" base_Comment="_PEQEMKdHEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_ZzWEIadHEd2mBdDaN9hoZQ" base_Comment="_ZzWEIKdHEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_wkhowapvEd26O59kvcjv0A" base_Comment="_wkhowKpvEd26O59kvcjv0A"/>
-  <Default:Documentation xmi:id="_an4V0apwEd26O59kvcjv0A" base_Comment="_an4V0KpwEd26O59kvcjv0A"/>
-  <Default:Documentation xmi:id="_yK-MsapwEd26O59kvcjv0A" base_Comment="_yK-MsKpwEd26O59kvcjv0A"/>
-  <Default:Documentation xmi:id="_RO7-sKtbEd2iPq4SbQh7ig" base_Comment="_ROfSwKtbEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_B4dHcatcEd2iPq4SbQh7ig" base_Comment="_B4dHcKtcEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_ylh6gatcEd2iPq4SbQh7ig" base_Comment="_ylh6gKtcEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_-g0n0atcEd2iPq4SbQh7ig" base_Comment="_-g0n0KtcEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_pRvlgatdEd2iPq4SbQh7ig" base_Comment="_pRvlgKtdEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_BU-8EateEd2iPq4SbQh7ig" base_Comment="_BU-8EKteEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_GT4fAateEd2iPq4SbQh7ig" base_Comment="_GT4fAKteEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_RGcpsateEd2iPq4SbQh7ig" base_Comment="_RGcpsKteEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_8M0S8ateEd2iPq4SbQh7ig" base_Comment="_8M0S8KteEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_1CbTYatfEd2iPq4SbQh7ig" base_Comment="_1CbTYKtfEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_HyECUatgEd2iPq4SbQh7ig" base_Comment="_HyECUKtgEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_AhJkAathEd2iPq4SbQh7ig" base_Comment="_AhJkAKthEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_nH0SUatiEd2iPq4SbQh7ig" base_Comment="_nH0SUKtiEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_vc2DkatiEd2iPq4SbQh7ig" base_Comment="_vc2DkKtiEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_xLq84atiEd2iPq4SbQh7ig" base_Comment="_xLq84KtiEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_5I214KtiEd2iPq4SbQh7ig" base_Comment="_5Itr8KtiEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_pwr8katjEd2iPq4SbQh7ig" base_Comment="_pwr8kKtjEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_xbr5YatjEd2iPq4SbQh7ig" base_Comment="_xbr5YKtjEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="__VVJwatjEd2iPq4SbQh7ig" base_Comment="__VVJwKtjEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_QrI_AatkEd2iPq4SbQh7ig" base_Comment="_QrI_AKtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_TCWG8atkEd2iPq4SbQh7ig" base_Comment="_TCWG8KtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_WnwHYatkEd2iPq4SbQh7ig" base_Comment="_WnwHYKtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_jcQ7satkEd2iPq4SbQh7ig" base_Comment="_jcQ7sKtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_moDiQatkEd2iPq4SbQh7ig" base_Comment="_moDiQKtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_qevf8atkEd2iPq4SbQh7ig" base_Comment="_qevf8KtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_3cV-0atkEd2iPq4SbQh7ig" base_Comment="_3cV-0KtkEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_A1b1IatlEd2iPq4SbQh7ig" base_Comment="_A1b1IKtlEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_INEKAatlEd2iPq4SbQh7ig" base_Comment="_INEKAKtlEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_hdQUgatoEd2iPq4SbQh7ig" base_Comment="_hdQUgKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_hr2xMatoEd2iPq4SbQh7ig" base_Comment="_hr2xMKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_h3CGcatoEd2iPq4SbQh7ig" base_Comment="_h3CGcKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_iBm-watoEd2iPq4SbQh7ig" base_Comment="_iBm-wKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_iMfZEatoEd2iPq4SbQh7ig" base_Comment="_iMfZEKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_iXNbUatoEd2iPq4SbQh7ig" base_Comment="_iXNbUKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_ip_NYatoEd2iPq4SbQh7ig" base_Comment="_ip_NYKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_jU5LkatoEd2iPq4SbQh7ig" base_Comment="_jU5LkKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_jhjukatoEd2iPq4SbQh7ig" base_Comment="_jhjukKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_jq8UEatoEd2iPq4SbQh7ig" base_Comment="_jq8UEKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_j6l5oatoEd2iPq4SbQh7ig" base_Comment="_j6l5oKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_kK-fAatoEd2iPq4SbQh7ig" base_Comment="_kK-fAKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_klf30atoEd2iPq4SbQh7ig" base_Comment="_klf30KtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_kxaz8atoEd2iPq4SbQh7ig" base_Comment="_kxaz8KtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_k6pocatoEd2iPq4SbQh7ig" base_Comment="_k6pocKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_lDcYEatoEd2iPq4SbQh7ig" base_Comment="_lDcYEKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_lTiCgatoEd2iPq4SbQh7ig" base_Comment="_lTiCgKtoEd2iPq4SbQh7ig"/>
-  <Default:Documentation xmi:id="_R72yYKxIEd2rasp2amXCEg" base_Comment="_R2zTQKxIEd2rasp2amXCEg"/>
-  <Default:Documentation xmi:id="_ebgxAKxIEd2rasp2amXCEg" base_Comment="_ebXnEKxIEd2rasp2amXCEg"/>
-  <Default:Documentation xmi:id="_pgxbsazsEd29xIYaCWKJeg" base_Comment="_pgxbsKzsEd29xIYaCWKJeg"/>
-  <Default:Documentation xmi:id="_s6888a_0Ed2327r4hBntxA" base_Comment="_s6888K_0Ed2327r4hBntxA"/>
-  <Default:Documentation xmi:id="_Dy9kka_3Ed2327r4hBntxA" base_Comment="_Dy9kkK_3Ed2327r4hBntxA"/>
-  <Default:Documentation xmi:id="_yg9J4a_5Ed2327r4hBntxA" base_Comment="_yg9J4K_5Ed2327r4hBntxA"/>
   <Ecore:EAttribute xmi:id="_cXuxgLAQEd2m9re50g25Zg" base_Property="_sbTYkODmEdq8ysXH3gTiEg"/>
-  <Default:Documentation xmi:id="_3_XRwbIGEd2Sza8Vijl8Yw" base_Comment="_3_XRwLIGEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_MfixQLIHEd2Sza8Vijl8Yw" base_Comment="_MfZAQLIHEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_emo5gbIHEd2Sza8Vijl8Yw" base_Comment="_emo5gLIHEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_ITUzAbIIEd2Sza8Vijl8Yw" base_Comment="_ITUzALIIEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_RbaY4LIIEd2Sza8Vijl8Yw" base_Comment="_RbQn4LIIEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_btu9QbIIEd2Sza8Vijl8Yw" base_Comment="_btu9QLIIEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_8TjjcbIJEd2Sza8Vijl8Yw" base_Comment="_8TjjcLIJEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_Qk25cbIKEd2Sza8Vijl8Yw" base_Comment="_Qk25cLIKEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_XkN4QbIKEd2Sza8Vijl8Yw" base_Comment="_XkN4QLIKEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_piO9ALIKEd2Sza8Vijl8Yw" base_Comment="_piFzELIKEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_s-awAbIKEd2Sza8Vijl8Yw" base_Comment="_s-awALIKEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="__WCAgbIKEd2Sza8Vijl8Yw" base_Comment="__WCAgLIKEd2Sza8Vijl8Yw"/>
-  <Default:Documentation xmi:id="_KW9agLIPEd2cRs6GwUwg9g" base_Comment="_KQQ8oLIPEd2cRs6GwUwg9g"/>
-  <Default:Documentation xmi:id="_X7GMkLIdEd2cRs6GwUwg9g" base_Comment="_X68bkLIdEd2cRs6GwUwg9g"/>
-  <Default:Documentation xmi:id="_1V8YoLIrEd2cRs6GwUwg9g" base_Comment="_1VfssLIrEd2cRs6GwUwg9g"/>
-  <Default:Documentation xmi:id="_Zdak0UIxEd6xDqQsjkcxUg" base_Comment="_Zdak0EIxEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_9OSAIEIxEd6xDqQsjkcxUg" base_Property="_1lj7QEIxEd6xDqQsjkcxUg"/>
-  <Default:Documentation xmi:id="_ON9NUEIyEd6xDqQsjkcxUg" base_Comment="_ON0DYEIyEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_QRnuMEIyEd6xDqQsjkcxUg" base_Property="_wPsp0EIxEd6xDqQsjkcxUg"/>
-  <Default:Documentation xmi:id="_YIBpwEIyEd6xDqQsjkcxUg" base_Comment="_YH4f0EIyEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_gvgc8EIyEd6xDqQsjkcxUg" base_Property="_a8pGcEIyEd6xDqQsjkcxUg"/>
-  <Default:Documentation xmi:id="_uvkeYUIyEd6xDqQsjkcxUg" base_Comment="_uvkeYEIyEd6xDqQsjkcxUg"/>
   <Ecore:EAttribute xmi:id="_iLeg4HOkEd6z6tywRVl4hg" base_Property="_bOjLAHOkEd6z6tywRVl4hg"/>
-  <Default:Documentation xmi:id="_Q5XqcHOlEd6z6tywRVl4hg" base_Comment="_Q5VOMHOlEd6z6tywRVl4hg"/>
-  <Default:Documentation xmi:id="_MHpqQH2dEd61Z_3XFFo7Qg" base_Comment="_L-tJoH2dEd61Z_3XFFo7Qg"/>
-  <Default:Documentation xmi:id="_fR1wwX2pEd61Z_3XFFo7Qg" base_Comment="_fR1wwH2pEd61Z_3XFFo7Qg"/>
-  <Default:Documentation xmi:id="_QMXk8KOREd6kDKmj84bKsg" base_Comment="_QMObAKOREd6kDKmj84bKsg"/>
-  <Default:Documentation xmi:id="_p5ax8aOREd6kDKmj84bKsg" base_Comment="_p5ax8KOREd6kDKmj84bKsg"/>
-  <Default:Documentation xmi:id="_X1J_sLGREd673PT6cWw0Kw" base_Comment="_X1A1wLGREd673PT6cWw0Kw"/>
-  <Default:Documentation xmi:id="_cI-lULGREd673PT6cWw0Kw" base_Comment="_cI00ULGREd673PT6cWw0Kw"/>
-  <Default:Documentation xmi:id="_JXrI0bGZEd673PT6cWw0Kw" base_Comment="_JXrI0LGZEd673PT6cWw0Kw"/>
 </xmi:XMI>

@@ -122,18 +122,6 @@
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
-    <profileApplication xmi:id="_zsavaVYOEduVzvtHWuORYA">
-      <eAnnotations xmi:id="_zsavalYOEduVzvtHWuORYA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
-      </eAnnotations>
-      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
-    </profileApplication>
-    <profileApplication xmi:id="_zsavbFYOEduVzvtHWuORYA">
-      <eAnnotations xmi:id="_zsavbVYOEduVzvtHWuORYA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
-      </eAnnotations>
-      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
-    </profileApplication>
     <profileApplication xmi:id="_97uiYFYWEdugHqNcdyUfAA">
       <eAnnotations xmi:id="_97vJcFYWEdugHqNcdyUfAA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
