@@ -1,20 +1,17 @@
 package de.uka.ipd.sdq.launchmultiple;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -32,11 +29,21 @@ public class LaunchMultipleTab extends AbstractLaunchConfigurationTab {
 	
 	private List<Button> buttons = new ArrayList<Button>();
 	
+	//The id attribute in the org.eclipse.debug.core.launchConfigurationTypes extension point.
+	private String[] launchTypes = { 
+			"de.uka.ipd.sdq.simucontroller.SimuLaunching",
+			"de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType",
+			"de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability",
+			"de.uka.ipd.sdq.dsexplore.launchDSE"
+			};
+	
 	//FIXME: retrieve instance of this using the extension point
 	private static LaunchMultipleTab instance;
 	
-	private ILaunchConfigurationType launchType = null;
+	/** Logger for log4j. */
+	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.launchmultiple");
 
+	
 	@Override
 	public void createControl(Composite parent) {
 		
@@ -55,7 +62,7 @@ public class LaunchMultipleTab extends AbstractLaunchConfigurationTab {
 		loggingGroup.setText("Choose Launch Configs to Run");
 		loggingGroup.setLayout(new GridLayout());
 		
-		ILaunchConfiguration[] configs = getLaunchConfigs();
+		List<ILaunchConfiguration> configs = getLaunchConfigs();
 		
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			buttons.add(createCheckBox(launchConfiguration, loggingGroup));
@@ -63,28 +70,31 @@ public class LaunchMultipleTab extends AbstractLaunchConfigurationTab {
 
 	}
 
-	public ILaunchConfiguration[] getLaunchConfigs() {
+	public List<ILaunchConfiguration> getLaunchConfigs() {
 		ILaunchManager manager = this.getLaunchManager();
 		
-		this.launchType = manager.getLaunchConfigurationType("de.uka.ipd.sdq.simucontroller.SimuLaunching");
-		
-		ILaunchConfiguration[] configs = null;
-		
-		try {
-			configs = manager.getLaunchConfigurations(this.launchType);
+		List<ILaunchConfiguration> allTypes = new LinkedList<ILaunchConfiguration>();
+		for (String launchTypeID : this.launchTypes) {
 			
-		} catch (CoreException e) {
-			e.printStackTrace();
+			try {
+				ILaunchConfigurationType launchType = manager.getLaunchConfigurationType(launchTypeID);
+				ILaunchConfiguration[] configs = null;
+				configs = manager.getLaunchConfigurations(launchType);
+				
+				for (ILaunchConfiguration iLaunchConfiguration : configs) {
+					allTypes.add(iLaunchConfiguration);
+				}
+				
+			} catch (CoreException e) {
+				logger.error("Could not find a configuration type for id "+launchTypeID+", skipping it.");
+				e.printStackTrace();
+			}
+
+			
 		}
-		return configs;
+		return allTypes;
 	}
 	
-	public ILaunchConfigurationDelegate getDelegate(String mode) throws CoreException{
-		Set<String> modes = new HashSet<String>();
-		modes.add(mode);
-		return this.launchType.getDelegates(modes)[0].getDelegate();
-	}
-
 	private Button createCheckBox(ILaunchConfiguration launchConfiguration, Group launchConfigGroup) {
 		
 		Button launchConfigButton = new Button(launchConfigGroup, SWT.CHECK);
@@ -112,7 +122,7 @@ public class LaunchMultipleTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		
-		ILaunchConfiguration[] configs = getLaunchConfigs();
+		List<ILaunchConfiguration> configs = getLaunchConfigs();
 		
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			boolean selected = false;

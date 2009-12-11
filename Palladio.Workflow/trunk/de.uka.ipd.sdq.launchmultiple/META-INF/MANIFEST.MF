@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.ipd.sdq.launchmultiple.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.debug.ui;bundle-version="3.4.2"
+ org.eclipse.debug.ui;bundle-version="3.4.2",
+ org.apache.log4j;bundle-version="1.2.13"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
