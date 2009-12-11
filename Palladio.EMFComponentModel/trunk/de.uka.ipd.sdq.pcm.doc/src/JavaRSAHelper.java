@@ -67,22 +67,26 @@ public class JavaRSAHelper {
 	}
 
 	public static List<String> getDiagrams(Package p) {
-		String resourceURI = p.eResource().getURI().toFileString();
-		String packageID = ((XMLResource) p.eResource()).getID(p);
-		
 		try {
-			return getDiagramIDs(packageID, resourceURI);
-		} catch (XPathExpressionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
+			String resourceURI = p.eResource().getURI().toFileString();
+			String packageID = ((XMLResource) p.eResource()).getID(p);
+			
+			try {
+				return getDiagramIDs(packageID, resourceURI);
+			} catch (XPathExpressionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch(NullPointerException e) {
 			e.printStackTrace();
 		}
 		return Collections.emptyList();

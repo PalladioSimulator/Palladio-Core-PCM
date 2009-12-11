@@ -1,0 +1,184 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>usagemodel (usagemodel - UML-Dokumentation)</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<link rel="stylesheet" type="text/css" href="WebPublish.css">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainHighlight">Paket</td><td class="NavBarMainPrint">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">usagemodel - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"></td><td class="BookMarkSections"></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName"></span>
+<br>
+<span class="ElementTitle">usagemodel</span>
+<p>
+<a name="documentationSection"></a>TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. </br></br>TODO: Include the example from Heiko's dissertation here? But how to include the picture?</br></br>The usage of a software system by external clients has to be captured in models to enable model-driven</br>performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently</br>present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided</br>roles), waiting delays between service invocations, and values for parameters and component configurations.</br></br>This package contains the usage specification language, which (i) provides more expressiveness for</br>characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts</br>familiar to domain experts to create a domain specific language. The language is called PCM usage</br>model.</br></br>The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. </br></br>Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component</br>architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs</br>and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource</br>environment and component architecture may be changed independently from the UsageModel </br>by system architects, if the system's ProvidedRoles remain unchanged.</br></br>Discussion: </br>Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,</br>78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.</br>Other performance meta-models mix up the specification of user behaviour, component behaviour, and</br>resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance</br>model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).</br></br>Furthermore, none of the other performance meta-models support explicit service parameter modelling.</br>While CSM [162] includes a meta-class Message to specify the amount of data transferred between</br>two steps in the performance model, and KLAPER [78] allows the specification of parameter values</br>in principle, none of these language uses the information to parameterise resource demands or component</br>behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.</br></br>The PCM usage model has been designed based on meta models such as the performance domain model</br>of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore</br>related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage</br>model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle</br>differences:</br>• The usage model is aligned with the role of the domain expert, and uses only concepts known to</br>this role. It is a domain specific language, whereas the UML SPT performance domain model is</br>a general purpose language that includes information, which is usually spread over multiple developer</br>roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts</br>should be able to create PCM usage models with appropriate tools independently from other developer</br>roles, because such models only contain concepts known to them.</br>• The number of loop iterations is not bound to a constant value, but can be specified as a random</br>variable.</br>• The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.</br>• Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the</br>services of a system one at a time.</br>• System service invocations can be enhanced with characterisations of parameters values.</br></br>[31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”</br><a target="_self" href="http://www.omg.org/cgi-bin/doc?formal/2005-01-02,">http://www.omg.org/cgi-bin/doc?formal/2005-01-02,</a> January 2005.</br></br>[34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software</br>testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.</br></br>[78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language</br>for performance and reliability analysis of component-based systems,” in Proc. 5th International</br>Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,</br>pp. 25–36.</br></br>[162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”</br>in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th</br>International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,</br>A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.</br></br>[187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models</br>to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th</br>international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM</br>Press, 2005, pp. 87–98.</br></br></br></br></p>
+<table border="1" class="PackagesTable"></table>
+<p></p>
+<table border="1" class="ContainedElements">
+<tr>
+<td class="DetailsTitle" colspan="2">Klassifikationsmerkmale</td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::AbstractUserAction" href="_.lA9SYOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="AbstractUserAction"></a>&nbsp;<a title="pcm::usagemodel::AbstractUserAction" href="_.lA9SYOQRE.d.q.eH_WIC9QR.e.w-content.html">AbstractUserAction</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Branch" href="_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Branch"></a>&nbsp;<a title="pcm::usagemodel::Branch" href="_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w-content.html">Branch</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::BranchTransition" href="_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="BranchTransition"></a>&nbsp;<a title="pcm::usagemodel::BranchTransition" href="_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ-content.html">BranchTransition</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::ClosedWorkload" href="_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="ClosedWorkload"></a>&nbsp;<a title="pcm::usagemodel::ClosedWorkload" href="_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w-content.html">ClosedWorkload</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Delay" href="_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Delay"></a>&nbsp;<a title="pcm::usagemodel::Delay" href="_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html">Delay</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::EntryLevelSystemCall" href="_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="EntryLevelSystemCall"></a>&nbsp;<a title="pcm::usagemodel::EntryLevelSystemCall" href="_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html">EntryLevelSystemCall</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Loop" href="_55.v.fIOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Loop"></a>&nbsp;<a title="pcm::usagemodel::Loop" href="_55.v.fIOQRE.d.q.eH_WIC9QR.e.w-content.html">Loop</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::OpenWorkload" href="_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="OpenWorkload"></a>&nbsp;<a title="pcm::usagemodel::OpenWorkload" href="_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w-content.html">OpenWorkload</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::ScenarioBehaviour" href="_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="ScenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour" href="_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w-content.html">ScenarioBehaviour</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Start" href="_4.q.xK.kOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Start"></a>&nbsp;<a title="pcm::usagemodel::Start" href="_4.q.xK.kOQRE.d.q.eH_WIC9QR.e.w-content.html">Start</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Stop" href="_5NV.sIOQRE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Stop"></a>&nbsp;<a title="pcm::usagemodel::Stop" href="_5NV.sIOQRE.d.q.eH_WIC9QR.e.w-content.html">Stop</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::UsageModel" href="_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="UsageModel"></a>&nbsp;<a title="pcm::usagemodel::UsageModel" href="_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w-content.html">UsageModel</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::UsageScenario" href="_Y4SF0OQQE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="UsageScenario"></a>&nbsp;<a title="pcm::usagemodel::UsageScenario" href="_Y4SF0OQQE.d.q.eH_WIC9QR.e.w-content.html">UsageScenario</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::UserData" href="_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="UserData"></a>&nbsp;<a title="pcm::usagemodel::UserData" href="_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html">UserData</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Workload" href="_.cX8.q.oOQQE.d.q.eH_WIC9QR.e.w-content.html"><img border="0" src="../images/-1543170816_icon.png" alt="Workload"></a>&nbsp;<a title="pcm::usagemodel::Workload" href="_.cX8.q.oOQQE.d.q.eH_WIC9QR.e.w-content.html">Workload</a></td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="ContainedElements">
+<tr>
+<td class="DetailsTitle" colspan="2">Diagramme</td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::ActualParameterUsage" href="_.wT.hS.wDH.kE.d.uY.w4.tR7G.t.f7Q-content.html"><img border="0" src="../images/1006966014_icon.png" alt="ActualParameterUsage"></a>&nbsp;<a title="pcm::usagemodel::ActualParameterUsage" href="_.wT.hS.wDH.kE.d.uY.w4.tR7G.t.f7Q-content.html">ActualParameterUsage</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::EntryLevelSystemCall" href="_.oA.lJUD.y.yE.d.uB5.p.x.z2U.pKVQ-content.html"><img border="0" src="../images/1006966014_icon.png" alt="EntryLevelSystemCall"></a>&nbsp;<a title="pcm::usagemodel::EntryLevelSystemCall" href="_.oA.lJUD.y.yE.d.uB5.p.x.z2U.pKVQ-content.html">EntryLevelSystemCall</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::PCM_Techrep1" href="_.d.jTW.wJG.kE.d.uV.gYS.f.f.mI32A-content.html"><img border="0" src="../images/1006966014_icon.png" alt="PCM_Techrep1"></a>&nbsp;<a title="pcm::usagemodel::PCM_Techrep1" href="_.d.jTW.wJG.kE.d.uV.gYS.f.f.mI32A-content.html">PCM_Techrep1</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::PCM_Techrep2" href="_7.x.z.gQJG.lE.d.uV.gYS.f.f.mI32A-content.html"><img border="0" src="../images/1006966014_icon.png" alt="PCM_Techrep2"></a>&nbsp;<a title="pcm::usagemodel::PCM_Techrep2" href="_7.x.z.gQJG.lE.d.uV.gYS.f.f.mI32A-content.html">PCM_Techrep2</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::ScenarioBehaviour" href="_VR744D.y.yE.d.uB5.p.x.z2U.pKVQ-content.html"><img border="0" src="../images/1006966014_icon.png" alt="ScenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour" href="_VR744D.y.yE.d.uB5.p.x.z2U.pKVQ-content.html">ScenarioBehaviour</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="pcm::usagemodel::Usage Model" href="_-.b.rS0D.y.xE.d.uB5.p.x.z2U.pKVQ-content.html"><img border="0" src="../images/1006966014_icon.png" alt="Usage Model"></a>&nbsp;<a title="pcm::usagemodel::Usage Model" href="_-.b.rS0D.y.xE.d.uB5.p.x.z2U.pKVQ-content.html">Usage Model</a></td>
+</tr>
+</table>
+<br>
+<p class="LargeTitle">Eigenschaften:</p>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>basePackage</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">&lt;&lt;ePackage&gt;&gt; &lt;Model&gt; pcm</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Nesting Package</b></td><td class="PropertyValue"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">&lt;&lt;ePackage&gt;&gt; &lt;Model&gt; pcm</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>nsPrefix</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>nsURI</b></td><td class="PropertyValue">http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">&lt;&lt;ePackage&gt;&gt; &lt;Model&gt; pcm</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>packageName</b></td><td class="PropertyValue">usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>prefix</b></td><td class="PropertyValue">Usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue">ePackage</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<hr>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainHighlight">Paket</td><td class="NavBarMainPrint">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">usagemodel - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"></td><td class="BookMarkSections"></td>
+</tr>
+</table>
+</body>
+</html>
