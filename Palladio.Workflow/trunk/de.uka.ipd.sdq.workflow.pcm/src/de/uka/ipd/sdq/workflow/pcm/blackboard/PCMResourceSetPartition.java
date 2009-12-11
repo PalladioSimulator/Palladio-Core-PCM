@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.workflow.pcm.blackboard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,70 +39,79 @@ public class PCMResourceSetPartition extends ResourceSetPartition {
 	 */
 	public Repository getRepository() {
 		// TODO: Allow using multiple Repositories, derive the list of repositories automatically
-		return (Repository) getElement(RepositoryPackage.eINSTANCE.getRepository());
+		List<EObject> allRepositories = getElement(RepositoryPackage.eINSTANCE.getRepository());
+		int i = 0;
+		// TODO: Remove this again if multiple repositories work
+		while (((Repository)allRepositories.get(i)).getEntityName().equals("PrimitiveTypes")) {
+			i++;
+		}
+		return (Repository) allRepositories.get(i);
 	}
 
 	/**
 	 * @return Returns a PCM Repository which contains components of Steffen's and Jens' middleware completions
 	 */
 	public Repository getMiddlewareRepository() {
-		return (Repository) getElement(RepositoryPackage.eINSTANCE.getRepository());
+		return (Repository) getElement(RepositoryPackage.eINSTANCE.getRepository()).get(0);
 	}
 
 	/**
 	 * @return Returns the feature configuration which annotates connectors with their technical realisation
 	 */
 	public Configuration getFeatureConfig() {
-		return (Configuration) getElement(featureconfigPackage.eINSTANCE.getConfiguration());
+		return (Configuration) getElement(featureconfigPackage.eINSTANCE.getConfiguration()).get(0);
 	}
 
 	/**
 	 * @return Returns the PCM system instance of the stored PCM model
 	 */
 	public System getSystem() {
-		return (System) getElement(SystemPackage.eINSTANCE.getSystem());
+		return (System) getElement(SystemPackage.eINSTANCE.getSystem()).get(0);
 	}
 
 	/**
 	 * @return Returns the PCM system's allocation model
 	 */
 	public Allocation getAllocation() {
-		return (Allocation) getElement(AllocationPackage.eINSTANCE.getAllocation());
+		return (Allocation) getElement(AllocationPackage.eINSTANCE.getAllocation()).get(0);
 	}
 
 	/**
 	 * @return Returns the PCM usage model of the PCM model in this blackboard partition
 	 */
 	public UsageModel getUsageModel() {
-		return (UsageModel) getElement(UsagemodelPackage.eINSTANCE.getUsageModel());
+		return (UsageModel) getElement(UsagemodelPackage.eINSTANCE.getUsageModel()).get(0);
 	}
 
 	/**
 	 * @return Returns the PCM Resource Type Repository used by the stored PCM model instance
 	 */
 	public ResourceRepository getResourceTypeRepository() {
-		return (ResourceRepository) getElement(ResourcetypePackage.eINSTANCE.getResourceRepository());
+		return (ResourceRepository) getElement(ResourcetypePackage.eINSTANCE.getResourceRepository()).get(0);
 	}
 	
 	/**
 	 * @return Returns the PCM Resource Environment used by the stored PCM model instance
 	 */
 	public ResourceEnvironment getResourceEnvironment() {
-		return (ResourceEnvironment) getElement(ResourceenvironmentPackage.eINSTANCE.getResourceEnvironment());
+		return (ResourceEnvironment) getElement(ResourceenvironmentPackage.eINSTANCE.getResourceEnvironment()).get(0);
 	}
-	
 	
 	/**
 	 * Helper to find root object of specified class
 	 * @param clazz 
 	 */
-	private EObject getElement(EClass clazz) {
+	private List<EObject> getElement(EClass clazz) {
+		ArrayList<EObject> result = new ArrayList<EObject>();
 		for (Resource r : this.rs.getResources()) {
 			if (r.getContents().get(0).eClass() == clazz ) {
-				return r.getContents().get(0);
+				result.add(r.getContents().get(0));
 			}
 		}
-		throw new RuntimeException("Failed to retrieve PCM model element");
+		if (result.size() == 0)
+			throw new RuntimeException("Failed to retrieve PCM model element");
+		else
+			return result;
 	}
 
 }

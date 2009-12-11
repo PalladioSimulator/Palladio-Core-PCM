@@ -3,8 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-
-import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.IJob;
@@ -13,6 +11,7 @@ import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 public class LoadMiddlewareConfigurationIntoBlackboardJob 
@@ -33,14 +32,18 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
-		logger.debug("Creating Middleware Repository Partition");
-		
-		ResourceSetPartition middlewareRepositoryPartition = new ResourceSetPartition();
-		this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
-		
-		logger.debug("Initialising Middleware EPackages");
-		middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
-		
+		ResourceSetPartition middlewareRepositoryPartition = null;
+		if (!this.blackboard.hasPartition(MIDDLEWARE_PARTITION_ID)) {
+			logger.debug("Creating Middleware Repository Partition");
+			
+			middlewareRepositoryPartition = new ResourceSetPartition();
+			this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
+			
+			logger.debug("Initialising Middleware EPackages");
+			middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
+		} else {
+			middlewareRepositoryPartition = this.blackboard.getPartition(MIDDLEWARE_PARTITION_ID);
+		}
 		middlewareRepositoryPartition.loadModel(configuration.getMiddlewareFile());
 	}
 
