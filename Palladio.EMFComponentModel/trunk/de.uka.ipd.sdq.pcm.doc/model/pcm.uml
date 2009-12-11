@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
   <uml:Model xmi:id="_wQr8YCh8Edue7oeC4NTCGg" name="pcm">
     <eAnnotations xmi:id="_2bbAUCh8Edue7oeC4NTCGg" source="http://www.eclipse.org/emf/2002/Ecore"/>
     <ownedComment xmi:id="_KQQ8oLIPEd2cRs6GwUwg9g" annotatedElement="_wQr8YCh8Edue7oeC4NTCGg">
@@ -2590,7 +2590,7 @@ Example: To model a layered architecture, of which each layer is potentially spl
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" basePackage="de.uka.ipd.sdq" prefix=""/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" basePackage="de.uka.ipd.sdq" prefix="pcm"/>
   <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0" basePackage="" prefix="Core"/>
   <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0" basePackage="" prefix="Entity"/>
   <Ecore:EPackage xmi:id="_U1n0YJZwEdyvM-KRcbKtDQ" base_Package="_7h8GkOJREdqxcra4qpeplw" packageName="connectors" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0" basePackage="" prefix="Connectors"/>
