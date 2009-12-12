@@ -11,7 +11,7 @@
 	<component class="org.eclipse.emf.mwe.utils.Reader"> 
 		<uri value="model/pcm.uml"/> 
 		<modelSlot value="model1"/> 
-	</component> 
+	</component>  
 	
 	<component class="org.eclipse.emf.mwe.utils.Reader"> 
 		<uri value="model/identifier.uml"/> 
@@ -31,7 +31,7 @@
 	<component class="org.eclipse.emf.mwe.utils.Reader"> 
 		<uri value="model/Units.uml"/> 
 		<modelSlot value="model5"/> 
-	</component> 
+	</component>
 
 	<component id="dirCleaner" 
 		class="org.eclipse.emf.mwe.utils.DirectoryCleaner" 		
@@ -48,9 +48,8 @@
 			<!-- <profile value="model/Default.profile.uml"/>		
 			<profile value="model/Deployment.profile.uml"/>
 			<profile value="model/ProfileBase.profile.uml"/> -->
-		</metaModel>
-		<!-- <expand value="template::Root::Root FOR {model1,model2,model3,model4,model5}"/> --> 		
-		<expand value="template::Root::Root FOR {model1,model2,model3}"/>
+		</metaModel> 		
+		<expand value="template::Root::Root FOR {model1,model2,model3,model4,model5}"/>
 		
 		<outlet path="src-gen/" append="true" /> 
 		<outlet name='MAN' path='src-man/' overwrite='false'/>

@@ -121,7 +121,12 @@ public class JavaRSAHelper {
 					// for RSA 7.5 exports:
 					svgFileName = fileNamesMap.get(s); 
 				}
-				convertSVG(svgFileName+".svg");
+				
+				if(svgFileName != null) {
+					convertSVG(svgFileName+".svg");
+				} else {
+					System.err.println("Could not fetch an image for id " + s);
+				}
 
 				String xpath3 = ".//styles[@type=\"umlnotation:UMLDiagramStyle\"]";
 				Node result3 = (Node) xp.evaluate(xpath3, n, XPathConstants.NODE);
