@@ -232,7 +232,6 @@ litigation.
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.navigator"/>
-      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.gef"/>
@@ -249,10 +248,6 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide"/>
       <import plugin="org.eclipse.gmf.runtime.notation.providers"/>
-      <import plugin="de.uka.ipd.sdq.pcm"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit"/>
-      <import plugin="de.uka.ipd.sdq.identifier"/>
-      <import plugin="de.uka.ipd.sdq.identifier.edit"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
@@ -307,9 +302,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.featuremodel.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="QVTModels"/>
       <import plugin="QVTModels.edit"/>
-      <import plugin="CopyExceptionModel"/>
       <import plugin="CopyExceptionModel.edit"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.eclipse.uml2.common.edit"/>
