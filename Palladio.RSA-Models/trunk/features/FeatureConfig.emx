@@ -521,7 +521,7 @@ aka NULL, not set, do not override</body>
         <general xmi:type="uml:Class" href="FeatureModel.emx#_HvPWYDkmEd2yIp43-c7nBw?FeatureModel/NamedElement?"/>
       </generalization>
       <ownedAttribute xmi:id="_UQquQMcnEd6uiptR6cqsUw" name="value" visibility="private">
-        <type xmi:type="uml:Class" href="Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
+        <type xmi:type="uml:PrimitiveType" href="Ecore.emx#_SeWkisX_EduPJbEsMYXjUQ?Ecore/EString?"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_ZjEcA8cnEd6uiptR6cqsUw" name="confignode" visibility="private" type="__AsOMHvxEdyOhKBWyuRGig" association="_Zi6rAMcnEd6uiptR6cqsUw">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZjhH8McnEd6uiptR6cqsUw" value="1"/>
