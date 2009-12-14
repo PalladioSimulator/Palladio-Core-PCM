@@ -269,11 +269,11 @@ litigation.
       <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="de.uka.ipd.sdq.units.edit"/>
       <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.emf"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.jface.text"/>
-      <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="com.ibm.icu"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.core"/>
       <import plugin="org.eclipse.gmf.runtime.common.ui"/>
@@ -294,9 +294,30 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
       <import plugin="org.eclipse.gmf.runtime.emf.type.core"/>
       <import plugin="org.antlr"/>
-      <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="de.uka.ipd.sdq.pcm.editor"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="org.eclipse.osgi.util"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featureconfig" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featureconfig.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featuremodel" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featuremodel.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="QVTModels"/>
+      <import plugin="QVTModels.edit"/>
+      <import plugin="CopyExceptionModel"/>
+      <import plugin="CopyExceptionModel.edit"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.uml2.common.edit"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="QVTModels" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="CopyExceptionModel" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
