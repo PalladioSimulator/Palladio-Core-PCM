@@ -240,12 +240,18 @@ litigation.
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.uml2.common.edit"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.debug.core"/>
@@ -254,20 +260,12 @@ litigation.
       <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.logging" version="1.0.4" match="greaterOrEqual"/>
-      <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.transaction"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="QVTModels.edit"/>
-      <import plugin="CopyExceptionModel.edit"/>
-      <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.uml2.common.edit"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
-      <import plugin="QVTModels" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="CopyExceptionModel" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="javax.xml"/>
       <import plugin="javax.mail"/>
       <import plugin="org.eclipse.net4j.jms.api"/>
+      <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="QVTModels" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="CopyExceptionModel" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -466,6 +464,34 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.workflow.pcm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="QVTModels"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="QVTModels.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="CopyExceptionModel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="CopyExceptionModel.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
