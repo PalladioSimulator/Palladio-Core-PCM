@@ -748,7 +748,11 @@ public class ContextWrapper implements Cloneable {
 					// if there are characterisations we need
 					VariableUsage newUsage = ParameterFactory.eINSTANCE
 							.createVariableUsage();
-					newUsage.setNamedReference_VariableUsage(repoVariableUsage.getNamedReference_VariableUsage());
+					
+					//NOTE: using a copy of the named refrerence here since setNamedReference_VariableUsage _magically_ changes  
+					//the repoVariableUsage.getNamedReference_VariableUsage to null!!! 
+					AbstractNamedReference nameRef= VariableUsageHelper.getReferenceCopy(repoVariableUsage.getNamedReference_VariableUsage());
+					newUsage.setNamedReference_VariableUsage(nameRef);
 					// create new VariableUsage and add all characterisations of
 					// the current repository variable usage
 					newUsage
