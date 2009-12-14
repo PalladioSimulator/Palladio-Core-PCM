@@ -7,19 +7,26 @@
 package de.uka.ipd.sdq.featuremodel.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -165,6 +172,106 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean XORorORImpliesChildrenAreMandatory(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 featuremodelValidator.DIAGNOSTIC_SOURCE,
+						 featuremodelValidator.FEATURE_GROUP__XO_ROR_OR_IMPLIES_CHILDREN_ARE_MANDATORY,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "XORorORImpliesChildrenAreMandatory", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ALLImpliesCardinalitiesToBeMinusOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 featuremodelValidator.DIAGNOSTIC_SOURCE,
+						 featuremodelValidator.FEATURE_GROUP__ALL_IMPLIES_CARDINALITIES_TO_BE_MINUS_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ALLImpliesCardinalitiesToBeMinusOne", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 featuremodelValidator.DIAGNOSTIC_SOURCE,
+						 featuremodelValidator.FEATURE_GROUP__OR_IMPLIES_CARDINALITIES_MIN_TO_BE_ONE_AND_MAX_TO_BE_MINUS_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean XORImpliesCardinalitiesToBeOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 featuremodelValidator.DIAGNOSTIC_SOURCE,
+						 featuremodelValidator.FEATURE_GROUP__XOR_IMPLIES_CARDINALITIES_TO_BE_ONE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "XORImpliesCardinalitiesToBeOne", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -183,9 +290,9 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE_GROUP__MIN:
-				return new Integer(getMin());
+				return getMin();
 			case featuremodelPackage.FEATURE_GROUP__MAX:
-				return new Integer(getMax());
+				return getMax();
 			case featuremodelPackage.FEATURE_GROUP__CHILDREN:
 				return getChildren();
 		}
@@ -202,10 +309,10 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE_GROUP__MIN:
-				setMin(((Integer)newValue).intValue());
+				setMin((Integer)newValue);
 				return;
 			case featuremodelPackage.FEATURE_GROUP__MAX:
-				setMax(((Integer)newValue).intValue());
+				setMax((Integer)newValue);
 				return;
 			case featuremodelPackage.FEATURE_GROUP__CHILDREN:
 				getChildren().clear();

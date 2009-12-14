@@ -6,16 +6,26 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import de.uka.ipd.sdq.featuremodel.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.featuremodel.Attribute;
+import de.uka.ipd.sdq.featuremodel.AttributeTypes;
+import de.uka.ipd.sdq.featuremodel.DefaultValue;
+import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.FeatureState;
+import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
+import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
+import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,11 +73,13 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 		switch (eClass.getClassifierID()) {
 			case featuremodelPackage.FEATURE: return createFeature();
 			case featuremodelPackage.ATTRIBUTE: return createAttribute();
+			case featuremodelPackage.DEFAULT_VALUE: return createDefaultValue();
+			case featuremodelPackage.DISAMBIGUATION_RULE: return createDisambiguationRule();
+			case featuremodelPackage.SIMPLE: return createSimple();
 			case featuremodelPackage.FEATURE_GROUP: return createFeatureGroup();
 			case featuremodelPackage.FEATURE_DIAGRAM: return createFeatureDiagram();
 			case featuremodelPackage.REQUIRED_CONSTRAINT: return createRequiredConstraint();
 			case featuremodelPackage.PROHIBITS_CONSTRAINT: return createProhibitsConstraint();
-			case featuremodelPackage.SIMPLE: return createSimple();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,6 +93,8 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case featuremodelPackage.FEATURE_STATE:
+				return createFeatureStateFromString(eDataType, initialValue);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return createAttributeTypesFromString(eDataType, initialValue);
 			default:
@@ -96,6 +110,8 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case featuremodelPackage.FEATURE_STATE:
+				return convertFeatureStateToString(eDataType, instanceValue);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return convertAttributeTypesToString(eDataType, instanceValue);
 			default:
@@ -121,6 +137,26 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DisambiguationRule createDisambiguationRule() {
+		DisambiguationRuleImpl disambiguationRule = new DisambiguationRuleImpl();
+		return disambiguationRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DefaultValue createDefaultValue() {
+		DefaultValueImpl defaultValue = new DefaultValueImpl();
+		return defaultValue;
 	}
 
 	/**
@@ -171,6 +207,26 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public Simple createSimple() {
 		SimpleImpl simple = new SimpleImpl();
 		return simple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureState createFeatureStateFromString(EDataType eDataType, String initialValue) {
+		FeatureState result = FeatureState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFeatureStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

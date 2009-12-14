@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

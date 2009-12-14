@@ -6,26 +6,21 @@
  */
 package de.uka.ipd.sdq.featuremodel.tests;
 
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-
 import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.featuremodel.util.featuremodelResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +45,7 @@ public class featuremodelExample {
 		//
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put
 			(Resource.Factory.Registry.DEFAULT_EXTENSION, 
-			 new XMIResourceFactoryImpl());
+			 new featuremodelResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		//

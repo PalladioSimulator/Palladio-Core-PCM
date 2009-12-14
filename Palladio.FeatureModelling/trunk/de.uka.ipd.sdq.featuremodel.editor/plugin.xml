@@ -27,7 +27,6 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-      		default="true"
             id="de.uka.ipd.sdq.featuremodel.presentation.featuremodelEditorID"
             name="%_UI_featuremodelEditor_label"
             icon="icons/full/obj16/featuremodelModelFile.gif"

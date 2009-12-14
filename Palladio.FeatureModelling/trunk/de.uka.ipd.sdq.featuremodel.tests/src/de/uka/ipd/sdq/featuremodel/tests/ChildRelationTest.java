@@ -6,9 +6,8 @@
  */
 package de.uka.ipd.sdq.featuremodel.tests;
 
-import de.uka.ipd.sdq.featuremodel.ChildRelation;
-
 import junit.framework.TestCase;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
 
 /**
  * <!-- begin-user-doc -->

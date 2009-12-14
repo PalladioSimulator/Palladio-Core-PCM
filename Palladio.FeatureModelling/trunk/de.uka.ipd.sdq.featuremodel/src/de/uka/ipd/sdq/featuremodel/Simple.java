@@ -6,6 +6,9 @@
  */
 package de.uka.ipd.sdq.featuremodel;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -16,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.Simple#getMandatoryChildren <em>Mandatory Children</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.Simple#getOptionalChildren <em>Optional Children</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.Simple#getMandatoryChildren <em>Mandatory Children</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,9 +29,11 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Simple extends ChildRelation {
+
 	/**
 	 * Returns the value of the '<em><b>Mandatory Children</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Feature}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.featuremodel.Feature#getSimpleMandatory <em>Simple Mandatory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mandatory Children</em>' containment reference list isn't clear,
@@ -37,7 +42,8 @@ public interface Simple extends ChildRelation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mandatory Children</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getSimple_MandatoryChildren()
-	 * @model containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.featuremodel.Feature#getSimpleMandatory
+	 * @model opposite="simpleMandatory" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Feature> getMandatoryChildren();
@@ -45,6 +51,7 @@ public interface Simple extends ChildRelation {
 	/**
 	 * Returns the value of the '<em><b>Optional Children</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Feature}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.featuremodel.Feature#getSimpleOptional <em>Simple Optional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Optional Children</em>' containment reference list isn't clear,
@@ -53,9 +60,23 @@ public interface Simple extends ChildRelation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Optional Children</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getSimple_OptionalChildren()
-	 * @model containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.featuremodel.Feature#getSimpleOptional
+	 * @model opposite="simpleOptional" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Feature> getOptionalChildren();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.optionalChildren->size()+self.mandatoryChildren->size()>=1
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean atLeastOneChild(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Simple

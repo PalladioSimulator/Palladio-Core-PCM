@@ -6,17 +6,21 @@
  */
 package de.uka.ipd.sdq.featureconfig.tests;
 
+import junit.framework.TestCase;
+import junit.textui.TestRunner;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
-
-import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Feature Config</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getFeatureConfigState() <em>Feature Config State</em>}</li>
+ * </ul>
+ * </p>
  * <p>
  * The following operations are tested:
  * <ul>
@@ -94,6 +98,32 @@ public class FeatureConfigTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getFeatureConfigState() <em>Feature Config State</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getFeatureConfigState()
+	 * @generated
+	 */
+	public void testGetFeatureConfigState() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#setFeatureConfigState(de.uka.ipd.sdq.featureconfig.FeatureConfigState) <em>Feature Config State</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#setFeatureConfigState(de.uka.ipd.sdq.featureconfig.FeatureConfigState)
+	 * @generated
+	 */
+	public void testSetFeatureConfigState() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

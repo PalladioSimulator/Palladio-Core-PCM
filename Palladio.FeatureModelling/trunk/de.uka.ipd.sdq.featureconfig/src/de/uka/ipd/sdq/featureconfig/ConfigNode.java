@@ -6,13 +6,13 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import de.uka.ipd.sdq.featuremodel.Feature;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featuremodel.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getOrigin <em>Origin</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getConfigState <em>Config State</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getAttributevalue <em>Attributevalue</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,37 +91,42 @@ public interface ConfigNode extends EObject {
 	 * @generated
 	 */
 	void setConfigState(ConfigState value);
-	
+
 	/**
-	 * Checks if the RequiresConstraints are valid
-	 * 
-	 * Checks if a RequiresConstraint object with the given ConfigNode as source exists 
-	 * and validates if every required Feature of this Constraint is selected
-	 * 
-	 * @param configNode the current ConfigNode object in the validation process
-	 * @param diagnostics the DiagnosticChain object
-	 * @param context The context map
-	 * @return 
-	 * <code>true</code> if every required Feature is selected, if no RequiredConstraint exists or if the given ConfigNode is not selected
-	 * <code>false</code> else
-     * @generated NOT
+	 * Returns the value of the '<em><b>Attributevalue</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.featureconfig.AttributeValue}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.featureconfig.AttributeValue#getConfignode <em>Confignode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attributevalue</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributevalue</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_Attributevalue()
+	 * @see de.uka.ipd.sdq.featureconfig.AttributeValue#getConfignode
+	 * @model opposite="confignode" containment="true" ordered="false"
+	 * @generated
 	 */
-	boolean requiresFeaturesChecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
-	
+	EList<AttributeValue> getAttributevalue();
+
 	/**
-	 * Checks if the ProhibitConstraints are valid
-	 * 
-	 * Checks if a ProhibitsConstraint object with the given ConfigNode as source exists 
-	 * and validates if every prohibited Feature of this Constraint is eliminated
-	 * 
-	 * @param configNode the current ConfigNode object in the validation process
-	 * @param diagnostics the DiagnosticChain object
-	 * @param context The context map
-	 * @return 
-	 * <code>true</code> if every prohibited Feature is eliminated, if no ProhibitsConstraint exists or if the given ConfigNode is not selected
-	 * <code>false</code> else
-     * @generated NOT
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
+	 * in 
+	 * 	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
+	 * 	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)
+	 * 	 else
+	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
+	 * 	 endif
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
 	 */
-	boolean prohibitsFeaturesUnchecked (ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ConfigNode

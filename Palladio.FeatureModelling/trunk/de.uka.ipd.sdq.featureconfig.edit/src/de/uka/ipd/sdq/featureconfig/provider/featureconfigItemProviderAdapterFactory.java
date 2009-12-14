@@ -6,15 +6,12 @@
  */
 package de.uka.ipd.sdq.featureconfig.provider;
 
-import de.uka.ipd.sdq.featureconfig.util.featureconfigAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -26,6 +23,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.featureconfig.util.featureconfigAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -96,6 +95,29 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		}
 
 		return configNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.AttributeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttributeValueItemProvider attributeValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.AttributeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttributeValueAdapter() {
+		if (attributeValueItemProvider == null) {
+			attributeValueItemProvider = new AttributeValueItemProvider(this);
+		}
+
+		return attributeValueItemProvider;
 	}
 
 	/**
@@ -194,7 +216,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -244,6 +266,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	 */
 	public void dispose() {
 		if (configNodeItemProvider != null) configNodeItemProvider.dispose();
+		if (attributeValueItemProvider != null) attributeValueItemProvider.dispose();
 		if (featureConfigItemProvider != null) featureConfigItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 	}

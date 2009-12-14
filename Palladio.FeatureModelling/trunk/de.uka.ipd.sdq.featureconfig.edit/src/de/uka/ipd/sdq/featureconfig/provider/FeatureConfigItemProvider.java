@@ -7,20 +7,13 @@
 package de.uka.ipd.sdq.featureconfig.provider;
 
 
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,8 +21,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.FeatureConfigState;
+import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.featureconfig.FeatureConfig} object.
@@ -66,29 +65,29 @@ public class FeatureConfigItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencedObjectPropertyDescriptor(object);
+			addFeatureConfigStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Referenced Object feature.
+	 * This adds a property descriptor for the Feature Config State feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferencedObjectPropertyDescriptor(Object object) {
+	protected void addFeatureConfigStatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FeatureConfig_referencedObject_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FeatureConfig_referencedObject_feature", "_UI_FeatureConfig_type"),
-				 featureconfigPackage.Literals.FEATURE_CONFIG__REFERENCED_OBJECT,
+				 getString("_UI_FeatureConfig_featureConfigState_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FeatureConfig_featureConfigState_feature", "_UI_FeatureConfig_type"),
+				 featureconfigPackage.Literals.FEATURE_CONFIG__FEATURE_CONFIG_STATE,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -142,7 +141,11 @@ public class FeatureConfigItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_FeatureConfig_type");
+		FeatureConfigState labelValue = ((FeatureConfig)object).getFeatureConfigState();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_FeatureConfig_type") :
+			getString("_UI_FeatureConfig_type") + " " + label;
 	}
 
 	/**
@@ -157,6 +160,9 @@ public class FeatureConfigItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FeatureConfig.class)) {
+			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

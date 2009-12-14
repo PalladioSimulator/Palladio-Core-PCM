@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="featureconfig"
-    nsURI="http://sdq.ipd.uka.de/FeatureConfig/2.0" nsPrefix="de.uka.ipd.sdq.featureconfig">
+    nsURI="http://sdq.ipd.uka.de/FeatureConfig/2.0" nsPrefix="featureconfig">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="The Feature Config simply sets states selected, eliminated or default for single features. Thus, invalid configurations can be built, this is by purpose, so that invalid intermediate steps can &#xD;&#xA;be stored. "/>
   </eAnnotations>
@@ -37,6 +37,8 @@
         <details key="documentation" value="actual state for annotated Features; for FeatureGroups it is a derived attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributevalue" ordered="false"
+        upperBound="-1" eType="#//AttributeValue" containment="true" eOpposite="#//AttributeValue/confignode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConfigState">
     <eLiterals name="SELECTED"/>
@@ -46,6 +48,14 @@
         <details key="documentation" value="use value from deaultConfig&#xD;&#xA;aka NULL, not set, do not override"/>
       </eAnnotations>
     </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
+        eType="ecore:EEnum ../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//AttributeTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
+        lowerBound="1" eType="#//ConfigNode" eOpposite="#//ConfigNode/attributevalue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureConfig">
     <eOperations name="RootIsFeatureModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -67,20 +77,30 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureConfigState" ordered="false"
+        lowerBound="1" eType="#//FeatureConfigState" volatile="true" defaultValueLiteral="NOT_SET"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
         upperBound="-1" eType="#//ConfigNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationOverrides"
+        ordered="false" lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/configOverrides"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationDefault" ordered="false"
+        lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/defaultConfig"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureConfigState">
+    <eLiterals name="NOT_SET"/>
+    <eLiterals name="OVERRIDE" value="1"/>
+    <eLiterals name="DEFAULT" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="External container for default and overrides config"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConfig" ordered="false"
-        lowerBound="1" eType="#//FeatureConfig" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configOverrides" ordered="false"
-        upperBound="-1" eType="#//FeatureConfig" containment="true"/>
+        lowerBound="1" eType="#//FeatureConfig" containment="true" eOpposite="#//FeatureConfig/configurationDefault"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configOverrides" ordered="false"
+        upperBound="-1" eType="#//FeatureConfig" containment="true" eOpposite="#//FeatureConfig/configurationOverrides"/>
   </eClassifiers>
 </ecore:EPackage>

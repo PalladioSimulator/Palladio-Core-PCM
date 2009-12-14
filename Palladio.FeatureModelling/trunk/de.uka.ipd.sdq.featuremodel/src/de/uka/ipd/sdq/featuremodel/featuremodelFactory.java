@@ -44,6 +44,24 @@ public interface featuremodelFactory extends EFactory {
 	Attribute createAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Disambiguation Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disambiguation Rule</em>'.
+	 * @generated
+	 */
+	DisambiguationRule createDisambiguationRule();
+
+	/**
+	 * Returns a new object of class '<em>Default Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Default Value</em>'.
+	 * @generated
+	 */
+	DefaultValue createDefaultValue();
+
+	/**
 	 * Returns a new object of class '<em>Feature Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

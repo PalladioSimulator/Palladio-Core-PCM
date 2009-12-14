@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.featuremodel.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
@@ -35,8 +34,14 @@ public class featuremodelTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new featuremodelTests("featuremodel Tests");
-		suite.addTestSuite(FeatureGroupTest.class);
+		suite.addTestSuite(FeatureTest.class);
+		suite.addTestSuite(AttributeTest.class);
+		suite.addTestSuite(DefaultValueTest.class);
 		suite.addTestSuite(SimpleTest.class);
+		suite.addTestSuite(FeatureGroupTest.class);
+		suite.addTestSuite(FeatureDiagramTest.class);
+		suite.addTestSuite(RequiredConstraintTest.class);
+		suite.addTestSuite(ProhibitsConstraintTest.class);
 		return suite;
 	}
 

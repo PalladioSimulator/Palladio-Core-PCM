@@ -35,6 +35,15 @@ public interface featureconfigFactory extends EFactory {
 	ConfigNode createConfigNode();
 
 	/**
+	 * Returns a new object of class '<em>Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute Value</em>'.
+	 * @generated
+	 */
+	AttributeValue createAttributeValue();
+
+	/**
 	 * Returns a new object of class '<em>Feature Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

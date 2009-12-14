@@ -9,7 +9,6 @@ package de.uka.ipd.sdq.featureconfig.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -28,22 +27,55 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.ViewerPane;
+import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
+import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -57,28 +89,20 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
-
 import org.eclipse.swt.layout.FillLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -86,82 +110,47 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
-
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
-import org.eclipse.emf.common.ui.ViewerPane;
-
-import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
+import EMOF.provider.EMOFItemProviderAdapterFactory;
+import EssentialOCL.provider.EssentialOCLItemProviderAdapterFactory;
+import QVTBase.provider.QVTBaseItemProviderAdapterFactory;
+import QVTRelation.provider.QVTRelationItemProviderAdapterFactory;
+import QVTTemplate.provider.QVTTemplateItemProviderAdapterFactory;
+import copyException.provider.CopyExceptionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.provider.ReliabilityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.performance.provider.PerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
+import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 
 /**
@@ -473,7 +462,7 @@ public class featureconfigEditor
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
 								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createURI(delta.getFullPath().toString()), false);
+									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
 									if (resource != null) {
 										if (delta.getKind() == IResourceDelta.REMOVED) {
 											removedResources.add(resource);
@@ -497,31 +486,31 @@ public class featureconfigEditor
 						}
 					}
 
-					ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
 					delta.accept(visitor);
 
 					if (!visitor.getRemovedResources().isEmpty()) {
-						removedResources.addAll(visitor.getRemovedResources());
-						if (!isDirty()) {
-							getSite().getShell().getDisplay().asyncExec
-								(new Runnable() {
-									 public void run() {
+						getSite().getShell().getDisplay().asyncExec
+							(new Runnable() {
+								 public void run() {
+									 removedResources.addAll(visitor.getRemovedResources());
+									 if (!isDirty()) {
 										 getSite().getPage().closeEditor(featureconfigEditor.this, false);
 									 }
-								 });
-						}
+								 }
+							 });
 					}
 
 					if (!visitor.getChangedResources().isEmpty()) {
-						changedResources.addAll(visitor.getChangedResources());
-						if (getSite().getPage().getActiveEditor() == featureconfigEditor.this) {
-							getSite().getShell().getDisplay().asyncExec
-								(new Runnable() {
-									 public void run() {
+						getSite().getShell().getDisplay().asyncExec
+							(new Runnable() {
+								 public void run() {
+									 changedResources.addAll(visitor.getChangedResources());
+									 if (getSite().getPage().getActiveEditor() == featureconfigEditor.this) {
 										 handleActivate();
 									 }
-								 });
-						}
+								 }
+							 });
 					}
 				}
 				catch (CoreException exception) {
@@ -698,6 +687,34 @@ public class featureconfigEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featureconfigItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CopyExceptionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EMOFItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EssentialOCLItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QVTBaseItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QVTRelationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QVTTemplateItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.qosannotations.performance.provider.PerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -755,11 +772,6 @@ public class featureconfigEditor
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
-			// I don't know if this should be run this deferred
-			// because we might have to give the editor a chance to process the viewer update events
-			// and hence to update the views first.
-			//
-			//
 			Runnable runnable =
 				new Runnable() {
 					public void run() {
@@ -770,7 +782,7 @@ public class featureconfigEditor
 						}
 					}
 				};
-			runnable.run();
+			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
 

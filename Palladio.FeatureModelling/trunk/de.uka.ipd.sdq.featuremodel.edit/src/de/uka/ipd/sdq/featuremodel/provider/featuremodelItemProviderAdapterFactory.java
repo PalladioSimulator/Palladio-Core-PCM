@@ -6,15 +6,12 @@
  */
 package de.uka.ipd.sdq.featuremodel.provider;
 
-import de.uka.ipd.sdq.featuremodel.util.featuremodelAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -26,6 +23,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.featuremodel.util.featuremodelAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -119,6 +118,52 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 		}
 
 		return attributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.DisambiguationRule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DisambiguationRuleItemProvider disambiguationRuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.DisambiguationRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDisambiguationRuleAdapter() {
+		if (disambiguationRuleItemProvider == null) {
+			disambiguationRuleItemProvider = new DisambiguationRuleItemProvider(this);
+		}
+
+		return disambiguationRuleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.DefaultValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DefaultValueItemProvider defaultValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.DefaultValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDefaultValueAdapter() {
+		if (defaultValueItemProvider == null) {
+			defaultValueItemProvider = new DefaultValueItemProvider(this);
+		}
+
+		return defaultValueItemProvider;
 	}
 
 	/**
@@ -286,7 +331,7 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -337,11 +382,13 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	public void dispose() {
 		if (featureItemProvider != null) featureItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
+		if (defaultValueItemProvider != null) defaultValueItemProvider.dispose();
+		if (disambiguationRuleItemProvider != null) disambiguationRuleItemProvider.dispose();
+		if (simpleItemProvider != null) simpleItemProvider.dispose();
 		if (featureGroupItemProvider != null) featureGroupItemProvider.dispose();
 		if (featureDiagramItemProvider != null) featureDiagramItemProvider.dispose();
 		if (requiredConstraintItemProvider != null) requiredConstraintItemProvider.dispose();
 		if (prohibitsConstraintItemProvider != null) prohibitsConstraintItemProvider.dispose();
-		if (simpleItemProvider != null) simpleItemProvider.dispose();
 	}
 
 }

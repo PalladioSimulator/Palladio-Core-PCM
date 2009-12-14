@@ -6,12 +6,18 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
-import de.uka.ipd.sdq.featureconfig.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featureconfig.AttributeValue;
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.NamedElement;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +99,14 @@ public class featureconfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featureconfigPackage.ATTRIBUTE_VALUE: {
+				AttributeValue attributeValue = (AttributeValue)theEObject;
+				T result = caseAttributeValue(attributeValue);
+				if (result == null) result = caseNamedElement(attributeValue);
+				if (result == null) result = caseIdentifier(attributeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case featureconfigPackage.FEATURE_CONFIG: {
 				FeatureConfig featureConfig = (FeatureConfig)theEObject;
 				T result = caseFeatureConfig(featureConfig);
@@ -125,6 +139,21 @@ public class featureconfigSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeValue(AttributeValue object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Feature Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -151,6 +180,36 @@ public class featureconfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseConfiguration(Configuration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 

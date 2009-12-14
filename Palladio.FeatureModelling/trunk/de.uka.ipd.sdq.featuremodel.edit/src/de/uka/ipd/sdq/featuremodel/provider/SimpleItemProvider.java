@@ -7,18 +7,12 @@
 package de.uka.ipd.sdq.featuremodel.provider;
 
 
-import de.uka.ipd.sdq.featuremodel.Simple;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,6 +20,10 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.Simple} object.
@@ -78,8 +76,8 @@ public class SimpleItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN);
 			childrenFeatures.add(featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN);
+			childrenFeatures.add(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +129,8 @@ public class SimpleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Simple.class)) {
-			case featuremodelPackage.SIMPLE__MANDATORY_CHILDREN:
 			case featuremodelPackage.SIMPLE__OPTIONAL_CHILDREN:
+			case featuremodelPackage.SIMPLE__MANDATORY_CHILDREN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,12 +150,12 @@ public class SimpleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN,
+				(featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN,
 				 featuremodelFactory.eINSTANCE.createFeature()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN,
+				(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN,
 				 featuremodelFactory.eINSTANCE.createFeature()));
 	}
 
@@ -173,8 +171,8 @@ public class SimpleItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN ||
-			childFeature == featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN;
+			childFeature == featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN ||
+			childFeature == featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN;
 
 		if (qualify) {
 			return getString

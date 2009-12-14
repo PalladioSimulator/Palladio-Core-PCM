@@ -6,16 +6,21 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import de.uka.ipd.sdq.featureconfig.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.featureconfig.AttributeValue;
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.FeatureConfigState;
+import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +67,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case featureconfigPackage.CONFIG_NODE: return createConfigNode();
+			case featureconfigPackage.ATTRIBUTE_VALUE: return createAttributeValue();
 			case featureconfigPackage.FEATURE_CONFIG: return createFeatureConfig();
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
 			default:
@@ -79,6 +85,8 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 		switch (eDataType.getClassifierID()) {
 			case featureconfigPackage.CONFIG_STATE:
 				return createConfigStateFromString(eDataType, initialValue);
+			case featureconfigPackage.FEATURE_CONFIG_STATE:
+				return createFeatureConfigStateFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +102,8 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 		switch (eDataType.getClassifierID()) {
 			case featureconfigPackage.CONFIG_STATE:
 				return convertConfigStateToString(eDataType, instanceValue);
+			case featureconfigPackage.FEATURE_CONFIG_STATE:
+				return convertFeatureConfigStateToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +117,16 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public ConfigNode createConfigNode() {
 		ConfigNodeImpl configNode = new ConfigNodeImpl();
 		return configNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeValue createAttributeValue() {
+		AttributeValueImpl attributeValue = new AttributeValueImpl();
+		return attributeValue;
 	}
 
 	/**
@@ -146,6 +166,26 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	 * @generated
 	 */
 	public String convertConfigStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureConfigState createFeatureConfigStateFromString(EDataType eDataType, String initialValue) {
+		FeatureConfigState result = FeatureConfigState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFeatureConfigStateToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

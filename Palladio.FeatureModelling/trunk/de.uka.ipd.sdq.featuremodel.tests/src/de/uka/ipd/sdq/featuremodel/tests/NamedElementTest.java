@@ -6,9 +6,8 @@
  */
 package de.uka.ipd.sdq.featuremodel.tests;
 
-import de.uka.ipd.sdq.featuremodel.NamedElement;
-
 import junit.framework.TestCase;
+import de.uka.ipd.sdq.featuremodel.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,14 +6,18 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
-import de.uka.ipd.sdq.featureconfig.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featureconfig.AttributeValue;
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.NamedElement;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,12 +80,24 @@ public class featureconfigAdapterFactory extends AdapterFactoryImpl {
 				return createConfigNodeAdapter();
 			}
 			@Override
+			public Adapter caseAttributeValue(AttributeValue object) {
+				return createAttributeValueAdapter();
+			}
+			@Override
 			public Adapter caseFeatureConfig(FeatureConfig object) {
 				return createFeatureConfigAdapter();
 			}
 			@Override
 			public Adapter caseConfiguration(Configuration object) {
 				return createConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -118,6 +134,20 @@ public class featureconfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featureconfig.AttributeValue <em>Attribute Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featureconfig.AttributeValue
+	 * @generated
+	 */
+	public Adapter createAttributeValueAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig <em>Feature Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -142,6 +172,34 @@ public class featureconfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featuremodel.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

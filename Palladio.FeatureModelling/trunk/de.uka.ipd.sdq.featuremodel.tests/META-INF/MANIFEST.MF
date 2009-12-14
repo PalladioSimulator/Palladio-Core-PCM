@@ -10,6 +10,10 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.featuremodel.tests
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.featuremodel;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ de.uka.ipd.sdq.identifier;visibility:=reexport,
+ CopyExceptionModel;visibility:=reexport,
+ QVTModels;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

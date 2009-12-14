@@ -10,11 +10,11 @@
 
 <plugin>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/FeatureModel/2.0"
-            class="de.uka.ipd.sdq.featuremodel.featuremodelPackage"
-            genModel="model/featuremodel.genmodel"/>
-   </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://sdq.ipd.uka.de/FeatureModel/3.0" 
+       class = "de.uka.ipd.sdq.featuremodel.featuremodelPackage"
+       genModel = "model/FeatureModel.genmodel" /> 
+  </extension>
 
 </plugin>

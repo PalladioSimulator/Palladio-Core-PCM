@@ -6,14 +6,25 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
-import de.uka.ipd.sdq.featuremodel.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featuremodel.Attribute;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
+import de.uka.ipd.sdq.featuremodel.Constraint;
+import de.uka.ipd.sdq.featuremodel.DefaultValue;
+import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.NamedElement;
+import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
+import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
+import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,8 +95,20 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createAttributeAdapter();
 			}
 			@Override
+			public Adapter caseDefaultValue(DefaultValue object) {
+				return createDefaultValueAdapter();
+			}
+			@Override
 			public Adapter caseChildRelation(ChildRelation object) {
 				return createChildRelationAdapter();
+			}
+			@Override
+			public Adapter caseDisambiguationRule(DisambiguationRule object) {
+				return createDisambiguationRuleAdapter();
+			}
+			@Override
+			public Adapter caseSimple(Simple object) {
+				return createSimpleAdapter();
 			}
 			@Override
 			public Adapter caseFeatureGroup(FeatureGroup object) {
@@ -108,8 +131,8 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createProhibitsConstraintAdapter();
 			}
 			@Override
-			public Adapter caseSimple(Simple object) {
-				return createSimpleAdapter();
+			public Adapter caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -184,6 +207,34 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChildRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.DisambiguationRule <em>Disambiguation Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featuremodel.DisambiguationRule
+	 * @generated
+	 */
+	public Adapter createDisambiguationRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.DefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue
+	 * @generated
+	 */
+	public Adapter createDefaultValueAdapter() {
 		return null;
 	}
 
@@ -268,6 +319,20 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSimpleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
 		return null;
 	}
 

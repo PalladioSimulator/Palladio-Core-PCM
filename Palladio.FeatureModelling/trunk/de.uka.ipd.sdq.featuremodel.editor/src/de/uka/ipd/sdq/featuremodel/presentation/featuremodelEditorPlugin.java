@@ -7,25 +7,30 @@
 package de.uka.ipd.sdq.featuremodel.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import copyException.provider.ModelEditPlugin;
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
+
 /**
- * This is the central singleton for the featuremodel editor plugin.
+ * This is the central singleton for the Featuremodel editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class featuremodelEditorPlugin extends EMFPlugin {
+public final class FeaturemodelEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final featuremodelEditorPlugin INSTANCE = new featuremodelEditorPlugin();
+	public static final FeaturemodelEditorPlugin INSTANCE = new FeaturemodelEditorPlugin();
 	
 	/**
 	 * Keep track of the singleton.
@@ -41,9 +46,16 @@ public final class featuremodelEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public featuremodelEditorPlugin() {
+	public FeaturemodelEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
+				ModelEditPlugin.INSTANCE,
+				EMOF.provider.ModelEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE,
+				UnitsEditPlugin.INSTANCE,
 			});
 	}
 

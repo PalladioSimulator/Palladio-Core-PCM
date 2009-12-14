@@ -6,10 +6,9 @@
  */
 package de.uka.ipd.sdq.featuremodel.tests;
 
+import junit.textui.TestRunner;
 import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

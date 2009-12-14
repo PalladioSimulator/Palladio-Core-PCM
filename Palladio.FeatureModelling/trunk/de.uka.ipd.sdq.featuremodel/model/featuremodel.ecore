@@ -2,27 +2,93 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="featuremodel"
-    nsURI="http://sdq.ipd.uka.de/FeatureModel/2.0" nsPrefix="de.uka.ipd.sdq">
+    nsURI="http://sdq.ipd.uka.de/FeatureModel/2.0" nsPrefix="featuremodel">
   <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FeatureState" ordered="false"
+        lowerBound="1" eType="#//FeatureState" volatile="true" defaultValueLiteral="NOT_SET"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" ordered="false"
         upperBound="-1" eType="#//Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childrelation" ordered="false"
         eType="#//ChildRelation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguation" ordered="false"
+        upperBound="-1" eType="#//DisambiguationRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../../CopyExceptionModel/model/CopyException.ecore#//Exception"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleMandatory" ordered="false"
+        eType="#//Simple" eOpposite="#//Simple/mandatoryChildren"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleOptional" ordered="false"
+        eType="#//Simple" eOpposite="#//Simple/optionalChildren"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureState">
+    <eLiterals name="NOT_SET"/>
+    <eLiterals name="OPTIONAL" value="1"/>
+    <eLiterals name="MANDATORY" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
         eType="#//AttributeTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultvalue" ordered="false"
+        lowerBound="1" eType="#//DefaultValue" containment="true" eOpposite="#//DefaultValue/attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AttributeTypes">
     <eLiterals name="INT"/>
     <eLiterals name="STRING" value="1"/>
     <eLiterals name="REAL" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
+        eType="#//AttributeTypes" volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
+        lowerBound="1" eType="#//Attribute" eOpposite="#//Attribute/defaultvalue"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChildRelation" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DisambiguationRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" ordered="false"
+        eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguationCondition"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/EssentialOCL.ecore#//OperationCallExp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple" eSuperTypes="#//ChildRelation">
+    <eOperations name="atLeastOneChild" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.optionalChildren->size()+self.mandatoryChildren->size()>=1"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optionalChildren" ordered="false"
+        upperBound="-1" eType="#//Feature" containment="true" eOpposite="#//Feature/simpleOptional"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryChildren" ordered="false"
+        upperBound="-1" eType="#//Feature" containment="true" eOpposite="#//Feature/simpleMandatory"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup" eSuperTypes="#//ChildRelation">
     <eOperations name="XORorORImpliesChildrenAreMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -112,6 +178,8 @@
         lowerBound="1" eType="#//Feature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" ordered="false"
         upperBound="-1" eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatableElement" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
@@ -123,29 +191,4 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredConstraint" eSuperTypes="#//Constraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProhibitsConstraint" eSuperTypes="#//Constraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Simple" eSuperTypes="#//ChildRelation">
-    <eOperations name="atLeastOneChild" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="self.optionalChildren->size()+self.mandatoryChildren->size()>=1"/>
-      </eAnnotations>
-      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
-        </eAnnotations>
-      </eParameters>
-      <eParameters name="context">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The cache of context-specific information."/>
-        </eAnnotations>
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryChildren" ordered="false"
-        upperBound="-1" eType="#//Feature" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="optionalChildren" ordered="false"
-        upperBound="-1" eType="#//Feature" containment="true"/>
-  </eClassifiers>
 </ecore:EPackage>

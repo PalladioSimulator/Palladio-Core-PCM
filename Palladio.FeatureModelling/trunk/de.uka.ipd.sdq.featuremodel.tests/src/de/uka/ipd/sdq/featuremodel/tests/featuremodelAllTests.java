@@ -8,16 +8,15 @@ package de.uka.ipd.sdq.featuremodel.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>featuremodel</b></em>' model.
+ * A test suite for the '<em><b>Featuremodel</b></em>' model.
  * <!-- end-user-doc -->
  * @generated
  */
-public class featuremodelAllTests extends TestSuite {
+public class FeaturemodelAllTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -34,7 +33,7 @@ public class featuremodelAllTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
-		TestSuite suite = new featuremodelAllTests("featuremodel Tests");
+		TestSuite suite = new FeaturemodelAllTests("Featuremodel Tests");
 		suite.addTest(featuremodelTests.suite());
 		return suite;
 	}
@@ -44,8 +43,8 @@ public class featuremodelAllTests extends TestSuite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public featuremodelAllTests(String name) {
+	public FeaturemodelAllTests(String name) {
 		super(name);
 	}
 
-} //featuremodelAllTests
+} //FeaturemodelAllTests

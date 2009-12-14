@@ -6,25 +6,23 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.featuremodel.Constraint;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getRootFeature <em>Root Feature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getAnnotatableElement <em>Annotatable Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +59,16 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * @ordered
 	 */
 	protected EList<Constraint> constraints;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatableElement() <em>Annotatable Element</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatableElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Entity> annotatableElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +149,18 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Entity> getAnnotatableElement() {
+		if (annotatableElement == null) {
+			annotatableElement = new EObjectResolvingEList<Entity>(Entity.class, this, featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT);
+		}
+		return annotatableElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -163,6 +184,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				return getRootFeature();
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				return getConstraints();
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				return getAnnotatableElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +206,10 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				getConstraints().clear();
 				getConstraints().addAll((Collection<? extends Constraint>)newValue);
 				return;
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				getAnnotatableElement().clear();
+				getAnnotatableElement().addAll((Collection<? extends Entity>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +228,9 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				getConstraints().clear();
 				return;
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				getAnnotatableElement().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,6 +247,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				return rootFeature != null;
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				return annotatableElement != null && !annotatableElement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
