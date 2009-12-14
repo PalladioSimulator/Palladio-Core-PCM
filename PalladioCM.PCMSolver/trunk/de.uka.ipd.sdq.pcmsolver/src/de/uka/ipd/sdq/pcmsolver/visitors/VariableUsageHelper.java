@@ -102,7 +102,10 @@ public class VariableUsageHelper {
 	
 
 	
-	private static AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){
+	public static AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){
+		if(anr == null) {
+			return null;
+		}
 		if (anr instanceof NamespaceReference){
 			NamespaceReference nr = (NamespaceReference)anr;
 			NamespaceReference newRef = StoexFactory.eINSTANCE.createNamespaceReference();
@@ -114,8 +117,9 @@ public class VariableUsageHelper {
 			VariableReference varRef = StoexFactory.eINSTANCE.createVariableReference();
 			varRef.setReferenceName(vr.getReferenceName());
 			return varRef;
-		} else 
-			return null;
+		} else { 
+			throw new IllegalArgumentException("Unsupported Reference type "+anr.getClass().getName());
+		}
 	}
 
 	public static void copyVariableUsageToInput(Input input, VariableUsage vu) {
