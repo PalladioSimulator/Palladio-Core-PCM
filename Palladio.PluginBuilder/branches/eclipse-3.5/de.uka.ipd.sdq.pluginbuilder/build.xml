@@ -121,7 +121,7 @@
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr" output="${buildDirectory}/java-build-log-console.txt"> <!-- added by kelsaka: log file output -->
+			failonerror="true" errorproperty="build.stderr"> <!-- output="${buildDirectory}/java-build-log-console.txt"> <!- added by kelsaka: log file output -->
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
