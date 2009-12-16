@@ -32,13 +32,7 @@
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecificationAdvice">
          </advice>
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecificationAdvice2">
-         </advice>
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecificationAdvice3">
-         </advice>
-         
+       
        </binding>
    </extension>
 </plugin>

@@ -43,7 +43,7 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 			//return new CommandResult(new).newErrorCommandResult("failed!"); //TODO: use command error mechanism
 		}
 	 	EObject requestElement = (EObject) request.getElementsToEdit().get(0);	 	
-		
+
 	 	Collection<EObject> collectionOfAllLoadedEObjects = getEObjectsOfEditingDomain(requestElement);
 		CommunicationLinkResourceType lanType = getLanType(collectionOfAllLoadedEObjects);
 		spec.setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(lanType);
@@ -53,8 +53,17 @@ public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends
 				ResourceenvironmentPackage.eINSTANCE
 						.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
 				spec);
-
-		return new SetValueCommand(setRequest);
+		
+		ICommand commSpecCommand = new SetValueCommand(setRequest);
+		ICommand throughputCommand = new ThroughputEditHelperAdvice().getCommand(request);
+		ICommand latencyCommand = new LatencyEditHelperAdvice().getCommand(request);
+		
+		ICommand result = new org.eclipse.gmf.runtime.common.core.command.CompositeCommand("");
+		result = result.compose(commSpecCommand);
+		result = result.compose(throughputCommand);
+		result = result.compose(latencyCommand);
+		
+		return result;
 	}
 
 	private CommunicationLinkResourceType getLanType(
