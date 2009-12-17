@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.workflow.ICompositeJob;
 import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
-import de.uka.ipd.sdq.workflow.pcm.jobs.ValidateModelJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
 
 public class PCMSolverJob extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard> implements ICompositeJob {
 
@@ -18,7 +18,7 @@ public class PCMSolverJob extends OrderPreservingBlackboardCompositeJob<MDSDBlac
 		this.addJob(new LoadPCMModelsIntoBlackboardJob(config));
 		
 		// 2. Validate PCM Models
-		this.addJob(new ValidateModelJob(config));
+		this.addJob(new ValidatePCMModelsJob(config));
 
 		// 3. Run Analysis on Loaded Models
 		this.add(new RunPCMAnalysisJob(config.getRawConfiguration(), config.isReliabilityAnalysis()));
