@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.workflow.IJobWithResult;
 import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
-import de.uka.ipd.sdq.workflow.pcm.jobs.ValidateModelJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation
@@ -45,7 +45,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
 		
 		// 2. Validate PCM Models
-		this.addJob(new ValidateModelJob(configuration));
+		this.addJob(new ValidatePCMModelsJob(configuration));
 		
 		if(configuration.getCompletionConfig().getActiveCompletionCount() > 0)
 		{
@@ -58,7 +58,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 	
 			// 4. Revalidate PCM Models
 			if(configuration.getCompletionConfig().shouldRevalidate())
-				this.addJob(new ValidateModelJob(configuration));
+				this.addJob(new ValidatePCMModelsJob(configuration));
 		}
 		
 		// 5. Apply connector completion transformation

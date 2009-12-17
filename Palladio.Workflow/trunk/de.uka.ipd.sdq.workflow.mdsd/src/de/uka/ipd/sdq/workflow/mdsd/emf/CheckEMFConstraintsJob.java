@@ -9,13 +9,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.errorhandling.SeverityEnum;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
+import de.uka.ipd.sdq.workflow.mdsd.validation.ModelValidationJob;
 
 /**
  * A job which checks all model constraints implemented by EMF directly or generated using the 
@@ -25,28 +24,19 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
  *
  */
 public class CheckEMFConstraintsJob 
-implements IJobWithResult<ArrayList<SeverityAndIssue>>,
-		IBlackboardInteractingJob<MDSDBlackboard> {
+extends ModelValidationJob {
 
-	private ArrayList<SeverityAndIssue> result;
 	private MDSDBlackboard blackboard;
-	private String partitionName;
+	private final String partitionName;
 
 	/**
 	 * Create a new constrains check job
 	 * @param partitionName The blackboard partition containing the model to be checked
 	 */
-	public CheckEMFConstraintsJob(String partitionName) {
-		super();
+	public CheckEMFConstraintsJob(SeverityEnum errorLevel, String partitionName) {
+		super(errorLevel);
 		
 		this.partitionName = partitionName;
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.workflow.IJobWithResult#getResult()
-	 */
-	public ArrayList<SeverityAndIssue> getResult() {
-		return this.result;
 	}
 
 	/* (non-Javadoc)
@@ -55,7 +45,7 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		
-		this.result = new ArrayList<SeverityAndIssue>();
+		ArrayList<SeverityAndIssue> result = new ArrayList<SeverityAndIssue>();
 		ResourceSetPartition partition = this.blackboard.getPartition(this.partitionName);
 		partition.resolveAllProxies();
 		
@@ -65,7 +55,8 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 			Diagnostic d = diagnostician.validate(r.getContents().get(0));
 			appendSeverityAndIssueFromDiagnostic(result,d);
 		}
-
+		
+		this.setJobResult(result);
 	}
 
 	/* (non-Javadoc)
@@ -73,14 +64,6 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 	 */
 	public String getName() {
 		return "Check EMF Model Constraints";
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.workflow.IJob#rollback(org.eclipse.core.runtime.IProgressMonitor)
-	 */
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
-		// Not needed
 	}
 
 	/* (non-Javadoc)
@@ -93,7 +76,7 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>,
 	private void appendSeverityAndIssueFromDiagnostic(ArrayList<SeverityAndIssue> result, Diagnostic d) {
 		if (d.getSeverity() >= Diagnostic.ERROR) {
 			SeverityAndIssue sai = new SeverityAndIssue(
-					SeverityAndIssue.WARNING,
+					this.getErrorLevel(),
 					d.getMessage(),
 					(EObject)d.getData().get(0));
 			result.add(sai);

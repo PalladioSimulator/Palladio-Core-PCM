@@ -20,13 +20,12 @@ import org.eclipse.xtend.expression.ExecutionContextImpl;
 import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.errorhandling.SeverityEnum;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
+import de.uka.ipd.sdq.workflow.mdsd.validation.ModelValidationJob;
 
 /**
  * Execute a model validation check using a given oAW check file. The oAW check language allows 
@@ -34,11 +33,10 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
  * @author Steffen Becker
  */
 public class PerformOAWCheckValidation 
-implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJob<MDSDBlackboard> {
+extends ModelValidationJob {
 
 	private MDSDBlackboard blackboard;
 	private ExecutionContextImpl ctx;
-	private ArrayList<SeverityAndIssue> result;
 
 	private String partitionName;
 	private String checkFilename;
@@ -50,9 +48,10 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 	 * @param checkFilename The URL of the check file containing the rules for well-formed models
 	 * @param packages The EPackages used in the model to be checked
 	 */
-	public PerformOAWCheckValidation(String partitionName,
+	public PerformOAWCheckValidation(
+			String partitionName,
 			String checkFilename, EPackage[] packages) {
-		super();
+		super(SeverityEnum.ERROR);
 		
 		this.partitionName = partitionName;
 		this.checkFilename = checkFilename;
@@ -79,7 +78,7 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 					issues);
 		}
 
-		this.result = getSeverityAndIssues(issues);
+		this.setJobResult(getSeverityAndIssues(issues));
 	}
 
 	/* (non-Javadoc)
@@ -87,21 +86,6 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 	 */
 	public String getName() {
 		return "Checking oAW constraints";
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.workflow.IJob#rollback(org.eclipse.core.runtime.IProgressMonitor)
-	 */
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
-		// not-needed
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.workflow.IJobWithResult#getResult()
-	 */
-	public ArrayList<SeverityAndIssue> getResult() {
-		return this.result;
 	}
 
 	public void setBlackboard(MDSDBlackboard blackboard) {
@@ -130,18 +114,18 @@ implements IJobWithResult<ArrayList<SeverityAndIssue>>, IBlackboardInteractingJo
 		return ctx;
 	}
 	
-	private ArrayList<SeverityAndIssue> getSeverityAndIssues(
+	private List<SeverityAndIssue> getSeverityAndIssues(
 			Issues issues) {
 		ArrayList<SeverityAndIssue> result = new ArrayList<SeverityAndIssue>();
 		for (MWEDiagnostic issue : issues.getErrors()){
 			if (issue.getElement() instanceof EObject){
-				result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage(),(EObject)issue.getElement()));
+				result.add(new SeverityAndIssue(SeverityEnum.ERROR,issue.getMessage(),(EObject)issue.getElement()));
 			} else 
-				result.add(new SeverityAndIssue(SeverityAndIssue.ERROR,issue.getMessage()+issue.getElement().toString(),null));
+				result.add(new SeverityAndIssue(SeverityEnum.ERROR,issue.getMessage()+issue.getElement().toString(),null));
 		}
 		
 		for (MWEDiagnostic issue : issues.getWarnings())
-			result.add(new SeverityAndIssue(SeverityAndIssue.WARNING,issue.getMessage(),(EObject)issue.getElement()));
+			result.add(new SeverityAndIssue(SeverityEnum.WARNING,issue.getMessage(),(EObject)issue.getElement()));
 		return result;
 	}
 	

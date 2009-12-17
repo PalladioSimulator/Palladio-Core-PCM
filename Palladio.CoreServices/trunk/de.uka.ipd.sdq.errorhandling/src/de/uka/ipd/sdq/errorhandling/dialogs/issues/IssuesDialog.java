@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
+import de.uka.ipd.sdq.errorhandling.SeverityEnum;
 
 public class IssuesDialog extends Dialog {
 
@@ -96,7 +97,7 @@ public class IssuesDialog extends Dialog {
 	protected void updateDetails() {
 		if (table.getSelectionIndex() > -1) {
 			SeverityAndIssue sai = issues.get(table.getSelectionIndex());
-			String text = "Severity: " + (sai.getError() == SeverityAndIssue.ERROR ? "ERROR" : "WARNING")+"\n\n";
+			String text = "Severity: " + (sai.getError() == SeverityEnum.ERROR ? "ERROR" : "WARNING")+"\n\n";
 			text+="Message: "+sai.getMessage()+"\n\n";
 			text+="Element: "+sai.getElement()+"\n\n";
 			text+="Resource: "+sai.getResourceName()+"\n";
@@ -127,7 +128,7 @@ public class IssuesDialog extends Dialog {
 				SeverityAndIssue sai = (SeverityAndIssue) element;
 				switch(columnIndex){
 				case 0:
-					if (sai.getError() == SeverityAndIssue.ERROR)
+					if (sai.getError() == SeverityEnum.ERROR)
 						return ErrorhandlingDialogImages.imageRegistry.get(ErrorhandlingDialogImages.ERROR);
 					else
 						return ErrorhandlingDialogImages.imageRegistry.get(ErrorhandlingDialogImages.WARNING);
@@ -140,7 +141,7 @@ public class IssuesDialog extends Dialog {
 				SeverityAndIssue sai = (SeverityAndIssue) element;
 				switch(columnIndex){
 				case 0:
-					if (sai.getError() == SeverityAndIssue.ERROR)
+					if (sai.getError() == SeverityEnum.ERROR)
 						return "ERROR";
 					else
 						return "WARNING";
@@ -187,7 +188,7 @@ public class IssuesDialog extends Dialog {
 		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL,
 				true);
 		for (SeverityAndIssue sai : issues)
-			if (sai.getError() == SeverityAndIssue.ERROR) {
+			if (sai.getError() == SeverityEnum.ERROR) {
 				disableIgnoreButton();
 				break;
 			}
