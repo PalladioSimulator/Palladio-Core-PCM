@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="completionfeaturemodel"
+    nsURI="http://sdq.ipd.kit.edu/CompletionFeatureModel/1.0" nsPrefix="completionfeaturemodel">
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureState">
+    <eLiterals name="NOT_SET"/>
+    <eLiterals name="OPTIONAL" value="1"/>
+    <eLiterals name="MANDATORY" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeature" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../../CopyExceptionModel/model/CopyException.ecore#//Exception"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguationRule" ordered="false"
+        upperBound="-1" eType="#//DisambiguationRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FeatureState" ordered="false"
+        lowerBound="1" eType="#//FeatureState" volatile="true" defaultValueLiteral="NOT_SET"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisambiguationRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" ordered="false"
+        eType="#//CompletionFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguationCondition"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/EssentialOCL.ecore#//OperationCallExp"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureDiagram" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureGroup" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureGroup"/>
+</ecore:EPackage>

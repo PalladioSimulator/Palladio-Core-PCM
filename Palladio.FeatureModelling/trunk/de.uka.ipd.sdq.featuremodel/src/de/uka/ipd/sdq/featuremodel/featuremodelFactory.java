@@ -1,0 +1,118 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package de.uka.ipd.sdq.featuremodel;
+
+import org.eclipse.emf.ecore.EFactory;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Factory</b> for the model.
+ * It provides a create method for each non-abstract class of the model.
+ * <!-- end-user-doc -->
+ * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage
+ * @generated
+ */
+public interface featuremodelFactory extends EFactory {
+	/**
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	featuremodelFactory eINSTANCE = de.uka.ipd.sdq.featuremodel.impl.featuremodelFactoryImpl.init();
+
+	/**
+	 * Returns a new object of class '<em>Feature Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feature Diagram</em>'.
+	 * @generated
+	 */
+	FeatureDiagram createFeatureDiagram();
+
+	/**
+	 * Returns a new object of class '<em>Default Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Default Value</em>'.
+	 * @generated
+	 */
+	DefaultValue createDefaultValue();
+
+	/**
+	 * Returns a new object of class '<em>Primitive Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitive Attribute</em>'.
+	 * @generated
+	 */
+	PrimitiveAttribute createPrimitiveAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Enumeration Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enumeration Range</em>'.
+	 * @generated
+	 */
+	EnumerationRange createEnumerationRange();
+
+	/**
+	 * Returns a new object of class '<em>Integer Interval Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Interval Range</em>'.
+	 * @generated
+	 */
+	IntegerIntervalRange createIntegerIntervalRange();
+
+	/**
+	 * Returns a new object of class '<em>Continous Interval Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Continous Interval Range</em>'.
+	 * @generated
+	 */
+	ContinousIntervalRange createContinousIntervalRange();
+
+	/**
+	 * Returns a new object of class '<em>Element Listing Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Listing Attribute</em>'.
+	 * @generated
+	 */
+	ElementListingAttribute createElementListingAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Required Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Constraint</em>'.
+	 * @generated
+	 */
+	RequiredConstraint createRequiredConstraint();
+
+	/**
+	 * Returns a new object of class '<em>Prohibits Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Prohibits Constraint</em>'.
+	 * @generated
+	 */
+	ProhibitsConstraint createProhibitsConstraint();
+
+	/**
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
+	featuremodelPackage getfeaturemodelPackage();
+
+} //featuremodelFactory

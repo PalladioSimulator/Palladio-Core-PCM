@@ -1,0 +1,292 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package edu.kit.ipd.sdq.completionfeaturemodel.impl;
+
+import QVTRelation.Relation;
+
+import de.uka.ipd.sdq.featuremodel.impl.FeatureImpl;
+
+import edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature;
+import edu.kit.ipd.sdq.completionfeaturemodel.DisambiguationRule;
+import edu.kit.ipd.sdq.completionfeaturemodel.FeatureState;
+import edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Completion Feature</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getCopyException <em>Copy Exception</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getDisambiguationRule <em>Disambiguation Rule</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getTransformationFragment <em>Transformation Fragment</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getFeatureState <em>Feature State</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeature {
+	/**
+	 * The cached value of the '{@link #getCopyException() <em>Copy Exception</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyException()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<copyException.Exception> copyException;
+
+	/**
+	 * The cached value of the '{@link #getDisambiguationRule() <em>Disambiguation Rule</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisambiguationRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DisambiguationRule> disambiguationRule;
+
+	/**
+	 * The cached value of the '{@link #getTransformationFragment() <em>Transformation Fragment</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransformationFragment()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relation> transformationFragment;
+
+	/**
+	 * The default value of the '{@link #getFeatureState() <em>Feature State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FeatureState FEATURE_STATE_EDEFAULT = FeatureState.NOT_SET;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompletionFeatureImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return completionfeaturemodelPackage.Literals.COMPLETION_FEATURE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<copyException.Exception> getCopyException() {
+		if (copyException == null) {
+			copyException = new EObjectContainmentEList<copyException.Exception>(copyException.Exception.class, this, completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION);
+		}
+		return copyException;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DisambiguationRule> getDisambiguationRule() {
+		if (disambiguationRule == null) {
+			disambiguationRule = new EObjectContainmentEList<DisambiguationRule>(DisambiguationRule.class, this, completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE);
+		}
+		return disambiguationRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Relation> getTransformationFragment() {
+		if (transformationFragment == null) {
+			transformationFragment = new EObjectContainmentEList<Relation>(Relation.class, this, completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT);
+		}
+		return transformationFragment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Checks if the Simple Object contains this Object
+	 * in its mandatoryChildren or its optionalChildren list. Out of that
+	 * information, the FeatureState is set to Mandatory or Optional. If none of
+	 * the conditions matches, FeatureState.NOT_SET is returned. The null-checks should not be necessary
+	 * System.err only for testing
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public FeatureState getFeatureState() {
+		if (this.getSimpleMandatory() != null
+				&& this.getSimpleMandatory().getMandatoryChildren() != null
+				&& this.getSimpleMandatory().getMandatoryChildren().contains(
+						this)) {
+			System.err.println("it's a mandatory feature");
+			return FeatureState.MANDATORY;
+		} else if (this.getSimpleOptional() != null
+				&& this.getSimpleOptional().getOptionalChildren() != null
+				&& this.getSimpleOptional().getOptionalChildren()
+						.contains(this)) {
+			System.err.println("it's an optional feature");
+			return FeatureState.OPTIONAL;
+		} else {
+			System.err.println("its feature is'nt set");
+			return FeatureState.NOT_SET;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * This method does nothing. See {@link #getFeatureState()} for 
+	 * description
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public void setFeatureState(FeatureState newFeatureState) {
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION:
+				return ((InternalEList<?>)getCopyException()).basicRemove(otherEnd, msgs);
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE:
+				return ((InternalEList<?>)getDisambiguationRule()).basicRemove(otherEnd, msgs);
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
+				return ((InternalEList<?>)getTransformationFragment()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION:
+				return getCopyException();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE:
+				return getDisambiguationRule();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
+				return getTransformationFragment();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
+				return getFeatureState();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION:
+				getCopyException().clear();
+				getCopyException().addAll((Collection<? extends copyException.Exception>)newValue);
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE:
+				getDisambiguationRule().clear();
+				getDisambiguationRule().addAll((Collection<? extends DisambiguationRule>)newValue);
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
+				getTransformationFragment().clear();
+				getTransformationFragment().addAll((Collection<? extends Relation>)newValue);
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
+				setFeatureState((FeatureState)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION:
+				getCopyException().clear();
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE:
+				getDisambiguationRule().clear();
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
+				getTransformationFragment().clear();
+				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
+				setFeatureState(FEATURE_STATE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COPY_EXCEPTION:
+				return copyException != null && !copyException.isEmpty();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__DISAMBIGUATION_RULE:
+				return disambiguationRule != null && !disambiguationRule.isEmpty();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
+				return transformationFragment != null && !transformationFragment.isEmpty();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
+				return getFeatureState() != FEATURE_STATE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+} //CompletionFeatureImpl
