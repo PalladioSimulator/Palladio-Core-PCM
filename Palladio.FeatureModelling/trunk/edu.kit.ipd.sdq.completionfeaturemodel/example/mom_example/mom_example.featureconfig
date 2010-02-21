@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featureconfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:completionfeaturemodel="http://sdq.ipd.kit.edu/CompletionFeatureModel/1.0" xmlns:featureconfig="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="mom_example">
+  <defaultConfig featureConfigState="DEFAULT">
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZXRO8h77Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_Qbo7QR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RWc9sR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RpEXsR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_1Z26gB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_5iQTQB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_gb-yYB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode>
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_WH0PYB8GEd-sff35kkuDRg" name="Size" value="25"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_WaKIIR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_V-ZZMB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_A83DoB79Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode>
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_RHeiAB8GEd-sff35kkuDRg" name="Size" value="10"/>
+    </confignode>
+    <confignode>
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_ZYxp0B8GEd-sff35kkuDRg" name="Size" value="5"/>
+    </confignode>
+  </defaultConfig>
+  <configOverrides featureConfigState="OVERRIDE">
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZXRO8h77Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_Qbo7QR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_1Z26gB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_5iQTQB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_A83DoB79Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RWc9sR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_gb-yYB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_EPF2IB8NEd-B0L4atT28YQ" name="Size" value="128"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_OjF1gB8NEd-B0L4atT28YQ" name="Size" value="7"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RpEXsR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_WaKIIR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_cxcxoB8NEd-B0L4atT28YQ" name="Size" value="1024"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_V-ZZMB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+  </configOverrides>
+  <configOverrides featureConfigState="OVERRIDE">
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZXRO8h77Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_Qbo7QR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_1Z26gB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_5iQTQB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_A83DoB79Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RWc9sR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_gb-yYB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_K_v1IB8OEd-B0L4atT28YQ" name="Size" value="1"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_NmGzYB8OEd-B0L4atT28YQ" name="Size" value="67"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_RpEXsR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_WaKIIR78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
+      <attributevalue id="_bXtiEB8OEd-B0L4atT28YQ" name="Size" value="63"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin xsi:type="completionfeaturemodel:CompletionFeature" href="mom_example.completionfeaturemodel#_V-ZZMB78Ed-wm-BYlEd2Aw"/>
+    </confignode>
+  </configOverrides>
+</featureconfig:Configuration>
