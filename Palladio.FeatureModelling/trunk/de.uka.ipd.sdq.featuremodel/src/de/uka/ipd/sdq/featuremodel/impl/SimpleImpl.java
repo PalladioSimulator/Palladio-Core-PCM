@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  *
  * @generated
  */
-public class SimpleImpl extends ChildRelationImpl implements Simple {
+public abstract class SimpleImpl extends ChildRelationImpl implements Simple {
 	/**
 	 * The cached value of the '{@link #getOptionalChildren() <em>Optional Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

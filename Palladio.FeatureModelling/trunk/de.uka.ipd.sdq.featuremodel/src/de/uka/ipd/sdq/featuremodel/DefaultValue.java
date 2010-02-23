@@ -66,23 +66,11 @@ public interface DefaultValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.featuremodel.AttributeTypes
-	 * @see #setType(AttributeTypes)
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getDefaultValue_Type()
-	 * @model required="true" volatile="true" derived="true" ordered="false"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	AttributeTypes getType();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see de.uka.ipd.sdq.featuremodel.AttributeTypes
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(AttributeTypes value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' container reference.

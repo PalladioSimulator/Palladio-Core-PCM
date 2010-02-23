@@ -12,6 +12,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="&lt;p>&#xD;&#xA;    decorator class of Feature&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Feature is extended by a QVT-Relation, a disambiguation rule which handles possible combinations of the Features of one&#xD;&#xA;    FeatureGroup, and a copy exception.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    The attribute FeatureState indicates, whether a CompletionFeature is a mandatory or a optional child of a Simple.&#xD;&#xA;&lt;/p>"/>
     </eAnnotations>
+    <eOperations name="showFeatureState" ordered="false" lowerBound="1" eType="#//FeatureState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="result = &#xD;&#xA;if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA;else &#xD;&#xA;if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA;else&#xD;&#xA;FeatureState::NOT_SET&#xD;&#xA;endif&#xD;&#xA;endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="result = &#xD;&#xA;if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA;else &#xD;&#xA;if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA;else&#xD;&#xA;FeatureState::NOT_SET&#xD;&#xA;endif&#xD;&#xA;endif"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"
         upperBound="-1" eType="ecore:EClass ../../CopyExceptionModel/model/CopyException.ecore#//Exception"
         containment="true"/>
@@ -21,8 +29,8 @@
         ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FeatureState" ordered="false"
-        lowerBound="1" eType="#//FeatureState" volatile="true" defaultValueLiteral="NOT_SET"
-        derived="true"/>
+        lowerBound="1" eType="#//FeatureState" changeable="false" volatile="true"
+        transient="true" defaultValueLiteral="NOT_SET" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisambiguationRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" ordered="false"

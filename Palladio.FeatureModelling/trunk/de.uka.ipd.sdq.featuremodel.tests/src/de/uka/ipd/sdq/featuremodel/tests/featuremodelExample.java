@@ -61,7 +61,7 @@ public class featuremodelExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.featuremodel"));
-				Feature root = featuremodelFactory.eINSTANCE.createFeature();
+				FeatureDiagram root = featuremodelFactory.eINSTANCE.createFeatureDiagram();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

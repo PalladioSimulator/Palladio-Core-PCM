@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="featuremodel"
     nsURI="http://sdq.ipd.uka.de/FeatureModel/2.0" nsPrefix="featuremodel">
-  <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//NamedElement">
     <eOperations name="EachAttributeNameDefinedJustOnce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
         <details key="body" value="--each attribute name is unique for this feature&#xD;&#xA;self.attributes->isUnique(attr | attr.name)"/>
@@ -41,7 +41,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChildRelation" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Simple" eSuperTypes="#//ChildRelation">
+  <eClassifiers xsi:type="ecore:EClass" name="Simple" abstract="true" eSuperTypes="#//ChildRelation">
     <eOperations name="atLeastOneChild" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
         <details key="body" value="self.optionalChildren->size()+self.mandatoryChildren->size()>=1"/>
@@ -69,7 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryChildren" ordered="false"
         upperBound="-1" eType="#//Feature" containment="true" eOpposite="#//Feature/simpleMandatory"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup" eSuperTypes="#//ChildRelation">
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup" abstract="true" eSuperTypes="#//ChildRelation">
     <eOperations name="XORorORImpliesChildrenAreMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
         <details key="body" value="(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)&#xD;&#xA;"/>
@@ -214,7 +214,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
-        eType="#//AttributeTypes" volatile="true" derived="true"/>
+        eType="#//AttributeTypes" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" ordered="false"
         lowerBound="1" eType="#//PrimitiveAttribute" eOpposite="#//PrimitiveAttribute/defaultvalue"/>
   </eClassifiers>

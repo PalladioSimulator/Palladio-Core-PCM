@@ -135,16 +135,6 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * This method does nothing. See {@link #getType()} for 
-	 * description
-	 * <!-- end-user-doc -->
-	 * @generated not
-	 */
-	public void setType(AttributeTypes newType) {
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -308,9 +298,6 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 			case featuremodelPackage.DEFAULT_VALUE__VALUE:
 				setValue((String)newValue);
 				return;
-			case featuremodelPackage.DEFAULT_VALUE__TYPE:
-				setType((AttributeTypes)newValue);
-				return;
 			case featuremodelPackage.DEFAULT_VALUE__ATTRIBUTE:
 				setAttribute((PrimitiveAttribute)newValue);
 				return;
@@ -328,9 +315,6 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 		switch (featureID) {
 			case featuremodelPackage.DEFAULT_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
-				return;
-			case featuremodelPackage.DEFAULT_VALUE__TYPE:
-				setType(TYPE_EDEFAULT);
 				return;
 			case featuremodelPackage.DEFAULT_VALUE__ATTRIBUTE:
 				setAttribute((PrimitiveAttribute)null);

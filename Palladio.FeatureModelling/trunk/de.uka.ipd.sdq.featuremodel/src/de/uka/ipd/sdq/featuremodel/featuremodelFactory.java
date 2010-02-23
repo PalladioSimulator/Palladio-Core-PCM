@@ -26,33 +26,6 @@ public interface featuremodelFactory extends EFactory {
 	featuremodelFactory eINSTANCE = de.uka.ipd.sdq.featuremodel.impl.featuremodelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature</em>'.
-	 * @generated
-	 */
-	Feature createFeature();
-
-	/**
-	 * Returns a new object of class '<em>Simple</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple</em>'.
-	 * @generated
-	 */
-	Simple createSimple();
-
-	/**
-	 * Returns a new object of class '<em>Feature Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature Group</em>'.
-	 * @generated
-	 */
-	FeatureGroup createFeatureGroup();
-
-	/**
 	 * Returns a new object of class '<em>Feature Diagram</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

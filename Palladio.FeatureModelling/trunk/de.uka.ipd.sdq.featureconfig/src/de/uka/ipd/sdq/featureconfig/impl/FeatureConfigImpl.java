@@ -116,15 +116,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * This method does nothing. See {@link #getFeatureState()} for description
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void setFeatureConfigState(FeatureConfigState newFeatureConfigState) {
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -346,9 +337,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
-				setFeatureConfigState((FeatureConfigState)newValue);
-				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				getConfignode().addAll((Collection<? extends ConfigNode>)newValue);
@@ -370,9 +358,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
-				setFeatureConfigState(FEATURE_CONFIG_STATE_EDEFAULT);
-				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				return;

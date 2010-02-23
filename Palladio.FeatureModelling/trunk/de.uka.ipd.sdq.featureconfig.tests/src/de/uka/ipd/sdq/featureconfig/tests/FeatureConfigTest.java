@@ -114,19 +114,6 @@ public class FeatureConfigTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#setFeatureConfigState(de.uka.ipd.sdq.featureconfig.FeatureConfigState) <em>Feature Config State</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#setFeatureConfigState(de.uka.ipd.sdq.featureconfig.FeatureConfigState)
-	 * @generated
-	 */
-	public void testSetFeatureConfigState() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Root Is Feature Model</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

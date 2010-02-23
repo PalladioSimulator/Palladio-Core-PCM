@@ -366,7 +366,9 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		initEReference(getCompletionFeature_CopyException(), theCopyExceptionPackage.getException(), null, "copyException", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompletionFeature_DisambiguationRule(), this.getDisambiguationRule(), null, "disambiguationRule", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompletionFeature_TransformationFragment(), theQVTRelationPackage.getRelation(), null, "transformationFragment", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCompletionFeature_FeatureState(), this.getFeatureState(), "FeatureState", "NOT_SET", 1, 1, CompletionFeature.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCompletionFeature_FeatureState(), this.getFeatureState(), "FeatureState", "NOT_SET", 1, 1, CompletionFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+
+		addEOperation(completionFeatureEClass, this.getFeatureState(), "showFeatureState", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(disambiguationRuleEClass, DisambiguationRule.class, "DisambiguationRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDisambiguationRule_Feature(), this.getCompletionFeature(), null, "feature", null, 0, 1, DisambiguationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

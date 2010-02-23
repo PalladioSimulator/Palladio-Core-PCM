@@ -177,11 +177,6 @@ public class FeatureDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(featuremodelPackage.Literals.FEATURE_DIAGRAM__ROOT_FEATURE,
-				 featuremodelFactory.eINSTANCE.createFeature()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(featuremodelPackage.Literals.FEATURE_DIAGRAM__CONSTRAINTS,
 				 featuremodelFactory.eINSTANCE.createRequiredConstraint()));
 

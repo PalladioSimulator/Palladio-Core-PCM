@@ -114,19 +114,6 @@ public class DefaultValueTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#setType(de.uka.ipd.sdq.featuremodel.AttributeTypes) <em>Type</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue#setType(de.uka.ipd.sdq.featuremodel.AttributeTypes)
-	 * @generated
-	 */
-	public void testSetType() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#DefaultValueMustBeOfSpecifiedType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Default Value Must Be Of Specified Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

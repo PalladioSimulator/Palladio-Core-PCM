@@ -22,10 +22,14 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.expressions.OCLExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,6 +143,55 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 		return transformationFragment;
 	}
 
+
+	/**
+	 * The cached OCL expression body for the '{@link #showFeatureState() <em>Show Feature State</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showFeatureState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHOW_FEATURE_STATE__EOCL_EXP = "result = "+
+"if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY"+
+"else "+
+"if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL"+
+"else"+
+"FeatureState::NOT_SET"+
+"endif"+
+"endif";
+
+	/**
+	 * The cached OCL query for the '{@link #showFeatureState() <em>Show Feature State</em>}' query operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showFeatureState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static OCLExpression<EClassifier> SHOW_FEATURE_STATE__EOCL_QRY;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureState showFeatureState() {
+		if (SHOW_FEATURE_STATE__EOCL_QRY == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setOperationContext(completionfeaturemodelPackage.Literals.COMPLETION_FEATURE, completionfeaturemodelPackage.Literals.COMPLETION_FEATURE.getEAllOperations().get(2));
+			try {
+				SHOW_FEATURE_STATE__EOCL_QRY = helper.createQuery(SHOW_FEATURE_STATE__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		OCL.Query query = EOCL_ENV.createQuery(SHOW_FEATURE_STATE__EOCL_QRY);
+		System.err.println(query.evaluate(this));
+		return (FeatureState) query.evaluate(this);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Checks if the Simple Object contains this Object
@@ -167,16 +220,6 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 			System.err.println("its feature is'nt set");
 			return FeatureState.NOT_SET;
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * This method does nothing. See {@link #getFeatureState()} for 
-	 * description
-	 * <!-- end-user-doc -->
-	 * @generated not
-	 */
-	public void setFeatureState(FeatureState newFeatureState) {
 	}
 
 	/**
@@ -238,9 +281,6 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 				getTransformationFragment().clear();
 				getTransformationFragment().addAll((Collection<? extends Relation>)newValue);
 				return;
-			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
-				setFeatureState((FeatureState)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -261,9 +301,6 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 				return;
 			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
 				getTransformationFragment().clear();
-				return;
-			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
-				setFeatureState(FEATURE_STATE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);

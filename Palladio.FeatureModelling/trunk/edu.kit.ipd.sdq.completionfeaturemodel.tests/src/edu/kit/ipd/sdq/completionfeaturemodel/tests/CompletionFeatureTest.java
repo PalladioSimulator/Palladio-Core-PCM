@@ -23,6 +23,12 @@ import junit.textui.TestRunner;
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getFeatureState() <em>Feature State</em>}</li>
  * </ul>
  * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#showFeatureState() <em>Show Feature State</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class CompletionFeatureTest extends TestCase {
@@ -110,14 +116,14 @@ public class CompletionFeatureTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#setFeatureState(edu.kit.ipd.sdq.completionfeaturemodel.FeatureState) <em>Feature State</em>}' feature setter.
+	 * Tests the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#showFeatureState() <em>Show Feature State</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#setFeatureState(edu.kit.ipd.sdq.completionfeaturemodel.FeatureState)
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#showFeatureState()
 	 * @generated
 	 */
-	public void testSetFeatureState() {
-		// TODO: implement this feature setter test method
+	public void testShowFeatureState() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

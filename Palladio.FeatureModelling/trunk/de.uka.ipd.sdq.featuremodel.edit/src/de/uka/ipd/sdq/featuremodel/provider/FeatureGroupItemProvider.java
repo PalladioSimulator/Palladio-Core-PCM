@@ -198,11 +198,6 @@ public class FeatureGroupItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(featuremodelPackage.Literals.FEATURE_GROUP__CHILDREN,
-				 featuremodelFactory.eINSTANCE.createFeature()));
 	}
 
 }

@@ -34,9 +34,6 @@ public class featuremodelTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new featuremodelTests("featuremodel Tests");
-		suite.addTestSuite(FeatureTest.class);
-		suite.addTestSuite(SimpleTest.class);
-		suite.addTestSuite(FeatureGroupTest.class);
 		suite.addTestSuite(FeatureDiagramTest.class);
 		suite.addTestSuite(RequiredConstraintTest.class);
 		suite.addTestSuite(ProhibitsConstraintTest.class);

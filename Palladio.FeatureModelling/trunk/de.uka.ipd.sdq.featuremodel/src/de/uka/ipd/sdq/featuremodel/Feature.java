@@ -28,7 +28,7 @@ import QVTRelation.Relation;
  * </p>
  *
  * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeature()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Feature extends NamedElement {

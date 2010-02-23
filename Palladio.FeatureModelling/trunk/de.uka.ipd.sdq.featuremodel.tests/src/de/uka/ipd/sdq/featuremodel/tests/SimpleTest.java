@@ -22,16 +22,7 @@ import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
  * </p>
  * @generated
  */
-public class SimpleTest extends ChildRelationTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(SimpleTest.class);
-	}
+public abstract class SimpleTest extends ChildRelationTest {
 
 	/**
 	 * Constructs a new Simple test case with the given name.
@@ -52,28 +43,6 @@ public class SimpleTest extends ChildRelationTest {
 	@Override
 	protected Simple getFixture() {
 		return (Simple)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(featuremodelFactory.eINSTANCE.createSimple());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 	/**

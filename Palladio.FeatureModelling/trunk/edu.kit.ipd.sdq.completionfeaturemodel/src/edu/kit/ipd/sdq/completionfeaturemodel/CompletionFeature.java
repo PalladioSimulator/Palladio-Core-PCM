@@ -105,22 +105,29 @@ public interface CompletionFeature extends Feature {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Feature State</em>' attribute.
 	 * @see edu.kit.ipd.sdq.completionfeaturemodel.FeatureState
-	 * @see #setFeatureState(FeatureState)
 	 * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeature_FeatureState()
-	 * @model default="NOT_SET" required="true" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureState getFeatureState();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getFeatureState <em>Feature State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature State</em>' attribute.
-	 * @see edu.kit.ipd.sdq.completionfeaturemodel.FeatureState
-	 * @see #getFeatureState()
+	 * <!-- begin-model-doc -->
+	 * result = 
+	 * if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY
+	 * else 
+	 * if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL
+	 * else
+	 * FeatureState::NOT_SET
+	 * endif
+	 * endif
+	 * <!-- end-model-doc -->
+	 * @model required="true" ordered="false"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='result = \r\nif (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY\r\nelse \r\nif (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL\r\nelse\r\nFeatureState::NOT_SET\r\nendif\r\nendif'"
 	 * @generated
 	 */
-	void setFeatureState(FeatureState value);
+	FeatureState showFeatureState();
 
 } // CompletionFeature

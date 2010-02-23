@@ -52,7 +52,7 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  *
  * @generated
  */
-public class FeatureImpl extends NamedElementImpl implements Feature {
+public abstract class FeatureImpl extends NamedElementImpl implements Feature {
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

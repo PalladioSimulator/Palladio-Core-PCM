@@ -44,23 +44,11 @@ public interface FeatureConfig extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Feature Config State</em>' attribute.
 	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfigState
-	 * @see #setFeatureConfigState(FeatureConfigState)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_FeatureConfigState()
-	 * @model default="NOT_SET" required="true" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureConfigState getFeatureConfigState();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getFeatureConfigState <em>Feature Config State</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature Config State</em>' attribute.
-	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfigState
-	 * @see #getFeatureConfigState()
-	 * @generated
-	 */
-	void setFeatureConfigState(FeatureConfigState value);
 
 	/**
 	 * Returns the value of the '<em><b>Confignode</b></em>' containment reference list.
