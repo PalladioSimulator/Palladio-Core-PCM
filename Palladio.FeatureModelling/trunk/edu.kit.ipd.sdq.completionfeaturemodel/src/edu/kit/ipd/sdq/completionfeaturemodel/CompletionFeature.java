@@ -17,6 +17,19 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Completion Feature</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * <p>
+ *     decorator class of Feature
+ * </p>
+ * <p>
+ *     Feature is extended by a QVT-Relation, a disambiguation rule which handles possible combinations of the Features of one
+ *     FeatureGroup, and a copy exception.
+ * </p>
+ * <p>
+ *     The attribute FeatureState indicates, whether a CompletionFeature is a mandatory or a optional child of a Simple.
+ * </p>
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

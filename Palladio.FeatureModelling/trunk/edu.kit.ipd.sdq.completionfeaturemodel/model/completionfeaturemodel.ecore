@@ -9,6 +9,9 @@
     <eLiterals name="MANDATORY" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionFeature" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Feature">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;p>&#xD;&#xA;    decorator class of Feature&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Feature is extended by a QVT-Relation, a disambiguation rule which handles possible combinations of the Features of one&#xD;&#xA;    FeatureGroup, and a copy exception.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    The attribute FeatureState indicates, whether a CompletionFeature is a mandatory or a optional child of a Simple.&#xD;&#xA;&lt;/p>"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"
         upperBound="-1" eType="ecore:EClass ../../CopyExceptionModel/model/CopyException.ecore#//Exception"
         containment="true"/>
@@ -31,6 +34,10 @@
         ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureDiagram" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;p>&#xD;&#xA;    decorator class of Simple&#xD;&#xA;&lt;/p>"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureGroup" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureGroup"/>
 </ecore:EPackage>

@@ -9,14 +9,9 @@ package de.uka.ipd.sdq.featuremodel.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import copyException.provider.ModelEditPlugin;
+
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 /**
  * This is the central singleton for the Featuremodel editor plugin.
@@ -52,10 +47,6 @@ public final class FeaturemodelEditorPlugin extends EMFPlugin {
 			(new ResourceLocator [] {
 				EcoreEditPlugin.INSTANCE,
 				IdentifierEditPlugin.INSTANCE,
-				PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE,
-				UnitsEditPlugin.INSTANCE,
 			});
 	}
 

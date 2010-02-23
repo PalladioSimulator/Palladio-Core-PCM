@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -22,7 +23,6 @@ import de.uka.ipd.sdq.featuremodel.Constraint;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entity> annotatableElement;
+	protected EList<EObject> annotatableElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,9 +149,9 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Entity> getAnnotatableElement() {
+	public EList<EObject> getAnnotatableElement() {
 		if (annotatableElement == null) {
-			annotatableElement = new EObjectResolvingEList<Entity>(Entity.class, this, featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT);
+			annotatableElement = new EObjectResolvingEList<EObject>(EObject.class, this, featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT);
 		}
 		return annotatableElement;
 	}
@@ -208,7 +208,7 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				return;
 			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
 				getAnnotatableElement().clear();
-				getAnnotatableElement().addAll((Collection<? extends Entity>)newValue);
+				getAnnotatableElement().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

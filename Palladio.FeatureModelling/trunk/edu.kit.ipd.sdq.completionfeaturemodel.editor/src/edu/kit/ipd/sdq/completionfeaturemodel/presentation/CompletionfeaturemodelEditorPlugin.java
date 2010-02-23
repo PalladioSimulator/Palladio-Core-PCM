@@ -6,27 +6,14 @@
  */
 package edu.kit.ipd.sdq.completionfeaturemodel.presentation;
 
-import copyException.provider.ModelEditPlugin;
-
-import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
-
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
+import copyException.provider.ModelEditPlugin;
+import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
 /**
  * This is the central singleton for the Completionfeaturemodel editor plugin.
@@ -65,10 +52,6 @@ public final class CompletionfeaturemodelEditorPlugin extends EMFPlugin {
 				IdentifierEditPlugin.INSTANCE,
 				ModelEditPlugin.INSTANCE,
 				EMOF.provider.ModelEditPlugin.INSTANCE,
-				PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE,
-				UnitsEditPlugin.INSTANCE,
 			});
 	}
 

@@ -76,6 +76,75 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.Feature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FeatureItemProvider featureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.Feature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFeatureAdapter() {
+		if (featureItemProvider == null) {
+			featureItemProvider = new FeatureItemProvider(this);
+		}
+
+		return featureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.Simple} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleItemProvider simpleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.Simple}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleAdapter() {
+		if (simpleItemProvider == null) {
+			simpleItemProvider = new SimpleItemProvider(this);
+		}
+
+		return simpleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.FeatureGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FeatureGroupItemProvider featureGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.FeatureGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFeatureGroupAdapter() {
+		if (featureGroupItemProvider == null) {
+			featureGroupItemProvider = new FeatureGroupItemProvider(this);
+		}
+
+		return featureGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.FeatureDiagram} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -381,6 +450,9 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	 * @generated
 	 */
 	public void dispose() {
+		if (featureItemProvider != null) featureItemProvider.dispose();
+		if (simpleItemProvider != null) simpleItemProvider.dispose();
+		if (featureGroupItemProvider != null) featureGroupItemProvider.dispose();
 		if (featureDiagramItemProvider != null) featureDiagramItemProvider.dispose();
 		if (requiredConstraintItemProvider != null) requiredConstraintItemProvider.dispose();
 		if (prohibitsConstraintItemProvider != null) prohibitsConstraintItemProvider.dispose();

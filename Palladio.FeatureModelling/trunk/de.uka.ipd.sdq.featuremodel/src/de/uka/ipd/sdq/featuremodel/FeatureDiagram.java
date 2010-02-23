@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.featuremodel;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public interface FeatureDiagram extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Annotatable Element</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.entity.Entity}.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Annotatable Element</em>' reference list isn't clear,
@@ -85,6 +85,6 @@ public interface FeatureDiagram extends NamedElement {
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<Entity> getAnnotatableElement();
+	EList<EObject> getAnnotatableElement();
 
 } // FeatureDiagram
