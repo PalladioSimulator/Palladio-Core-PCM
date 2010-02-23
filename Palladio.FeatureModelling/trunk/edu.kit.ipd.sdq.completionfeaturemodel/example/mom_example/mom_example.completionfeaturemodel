@@ -2,41 +2,41 @@
 <completionfeaturemodel:CompletionFeatureDiagram xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:completionfeaturemodel="http://sdq.ipd.kit.edu/CompletionFeatureModel/1.0" xmlns:featuremodel="http://sdq.ipd.uka.de/FeatureModel/2.0" xmlns:id="id" id="_-cRFQR7zEd-wm-BYlEd2Aw" name="mom_example">
   <rootFeature xsi:type="completionfeaturemodel:CompletionFeature" id="_ZXRO8h77Ed-wm-BYlEd2Aw" name="Messaging">
     <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_Qbo7QR78Ed-wm-BYlEd2Aw" name="Message Channel" FeatureState="MANDATORY">
+      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_Qbo7QR78Ed-wm-BYlEd2Aw" name="Message Channel">
         <childrelation xsi:type="completionfeaturemodel:CompletionFeatureGroup">
           <children xsi:type="completionfeaturemodel:CompletionFeature" id="_1Z26gB78Ed-wm-BYlEd2Aw" name="Point-to-Point Channel"/>
           <children xsi:type="completionfeaturemodel:CompletionFeature" id="_5iQTQB78Ed-wm-BYlEd2Aw" name="Publish-Subscribe Channel">
             <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-              <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_A83DoB79Ed-wm-BYlEd2Aw" name="Durable Subscriber" FeatureState="OPTIONAL"/>
+              <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_A83DoB79Ed-wm-BYlEd2Aw" name="Durable Subscriber"/>
             </childrelation>
           </children>
         </childrelation>
       </mandatoryChildren>
-      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_RWc9sR78Ed-wm-BYlEd2Aw" name="Sender" FeatureState="MANDATORY">
+      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_RWc9sR78Ed-wm-BYlEd2Aw" name="Sender">
         <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_gb-yYB78Ed-wm-BYlEd2Aw" name="Transactional Client" FeatureState="OPTIONAL">
+          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_gb-yYB78Ed-wm-BYlEd2Aw" name="Transactional Client">
             <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-              <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_x8Z8MR78Ed-wm-BYlEd2Aw" name="Transaction Size" FeatureState="MANDATORY">
+              <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_x8Z8MR78Ed-wm-BYlEd2Aw" name="Transaction Size">
                 <attributes xsi:type="featuremodel:PrimitiveAttribute" id="_i_qvwB7_Ed-wm-BYlEd2Aw" name="Size">
                   <defaultvalue value="10"/>
                 </attributes>
               </mandatoryChildren>
             </childrelation>
           </optionalChildren>
-          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_hvQ_Mh78Ed-wm-BYlEd2Aw" name="Guranteed Delivery" FeatureState="OPTIONAL"/>
-          <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_hSVyox78Ed-wm-BYlEd2Aw" name="Messsage Size" FeatureState="MANDATORY">
+          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_hvQ_Mh78Ed-wm-BYlEd2Aw" name="Guranteed Delivery"/>
+          <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_hSVyox78Ed-wm-BYlEd2Aw" name="Messsage Size">
             <attributes xsi:type="featuremodel:PrimitiveAttribute" id="_W_Gg4B7_Ed-wm-BYlEd2Aw" name="Size">
               <defaultvalue value="25"/>
             </attributes>
           </mandatoryChildren>
         </childrelation>
       </mandatoryChildren>
-      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_RpEXsR78Ed-wm-BYlEd2Aw" name="Receiver" FeatureState="MANDATORY">
+      <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_RpEXsR78Ed-wm-BYlEd2Aw" name="Receiver">
         <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_V-ZZMB78Ed-wm-BYlEd2Aw" name="Selective Consumers" FeatureState="OPTIONAL"/>
-          <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_WaKIIR78Ed-wm-BYlEd2Aw" name="Competing Conumers" FeatureState="MANDATORY">
+          <optionalChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_V-ZZMB78Ed-wm-BYlEd2Aw" name="Selective Consumers"/>
+          <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_WaKIIR78Ed-wm-BYlEd2Aw" name="Competing Conumers">
             <childrelation xsi:type="completionfeaturemodel:CompletionSimple">
-              <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_ZW0tkR78Ed-wm-BYlEd2Aw" name="PoolSize" FeatureState="MANDATORY">
+              <mandatoryChildren xsi:type="completionfeaturemodel:CompletionFeature" id="_ZW0tkR78Ed-wm-BYlEd2Aw" name="PoolSize">
                 <attributes xsi:type="featuremodel:PrimitiveAttribute" id="_R0utwB7_Ed-wm-BYlEd2Aw" name="Size">
                   <defaultvalue value="5"/>
                 </attributes>
