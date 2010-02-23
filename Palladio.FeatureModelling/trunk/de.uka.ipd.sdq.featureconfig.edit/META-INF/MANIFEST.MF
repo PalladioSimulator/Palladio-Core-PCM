@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  CopyExceptionModel.edit;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- org.eclipse.uml2.common.edit;visibility:=reexport
+ org.eclipse.uml2.common.edit;visibility:=reexport,
+ de.uka.ipd.sdq.pcm.edit;bundle-version="3.1.0"
 Bundle-ActivationPolicy: lazy

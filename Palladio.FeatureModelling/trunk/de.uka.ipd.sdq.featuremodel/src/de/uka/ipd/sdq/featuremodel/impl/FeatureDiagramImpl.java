@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.featuremodel.Constraint;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
