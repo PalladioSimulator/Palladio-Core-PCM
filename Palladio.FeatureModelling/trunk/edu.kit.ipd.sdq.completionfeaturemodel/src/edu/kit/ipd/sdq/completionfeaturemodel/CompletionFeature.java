@@ -115,17 +115,15 @@ public interface CompletionFeature extends Feature {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * result = 
-	 * if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY
-	 * else 
-	 * if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL
-	 * else
-	 * FeatureState::NOT_SET
-	 * endif
-	 * endif
+	 * if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY
+	 *  else (
+	 *  if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL
+	 *  else FeatureState::NOT_SET
+	 *  endif
+	 *  ) endif
 	 * <!-- end-model-doc -->
 	 * @model required="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='result = \r\nif (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY\r\nelse \r\nif (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL\r\nelse\r\nFeatureState::NOT_SET\r\nendif\r\nendif'"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY\r\n else (\r\n if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL\r\n else FeatureState::NOT_SET\r\n endif\r\n ) endif'"
 	 * @generated
 	 */
 	FeatureState showFeatureState();

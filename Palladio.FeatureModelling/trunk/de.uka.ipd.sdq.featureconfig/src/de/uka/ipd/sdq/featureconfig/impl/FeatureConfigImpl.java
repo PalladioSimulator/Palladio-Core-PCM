@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.expressions.OCLExpression;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
@@ -88,31 +90,16 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> Checks if the Configuration Object contains this
-	 * Object in its defaultConfig or its configOverrides list. Out of that
-	 * information, the FeatureConfigState is set to Default or Override. If
-	 * none of the conditions matches, FeatureConfigState.NOT_SET is
-	 * returned<!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc --> 
+	 * returns the result of showFeatureConfigState()
+	 * showFeatureConfigState is defined by an OCL expression.
+	 * The FeatureConfigState of a FeatureConfig is DEFAULT, if the FeatureConfig equals its configurationDefault.defaultConfig.
+	 * It is OVERRIDE, if it is included in its configurationOverrides.configOverrides.
+	 * If neither of these conditions applies, the FeatureConfigState is NOT_SET.
 	 * @generated NOT
 	 */
 	public FeatureConfigState getFeatureConfigState() {
-		if (this.getConfigurationDefault() != null
-				&& this.getConfigurationDefault().getDefaultConfig() != null
-				&& this.equals(this.getConfigurationDefault()
-						.getDefaultConfig())) {
-			System.err.println("it's the default FeatureConfig");
-			return FeatureConfigState.DEFAULT;
-		} else if (this.getConfigurationOverrides() != null
-				&& this.getConfigurationOverrides().getConfigOverrides() != null
-				&& this.getConfigurationOverrides().getConfigOverrides()
-						.contains(this)) {
-			System.err.println("it's an override FeatureConfig");
-			return FeatureConfigState.OVERRIDE;
-		} else {
-			System.err.println("its FeatureConfig is'nt set");
-			return FeatureConfigState.NOT_SET;
-		}
+		return showFeatureConfigState();
 	}
 
 	/**
@@ -254,6 +241,51 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #showFeatureConfigState() <em>Show Feature Config State</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showFeatureConfigState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHOW_FEATURE_CONFIG_STATE__EOCL_EXP = "if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT"+
+" else ("+
+" if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE"+
+" else FeatureConfigState::NOT_SET"+
+" endif"+
+" ) endif";
+
+	/**
+	 * The cached OCL query for the '{@link #showFeatureConfigState() <em>Show Feature Config State</em>}' query operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showFeatureConfigState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static OCLExpression<EClassifier> SHOW_FEATURE_CONFIG_STATE__EOCL_QRY;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureConfigState showFeatureConfigState() {
+		if (SHOW_FEATURE_CONFIG_STATE__EOCL_QRY == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setOperationContext(featureconfigPackage.Literals.FEATURE_CONFIG, featureconfigPackage.Literals.FEATURE_CONFIG.getEAllOperations().get(1));
+			try {
+				SHOW_FEATURE_CONFIG_STATE__EOCL_QRY = helper.createQuery(SHOW_FEATURE_CONFIG_STATE__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		OCL.Query query = EOCL_ENV.createQuery(SHOW_FEATURE_CONFIG_STATE__EOCL_QRY);
+		return (FeatureConfigState) query.evaluate(this);
 	}
 
 	/**

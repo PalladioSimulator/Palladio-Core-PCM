@@ -956,6 +956,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(defaultValueEClass, this.getAttributeTypes(), "showType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(primitiveAttributeEClass, PrimitiveAttribute.class, "PrimitiveAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPrimitiveAttribute_Type(), this.getAttributeTypes(), "type", null, 1, 1, PrimitiveAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPrimitiveAttribute_Range(), this.getIntervalRange(), null, "range", null, 0, 1, PrimitiveAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

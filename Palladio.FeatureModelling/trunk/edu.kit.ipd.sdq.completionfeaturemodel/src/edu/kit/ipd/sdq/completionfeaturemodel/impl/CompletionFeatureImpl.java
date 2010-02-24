@@ -145,6 +145,21 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * returns the result of showFeatureState()
+	 * showFeatureState is defined by an OCL expression.
+	 * The FeatureState of a CompletionFeature is MANDATORY, if the CompletionFeature is included in its simpleMandatory.mandatoryChildren.
+	 * It is OPTIONAL, if it is included in its simpleOptional.optionalChildren.
+	 * If neither of these conditions applies, the FeatureState is NOT_SET.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public FeatureState getFeatureState() {
+		return showFeatureState();
+	}
+
+	/**
 	 * The cached OCL expression body for the '{@link #showFeatureState() <em>Show Feature State</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,14 +167,12 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SHOW_FEATURE_STATE__EOCL_EXP = "result = "+
-"if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY"+
-"else "+
-"if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL"+
-"else"+
-"FeatureState::NOT_SET"+
-"endif"+
-"endif";
+	protected static final String SHOW_FEATURE_STATE__EOCL_EXP = "if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY"+
+" else ("+
+" if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL"+
+" else FeatureState::NOT_SET"+
+" endif"+
+" ) endif";
 
 	/**
 	 * The cached OCL query for the '{@link #showFeatureState() <em>Show Feature State</em>}' query operation.
@@ -188,38 +201,7 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 			}
 		}
 		OCL.Query query = EOCL_ENV.createQuery(SHOW_FEATURE_STATE__EOCL_QRY);
-		System.err.println(query.evaluate(this));
 		return (FeatureState) query.evaluate(this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Checks if the Simple Object contains this Object
-	 * in its mandatoryChildren or its optionalChildren list. Out of that
-	 * information, the FeatureState is set to Mandatory or Optional. If none of
-	 * the conditions matches, FeatureState.NOT_SET is returned. The null-checks should not be necessary
-	 * System.err only for testing
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public FeatureState getFeatureState() {
-		if (this.getSimpleMandatory() != null
-				&& this.getSimpleMandatory().getMandatoryChildren() != null
-				&& this.getSimpleMandatory().getMandatoryChildren().contains(
-						this)) {
-			System.err.println("it's a mandatory feature");
-			return FeatureState.MANDATORY;
-		} else if (this.getSimpleOptional() != null
-				&& this.getSimpleOptional().getOptionalChildren() != null
-				&& this.getSimpleOptional().getOptionalChildren()
-						.contains(this)) {
-			System.err.println("it's an optional feature");
-			return FeatureState.OPTIONAL;
-		} else {
-			System.err.println("its feature is'nt set");
-			return FeatureState.NOT_SET;
-		}
 	}
 
 	/**

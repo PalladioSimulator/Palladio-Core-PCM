@@ -904,9 +904,18 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sesFku5EEd68vJmx0T6iug" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sesFke5EEd68vJmx0T6iug"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_xVIh4A0WEd-LG6XumFKsag" name="FeatureState" visibility="private" type="_pDuYYMclEd6FTbwEkM97gA" isDerived="true">
+      <ownedAttribute xmi:id="_xVIh4A0WEd-LG6XumFKsag" name="FeatureState" visibility="private" type="_pDuYYMclEd6FTbwEkM97gA" isReadOnly="true" isDerived="true">
         <defaultValue xmi:type="uml:InstanceValue" xmi:id="_0az5YA0WEd-LG6XumFKsag" name="NOT_SET" type="_pDuYYMclEd6FTbwEkM97gA" instance="_s93sMMdFEd6uiptR6cqsUw"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_Dkw20CFqEd-KZMbXtEjK-w" name="showFeatureState" bodyCondition="_IBBmwCFqEd-KZMbXtEjK-w">
+        <ownedRule xmi:id="_IBBmwCFqEd-KZMbXtEjK-w" name="valueOfFeatureState" constrainedElement="_Dkw20CFqEd-KZMbXtEjK-w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_IBBmwSFqEd-KZMbXtEjK-w">
+            <language>OCL</language>
+            <body>if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif</body>
+          </specification>
+        </ownedRule>
+        <ownedParameter xmi:id="_FW9NMCFqEd-KZMbXtEjK-w" name="Parameter1" type="_pDuYYMclEd6FTbwEkM97gA" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_FWErUO5EEd68vJmx0T6iug" memberEnd="_FWN1QO5EEd68vJmx0T6iug _FWN1Q-5EEd68vJmx0T6iug">
       <ownedEnd xmi:id="_FWN1Q-5EEd68vJmx0T6iug" name="" visibility="private" type="_6o3-QO5CEd68vJmx0T6iug" association="_FWErUO5EEd68vJmx0T6iug">

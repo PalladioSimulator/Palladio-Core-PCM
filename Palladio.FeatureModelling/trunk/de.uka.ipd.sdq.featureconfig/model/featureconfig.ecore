@@ -103,6 +103,14 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="showFeatureConfigState" ordered="false" lowerBound="1" eType="#//FeatureConfigState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT&#xD;&#xA; else (&#xD;&#xA; if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE&#xD;&#xA; else FeatureConfigState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT&#xD;&#xA; else (&#xD;&#xA; if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE&#xD;&#xA; else FeatureConfigState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureConfigState" ordered="false"
         lowerBound="1" eType="#//FeatureConfigState" changeable="false" volatile="true"
         transient="true" defaultValueLiteral="NOT_SET" derived="true"/>

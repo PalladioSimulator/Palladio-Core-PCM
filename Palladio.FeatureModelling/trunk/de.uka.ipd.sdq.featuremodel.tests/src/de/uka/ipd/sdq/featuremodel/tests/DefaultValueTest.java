@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.DefaultValue#DefaultValueMustBeOfSpecifiedType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Default Value Must Be Of Specified Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.DefaultValue#showType() <em>Show Type</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -121,6 +122,19 @@ public class DefaultValueTest extends TestCase {
 	 * @generated
 	 */
 	public void testDefaultValueMustBeOfSpecifiedType__DiagnosticChain_Map() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#showType() <em>Show Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue#showType()
+	 * @generated
+	 */
+	public void testShowType() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

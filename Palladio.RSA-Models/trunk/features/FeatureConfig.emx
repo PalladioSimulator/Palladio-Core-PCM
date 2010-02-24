@@ -476,7 +476,7 @@ aka NULL, not set, do not override</body>
           <body>self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)</body>
         </specification>
       </ownedRule>
-      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="private" type="_D8LrwMcqEd6uiptR6cqsUw" isDerived="true">
+      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="private" type="_D8LrwMcqEd6uiptR6cqsUw" isReadOnly="true" isDerived="true">
         <defaultValue xmi:type="uml:InstanceValue" xmi:id="_99Yr4MdGEd6uiptR6cqsUw" name="NOT_SET" type="_D8LrwMcqEd6uiptR6cqsUw" instance="_72reEMdGEd6uiptR6cqsUw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_eqNqEDk2Ed2yIp43-c7nBw" name="confignode" visibility="public" type="__AsOMHvxEdyOhKBWyuRGig" aggregation="composite" association="_eqLN0Dk2Ed2yIp43-c7nBw">
@@ -488,6 +488,15 @@ aka NULL, not set, do not override</body>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ylvlIMe9Ed6HwLqReLKGsQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_LenqgHweEdyOhKBWyuRGig" name="configurationDefault" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_LeSTUHweEdyOhKBWyuRGig"/>
+      <ownedOperation xmi:id="_NmXrYCF6Ed-KZMbXtEjK-w" name="showFeatureConfigState" isQuery="true" bodyCondition="_UZdv0CF6Ed-KZMbXtEjK-w">
+        <ownedRule xmi:id="_UZdv0CF6Ed-KZMbXtEjK-w" name="valueOfFeatureConfigState" constrainedElement="_NmXrYCF6Ed-KZMbXtEjK-w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_UZdv0SF6Ed-KZMbXtEjK-w">
+            <language>OCL</language>
+            <body>if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT&#xD;&#xA; else (&#xD;&#xA; if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE&#xD;&#xA; else FeatureConfigState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif</body>
+          </specification>
+        </ownedRule>
+        <ownedParameter xmi:id="_Pd9fICF6Ed-KZMbXtEjK-w" name="Parameter1" type="_D8LrwMcqEd6uiptR6cqsUw" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_JTpAsHweEdyOhKBWyuRGig" name="Configuration">
       <ownedComment xmi:id="_n5HjcKwSEd2RCOCuXmp_aA" annotatedElement="_JTpAsHweEdyOhKBWyuRGig">

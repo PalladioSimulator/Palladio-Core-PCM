@@ -14,10 +14,10 @@
     </eAnnotations>
     <eOperations name="showFeatureState" ordered="false" lowerBound="1" eType="#//FeatureState">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="result = &#xD;&#xA;if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA;else &#xD;&#xA;if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA;else&#xD;&#xA;FeatureState::NOT_SET&#xD;&#xA;endif&#xD;&#xA;endif"/>
+        <details key="documentation" value="if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-        <details key="body" value="result = &#xD;&#xA;if (simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA;else &#xD;&#xA;if (simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA;else&#xD;&#xA;FeatureState::NOT_SET&#xD;&#xA;endif&#xD;&#xA;endif"/>
+        <details key="body" value="if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"

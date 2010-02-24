@@ -107,6 +107,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//DefaultValue/DefaultValueMustBeOfSpecifiedType/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//DefaultValue/DefaultValueMustBeOfSpecifiedType/context"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//DefaultValue/showType"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//PrimitiveAttribute">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//PrimitiveAttribute/type"/>

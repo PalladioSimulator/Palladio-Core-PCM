@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.expressions.OCLExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,13 +126,14 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * The type of the default value is equal to the type of its 
-	 * owning type. Thus, the attributes type is returned.
+	 * returns the result of showType()
+	 * showType is defined by an OCL expression.
+	 * The type of a DefaultValue equals the type of its corresponding PrimitiveAttribute
 	 * <!-- end-user-doc -->
 	 * @generated not
 	 */
 	public AttributeTypes getType() {
-		return this.getAttribute().getType();
+		return showType();
 	}
 
 	/**
@@ -223,6 +226,46 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #showType() <em>Show Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHOW_TYPE__EOCL_EXP = "attribute.type";
+
+	/**
+	 * The cached OCL query for the '{@link #showType() <em>Show Type</em>}' query operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #showType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static OCLExpression<EClassifier> SHOW_TYPE__EOCL_QRY;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeTypes showType() {
+		if (SHOW_TYPE__EOCL_QRY == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setOperationContext(featuremodelPackage.Literals.DEFAULT_VALUE, featuremodelPackage.Literals.DEFAULT_VALUE.getEAllOperations().get(1));
+			try {
+				SHOW_TYPE__EOCL_QRY = helper.createQuery(SHOW_TYPE__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		OCL.Query query = EOCL_ENV.createQuery(SHOW_TYPE__EOCL_QRY);
+		return (AttributeTypes) query.evaluate(this);
 	}
 
 	/**

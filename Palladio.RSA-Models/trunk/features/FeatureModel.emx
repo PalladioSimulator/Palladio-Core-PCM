@@ -1596,11 +1596,20 @@
       <ownedAttribute xmi:id="_7_1kcMciEd6FTbwEkM97gA" name="value" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_3EiIEMciEd6FTbwEkM97gA" name="type" visibility="private" type="_Z3fVMDkmEd2yIp43-c7nBw" isDerived="true"/>
+      <ownedAttribute xmi:id="_3EiIEMciEd6FTbwEkM97gA" name="type" visibility="private" type="_Z3fVMDkmEd2yIp43-c7nBw" isReadOnly="true" isDerived="true"/>
       <ownedAttribute xmi:id="_ojnm4McjEd6FTbwEkM97gA" name="attribute" visibility="private" type="_xF_AEOjOEd6q0-tmOLNDgQ" association="_ojec8McjEd6FTbwEkM97gA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ojnm4scjEd6FTbwEkM97gA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ojnm4ccjEd6FTbwEkM97gA" value="1"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_jeITwCF4Ed-KZMbXtEjK-w" name="showType" isQuery="true" bodyCondition="_tzm50CF4Ed-KZMbXtEjK-w">
+        <ownedRule xmi:id="_tzm50CF4Ed-KZMbXtEjK-w" name="valueOfType" constrainedElement="_jeITwCF4Ed-KZMbXtEjK-w">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_tzm50SF4Ed-KZMbXtEjK-w">
+            <language>OCL</language>
+            <body>attribute.type</body>
+          </specification>
+        </ownedRule>
+        <ownedParameter xmi:id="_k3mBECF4Ed-KZMbXtEjK-w" name="Parameter1" type="_Z3fVMDkmEd2yIp43-c7nBw" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_ojec8McjEd6FTbwEkM97gA" name="" memberEnd="_ojec8ccjEd6FTbwEkM97gA _ojnm4McjEd6FTbwEkM97gA"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_tifaQOjFEd6q0-tmOLNDgQ" name="EnumerationRange">

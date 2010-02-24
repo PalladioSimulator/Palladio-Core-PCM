@@ -113,4 +113,16 @@ public interface DefaultValue extends EObject {
 	 */
 	boolean DefaultValueMustBeOfSpecifiedType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * attribute.type
+	 * <!-- end-model-doc -->
+	 * @model required="true" ordered="false"
+	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='attribute.type'"
+	 * @generated
+	 */
+	AttributeTypes showType();
+
 } // DefaultValue

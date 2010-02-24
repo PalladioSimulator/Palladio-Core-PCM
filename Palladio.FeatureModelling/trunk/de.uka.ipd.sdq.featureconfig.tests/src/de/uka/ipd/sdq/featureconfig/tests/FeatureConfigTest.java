@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Root Is Feature Model</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#showFeatureConfigState() <em>Show Feature Config State</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -121,6 +122,19 @@ public class FeatureConfigTest extends TestCase {
 	 * @generated
 	 */
 	public void testRootIsFeatureModel__DiagnosticChain_Map() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#showFeatureConfigState() <em>Show Feature Config State</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#showFeatureConfigState()
+	 * @generated
+	 */
+	public void testShowFeatureConfigState() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

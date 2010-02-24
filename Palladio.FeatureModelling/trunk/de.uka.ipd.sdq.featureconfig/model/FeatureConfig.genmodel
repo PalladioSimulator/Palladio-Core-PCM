@@ -67,6 +67,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/context"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//FeatureConfig/showFeatureConfigState"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featureconfig.ecore#//Configuration">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
