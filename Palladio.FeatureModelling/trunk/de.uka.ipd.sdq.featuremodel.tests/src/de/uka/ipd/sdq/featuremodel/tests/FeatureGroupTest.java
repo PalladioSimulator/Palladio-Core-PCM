@@ -25,7 +25,16 @@ import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
  * </p>
  * @generated
  */
-public abstract class FeatureGroupTest extends ChildRelationTest {
+public class FeatureGroupTest extends ChildRelationTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(FeatureGroupTest.class);
+	}
 
 	/**
 	 * Constructs a new Feature Group test case with the given name.
@@ -46,6 +55,28 @@ public abstract class FeatureGroupTest extends ChildRelationTest {
 	@Override
 	protected FeatureGroup getFixture() {
 		return (FeatureGroup)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(featuremodelFactory.eINSTANCE.createFeatureGroup());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 	/**

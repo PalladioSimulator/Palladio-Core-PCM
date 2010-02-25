@@ -164,6 +164,16 @@ public class FeatureItemProvider
 			(createChildParameter
 				(featuremodelPackage.Literals.FEATURE__ATTRIBUTES,
 				 featuremodelFactory.eINSTANCE.createElementListingAttribute()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(featuremodelPackage.Literals.FEATURE__CHILDRELATION,
+				 featuremodelFactory.eINSTANCE.createSimple()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(featuremodelPackage.Literals.FEATURE__CHILDRELATION,
+				 featuremodelFactory.eINSTANCE.createFeatureGroup()));
 	}
 
 }

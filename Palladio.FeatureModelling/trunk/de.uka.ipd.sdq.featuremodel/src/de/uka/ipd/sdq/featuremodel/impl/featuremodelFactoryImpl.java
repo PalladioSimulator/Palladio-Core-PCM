@@ -72,6 +72,9 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case featuremodelPackage.FEATURE: return createFeature();
+			case featuremodelPackage.SIMPLE: return createSimple();
+			case featuremodelPackage.FEATURE_GROUP: return createFeatureGroup();
 			case featuremodelPackage.FEATURE_DIAGRAM: return createFeatureDiagram();
 			case featuremodelPackage.REQUIRED_CONSTRAINT: return createRequiredConstraint();
 			case featuremodelPackage.PROHIBITS_CONSTRAINT: return createProhibitsConstraint();
@@ -114,6 +117,36 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Feature createFeature() {
+		FeatureImpl feature = new FeatureImpl();
+		return feature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Simple createSimple() {
+		SimpleImpl simple = new SimpleImpl();
+		return simple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureGroup createFeatureGroup() {
+		FeatureGroupImpl featureGroup = new FeatureGroupImpl();
+		return featureGroup;
 	}
 
 	/**

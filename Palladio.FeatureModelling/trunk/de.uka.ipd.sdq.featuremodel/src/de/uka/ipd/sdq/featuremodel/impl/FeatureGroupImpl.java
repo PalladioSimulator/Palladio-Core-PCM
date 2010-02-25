@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  *
  * @generated
  */
-public abstract class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup {
+public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup {
 	/**
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->

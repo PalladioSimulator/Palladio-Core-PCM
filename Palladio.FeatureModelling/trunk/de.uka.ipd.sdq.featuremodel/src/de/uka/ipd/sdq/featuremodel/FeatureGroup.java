@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeatureGroup()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface FeatureGroup extends ChildRelation {
