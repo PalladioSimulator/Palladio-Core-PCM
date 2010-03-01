@@ -159,16 +159,12 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import edu.kit.ipd.sdq.completionfeaturemodel.provider.completionfeaturemodelItemProviderAdapterFactory;
 
+
 import EMOF.provider.EMOFItemProviderAdapterFactory;
-
 import EssentialOCL.provider.EssentialOCLItemProviderAdapterFactory;
-
 import QVTBase.provider.QVTBaseItemProviderAdapterFactory;
-
 import QVTRelation.provider.QVTRelationItemProviderAdapterFactory;
-
 import QVTTemplate.provider.QVTTemplateItemProviderAdapterFactory;
-
 import copyException.provider.CopyExceptionItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
@@ -753,10 +749,10 @@ public class completionfeaturemodelEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new completionfeaturemodelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CopyExceptionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CopyExceptionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EMOFItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EssentialOCLItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QVTBaseItemProviderAdapterFactory());

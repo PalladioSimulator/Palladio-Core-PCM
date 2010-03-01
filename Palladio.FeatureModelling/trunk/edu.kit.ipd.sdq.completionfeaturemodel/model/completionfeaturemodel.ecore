@@ -21,25 +21,25 @@
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copyException" ordered="false"
-        upperBound="-1" eType="ecore:EClass ../../CopyExceptionModel/model/CopyException.ecore#//Exception"
+        upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.copyexception/model/CopyException.ecore#//Exception"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguationRule" ordered="false"
         upperBound="-1" eType="#//DisambiguationRule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
-        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../edu.kit.ipd.sdq.qvtmodels/model/QVTRelation.ecore#//Relation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FeatureState" ordered="false"
         lowerBound="1" eType="#//FeatureState" changeable="false" volatile="true"
-        transient="true" defaultValueLiteral="NOT_SET" derived="true"/>
+        defaultValueLiteral="NOT_SET" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisambiguationRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" ordered="false"
         eType="#//CompletionFeature"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="disambiguationCondition"
-        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/EssentialOCL.ecore#//OperationCallExp"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../edu.kit.ipd.sdq.qvtmodels/model/EssentialOCL.ecore#//OperationCallExp"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
-        ordered="false" upperBound="-1" eType="ecore:EClass ../../QVTModels/model/QVTRelation.ecore#//Relation"/>
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../edu.kit.ipd.sdq.qvtmodels/model/QVTRelation.ecore#//Relation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureDiagram" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple">

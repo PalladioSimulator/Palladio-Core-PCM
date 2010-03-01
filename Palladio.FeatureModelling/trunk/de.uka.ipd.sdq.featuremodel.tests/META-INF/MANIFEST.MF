@@ -12,8 +12,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.featuremodel;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
- CopyExceptionModel;visibility:=reexport,
- QVTModels;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport
+ org.junit;visibility:=reexport,
+ edu.kit.ipd.sdq.qvtmodels;bundle-version="1.0.0",
+ de.uka.ipd.sdq.copyexception;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

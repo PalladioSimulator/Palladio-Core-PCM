@@ -6,7 +6,8 @@
  */
 package edu.kit.ipd.sdq.completionfeaturemodel.provider;
 
-import copyException.provider.ModelEditPlugin;
+import EMOF.provider.QvtmodelsEditPlugin;
+import copyException.provider.CopyexceptionEditPlugin;
 
 import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
 
@@ -58,11 +59,11 @@ public final class CompletionfeaturemodelEditPlugin extends EMFPlugin {
 	public CompletionfeaturemodelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     CopyexceptionEditPlugin.INSTANCE,
 		     EcoreEditPlugin.INSTANCE,
 		     FeaturemodelEditPlugin.INSTANCE,
 		     IdentifierEditPlugin.INSTANCE,
-		     ModelEditPlugin.INSTANCE,
-		     EMOF.provider.ModelEditPlugin.INSTANCE,
+		     QvtmodelsEditPlugin.INSTANCE,
 		   });
 	}
 
