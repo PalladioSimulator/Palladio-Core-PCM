@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode <em>Confignode</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationOverrides <em>Configuration Overrides</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationDefault <em>Configuration Default</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,10 +43,19 @@ public interface FeatureConfig extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <p>
+	 *     <span
+	 *     style="WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"
+	 *      class="Apple-style-span"><span
+	 *     style="LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px"
+	 *     class="Apple-style-span">Returns the result of showFeatureConfigState()</span></span>
+	 * </p>
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Feature Config State</em>' attribute.
 	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfigState
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_FeatureConfigState()
-	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureConfigState getFeatureConfigState();
@@ -123,6 +133,32 @@ public interface FeatureConfig extends EObject {
 	void setConfigurationDefault(Configuration value);
 
 	/**
+	 * Returns the value of the '<em><b>Annotated Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotated Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotated Object</em>' reference.
+	 * @see #setAnnotatedObject(EObject)
+	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_AnnotatedObject()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EObject getAnnotatedObject();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotated Object</em>' reference.
+	 * @see #getAnnotatedObject()
+	 * @generated
+	 */
+	void setAnnotatedObject(EObject value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -139,6 +175,15 @@ public interface FeatureConfig extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * <p>
+	 *     <span
+	 *     style="WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"
+	 *      class="Apple-style-span"><span
+	 *     style="LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px"
+	 *     class="Apple-style-span">The FeatureConfigState of a FeatureConfig is DEFAULT, if the FeatureConfig equals its
+	 *     configurationDefault.defaultConfig. It is OVERRIDE, if it is included in its configurationOverrides.configOverrides. If
+	 *     neither of these conditions applies, the FeatureConfigState is NOT_SET</span></span>
+	 * </p>
 	 * if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT
 	 *  else (
 	 *  if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE

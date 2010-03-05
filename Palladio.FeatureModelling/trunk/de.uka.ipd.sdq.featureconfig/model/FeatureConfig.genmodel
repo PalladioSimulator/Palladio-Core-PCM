@@ -63,6 +63,8 @@
           ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/configurationOverrides"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
           ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/configurationDefault"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/annotatedObject"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/context"/>

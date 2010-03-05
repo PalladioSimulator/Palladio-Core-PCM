@@ -13,6 +13,10 @@ import de.uka.ipd.sdq.featuremodel.FeatureGroup;
  * A representation of the model object '<em><b>Completion Feature Group</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * decorator class of FeatureGroup
+ * <!-- end-model-doc -->
+ *
  *
  * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeatureGroup()
  * @model

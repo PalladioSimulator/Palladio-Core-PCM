@@ -49,7 +49,9 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//DisambiguationRule/transformationFragment"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureDiagram"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureDiagram">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeatureDiagram/annotatableType"/>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionSimple"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureGroup"/>
   </genPackages>

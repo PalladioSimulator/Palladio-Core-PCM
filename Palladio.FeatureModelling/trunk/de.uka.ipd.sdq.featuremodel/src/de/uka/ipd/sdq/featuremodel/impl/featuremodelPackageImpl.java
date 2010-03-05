@@ -918,7 +918,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 
 		initEClass(defaultValueEClass, DefaultValue.class, "DefaultValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDefaultValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, DefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDefaultValue_Type(), this.getAttributeTypes(), "type", null, 1, 1, DefaultValue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDefaultValue_Type(), this.getAttributeTypes(), "type", null, 1, 1, DefaultValue.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getDefaultValue_Attribute(), this.getPrimitiveAttribute(), this.getPrimitiveAttribute_Defaultvalue(), "attribute", null, 1, 1, DefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(defaultValueEClass, ecorePackage.getEBoolean(), "DefaultValueMustBeOfSpecifiedType", 0, 1, IS_UNIQUE, IS_ORDERED);

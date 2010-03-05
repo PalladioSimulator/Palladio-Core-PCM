@@ -14,7 +14,7 @@
     </eAnnotations>
     <eOperations name="showFeatureState" ordered="false" lowerBound="1" eType="#//FeatureState">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
+        <details key="documentation" value="&lt;span&#xD;&#xA;style=&quot;WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px&quot;&#xD;&#xA; class=&quot;Apple-style-span&quot;>&lt;span&#xD;&#xA;style=&quot;LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px&quot; class=&quot;Apple-style-span&quot;>The&#xD;&#xA;FeatureState of a CompletionFeature is MANDATORY, if the CompletionFeature is included in its&#xD;&#xA;simpleMandatory.mandatoryChildren. It is OPTIONAL, if it is included in its simpleOptional.optionalChildren. If neither of&#xD;&#xA;these conditions applies, the FeatureState is NOT_SET.&lt;/span>&lt;/span>&#xD;&#xA;if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
         <details key="body" value="if (simpleMandatory->size() = 1 and simpleMandatory.mandatoryChildren->size() > 0 and simpleMandatory.mandatoryChildren->includes(self)) then FeatureState::MANDATORY&#xD;&#xA; else (&#xD;&#xA; if (simpleOptional->size() = 1 and simpleOptional.optionalChildren->size() > 0 and simpleOptional.optionalChildren->includes(self)) then FeatureState::OPTIONAL&#xD;&#xA; else FeatureState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
@@ -41,11 +41,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformationFragment"
         ordered="false" upperBound="-1" eType="ecore:EClass ../../edu.kit.ipd.sdq.qvtmodels/model/QVTRelation.ecore#//Relation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureDiagram" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureDiagram" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="decorator class of FeatureDiagram"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotatableType" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="&lt;p>&#xD;&#xA;    decorator class of Simple&#xD;&#xA;&lt;/p>"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureGroup" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompletionFeatureGroup" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureGroup">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="decorator class of FeatureGroup"/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

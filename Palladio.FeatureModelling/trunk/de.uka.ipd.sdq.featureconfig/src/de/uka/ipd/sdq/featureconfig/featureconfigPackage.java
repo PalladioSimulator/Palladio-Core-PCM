@@ -214,13 +214,22 @@ public interface featureconfigPackage extends EPackage {
 	int FEATURE_CONFIG__CONFIGURATION_DEFAULT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONFIG__ANNOTATED_OBJECT = 4;
+
+	/**
 	 * The number of structural features of the '<em>Feature Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_CONFIG_FEATURE_COUNT = 4;
+	int FEATURE_CONFIG_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -420,6 +429,17 @@ public interface featureconfigPackage extends EPackage {
 	EReference getFeatureConfig_ConfigurationDefault();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Annotated Object</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject()
+	 * @see #getFeatureConfig()
+	 * @generated
+	 */
+	EReference getFeatureConfig_AnnotatedObject();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -605,6 +625,14 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FEATURE_CONFIG__CONFIGURATION_DEFAULT = eINSTANCE.getFeatureConfig_ConfigurationDefault();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotated Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_CONFIG__ANNOTATED_OBJECT = eINSTANCE.getFeatureConfig_AnnotatedObject();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.

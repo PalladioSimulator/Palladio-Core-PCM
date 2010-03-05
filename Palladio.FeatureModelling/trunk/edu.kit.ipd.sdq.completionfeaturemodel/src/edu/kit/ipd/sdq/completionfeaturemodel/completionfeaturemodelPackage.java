@@ -273,13 +273,22 @@ public interface completionfeaturemodelPackage extends EPackage {
 	int COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT = featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT;
 
 	/**
+	 * The feature id for the '<em><b>Annotatable Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_TYPE = featuremodelPackage.FEATURE_DIAGRAM_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Completion Feature Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION_FEATURE_DIAGRAM_FEATURE_COUNT = featuremodelPackage.FEATURE_DIAGRAM_FEATURE_COUNT + 0;
+	int COMPLETION_FEATURE_DIAGRAM_FEATURE_COUNT = featuremodelPackage.FEATURE_DIAGRAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionSimpleImpl <em>Completion Simple</em>}' class.
@@ -483,6 +492,17 @@ public interface completionfeaturemodelPackage extends EPackage {
 	EClass getCompletionFeatureDiagram();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableType <em>Annotatable Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotatable Type</em>'.
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableType()
+	 * @see #getCompletionFeatureDiagram()
+	 * @generated
+	 */
+	EAttribute getCompletionFeatureDiagram_AnnotatableType();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionSimple <em>Completion Simple</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -619,6 +639,14 @@ public interface completionfeaturemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPLETION_FEATURE_DIAGRAM = eINSTANCE.getCompletionFeatureDiagram();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotatable Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_TYPE = eINSTANCE.getCompletionFeatureDiagram_AnnotatableType();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionSimpleImpl <em>Completion Simple</em>}' class.

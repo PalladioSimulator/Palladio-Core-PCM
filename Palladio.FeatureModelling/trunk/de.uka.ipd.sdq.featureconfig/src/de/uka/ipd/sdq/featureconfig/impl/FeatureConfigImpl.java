@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -47,6 +48,7 @@ import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfignode <em>Confignode</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigurationOverrides <em>Configuration Overrides</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigurationDefault <em>Configuration Default</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getAnnotatedObject <em>Annotated Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +73,16 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @ordered
 	 */
 	protected EList<ConfigNode> confignode;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatedObject() <em>Annotated Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected EObject annotatedObject;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -190,6 +202,44 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT, newConfigurationDefault, newConfigurationDefault));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject getAnnotatedObject() {
+		if (annotatedObject != null && annotatedObject.eIsProxy()) {
+			InternalEObject oldAnnotatedObject = (InternalEObject)annotatedObject;
+			annotatedObject = eResolveProxy(oldAnnotatedObject);
+			if (annotatedObject != oldAnnotatedObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT, oldAnnotatedObject, annotatedObject));
+			}
+		}
+		return annotatedObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject basicGetAnnotatedObject() {
+		return annotatedObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotatedObject(EObject newAnnotatedObject) {
+		EObject oldAnnotatedObject = annotatedObject;
+		annotatedObject = newAnnotatedObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT, oldAnnotatedObject, annotatedObject));
 	}
 
 	/**
@@ -357,6 +407,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return getConfigurationOverrides();
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				return getConfigurationDefault();
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT:
+				if (resolve) return getAnnotatedObject();
+				return basicGetAnnotatedObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -379,6 +432,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				setConfigurationDefault((Configuration)newValue);
 				return;
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT:
+				setAnnotatedObject((EObject)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -399,6 +455,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				setConfigurationDefault((Configuration)null);
 				return;
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT:
+				setAnnotatedObject((EObject)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -418,6 +477,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return getConfigurationOverrides() != null;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				return getConfigurationDefault() != null;
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_OBJECT:
+				return annotatedObject != null;
 		}
 		return super.eIsSet(featureID);
 	}
