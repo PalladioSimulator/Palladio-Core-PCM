@@ -6,15 +6,20 @@
  */
 package edu.kit.ipd.sdq.completionfeaturemodel.presentation;
 
-import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.ui.EclipseUIPlugin;
-import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import EMOF.provider.QvtmodelsEditPlugin;
 import copyException.provider.CopyexceptionEditPlugin;
+
 import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
+
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+
+import org.eclipse.emf.common.EMFPlugin;
+
+import org.eclipse.emf.common.ui.EclipseUIPlugin;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Completionfeaturemodel editor plugin.

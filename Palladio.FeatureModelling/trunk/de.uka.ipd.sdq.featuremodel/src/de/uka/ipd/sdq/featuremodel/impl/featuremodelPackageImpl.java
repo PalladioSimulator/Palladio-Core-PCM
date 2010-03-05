@@ -6,17 +6,6 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.AttributeTypes;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
@@ -28,6 +17,7 @@ import de.uka.ipd.sdq.featuremodel.EnumerationRange;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.FeatureState;
 import de.uka.ipd.sdq.featuremodel.IntegerIntervalRange;
 import de.uka.ipd.sdq.featuremodel.IntervalRange;
 import de.uka.ipd.sdq.featuremodel.NamedElement;
@@ -37,8 +27,22 @@ import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.Simple;
 import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
