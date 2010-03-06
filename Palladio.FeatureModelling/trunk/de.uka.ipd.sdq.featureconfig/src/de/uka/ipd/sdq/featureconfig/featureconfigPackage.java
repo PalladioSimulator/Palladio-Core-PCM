@@ -214,13 +214,13 @@ public interface featureconfigPackage extends EPackage {
 	int FEATURE_CONFIG__CONFIGURATION_DEFAULT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Annotated Object</b></em>' reference.
+	 * The feature id for the '<em><b>Referenced Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_CONFIG__ANNOTATED_OBJECT = 4;
+	int FEATURE_CONFIG__REFERENCED_OBJECT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Feature Config</em>' class.
@@ -429,15 +429,15 @@ public interface featureconfigPackage extends EPackage {
 	EReference getFeatureConfig_ConfigurationDefault();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Annotated Object</em>'.
-	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject()
+	 * @return the meta object for the reference '<em>Referenced Object</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject()
 	 * @see #getFeatureConfig()
 	 * @generated
 	 */
-	EReference getFeatureConfig_AnnotatedObject();
+	EReference getFeatureConfig_ReferencedObject();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.Configuration <em>Configuration</em>}'.
@@ -627,12 +627,12 @@ public interface featureconfigPackage extends EPackage {
 		EReference FEATURE_CONFIG__CONFIGURATION_DEFAULT = eINSTANCE.getFeatureConfig_ConfigurationDefault();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotated Object</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Referenced Object</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FEATURE_CONFIG__ANNOTATED_OBJECT = eINSTANCE.getFeatureConfig_AnnotatedObject();
+		EReference FEATURE_CONFIG__REFERENCED_OBJECT = eINSTANCE.getFeatureConfig_ReferencedObject();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.

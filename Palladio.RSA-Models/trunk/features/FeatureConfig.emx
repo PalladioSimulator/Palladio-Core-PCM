@@ -569,7 +569,7 @@ aka NULL, not set, do not override</body>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ylvlIMe9Ed6HwLqReLKGsQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_LenqgHweEdyOhKBWyuRGig" name="configurationDefault" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_LeSTUHweEdyOhKBWyuRGig"/>
-      <ownedAttribute xmi:id="_JWmoUChqEd-owp-UEBLnBQ" name="annotatedObject" visibility="private" association="_JWO04ChqEd-owp-UEBLnBQ">
+      <ownedAttribute xmi:id="_JWmoUChqEd-owp-UEBLnBQ" name="referencedObject" visibility="private" association="_JWO04ChqEd-owp-UEBLnBQ">
         <type xmi:type="uml:Class" href="Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JWqSsChqEd-owp-UEBLnBQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JWproChqEd-owp-UEBLnBQ"/>
@@ -640,11 +640,8 @@ aka NULL, not set, do not override</body>
       <ownedLiteral xmi:id="_HyWsEMcqEd6uiptR6cqsUw" name="OVERRIDE"/>
       <ownedLiteral xmi:id="_FyWjMMcqEd6uiptR6cqsUw" name="DEFAULT"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_JWO04ChqEd-owp-UEBLnBQ" memberEnd="_JWmoUChqEd-owp-UEBLnBQ _JWsu8ChqEd-owp-UEBLnBQ">
-      <ownedEnd xmi:id="_JWsu8ChqEd-owp-UEBLnBQ" name="" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_JWO04ChqEd-owp-UEBLnBQ">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JWukIShqEd-owp-UEBLnBQ" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JWukIChqEd-owp-UEBLnBQ"/>
-      </ownedEnd>
+    <packagedElement xmi:type="uml:Association" xmi:id="_JWO04ChqEd-owp-UEBLnBQ" name="" memberEnd="_JWmoUChqEd-owp-UEBLnBQ _JWsu8ChqEd-owp-UEBLnBQ">
+      <ownedEnd xmi:id="_JWsu8ChqEd-owp-UEBLnBQ" name="" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_JWO04ChqEd-owp-UEBLnBQ"/>
     </packagedElement>
     <profileApplication xmi:id="_wDqOMnvxEdyOhKBWyuRGig">
       <eAnnotations xmi:id="_wDqOM3vxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">

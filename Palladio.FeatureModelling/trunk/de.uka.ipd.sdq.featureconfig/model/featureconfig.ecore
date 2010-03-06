@@ -113,7 +113,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureConfigState" ordered="false"
         lowerBound="1" eType="#//FeatureConfigState" changeable="false" volatile="true"
-        defaultValueLiteral="NOT_SET" derived="true">
+        transient="true" defaultValueLiteral="NOT_SET" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;p>&#xD;&#xA;    &lt;span&#xD;&#xA;    style=&quot;WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px&quot;&#xD;&#xA;     class=&quot;Apple-style-span&quot;>&lt;span&#xD;&#xA;    style=&quot;LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px&quot;&#xD;&#xA;    class=&quot;Apple-style-span&quot;>Returns the result of showFeatureConfigState()&lt;/span>&lt;/span>&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
@@ -124,7 +124,7 @@
         ordered="false" lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/configOverrides"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurationDefault" ordered="false"
         lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/defaultConfig"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedObject" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FeatureConfigState">

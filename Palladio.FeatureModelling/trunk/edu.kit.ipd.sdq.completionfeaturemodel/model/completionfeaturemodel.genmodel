@@ -50,7 +50,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//DisambiguationRule/transformationFragment"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureDiagram">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeatureDiagram/annotatableType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeatureDiagram/referencedType"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionSimple"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureGroup"/>

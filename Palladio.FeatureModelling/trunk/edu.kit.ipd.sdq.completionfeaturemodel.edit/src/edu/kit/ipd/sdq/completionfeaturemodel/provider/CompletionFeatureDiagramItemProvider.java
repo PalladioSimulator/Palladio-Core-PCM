@@ -65,25 +65,25 @@ public class CompletionFeatureDiagramItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAnnotatableTypePropertyDescriptor(object);
+			addReferencedTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Annotatable Type feature.
+	 * This adds a property descriptor for the Referenced Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAnnotatableTypePropertyDescriptor(Object object) {
+	protected void addReferencedTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompletionFeatureDiagram_annotatableType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletionFeatureDiagram_annotatableType_feature", "_UI_CompletionFeatureDiagram_type"),
-				 completionfeaturemodelPackage.Literals.COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_TYPE,
+				 getString("_UI_CompletionFeatureDiagram_referencedType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletionFeatureDiagram_referencedType_feature", "_UI_CompletionFeatureDiagram_type"),
+				 completionfeaturemodelPackage.Literals.COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE,
 				 true,
 				 false,
 				 false,
@@ -129,7 +129,7 @@ public class CompletionFeatureDiagramItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompletionFeatureDiagram.class)) {
-			case completionfeaturemodelPackage.COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_TYPE:
+			case completionfeaturemodelPackage.COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

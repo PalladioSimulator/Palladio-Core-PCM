@@ -985,7 +985,7 @@ these conditions applies, the FeatureState is NOT_SET.&lt;/span>&lt;/span></body
       <generalization xmi:id="_2fIQ8O5eEd6dSORM8oir3A">
         <general xmi:type="uml:Class" href="FeatureModel.emx#_7fgRUHvvEdyOhKBWyuRGig?FeatureModel/FeatureDiagram?"/>
       </generalization>
-      <ownedAttribute xmi:id="_TtMBoChqEd-owp-UEBLnBQ" name="annotatableType" visibility="private">
+      <ownedAttribute xmi:id="_TtMBoChqEd-owp-UEBLnBQ" name="referencedType" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>

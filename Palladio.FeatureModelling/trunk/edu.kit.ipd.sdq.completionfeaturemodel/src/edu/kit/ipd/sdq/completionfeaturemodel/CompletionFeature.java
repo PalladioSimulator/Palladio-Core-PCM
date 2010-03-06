@@ -106,7 +106,7 @@ public interface CompletionFeature extends Feature {
 	 * @return the value of the '<em>Feature State</em>' attribute.
 	 * @see edu.kit.ipd.sdq.completionfeaturemodel.FeatureState
 	 * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeature_FeatureState()
-	 * @model default="NOT_SET" required="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureState getFeatureState();

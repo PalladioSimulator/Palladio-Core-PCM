@@ -30,7 +30,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FeatureState" ordered="false"
         lowerBound="1" eType="#//FeatureState" changeable="false" volatile="true"
-        defaultValueLiteral="NOT_SET" derived="true"/>
+        transient="true" defaultValueLiteral="NOT_SET" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisambiguationRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" ordered="false"
@@ -45,7 +45,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="decorator class of FeatureDiagram"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotatableType" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referencedType" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionSimple" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Simple">

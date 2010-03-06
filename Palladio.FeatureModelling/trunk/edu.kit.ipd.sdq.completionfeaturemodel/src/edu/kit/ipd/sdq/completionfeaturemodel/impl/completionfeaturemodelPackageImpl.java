@@ -251,7 +251,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCompletionFeatureDiagram_AnnotatableType() {
+	public EAttribute getCompletionFeatureDiagram_ReferencedType() {
 		return (EAttribute)completionFeatureDiagramEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -322,7 +322,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		createEReference(disambiguationRuleEClass, DISAMBIGUATION_RULE__TRANSFORMATION_FRAGMENT);
 
 		completionFeatureDiagramEClass = createEClass(COMPLETION_FEATURE_DIAGRAM);
-		createEAttribute(completionFeatureDiagramEClass, COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_TYPE);
+		createEAttribute(completionFeatureDiagramEClass, COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE);
 
 		completionSimpleEClass = createEClass(COMPLETION_SIMPLE);
 
@@ -376,7 +376,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		initEReference(getCompletionFeature_CopyException(), theCopyExceptionPackage.getException(), null, "copyException", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompletionFeature_DisambiguationRule(), this.getDisambiguationRule(), null, "disambiguationRule", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompletionFeature_TransformationFragment(), theQVTRelationPackage.getRelation(), null, "transformationFragment", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCompletionFeature_FeatureState(), this.getFeatureState(), "FeatureState", "NOT_SET", 1, 1, CompletionFeature.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCompletionFeature_FeatureState(), this.getFeatureState(), "FeatureState", "NOT_SET", 1, 1, CompletionFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(completionFeatureEClass, this.getFeatureState(), "showFeatureState", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -386,7 +386,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		initEReference(getDisambiguationRule_TransformationFragment(), theQVTRelationPackage.getRelation(), null, "transformationFragment", null, 0, -1, DisambiguationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(completionFeatureDiagramEClass, CompletionFeatureDiagram.class, "CompletionFeatureDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCompletionFeatureDiagram_AnnotatableType(), ecorePackage.getEString(), "annotatableType", null, 1, 1, CompletionFeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCompletionFeatureDiagram_ReferencedType(), ecorePackage.getEString(), "referencedType", null, 1, 1, CompletionFeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(completionSimpleEClass, CompletionSimple.class, "CompletionSimple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

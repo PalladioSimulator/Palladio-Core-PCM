@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableType <em>Annotatable Type</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getReferencedType <em>Referenced Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,28 +31,28 @@ import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 public interface CompletionFeatureDiagram extends FeatureDiagram {
 
 	/**
-	 * Returns the value of the '<em><b>Annotatable Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Referenced Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Annotatable Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Referenced Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotatable Type</em>' attribute.
-	 * @see #setAnnotatableType(String)
-	 * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeatureDiagram_AnnotatableType()
+	 * @return the value of the '<em>Referenced Type</em>' attribute.
+	 * @see #setReferencedType(String)
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeatureDiagram_ReferencedType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getAnnotatableType();
+	String getReferencedType();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableType <em>Annotatable Type</em>}' attribute.
+	 * Sets the value of the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getReferencedType <em>Referenced Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotatable Type</em>' attribute.
-	 * @see #getAnnotatableType()
+	 * @param value the new value of the '<em>Referenced Type</em>' attribute.
+	 * @see #getReferencedType()
 	 * @generated
 	 */
-	void setAnnotatableType(String value);
+	void setReferencedType(String value);
 } // CompletionFeatureDiagram

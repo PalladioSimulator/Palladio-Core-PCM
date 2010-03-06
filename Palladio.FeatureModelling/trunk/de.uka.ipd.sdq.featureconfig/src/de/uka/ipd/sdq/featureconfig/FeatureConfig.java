@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode <em>Confignode</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationOverrides <em>Configuration Overrides</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationDefault <em>Configuration Default</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +55,7 @@ public interface FeatureConfig extends EObject {
 	 * @return the value of the '<em>Feature Config State</em>' attribute.
 	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfigState
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_FeatureConfigState()
-	 * @model default="NOT_SET" required="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureConfigState getFeatureConfigState();
@@ -133,30 +133,30 @@ public interface FeatureConfig extends EObject {
 	void setConfigurationDefault(Configuration value);
 
 	/**
-	 * Returns the value of the '<em><b>Annotated Object</b></em>' reference.
+	 * Returns the value of the '<em><b>Referenced Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Annotated Object</em>' reference isn't clear,
+	 * If the meaning of the '<em>Referenced Object</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotated Object</em>' reference.
-	 * @see #setAnnotatedObject(EObject)
-	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_AnnotatedObject()
+	 * @return the value of the '<em>Referenced Object</em>' reference.
+	 * @see #setReferencedObject(EObject)
+	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_ReferencedObject()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EObject getAnnotatedObject();
+	EObject getReferencedObject();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedObject <em>Annotated Object</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotated Object</em>' reference.
-	 * @see #getAnnotatedObject()
+	 * @param value the new value of the '<em>Referenced Object</em>' reference.
+	 * @see #getReferencedObject()
 	 * @generated
 	 */
-	void setAnnotatedObject(EObject value);
+	void setReferencedObject(EObject value);
 
 	/**
 	 * <!-- begin-user-doc -->
