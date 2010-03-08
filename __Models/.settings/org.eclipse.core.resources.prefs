@@ -1,0 +1,10 @@
+#Thu Oct 25 09:33:34 CEST 2007
+eclipse.preferences.version=1
+encoding/AudioDB.getFiles.seff_diagram=UTF-8
+encoding/DBAdapter.queryDB.seff_diagram=UTF-8
+encoding/DigitalWatermarking.watermark.seff_diagram=UTF-8
+encoding/MediaStore.composite_diagram=UTF-8
+encoding/MediaStore.downloadFromDB.seff_diagram=UTF-8
+encoding/MediaStore.usagemodel_diagram=UTF-8
+encoding/WebGUI.downloadHTTP.seff_diagram=UTF-8
+instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
