@@ -1,7 +1,0 @@
-# Tracing options for the de.uka.ipd.sdq.pcm.gmf.usage plug-in
-
-# Common issues
-de.uka.ipd.sdq.pcm.gmf.usage/debug=false
-
-# Visual IDs
-de.uka.ipd.sdq.pcm.gmf.usage/debug/visualID=false
