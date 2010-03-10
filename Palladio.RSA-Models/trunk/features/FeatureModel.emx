@@ -1442,25 +1442,25 @@
       <ownedRule xmi:id="_xiR9QDkrEd2yIp43-c7nBw" name="XORorORImpliesChildrenAreMandatory" constrainedElement="_5WogUHvvEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_xiTLYDkrEd2yIp43-c7nBw">
           <language>OCL</language>
-          <body>(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)&#xD;&#xA;</body>
+          <body>--(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)&#xD;&#xA;</body>
         </specification>
       </ownedRule>
       <ownedRule xmi:id="_UbRVYDksEd2yIp43-c7nBw" name="ALLImpliesCardinalitiesToBeMinusOne" constrainedElement="_5WogUHvvEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_UbSjgDksEd2yIp43-c7nBw">
           <language>OCL</language>
-          <body>self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1)</body>
+          <body>--self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1)</body>
         </specification>
       </ownedRule>
       <ownedRule xmi:id="_ogTxADksEd2yIp43-c7nBw" name="ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne" constrainedElement="_5WogUHvvEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_ogU_IDksEd2yIp43-c7nBw">
           <language>OCL</language>
-          <body>self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1)</body>
+          <body>--self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1)</body>
         </specification>
       </ownedRule>
       <ownedRule xmi:id="_1q_poDksEd2yIp43-c7nBw" name="XORImpliesCardinalitiesToBeOne" constrainedElement="_5WogUHvvEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_1rA3wDksEd2yIp43-c7nBw">
           <language>OCL</language>
-          <body>self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)&#xD;&#xA;</body>
+          <body>--self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)&#xD;&#xA;</body>
         </specification>
       </ownedRule>
       <generalization xmi:id="_loo18KwPEd2RCOCuXmp_aA" general="_ftj-oKwPEd2RCOCuXmp_aA"/>

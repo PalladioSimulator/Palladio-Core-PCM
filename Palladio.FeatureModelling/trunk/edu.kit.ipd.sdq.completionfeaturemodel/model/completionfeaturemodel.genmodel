@@ -39,6 +39,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//CompletionFeature/transformationFragment"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeature/FeatureState"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//CompletionFeature/completionFeatureDiagram"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="completionfeaturemodel.ecore#//CompletionFeature/showFeatureState"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//DisambiguationRule">

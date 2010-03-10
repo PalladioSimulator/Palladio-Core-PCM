@@ -188,13 +188,13 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONFIG_CARDINALITY_INVALID__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() "+
-"in "+
-"	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then"+
-"	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)"+
-"	 else"+
-"	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)"+
-"	 endif";
+	protected static final String CONFIG_CARDINALITY_INVALID__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() "+
+"--in "+
+"--	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then"+
+"--	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)"+
+"--	 else"+
+"--	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)"+
+"--	 endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ConfigCardinalityInvalid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Config Cardinality Invalid</em>}' invariant operation.

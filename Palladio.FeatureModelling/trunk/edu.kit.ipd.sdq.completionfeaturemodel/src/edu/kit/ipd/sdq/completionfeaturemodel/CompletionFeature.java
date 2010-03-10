@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getDisambiguationRule <em>Disambiguation Rule</em>}</li>
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getTransformationFragment <em>Transformation Fragment</em>}</li>
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getFeatureState <em>Feature State</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram <em>Completion Feature Diagram</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,6 +111,32 @@ public interface CompletionFeature extends Feature {
 	 * @generated
 	 */
 	FeatureState getFeatureState();
+
+	/**
+	 * Returns the value of the '<em><b>Completion Feature Diagram</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Completion Feature Diagram</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Completion Feature Diagram</em>' reference.
+	 * @see #setCompletionFeatureDiagram(CompletionFeatureDiagram)
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage#getCompletionFeature_CompletionFeatureDiagram()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	CompletionFeatureDiagram getCompletionFeatureDiagram();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram <em>Completion Feature Diagram</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Completion Feature Diagram</em>' reference.
+	 * @see #getCompletionFeatureDiagram()
+	 * @generated
+	 */
+	void setCompletionFeatureDiagram(CompletionFeatureDiagram value);
 
 	/**
 	 * <!-- begin-user-doc -->

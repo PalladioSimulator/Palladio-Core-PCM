@@ -163,13 +163,22 @@ public interface completionfeaturemodelPackage extends EPackage {
 	int COMPLETION_FEATURE__FEATURE_STATE = featuremodelPackage.FEATURE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Completion Feature Diagram</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM = featuremodelPackage.FEATURE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Completion Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION_FEATURE_FEATURE_COUNT = featuremodelPackage.FEATURE_FEATURE_COUNT + 4;
+	int COMPLETION_FEATURE_FEATURE_COUNT = featuremodelPackage.FEATURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.DisambiguationRuleImpl <em>Disambiguation Rule</em>}' class.
@@ -439,6 +448,17 @@ public interface completionfeaturemodelPackage extends EPackage {
 	EAttribute getCompletionFeature_FeatureState();
 
 	/**
+	 * Returns the meta object for the reference '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram <em>Completion Feature Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Completion Feature Diagram</em>'.
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram()
+	 * @see #getCompletionFeature()
+	 * @generated
+	 */
+	EReference getCompletionFeature_CompletionFeatureDiagram();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.completionfeaturemodel.DisambiguationRule <em>Disambiguation Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -595,6 +615,14 @@ public interface completionfeaturemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETION_FEATURE__FEATURE_STATE = eINSTANCE.getCompletionFeature_FeatureState();
+
+		/**
+		 * The meta object literal for the '<em><b>Completion Feature Diagram</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM = eINSTANCE.getCompletionFeature_CompletionFeatureDiagram();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.DisambiguationRuleImpl <em>Disambiguation Rule</em>}' class.

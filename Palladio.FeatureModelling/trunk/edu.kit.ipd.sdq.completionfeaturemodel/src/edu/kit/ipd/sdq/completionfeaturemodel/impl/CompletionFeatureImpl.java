@@ -11,12 +11,14 @@ import QVTRelation.Relation;
 import de.uka.ipd.sdq.featuremodel.impl.FeatureImpl;
 
 import edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature;
+import edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram;
 import edu.kit.ipd.sdq.completionfeaturemodel.DisambiguationRule;
 import edu.kit.ipd.sdq.completionfeaturemodel.FeatureState;
 import edu.kit.ipd.sdq.completionfeaturemodel.completionfeaturemodelPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -42,6 +45,7 @@ import org.eclipse.ocl.expressions.OCLExpression;
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getDisambiguationRule <em>Disambiguation Rule</em>}</li>
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getTransformationFragment <em>Transformation Fragment</em>}</li>
  *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getFeatureState <em>Feature State</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionFeatureImpl#getCompletionFeatureDiagram <em>Completion Feature Diagram</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +91,16 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 	 * @ordered
 	 */
 	protected static final FeatureState FEATURE_STATE_EDEFAULT = FeatureState.NOT_SET;
+
+	/**
+	 * The cached value of the '{@link #getCompletionFeatureDiagram() <em>Completion Feature Diagram</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionFeatureDiagram()
+	 * @generated
+	 * @ordered
+	 */
+	protected CompletionFeatureDiagram completionFeatureDiagram;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +171,44 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 	 */
 	public FeatureState getFeatureState() {
 		return showFeatureState();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompletionFeatureDiagram getCompletionFeatureDiagram() {
+		if (completionFeatureDiagram != null && completionFeatureDiagram.eIsProxy()) {
+			InternalEObject oldCompletionFeatureDiagram = (InternalEObject)completionFeatureDiagram;
+			completionFeatureDiagram = (CompletionFeatureDiagram)eResolveProxy(oldCompletionFeatureDiagram);
+			if (completionFeatureDiagram != oldCompletionFeatureDiagram) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM, oldCompletionFeatureDiagram, completionFeatureDiagram));
+			}
+		}
+		return completionFeatureDiagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompletionFeatureDiagram basicGetCompletionFeatureDiagram() {
+		return completionFeatureDiagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompletionFeatureDiagram(CompletionFeatureDiagram newCompletionFeatureDiagram) {
+		CompletionFeatureDiagram oldCompletionFeatureDiagram = completionFeatureDiagram;
+		completionFeatureDiagram = newCompletionFeatureDiagram;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM, oldCompletionFeatureDiagram, completionFeatureDiagram));
 	}
 
 	/**
@@ -238,6 +290,9 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 				return getTransformationFragment();
 			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
 				return getFeatureState();
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM:
+				if (resolve) return getCompletionFeatureDiagram();
+				return basicGetCompletionFeatureDiagram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,6 +318,9 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 				getTransformationFragment().clear();
 				getTransformationFragment().addAll((Collection<? extends Relation>)newValue);
 				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM:
+				setCompletionFeatureDiagram((CompletionFeatureDiagram)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,6 +342,9 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 			case completionfeaturemodelPackage.COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT:
 				getTransformationFragment().clear();
 				return;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM:
+				setCompletionFeatureDiagram((CompletionFeatureDiagram)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -304,6 +365,8 @@ public class CompletionFeatureImpl extends FeatureImpl implements CompletionFeat
 				return transformationFragment != null && !transformationFragment.isEmpty();
 			case completionfeaturemodelPackage.COMPLETION_FEATURE__FEATURE_STATE:
 				return getFeatureState() != FEATURE_STATE_EDEFAULT;
+			case completionfeaturemodelPackage.COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM:
+				return completionFeatureDiagram != null;
 		}
 		return super.eIsSet(featureID);
 	}

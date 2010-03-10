@@ -178,7 +178,7 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String XO_ROR_OR_IMPLIES_CHILDREN_ARE_MANDATORY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)";
+	protected static final String XO_ROR_OR_IMPLIES_CHILDREN_ARE_MANDATORY__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #XORorORImpliesChildrenAreMandatory(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>XO Ror OR Implies Children Are Mandatory</em>}' invariant operation.
@@ -229,7 +229,7 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ALL_IMPLIES_CARDINALITIES_TO_BE_MINUS_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1)";
+	protected static final String ALL_IMPLIES_CARDINALITIES_TO_BE_MINUS_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ALLImpliesCardinalitiesToBeMinusOne(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>ALL Implies Cardinalities To Be Minus One</em>}' invariant operation.
@@ -280,7 +280,7 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OR_IMPLIES_CARDINALITIES_MIN_TO_BE_ONE_AND_MAX_TO_BE_MINUS_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1)";
+	protected static final String OR_IMPLIES_CARDINALITIES_MIN_TO_BE_ONE_AND_MAX_TO_BE_MINUS_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>OR Implies Cardinalities Min To Be One And Max To Be Minus One</em>}' invariant operation.
@@ -331,7 +331,7 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String XOR_IMPLIES_CARDINALITIES_TO_BE_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)";
+	protected static final String XOR_IMPLIES_CARDINALITIES_TO_BE_ONE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #XORImpliesCardinalitiesToBeOne(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>XOR Implies Cardinalities To Be One</em>}' invariant operation.

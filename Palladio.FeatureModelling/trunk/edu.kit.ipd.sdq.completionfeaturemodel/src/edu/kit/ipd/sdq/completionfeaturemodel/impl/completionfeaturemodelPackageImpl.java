@@ -206,6 +206,15 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCompletionFeature_CompletionFeatureDiagram() {
+		return (EReference)completionFeatureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDisambiguationRule() {
 		return disambiguationRuleEClass;
 	}
@@ -315,6 +324,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		createEReference(completionFeatureEClass, COMPLETION_FEATURE__DISAMBIGUATION_RULE);
 		createEReference(completionFeatureEClass, COMPLETION_FEATURE__TRANSFORMATION_FRAGMENT);
 		createEAttribute(completionFeatureEClass, COMPLETION_FEATURE__FEATURE_STATE);
+		createEReference(completionFeatureEClass, COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM);
 
 		disambiguationRuleEClass = createEClass(DISAMBIGUATION_RULE);
 		createEReference(disambiguationRuleEClass, DISAMBIGUATION_RULE__FEATURE);
@@ -377,6 +387,7 @@ public class completionfeaturemodelPackageImpl extends EPackageImpl implements c
 		initEReference(getCompletionFeature_DisambiguationRule(), this.getDisambiguationRule(), null, "disambiguationRule", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompletionFeature_TransformationFragment(), theQVTRelationPackage.getRelation(), null, "transformationFragment", null, 0, -1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCompletionFeature_FeatureState(), this.getFeatureState(), "FeatureState", "NOT_SET", 1, 1, CompletionFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getCompletionFeature_CompletionFeatureDiagram(), this.getCompletionFeatureDiagram(), null, "completionFeatureDiagram", null, 0, 1, CompletionFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(completionFeatureEClass, this.getFeatureState(), "showFeatureState", 1, 1, IS_UNIQUE, !IS_ORDERED);
 

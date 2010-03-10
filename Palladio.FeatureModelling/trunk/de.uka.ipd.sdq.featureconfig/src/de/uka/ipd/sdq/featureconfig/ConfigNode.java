@@ -114,17 +114,17 @@ public interface ConfigNode extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
-	 * in 
-	 * 	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
-	 * 	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)
-	 * 	 else
-	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
-	 * 	 endif
+	 * --let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
+	 * --in 
+	 * --	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
+	 * --	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)
+	 * --	 else
+	 * --	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
+	 * --	 endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() \r\nin \r\n\t if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then\r\n\t \tchildSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)\r\n\t else\r\n\t \tself.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)\r\n\t endif'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='--let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() \r\n--in \r\n--\t if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then\r\n--\t \tchildSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)\r\n--\t else\r\n--\t \tself.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)\r\n--\t endif'"
 	 * @generated
 	 */
 	boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context);

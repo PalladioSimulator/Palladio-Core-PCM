@@ -511,7 +511,7 @@ be stored. </body>
       <ownedRule xmi:id="_XSHtkHv5EdyOhKBWyuRGig" name="ConfigCardinalityInvalid" constrainedElement="__AsOMHvxEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_XSI7sHv5EdyOhKBWyuRGig">
           <language>OCL</language>
-          <body>let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;in &#xD;&#xA;&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;&#x9; else&#xD;&#xA;&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;&#x9; endif</body>
+          <body>--let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;--in &#xD;&#xA;--&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;--&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;--&#x9; else&#xD;&#xA;--&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;--&#x9; endif</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:id="_JRmdUHvyEdyOhKBWyuRGig" name="origin" visibility="public" association="_JRjaAHvyEdyOhKBWyuRGig">
@@ -545,7 +545,7 @@ aka NULL, not set, do not override</body>
       <ownedRule xmi:id="_i6LkkHvzEdyOhKBWyuRGig" name="RootIsFeatureModel" constrainedElement="_2-grAHvyEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_i6MysHvzEdyOhKBWyuRGig">
           <language>OCL</language>
-          <body>self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)</body>
+          <body>--self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="private" type="_D8LrwMcqEd6uiptR6cqsUw" isReadOnly="true" isDerived="true">

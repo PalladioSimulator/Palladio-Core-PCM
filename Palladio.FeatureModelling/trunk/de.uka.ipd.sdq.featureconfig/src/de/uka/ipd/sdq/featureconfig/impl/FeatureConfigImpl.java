@@ -250,7 +250,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)";
+	protected static final String ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Root Is Feature Model</em>}' invariant operation.
