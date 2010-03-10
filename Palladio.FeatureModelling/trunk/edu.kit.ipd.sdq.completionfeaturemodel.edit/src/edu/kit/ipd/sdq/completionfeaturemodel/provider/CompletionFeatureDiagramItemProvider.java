@@ -65,29 +65,29 @@ public class CompletionFeatureDiagramItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencedTypePropertyDescriptor(object);
+			addAnnotatableElementTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Referenced Type feature.
+	 * This adds a property descriptor for the Annotatable Element Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferencedTypePropertyDescriptor(Object object) {
+	protected void addAnnotatableElementTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompletionFeatureDiagram_referencedType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletionFeatureDiagram_referencedType_feature", "_UI_CompletionFeatureDiagram_type"),
-				 completionfeaturemodelPackage.Literals.COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE,
+				 getString("_UI_CompletionFeatureDiagram_annotatableElementType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletionFeatureDiagram_annotatableElementType_feature", "_UI_CompletionFeatureDiagram_type"),
+				 completionfeaturemodelPackage.Literals.COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT_TYPE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -127,12 +127,6 @@ public class CompletionFeatureDiagramItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(CompletionFeatureDiagram.class)) {
-			case completionfeaturemodelPackage.COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

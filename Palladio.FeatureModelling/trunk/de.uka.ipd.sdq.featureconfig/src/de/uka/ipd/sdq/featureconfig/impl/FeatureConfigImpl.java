@@ -48,7 +48,7 @@ import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfignode <em>Confignode</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigurationOverrides <em>Configuration Overrides</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigurationDefault <em>Configuration Default</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getReferencedObject <em>Referenced Object</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getAnnotatedElement <em>Annotated Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,14 +75,14 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	protected EList<ConfigNode> confignode;
 
 	/**
-	 * The cached value of the '{@link #getReferencedObject() <em>Referenced Object</em>}' reference.
+	 * The cached value of the '{@link #getAnnotatedElement() <em>Annotated Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferencedObject()
+	 * @see #getAnnotatedElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject referencedObject;
+	protected EObject annotatedElement;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -209,16 +209,16 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getReferencedObject() {
-		if (referencedObject != null && referencedObject.eIsProxy()) {
-			InternalEObject oldReferencedObject = (InternalEObject)referencedObject;
-			referencedObject = eResolveProxy(oldReferencedObject);
-			if (referencedObject != oldReferencedObject) {
+	public EObject getAnnotatedElement() {
+		if (annotatedElement != null && annotatedElement.eIsProxy()) {
+			InternalEObject oldAnnotatedElement = (InternalEObject)annotatedElement;
+			annotatedElement = eResolveProxy(oldAnnotatedElement);
+			if (annotatedElement != oldAnnotatedElement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT, oldReferencedObject, referencedObject));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT, oldAnnotatedElement, annotatedElement));
 			}
 		}
-		return referencedObject;
+		return annotatedElement;
 	}
 
 	/**
@@ -226,8 +226,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject basicGetReferencedObject() {
-		return referencedObject;
+	public EObject basicGetAnnotatedElement() {
+		return annotatedElement;
 	}
 
 	/**
@@ -235,11 +235,11 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReferencedObject(EObject newReferencedObject) {
-		EObject oldReferencedObject = referencedObject;
-		referencedObject = newReferencedObject;
+	public void setAnnotatedElement(EObject newAnnotatedElement) {
+		EObject oldAnnotatedElement = annotatedElement;
+		annotatedElement = newAnnotatedElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT, oldReferencedObject, referencedObject));
+			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT, oldAnnotatedElement, annotatedElement));
 	}
 
 	/**
@@ -407,9 +407,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return getConfigurationOverrides();
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				return getConfigurationDefault();
-			case featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT:
-				if (resolve) return getReferencedObject();
-				return basicGetReferencedObject();
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
+				if (resolve) return getAnnotatedElement();
+				return basicGetAnnotatedElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,8 +432,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				setConfigurationDefault((Configuration)newValue);
 				return;
-			case featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT:
-				setReferencedObject((EObject)newValue);
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
+				setAnnotatedElement((EObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,8 +455,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				setConfigurationDefault((Configuration)null);
 				return;
-			case featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT:
-				setReferencedObject((EObject)null);
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
+				setAnnotatedElement((EObject)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -477,8 +477,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return getConfigurationOverrides() != null;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_DEFAULT:
 				return getConfigurationDefault() != null;
-			case featureconfigPackage.FEATURE_CONFIG__REFERENCED_OBJECT:
-				return referencedObject != null;
+			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
+				return annotatedElement != null;
 		}
 		return super.eIsSet(featureID);
 	}

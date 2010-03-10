@@ -135,11 +135,11 @@ public interface Feature extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * --each attribute name is unique for this feature
-	 * self.attributes->isUnique(attr | attr.name)
+	 * --self.attributes->isUnique(attr | attr.name)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='--each attribute name is unique for this feature\r\nself.attributes->isUnique(attr | attr.name)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='--each attribute name is unique for this feature\r\n--self.attributes->isUnique(attr | attr.name)'"
 	 * @generated
 	 */
 	boolean EachAttributeNameDefinedJustOnce(DiagnosticChain diagnostics, Map<Object, Object> context);

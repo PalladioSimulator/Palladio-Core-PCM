@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode <em>Confignode</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationOverrides <em>Configuration Overrides</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigurationDefault <em>Configuration Default</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedElement <em>Annotated Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,30 +133,30 @@ public interface FeatureConfig extends EObject {
 	void setConfigurationDefault(Configuration value);
 
 	/**
-	 * Returns the value of the '<em><b>Referenced Object</b></em>' reference.
+	 * Returns the value of the '<em><b>Annotated Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Referenced Object</em>' reference isn't clear,
+	 * If the meaning of the '<em>Annotated Element</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referenced Object</em>' reference.
-	 * @see #setReferencedObject(EObject)
-	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_ReferencedObject()
-	 * @model ordered="false"
+	 * @return the value of the '<em>Annotated Element</em>' reference.
+	 * @see #setAnnotatedElement(EObject)
+	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_AnnotatedElement()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	EObject getReferencedObject();
+	EObject getAnnotatedElement();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedElement <em>Annotated Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referenced Object</em>' reference.
-	 * @see #getReferencedObject()
+	 * @param value the new value of the '<em>Annotated Element</em>' reference.
+	 * @see #getAnnotatedElement()
 	 * @generated
 	 */
-	void setReferencedObject(EObject value);
+	void setAnnotatedElement(EObject value);
 
 	/**
 	 * <!-- begin-user-doc -->

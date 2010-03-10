@@ -163,22 +163,13 @@ public interface completionfeaturemodelPackage extends EPackage {
 	int COMPLETION_FEATURE__FEATURE_STATE = featuremodelPackage.FEATURE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Completion Feature Diagram</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM = featuremodelPackage.FEATURE_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Completion Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION_FEATURE_FEATURE_COUNT = featuremodelPackage.FEATURE_FEATURE_COUNT + 5;
+	int COMPLETION_FEATURE_FEATURE_COUNT = featuremodelPackage.FEATURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.DisambiguationRuleImpl <em>Disambiguation Rule</em>}' class.
@@ -282,13 +273,13 @@ public interface completionfeaturemodelPackage extends EPackage {
 	int COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT = featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Referenced Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Annotatable Element Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE = featuremodelPackage.FEATURE_DIAGRAM_FEATURE_COUNT + 0;
+	int COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT_TYPE = featuremodelPackage.FEATURE_DIAGRAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Completion Feature Diagram</em>' class.
@@ -448,17 +439,6 @@ public interface completionfeaturemodelPackage extends EPackage {
 	EAttribute getCompletionFeature_FeatureState();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram <em>Completion Feature Diagram</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Completion Feature Diagram</em>'.
-	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeature#getCompletionFeatureDiagram()
-	 * @see #getCompletionFeature()
-	 * @generated
-	 */
-	EReference getCompletionFeature_CompletionFeatureDiagram();
-
-	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.completionfeaturemodel.DisambiguationRule <em>Disambiguation Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -512,15 +492,15 @@ public interface completionfeaturemodelPackage extends EPackage {
 	EClass getCompletionFeatureDiagram();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getReferencedType <em>Referenced Type</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableElementType <em>Annotatable Element Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Referenced Type</em>'.
-	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getReferencedType()
+	 * @return the meta object for the reference '<em>Annotatable Element Type</em>'.
+	 * @see edu.kit.ipd.sdq.completionfeaturemodel.CompletionFeatureDiagram#getAnnotatableElementType()
 	 * @see #getCompletionFeatureDiagram()
 	 * @generated
 	 */
-	EAttribute getCompletionFeatureDiagram_ReferencedType();
+	EReference getCompletionFeatureDiagram_AnnotatableElementType();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.completionfeaturemodel.CompletionSimple <em>Completion Simple</em>}'.
@@ -617,14 +597,6 @@ public interface completionfeaturemodelPackage extends EPackage {
 		EAttribute COMPLETION_FEATURE__FEATURE_STATE = eINSTANCE.getCompletionFeature_FeatureState();
 
 		/**
-		 * The meta object literal for the '<em><b>Completion Feature Diagram</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPLETION_FEATURE__COMPLETION_FEATURE_DIAGRAM = eINSTANCE.getCompletionFeature_CompletionFeatureDiagram();
-
-		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.DisambiguationRuleImpl <em>Disambiguation Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -669,12 +641,12 @@ public interface completionfeaturemodelPackage extends EPackage {
 		EClass COMPLETION_FEATURE_DIAGRAM = eINSTANCE.getCompletionFeatureDiagram();
 
 		/**
-		 * The meta object literal for the '<em><b>Referenced Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Annotatable Element Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPLETION_FEATURE_DIAGRAM__REFERENCED_TYPE = eINSTANCE.getCompletionFeatureDiagram_ReferencedType();
+		EReference COMPLETION_FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT_TYPE = eINSTANCE.getCompletionFeatureDiagram_AnnotatableElementType();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.completionfeaturemodel.impl.CompletionSimpleImpl <em>Completion Simple</em>}' class.

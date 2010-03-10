@@ -40,7 +40,7 @@ public interface DefaultValue extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getDefaultValue_Value()
-	 * @model required="true" ordered="false"
+	 * @model required="true" transient="true" ordered="false"
 	 * @generated
 	 */
 	String getValue();
@@ -64,10 +64,17 @@ public interface DefaultValue extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <span
+	 * style="WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"
+	 *  class="Apple-style-span"><span
+	 * style="LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px"
+	 * class="Apple-style-span">returns the result of showType()</span></span>
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.featuremodel.AttributeTypes
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getDefaultValue_Type()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model required="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	AttributeTypes getType();
@@ -117,6 +124,13 @@ public interface DefaultValue extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * <p>
+	 *     <span
+	 *     style="WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"
+	 *      class="Apple-style-span"><span
+	 *     style="LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px"
+	 *     class="Apple-style-span">The type of a DefaultValue is the type of its PrimitiveAttribute.</span></span>
+	 * </p>
 	 * attribute.type
 	 * <!-- end-model-doc -->
 	 * @model required="true" ordered="false"

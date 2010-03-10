@@ -228,7 +228,7 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 	 * @ordered
 	 */
 	protected static final String EACH_ATTRIBUTE_NAME_DEFINED_JUST_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "--each attribute name is unique for this feature"+
-"self.attributes->isUnique(attr | attr.name)";
+"--self.attributes->isUnique(attr | attr.name)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #EachAttributeNameDefinedJustOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each Attribute Name Defined Just Once</em>}' invariant operation.

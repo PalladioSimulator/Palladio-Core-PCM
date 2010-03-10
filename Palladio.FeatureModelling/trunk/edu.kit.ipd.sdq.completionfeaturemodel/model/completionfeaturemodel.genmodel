@@ -39,8 +39,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//CompletionFeature/transformationFragment"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeature/FeatureState"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//CompletionFeature/completionFeatureDiagram"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="completionfeaturemodel.ecore#//CompletionFeature/showFeatureState"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//DisambiguationRule">
@@ -52,7 +50,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//DisambiguationRule/transformationFragment"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureDiagram">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute completionfeaturemodel.ecore#//CompletionFeatureDiagram/referencedType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference completionfeaturemodel.ecore#//CompletionFeatureDiagram/annotatableElementType"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionSimple"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completionfeaturemodel.ecore#//CompletionFeatureGroup"/>

@@ -263,7 +263,7 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFeatureConfig_ReferencedObject() {
+	public EReference getFeatureConfig_AnnotatedElement() {
 		return (EReference)featureConfigEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -363,7 +363,7 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		createEReference(featureConfigEClass, FEATURE_CONFIG__CONFIGNODE);
 		createEReference(featureConfigEClass, FEATURE_CONFIG__CONFIGURATION_OVERRIDES);
 		createEReference(featureConfigEClass, FEATURE_CONFIG__CONFIGURATION_DEFAULT);
-		createEReference(featureConfigEClass, FEATURE_CONFIG__REFERENCED_OBJECT);
+		createEReference(featureConfigEClass, FEATURE_CONFIG__ANNOTATED_ELEMENT);
 
 		configurationEClass = createEClass(CONFIGURATION);
 		createEReference(configurationEClass, CONFIGURATION__DEFAULT_CONFIG);
@@ -442,7 +442,7 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		initEReference(getFeatureConfig_Confignode(), this.getConfigNode(), null, "confignode", null, 0, -1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureConfig_ConfigurationOverrides(), this.getConfiguration(), this.getConfiguration_ConfigOverrides(), "configurationOverrides", null, 1, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureConfig_ConfigurationDefault(), this.getConfiguration(), this.getConfiguration_DefaultConfig(), "configurationDefault", null, 1, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFeatureConfig_ReferencedObject(), theEcorePackage.getEObject(), null, "referencedObject", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureConfig_AnnotatedElement(), theEcorePackage.getEObject(), null, "annotatedElement", null, 1, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(featureConfigEClass, ecorePackage.getEBoolean(), "RootIsFeatureModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);

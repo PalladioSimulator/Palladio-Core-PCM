@@ -124,8 +124,8 @@
         ordered="false" lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/configOverrides"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurationDefault" ordered="false"
         lowerBound="1" eType="#//Configuration" eOpposite="#//Configuration/defaultConfig"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedElement" ordered="false"
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FeatureConfigState">
     <eLiterals name="NOT_SET"/>
