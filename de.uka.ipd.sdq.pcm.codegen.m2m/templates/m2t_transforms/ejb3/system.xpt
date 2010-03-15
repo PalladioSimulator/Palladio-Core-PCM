@@ -1,0 +1,100 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::ejb3::java_names»
+«IMPORT system»
+«IMPORT repository»
+«IMPORT core::composition»
+
+
+«DEFINE DeploymentDescriptor FOR System»
+	«FILE "META-INF/ejb-jar.xml"»
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ejb-jar xmlns = "http://java.sun.com/xml/ns/javaee" 
+         version = "3.0" 
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation = "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd">
+         <enterprise-beans>
+         	«EXPAND SessionBeanDescriptor(this) FOREACH this.assemblyContexts_ComposedStructure»
+         </enterprise-beans>
+</ejb-jar>
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE SessionBeanDescriptor(System s) FOR AssemblyContext»
+	«EXPAND SessionBeanImplementationBean FOR this»
+	«EXPAND SessionBeanContextBean(s) FOR this»
+	«EXPAND SessionBeanPortBean(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity»
+«ENDDEFINE»
+
+«DEFINE SessionBeanPortBean(System s, AssemblyContext a) FOR ProvidedRole»
+<session>
+	<ejb-name>«a.portSessionBeanName(this)»</ejb-name>
+	<!--
+	<mapped-name>/ejb/«s.javaName()»/«a.encapsulatedComponent_AssemblyContext.javaName()»_«a.id»</mapped-name>
+	-->
+	<business-remote>«this.providedInterface__ProvidedRole.fqn()»</business-remote>
+	<ejb-class>«this.fqnPort()»</ejb-class>
+	<session-type>Stateless</session-type>
+    <ejb-local-ref>
+    	<ejb-ref-name>ejb/«a.encapsulatedComponent_AssemblyContext.javaName()»</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>
+		<local>«a.encapsulatedComponent_AssemblyContext.fqnInterface()»</local>
+    	<ejb-link>«a.implementationSessionBeanName()»</ejb-link>
+		<injection-target>
+			<injection-target-class>
+				«this.fqnPort()»
+			</injection-target-class>
+			<injection-target-name>myComponent</injection-target-name>
+		</injection-target>		
+	</ejb-local-ref>
+</session>
+«ENDDEFINE»
+
+«DEFINE SessionBeanImplementationBean FOR AssemblyContext»
+<session>
+	<ejb-name>«this.implementationSessionBeanName()»</ejb-name>
+	<business-local>«this.encapsulatedComponent_AssemblyContext.fqnInterface()»</business-local>
+	<ejb-class>«this.encapsulatedComponent_AssemblyContext.fqn()»</ejb-class>
+	<session-type>Stateless</session-type>
+    <ejb-local-ref>
+    	<ejb-ref-name>«this.encapsulatedComponent_AssemblyContext.contextDependencyJNDIName()»</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>
+		<local>«this.encapsulatedComponent_AssemblyContext.fqnContextInterface()»</local>
+    	<ejb-link>«this.contextSessionBeanName()»</ejb-link>
+		<injection-target>
+			<injection-target-class>
+				«this.encapsulatedComponent_AssemblyContext.fqn()»
+			</injection-target-class>
+			<injection-target-name>myContext</injection-target-name>
+		</injection-target>		
+	</ejb-local-ref>
+</session>
+«ENDDEFINE»
+
+«DEFINE SessionBeanContextBean(System s) FOR AssemblyContext»
+<session>
+	<ejb-name>«this.contextSessionBeanName()»</ejb-name>
+	<business-local>«this.encapsulatedComponent_AssemblyContext.fqnContextInterface()»</business-local>
+	<ejb-class>«this.encapsulatedComponent_AssemblyContext.fqnContext()»</ejb-class>
+	<session-type>Stateless</session-type>
+	«EXPAND Connector(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity»
+</session>
+«ENDDEFINE»
+
+«DEFINE Connector(System s, AssemblyContext a) FOR RequiredRole»
+<ejb-ref>
+	<ejb-ref-name>«this.contextDependencyJNDIName()»</ejb-ref-name>
+	<ejb-ref-type>Session</ejb-ref-type>
+	<remote>«this.requiredInterface__RequiredRole.fqn()»</remote>
+	«IF s.hasConnector(a,this)»
+		<ejb-link>«s.getConnector(a,this).providingAssemblyContext_AssemblyConnector.portSessionBeanName(s.getConnector(a,this).providedRole_AssemblyConnector)»</ejb-link>
+		<injection-target>
+			<injection-target-class>
+				«a.encapsulatedComponent_AssemblyContext.fqnContext()»
+			</injection-target-class>
+			<injection-target-name>Role«this.javaName()»</injection-target-name>
+		</injection-target>		
+	«ENDIF»
+</ejb-ref>
+«ENDDEFINE»
