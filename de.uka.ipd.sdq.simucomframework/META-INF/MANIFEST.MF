@@ -1,0 +1,24 @@
+Bundle-ManifestVersion: 2
+Bundle-Name: SimuCom Framework
+Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: de.uka.ipd.sdq.simucomframework,
+ de.uka.ipd.sdq.simucomframework.abstractSimEngine,
+ de.uka.ipd.sdq.simucomframework.exceptions,
+ de.uka.ipd.sdq.simucomframework.fork,
+ de.uka.ipd.sdq.simucomframework.model,
+ de.uka.ipd.sdq.simucomframework.resources,
+ de.uka.ipd.sdq.simucomframework.sensors,
+ de.uka.ipd.sdq.simucomframework.usage
+Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
+ de.uka.ipd.sdq.sensorframework,
+ org.apache.log4j,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.scheduler,
+ de.uka.ipd.sdq.scheduler.configuration,
+ de.uka.ipd.sdq.simucomframework.simucomstatus,
+ org.eclipse.emf.ecore.change,
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: umontreal.iro.lecuyer.probdist
