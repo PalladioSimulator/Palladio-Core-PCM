@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -110,6 +111,13 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	private EEnum schedulingPolicyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum containerCPUSchedulerEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -396,6 +404,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProcessingResourceSpecification_NoOfReplicas() {
+		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResourceContainer() {
 		return resourceContainerEClass;
 	}
@@ -414,8 +431,26 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResourceContainer_Scheduler() {
+		return (EAttribute)resourceContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSchedulingPolicy() {
 		return schedulingPolicyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getContainerCPUScheduler() {
+		return containerCPUSchedulerEEnum;
 	}
 
 	/**
@@ -467,12 +502,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION);
+		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS);
 
 		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
+		createEAttribute(resourceContainerEClass, RESOURCE_CONTAINER__SCHEDULER);
 
 		// Create enums
 		schedulingPolicyEEnum = createEEnum(SCHEDULING_POLICY);
+		containerCPUSchedulerEEnum = createEEnum(CONTAINER_CPU_SCHEDULER);
 	}
 
 	/**
@@ -533,15 +571,24 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProcessingResourceSpecification_NoOfReplicas(), ecorePackage.getEInt(), "noOfReplicas", "1", 0, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceContainer_ActiveResourceSpecifications_ResourceContainer(), this.getProcessingResourceSpecification(), null, "activeResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getResourceContainer_Scheduler(), this.getContainerCPUScheduler(), "scheduler", "ABSTRACT", 0, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schedulingPolicyEEnum, SchedulingPolicy.class, "SchedulingPolicy");
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.DELAY);
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.PROCESSOR_SHARING);
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.FCFS);
+		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.EXACT);
+
+		initEEnum(containerCPUSchedulerEEnum, ContainerCPUScheduler.class, "ContainerCPUScheduler");
+		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.ABSTRACT);
+		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.WINDOWS2003);
+		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.LINUX26);
+		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.WINXP);
 
 		// Create resource
 		createResource(eNS_URI);

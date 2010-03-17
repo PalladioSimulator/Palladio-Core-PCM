@@ -13,51 +13,47 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Scheduling Policy</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Container CPU Scheduler</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getSchedulingPolicy()
+ * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getContainerCPUScheduler()
  * @model
  * @generated
  */
-public enum SchedulingPolicy implements Enumerator {
+public enum ContainerCPUScheduler implements Enumerator {
 	/**
-	 * The '<em><b>DELAY</b></em>' literal object.
+	 * The '<em><b>ABSTRACT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DELAY_VALUE
+	 * @see #ABSTRACT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DELAY(0, "DELAY", "DELAY"),
-
-	/**
-	 * The '<em><b>PROCESSOR SHARING</b></em>' literal object.
+	ABSTRACT(0, "ABSTRACT", "ABSTRACT"), /**
+	 * The '<em><b>WINDOWS2003</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PROCESSOR_SHARING_VALUE
+	 * @see #WINDOWS2003_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PROCESSOR_SHARING(1, "PROCESSOR_SHARING", "PROCESSOR_SHARING"),
-
-	/**
-	 * The '<em><b>FCFS</b></em>' literal object.
+	WINDOWS2003(1, "WINDOWS2003", "WINDOWS2003"), /**
+	 * The '<em><b>LINUX26</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FCFS_VALUE
+	 * @see #LINUX26_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FCFS(2, "FCFS", "FCFS"), /**
-	 * The '<em><b>EXACT</b></em>' literal object.
+	LINUX26(2, "LINUX26", "LINUX26"), /**
+	 * The '<em><b>WINXP</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EXACT_VALUE
+	 * @see #WINXP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EXACT(3, "EXACT", "EXACT");
+	WINXP(3, "WINXP", "WINXP");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,96 +63,96 @@ public enum SchedulingPolicy implements Enumerator {
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The '<em><b>DELAY</b></em>' literal value.
+	 * The '<em><b>ABSTRACT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>DELAY</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>ABSTRACT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DELAY
+	 * @see #ABSTRACT
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DELAY_VALUE = 0;
+	public static final int ABSTRACT_VALUE = 0;
 
 	/**
-	 * The '<em><b>PROCESSOR SHARING</b></em>' literal value.
+	 * The '<em><b>WINDOWS2003</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PROCESSOR SHARING</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>WINDOWS2003</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PROCESSOR_SHARING
+	 * @see #WINDOWS2003
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROCESSOR_SHARING_VALUE = 1;
+	public static final int WINDOWS2003_VALUE = 1;
 
 	/**
-	 * The '<em><b>FCFS</b></em>' literal value.
+	 * The '<em><b>LINUX26</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>FCFS</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LINUX26</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FCFS
+	 * @see #LINUX26
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FCFS_VALUE = 2;
+	public static final int LINUX26_VALUE = 2;
 
 	/**
-	 * The '<em><b>EXACT</b></em>' literal value.
+	 * The '<em><b>WINXP</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>EXACT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>WINXP</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #EXACT
+	 * @see #WINXP
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXACT_VALUE = 3;
+	public static final int WINXP_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Scheduling Policy</b></em>' enumerators.
+	 * An array of all the '<em><b>Container CPU Scheduler</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final SchedulingPolicy[] VALUES_ARRAY =
-		new SchedulingPolicy[] {
-			DELAY,
-			PROCESSOR_SHARING,
-			FCFS,
-			EXACT,
+	private static final ContainerCPUScheduler[] VALUES_ARRAY =
+		new ContainerCPUScheduler[] {
+			ABSTRACT,
+			WINDOWS2003,
+			LINUX26,
+			WINXP,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Scheduling Policy</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Container CPU Scheduler</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<SchedulingPolicy> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ContainerCPUScheduler> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Scheduling Policy</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Container CPU Scheduler</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static SchedulingPolicy get(String literal) {
+	public static ContainerCPUScheduler get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			SchedulingPolicy result = VALUES_ARRAY[i];
+			ContainerCPUScheduler result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -165,14 +161,14 @@ public enum SchedulingPolicy implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Scheduling Policy</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Container CPU Scheduler</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static SchedulingPolicy getByName(String name) {
+	public static ContainerCPUScheduler getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			SchedulingPolicy result = VALUES_ARRAY[i];
+			ContainerCPUScheduler result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -181,17 +177,17 @@ public enum SchedulingPolicy implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Scheduling Policy</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Container CPU Scheduler</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static SchedulingPolicy get(int value) {
+	public static ContainerCPUScheduler get(int value) {
 		switch (value) {
-			case DELAY_VALUE: return DELAY;
-			case PROCESSOR_SHARING_VALUE: return PROCESSOR_SHARING;
-			case FCFS_VALUE: return FCFS;
-			case EXACT_VALUE: return EXACT;
+			case ABSTRACT_VALUE: return ABSTRACT;
+			case WINDOWS2003_VALUE: return WINDOWS2003;
+			case LINUX26_VALUE: return LINUX26;
+			case WINXP_VALUE: return WINXP;
 		}
 		return null;
 	}
@@ -223,7 +219,7 @@ public enum SchedulingPolicy implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private SchedulingPolicy(int value, String name, String literal) {
+	private ContainerCPUScheduler(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -267,4 +263,4 @@ public enum SchedulingPolicy implements Enumerator {
 		return literal;
 	}
 	
-} //SchedulingPolicy
+} //ContainerCPUScheduler

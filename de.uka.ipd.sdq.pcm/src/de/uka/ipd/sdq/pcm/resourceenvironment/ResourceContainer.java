@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,5 +49,35 @@ public interface ResourceContainer extends Entity {
 	 * @generated
 	 */
 	EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer();
+
+	/**
+	 * Returns the value of the '<em><b>Scheduler</b></em>' attribute.
+	 * The default value is <code>"ABSTRACT"</code>.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduler</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scheduler</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+	 * @see #setScheduler(ContainerCPUScheduler)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_Scheduler()
+	 * @model default="ABSTRACT"
+	 * @generated
+	 */
+	ContainerCPUScheduler getScheduler();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scheduler</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+	 * @see #getScheduler()
+	 * @generated
+	 */
+	void setScheduler(ContainerCPUScheduler value);
 
 } // ResourceContainer

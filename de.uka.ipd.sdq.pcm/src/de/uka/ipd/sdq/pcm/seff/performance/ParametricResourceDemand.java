@@ -38,11 +38,11 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * (Chapter 3.3.6), then yields a constant or probability function for the resource demand.
  * As an example for solving the parameterisation over resource environment and usage
  * profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It
- * might include a CPU demand specification of n2A?2000WorkUnits derived from complexity
+ * might include a CPU demand specification of n2AAAAAA?2000WorkUnits derived from complexity
  * theory (n2) and empirical measurements (2000). In this case n refers to the length of
  * the list the algorithm shall sort, which is an input parameter of the service. If the current
  * characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools
- * derive 1002 A? 2000  12000 WorkUnits from the specification, thus resolving the usage
+ * derive 1002 AAAAAA? 2000  12000 WorkUnits from the specification, thus resolving the usage
  * profile dependency. If the CPU ProcessingResourceSpecification the service’s
  * 126
  * 4.3. Resource Demanding Service Effect Specification
