@@ -1,8 +1,15 @@
 package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
@@ -15,15 +22,19 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	protected static Logger logger = 
 		Logger.getLogger(SimProcess.class.getName());
 	
+
 	ISimProcessDelegate delegate = null;
 	private Process processStatus = null;
+	private long id;
 
 	private boolean isDebug;
 	
 	protected SimProcess(SimuComModel model, String name) {
 		super(model, name);
-		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
+		id = getNextID();
 		isDebug = model.getConfig().isDebug();
+		logger.debug("Create SimProcess with id "+id);
+		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
 	}
 
 	/* (non-Javadoc)
@@ -33,7 +44,9 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		addProcessToSimStatus();
 		try {
 			this.internalLifeCycle();
+			this.fireTerminated();
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComResult.ERROR,
 					e);
@@ -98,7 +111,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	}
 	
 	public String getId() {
-		return Thread.currentThread().getName();
+		return getName() + "_" + id;
 	}
 	
 	public ISchedulableProcess getRootProcess(){
@@ -114,4 +127,29 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return this.processStatus;
 	}
 	
+	private static AtomicLong processID = new AtomicLong(0);
+	
+	protected static long getNextID(){
+		return processID.incrementAndGet();
+	}
+	
+	private ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
+	private List<IActiveResource> removedObservers = new ArrayList<IActiveResource>();;
+	
+	public void fireTerminated() {
+		LoggingWrapper.log("Process " + this.getId() + " terminated.");
+		for (IActiveResource o : terminatedObservers)
+			o.notifyTerminated(this);
+		terminatedObservers.removeAll(removedObservers);
+		removedObservers.clear();
+	}
+	
+	public void addTerminatedObserver(IActiveResource r) {
+		terminatedObservers.add(r);
+	}
+
+	public void removeTerminatedObserver(IActiveResource r) {
+		removedObservers.add(r);
+	}
+
 }

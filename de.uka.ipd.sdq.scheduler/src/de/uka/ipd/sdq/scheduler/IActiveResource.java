@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+
 
 /**
  * An active resource can execute demands of schedulable processes. Active
@@ -41,6 +43,9 @@ public interface IActiveResource {
 	public abstract void registerProcess(IRunningProcess runningProcess);
 	
 	public abstract void notifyTerminated(ISchedulableProcess simProcess);
+
+	public abstract int getQueueLengthFor(
+			SimResourceInstance simResourceInstance);
 
 
 }

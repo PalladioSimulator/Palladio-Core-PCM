@@ -23,7 +23,7 @@ public abstract class AbstractSimResource {
 	}
 
 	public String getName() {
-		return name;
+		return name + "_" + id;
 	}
 
 	public String getId() {

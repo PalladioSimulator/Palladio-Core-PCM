@@ -5,7 +5,6 @@ import java.util.Map;
 
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
-import scheduler.configuration.InstanceToBalance;
 import scheduler.configuration.LoadBalancing;
 import scheduler.configuration.PassiveResourceConfiguration;
 import scheduler.configuration.PredefinedTimeSliceConfiguration;
@@ -41,6 +40,7 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.process.PreferIdealAn
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
+import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.impl.PriorityManagerImpl;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -95,37 +95,42 @@ public class SchedulingFactory implements ISchedulingFactory {
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		IActiveResource resource = (IActiveResource) active_resource_map
-				.get(configuration.getId());
+		SimActiveResource resource = (SimActiveResource) active_resource_map.get(configuration.getId());
 		if (resource == null) {
-			if (configuration.getReplicas() == -1) {
-				resource = new SimDelayResource(configuration.getName(),
-						configuration.getId());
-			} else if (configuration.getReplicas() == -2) {
-				resource = new SimProcessorSharingResource(configuration
-						.getName(), configuration.getId(), configuration
-						.getReplicas());
-			} else if (configuration.getReplicas() == -3) {
-				resource = new SimFCFSResource(configuration
-						.getName(), configuration.getId(), configuration
-						.getReplicas());
-			} else {
-				resource = new SimActiveResource(configuration.getReplicas(),
-						configuration.getName(), configuration.getId());
-				IScheduler scheduler = createScheduler(configuration
-						.getSchedulerConfiguration(), resource);
-				((SimActiveResource) resource).setScheduler(scheduler);
-			}
+				resource = new SimActiveResource(configuration.getReplicas(),configuration.getName(), configuration.getId());
+				IScheduler scheduler = createScheduler(configuration.getSchedulerConfiguration(), resource);
+				resource.setScheduler(scheduler);
 			active_resource_map.put(configuration.getId(), resource);
 		}
 		return resource;
 	}
+	
+	
+	public IActiveResource createSimFCFSResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimFCFSResource(resourceName, resourceId, 1);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
+	
+	public IActiveResource createSimDelayResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimDelayResource(resourceName, resourceId);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createPassiveResource(scheduler.configuration.PassiveResourceConfiguration)
-	 */
+	
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimProcessorSharingResource(resourceName, resourceId, 1);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
+
 	public IPassiveResource createPassiveResource(
 			PassiveResourceConfiguration configuration) {
 		IPassiveResource resource = passive_resource_map.get(configuration
@@ -158,7 +163,8 @@ public class SchedulingFactory implements ISchedulingFactory {
 		}
 		return resource;
 	}
-
+	
+	
 	public IResourceInstance createResourceInstance(int index,
 			IActiveResource containing_resource) {
 
@@ -299,26 +305,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 
 	private IScheduler createScheduler(SchedulerConfiguration configuration,
 			IActiveResource scheduled_resource) {
-		IScheduler scheduler = scheduler_map.get(configuration.getId());
-
-		if (scheduler == null) {
-			if (configuration.getPreemptionConfiguration() != null) {
-				scheduler = createPreemptiveScheduler(configuration,
-						scheduled_resource);
-			} else {
-				scheduler = createFCFSScheduler(configuration,
-						scheduled_resource);
-			}
-			scheduler_map.put(configuration.getId(), scheduler);
-		}
-		return scheduler;
-	}
-
-	private IScheduler createFCFSScheduler(
-			SchedulerConfiguration configuration,
-			IActiveResource scheduled_resource) {
-		// TODO Auto-generated method stub
-		return null;
+		return createPreemptiveScheduler(configuration,scheduled_resource);
 	}
 
 	private IScheduler createPreemptiveScheduler(
@@ -332,7 +319,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		boolean in_front_after_waiting = configuration.isInFrontAfterWaiting();
 		double scheduling_interval = configuration.getInterval().getValue();
 		return new PreemptiveScheduler((SimActiveResource) scheduled_resource,
-				queueing_strategy, in_front_after_waiting, scheduling_interval);
+				queueing_strategy, in_front_after_waiting, scheduling_interval, configuration.isWindows());
 	}
 
 	private IProcessQueue createProcessQueue(PriorityConfiguration configuration) {

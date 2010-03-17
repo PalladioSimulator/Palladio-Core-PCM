@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 /**
  * The queuing strategy of a process encapsulates the actual queue(s) of a set
@@ -111,5 +112,8 @@ public interface IQueueingStrategy {
 			double starvationLimit);
 
 	public abstract void resetStarvationInfo();
+
+	public abstract int getQueueLengthFor(
+			SimResourceInstance simResourceInstance);
 
 }

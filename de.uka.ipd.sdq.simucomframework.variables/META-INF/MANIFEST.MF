@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Simulation Variables
 Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework.variables
 Bundle-Version: 1.0.0.qualifier
+JavaFlow-Enabled: true
 Export-Package: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.simucomframework.variables.cache,
  de.uka.ipd.sdq.simucomframework.variables.converter,

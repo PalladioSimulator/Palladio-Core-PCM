@@ -11,6 +11,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import umontreal.iro.lecuyer.rng.MRG32k3a;
+
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -19,6 +21,7 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -34,7 +37,7 @@ public class ProbFunctionCache {
 		Logger.getLogger(ProbFunctionCache.class.getName());
 
 	private HashMap<EObject,IProbabilityFunction> probFunctions = new HashMap<EObject,IProbabilityFunction>();
-	
+	private IRandomGenerator myRandomNumberGenerator = null;
 	
 	/**
 	 * Polymorphic switch to analyse and store probability functions 
@@ -45,7 +48,7 @@ public class ProbFunctionCache {
 			adjustPDF(object);
 			IProbabilityDensityFunction pdf = null;
 			try {
-				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object);
+				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object,myRandomNumberGenerator);
 				pdf.checkConstrains();
 			} catch(Exception ex) {
 				RuntimeException ex2 = new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object)+". Caused by "+ex.getMessage());
@@ -109,7 +112,7 @@ public class ProbFunctionCache {
 		public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
 			adjustPMF(object);
 
-			IProbabilityMassFunction pmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(object);		
+			IProbabilityMassFunction pmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(object,myRandomNumberGenerator);		
 			try {
 				pmf.checkConstrains();
 			} catch(Exception ex) {
@@ -146,7 +149,8 @@ public class ProbFunctionCache {
 	 * probfuntions
 	 * @param ex The stoex to analyse
 	 */
-	public ProbFunctionCache(Expression ex) {
+	public ProbFunctionCache(Expression ex, IRandomGenerator randomNumberGenerator) {
+		this.myRandomNumberGenerator = randomNumberGenerator;
 		for (Iterator<EObject> it=EcoreUtil.getAllContents(Collections.singleton(ex));
 			it.hasNext(); ) {
 			probFunctionAnnotator.doSwitch(it.next());

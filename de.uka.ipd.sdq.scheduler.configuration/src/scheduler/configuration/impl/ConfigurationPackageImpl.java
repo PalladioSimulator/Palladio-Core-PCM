@@ -499,6 +499,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMultipleQueueConfiguration_InFrontWhenBalancing() {
+		return (EAttribute)multipleQueueConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQueueingConfiguration() {
 		return queueingConfigurationEClass;
 	}
@@ -976,6 +985,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSchedulerConfiguration_Windows() {
+		return (EAttribute)schedulerConfigurationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInstanceToBalance() {
 		return instanceToBalanceEEnum;
 	}
@@ -1110,6 +1128,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		multipleQueueConfigurationEClass = createEClass(MULTIPLE_QUEUE_CONFIGURATION);
 		createEReference(multipleQueueConfigurationEClass, MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING);
+		createEAttribute(multipleQueueConfigurationEClass, MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING);
 
 		queueingConfigurationEClass = createEClass(QUEUEING_CONFIGURATION);
 		createEAttribute(queueingConfigurationEClass, QUEUEING_CONFIGURATION__INITIAL_INSTANCE_SELECTION);
@@ -1177,6 +1196,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEReference(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION);
 		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING);
 		createEReference(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__INTERVAL);
+		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__WINDOWS);
 
 		// Create enums
 		instanceToBalanceEEnum = createEEnum(INSTANCE_TO_BALANCE);
@@ -1257,6 +1277,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
 		initEClass(multipleQueueConfigurationEClass, MultipleQueueConfiguration.class, "MultipleQueueConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultipleQueueConfiguration_LoadBalancing(), this.getLoadBalancing(), null, "loadBalancing", null, 1, 1, MultipleQueueConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMultipleQueueConfiguration_InFrontWhenBalancing(), ecorePackage.getEBoolean(), "InFrontWhenBalancing", "true", 1, 1, MultipleQueueConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queueingConfigurationEClass, QueueingConfiguration.class, "QueueingConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQueueingConfiguration_InitialInstanceSelection(), this.getResourceInstanceSelection(), "initialInstanceSelection", null, 1, 1, QueueingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1324,6 +1345,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEReference(getSchedulerConfiguration_QueueingConfiguration(), this.getQueueingConfiguration(), null, "queueingConfiguration", null, 0, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSchedulerConfiguration_InFrontAfterWaiting(), ecorePackage.getEBoolean(), "inFrontAfterWaiting", null, 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSchedulerConfiguration_Interval(), this.getTimeValue(), null, "interval", null, 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSchedulerConfiguration_Windows(), ecorePackage.getEBoolean(), "Windows", "true", 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(instanceToBalanceEEnum, InstanceToBalance.class, "InstanceToBalance");

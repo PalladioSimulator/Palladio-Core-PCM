@@ -15,4 +15,6 @@ public interface IRandomGenerator {
 	 * @return
 	 */
 	public double random();
+	
+	public void dispose();
 }

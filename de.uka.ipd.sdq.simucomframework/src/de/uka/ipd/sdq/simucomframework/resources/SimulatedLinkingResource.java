@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ThroughputZeroOrNegativeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
@@ -41,6 +43,17 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		logger.debug("A network load of " + result + " has been determined.");
 
 		return result;
+	}
+
+	@Override
+	public void consumeResource(SimProcess thread, double demand) {
+		throw new RuntimeException("Not supported in this branch of the simulation's code");
+	}
+
+	@Override
+	public IActiveResource getScheduledResource() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

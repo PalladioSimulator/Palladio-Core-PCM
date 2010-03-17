@@ -56,6 +56,12 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf)
 			throws ProbabilitySumNotOneException, DoubleSampleException {
+		return transformToBoxedPDF(epdf,new DefaultRandomGenerator());
+	}
+	
+	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf,
+			IRandomGenerator randomNumberGenerator)
+			throws ProbabilitySumNotOneException, DoubleSampleException {
 		// TODO: IUnit unit = transformToUnit(epdf.getUnitSpecification());
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 
@@ -71,10 +77,17 @@ public class ProbabilityFunctionFactoryImpl implements
 				i++;
 			}
 		}
-		return createBoxedPDF(samples, /* TODO:Unit */null);
+		return createBoxedPDF(samples, randomNumberGenerator, /* TODO:Unit */null);
 	}
 
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf)
+	throws UnknownPDFTypeException, ProbabilitySumNotOneException,
+			DoubleSampleException {
+		return transformToSamplePDF(epdf,new DefaultRandomGenerator());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf, IRandomGenerator randomGenerator)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
 			DoubleSampleException {
 		if (epdf instanceof SamplePDF) {
@@ -87,19 +100,24 @@ public class ProbabilityFunctionFactoryImpl implements
 			//		.getValues());
 			List<Double> values = new ArrayList<Double>();
 			return createSamplePDFFromDouble(distance, values, /* TODO:Unit */
-					null);
+					null,randomGenerator);
 		} else {
-			IBoxedPDF bpdf = transformToBoxedPDF(epdf);
+			IBoxedPDF bpdf = transformToBoxedPDF(epdf,randomGenerator);
 			return transformBoxedToSamplePDF(bpdf);
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf) {
+		return transformToPMF(epmf,new DefaultRandomGenerator());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf,
+			IRandomGenerator randomGenerator) {
 		// TODO:Unit! IUnit unit = transformToUnit(epmf.getUnitSpecification());
 		boolean hasOrderedDomain = epmf.isOrderedDomain();
 		IProbabilityMassFunction pmf = new ProbabilityMassFunctionImpl(
-				/* TODO:Unit */null, hasOrderedDomain, false);
+				new ArrayList<ISample>(), /* TODO:Unit */null, hasOrderedDomain, false, randomGenerator);
 		List samples = new ArrayList();
 		for (Object s : epmf.getSamples()) {
 			Sample sample = (Sample) s;
@@ -110,9 +128,18 @@ public class ProbabilityFunctionFactoryImpl implements
 		return pmf;
 	}
 
-	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit)
+	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, 
+			IUnit unit)
+			throws DoubleSampleException
+	{
+		return createBoxedPDF(samples, new DefaultRandomGenerator(), unit);
+	}
+
+	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, 
+			IRandomGenerator randomGenerator,
+			IUnit unit)
 			throws DoubleSampleException {
-		BoxedPDFImpl bpdf = new BoxedPDFImpl(unit);
+		BoxedPDFImpl bpdf = new BoxedPDFImpl(unit,randomGenerator);
 		bpdf.setSamples(samples);
 		return bpdf;
 	}
@@ -442,12 +469,19 @@ public class ProbabilityFunctionFactoryImpl implements
 	public IProbabilityDensityFunction transformToPDF(
 			ProbabilityDensityFunction ePDF) throws UnknownPDFTypeException,
 			ProbabilitySumNotOneException, DoubleSampleException {
+		return transformToPDF(ePDF,new DefaultRandomGenerator());
+	}
+	
+	public IProbabilityDensityFunction transformToPDF(
+			ProbabilityDensityFunction ePDF,
+			IRandomGenerator randomGenerator) throws UnknownPDFTypeException,
+			ProbabilitySumNotOneException, DoubleSampleException {
 		IProbabilityDensityFunction pdf;
 
 		if (ePDF instanceof SamplePDF) {
-			pdf = transformToSamplePDF(ePDF);
+			pdf = transformToSamplePDF(ePDF,randomGenerator);
 		} else if (ePDF instanceof BoxedPDF) {
-			pdf = transformToBoxedPDF(ePDF);
+			pdf = transformToBoxedPDF(ePDF,randomGenerator);
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.ExponentialDistribution){
 			pdf = new de.uka.ipd.sdq.probfunction.math.impl.ExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.GammaDistribution){

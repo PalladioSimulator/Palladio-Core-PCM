@@ -96,6 +96,7 @@ implements
 		logger.info("Simulation stopped. It took "+(simRealTime/Math.pow(10,9))+" seconds real time to terminate");
 		logger.debug("Flushing simulation data store");
 		model.getDAOFactory().store();
+		model.getConfig().getRandomGenerator().dispose();
 		return model.getErrorStatus();
 	}
 	

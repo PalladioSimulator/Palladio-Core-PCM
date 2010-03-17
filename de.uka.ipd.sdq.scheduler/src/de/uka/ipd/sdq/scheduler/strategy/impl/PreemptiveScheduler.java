@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
@@ -11,13 +10,14 @@ import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
 	public PreemptiveScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
-			double scheduling_interval) {
-		super(resource, queueingStrategy, in_front_after_waiting);
+			double scheduling_interval, boolean isWindows) {
+		super(resource, queueingStrategy, in_front_after_waiting, isWindows);
 		this.scheduling_interval = scheduling_interval;
 	}
 
@@ -46,10 +46,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		} else if ( running_process.getTimeslice().partFinished()) {
 			unschedule(running_process, false, instance);
 		} else {
-//			ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
-//			if ( hasHigherPriority(next_process,running_process) ) {
-				unschedule(running_process, true, instance);
-//			}
+			unschedule(running_process, true, instance);
 		}
 		scheduleNextProcess(instance);
 		scheduleNextEvent(instance);
@@ -166,6 +163,12 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				&& sProcess.getRootProcess() != sProcess){
 			this.resource.unregisterProcess(process);
 		}
+	}
+
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.queueing_strategy.getQueueLengthFor(simResourceInstance);
 	}
 
 

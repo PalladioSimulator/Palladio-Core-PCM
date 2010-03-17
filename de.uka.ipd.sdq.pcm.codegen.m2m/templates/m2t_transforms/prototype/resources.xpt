@@ -12,7 +12,7 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = (Double) ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class);
+      double demand = (Double) ctx.evaluateStoEx("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class);
       // TODO: Consume different resource types actively
       try {
 		//Thread.sleep((long) (demand * 1000));

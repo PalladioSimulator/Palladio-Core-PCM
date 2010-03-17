@@ -1,47 +1,82 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import java.util.Collection;
-import java.util.HashMap;
-
-import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
+import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
+import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
+import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
+import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
+import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
+import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SimulatedResourceContainer extends AbstractSimulatedResourceContainer {
 	
 	// ResourceTypeID -> SimulatedPassiveResource
 	// TODO: Becomes soon deprecated
-	private HashMap<String, SimulatedPassiveResource> passiveResources = new HashMap<String, SimulatedPassiveResource>();
+	
+	private SchedulingStrategy operatingSystem;
+	private AbstractScheduledResource managingResource = null;
 
 	public SimulatedResourceContainer(SimuComModel myModel, String containerID) {
 		super(myModel,containerID);
 	}
 
-	public void acquirePassiveResource(SimProcess requestingProcess, String typeID) {
-		logger.debug(typeID + " acquire request");
-		SimulatedPassiveResource resource = passiveResources.get(typeID);
-		resource.acquire(requestingProcess);
-	}
-	
-	public void releasePassiveResource(String typeID) {
-		logger.debug(typeID + " release request");
-		SimulatedPassiveResource resource = passiveResources.get(typeID);
-		resource.release();
-	}
 		
-	public void addPassiveResource(String typeID, int capacity) {
-		passiveResources.put(typeID, 
-				new SimulatedPassiveResource(myModel, typeID, capacity));
-	}
-	
-	public Collection<SimulatedPassiveResource> getPassiveResources() {
-		return passiveResources.values();
+	public IPassiveResource createPassiveResource(String typeID, int capacity) {
+		if (managingResource == null){
+			return getPassiveResource(typeID, capacity);
+		} else {
+			switch (operatingSystem) {
+			case WINDOWS_SERVER_2003:
+			case WINDOWS_XP:
+				return getPassiveResourceWindows(typeID, capacity,1, true, true, managingResource.getScheduledResource());
+			case LINUX_2_6:
+				return getPassiveResourceLinux(typeID, capacity, true, managingResource.getScheduledResource());
+			default:
+				return null;
+			}
+		}
 	}
 
-	public void addActiveResource(String typeID, String description, String processingRate, Double mttf, Double mttr, String units, SchedulingStrategy strategy) {
+	public void addActiveResource(String typeID, String description, String processingRate, String units, SchedulingStrategy strategy, int numberOfReplicas) {
 		activeResources.put(typeID, 
-				new SimulatedActiveResource(myModel, typeID, description, processingRate, mttf, mttr, units, strategy));
-//		activeResources.put(typeID, 
-//				new ExactCPUResource(myModel, typeID, description, processingRate, units, strategy));
+				new ScheduledResource(myModel, typeID, description, processingRate, units, strategy, numberOfReplicas));
+		
+		if ( strategy == SchedulingStrategy.LINUX_2_6 || strategy == SchedulingStrategy.WINDOWS_SERVER_2003 || strategy == SchedulingStrategy.WINDOWS_XP ) {
+			assert this.managingResource == null;
+			this.operatingSystem = strategy;
+			this.managingResource = activeResources.get(typeID);
+		}
 	}
 	
+	  private IPassiveResource getPassiveResourceWindows(String name,
+	           int capacity, int bonus, boolean resetTimeSlice, boolean isFair, IActiveResource managingResource) {
+	       IPriorityUpdateStrategy update = new DecayToBaseUpdate();
+	       IPriorityBoost boost = new StaticPriorityBoost(update, bonus, 0,
+	               resetTimeSlice);
+	       
+	       if (isFair){
+		       return new SimFairPassiveResource(capacity, name, name, boost,
+		               (SimActiveResource) managingResource);
+	       } else {
+		       return new SimUnfairPassiveResource(capacity, name, name, boost,
+		               (SimActiveResource) managingResource,0.1,true);
+	       }
+	   }
+
+	  private IPassiveResource getPassiveResourceLinux(String name, int capacity, boolean isFair, IActiveResource managingResource) {
+		  if (isFair){
+		       return new SimFairPassiveResource(capacity, name, name, null,
+		               (SimActiveResource) managingResource);
+		  } else {
+	       return new SimUnfairPassiveResource(capacity, name, name, null,
+	               (SimActiveResource) managingResource,0.1,true);
+		  }
+	   }
+
+	  private IPassiveResource getPassiveResource(String name, int capacity) {
+		       return new SimFairPassiveResource(capacity, name, name, null,null);
+	   }
 }

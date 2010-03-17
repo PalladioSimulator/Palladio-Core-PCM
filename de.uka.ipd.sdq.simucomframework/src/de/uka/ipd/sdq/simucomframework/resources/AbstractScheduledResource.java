@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
@@ -43,9 +44,9 @@ public abstract class AbstractScheduledResource extends Entity {
 	private TimeSpanSensor demandTimeSensor = null;
 	// private State busyState;
 	private ExperimentRun experimentRun = null;
-	protected ISchedulingStrategy myStrategy = null;
+//	protected ISchedulingStrategy myStrategy = null;
 
-	protected JobDoneEvent myJobDoneEvent = null;
+//	protected JobDoneEvent myJobDoneEvent = null;
 
 	// For resources that can become unavailable (SimulatedActiveResources):
 	protected double mttf = 0.0;
@@ -104,48 +105,48 @@ public abstract class AbstractScheduledResource extends Entity {
 
 		logger.info("Creating Simulated Active Resource: " + this.getName());
 
-		myStrategy = getStrategy(strategy);
+//		myStrategy = getStrategy(strategy);
 
 		myResourceStatus = SimucomstatusFactory.eINSTANCE.createActiveResouce();
 		myResourceStatus.setId(this.getName());
 		myModel.getSimulationStatus().getResourceStatus().getActiveResources()
 				.add(myResourceStatus);
 
-		this.myJobDoneEvent = new JobDoneEvent(getModel(), "JobDone");
+//		this.myJobDoneEvent = new JobDoneEvent(getModel(), "JobDone");
 	}
 
-	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
-		ISchedulingStrategy result = null;
-		switch (strategy) {
-		case PROCESSOR_SHARING:
-			result = new RoundRobinStrategy();
-			logger.info("Using RoundRobin Scheduler for Active Resource "
-					+ this.getName());
-			break;
-		case FCFS:
-			result = new FCFSStrategy((SimuComModel) this.getModel());
-			logger.info("Using FIFO Scheduler for Active Resource "
-					+ this.getName());
-			break;
-		case DELAY:
-			result = new DelayStrategy();
-			logger.info("Using Delay Scheduler for Active Resource "
-					+ this.getName());
-			break;
-		}
-		return result;
-	}
+//	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
+//		ISchedulingStrategy result = null;
+//		switch (strategy) {
+//		case PROCESSOR_SHARING:
+//			result = new RoundRobinStrategy();
+//			logger.info("Using RoundRobin Scheduler for Active Resource "
+//					+ this.getName());
+//			break;
+//		case FCFS:
+//			result = new FCFSStrategy((SimuComModel) this.getModel());
+//			logger.info("Using FIFO Scheduler for Active Resource "
+//					+ this.getName());
+//			break;
+//		case DELAY:
+//			result = new DelayStrategy();
+//			logger.info("Using Delay Scheduler for Active Resource "
+//					+ this.getName());
+//			break;
+//		}
+//		return result;
+//	}
 
-	/**
-	 * Add a job and its corresponding demand to the processing queue of this
-	 * resource. Delegates the task to its strategy
-	 * 
-	 * @param demand
-	 *            The job and its demand to add to our queue
-	 */
-	public void addJob(JobAndDemandStruct demand) {
-		myStrategy.addJob(demand);
-	}
+//	/**
+//	 * Add a job and its corresponding demand to the processing queue of this
+//	 * resource. Delegates the task to its strategy
+//	 * 
+//	 * @param demand
+//	 *            The job and its demand to add to our queue
+//	 */
+//	public void addJob(JobAndDemandStruct demand) {
+//		myStrategy.addJob(demand);
+//	}
 
 	public final static double EPSILON = Math.pow(10, -9);
 
@@ -153,16 +154,16 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * @return The time in the future when the next job would be finished in
 	 *         case no further interrupts occur
 	 */
-	public double getTimeWhenNextJobIsDone() {
-		double result = myStrategy.getTimeWhenNextJobIsDone();
-		if (result < 0) {
-			if (Math.abs(result) < EPSILON) {
-				result = 0.0;
-			} else
-				new SchedulerReturnedNegativeTimeException();
-		}
-		return result;
-	}
+//	public double getTimeWhenNextJobIsDone() {
+//		double result = myStrategy.getTimeWhenNextJobIsDone();
+//		if (result < 0) {
+//			if (Math.abs(result) < EPSILON) {
+//				result = 0.0;
+//			} else
+//				new SchedulerReturnedNegativeTimeException();
+//		}
+//		return result;
+//	}
 
 	/**
 	 * Called by client of this resource to make the resource simulate resource
@@ -175,57 +176,45 @@ public abstract class AbstractScheduledResource extends Entity {
 	 *            The resource demand the client wishes to be processed by the
 	 *            resource
 	 */
-	public void consumeResource(SimProcess thread, double demand) {
+	public abstract void consumeResource(SimProcess thread, double demand);
 
-		// Check first if the resource is currently available:
-		if (!isAvailable) {
-			throw new ResourceNotAvailableException();
-		}
-
-		// If the resource can fail, simulate a failure with the given
-		// probability:
-		if (canFail) {
-			if (Math.random() < failureProbability) {
-				throw new CommunicationLinkFailedException();
-			}
-		}
-
-		if (this.getModel().getSimulationControl().isRunning()) {
-			double calculatedDemand = calculateDemand(demand);
-			logger.debug("Resource " + this.getName() + " loaded with "
-					+ calculatedDemand);
-			if (calculatedDemand < 0)
-				throw new NegativeDemandIssuedException(
-						"A negative demand occured. Demand was " + calculatedDemand);
-			experimentRun.addTimeSpanMeasurement(demandTimeSensor, this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime(), calculatedDemand);
-			JobAndDemandStruct job = new JobAndDemandStruct(thread,
-					calculatedDemand, this, this.getModel()
-							.getSimulationControl().getCurrentSimulationTime());
-			if (job.getDemand() > ((SimuComModel) this.getModel()).getConfig()
-					.getSimuTime()
-					&& (this.getModel().getConfig().getSimuTime() > 0))
-				throw new DemandTooLargeException(
-						"A demand calculated from a processing rate and a demand in the design model ("
-								+ demand
-								+ ") has been issued to resource "
-								+ this.getName()
-								+ " which is larger than the total simulation time ("
-								+ ((SimuComModel) this.getModel()).getConfig()
-										.getSimuTime()
-								+ "). Check your models.");
-			ISimEventDelegate ev = new JobArrivalEvent(this.getModel(), job,
-					"Arrival Event");
-			ev.schedule(job, 0);
-
-			updateSimProcessStatus(thread, calculatedDemand);
-
-			logger.debug("Thread " + thread.getName()
-					+ " requested processing of demand " + calculatedDemand);
-			thread.passivate();
-		}
-	}
+//	public void consumeResource(SimProcess thread, double demand) {
+//		if (this.getModel().getSimulationControl().isRunning()) {
+//			double calculatedDemand = calculateDemand(demand);
+//			logger.info("Resource " + this.getName() + " loaded with "
+//					+ calculatedDemand);
+//			if (calculatedDemand < 0)
+//				throw new NegativeDemandIssuedException(
+//						"A negative demand occured. Demand was " + demand);
+//			experimentRun.addTimeSpanMeasurement(demandTimeSensor, this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime(), demand);
+//			JobAndDemandStruct job = new JobAndDemandStruct(thread,
+//					calculatedDemand, this, this.getModel()
+//							.getSimulationControl().getCurrentSimulationTime());
+//			if (job.getDemand() > ((SimuComModel) this.getModel()).getConfig()
+//					.getSimuTime()
+//					&& (this.getModel().getConfig().getSimuTime() > 0))
+//				throw new DemandTooLargeException(
+//						"A demand calculated from a processing rate and a demand in the design model ("
+//								+ demand
+//								+ ") has been issued to resource "
+//								+ this.getName()
+//								+ " which is larger than the total simulation time ("
+//								+ ((SimuComModel) this.getModel()).getConfig()
+//										.getSimuTime()
+//								+ "). Check your models.");
+//			ISimEventDelegate ev = new JobArrivalEvent(this.getModel(), job,
+//					"Arrival Event");
+//			ev.schedule(job, 0);
+//
+//			updateSimProcessStatus(thread, calculatedDemand);
+//
+//			logger.debug("Thread " + thread.getName()
+//					+ " requested processing of demand " + calculatedDemand);
+//			thread.passivate();
+//		}
+//	}
 
 	private void updateSimProcessStatus(SimProcess thread, double demand) {
 		if (isDebug) {
@@ -245,67 +234,67 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * 
 	 * @return The job and its demand which just finished execution
 	 */
-	public JobAndDemandStruct removeFinishedJob() {
-		JobAndDemandStruct job = myStrategy.removeFinishedJob();
-		if (this.getModel().getSimulationControl().isRunning()) {
-			experimentRun.addTimeSpanMeasurement(waitTimeSensor, this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime(), job.getWaitTime(this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime()));
-		}
-		return job;
-	}
-
-	/**
-	 * @return True if there are more jobs in the process queue of this resource
-	 */
-	public boolean hasMoreJobs() {
-		return myStrategy.hasMoreJobs();
-	}
-
-	/**
-	 * @return The number of jobs currently processed by this resource
-	 */
-	public int getTotalJobCount() {
-		return myStrategy.getTotalJobCount();
-	}
-
-	/**
-	 * Wake up or put this resource into sleep mode. Mainly used for reporting
-	 * reasons
-	 * 
-	 * @param b
-	 *            True if the resource gets idle, false if it has to execute
-	 *            jobs
-	 */
-	public void setIdle(boolean b) {
-		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
-			if (b) {
-				experimentRun.addStateMeasurement(stateSensor, idleState, this
-						.getModel().getSimulationControl()
-						.getCurrentSimulationTime());
-			} else {
-				String stateLiteral = "Busy "
-						+ Integer.toString(myStrategy.getTotalJobCount())
-						+ " Job(s)";
-				lastCount = myStrategy.getTotalJobCount();
-				if (!statesCache.containsKey(stateLiteral)) {
-					State newState = SensorHelper.createOrReuseState(
-							((SimuComModel) this.getModel()).getDAOFactory(),
-							stateLiteral);
-					statesCache.put(stateLiteral, newState);
-					if (!stateSensor.getSensorStates().contains(newState))
-						stateSensor.addSensorState(newState);
-				}
-				State nrState = statesCache.get(stateLiteral);
-				experimentRun.addStateMeasurement(stateSensor, nrState, this
-						.getModel().getSimulationControl()
-						.getCurrentSimulationTime());
-			}
-		}
-		this.idle = b;
-	}
+//	public JobAndDemandStruct removeFinishedJob() {
+//		JobAndDemandStruct job = myStrategy.removeFinishedJob();
+//		if (this.getModel().getSimulationControl().isRunning()) {
+//			experimentRun.addTimeSpanMeasurement(waitTimeSensor, this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime(), job.getWaitTime(this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime()));
+//		}
+//		return job;
+//	}
+//
+//	/**
+//	 * @return True if there are more jobs in the process queue of this resource
+//	 */
+//	public boolean hasMoreJobs() {
+//		return myStrategy.hasMoreJobs();
+//	}
+//
+//	/**
+//	 * @return The number of jobs currently processed by this resource
+//	 */
+//	public int getTotalJobCount() {
+//		return myStrategy.getTotalJobCount();
+//	}
+//
+//	/**
+//	 * Wake up or put this resource into sleep mode. Mainly used for reporting
+//	 * reasons
+//	 * 
+//	 * @param b
+//	 *            True if the resource gets idle, false if it has to execute
+//	 *            jobs
+//	 */
+//	public void setIdle(boolean b) {
+//		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
+//			if (b) {
+//				experimentRun.addStateMeasurement(stateSensor, idleState, this
+//						.getModel().getSimulationControl()
+//						.getCurrentSimulationTime());
+//			} else {
+//				String stateLiteral = "Busy "
+//						+ Integer.toString(myStrategy.getTotalJobCount())
+//						+ " Job(s)";
+//				lastCount = myStrategy.getTotalJobCount();
+//				if (!statesCache.containsKey(stateLiteral)) {
+//					State newState = SensorHelper.createOrReuseState(
+//							((SimuComModel) this.getModel()).getDAOFactory(),
+//							stateLiteral);
+//					statesCache.put(stateLiteral, newState);
+//					if (!stateSensor.getSensorStates().contains(newState))
+//						stateSensor.addSensorState(newState);
+//				}
+//				State nrState = statesCache.get(stateLiteral);
+//				experimentRun.addStateMeasurement(stateSensor, nrState, this
+//						.getModel().getSimulationControl()
+//						.getCurrentSimulationTime());
+//			}
+//		}
+//		this.idle = b;
+//	}
 
 	/**
 	 * Template method. Implementers have to use the given demand and return the
@@ -352,21 +341,22 @@ public abstract class AbstractScheduledResource extends Entity {
 		}
 	}
 
-	/**
-	 * Called by JobArriaval or JobDoneEvents to update the process queue and
-	 * their remaining demands
-	 */
-	public void processPassedTime() {
-		double timePassed = getModel().getSimulationControl()
-				.getCurrentSimulationTime()
-				- lastTimeOfAdjustingJobs;
+//	/**
+//	 * Called by JobArriaval or JobDoneEvents to update the process queue and
+//	 * their remaining demands
+//	 */
+//	public void processPassedTime() {
+//		double timePassed = getModel().getSimulationControl()
+//				.getCurrentSimulationTime()
+//				- lastTimeOfAdjustingJobs;
+//
+//		myStrategy.processPassedTime(timePassed);
+//
+//		lastTimeOfAdjustingJobs = getModel().getSimulationControl()
+//				.getCurrentSimulationTime();
+//	}
 
-		myStrategy.processPassedTime(timePassed);
-
-		lastTimeOfAdjustingJobs = getModel().getSimulationControl()
-				.getCurrentSimulationTime();
-	}
-
+	public abstract IActiveResource getScheduledResource();
 	/**
 	 * Marks the resource as being available or unavailable.
 	 * 
@@ -417,9 +407,9 @@ public abstract class AbstractScheduledResource extends Entity {
 		return repairTimeSample;
 	}
 
-	public ISimEventDelegate getJobDoneEvent() {
-		return myJobDoneEvent;
-	}
+//	public ISimEventDelegate getJobDoneEvent() {
+//		return myJobDoneEvent;
+//	}
 
 	public double getFailureProbability() {
 		return (canFail) ? failureProbability : 0.0;

@@ -141,10 +141,12 @@ public class SimActiveResource extends AbstractActiveResource {
 	
 	public void registerProcess(IRunningProcess runningProcess) {
 		IActiveProcess p = (IActiveProcess)runningProcess;
-		processRegistry.registerProcess(p);
-		IResourceInstance instance = getInstanceFor(p);
-		scheduler.registerProcess(p, instance);
-		
+		if (!processRegistry.isRegistered(p)){
+			processRegistry.registerProcess(p);
+			IResourceInstance instance = getInstanceFor(p);
+			scheduler.registerProcess(p, instance);
+			p.getSchedulableProcess().addTerminatedObserver(this);
+		}
 	}
 
 	public void unregisterProcess(IActiveProcess process) {
@@ -163,6 +165,14 @@ public class SimActiveResource extends AbstractActiveResource {
 	}
 	
 	public void notifyTerminated(ISchedulableProcess simProcess) {
-		//TODO
+		IActiveProcess activeProcess = lookUp(simProcess);
+		IResourceInstance instance = activeProcess.getLastInstance();
+		getScheduler().terminateProcess(activeProcess, instance);
+		simProcess.removeTerminatedObserver(this);
+	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.scheduler.getQueueLengthFor(simResourceInstance);
 	}
 }

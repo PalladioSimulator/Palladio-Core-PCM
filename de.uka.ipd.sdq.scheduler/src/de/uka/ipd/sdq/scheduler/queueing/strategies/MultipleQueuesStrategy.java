@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.impl.AbstractScheduler;
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {
@@ -19,14 +20,17 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	private ILoadBalancer loadBalancer;
 	private IInstanceSelector instanceSelector;
 	private Hashtable<IResourceInstance, IRunQueue> runQueueTable;
+	private boolean in_front_when_balancing;
 
 	public MultipleQueuesStrategy(Collection<IResourceInstance> allInstances,
 			IRunQueue prototypeRunQueue,
 			IInstanceSelector initialInstanceSelector,
-			ILoadBalancer loadBalancer) {
+			ILoadBalancer loadBalancer,
+			boolean in_front_when_balancing) {
 		runQueueTable = new Hashtable<IResourceInstance, IRunQueue>();
 		this.instanceSelector = initialInstanceSelector;
 		this.loadBalancer = loadBalancer;
+		this.in_front_when_balancing = in_front_when_balancing;
 		for (IResourceInstance resourceInstance : allInstances) {
 			runQueueTable.put(resourceInstance, prototypeRunQueue
 					.createNewInstance());
@@ -82,7 +86,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 
 		double waiting = getRunQueueFor(src).getWaitingTime(process);
 		getRunQueueFor(src).removeProcess(process);
-		getRunQueueFor(dest).addProcess(process, !AbstractScheduler.IS_WINDOWS);
+		getRunQueueFor(dest).addProcess(process, in_front_when_balancing);
 		getRunQueueFor(dest).setWaitingTime(process, waiting);
 		process.wasMovedTo(dest);
 	}
@@ -183,14 +187,20 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	}
 
 	public List<IActiveProcess> getStarvingProcesses(
-			IResourceInstance instance, double starvationLimit) {
-		return getRunQueueFor(instance).getStarvingProcesses(starvationLimit);
+			IResourceInstance instance, double starvationLimit){ 
+		IRunQueue runQ = getRunQueueFor(instance);
+		return runQ.getStarvingProcesses(starvationLimit);
 	}
 
 	public void resetStarvationInfo() {
 		for(IRunQueue q :  this.runQueueTable.values()){
 			q.resetStarvationInfo();
 		}
+	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return getRunQueueFor(simResourceInstance).getCurrentLoad();
 	}
 
 

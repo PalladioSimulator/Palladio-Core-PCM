@@ -112,4 +112,9 @@ public class SimFCFSResource extends AbstractActiveResource {
 	
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 	}
+
+	@Override
+	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+		return this.processQ.size();
+	}
 }

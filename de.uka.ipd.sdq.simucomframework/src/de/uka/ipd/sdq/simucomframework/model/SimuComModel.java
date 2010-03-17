@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
@@ -26,6 +27,7 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
 /**
  * Central simulation class needed by desmoj. Keeps the simulation state
@@ -50,6 +52,8 @@ public class SimuComModel {
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
 	private SimuComStatus simulationStatus = null;
+
+	private StoExCache stoExCache;
 	
 	public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
@@ -238,4 +242,5 @@ public class SimuComModel {
 	public SimuComStatus getSimulationStatus() {
 		return simulationStatus;
 	}
+
 }
