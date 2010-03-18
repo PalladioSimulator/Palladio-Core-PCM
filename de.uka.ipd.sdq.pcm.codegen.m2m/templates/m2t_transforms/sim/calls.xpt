@@ -57,7 +57,7 @@
 					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame.copyFrame()));
 				«ELSE»
 					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluateStoEx("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
 				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»
@@ -83,7 +83,7 @@
 					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
 				«ELSE»
 					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluateStoEx("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
 				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»

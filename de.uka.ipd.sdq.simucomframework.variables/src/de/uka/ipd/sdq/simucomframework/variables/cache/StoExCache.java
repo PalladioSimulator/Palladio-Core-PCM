@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.variables.cache;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 
 /**
  * A cache for Stoex. This saves the time to parse the stoex again
@@ -12,12 +13,23 @@ import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 public class StoExCache {
 
 	private HashMap<String,StoExCacheEntry> cache = new HashMap<String,StoExCacheEntry>();
+	private static StoExCache stoexSingleton = null;
 	private IRandomGenerator myRandomNumberGenerator = null;
 	
-	public StoExCache(IRandomGenerator randomGenerator) {
+
+	private StoExCache(IRandomGenerator randomGenerator) {
 		myRandomNumberGenerator = randomGenerator;
 	}
-
+	
+	public static void initialiseStoExCache(IRandomGenerator randomGenerator){
+		stoexSingleton = new StoExCache(randomGenerator);
+	}
+	
+	public static StoExCache singleton() {
+		assert stoexSingleton != null;
+		return stoexSingleton;
+	}
+	
 	/**
 	 * Get a cached stoex parse tree and visitors. If entry is not in the cache it
 	 * is created and added automatically.

@@ -116,8 +116,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		});
 		selectVariableButton.setText("Select Variable...");
 
-		final Group composite = new Group(container, SWT.NONE);
-		composite.setText("Sensitivity Analysis");
+		final Composite composite = new Composite(sensitivityAnalysisParametersGroup, SWT.NONE);
 		final GridData gd_composite = new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1);
 		composite.setLayoutData(gd_composite);
 		final GridLayout gridLayout_2 = new GridLayout();

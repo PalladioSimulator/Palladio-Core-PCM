@@ -32,6 +32,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 	private String processingRate = "0";
 	IActiveResource aResource = null;
 	ActiveResourceConfiguration resourceConf = null;
+	private String units;
 	
 
 	
@@ -123,15 +124,32 @@ public class ScheduledResource extends AbstractScheduledResource {
 			String typeID, 
 			String description, 
 			String processingRate, 
-			String units, 
+			Double mttf, Double mttr, String units, 
 			SchedulingStrategy strategy,
 			int numberOfCores)
 	{
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
-		
+		this.units = units;
 		logger.debug("Creating scheduled resource with strategy "+strategy.name()+" and "+numberOfCores+" replicas!");
 		aResource = getScheduledResource(strategy, numberOfCores);	
+
+		this.mttf = mttf;
+		this.mttr = mttr;
+		this.canBeUnavailable = (myModel.getConfig().getSimulateFailures()
+				&& (this.mttf > 0.0) && (this.mttr > 0.0));
+
+		// used to let resource fail and be repaired again:
+		if (this.canBeUnavailable) {
+			this.failedEvent = new ResourceFailedEvent(myModel,
+					"ResourceFailed");
+			this.repairedEvent = new ResourceRepairedEvent(myModel,
+					"ResourceRepaired");
+			this.failedEvent.setResource(this);
+			this.failedEvent.setRepairedEvent(repairedEvent);
+			this.repairedEvent.setResource(this);
+			this.repairedEvent.setFailedEvent(failedEvent);
+		}
 	}
 	
 

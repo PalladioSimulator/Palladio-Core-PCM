@@ -52,8 +52,6 @@ public class SimuComModel {
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
 	private SimuComStatus simulationStatus = null;
-
-	private StoExCache stoExCache;
 	
 	public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
@@ -65,6 +63,7 @@ public class SimuComModel {
 			initialiseNewSensorframework();
 		else
 			initialiseTempSensorframework();
+		StoExCache.initialiseStoExCache(config.getRandomGenerator());
 	}
 
 	private void initialiseSimStatus() {

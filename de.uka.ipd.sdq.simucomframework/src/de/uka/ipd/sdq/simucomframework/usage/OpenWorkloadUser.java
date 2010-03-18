@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.CommunicationLinkFailedException;
 import de.uka.ipd.sdq.simucomframework.exceptions.InternalActionFailedException;
@@ -102,19 +101,4 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		COMMUNICATIONLINKFAILURECOUNT = 0;
 		RESOURCEUNAVAILABILITYCOUNT = 0;
 	}
-	
-	public void addTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkloadUser.addTerminatedObserver has not been implemented yet.");
-	}
-
-	public void fireTerminated() {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkloadUser.fireTerminated has not been implemented yet.");
-	}
-
-	public void removeTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method OpenWorkloadUser.removeTerminatedObserver has not been implemented yet.");
-	}	
 }
