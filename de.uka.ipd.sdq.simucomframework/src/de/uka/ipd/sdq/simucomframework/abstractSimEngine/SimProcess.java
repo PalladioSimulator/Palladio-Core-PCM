@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.log4j.Logger;
