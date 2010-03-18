@@ -18,9 +18,6 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDeleg
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SSJExperiment implements ISimulationControlDelegate {
-
-	protected static Logger logger = 
-		Logger.getLogger(SSJExperiment.class);
 	
 	private Simulator simulator;
 	private ArrayList<Condition> stopConditions = new ArrayList<Condition>();
@@ -38,6 +35,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		
 		this.model = model;
 		createStartEvent(model).schedule(0);
+		createCheckEvent(model).schedule(1);
 	}
 
 	public void addStopCondition(Condition condition) {
@@ -71,13 +69,16 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		createStopEvent().schedule(simTime);
 	}
 
+	protected static Logger logger = 
+		Logger.getLogger(SSJExperiment.class.getName());
+	
 	public void start() {
 		this.isRunning = true;
 		
 		double start = System.nanoTime();
-		logger.info("Starting simulation using SSJ Framework...");
+		logger.warn("Starting simulation...");
 		simulator.start();
-		logger.info("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
+		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
 		
 		this.isRunning = false;
 	}
@@ -91,6 +92,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 			this.model.getResourceRegistry().deactivateAllActiveResources();
 			this.model.getResourceRegistry().deactivateAllPassiveResources();
 			logger.info("Scheduled Simulation Stop Event now");
+			logger.warn("Simulation took " + this.model.getSimulationControl().getCurrentSimulationTime()+" simulation seconds");
 		}
 	}
 
@@ -110,6 +112,8 @@ public class SSJExperiment implements ISimulationControlDelegate {
 				if (isRunning()){
 					logger.debug("Executing Stop Event");
 					stop();
+					// This is not reliable but a quick fix...
+					simulator.stop();
 				}
 			}
 			
@@ -123,6 +127,19 @@ public class SSJExperiment implements ISimulationControlDelegate {
 			public void actions() {
 				logger.debug("Executing Initial Event");
 				model.doInitialSchedules();
+			}
+			
+		};
+	}
+
+	private Event createCheckEvent(final SimuComModel model) {
+		return new Event(simulator) {
+
+			@Override
+			public void actions() {
+				checkStopConditions();
+				if (model.getSimulationControl().isRunning())
+					this.schedule(1);
 			}
 			
 		};
