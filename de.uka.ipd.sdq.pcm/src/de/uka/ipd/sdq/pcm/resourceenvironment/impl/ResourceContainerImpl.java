@@ -51,7 +51,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ContainerOperatingSystem OPERATING_SYSTEM_RESOURCE_CONTAINER_EDEFAULT = ContainerOperatingSystem.WINDOWS_VISTA;
+	protected static final ContainerOperatingSystem OPERATING_SYSTEM_RESOURCE_CONTAINER_EDEFAULT = ContainerOperatingSystem.ABSTRACT;
 	/**
 	 * The cached value of the '{@link #getOperatingSystem_ResourceContainer() <em>Operating System Resource Container</em>}' attribute.
 	 * <!-- begin-user-doc -->

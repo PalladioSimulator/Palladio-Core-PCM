@@ -1738,7 +1738,7 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
-          lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy"/>
+          lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy" defaultValueLiteral="FCFS"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
@@ -1773,7 +1773,8 @@
         <details key="documentation" value="UML-like&amp;nbsp;container&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;resources (e.g. hardware server)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingSystem_ResourceContainer"
-          ordered="false" lowerBound="1" eType="#//resourceenvironment/ContainerOperatingSystem"/>
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/ContainerOperatingSystem"
+          defaultValueLiteral="ABSTRACT"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true"/>

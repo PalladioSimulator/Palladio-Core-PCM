@@ -92,7 +92,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.EXACT;
+	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.FCFS;
 
 	/**
 	 * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.

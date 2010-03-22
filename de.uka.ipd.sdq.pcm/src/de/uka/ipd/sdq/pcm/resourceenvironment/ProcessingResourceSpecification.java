@@ -97,6 +97,7 @@ public interface ProcessingResourceSpecification extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.
+	 * The default value is <code>"FCFS"</code>.
 	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -108,7 +109,7 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
 	 * @see #setSchedulingPolicy(SchedulingPolicy)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_SchedulingPolicy()
-	 * @model required="true" ordered="false"
+	 * @model default="FCFS" required="true" ordered="false"
 	 * @generated
 	 */
 	SchedulingPolicy getSchedulingPolicy();

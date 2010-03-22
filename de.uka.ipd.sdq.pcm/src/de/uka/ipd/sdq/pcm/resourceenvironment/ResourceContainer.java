@@ -40,6 +40,7 @@ public interface ResourceContainer extends Entity {
 
 	/**
 	 * Returns the value of the '<em><b>Operating System Resource Container</b></em>' attribute.
+	 * The default value is <code>"ABSTRACT"</code>.
 	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -51,7 +52,7 @@ public interface ResourceContainer extends Entity {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
 	 * @see #setOperatingSystem_ResourceContainer(ContainerOperatingSystem)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_OperatingSystem_ResourceContainer()
-	 * @model required="true" ordered="false"
+	 * @model default="ABSTRACT" required="true" ordered="false"
 	 * @generated
 	 */
 	ContainerOperatingSystem getOperatingSystem_ResourceContainer();
