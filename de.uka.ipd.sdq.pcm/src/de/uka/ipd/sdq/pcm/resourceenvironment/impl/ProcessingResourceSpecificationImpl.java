@@ -132,7 +132,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUMBER_OF_REPLICAS_EDEFAULT = 0;
+	protected static final int NUMBER_OF_REPLICAS_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}' attribute.

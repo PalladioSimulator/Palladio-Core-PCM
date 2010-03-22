@@ -1744,7 +1744,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfReplicas" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="&lt;p>&#xD;&#xA;    Specifies the actual number of processors of the processing resource.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    In terms of the queueing theory, the number of processors corresponds to the number of servers&amp;nbsp;of a service&#xD;&#xA;    center. Thus, the attribute allows to specify a&amp;nbsp;multi-server queue, i.e., one queue with multiple servers.&lt;br />&#xD;&#xA;&lt;/p>"/>
         </eAnnotations>

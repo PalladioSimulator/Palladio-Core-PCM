@@ -179,6 +179,7 @@ public interface ProcessingResourceSpecification extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Replicas</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -193,7 +194,7 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @return the value of the '<em>Number Of Replicas</em>' attribute.
 	 * @see #setNumberOfReplicas(int)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_NumberOfReplicas()
-	 * @model required="true" ordered="false"
+	 * @model default="1" required="true" ordered="false"
 	 * @generated
 	 */
 	int getNumberOfReplicas();
