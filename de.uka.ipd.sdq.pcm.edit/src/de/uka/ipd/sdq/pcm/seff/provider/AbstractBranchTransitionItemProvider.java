@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
@@ -35,7 +36,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class AbstractBranchTransitionItemProvider
-	extends NamedElementItemProvider
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -112,7 +113,7 @@ public class AbstractBranchTransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbstractBranchTransition)object).getEntityName();
+		String label = ((AbstractBranchTransition)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractBranchTransition_type") :
 			getString("_UI_AbstractBranchTransition_type") + " " + label;
@@ -157,6 +158,11 @@ public class AbstractBranchTransitionItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
 				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
+				 SeffFactory.eINSTANCE.createResourceDemandingInternalBehaviour()));
 
 		newChildDescriptors.add
 			(createChildParameter

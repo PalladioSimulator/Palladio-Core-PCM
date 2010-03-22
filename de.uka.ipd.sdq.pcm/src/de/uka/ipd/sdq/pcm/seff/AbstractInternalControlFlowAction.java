@@ -15,7 +15,9 @@ import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO
+ * <p>
+ *     Abstract parent class of any internal control flow (e.g. InternalAction)
+ * </p>
  * <!-- end-model-doc -->
  *
  * <p>

@@ -14,6 +14,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
  * A representation of the model object '<em><b>Context</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Mapping between AssemblyContext and Resource. Sometimes referred to as "Deployment".
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

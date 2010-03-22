@@ -157,6 +157,11 @@ public class AbstractLoopActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+				 SeffFactory.eINSTANCE.createResourceDemandingInternalBehaviour()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
 				 SeffFactory.eINSTANCE.createForkedBehaviour()));
 	}
 

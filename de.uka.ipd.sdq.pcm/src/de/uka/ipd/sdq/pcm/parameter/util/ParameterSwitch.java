@@ -106,6 +106,12 @@ public class ParameterSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ParameterPackage.VARIABLE_USAGE: {
+				VariableUsage variableUsage = (VariableUsage)theEObject;
+				T result = caseVariableUsage(variableUsage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ParameterPackage.VARIABLE_CHARACTERISATION: {
 				VariableCharacterisation variableCharacterisation = (VariableCharacterisation)theEObject;
 				T result = caseVariableCharacterisation(variableCharacterisation);
@@ -125,12 +131,6 @@ public class ParameterSwitch<T> {
 				if (result == null) result = caseBooleanExpression(characterisedVariable);
 				if (result == null) result = caseIfElse(characterisedVariable);
 				if (result == null) result = caseExpression(characterisedVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParameterPackage.VARIABLE_USAGE: {
-				VariableUsage variableUsage = (VariableUsage)theEObject;
-				T result = caseVariableUsage(variableUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

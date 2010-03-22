@@ -13,6 +13,10 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  * A representation of the model object '<em><b>Resource Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Abstract superclass of any resource
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceType()
  * @model abstract="true"

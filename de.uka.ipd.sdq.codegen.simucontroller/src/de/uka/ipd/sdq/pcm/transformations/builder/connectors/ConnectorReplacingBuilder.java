@@ -73,9 +73,15 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		ResourceContainer serverContainer = null;
 		
 		if (linkingRes  != null) {
-			clientContainer = linkingRes.getFromResourceContainer_LinkingResource().get(0);
-			serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
-			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+			//TODO
+			//Hauck: Changed code here because of changed metamodel. Please check.
+			if ((linkingRes.getConnectedResourceContainers_LinkingResource() != null) && (linkingRes.getConnectedResourceContainers_LinkingResource().size()>1)) {
+				clientContainer = linkingRes.getConnectedResourceContainers_LinkingResource().get(0);
+				serverContainer = linkingRes.getConnectedResourceContainers_LinkingResource().get(1);
+				//clientContainer = linkingRes.getFromResourceContainer_LinkingResource().get(0);
+				//serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
+				builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+			}
 		} else {
 			clientContainer = findContainer(this.connector.getRequiringAssemblyContext_AssemblyConnector());
 			serverContainer = clientContainer;
@@ -125,12 +131,30 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}	
 
 	private AllocationContext findClientSideMiddlewareAllocationContext() {
-		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringAssemblyContext_AssemblyConnector()) : linkingRes.getFromResourceContainer_LinkingResource().get(0) ;
+		//Hauck: Changed code here because of changed metamodel. Please check.
+		ResourceContainer container = null;
+		if (linkingRes != null) {
+			if ((linkingRes.getConnectedResourceContainers_LinkingResource() != null) && (linkingRes.getConnectedResourceContainers_LinkingResource().size()>0)) {
+				linkingRes.getConnectedResourceContainers_LinkingResource().get(0);
+			}
+		} 
+		if (container == null) {
+			container = findContainer(connector.getRequiringAssemblyContext_AssemblyConnector());
+		}
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 	
-	private AllocationContext findServerSideMiddlewareAllocationContext(){
-		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringAssemblyContext_AssemblyConnector()) : linkingRes.getToResourceContainer_LinkingResource().get(0) ;
+	private AllocationContext findServerSideMiddlewareAllocationContext() {
+		//Hauck: Changed code here because of changed metamodel. Please check.
+		ResourceContainer container = null;
+		if (linkingRes != null) {
+			if ((linkingRes.getConnectedResourceContainers_LinkingResource() != null) && (linkingRes.getConnectedResourceContainers_LinkingResource().size()>1)) {
+				linkingRes.getConnectedResourceContainers_LinkingResource().get(1);
+			}
+		} 
+		if (container == null) {
+			findContainer(connector.getRequiringAssemblyContext_AssemblyConnector());
+		}
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 
@@ -159,11 +183,10 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	 * @return The linking resource on which the given connector is deployed
 	 */
 	private LinkingResource findLinkingResource(AssemblyConnector con) {
-		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingresource()){
-			if ((lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) &&
-					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))) || // Respect bidirectional links 
-				(lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) && 
-						lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))))
+		//Hauck: Changed code here because of changed metamodel. Please check.
+		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingResources__ResourceEnvironment()){
+			if (lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) &&
+					lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector())))
 				return lr;
 		}
 		if (findContainer(con.getRequiringAssemblyContext_AssemblyConnector()) != findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))

@@ -15,6 +15,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * A representation of the model object '<em><b>Processing Resource Specification</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Performance specification of processing resources (e.g. processing rate, scheduling policy)
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -23,7 +27,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas <em>Number Of Replicas</em>}</li>
  * </ul>
  * </p>
  *
@@ -173,30 +177,34 @@ public interface ProcessingResourceSpecification extends EObject {
 	void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable value);
 
 	/**
-	 * Returns the value of the '<em><b>No Of Replicas</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * Returns the value of the '<em><b>Number Of Replicas</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>No Of Replicas</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>No Of Replicas</em>' attribute.
-	 * @see #setNoOfReplicas(int)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_NoOfReplicas()
-	 * @model default="1"
+	 * <!-- begin-model-doc -->
+	 * <p>
+	 *     Specifies the actual number of processors of the processing resource.
+	 * </p>
+	 * <p>
+	 *     In terms of the queueing theory, the number of processors corresponds to the number of servers&nbsp;of a service
+	 *     center. Thus, the attribute allows to specify a&nbsp;multi-server queue, i.e., one queue with multiple servers.<br />
+	 * </p>
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Number Of Replicas</em>' attribute.
+	 * @see #setNumberOfReplicas(int)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_NumberOfReplicas()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getNoOfReplicas();
+	int getNumberOfReplicas();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas <em>Number Of Replicas</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>No Of Replicas</em>' attribute.
-	 * @see #getNoOfReplicas()
+	 * @param value the new value of the '<em>Number Of Replicas</em>' attribute.
+	 * @see #getNumberOfReplicas()
 	 * @generated
 	 */
-	void setNoOfReplicas(int value);
+	void setNumberOfReplicas(int value);
 
 } // ProcessingResourceSpecification

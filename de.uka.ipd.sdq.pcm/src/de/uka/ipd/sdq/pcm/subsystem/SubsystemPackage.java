@@ -21,6 +21,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Package capturing the subsystem entity
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory
  * @model kind="package"
  * @generated

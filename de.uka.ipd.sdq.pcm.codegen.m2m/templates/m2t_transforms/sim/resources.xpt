@@ -50,43 +50,10 @@
 
 	public String[] getLinkingResourceContainerIDList() {
 		return new String[] { 
-			«FOREACH this.linkingresource AS rc SEPARATOR ","»
+			«FOREACH this.linkingResources__ResourceEnvironment AS rc SEPARATOR ","»
 				"«rc.id»"
 			«ENDFOREACH»
 		};
-	}
-	
-	public java.util.ArrayList<String> getFromResourceContainerID(String linkingResourceContainerID) {
-		java.util.ArrayList<String> resultList = new java.util.ArrayList<String>();
-		«FOREACH this.linkingresource AS rc»
-			if(linkingResourceContainerID.equals("«rc.id»")) {
-			«FOREACH rc.fromResourceContainer_LinkingResource.id AS id»
-				resultList.add("«id»");
-			«ENDFOREACH»
-			}
-		«ENDFOREACH»
-		return resultList;
-	}
-	
-	public java.util.ArrayList<String> getToResourceContainerID(String linkingResourceContainerID) {
-		java.util.ArrayList<String> resultList = new java.util.ArrayList<String>();
-		«FOREACH this.linkingresource AS rc»
-			if (linkingResourceContainerID.equals("«rc.id»")) {
-			«FOREACH rc.toResourceContainer_LinkingResource.id AS id»
-				resultList.add("«id»");
-			«ENDFOREACH»
-			}
-		«ENDFOREACH»
-		return resultList;
-	}
-	
-	public String getLinkingResourceContainerID(String fromResourceContainerID, String toResourceContainerID) {
-		for (String id: getLinkingResourceContainerIDList()) {
-			if (getFromResourceContainerID(id).contains(fromResourceContainerID) && getToResourceContainerID(id).contains(toResourceContainerID)) {
-				return id;
-			}
-		}
-		return null;
 	}
 	
 	public void fillResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer rc) {
@@ -96,8 +63,8 @@
 	}
 
 	public void fillLinkingResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer rc) {
-		«EXPAND LinkingResourceCase FOREACH this.linkingresource SEPARATOR " else "»
-		«IF this.linkingresource.size > 0»
+		«EXPAND LinkingResourceCase FOREACH this.linkingResources__ResourceEnvironment SEPARATOR " else "»
+		«IF this.linkingResources__ResourceEnvironment.size > 0»
 		else
 			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");
 		«ENDIF»	
@@ -138,18 +105,27 @@
 		«this.MTTR»,
 		"TODO: unit!",
 		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»,
-		«this.noOfReplicas»);
+		«this.numberOfReplicas»);
 «ENDDEFINE»
 
 «DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»
 	«IF this.schedulingPolicy.toString() == "EXACT"»
-		«IF container.scheduler.toString() == "LINUX26"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6
+		«IF container.operatingSystem_ResourceContainer.toString() == "LINUX26_O1"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6_O1
 		«ENDIF»
-		«IF container.scheduler.toString() == "WINXP"»
+		«IF container.operatingSystem_ResourceContainer.toString() == "LINUX26_CFS"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6_CFS
+		«ENDIF»
+		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_XP"»
 			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_XP
 		«ENDIF»
-		«IF container.scheduler.toString() == "WINDOWS2003"»
+		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_7"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_7
+		«ENDIF»
+		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_VISTA"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_VISTA
+		«ENDIF»
+		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_2003"»
 			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_SERVER_2003
 		«ENDIF»
 	«ELSE»

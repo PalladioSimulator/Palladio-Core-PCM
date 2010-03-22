@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -117,7 +117,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum containerCPUSchedulerEEnum = null;
+	private EEnum containerOperatingSystemEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -251,7 +251,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceEnvironment_Linkingresource() {
+	public EReference getResourceEnvironment_LinkingResources__ResourceEnvironment() {
 		return (EReference)resourceEnvironmentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -278,7 +278,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLinkingResource_ToResourceContainer_LinkingResource() {
+	public EReference getLinkingResource_ConnectedResourceContainers_LinkingResource() {
 		return (EReference)linkingResourceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -287,17 +287,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLinkingResource_FromResourceContainer_LinkingResource() {
-		return (EReference)linkingResourceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource() {
-		return (EReference)linkingResourceEClass.getEStructuralFeatures().get(2);
+		return (EReference)linkingResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -404,7 +395,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcessingResourceSpecification_NoOfReplicas() {
+	public EAttribute getProcessingResourceSpecification_NumberOfReplicas() {
 		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -422,8 +413,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getResourceContainer_OperatingSystem_ResourceContainer() {
+		return (EAttribute)resourceContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -431,8 +422,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceContainer_Scheduler() {
-		return (EAttribute)resourceContainerEClass.getEStructuralFeatures().get(1);
+	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
+		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -449,8 +440,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getContainerCPUScheduler() {
-		return containerCPUSchedulerEEnum;
+	public EEnum getContainerOperatingSystem() {
+		return containerOperatingSystemEEnum;
 	}
 
 	/**
@@ -482,12 +473,11 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Create classes and their features
 		resourceEnvironmentEClass = createEClass(RESOURCE_ENVIRONMENT);
-		createEReference(resourceEnvironmentEClass, RESOURCE_ENVIRONMENT__LINKINGRESOURCE);
+		createEReference(resourceEnvironmentEClass, RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
 		createEReference(resourceEnvironmentEClass, RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
 
 		linkingResourceEClass = createEClass(LINKING_RESOURCE);
-		createEReference(linkingResourceEClass, LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE);
-		createEReference(linkingResourceEClass, LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE);
+		createEReference(linkingResourceEClass, LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE);
 		createEReference(linkingResourceEClass, LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE);
 
 		communicationLinkResourceSpecificationEClass = createEClass(COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
@@ -502,15 +492,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION);
-		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS);
+		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS);
 
 		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
+		createEAttribute(resourceContainerEClass, RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER);
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
-		createEAttribute(resourceContainerEClass, RESOURCE_CONTAINER__SCHEDULER);
 
 		// Create enums
 		schedulingPolicyEEnum = createEEnum(SCHEDULING_POLICY);
-		containerCPUSchedulerEEnum = createEEnum(CONTAINER_CPU_SCHEDULER);
+		containerOperatingSystemEEnum = createEEnum(CONTAINER_OPERATING_SYSTEM);
 	}
 
 	/**
@@ -538,6 +528,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
@@ -546,17 +537,18 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		resourceEnvironmentEClass.getESuperTypes().add(theEntityPackage.getNamedElement());
 		linkingResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		communicationLinkResourceSpecificationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		resourceContainerEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(resourceEnvironmentEClass, ResourceEnvironment.class, "ResourceEnvironment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceEnvironment_Linkingresource(), this.getLinkingResource(), null, "linkingresource", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceEnvironment_LinkingResources__ResourceEnvironment(), this.getLinkingResource(), null, "linkingResources__ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceEnvironment_ResourceContainer_ResourceEnvironment(), this.getResourceContainer(), null, "resourceContainer_ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(linkingResourceEClass, LinkingResource.class, "LinkingResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLinkingResource_ToResourceContainer_LinkingResource(), this.getResourceContainer(), null, "toResourceContainer_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLinkingResource_FromResourceContainer_LinkingResource(), this.getResourceContainer(), null, "fromResourceContainer_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLinkingResource_ConnectedResourceContainers_LinkingResource(), this.getResourceContainer(), null, "connectedResourceContainers_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(), this.getCommunicationLinkResourceSpecification(), null, "communicationLinkResourceSpecifications_LinkingResource", null, 1, 1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class, "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -571,24 +563,27 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getProcessingResourceSpecification_NoOfReplicas(), ecorePackage.getEInt(), "noOfReplicas", "1", 0, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcessingResourceSpecification_NumberOfReplicas(), ecorePackage.getEInt(), "numberOfReplicas", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResourceContainer_OperatingSystem_ResourceContainer(), this.getContainerOperatingSystem(), "operatingSystem_ResourceContainer", null, 1, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceContainer_ActiveResourceSpecifications_ResourceContainer(), this.getProcessingResourceSpecification(), null, "activeResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getResourceContainer_Scheduler(), this.getContainerCPUScheduler(), "scheduler", "ABSTRACT", 0, 1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schedulingPolicyEEnum, SchedulingPolicy.class, "SchedulingPolicy");
+		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.EXACT);
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.DELAY);
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.PROCESSOR_SHARING);
 		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.FCFS);
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.EXACT);
 
-		initEEnum(containerCPUSchedulerEEnum, ContainerCPUScheduler.class, "ContainerCPUScheduler");
-		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.ABSTRACT);
-		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.WINDOWS2003);
-		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.LINUX26);
-		addEEnumLiteral(containerCPUSchedulerEEnum, ContainerCPUScheduler.WINXP);
+		initEEnum(containerOperatingSystemEEnum, ContainerOperatingSystem.class, "ContainerOperatingSystem");
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_VISTA);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.LINUX26_CFS);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.LINUX26_O1);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_XP);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_7);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_2003);
+		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.ABSTRACT);
 
 		// Create resource
 		createResource(eNS_URI);

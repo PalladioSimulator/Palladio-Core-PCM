@@ -17,6 +17,11 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * A representation of the model object '<em><b>Required Delegation Connector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A RequiredDelegationConnector delegates required roles of encapsulated assembly contexts to&nbsp;outer&nbsp;required roles
+ * .
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -170,5 +175,18 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * @generated
 	 */
 	boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector'"
+	 * @generated
+	 */
+	boolean RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RequiredDelegationConnector

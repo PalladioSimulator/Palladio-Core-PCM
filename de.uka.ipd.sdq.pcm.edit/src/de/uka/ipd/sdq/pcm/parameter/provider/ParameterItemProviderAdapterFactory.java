@@ -199,7 +199,7 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -248,9 +248,9 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
+		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
 		if (characterisedVariableItemProvider != null) characterisedVariableItemProvider.dispose();
-		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 	}
 
 }

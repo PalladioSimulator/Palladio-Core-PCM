@@ -93,8 +93,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.SCHEDULING_POLICY:
 				return createSchedulingPolicyFromString(eDataType, initialValue);
-			case ResourceenvironmentPackage.CONTAINER_CPU_SCHEDULER:
-				return createContainerCPUSchedulerFromString(eDataType, initialValue);
+			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
+				return createContainerOperatingSystemFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -110,8 +110,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.SCHEDULING_POLICY:
 				return convertSchedulingPolicyToString(eDataType, instanceValue);
-			case ResourceenvironmentPackage.CONTAINER_CPU_SCHEDULER:
-				return convertContainerCPUSchedulerToString(eDataType, instanceValue);
+			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
+				return convertContainerOperatingSystemToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -192,8 +192,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerCPUScheduler createContainerCPUSchedulerFromString(EDataType eDataType, String initialValue) {
-		ContainerCPUScheduler result = ContainerCPUScheduler.get(initialValue);
+	public ContainerOperatingSystem createContainerOperatingSystemFromString(EDataType eDataType, String initialValue) {
+		ContainerOperatingSystem result = ContainerOperatingSystem.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -203,7 +203,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertContainerCPUSchedulerToString(EDataType eDataType, Object instanceValue) {
+	public String convertContainerOperatingSystemToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

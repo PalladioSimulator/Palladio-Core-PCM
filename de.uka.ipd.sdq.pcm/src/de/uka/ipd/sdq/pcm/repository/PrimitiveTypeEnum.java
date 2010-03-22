@@ -16,6 +16,9 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Primitive Type Enum</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Primitive types for usage in datatype and interface definitions
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPrimitiveTypeEnum()
  * @model
  * @generated

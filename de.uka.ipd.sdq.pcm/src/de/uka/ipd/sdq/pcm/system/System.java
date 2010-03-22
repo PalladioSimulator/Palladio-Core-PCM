@@ -10,6 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,5 +67,18 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
 	 * @generated
 	 */
 	EList<QoSAnnotations> getQosAnnotations_System();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.providedRoles_InterfaceProvidingEntity->isEmpty()
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.providedRoles_InterfaceProvidingEntity->isEmpty()'"
+	 * @generated
+	 */
+	boolean SystemMustHaveAtLeastOneProvidedRole(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // System

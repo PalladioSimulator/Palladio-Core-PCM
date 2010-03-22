@@ -6,8 +6,11 @@
 package de.uka.ipd.sdq.pcm.system.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -43,6 +46,7 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.stoex.StoexPackage;
@@ -176,6 +180,15 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theUsagemodelPackage.initializePackageContents();
 		theSubsystemPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theSystemPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return SystemValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theSystemPackage.freeze();
 
@@ -273,6 +286,15 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, de.uka.ipd.sdq.pcm.system.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystem_QosAnnotations_System(), theQosannotationsPackage.getQoSAnnotations(), null, "qosAnnotations_System", null, 0, -1, de.uka.ipd.sdq.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(systemEClass, ecorePackage.getEBoolean(), "SystemMustHaveAtLeastOneProvidedRole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

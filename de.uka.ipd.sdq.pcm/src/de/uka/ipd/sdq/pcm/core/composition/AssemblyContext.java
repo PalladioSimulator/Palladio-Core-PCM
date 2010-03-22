@@ -16,6 +16,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * A representation of the model object '<em><b>Assembly Context</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An AssemblyContext uniquely identifies an assembly instance of an AssemblyContext.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

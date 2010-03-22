@@ -12,6 +12,12 @@ package de.uka.ipd.sdq.pcm.resourcetype;
  * A representation of the model object '<em><b>Processing Resource Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * <p>
+ *     ResourceType representation of CPU.
+ * </p>
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType()
  * @model

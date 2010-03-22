@@ -31,8 +31,11 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 			switch (operatingSystem) {
 			case WINDOWS_SERVER_2003:
 			case WINDOWS_XP:
+			case WINDOWS_VISTA:
+			case WINDOWS_7:
 				return getPassiveResourceWindows(typeID, capacity,1, true, true, managingResource.getScheduledResource());
-			case LINUX_2_6:
+			case LINUX_2_6_O1:
+			case LINUX_2_6_CFS:
 				return getPassiveResourceLinux(typeID, capacity, true, managingResource.getScheduledResource());
 			default:
 				return null;
@@ -44,7 +47,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 		activeResources.put(typeID, 
 				new ScheduledResource(myModel, typeID, description, processingRate, mttf, mttr, units, strategy, numberOfReplicas));
 		
-		if ( strategy == SchedulingStrategy.LINUX_2_6 || strategy == SchedulingStrategy.WINDOWS_SERVER_2003 || strategy == SchedulingStrategy.WINDOWS_XP ) {
+		if ( strategy == SchedulingStrategy.LINUX_2_6_O1 || strategy == SchedulingStrategy.LINUX_2_6_CFS || strategy == SchedulingStrategy.WINDOWS_SERVER_2003 || strategy == SchedulingStrategy.WINDOWS_XP || strategy == SchedulingStrategy.WINDOWS_VISTA || strategy == SchedulingStrategy.WINDOWS_7) {
 			assert this.managingResource == null;
 			this.operatingSystem = strategy;
 			this.managingResource = activeResources.get(typeID);

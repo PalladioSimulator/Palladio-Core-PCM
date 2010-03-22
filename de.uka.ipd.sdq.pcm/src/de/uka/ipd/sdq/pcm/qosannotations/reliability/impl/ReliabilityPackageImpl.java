@@ -7,7 +7,10 @@ package de.uka.ipd.sdq.pcm.qosannotations.reliability.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -30,6 +33,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.util.ReliabilityValidator;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -177,6 +181,15 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 		theUsagemodelPackage.initializePackageContents();
 		theSubsystemPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theReliabilityPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ReliabilityValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theReliabilityPackage.freeze();
 
@@ -272,6 +285,15 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 		// Initialize classes and features; add operations and parameters
 		initEClass(specifiedFailureProbabilityEClass, SpecifiedFailureProbability.class, "SpecifiedFailureProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecifiedFailureProbability_FailureProbability(), ecorePackage.getEDouble(), "failureProbability", null, 1, 1, SpecifiedFailureProbability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(specifiedFailureProbabilityEClass, ecorePackage.getEBoolean(), "EnsureValidParameterRange", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 	}
 
 } //ReliabilityPackageImpl

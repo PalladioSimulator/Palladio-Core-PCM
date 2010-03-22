@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.protocol.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -27,7 +26,6 @@ import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolFactory;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
@@ -63,13 +61,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass serviceCallEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,24 +192,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getServiceCall() {
-		return serviceCallEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getServiceCall_Signature__ServiceCall() {
-		return (EReference)serviceCallEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getProtocol() {
 		return protocolEClass;
 	}
@@ -260,9 +233,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 		isCreated = true;
 
 		// Create classes and their features
-		serviceCallEClass = createEClass(SERVICE_CALL);
-		createEReference(serviceCallEClass, SERVICE_CALL__SIGNATURE_SERVICE_CALL);
-
 		protocolEClass = createEClass(PROTOCOL);
 		createEAttribute(protocolEClass, PROTOCOL__PROTOCOL_TYPE_ID);
 	}
@@ -290,9 +260,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -300,9 +267,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(serviceCallEClass, ServiceCall.class, "ServiceCall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getServiceCall_Signature__ServiceCall(), theRepositoryPackage.getSignature(), null, "signature__ServiceCall", null, 1, 1, ServiceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(protocolEClass, Protocol.class, "Protocol", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProtocol_ProtocolTypeID(), ecorePackage.getEString(), "protocolTypeID", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 

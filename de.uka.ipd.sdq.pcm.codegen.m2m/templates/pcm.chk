@@ -95,21 +95,23 @@ context RandomVariable ERROR 'Random variable without specification is invalid':
 context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
 	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
 
-context ProcessingResourceSpecification ERROR 'Exact scheduling only available if container scheduler is not abstract':
-	!(this.schedulingPolicy.toString() == "EXACT" && ((ResourceContainer)this.eContainer).scheduler.toString() == "ABSTRACT");
+context ProcessingResourceSpecification ERROR 'Exact scheduling only available if container OS is not abstract':
+	!(this.schedulingPolicy.toString() == "EXACT" && ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT");
 
-context ProcessingResourceSpecification ERROR 'Abstract scheduling (FCFS, PS, or DELAY) only available if container scheduler is set to ABSTRACT':
+context ProcessingResourceSpecification ERROR 'Abstract scheduling (FCFS, PS, or DELAY) only available if container OS is set to ABSTRACT':
 	if this.activeResourceType_ActiveResourceSpecification.entityName == "CPU" then
-		(if this.schedulingPolicy.toString() != "EXACT" then ((ResourceContainer)this.eContainer).scheduler.toString() == "ABSTRACT" else true)
+		(if this.schedulingPolicy.toString() != "EXACT" then ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT" else true)
 	else
 		true;
 
 context ProcessingResourceSpecification ERROR 'Number of cores > 1 only allowed for exact scheduling':
-	if this.schedulingPolicy.toString() != "EXACT" then this.noOfReplicas == 1 else this.noOfReplicas > 0;	
+	if this.schedulingPolicy.toString() != "EXACT" then this.numberOfReplicas == 1 else this.numberOfReplicas > 0;	
 
 context ResourceContainer ERROR 'Only a single resource type CPU allowed for non abstract schedulers. Use No of Replicas instead':
-	if this.scheduler.toString() != "ABSTRACT" then this.activeResourceSpecifications_ResourceContainer.select(e|e.activeResourceType_ActiveResourceSpecification.entityName == "CPU").size == 1 else true;
-	
+	if this.operatingSystem_ResourceContainer.toString() != "ABSTRACT" then this.activeResourceSpecifications_ResourceContainer.select(e|e.activeResourceType_ActiveResourceSpecification.entityName == "CPU").size == 1 else true;
 	
 context InterfaceProvidingRequiringEntity ERROR 'Component ' + this.entityName +': All provided roles of a component must have unique names':
 	this.providedRoles_InterfaceProvidingEntity.forAll(r1|this.providedRoles_InterfaceProvidingEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));	
+
+context ResourceContainer ERROR 'A ResourceContainer with a HDD must also contain a CPU':
+   if this.activeResourceSpecifications_ResourceContainer.exists(res|res.activeResourceType_ActiveResourceSpecification.entityName.toString() == "HDD") then this.activeResourceSpecifications_ResourceContainer.exists(res2|res2.activeResourceType_ActiveResourceSpecification.entityName.toString() == "CPU") else true;

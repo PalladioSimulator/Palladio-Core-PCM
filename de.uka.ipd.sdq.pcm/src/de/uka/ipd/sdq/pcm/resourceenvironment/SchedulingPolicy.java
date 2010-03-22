@@ -16,12 +16,23 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Scheduling Policy</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Supported scheduling policies of the PCM
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getSchedulingPolicy()
  * @model
  * @generated
  */
 public enum SchedulingPolicy implements Enumerator {
 	/**
+	 * The '<em><b>EXACT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EXACT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EXACT(0, "EXACT", "EXACT"), /**
 	 * The '<em><b>DELAY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,7 +40,7 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELAY(0, "DELAY", "DELAY"),
+	DELAY(1, "DELAY", "DELAY"),
 
 	/**
 	 * The '<em><b>PROCESSOR SHARING</b></em>' literal object.
@@ -39,7 +50,7 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROCESSOR_SHARING(1, "PROCESSOR_SHARING", "PROCESSOR_SHARING"),
+	PROCESSOR_SHARING(2, "PROCESSOR_SHARING", "PROCESSOR_SHARING"),
 
 	/**
 	 * The '<em><b>FCFS</b></em>' literal object.
@@ -49,15 +60,7 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FCFS(2, "FCFS", "FCFS"), /**
-	 * The '<em><b>EXACT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EXACT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EXACT(3, "EXACT", "EXACT");
+	FCFS(3, "FCFS", "FCFS");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,51 +68,6 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The '<em><b>DELAY</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DELAY</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #DELAY
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int DELAY_VALUE = 0;
-
-	/**
-	 * The '<em><b>PROCESSOR SHARING</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PROCESSOR SHARING</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PROCESSOR_SHARING
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PROCESSOR_SHARING_VALUE = 1;
-
-	/**
-	 * The '<em><b>FCFS</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FCFS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #FCFS
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int FCFS_VALUE = 2;
 
 	/**
 	 * The '<em><b>EXACT</b></em>' literal value.
@@ -124,7 +82,52 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXACT_VALUE = 3;
+	public static final int EXACT_VALUE = 0;
+
+	/**
+	 * The '<em><b>DELAY</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DELAY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DELAY
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DELAY_VALUE = 1;
+
+	/**
+	 * The '<em><b>PROCESSOR SHARING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PROCESSOR SHARING</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PROCESSOR_SHARING
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PROCESSOR_SHARING_VALUE = 2;
+
+	/**
+	 * The '<em><b>FCFS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>FCFS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FCFS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FCFS_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Scheduling Policy</b></em>' enumerators.
@@ -134,10 +137,10 @@ public enum SchedulingPolicy implements Enumerator {
 	 */
 	private static final SchedulingPolicy[] VALUES_ARRAY =
 		new SchedulingPolicy[] {
+			EXACT,
 			DELAY,
 			PROCESSOR_SHARING,
 			FCFS,
-			EXACT,
 		};
 
 	/**
@@ -188,10 +191,10 @@ public enum SchedulingPolicy implements Enumerator {
 	 */
 	public static SchedulingPolicy get(int value) {
 		switch (value) {
+			case EXACT_VALUE: return EXACT;
 			case DELAY_VALUE: return DELAY;
 			case PROCESSOR_SHARING_VALUE: return PROCESSOR_SHARING;
 			case FCFS_VALUE: return FCFS;
-			case EXACT_VALUE: return EXACT;
 		}
 		return null;
 	}

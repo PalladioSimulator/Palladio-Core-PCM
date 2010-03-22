@@ -14,11 +14,15 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Resource Container</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * UML-like&nbsp;container&nbsp;of&nbsp;a&nbsp;number&nbsp;of&nbsp;processing&nbsp;resources (e.g. hardware server)
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer <em>Operating System Resource Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,6 +39,35 @@ public interface ResourceContainer extends Entity {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
+	 * Returns the value of the '<em><b>Operating System Resource Container</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operating System Resource Container</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operating System Resource Container</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
+	 * @see #setOperatingSystem_ResourceContainer(ContainerOperatingSystem)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_OperatingSystem_ResourceContainer()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ContainerOperatingSystem getOperatingSystem_ResourceContainer();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer <em>Operating System Resource Container</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operating System Resource Container</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
+	 * @see #getOperatingSystem_ResourceContainer()
+	 * @generated
+	 */
+	void setOperatingSystem_ResourceContainer(ContainerOperatingSystem value);
+
+	/**
 	 * Returns the value of the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification}.
 	 * <!-- begin-user-doc -->
@@ -49,35 +82,5 @@ public interface ResourceContainer extends Entity {
 	 * @generated
 	 */
 	EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer();
-
-	/**
-	 * Returns the value of the '<em><b>Scheduler</b></em>' attribute.
-	 * The default value is <code>"ABSTRACT"</code>.
-	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scheduler</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scheduler</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
-	 * @see #setScheduler(ContainerCPUScheduler)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_Scheduler()
-	 * @model default="ABSTRACT"
-	 * @generated
-	 */
-	ContainerCPUScheduler getScheduler();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduler</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
-	 * @see #getScheduler()
-	 * @generated
-	 */
-	void setScheduler(ContainerCPUScheduler value);
 
 } // ResourceContainer

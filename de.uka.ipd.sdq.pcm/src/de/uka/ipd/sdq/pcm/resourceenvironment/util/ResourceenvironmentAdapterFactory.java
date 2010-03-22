@@ -104,12 +104,12 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createResourceContainerAdapter();
 			}
 			@Override
-			public Adapter caseIdentifier(Identifier object) {
-				return createIdentifierAdapter();
-			}
-			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
 			}
 			@Override
 			public Adapter caseEntity(Entity object) {

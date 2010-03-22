@@ -78,6 +78,11 @@
 
 «DEFINE Action FOR AcquireAction»
 	// Acquire «this.passiveresource_AcquireAction»
+	{
+	  //TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU"
+      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluateStoEx("0",Double.class));
+      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"CPU",demand);
+    }
 	if (pr_«this.passiveresource_AcquireAction.id.javaVariableName()» == null) {
 		// Initialise Resource First...
 		pr_«this.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(this.assemblyContextID, "«this.passiveresource_AcquireAction.entityName»«this.passiveresource_AcquireAction.id»", ctx.findResource(assemblyContextID), (Integer)ctx.evaluateStoEx("«this.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»",Integer.class));

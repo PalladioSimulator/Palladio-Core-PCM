@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -14,6 +15,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Communication Link Resource Specification</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * Throughput and performance specification of linking resources
+ * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -29,7 +34,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * @model
  * @generated
  */
-public interface CommunicationLinkResourceSpecification extends EObject {
+public interface CommunicationLinkResourceSpecification extends Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

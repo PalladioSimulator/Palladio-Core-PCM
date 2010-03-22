@@ -92,6 +92,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
+			case RepositoryPackage.REQUIRED_CHARACTERISATION: return createRequiredCharacterisation();
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
@@ -210,6 +211,16 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public Interface createInterface() {
 		InterfaceImpl interface_ = new InterfaceImpl();
 		return interface_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredCharacterisation createRequiredCharacterisation() {
+		RequiredCharacterisationImpl requiredCharacterisation = new RequiredCharacterisationImpl();
+		return requiredCharacterisation;
 	}
 
 	/**

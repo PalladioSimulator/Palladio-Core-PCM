@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO
+ * TODO Michael Hauck
  * <!-- end-model-doc -->
  *
  * <p>

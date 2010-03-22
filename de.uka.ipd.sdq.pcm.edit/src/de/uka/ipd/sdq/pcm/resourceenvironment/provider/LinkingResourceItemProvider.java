@@ -70,48 +70,25 @@ public class LinkingResourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addToResourceContainer_LinkingResourcePropertyDescriptor(object);
-			addFromResourceContainer_LinkingResourcePropertyDescriptor(object);
+			addConnectedResourceContainers_LinkingResourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the To Resource Container Linking Resource feature.
+	 * This adds a property descriptor for the Connected Resource Containers Linking Resource feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addToResourceContainer_LinkingResourcePropertyDescriptor(Object object) {
+	protected void addConnectedResourceContainers_LinkingResourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LinkingResource_toResourceContainer_LinkingResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_toResourceContainer_LinkingResource_feature", "_UI_LinkingResource_type"),
-				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the From Resource Container Linking Resource feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFromResourceContainer_LinkingResourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LinkingResource_fromResourceContainer_LinkingResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_fromResourceContainer_LinkingResource_feature", "_UI_LinkingResource_type"),
-				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE,
+				 getString("_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature", "_UI_LinkingResource_type"),
+				 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
 				 true,
 				 false,
 				 true,

@@ -25,6 +25,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * The main package contributing component types and interfaces.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryFactory
  * @model kind="package"
  * @generated
@@ -280,7 +283,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
 	 * @generated
 	 */
-	int PROVIDES_COMPONENT_TYPE = 11;
+	int PROVIDES_COMPONENT_TYPE = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
@@ -320,7 +323,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
 	 * @generated
 	 */
-	int EXCEPTION_TYPE = 10;
+	int EXCEPTION_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -466,7 +469,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int COMPLETE_COMPONENT_TYPE = 13;
+	int COMPLETE_COMPONENT_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
@@ -476,7 +479,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
 	 * @generated
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 12;
+	int IMPLEMENTATION_COMPONENT_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
@@ -486,7 +489,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
 	 * @generated
 	 */
-	int DELEGATION_CONNECTOR = 14;
+	int DELEGATION_CONNECTOR = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -624,13 +627,59 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE__REPOSITORY_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Required Characterisations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__REQUIRED_CHARACTERISATIONS = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl <em>Required Characterisation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredCharacterisation()
+	 * @generated
+	 */
+	int REQUIRED_CHARACTERISATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CHARACTERISATION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CHARACTERISATION__PARAMETER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Required Characterisation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CHARACTERISATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
@@ -640,7 +689,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getResourceRequiredRole()
 	 * @generated
 	 */
-	int RESOURCE_REQUIRED_ROLE = 9;
+	int RESOURCE_REQUIRED_ROLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -965,7 +1014,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
 	 * @generated
 	 */
-	int COMPOSITE_COMPONENT = 15;
+	int COMPOSITE_COMPONENT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1101,7 +1150,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
 	 * @generated
 	 */
-	int BASIC_COMPONENT = 16;
+	int BASIC_COMPONENT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1210,7 +1259,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
 	 * @generated
 	 */
-	int PRIMITIVE_DATA_TYPE = 17;
+	int PRIMITIVE_DATA_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Repository Data Type</b></em>' container reference.
@@ -1247,7 +1296,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
 	 * @generated
 	 */
-	int COLLECTION_DATA_TYPE = 18;
+	int COLLECTION_DATA_TYPE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1302,7 +1351,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
 	 * @generated
 	 */
-	int COMPOSITE_DATA_TYPE = 19;
+	int COMPOSITE_DATA_TYPE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1366,7 +1415,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
 	 * @generated
 	 */
-	int INNER_DECLARATION = 20;
+	int INNER_DECLARATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -1403,7 +1452,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 	 * @generated
 	 */
-	int PROVIDED_ROLE = 21;
+	int PROVIDED_ROLE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1458,7 +1507,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 22;
+	int PARAMETER_MODIFIER = 23;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
@@ -1468,7 +1517,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_ENUM = 23;
+	int PRIMITIVE_TYPE_ENUM = 24;
 
 
 	/**
@@ -1823,6 +1872,49 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInterface_Repository_Interface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required Characterisations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Characterisations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_RequiredCharacterisations();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation <em>Required Characterisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Required Characterisation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation
+	 * @generated
+	 */
+	EClass getRequiredCharacterisation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getType()
+	 * @see #getRequiredCharacterisation()
+	 * @generated
+	 */
+	EAttribute getRequiredCharacterisation_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getParameter()
+	 * @see #getRequiredCharacterisation()
+	 * @generated
+	 */
+	EReference getRequiredCharacterisation_Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole <em>Resource Required Role</em>}'.
@@ -2445,6 +2537,40 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository_Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Characterisations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__REQUIRED_CHARACTERISATIONS = eINSTANCE.getInterface_RequiredCharacterisations();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl <em>Required Characterisation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredCharacterisation()
+		 * @generated
+		 */
+		EClass REQUIRED_CHARACTERISATION = eINSTANCE.getRequiredCharacterisation();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIRED_CHARACTERISATION__TYPE = eINSTANCE.getRequiredCharacterisation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIRED_CHARACTERISATION__PARAMETER = eINSTANCE.getRequiredCharacterisation_Parameter();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.

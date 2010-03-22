@@ -144,6 +144,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceAdapter();
 			}
 			@Override
+			public Adapter caseRequiredCharacterisation(RequiredCharacterisation object) {
+				return createRequiredCharacterisationAdapter();
+			}
+			@Override
 			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
 				return createResourceRequiredRoleAdapter();
 			}
@@ -392,6 +396,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation <em>Required Characterisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation
+	 * @generated
+	 */
+	public Adapter createRequiredCharacterisationAdapter() {
 		return null;
 	}
 

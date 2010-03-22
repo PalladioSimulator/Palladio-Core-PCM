@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getNoOfReplicas <em>No Of Replicas</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getNumberOfReplicas <em>Number Of Replicas</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,7 +92,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.DELAY;
+	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.EXACT;
 
 	/**
 	 * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
@@ -125,27 +125,25 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	protected PCMRandomVariable processingRate_ProcessingResourceSpecification;
 
 	/**
-	 * The default value of the '{@link #getNoOfReplicas() <em>No Of Replicas</em>}' attribute.
+	 * The default value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNoOfReplicas()
+	 * @see #getNumberOfReplicas()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NO_OF_REPLICAS_EDEFAULT = 1;
+	protected static final int NUMBER_OF_REPLICAS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNoOfReplicas() <em>No Of Replicas</em>}' attribute.
+	 * The cached value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNoOfReplicas()
+	 * @see #getNumberOfReplicas()
 	 * @generated
 	 * @ordered
 	 */
-	protected int noOfReplicas = NO_OF_REPLICAS_EDEFAULT;
+	protected int numberOfReplicas = NUMBER_OF_REPLICAS_EDEFAULT;
 
-	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,8 +312,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNoOfReplicas() {
-		return noOfReplicas;
+	public int getNumberOfReplicas() {
+		return numberOfReplicas;
 	}
 
 	/**
@@ -323,11 +321,11 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNoOfReplicas(int newNoOfReplicas) {
-		int oldNoOfReplicas = noOfReplicas;
-		noOfReplicas = newNoOfReplicas;
+	public void setNumberOfReplicas(int newNumberOfReplicas) {
+		int oldNumberOfReplicas = numberOfReplicas;
+		numberOfReplicas = newNumberOfReplicas;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS, oldNoOfReplicas, noOfReplicas));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS, oldNumberOfReplicas, numberOfReplicas));
 	}
 
 	/**
@@ -363,8 +361,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return basicGetActiveResourceType_ActiveResourceSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
 				return getProcessingRate_ProcessingResourceSpecification();
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS:
-				return getNoOfReplicas();
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
+				return getNumberOfReplicas();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -392,8 +390,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
 				setProcessingRate_ProcessingResourceSpecification((PCMRandomVariable)newValue);
 				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS:
-				setNoOfReplicas((Integer)newValue);
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
+				setNumberOfReplicas((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -422,8 +420,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
 				setProcessingRate_ProcessingResourceSpecification((PCMRandomVariable)null);
 				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS:
-				setNoOfReplicas(NO_OF_REPLICAS_EDEFAULT);
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
+				setNumberOfReplicas(NUMBER_OF_REPLICAS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -447,8 +445,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return activeResourceType_ActiveResourceSpecification != null;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
 				return processingRate_ProcessingResourceSpecification != null;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS:
-				return noOfReplicas != NO_OF_REPLICAS_EDEFAULT;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
+				return numberOfReplicas != NUMBER_OF_REPLICAS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -469,8 +467,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		result.append(mttf);
 		result.append(", schedulingPolicy: ");
 		result.append(schedulingPolicy);
-		result.append(", noOfReplicas: ");
-		result.append(noOfReplicas);
+		result.append(", numberOfReplicas: ");
+		result.append(numberOfReplicas);
 		result.append(')');
 		return result.toString();
 	}

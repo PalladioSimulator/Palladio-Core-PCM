@@ -260,6 +260,8 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateRole((Role)value, diagnostics, context);
 			case RepositoryPackage.INTERFACE:
 				return validateInterface((Interface)value, diagnostics, context);
+			case RepositoryPackage.REQUIRED_CHARACTERISATION:
+				return validateRequiredCharacterisation((RequiredCharacterisation)value, diagnostics, context);
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE:
 				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
 			case RepositoryPackage.EXCEPTION_TYPE:
@@ -490,6 +492,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 */
 	public boolean validateInterface_SignaturesHaveToBeUniqueForAnInterface(Interface interface_, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return interface_.SignaturesHaveToBeUniqueForAnInterface(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRequiredCharacterisation(RequiredCharacterisation requiredCharacterisation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(requiredCharacterisation, diagnostics, context);
 	}
 
 	/**

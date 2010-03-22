@@ -98,7 +98,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))";
+	protected static final String EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) \n"+"or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))";
 
 	/**
 	 * The cached OCL invariant for the '{@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant operation.
@@ -149,7 +149,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001 else true endif";
+	protected static final String ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then \n"+"	self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 \n"+"	and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001 \n"+"	else true \n"+"endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #AllProbabilisticBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>All Probabilistic Branch Probabilities Must Sum Up To1</em>}' invariant operation.

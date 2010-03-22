@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class ResourceEnvironmentItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -85,7 +86,7 @@ public class ResourceEnvironmentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKINGRESOURCE);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
 			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
 		}
 		return childrenFeatures;
@@ -123,7 +124,10 @@ public class ResourceEnvironmentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ResourceEnvironment_type");
+		String label = ((ResourceEnvironment)object).getEntityName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ResourceEnvironment_type") :
+			getString("_UI_ResourceEnvironment_type") + " " + label;
 	}
 
 	/**
@@ -138,7 +142,7 @@ public class ResourceEnvironmentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceEnvironment.class)) {
-			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKINGRESOURCE:
+			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -159,7 +163,7 @@ public class ResourceEnvironmentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKINGRESOURCE,
+				(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
 				 ResourceenvironmentFactory.eINSTANCE.createLinkingResource()));
 
 		newChildDescriptors.add

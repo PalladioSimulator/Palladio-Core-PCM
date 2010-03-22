@@ -242,6 +242,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RequiredCharacterisationItemProvider requiredCharacterisationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequiredCharacterisationAdapter() {
+		if (requiredCharacterisationItemProvider == null) {
+			requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
+		}
+
+		return requiredCharacterisationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,7 +544,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -576,6 +599,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (requiredCharacterisationItemProvider != null) requiredCharacterisationItemProvider.dispose();
 		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();

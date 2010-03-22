@@ -7,7 +7,9 @@ Configuration getConfiguration() : GLOBALVAR Features;
 FeatureConfig getDefaultFeatureConfig() : getConfiguration().defaultConfig;
 
 FeatureConfig getFeatureConfig(Object o) : 
-	getConfiguration().configOverrides != null && getConfiguration().configOverrides.referencedObject == o ?
+	//TODO changed configOverrides.referencedObject to configOverrides.annotatedElement
+	//Is this correct?
+	getConfiguration().configOverrides != null && getConfiguration().configOverrides.annotatedElement == o ?
 		getConfiguration().configOverrides
 	:
 		null;

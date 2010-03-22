@@ -13,6 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Resource Repository</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Extendable repository of resource types of the PCM. The resource type repository is intentionally left open to support
+ * arbitrary resources in the future
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

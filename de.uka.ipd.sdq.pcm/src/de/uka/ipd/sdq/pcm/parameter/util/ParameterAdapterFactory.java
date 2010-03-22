@@ -89,16 +89,16 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	protected ParameterSwitch<Adapter> modelSwitch =
 		new ParameterSwitch<Adapter>() {
 			@Override
+			public Adapter caseVariableUsage(VariableUsage object) {
+				return createVariableUsageAdapter();
+			}
+			@Override
 			public Adapter caseVariableCharacterisation(VariableCharacterisation object) {
 				return createVariableCharacterisationAdapter();
 			}
 			@Override
 			public Adapter caseCharacterisedVariable(CharacterisedVariable object) {
 				return createCharacterisedVariableAdapter();
-			}
-			@Override
-			public Adapter caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {

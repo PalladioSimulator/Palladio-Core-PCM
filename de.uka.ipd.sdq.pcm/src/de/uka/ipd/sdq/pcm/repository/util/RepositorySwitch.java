@@ -202,6 +202,12 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RepositoryPackage.REQUIRED_CHARACTERISATION: {
+				RequiredCharacterisation requiredCharacterisation = (RequiredCharacterisation)theEObject;
+				T result = caseRequiredCharacterisation(requiredCharacterisation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: {
 				ResourceRequiredRole resourceRequiredRole = (ResourceRequiredRole)theEObject;
 				T result = caseResourceRequiredRole(resourceRequiredRole);
@@ -497,6 +503,21 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseInterface(Interface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiredCharacterisation(RequiredCharacterisation object) {
 		return null;
 	}
 

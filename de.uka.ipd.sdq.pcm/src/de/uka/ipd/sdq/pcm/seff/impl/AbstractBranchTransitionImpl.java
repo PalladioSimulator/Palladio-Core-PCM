@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public abstract class AbstractBranchTransitionImpl extends NamedElementImpl implements AbstractBranchTransition {
+public abstract class AbstractBranchTransitionImpl extends EntityImpl implements AbstractBranchTransition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

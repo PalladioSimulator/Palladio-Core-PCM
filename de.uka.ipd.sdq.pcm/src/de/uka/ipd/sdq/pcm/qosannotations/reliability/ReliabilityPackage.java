@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Reliability&nbsp;aspects&nbsp;of&nbsp;QoS&nbsp;annotations.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityFactory
  * @model kind="package"
  * @generated

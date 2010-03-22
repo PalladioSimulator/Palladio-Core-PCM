@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Package containing all resource types supported by the PCM
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory
  * @model kind="package"
  * @generated

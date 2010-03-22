@@ -94,6 +94,15 @@ public interface RepositoryFactory extends EFactory {
 	Interface createInterface();
 
 	/**
+	 * Returns a new object of class '<em>Required Characterisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Characterisation</em>'.
+	 * @generated
+	 */
+	RequiredCharacterisation createRequiredCharacterisation();
+
+	/**
 	 * Returns a new object of class '<em>Resource Required Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
@@ -27,7 +28,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractBranchTransition extends NamedElement {
+public interface AbstractBranchTransition extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

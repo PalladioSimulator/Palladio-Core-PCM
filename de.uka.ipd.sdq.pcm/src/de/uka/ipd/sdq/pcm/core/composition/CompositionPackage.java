@@ -24,6 +24,9 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * A package holding all composable entities
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionFactory
  * @model kind="package"
  * @generated

@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Package capturing performance aspects of an RDSEFF
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.seff.performance.PerformanceFactory
  * @model kind="package"
  * @generated

@@ -209,6 +209,11 @@ public class ResourceDemandingBehaviourItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
 				 SeffFactory.eINSTANCE.createSetVariableAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createInternalCallAction()));
 	}
 
 	/**

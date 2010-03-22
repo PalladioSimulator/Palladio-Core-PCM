@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.util;
 
-import de.uka.ipd.sdq.pcm.protocol.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -13,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,12 +93,6 @@ public class ProtocolSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ProtocolPackage.SERVICE_CALL: {
-				ServiceCall serviceCall = (ServiceCall)theEObject;
-				T result = caseServiceCall(serviceCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ProtocolPackage.PROTOCOL: {
 				Protocol protocol = (Protocol)theEObject;
 				T result = caseProtocol(protocol);
@@ -109,21 +101,6 @@ public class ProtocolSwitch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Call</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseServiceCall(ServiceCall object) {
-		return null;
 	}
 
 	/**

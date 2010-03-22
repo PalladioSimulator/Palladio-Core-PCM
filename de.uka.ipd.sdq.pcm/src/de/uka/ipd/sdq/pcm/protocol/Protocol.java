@@ -59,7 +59,7 @@ public interface Protocol extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * TODO
+	 * Multiple protocols following different formalisms are supported by the PCM and distinguished by a protocol ID.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Protocol Type ID</em>' attribute.
 	 * @see #setProtocolTypeID(String)

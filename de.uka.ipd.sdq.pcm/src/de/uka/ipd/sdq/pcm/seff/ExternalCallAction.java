@@ -5,11 +5,14 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +29,6 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}</li>
  * </ul>
@@ -37,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @model
  * @generated
  */
-public interface ExternalCallAction extends AbstractAction {
+public interface ExternalCallAction extends AbstractAction, CallAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,38 +73,6 @@ public interface ExternalCallAction extends AbstractAction {
 	void setCalledService_ExternalService(Signature value);
 
 	/**
-	 * Returns the value of the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Parameter Usages External Call Action</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Parameter Usages External Call Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_InputParameterUsages_ExternalCallAction()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<VariableUsage> getInputParameterUsages_ExternalCallAction();
-
-	/**
-	 * Returns the value of the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Output Variable Usages External Call Action</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Variable Usages External Call Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_OutputVariableUsages_ExternalCallAction()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<VariableUsage> getOutputVariableUsages_ExternalCallAction();
-
-	/**
 	 * Returns the value of the '<em><b>Role External Service</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -112,12 +81,12 @@ public interface ExternalCallAction extends AbstractAction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role External Service</em>' reference.
-	 * @see #setRole_ExternalService(Role)
+	 * @see #setRole_ExternalService(RequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_Role_ExternalService()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Role getRole_ExternalService();
+	RequiredRole getRole_ExternalService();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}' reference.
@@ -127,7 +96,7 @@ public interface ExternalCallAction extends AbstractAction {
 	 * @see #getRole_ExternalService()
 	 * @generated
 	 */
-	void setRole_ExternalService(Role value);
+	void setRole_ExternalService(RequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Retry Count</b></em>' attribute.
@@ -155,5 +124,31 @@ public interface ExternalCallAction extends AbstractAction {
 	 * @generated
 	 */
 	void setRetryCount(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <pre id="comment_text_0" class="bz_comment_text">
+	 * check if the signature
+	 * (declared in calledService_ExternalService attribute) belongs to the role
+	 * (declared in role_ExternalService attribute)
+	 * </pre>
+	 * if (self.role_ExternalService.oclIsTypeOf(repository::ProvidedRole)) then
+	 * 	self.calledService_ExternalService->includesAll(
+	 * 		self.role_ExternalService.oclAsType(repository::ProvidedRole).providedInterface__ProvidedRole.signatures__Interface)
+	 * else if (self.role_ExternalService.oclIsTypeOf(repository::RequiredRole)) then
+	 * 	self.calledService_ExternalService->includesAll(
+	 * 		self.role_ExternalService.oclAsType(repository::RequiredRole).requiredInterface__RequiredRole.signatures__Interface)
+	 * 		else true
+	 * 		endif
+	 * endif
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='if (self.role_ExternalService.oclIsTypeOf(repository::ProvidedRole)) then\r\n\tself.calledService_ExternalService->includesAll(\r\n\t\tself.role_ExternalService.oclAsType(repository::ProvidedRole).providedInterface__ProvidedRole.signatures__Interface)\r\nelse if (self.role_ExternalService.oclIsTypeOf(repository::RequiredRole)) then\r\n\tself.calledService_ExternalService->includesAll(\r\n\t\tself.role_ExternalService.oclAsType(repository::RequiredRole).requiredInterface__RequiredRole.signatures__Interface)\r\n\t\telse true\r\n\t\tendif\r\nendif'"
+	 * @generated
+	 */
+	boolean SignatureBelongsToRole(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ExternalCallAction

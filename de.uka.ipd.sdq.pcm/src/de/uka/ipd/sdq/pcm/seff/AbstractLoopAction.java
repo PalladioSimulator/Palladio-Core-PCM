@@ -12,7 +12,9 @@ package de.uka.ipd.sdq.pcm.seff;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO
+ * <p>
+ *     Abstract parent class of any loop (e.g. LoopAction)
+ * </p>
  * <!-- end-model-doc -->
  *
  * <p>

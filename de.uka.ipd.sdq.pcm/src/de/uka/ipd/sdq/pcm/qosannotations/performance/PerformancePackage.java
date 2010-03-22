@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Performance aspects of QoS annotations.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.qosannotations.performance.PerformanceFactory
  * @model kind="package"
  * @generated

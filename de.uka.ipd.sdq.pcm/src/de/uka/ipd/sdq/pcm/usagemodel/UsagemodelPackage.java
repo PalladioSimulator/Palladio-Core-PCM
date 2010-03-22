@@ -24,83 +24,87 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. 
- * 
- * TODO: Include the example from Heiko's dissertation here? But how to include the picture?
- * 
- * The usage of a software system by external clients has to be captured in models to enable model-driven
- * performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently
- * present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided
- * roles), waiting delays between service invocations, and values for parameters and component configurations.
- * 
- * This package contains the usage specification language, which (i) provides more expressiveness for
- * characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts
- * familiar to domain experts to create a domain specific language. The language is called PCM usage
- * model.
- * 
- * The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. 
- * 
- * Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component
- * architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs
- * and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource
- * environment and component architecture may be changed independently from the UsageModel 
- * by system architects, if the system's ProvidedRoles remain unchanged.
- * 
- * Discussion: 
- * Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,
- * 78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.
- * Other performance meta-models mix up the specification of user behaviour, component behaviour, and
- * resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance
- * model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).
- * 
- * Furthermore, none of the other performance meta-models support explicit service parameter modelling.
- * While CSM [162] includes a meta-class Message to specify the amount of data transferred between
- * two steps in the performance model, and KLAPER [78] allows the specification of parameter values
- * in principle, none of these language uses the information to parameterise resource demands or component
- * behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.
- * 
- * The PCM usage model has been designed based on meta models such as the performance domain model
- * of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore
- * related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage
- * model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle
- * differences:
- * • The usage model is aligned with the role of the domain expert, and uses only concepts known to
- * this role. It is a domain specific language, whereas the UML SPT performance domain model is
- * a general purpose language that includes information, which is usually spread over multiple developer
- * roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts
- * should be able to create PCM usage models with appropriate tools independently from other developer
- * roles, because such models only contain concepts known to them.
- * • The number of loop iterations is not bound to a constant value, but can be specified as a random
- * variable.
- * • The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.
- * • Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the
- * services of a system one at a time.
- * • System service invocations can be enhanced with characterisations of parameters values.
- * 
- * [31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”
- * http://www.omg.org/cgi-bin/doc?formal/2005-01-02, January 2005.
- * 
- * [34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software
- * testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.
- * 
- * [78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language
- * for performance and reliability analysis of component-based systems,” in Proc. 5th International
- * Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,
- * pp. 25–36.
- * 
- * [162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”
- * in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th
- * International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,
- * A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.
- * 
- * [187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models
- * to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th
- * international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM
- * Press, 2005, pp. 87–98.
- * 
- * 
- * 
- * 
+ * TODO:&nbsp;Put&nbsp;the&nbsp;3.2.2&nbsp;Context&nbsp;Model&nbsp;chapter&nbsp;of&nbsp;Steffens&nbsp;Diss&nbsp;somewhere&nbsp;so&nbsp;that&nbsp;it&nbsp;can&nbsp;be&nbsp;referred&nbsp;to&nbsp;here.&nbsp;It&nbsp;provides&nbsp;an&nbsp;important&nbsp;overview&nbsp;on&nbsp;why&nbsp;we&nbsp;have&nbsp;the&nbsp;usage&nbsp;model.&nbsp;<br />
+ * <br />
+ * TODO:&nbsp;Include&nbsp;the&nbsp;example&nbsp;from&nbsp;Heiko's&nbsp;dissertation&nbsp;here?&nbsp;But&nbsp;how&nbsp;to&nbsp;include&nbsp;the&nbsp;picture?<br />
+ * <br />
+ * The&nbsp;usage&nbsp;of&nbsp;a&nbsp;software&nbsp;system&nbsp;by&nbsp;external&nbsp;clients&nbsp;has&nbsp;to&nbsp;be&nbsp;captured&nbsp;in&nbsp;models&nbsp;to&nbsp;enable&nbsp;model-driven<br />
+ * performance&nbsp;predictions.&nbsp;Here,&nbsp;the&nbsp;term&nbsp;usage&nbsp;refers&nbsp;to&nbsp;workload&nbsp;(i.e.,&nbsp;the&nbsp;number&nbsp;of&nbsp;users&nbsp;concurrently<br />
+ * present&nbsp;in&nbsp;the&nbsp;system),&nbsp;usage&nbsp;scenarios&nbsp;(i.e.,&nbsp;possible&nbsp;sequences&nbsp;of&nbsp;invoking&nbsp;services&nbsp;at&nbsp;system&nbsp;provided<br />
+ * roles),&nbsp;waiting&nbsp;delays&nbsp;between&nbsp;service&nbsp;invocations,&nbsp;and&nbsp;values&nbsp;for&nbsp;parameters&nbsp;and&nbsp;component&nbsp;configurations.<br />
+ * <br />
+ * This&nbsp;package&nbsp;contains&nbsp;the&nbsp;usage&nbsp;specification&nbsp;language,&nbsp;which&nbsp;(i)&nbsp;provides&nbsp;more&nbsp;expressiveness&nbsp;for<br />
+ * characterising&nbsp;parameter&nbsp;instances&nbsp;than&nbsp;previous&nbsp;models,&nbsp;but&nbsp;(ii)&nbsp;at&nbsp;the&nbsp;same&nbsp;time&nbsp;is&nbsp;restricted&nbsp;to&nbsp;concepts<br />
+ * familiar&nbsp;to&nbsp;domain&nbsp;experts&nbsp;to&nbsp;create&nbsp;a&nbsp;domain&nbsp;specific&nbsp;language.&nbsp;The&nbsp;language&nbsp;is&nbsp;called&nbsp;PCM&nbsp;usage<br />
+ * model.<br />
+ * <br />
+ * The&nbsp;UsageModel&nbsp;specifies&nbsp;the&nbsp;whole&nbsp;user&nbsp;interaction&nbsp;with&nbsp;a&nbsp;system&nbsp;from&nbsp;a&nbsp;performance&nbsp;viewpoint.&nbsp;It&nbsp;consists&nbsp;of&nbsp;a&nbsp;number&nbsp;of&nbsp;concurrently&nbsp;executed&nbsp;UsageScenarios&nbsp;and&nbsp;a&nbsp;set&nbsp;of&nbsp;global&nbsp;UserData&nbsp;specifications.&nbsp;Each&nbsp;UsageScenario&nbsp;includes&nbsp;a&nbsp;workload&nbsp;and&nbsp;a&nbsp;scenario&nbsp;behaviour.&nbsp;The&nbsp;concepts&nbsp;are&nbsp;explained&nbsp;for&nbsp;the&nbsp;single&nbsp;meta&nbsp;classes&nbsp;included&nbsp;in&nbsp;this&nbsp;package.&nbsp;<br />
+ * <br />
+ * Note&nbsp;that&nbsp;UsageModels&nbsp;are&nbsp;completely&nbsp;decoupled&nbsp;from&nbsp;the&nbsp;inner&nbsp;contents&nbsp;of&nbsp;a&nbsp;system,&nbsp;which&nbsp;consists&nbsp;of&nbsp;an&nbsp;assembly&nbsp;and&nbsp;a&nbsp;connected&nbsp;resource&nbsp;environment.&nbsp;The&nbsp;UsageModel&nbsp;only&nbsp;refers&nbsp;to&nbsp;services&nbsp;of&nbsp;system&nbsp;provided&nbsp;roles.&nbsp;It&nbsp;regards&nbsp;the&nbsp;component<br />
+ * architecture&nbsp;(i.e.,&nbsp;the&nbsp;assembly)&nbsp;as&nbsp;well&nbsp;as&nbsp;used&nbsp;resources&nbsp;(i.e.,&nbsp;hardware&nbsp;devices&nbsp;such&nbsp;as&nbsp;CPUs<br />
+ * and&nbsp;harddisks&nbsp;or&nbsp;software&nbsp;entities&nbsp;such&nbsp;as&nbsp;threads,&nbsp;semaphores)&nbsp;as&nbsp;hidden&nbsp;in&nbsp;the&nbsp;system.&nbsp;Thus,&nbsp;the&nbsp;UsageModel&nbsp;only&nbsp;captures&nbsp;information&nbsp;that&nbsp;is&nbsp;available&nbsp;to&nbsp;domain&nbsp;experts&nbsp;and&nbsp;can&nbsp;be&nbsp;changed&nbsp;by&nbsp;them.&nbsp;Resource<br />
+ * environment&nbsp;and&nbsp;component&nbsp;architecture&nbsp;may&nbsp;be&nbsp;changed&nbsp;independently&nbsp;from&nbsp;the&nbsp;UsageModel&nbsp;<br />
+ * by&nbsp;system&nbsp;architects,&nbsp;if&nbsp;the&nbsp;system's&nbsp;ProvidedRoles&nbsp;remain&nbsp;unchanged.<br />
+ * <br />
+ * Discussion:&nbsp;<br />
+ * Notice,&nbsp;that&nbsp;unlike&nbsp;other&nbsp;behavioural&nbsp;description&nbsp;languages&nbsp;for&nbsp;performance&nbsp;prediction&nbsp;(e.g.,&nbsp;[162,&nbsp;187,<br />
+ * 78]),&nbsp;the&nbsp;PCM&nbsp;usage&nbsp;model&nbsp;specifically&nbsp;models&nbsp;user&nbsp;behaviour&nbsp;and&nbsp;for&nbsp;example&nbsp;does&nbsp;not&nbsp;refer&nbsp;to&nbsp;resources.<br />
+ * Other&nbsp;performance&nbsp;meta-models&nbsp;mix&nbsp;up&nbsp;the&nbsp;specification&nbsp;of&nbsp;user&nbsp;behaviour,&nbsp;component&nbsp;behaviour,&nbsp;and<br />
+ * resources,&nbsp;so&nbsp;that&nbsp;a&nbsp;single&nbsp;developer&nbsp;role&nbsp;(i.e.,&nbsp;a&nbsp;performance&nbsp;analyst)&nbsp;needs&nbsp;to&nbsp;specify&nbsp;the&nbsp;performance<br />
+ * model.&nbsp;Opposed&nbsp;to&nbsp;this,&nbsp;the&nbsp;PCM&nbsp;targets&nbsp;a&nbsp;division&nbsp;of&nbsp;work&nbsp;for&nbsp;multiple&nbsp;developer&nbsp;roles&nbsp;(cf.&nbsp;Section&nbsp;3.1&nbsp;of&nbsp;Heiko&nbsp;Koziolek's&nbsp;dissertation).<br />
+ * <br />
+ * Furthermore,&nbsp;none&nbsp;of&nbsp;the&nbsp;other&nbsp;performance&nbsp;meta-models&nbsp;support&nbsp;explicit&nbsp;service&nbsp;parameter&nbsp;modelling.<br />
+ * While&nbsp;CSM&nbsp;[162]&nbsp;includes&nbsp;a&nbsp;meta-class&nbsp;Message&nbsp;to&nbsp;specify&nbsp;the&nbsp;amount&nbsp;of&nbsp;data&nbsp;transferred&nbsp;between<br />
+ * two&nbsp;steps&nbsp;in&nbsp;the&nbsp;performance&nbsp;model,&nbsp;and&nbsp;KLAPER&nbsp;[78]&nbsp;allows&nbsp;the&nbsp;specification&nbsp;of&nbsp;parameter&nbsp;values<br />
+ * in&nbsp;principle,&nbsp;none&nbsp;of&nbsp;these&nbsp;language&nbsp;uses&nbsp;the&nbsp;information&nbsp;to&nbsp;parameterise&nbsp;resource&nbsp;demands&nbsp;or&nbsp;component<br />
+ * behaviour.&nbsp;Additionally,&nbsp;they&nbsp;do&nbsp;not&nbsp;provide&nbsp;the&nbsp;information&nbsp;readily&nbsp;analysable&nbsp;by&nbsp;MDSD&nbsp;tools.<br />
+ * <br />
+ * The&nbsp;PCM&nbsp;usage&nbsp;model&nbsp;has&nbsp;been&nbsp;designed&nbsp;based&nbsp;on&nbsp;meta&nbsp;models&nbsp;such&nbsp;as&nbsp;the&nbsp;performance&nbsp;domain&nbsp;model<br />
+ * of&nbsp;the&nbsp;UML&nbsp;SPT&nbsp;profile&nbsp;[31],&nbsp;the&nbsp;Core&nbsp;Scenario&nbsp;Model&nbsp;(CSM)&nbsp;[162],&nbsp;and&nbsp;KLAPER&nbsp;[78].&nbsp;It&nbsp;is&nbsp;furthermore<br />
+ * related&nbsp;to&nbsp;usage&nbsp;models&nbsp;used&nbsp;in&nbsp;statistical&nbsp;testing&nbsp;[34].&nbsp;Although&nbsp;the&nbsp;concepts&nbsp;included&nbsp;in&nbsp;the&nbsp;PCM&nbsp;usage<br />
+ * model&nbsp;are&nbsp;quite&nbsp;similar&nbsp;to&nbsp;the&nbsp;modelling&nbsp;capabilities&nbsp;of&nbsp;the&nbsp;UML&nbsp;SPT&nbsp;profile,&nbsp;there&nbsp;are&nbsp;some&nbsp;subtle<br />
+ * differences:<br />
+ * -
+ * The&nbsp;usage&nbsp;model&nbsp;is&nbsp;aligned&nbsp;with&nbsp;the&nbsp;role&nbsp;of&nbsp;the&nbsp;domain&nbsp;expert,&nbsp;and&nbsp;uses&nbsp;only&nbsp;concepts&nbsp;known&nbsp;to<br />
+ * this&nbsp;role.&nbsp;It&nbsp;is&nbsp;a&nbsp;domain&nbsp;specific&nbsp;language,&nbsp;whereas&nbsp;the&nbsp;UML&nbsp;SPT&nbsp;performance&nbsp;domain&nbsp;model&nbsp;is<br />
+ * a&nbsp;general&nbsp;purpose&nbsp;language&nbsp;that&nbsp;includes&nbsp;information,&nbsp;which&nbsp;is&nbsp;usually&nbsp;spread&nbsp;over&nbsp;multiple&nbsp;developer<br />
+ * roles&nbsp;such&nbsp;as&nbsp;the&nbsp;component&nbsp;assembler&nbsp;and&nbsp;the&nbsp;system&nbsp;deployer,&nbsp;so&nbsp;that&nbsp;a&nbsp;domain&nbsp;expert&nbsp;without&nbsp;a&nbsp;technical&nbsp;background&nbsp;could&nbsp;not&nbsp;specify&nbsp;an&nbsp;instance&nbsp;of&nbsp;it.&nbsp;Nevertheless,&nbsp;domain&nbsp;experts<br />
+ * should&nbsp;be&nbsp;able&nbsp;to&nbsp;create&nbsp;PCM&nbsp;usage&nbsp;models&nbsp;with&nbsp;appropriate&nbsp;tools&nbsp;independently&nbsp;from&nbsp;other&nbsp;developer<br />
+ * roles,&nbsp;because&nbsp;such&nbsp;models&nbsp;only&nbsp;contain&nbsp;concepts&nbsp;known&nbsp;to&nbsp;them.<br />
+ * -
+ * The&nbsp;number&nbsp;of&nbsp;loop&nbsp;iterations&nbsp;is&nbsp;not&nbsp;bound&nbsp;to&nbsp;a&nbsp;constant&nbsp;value,&nbsp;but&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;a&nbsp;random<br />
+ * variable.<br />
+ * -
+ * The&nbsp;control&nbsp;flow&nbsp;constructs&nbsp;are&nbsp;arranged&nbsp;in&nbsp;a&nbsp;hierarchical&nbsp;fashion&nbsp;to&nbsp;enable&nbsp;easy&nbsp;analyses.<br />
+ * -
+ * Users&nbsp;are&nbsp;restricted&nbsp;to&nbsp;non-concurrent&nbsp;behaviour,&nbsp;as&nbsp;it&nbsp;is&nbsp;assumed,&nbsp;that&nbsp;users&nbsp;only&nbsp;execute&nbsp;the<br />
+ * services&nbsp;of&nbsp;a&nbsp;system&nbsp;one&nbsp;at&nbsp;a&nbsp;time.<br />
+ * -
+ * System&nbsp;service&nbsp;invocations&nbsp;can&nbsp;be&nbsp;enhanced&nbsp;with&nbsp;characterisations&nbsp;of&nbsp;parameters&nbsp;values.<br />
+ * <br />
+ * [31]&nbsp;Object&nbsp;Management&nbsp;Group&nbsp;(OMG),&nbsp;“UML&nbsp;Profile&nbsp;for&nbsp;Schedulability,&nbsp;Performance&nbsp;and&nbsp;Time,”<br />
+ * http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&nbsp;January&nbsp;2005.<br />
+ * <br />
+ * [34]&nbsp;James&nbsp;A.&nbsp;Whittaker&nbsp;and&nbsp;Michael&nbsp;G.&nbsp;Thomason,&nbsp;“A&nbsp;Markov&nbsp;chain&nbsp;model&nbsp;for&nbsp;statistical&nbsp;software<br />
+ * testing,”&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812–824,&nbsp;Oct.&nbsp;1994.<br />
+ * <br />
+ * [78]&nbsp;V.&nbsp;Grassi,&nbsp;R.&nbsp;Mirandola,&nbsp;and&nbsp;A.&nbsp;Sabetta,&nbsp;“From&nbsp;design&nbsp;to&nbsp;analysis&nbsp;models:&nbsp;a&nbsp;kernel&nbsp;language<br />
+ * for&nbsp;performance&nbsp;and&nbsp;reliability&nbsp;analysis&nbsp;of&nbsp;component-based&nbsp;systems,”&nbsp;in&nbsp;Proc.&nbsp;5th&nbsp;International<br />
+ * Workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;Performance&nbsp;(WOSP&nbsp;’05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM&nbsp;Press,&nbsp;2005,<br />
+ * pp.&nbsp;25–36.<br />
+ * <br />
+ * [162]&nbsp;D.&nbsp;B.&nbsp;Petriu&nbsp;and&nbsp;M.&nbsp;Woodside,&nbsp;“A&nbsp;metamodel&nbsp;for&nbsp;generating&nbsp;performance&nbsp;models&nbsp;from&nbsp;UML&nbsp;designs,”<br />
+ * in&nbsp;UML&nbsp;2004&nbsp;-&nbsp;The&nbsp;Unified&nbsp;Modeling&nbsp;Language.&nbsp;Model&nbsp;Languages&nbsp;and&nbsp;Applications.&nbsp;7th<br />
+ * International&nbsp;Conference,&nbsp;Lisbon,&nbsp;Portugal,&nbsp;October&nbsp;11-15,&nbsp;2004,&nbsp;Proceedings,&nbsp;ser.&nbsp;LNCS,&nbsp;T.&nbsp;Baar,<br />
+ * A.&nbsp;Strohmeier,&nbsp;A.&nbsp;Moreira,&nbsp;and&nbsp;S.&nbsp;J.&nbsp;Mellor,&nbsp;Eds.,&nbsp;vol.&nbsp;3273.&nbsp;Springer,&nbsp;2004,&nbsp;pp.&nbsp;41–53.<br />
+ * <br />
+ * [187]&nbsp;C.&nbsp;U.&nbsp;Smith,&nbsp;C.&nbsp;M.&nbsp;Llado,&nbsp;V.&nbsp;Cortellessa,&nbsp;A.&nbsp;D.&nbsp;Marco,&nbsp;and&nbsp;L.&nbsp;G.&nbsp;Williams,&nbsp;“From&nbsp;UML&nbsp;models<br />
+ * to&nbsp;software&nbsp;performance&nbsp;results:&nbsp;an&nbsp;SPE&nbsp;process&nbsp;based&nbsp;on&nbsp;XML&nbsp;interchange&nbsp;formats,”&nbsp;in&nbsp;Proc.&nbsp;5th<br />
+ * international&nbsp;workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;performance&nbsp;(WOSP’05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM<br />
+ * Press,&nbsp;2005,&nbsp;pp.&nbsp;87–98.<br />
+ * <br />
+ * <br />
+ * <br />
  * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory
  * @model kind="package"

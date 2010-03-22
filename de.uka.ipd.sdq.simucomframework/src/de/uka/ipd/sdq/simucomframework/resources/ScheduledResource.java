@@ -88,9 +88,14 @@ public class ScheduledResource extends AbstractScheduledResource {
 				createSimDelayResource(SchedulingStrategy.DELAY.toString(), getNextResourceId());
 			break;
 		// active resources scheduled by improved scheduler
-		case LINUX_2_6:
+		case LINUX_2_6_O1:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.22", numberOfCores);
 			break;
+		case LINUX_2_6_CFS:
+			throw new RuntimeException("Linux 2.6 CFS Scheduler is not supported by the simulation!");
+		case WINDOWS_7:
+			// Windows 7, Windows Vista and Windows Server 2003 share the same scheduler
+		case WINDOWS_VISTA:
 		case WINDOWS_SERVER_2003:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows 2003", numberOfCores);
 			break;

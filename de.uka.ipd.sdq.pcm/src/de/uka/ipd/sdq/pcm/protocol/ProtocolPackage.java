@@ -22,7 +22,10 @@ import org.eclipse.emf.ecore.EReference;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * TODO
+ * <p>
+ *     The PCM is prepared to support interface protocols. This package contains a protocol stub. Multiple protocols following
+ *     different formalisms are supported by the PCM and distinguished by a protocol ID.
+ * </p>
  * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.protocol.ProtocolFactory
  * @model kind="package"
@@ -69,34 +72,6 @@ public interface ProtocolPackage extends EPackage {
 	ProtocolPackage eINSTANCE = de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ServiceCallImpl <em>Service Call</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.protocol.impl.ServiceCallImpl
-	 * @see de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl#getServiceCall()
-	 * @generated
-	 */
-	int SERVICE_CALL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Signature Service Call</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_CALL__SIGNATURE_SERVICE_CALL = 0;
-
-	/**
-	 * The number of structural features of the '<em>Service Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_CALL_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,7 +79,7 @@ public interface ProtocolPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 1;
+	int PROTOCOL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Protocol Type ID</b></em>' attribute.
@@ -124,27 +99,6 @@ public interface ProtocolPackage extends EPackage {
 	 */
 	int PROTOCOL_FEATURE_COUNT = 1;
 
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.protocol.ServiceCall <em>Service Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.protocol.ServiceCall
-	 * @generated
-	 */
-	EClass getServiceCall();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.protocol.ServiceCall#getSignature__ServiceCall <em>Signature Service Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Signature Service Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.protocol.ServiceCall#getSignature__ServiceCall()
-	 * @see #getServiceCall()
-	 * @generated
-	 */
-	EReference getServiceCall_Signature__ServiceCall();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.protocol.Protocol <em>Protocol</em>}'.
@@ -189,24 +143,6 @@ public interface ProtocolPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ServiceCallImpl <em>Service Call</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.protocol.impl.ServiceCallImpl
-		 * @see de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl#getServiceCall()
-		 * @generated
-		 */
-		EClass SERVICE_CALL = eINSTANCE.getServiceCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Signature Service Call</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SERVICE_CALL__SIGNATURE_SERVICE_CALL = eINSTANCE.getServiceCall_Signature__ServiceCall();
-
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
 		 * <!-- begin-user-doc -->

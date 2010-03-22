@@ -125,6 +125,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createResourceDemandingBehaviourAdapter();
 			}
 			@Override
+			public Adapter caseResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour object) {
+				return createResourceDemandingInternalBehaviourAdapter();
+			}
+			@Override
 			public Adapter caseReleaseAction(ReleaseAction object) {
 				return createReleaseActionAdapter();
 			}
@@ -157,6 +161,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createExternalCallActionAdapter();
 			}
 			@Override
+			public Adapter caseCallAction(CallAction object) {
+				return createCallActionAdapter();
+			}
+			@Override
 			public Adapter caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
 				return createProbabilisticBranchTransitionAdapter();
 			}
@@ -183,6 +191,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSetVariableAction(SetVariableAction object) {
 				return createSetVariableActionAdapter();
+			}
+			@Override
+			public Adapter caseInternalCallAction(InternalCallAction object) {
+				return createInternalCallActionAdapter();
 			}
 			@Override
 			public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
@@ -305,6 +317,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour <em>Resource Demanding Internal Behaviour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour
+	 * @generated
+	 */
+	public Adapter createResourceDemandingInternalBehaviourAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction <em>Release Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -417,6 +443,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CallAction <em>Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.CallAction
+	 * @generated
+	 */
+	public Adapter createCallActionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -511,6 +551,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSetVariableActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.InternalCallAction <em>Internal Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.InternalCallAction
+	 * @generated
+	 */
+	public Adapter createInternalCallActionAdapter() {
 		return null;
 	}
 

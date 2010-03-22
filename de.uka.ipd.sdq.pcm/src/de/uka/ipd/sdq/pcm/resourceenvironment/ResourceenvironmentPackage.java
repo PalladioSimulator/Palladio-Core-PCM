@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -24,6 +25,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Package of entities representing the execution environment of a component based software system
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory
  * @model kind="package"
  * @generated
@@ -79,13 +83,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int RESOURCE_ENVIRONMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Linkingresource</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ENVIRONMENT__LINKINGRESOURCE = 0;
+	int RESOURCE_ENVIRONMENT__ENTITY_NAME = EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Linking Resources Resource Environment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resource Container Resource Environment</b></em>' containment reference list.
@@ -94,7 +107,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT = 1;
+	int RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource Environment</em>' class.
@@ -103,7 +116,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_ENVIRONMENT_FEATURE_COUNT = 2;
+	int RESOURCE_ENVIRONMENT_FEATURE_COUNT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LinkingResourceImpl <em>Linking Resource</em>}' class.
@@ -134,22 +147,13 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int LINKING_RESOURCE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>To Resource Container Linking Resource</b></em>' reference list.
+	 * The feature id for the '<em><b>Connected Resource Containers Linking Resource</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>From Resource Container Linking Resource</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment reference.
@@ -158,7 +162,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Linking Resource</em>' class.
@@ -167,7 +171,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKING_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+	int LINKING_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl <em>Communication Link Resource Specification</em>}' class.
@@ -180,13 +184,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = 0;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference.
@@ -195,7 +208,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 1;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference.
@@ -204,7 +217,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
@@ -213,7 +226,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 3;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
@@ -222,7 +235,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -280,13 +293,13 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 4;
 
 	/**
-	 * The feature id for the '<em><b>No Of Replicas</b></em>' attribute.
+	 * The feature id for the '<em><b>Number Of Replicas</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS = 5;
+	int PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -326,22 +339,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int RESOURCE_CONTAINER__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Operating System Resource Container</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Scheduler</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_CONTAINER__SCHEDULER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource Container</em>' class.
@@ -364,14 +377,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}' enum.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerCPUScheduler()
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerOperatingSystem()
 	 * @generated
 	 */
-	int CONTAINER_CPU_SCHEDULER = 6;
+	int CONTAINER_OPERATING_SYSTEM = 6;
 
 
 	/**
@@ -385,15 +398,15 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EClass getResourceEnvironment();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getLinkingresource <em>Linkingresource</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getLinkingResources__ResourceEnvironment <em>Linking Resources Resource Environment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Linkingresource</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getLinkingresource()
+	 * @return the meta object for the containment reference list '<em>Linking Resources Resource Environment</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getLinkingResources__ResourceEnvironment()
 	 * @see #getResourceEnvironment()
 	 * @generated
 	 */
-	EReference getResourceEnvironment_Linkingresource();
+	EReference getResourceEnvironment_LinkingResources__ResourceEnvironment();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getResourceContainer_ResourceEnvironment <em>Resource Container Resource Environment</em>}'.
@@ -417,26 +430,15 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EClass getLinkingResource();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getToResourceContainer_LinkingResource <em>To Resource Container Linking Resource</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getConnectedResourceContainers_LinkingResource <em>Connected Resource Containers Linking Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>To Resource Container Linking Resource</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getToResourceContainer_LinkingResource()
+	 * @return the meta object for the reference list '<em>Connected Resource Containers Linking Resource</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getConnectedResourceContainers_LinkingResource()
 	 * @see #getLinkingResource()
 	 * @generated
 	 */
-	EReference getLinkingResource_ToResourceContainer_LinkingResource();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getFromResourceContainer_LinkingResource <em>From Resource Container Linking Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>From Resource Container Linking Resource</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getFromResourceContainer_LinkingResource()
-	 * @see #getLinkingResource()
-	 * @generated
-	 */
-	EReference getLinkingResource_FromResourceContainer_LinkingResource();
+	EReference getLinkingResource_ConnectedResourceContainers_LinkingResource();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource <em>Communication Link Resource Specifications Linking Resource</em>}'.
@@ -569,15 +571,15 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas <em>No Of Replicas</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas <em>Number Of Replicas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>No Of Replicas</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNoOfReplicas()
+	 * @return the meta object for the attribute '<em>Number Of Replicas</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas()
 	 * @see #getProcessingResourceSpecification()
 	 * @generated
 	 */
-	EAttribute getProcessingResourceSpecification_NoOfReplicas();
+	EAttribute getProcessingResourceSpecification_NumberOfReplicas();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
@@ -588,6 +590,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResourceContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer <em>Operating System Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operating System Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EAttribute getResourceContainer_OperatingSystem_ResourceContainer();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}'.
@@ -601,17 +614,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler <em>Scheduler</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scheduler</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getScheduler()
-	 * @see #getResourceContainer()
-	 * @generated
-	 */
-	EAttribute getResourceContainer_Scheduler();
-
-	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,14 +624,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EEnum getSchedulingPolicy();
 
 	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}'.
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Container CPU Scheduler</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
+	 * @return the meta object for enum '<em>Container Operating System</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
 	 * @generated
 	 */
-	EEnum getContainerCPUScheduler();
+	EEnum getContainerOperatingSystem();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -664,12 +666,12 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass RESOURCE_ENVIRONMENT = eINSTANCE.getResourceEnvironment();
 
 		/**
-		 * The meta object literal for the '<em><b>Linkingresource</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Linking Resources Resource Environment</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_ENVIRONMENT__LINKINGRESOURCE = eINSTANCE.getResourceEnvironment_Linkingresource();
+		EReference RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT = eINSTANCE.getResourceEnvironment_LinkingResources__ResourceEnvironment();
 
 		/**
 		 * The meta object literal for the '<em><b>Resource Container Resource Environment</b></em>' containment reference list feature.
@@ -690,20 +692,12 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass LINKING_RESOURCE = eINSTANCE.getLinkingResource();
 
 		/**
-		 * The meta object literal for the '<em><b>To Resource Container Linking Resource</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Connected Resource Containers Linking Resource</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINKING_RESOURCE__TO_RESOURCE_CONTAINER_LINKING_RESOURCE = eINSTANCE.getLinkingResource_ToResourceContainer_LinkingResource();
-
-		/**
-		 * The meta object literal for the '<em><b>From Resource Container Linking Resource</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LINKING_RESOURCE__FROM_RESOURCE_CONTAINER_LINKING_RESOURCE = eINSTANCE.getLinkingResource_FromResourceContainer_LinkingResource();
+		EReference LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE = eINSTANCE.getLinkingResource_ConnectedResourceContainers_LinkingResource();
 
 		/**
 		 * The meta object literal for the '<em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment reference feature.
@@ -806,12 +800,12 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>No Of Replicas</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Number Of Replicas</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROCESSING_RESOURCE_SPECIFICATION__NO_OF_REPLICAS = eINSTANCE.getProcessingResourceSpecification_NoOfReplicas();
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS = eINSTANCE.getProcessingResourceSpecification_NumberOfReplicas();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -824,20 +818,20 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass RESOURCE_CONTAINER = eINSTANCE.getResourceContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Operating System Resource Container</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_OperatingSystem_ResourceContainer();
+
+		/**
 		 * The meta object literal for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Scheduler</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_CONTAINER__SCHEDULER = eINSTANCE.getResourceContainer_Scheduler();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
@@ -850,14 +844,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler <em>Container CPU Scheduler</em>}' enum.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerCPUScheduler
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerCPUScheduler()
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getContainerOperatingSystem()
 		 * @generated
 		 */
-		EEnum CONTAINER_CPU_SCHEDULER = eINSTANCE.getContainerCPUScheduler();
+		EEnum CONTAINER_OPERATING_SYSTEM = eINSTANCE.getContainerOperatingSystem();
 
 	}
 

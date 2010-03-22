@@ -21,6 +21,11 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * <p>
+ *     Package containing the abstract connector entity
+ * </p>
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.core.connectors.ConnectorsFactory
  * @model kind="package"
  * @generated

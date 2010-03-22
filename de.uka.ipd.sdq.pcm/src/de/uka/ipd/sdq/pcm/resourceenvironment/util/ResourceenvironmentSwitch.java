@@ -104,6 +104,7 @@ public class ResourceenvironmentSwitch<T> {
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: {
 				ResourceEnvironment resourceEnvironment = (ResourceEnvironment)theEObject;
 				T result = caseResourceEnvironment(resourceEnvironment);
+				if (result == null) result = caseNamedElement(resourceEnvironment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +120,7 @@ public class ResourceenvironmentSwitch<T> {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: {
 				CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)theEObject;
 				T result = caseCommunicationLinkResourceSpecification(communicationLinkResourceSpecification);
+				if (result == null) result = caseIdentifier(communicationLinkResourceSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

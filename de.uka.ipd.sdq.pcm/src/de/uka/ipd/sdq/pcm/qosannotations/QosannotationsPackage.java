@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * This package contains elements to specify fixed QoS attributes of system-external services.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory
  * @model kind="package"
  * @generated

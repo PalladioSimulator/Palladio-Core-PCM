@@ -11,6 +11,10 @@ package de.uka.ipd.sdq.pcm.resourcetype;
  * A representation of the model object '<em><b>Communication Link Resource Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * ResourceType representing communication links like, LAN, WAN, WiFi etc.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getCommunicationLinkResourceType()
  * @model
