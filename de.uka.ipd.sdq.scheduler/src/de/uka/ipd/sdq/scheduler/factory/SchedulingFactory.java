@@ -40,7 +40,6 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.process.PreferIdealAn
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.impl.PriorityManagerImpl;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -61,6 +60,7 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimFCFSResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimProcessorSharingResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimProcessorSharingResourceWindows;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
@@ -127,6 +127,14 @@ public class SchedulingFactory implements ISchedulingFactory {
 	{
 		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
 		resource = new SimProcessorSharingResource(resourceName, resourceId, 1);
+		active_resource_map.put(resourceId, resource);
+		return resource;
+	}
+	
+	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, int numberOfCores)
+	{
+		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		resource = new SimProcessorSharingResourceWindows(resourceName, resourceId, numberOfCores);
 		active_resource_map.put(resourceId, resource);
 		return resource;
 	}
