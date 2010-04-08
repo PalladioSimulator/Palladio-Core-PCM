@@ -58,20 +58,28 @@ public class featureconfigValidator extends EObjectValidator {
 	public static final int CONFIG_NODE__CONFIG_CARDINALITY_INVALID = 1;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Is Defined In Feature' of 'Attribute Value'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int ATTRIBUTE_VALUE__ATTRIBUTE_IS_DEFINED_IN_FEATURE = 2;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Root Is Feature Model' of 'Feature Config'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 3;
+	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 2;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Integer' of 'Integer Attribute Value'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INTEGER_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_INTEGER = 3;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Double' of 'Double Attribute Value'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int DOUBLE_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_DOUBLE = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -79,7 +87,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 3;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -136,6 +144,10 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateFeatureConfig((FeatureConfig)value, diagnostics, context);
 			case featureconfigPackage.CONFIGURATION:
 				return validateConfiguration((Configuration)value, diagnostics, context);
+			case featureconfigPackage.INTEGER_ATTRIBUTE_VALUE:
+				return validateIntegerAttributeValue((IntegerAttributeValue)value, diagnostics, context);
+			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE:
+				return validateDoubleAttributeValue((DoubleAttributeValue)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
 				return validateConfigState((ConfigState)value, diagnostics, context);
 			case featureconfigPackage.FEATURE_CONFIG_STATE:
@@ -186,18 +198,7 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(attributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAttributeValue_AttributeIsDefinedInFeature(attributeValue, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the AttributeIsDefinedInFeature constraint of '<em>Attribute Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAttributeValue_AttributeIsDefinedInFeature(AttributeValue attributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return attributeValue.AttributeIsDefinedInFeature(diagnostics, context);
 	}
 
 	/**
@@ -234,6 +235,62 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateConfiguration(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(configuration, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntegerAttributeValue(IntegerAttributeValue integerAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(integerAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntegerAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeInteger(integerAttributeValue, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the AttributeValueIsDefinedInFeatureAndEqualsTypeInteger constraint of '<em>Integer Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntegerAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeInteger(IntegerAttributeValue integerAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return integerAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeInteger(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDoubleAttributeValue(DoubleAttributeValue doubleAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(doubleAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDoubleAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeDouble(doubleAttributeValue, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the AttributeValueIsDefinedInFeatureAndEqualsTypeDouble constraint of '<em>Double Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDoubleAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeDouble(DoubleAttributeValue doubleAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return doubleAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeDouble(diagnostics, context);
 	}
 
 	/**

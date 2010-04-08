@@ -35,15 +35,6 @@ public interface featureconfigFactory extends EFactory {
 	ConfigNode createConfigNode();
 
 	/**
-	 * Returns a new object of class '<em>Attribute Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Attribute Value</em>'.
-	 * @generated
-	 */
-	AttributeValue createAttributeValue();
-
-	/**
 	 * Returns a new object of class '<em>Feature Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,6 +51,24 @@ public interface featureconfigFactory extends EFactory {
 	 * @generated
 	 */
 	Configuration createConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Integer Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Attribute Value</em>'.
+	 * @generated
+	 */
+	IntegerAttributeValue createIntegerAttributeValue();
+
+	/**
+	 * Returns a new object of class '<em>Double Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Attribute Value</em>'.
+	 * @generated
+	 */
+	DoubleAttributeValue createDoubleAttributeValue();
 
 	/**
 	 * Returns the package supported by this factory.

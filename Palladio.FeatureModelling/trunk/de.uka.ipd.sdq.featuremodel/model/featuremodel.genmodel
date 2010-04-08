@@ -22,7 +22,7 @@
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Documents/hiwi/ChristophKurrat/trunk/rational_export/FeatureModel.uml</foreignModel>
+  <foreignModel>file:/D:/hiwi/ChristophKurrat/trunk/rational_export/FeatureModel.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="featuremodel" basePackage="de.uka.ipd.sdq"
       resource="XML" disposableProviderFactory="true" ecorePackage="featuremodel.ecore#/">
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="featuremodel.ecore#//AttributeTypes">
@@ -47,7 +47,14 @@
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//NamedElement">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Attribute"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Attribute">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Attribute/range"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//IntervalRange">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/lowerBoundIncluded"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/upperBoundIncluded"/>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//ChildRelation"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Simple">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -98,32 +105,6 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//RequiredConstraint"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//ProhibitsConstraint"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//DefaultValue">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//DefaultValue/value"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//DefaultValue/type"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
-          ecoreFeature="ecore:EReference featuremodel.ecore#//DefaultValue/attribute"/>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//DefaultValue/DefaultValueMustBeOfSpecifiedType">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//DefaultValue/DefaultValueMustBeOfSpecifiedType/diagnostics"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//DefaultValue/DefaultValueMustBeOfSpecifiedType/context"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//DefaultValue/showType"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//PrimitiveAttribute">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//PrimitiveAttribute/type"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//PrimitiveAttribute/range"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//PrimitiveAttribute/defaultvalue"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//IntervalRange">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/lowerBoundIncluded"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/upperBoundIncluded"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//EnumerationRange">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference featuremodel.ecore#//EnumerationRange/values"/>
-    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//IntegerIntervalRange">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerIntervalRange/to"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerIntervalRange/from"/>
@@ -132,9 +113,11 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//ContinousIntervalRange/to"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//ContinousIntervalRange/from"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//ElementListingAttribute">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//ElementListingAttribute/range"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//IntegerAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerAttribute/defaultValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//DoubleAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//DoubleAttribute/defaultValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.featureconfig.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+
 import junit.textui.TestRunner;
 
 /**
@@ -35,8 +36,9 @@ public class featureconfigTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new featureconfigTests("featureconfig Tests");
 		suite.addTestSuite(ConfigNodeTest.class);
-		suite.addTestSuite(AttributeValueTest.class);
 		suite.addTestSuite(FeatureConfigTest.class);
+		suite.addTestSuite(IntegerAttributeValueTest.class);
+		suite.addTestSuite(DoubleAttributeValueTest.class);
 		return suite;
 	}
 

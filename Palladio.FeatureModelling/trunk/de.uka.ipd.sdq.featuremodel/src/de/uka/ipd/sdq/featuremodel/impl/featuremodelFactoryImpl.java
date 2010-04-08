@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.AttributeTypes;
-import de.uka.ipd.sdq.featuremodel.DefaultValue;
 import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
@@ -78,12 +77,10 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 			case featuremodelPackage.FEATURE_DIAGRAM: return createFeatureDiagram();
 			case featuremodelPackage.REQUIRED_CONSTRAINT: return createRequiredConstraint();
 			case featuremodelPackage.PROHIBITS_CONSTRAINT: return createProhibitsConstraint();
-			case featuremodelPackage.DEFAULT_VALUE: return createDefaultValue();
-			case featuremodelPackage.PRIMITIVE_ATTRIBUTE: return createPrimitiveAttribute();
-			case featuremodelPackage.ENUMERATION_RANGE: return createEnumerationRange();
 			case featuremodelPackage.INTEGER_INTERVAL_RANGE: return createIntegerIntervalRange();
 			case featuremodelPackage.CONTINOUS_INTERVAL_RANGE: return createContinousIntervalRange();
-			case featuremodelPackage.ELEMENT_LISTING_ATTRIBUTE: return createElementListingAttribute();
+			case featuremodelPackage.INTEGER_ATTRIBUTE: return createIntegerAttribute();
+			case featuremodelPackage.DOUBLE_ATTRIBUTE: return createDoubleAttribute();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -164,36 +161,6 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultValue createDefaultValue() {
-		DefaultValueImpl defaultValue = new DefaultValueImpl();
-		return defaultValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimitiveAttribute createPrimitiveAttribute() {
-		PrimitiveAttributeImpl primitiveAttribute = new PrimitiveAttributeImpl();
-		return primitiveAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumerationRange createEnumerationRange() {
-		EnumerationRangeImpl enumerationRange = new EnumerationRangeImpl();
-		return enumerationRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IntegerIntervalRange createIntegerIntervalRange() {
 		IntegerIntervalRangeImpl integerIntervalRange = new IntegerIntervalRangeImpl();
 		return integerIntervalRange;
@@ -214,9 +181,19 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementListingAttribute createElementListingAttribute() {
-		ElementListingAttributeImpl elementListingAttribute = new ElementListingAttributeImpl();
-		return elementListingAttribute;
+	public IntegerAttribute createIntegerAttribute() {
+		IntegerAttributeImpl integerAttribute = new IntegerAttributeImpl();
+		return integerAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleAttribute createDoubleAttribute() {
+		DoubleAttributeImpl doubleAttribute = new DoubleAttributeImpl();
+		return doubleAttribute;
 	}
 
 	/**

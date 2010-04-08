@@ -4,10 +4,10 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.featuremodel.provider;
+package de.uka.ipd.sdq.featureconfig.provider;
 
 
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.featureconfig.DoubleAttributeValue;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,25 +15,21 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.EnumerationRange} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.featureconfig.DoubleAttributeValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumerationRangeItemProvider
-	extends ItemProviderAdapter
+public class DoubleAttributeValueItemProvider
+	extends AttributeValueItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +42,7 @@ public class EnumerationRangeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumerationRangeItemProvider(AdapterFactory adapterFactory) {
+	public DoubleAttributeValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,42 +57,19 @@ public class EnumerationRangeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Values feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnumerationRange_values_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumerationRange_values_feature", "_UI_EnumerationRange_type"),
-				 featuremodelPackage.Literals.ENUMERATION_RANGE__VALUES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns EnumerationRange.gif.
+	 * This returns DoubleAttributeValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnumerationRange"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DoubleAttributeValue"));
 	}
 
 	/**
@@ -107,7 +80,10 @@ public class EnumerationRangeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EnumerationRange_type");
+		String label = ((DoubleAttributeValue)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DoubleAttributeValue_type") :
+			getString("_UI_DoubleAttributeValue_type") + " " + label;
 	}
 
 	/**
@@ -133,17 +109,6 @@ public class EnumerationRangeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return FeaturemodelEditPlugin.INSTANCE;
 	}
 
 }

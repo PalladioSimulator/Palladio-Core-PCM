@@ -278,6 +278,116 @@ public interface featureconfigPackage extends EPackage {
 	int CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.IntegerAttributeValueImpl <em>Integer Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.impl.IntegerAttributeValueImpl
+	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getIntegerAttributeValue()
+	 * @generated
+	 */
+	int INTEGER_ATTRIBUTE_VALUE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_VALUE__ID = ATTRIBUTE_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_VALUE__NAME = ATTRIBUTE_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_VALUE__VALUE = ATTRIBUTE_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Confignode</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_VALUE__CONFIGNODE = ATTRIBUTE_VALUE__CONFIGNODE;
+
+	/**
+	 * The number of structural features of the '<em>Integer Attribute Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.DoubleAttributeValueImpl <em>Double Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.impl.DoubleAttributeValueImpl
+	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getDoubleAttributeValue()
+	 * @generated
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE__ID = ATTRIBUTE_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE__NAME = ATTRIBUTE_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE__VALUE = ATTRIBUTE_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Confignode</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE__CONFIGNODE = ATTRIBUTE_VALUE__CONFIGNODE;
+
+	/**
+	 * The number of structural features of the '<em>Double Attribute Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,7 +395,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigState()
 	 * @generated
 	 */
-	int CONFIG_STATE = 4;
+	int CONFIG_STATE = 6;
 
 
 	/**
@@ -296,7 +406,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getFeatureConfigState()
 	 * @generated
 	 */
-	int FEATURE_CONFIG_STATE = 5;
+	int FEATURE_CONFIG_STATE = 7;
 
 
 	/**
@@ -459,6 +569,26 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConfiguration_ConfigOverrides();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.IntegerAttributeValue <em>Integer Attribute Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Attribute Value</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.IntegerAttributeValue
+	 * @generated
+	 */
+	EClass getIntegerAttributeValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.DoubleAttributeValue <em>Double Attribute Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Attribute Value</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.DoubleAttributeValue
+	 * @generated
+	 */
+	EClass getDoubleAttributeValue();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featureconfig.Configuration#getDefaultConfig <em>Default Config</em>}'.
@@ -651,6 +781,26 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONFIGURATION__CONFIG_OVERRIDES = eINSTANCE.getConfiguration_ConfigOverrides();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.IntegerAttributeValueImpl <em>Integer Attribute Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featureconfig.impl.IntegerAttributeValueImpl
+		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getIntegerAttributeValue()
+		 * @generated
+		 */
+		EClass INTEGER_ATTRIBUTE_VALUE = eINSTANCE.getIntegerAttributeValue();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.DoubleAttributeValueImpl <em>Double Attribute Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featureconfig.impl.DoubleAttributeValueImpl
+		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getDoubleAttributeValue()
+		 * @generated
+		 */
+		EClass DOUBLE_ATTRIBUTE_VALUE = eINSTANCE.getDoubleAttributeValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Default Config</b></em>' containment reference feature.

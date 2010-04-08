@@ -68,9 +68,10 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case featureconfigPackage.CONFIG_NODE: return createConfigNode();
-			case featureconfigPackage.ATTRIBUTE_VALUE: return createAttributeValue();
 			case featureconfigPackage.FEATURE_CONFIG: return createFeatureConfig();
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
+			case featureconfigPackage.INTEGER_ATTRIBUTE_VALUE: return createIntegerAttributeValue();
+			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE: return createDoubleAttributeValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,16 +126,6 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeValue createAttributeValue() {
-		AttributeValueImpl attributeValue = new AttributeValueImpl();
-		return attributeValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FeatureConfig createFeatureConfig() {
 		FeatureConfigImpl featureConfig = new FeatureConfigImpl();
 		return featureConfig;
@@ -148,6 +139,26 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerAttributeValue createIntegerAttributeValue() {
+		IntegerAttributeValueImpl integerAttributeValue = new IntegerAttributeValueImpl();
+		return integerAttributeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleAttributeValue createDoubleAttributeValue() {
+		DoubleAttributeValueImpl doubleAttributeValue = new DoubleAttributeValueImpl();
+		return doubleAttributeValue;
 	}
 
 	/**

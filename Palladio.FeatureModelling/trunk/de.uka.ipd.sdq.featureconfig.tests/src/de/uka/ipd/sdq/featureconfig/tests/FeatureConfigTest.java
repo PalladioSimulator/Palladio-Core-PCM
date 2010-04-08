@@ -6,10 +6,12 @@
  */
 package de.uka.ipd.sdq.featureconfig.tests;
 
-import junit.framework.TestCase;
-import junit.textui.TestRunner;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
+
+import junit.framework.TestCase;
+
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->

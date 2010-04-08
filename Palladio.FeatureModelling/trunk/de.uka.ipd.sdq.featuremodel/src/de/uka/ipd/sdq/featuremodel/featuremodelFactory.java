@@ -62,33 +62,6 @@ public interface featuremodelFactory extends EFactory {
 	FeatureDiagram createFeatureDiagram();
 
 	/**
-	 * Returns a new object of class '<em>Default Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Default Value</em>'.
-	 * @generated
-	 */
-	DefaultValue createDefaultValue();
-
-	/**
-	 * Returns a new object of class '<em>Primitive Attribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Attribute</em>'.
-	 * @generated
-	 */
-	PrimitiveAttribute createPrimitiveAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Enumeration Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enumeration Range</em>'.
-	 * @generated
-	 */
-	EnumerationRange createEnumerationRange();
-
-	/**
 	 * Returns a new object of class '<em>Integer Interval Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,13 +80,22 @@ public interface featuremodelFactory extends EFactory {
 	ContinousIntervalRange createContinousIntervalRange();
 
 	/**
-	 * Returns a new object of class '<em>Element Listing Attribute</em>'.
+	 * Returns a new object of class '<em>Integer Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Listing Attribute</em>'.
+	 * @return a new object of class '<em>Integer Attribute</em>'.
 	 * @generated
 	 */
-	ElementListingAttribute createElementListingAttribute();
+	IntegerAttribute createIntegerAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Double Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Attribute</em>'.
+	 * @generated
+	 */
+	DoubleAttribute createDoubleAttribute();
 
 	/**
 	 * Returns a new object of class '<em>Required Constraint</em>'.

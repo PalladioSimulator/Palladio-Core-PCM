@@ -98,29 +98,6 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.AttributeValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeValueItemProvider attributeValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.AttributeValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAttributeValueAdapter() {
-		if (attributeValueItemProvider == null) {
-			attributeValueItemProvider = new AttributeValueItemProvider(this);
-		}
-
-		return attributeValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.FeatureConfig} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +141,52 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		}
 
 		return configurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.IntegerAttributeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerAttributeValueItemProvider integerAttributeValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.IntegerAttributeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerAttributeValueAdapter() {
+		if (integerAttributeValueItemProvider == null) {
+			integerAttributeValueItemProvider = new IntegerAttributeValueItemProvider(this);
+		}
+
+		return integerAttributeValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.DoubleAttributeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleAttributeValueItemProvider doubleAttributeValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.DoubleAttributeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleAttributeValueAdapter() {
+		if (doubleAttributeValueItemProvider == null) {
+			doubleAttributeValueItemProvider = new DoubleAttributeValueItemProvider(this);
+		}
+
+		return doubleAttributeValueItemProvider;
 	}
 
 	/**
@@ -266,9 +289,10 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	 */
 	public void dispose() {
 		if (configNodeItemProvider != null) configNodeItemProvider.dispose();
-		if (attributeValueItemProvider != null) attributeValueItemProvider.dispose();
 		if (featureConfigItemProvider != null) featureConfigItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (integerAttributeValueItemProvider != null) integerAttributeValueItemProvider.dispose();
+		if (doubleAttributeValueItemProvider != null) doubleAttributeValueItemProvider.dispose();
 	}
 
 }

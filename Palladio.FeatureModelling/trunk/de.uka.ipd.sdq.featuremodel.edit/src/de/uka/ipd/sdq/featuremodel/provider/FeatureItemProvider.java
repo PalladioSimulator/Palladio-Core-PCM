@@ -158,12 +158,12 @@ public class FeatureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(featuremodelPackage.Literals.FEATURE__ATTRIBUTES,
-				 featuremodelFactory.eINSTANCE.createPrimitiveAttribute()));
+				 featuremodelFactory.eINSTANCE.createIntegerAttribute()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(featuremodelPackage.Literals.FEATURE__ATTRIBUTES,
-				 featuremodelFactory.eINSTANCE.createElementListingAttribute()));
+				 featuremodelFactory.eINSTANCE.createDoubleAttribute()));
 
 		newChildDescriptors.add
 			(createChildParameter

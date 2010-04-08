@@ -24,7 +24,7 @@
     </confignode>
     <confignode>
       <origin href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_WH0PYB8GEd-sff35kkuDRg" name="Size" value="25"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_WH0PYB8GEd-sff35kkuDRg" name="Size" value="25"/>
     </confignode>
     <confignode configState="ELIMINATED">
       <origin href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
@@ -40,11 +40,11 @@
     </confignode>
     <confignode>
       <origin href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_RHeiAB8GEd-sff35kkuDRg" name="Size" value="10"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_RHeiAB8GEd-sff35kkuDRg" name="Size" value="10"/>
     </confignode>
     <confignode>
       <origin href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_ZYxp0B8GEd-sff35kkuDRg" name="Size" value="5"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_ZYxp0B8GEd-sff35kkuDRg" name="Size" value="5"/>
     </confignode>
   </defaultConfig>
   <configOverrides>
@@ -71,11 +71,11 @@
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_EPF2IB8NEd-B0L4atT28YQ" name="Size" value="128"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_EPF2IB8NEd-B0L4atT28YQ" name="Size" value="128"/>
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_OjF1gB8NEd-B0L4atT28YQ" name="Size" value="7"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_OjF1gB8NEd-B0L4atT28YQ" name="Size" value="7"/>
     </confignode>
     <confignode configState="ELIMINATED">
       <origin href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
@@ -88,7 +88,7 @@
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_cxcxoB8NEd-B0L4atT28YQ" name="Size" value="1024"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_cxcxoB8NEd-B0L4atT28YQ" name="Size" value="1024"/>
     </confignode>
     <confignode configState="ELIMINATED">
       <origin href="mom_example.completionfeaturemodel#_V-ZZMB78Ed-wm-BYlEd2Aw"/>
@@ -118,11 +118,11 @@
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_x8Z8MR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_K_v1IB8OEd-B0L4atT28YQ" name="Size" value="1"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_K_v1IB8OEd-B0L4atT28YQ" name="Size" value="1"/>
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_hSVyox78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_NmGzYB8OEd-B0L4atT28YQ" name="Size" value="67"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_NmGzYB8OEd-B0L4atT28YQ" name="Size" value="67"/>
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_hvQ_Mh78Ed-wm-BYlEd2Aw"/>
@@ -135,7 +135,7 @@
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_ZW0tkR78Ed-wm-BYlEd2Aw"/>
-      <attributevalue id="_bXtiEB8OEd-B0L4atT28YQ" name="Size" value="63"/>
+      <attributevalue xsi:type="featureconfig:IntegerAttributeValue" id="_bXtiEB8OEd-B0L4atT28YQ" name="Size" value="63"/>
     </confignode>
     <confignode configState="SELECTED">
       <origin href="mom_example.completionfeaturemodel#_V-ZZMB78Ed-wm-BYlEd2Aw"/>

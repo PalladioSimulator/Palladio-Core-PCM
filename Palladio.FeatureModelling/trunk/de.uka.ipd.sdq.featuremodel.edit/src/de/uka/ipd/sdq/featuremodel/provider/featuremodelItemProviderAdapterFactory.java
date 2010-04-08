@@ -214,75 +214,6 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.DefaultValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DefaultValueItemProvider defaultValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.DefaultValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDefaultValueAdapter() {
-		if (defaultValueItemProvider == null) {
-			defaultValueItemProvider = new DefaultValueItemProvider(this);
-		}
-
-		return defaultValueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PrimitiveAttributeItemProvider primitiveAttributeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPrimitiveAttributeAdapter() {
-		if (primitiveAttributeItemProvider == null) {
-			primitiveAttributeItemProvider = new PrimitiveAttributeItemProvider(this);
-		}
-
-		return primitiveAttributeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.EnumerationRange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnumerationRangeItemProvider enumerationRangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.EnumerationRange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEnumerationRangeAdapter() {
-		if (enumerationRangeItemProvider == null) {
-			enumerationRangeItemProvider = new EnumerationRangeItemProvider(this);
-		}
-
-		return enumerationRangeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.IntegerIntervalRange} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,26 +260,49 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.IntegerAttribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementListingAttributeItemProvider elementListingAttributeItemProvider;
+	protected IntegerAttributeItemProvider integerAttributeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.IntegerAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createElementListingAttributeAdapter() {
-		if (elementListingAttributeItemProvider == null) {
-			elementListingAttributeItemProvider = new ElementListingAttributeItemProvider(this);
+	public Adapter createIntegerAttributeAdapter() {
+		if (integerAttributeItemProvider == null) {
+			integerAttributeItemProvider = new IntegerAttributeItemProvider(this);
 		}
 
-		return elementListingAttributeItemProvider;
+		return integerAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.DoubleAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleAttributeItemProvider doubleAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.DoubleAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleAttributeAdapter() {
+		if (doubleAttributeItemProvider == null) {
+			doubleAttributeItemProvider = new DoubleAttributeItemProvider(this);
+		}
+
+		return doubleAttributeItemProvider;
 	}
 
 	/**
@@ -456,12 +410,10 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 		if (featureDiagramItemProvider != null) featureDiagramItemProvider.dispose();
 		if (requiredConstraintItemProvider != null) requiredConstraintItemProvider.dispose();
 		if (prohibitsConstraintItemProvider != null) prohibitsConstraintItemProvider.dispose();
-		if (defaultValueItemProvider != null) defaultValueItemProvider.dispose();
-		if (primitiveAttributeItemProvider != null) primitiveAttributeItemProvider.dispose();
-		if (enumerationRangeItemProvider != null) enumerationRangeItemProvider.dispose();
 		if (integerIntervalRangeItemProvider != null) integerIntervalRangeItemProvider.dispose();
 		if (continousIntervalRangeItemProvider != null) continousIntervalRangeItemProvider.dispose();
-		if (elementListingAttributeItemProvider != null) elementListingAttributeItemProvider.dispose();
+		if (integerAttributeItemProvider != null) integerAttributeItemProvider.dispose();
+		if (doubleAttributeItemProvider != null) doubleAttributeItemProvider.dispose();
 	}
 
 }

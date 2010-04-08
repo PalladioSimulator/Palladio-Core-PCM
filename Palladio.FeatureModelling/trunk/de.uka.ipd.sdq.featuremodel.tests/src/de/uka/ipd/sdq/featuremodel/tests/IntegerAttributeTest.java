@@ -6,18 +6,18 @@
  */
 package de.uka.ipd.sdq.featuremodel.tests;
 
-import de.uka.ipd.sdq.featuremodel.ElementListingAttribute;
+import de.uka.ipd.sdq.featuremodel.IntegerAttribute;
 import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Element Listing Attribute</b></em>'.
+ * A test case for the model object '<em><b>Integer Attribute</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ElementListingAttributeTest extends AttributeTest {
+public class IntegerAttributeTest extends AttributeTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -25,28 +25,28 @@ public class ElementListingAttributeTest extends AttributeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ElementListingAttributeTest.class);
+		TestRunner.run(IntegerAttributeTest.class);
 	}
 
 	/**
-	 * Constructs a new Element Listing Attribute test case with the given name.
+	 * Constructs a new Integer Attribute test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementListingAttributeTest(String name) {
+	public IntegerAttributeTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Element Listing Attribute test case.
+	 * Returns the fixture for this Integer Attribute test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected ElementListingAttribute getFixture() {
-		return (ElementListingAttribute)fixture;
+	protected IntegerAttribute getFixture() {
+		return (IntegerAttribute)fixture;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class ElementListingAttributeTest extends AttributeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(featuremodelFactory.eINSTANCE.createElementListingAttribute());
+		setFixture(featuremodelFactory.eINSTANCE.createIntegerAttribute());
 	}
 
 	/**
@@ -71,4 +71,4 @@ public class ElementListingAttributeTest extends AttributeTest {
 		setFixture(null);
 	}
 
-} //ElementListingAttributeTest
+} //IntegerAttributeTest

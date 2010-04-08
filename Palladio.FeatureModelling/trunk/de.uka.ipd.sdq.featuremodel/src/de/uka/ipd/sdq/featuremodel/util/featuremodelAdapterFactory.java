@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.DefaultValue;
 import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
@@ -96,6 +95,10 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createAttributeAdapter();
 			}
 			@Override
+			public Adapter caseIntervalRange(IntervalRange object) {
+				return createIntervalRangeAdapter();
+			}
+			@Override
 			public Adapter caseChildRelation(ChildRelation object) {
 				return createChildRelationAdapter();
 			}
@@ -124,22 +127,6 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createProhibitsConstraintAdapter();
 			}
 			@Override
-			public Adapter caseDefaultValue(DefaultValue object) {
-				return createDefaultValueAdapter();
-			}
-			@Override
-			public Adapter casePrimitiveAttribute(PrimitiveAttribute object) {
-				return createPrimitiveAttributeAdapter();
-			}
-			@Override
-			public Adapter caseIntervalRange(IntervalRange object) {
-				return createIntervalRangeAdapter();
-			}
-			@Override
-			public Adapter caseEnumerationRange(EnumerationRange object) {
-				return createEnumerationRangeAdapter();
-			}
-			@Override
 			public Adapter caseIntegerIntervalRange(IntegerIntervalRange object) {
 				return createIntegerIntervalRangeAdapter();
 			}
@@ -148,8 +135,12 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createContinousIntervalRangeAdapter();
 			}
 			@Override
-			public Adapter caseElementListingAttribute(ElementListingAttribute object) {
-				return createElementListingAttributeAdapter();
+			public Adapter caseIntegerAttribute(IntegerAttribute object) {
+				return createIntegerAttributeAdapter();
+			}
+			@Override
+			public Adapter caseDoubleAttribute(DoubleAttribute object) {
+				return createDoubleAttributeAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -232,30 +223,30 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.DefaultValue <em>Default Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.IntegerAttribute <em>Integer Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue
+	 * @see de.uka.ipd.sdq.featuremodel.IntegerAttribute
 	 * @generated
 	 */
-	public Adapter createDefaultValueAdapter() {
+	public Adapter createIntegerAttributeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute <em>Primitive Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.DoubleAttribute <em>Double Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.featuremodel.PrimitiveAttribute
+	 * @see de.uka.ipd.sdq.featuremodel.DoubleAttribute
 	 * @generated
 	 */
-	public Adapter createPrimitiveAttributeAdapter() {
+	public Adapter createDoubleAttributeAdapter() {
 		return null;
 	}
 
@@ -270,20 +261,6 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntervalRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.EnumerationRange <em>Enumeration Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.featuremodel.EnumerationRange
-	 * @generated
-	 */
-	public Adapter createEnumerationRangeAdapter() {
 		return null;
 	}
 
@@ -312,20 +289,6 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContinousIntervalRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute <em>Element Listing Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.featuremodel.ElementListingAttribute
-	 * @generated
-	 */
-	public Adapter createElementListingAttributeAdapter() {
 		return null;
 	}
 

@@ -120,6 +120,24 @@ public class featureconfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featureconfigPackage.INTEGER_ATTRIBUTE_VALUE: {
+				IntegerAttributeValue integerAttributeValue = (IntegerAttributeValue)theEObject;
+				T result = caseIntegerAttributeValue(integerAttributeValue);
+				if (result == null) result = caseAttributeValue(integerAttributeValue);
+				if (result == null) result = caseNamedElement(integerAttributeValue);
+				if (result == null) result = caseIdentifier(integerAttributeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE: {
+				DoubleAttributeValue doubleAttributeValue = (DoubleAttributeValue)theEObject;
+				T result = caseDoubleAttributeValue(doubleAttributeValue);
+				if (result == null) result = caseAttributeValue(doubleAttributeValue);
+				if (result == null) result = caseNamedElement(doubleAttributeValue);
+				if (result == null) result = caseIdentifier(doubleAttributeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -181,6 +199,36 @@ public class featureconfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseConfiguration(Configuration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Attribute Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegerAttributeValue(IntegerAttributeValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Attribute Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDoubleAttributeValue(DoubleAttributeValue object) {
 		return null;
 	}
 

@@ -14,9 +14,11 @@ import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
 
 import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.PrimitiveAttribute;
+import de.uka.ipd.sdq.featuremodel.DoubleAttribute;
+import de.uka.ipd.sdq.featuremodel.IntegerAttribute;
+import de.uka.ipd.sdq.featuremodel.impl.DoubleAttributeImpl;
+import de.uka.ipd.sdq.featuremodel.impl.IntegerAttributeImpl;
 import de.uka.ipd.sdq.featuremodel.impl.NamedElementImpl;
-import de.uka.ipd.sdq.featuremodel.impl.PrimitiveAttributeImpl;
 
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
@@ -53,7 +55,7 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * @generated
  */
-public class AttributeValueImpl extends NamedElementImpl implements AttributeValue {
+public abstract class AttributeValueImpl extends NamedElementImpl implements AttributeValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -97,19 +99,33 @@ public class AttributeValueImpl extends NamedElementImpl implements AttributeVal
 	 * <!-- begin-user-doc -->
 	 * Code added, although value is not marked as derived.
 	 * Return the features default attribute value if ConfigState of ConfigNode equals "DEFAULT"
+	 * The default attribute value is not returned, if its type does not match the attributeValues type
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getValue() {
 		//begin user defined
 		System.err.println(this.getConfignode().getConfigState());
-		if (this.getConfignode().getConfigState().equals(ConfigState.DEFAULT)){
+		if (this.getConfignode().getConfigState().equals(ConfigState.DEFAULT)
+				&& this.getClass().equals(IntegerAttributeValueImpl.class)){
 			for (Attribute a: this.getConfignode().getOrigin().getAttributes()){
-				if (a.getClass().equals(PrimitiveAttributeImpl.class)){
-					PrimitiveAttribute pa = PrimitiveAttribute.class.cast(a);
-					System.err.println(pa.getName() + " " + this.getName());
-					if (pa.getName().equals(this.getName())){
-						return pa.getDefaultvalue().getValue();
+				if (a.getClass().equals(IntegerAttributeImpl.class)){
+					IntegerAttribute ia = IntegerAttribute.class.cast(a);
+					System.err.println(ia.getName() + " " + this.getName());
+					if (ia.getName().equals(this.getName())){
+						return String.valueOf(ia.getDefaultValue());
+					}
+				}
+			}
+		}
+		if (this.getConfignode().getConfigState().equals(ConfigState.DEFAULT)
+				&& this.getClass().equals(DoubleAttributeValueImpl.class)){
+			for (Attribute a: this.getConfignode().getOrigin().getAttributes()){
+				if (a.getClass().equals(DoubleAttributeImpl.class)){
+					DoubleAttribute da = DoubleAttribute.class.cast(a);
+					System.err.println(da.getName() + " " + this.getName());
+					if (da.getName().equals(this.getName())){
+						return String.valueOf(da.getDefaultValue());
 					}
 				}
 			}
@@ -169,57 +185,6 @@ public class AttributeValueImpl extends NamedElementImpl implements AttributeVal
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.ATTRIBUTE_VALUE__CONFIGNODE, newConfignode, newConfignode));
-	}
-
-	/**
-	 * The cached OCL expression body for the '{@link #AttributeIsDefinedInFeature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Attribute Is Defined In Feature</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AttributeIsDefinedInFeature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.confignode.origin.attributes.name->includes(self.name) ";
-
-	/**
-	 * The cached OCL invariant for the '{@link #AttributeIsDefinedInFeature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Attribute Is Defined In Feature</em>}' invariant operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AttributeIsDefinedInFeature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static Constraint ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean AttributeIsDefinedInFeature(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(featureconfigPackage.Literals.ATTRIBUTE_VALUE);
-			try {
-				ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(ATTRIBUTE_IS_DEFINED_IN_FEATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 featureconfigValidator.DIAGNOSTIC_SOURCE,
-						 featureconfigValidator.ATTRIBUTE_VALUE__ATTRIBUTE_IS_DEFINED_IN_FEATURE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AttributeIsDefinedInFeature", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
 	}
 
 	/**
@@ -349,14 +314,5 @@ public class AttributeValueImpl extends NamedElementImpl implements AttributeVal
 		result.append(')');
 		return result.toString();
 	}
-
-	/**
-	 * The cached environment for evaluating OCL expressions.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } //AttributeValueImpl

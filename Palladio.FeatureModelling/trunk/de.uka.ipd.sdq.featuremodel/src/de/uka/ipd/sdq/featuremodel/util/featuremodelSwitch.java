@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.DefaultValue;
 import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
@@ -124,6 +123,12 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featuremodelPackage.INTERVAL_RANGE: {
+				IntervalRange intervalRange = (IntervalRange)theEObject;
+				T result = caseIntervalRange(intervalRange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case featuremodelPackage.CHILD_RELATION: {
 				ChildRelation childRelation = (ChildRelation)theEObject;
 				T result = caseChildRelation(childRelation);
@@ -178,33 +183,6 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case featuremodelPackage.DEFAULT_VALUE: {
-				DefaultValue defaultValue = (DefaultValue)theEObject;
-				T result = caseDefaultValue(defaultValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case featuremodelPackage.PRIMITIVE_ATTRIBUTE: {
-				PrimitiveAttribute primitiveAttribute = (PrimitiveAttribute)theEObject;
-				T result = casePrimitiveAttribute(primitiveAttribute);
-				if (result == null) result = caseAttribute(primitiveAttribute);
-				if (result == null) result = caseNamedElement(primitiveAttribute);
-				if (result == null) result = caseIdentifier(primitiveAttribute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case featuremodelPackage.INTERVAL_RANGE: {
-				IntervalRange intervalRange = (IntervalRange)theEObject;
-				T result = caseIntervalRange(intervalRange);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case featuremodelPackage.ENUMERATION_RANGE: {
-				EnumerationRange enumerationRange = (EnumerationRange)theEObject;
-				T result = caseEnumerationRange(enumerationRange);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case featuremodelPackage.INTEGER_INTERVAL_RANGE: {
 				IntegerIntervalRange integerIntervalRange = (IntegerIntervalRange)theEObject;
 				T result = caseIntegerIntervalRange(integerIntervalRange);
@@ -219,12 +197,21 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case featuremodelPackage.ELEMENT_LISTING_ATTRIBUTE: {
-				ElementListingAttribute elementListingAttribute = (ElementListingAttribute)theEObject;
-				T result = caseElementListingAttribute(elementListingAttribute);
-				if (result == null) result = caseAttribute(elementListingAttribute);
-				if (result == null) result = caseNamedElement(elementListingAttribute);
-				if (result == null) result = caseIdentifier(elementListingAttribute);
+			case featuremodelPackage.INTEGER_ATTRIBUTE: {
+				IntegerAttribute integerAttribute = (IntegerAttribute)theEObject;
+				T result = caseIntegerAttribute(integerAttribute);
+				if (result == null) result = caseAttribute(integerAttribute);
+				if (result == null) result = caseNamedElement(integerAttribute);
+				if (result == null) result = caseIdentifier(integerAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case featuremodelPackage.DOUBLE_ATTRIBUTE: {
+				DoubleAttribute doubleAttribute = (DoubleAttribute)theEObject;
+				T result = caseDoubleAttribute(doubleAttribute);
+				if (result == null) result = caseAttribute(doubleAttribute);
+				if (result == null) result = caseNamedElement(doubleAttribute);
+				if (result == null) result = caseIdentifier(doubleAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -293,32 +280,32 @@ public class featuremodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Default Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Default Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDefaultValue(DefaultValue object) {
+	public T caseIntegerAttribute(IntegerAttribute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Primitive Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Double Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Primitive Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Double Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePrimitiveAttribute(PrimitiveAttribute object) {
+	public T caseDoubleAttribute(DoubleAttribute object) {
 		return null;
 	}
 
@@ -334,21 +321,6 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseIntervalRange(IntervalRange object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Enumeration Range</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEnumerationRange(EnumerationRange object) {
 		return null;
 	}
 
@@ -379,21 +351,6 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseContinousIntervalRange(ContinousIntervalRange object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Listing Attribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Listing Attribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementListingAttribute(ElementListingAttribute object) {
 		return null;
 	}
 

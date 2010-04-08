@@ -244,7 +244,12 @@ public class ConfigNodeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(featureconfigPackage.Literals.CONFIG_NODE__ATTRIBUTEVALUE,
-				 featureconfigFactory.eINSTANCE.createAttributeValue()));
+				 featureconfigFactory.eINSTANCE.createIntegerAttributeValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(featureconfigPackage.Literals.CONFIG_NODE__ATTRIBUTEVALUE,
+				 featureconfigFactory.eINSTANCE.createDoubleAttributeValue()));
 	}
 
 	/**

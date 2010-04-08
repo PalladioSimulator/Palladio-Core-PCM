@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.AttributeTypes;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.DefaultValue;
 import de.uka.ipd.sdq.featuremodel.DisambiguationRule;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
@@ -98,14 +97,6 @@ public class featuremodelValidator extends EObjectValidator {
 	public static final int FEATURE_GROUP__XOR_IMPLIES_CARDINALITIES_TO_BE_ONE = 6;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Default Value Must Be Of Specified Type' of 'Default Value'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int DEFAULT_VALUE__DEFAULT_VALUE_MUST_BE_OF_SPECIFIED_TYPE = 7;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Child' of 'Simple'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,7 +110,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 7;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 6;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -174,6 +165,8 @@ public class featuremodelValidator extends EObjectValidator {
 				return validateNamedElement((NamedElement)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE:
 				return validateAttribute((Attribute)value, diagnostics, context);
+			case featuremodelPackage.INTERVAL_RANGE:
+				return validateIntervalRange((IntervalRange)value, diagnostics, context);
 			case featuremodelPackage.CHILD_RELATION:
 				return validateChildRelation((ChildRelation)value, diagnostics, context);
 			case featuremodelPackage.SIMPLE:
@@ -188,20 +181,14 @@ public class featuremodelValidator extends EObjectValidator {
 				return validateRequiredConstraint((RequiredConstraint)value, diagnostics, context);
 			case featuremodelPackage.PROHIBITS_CONSTRAINT:
 				return validateProhibitsConstraint((ProhibitsConstraint)value, diagnostics, context);
-			case featuremodelPackage.DEFAULT_VALUE:
-				return validateDefaultValue((DefaultValue)value, diagnostics, context);
-			case featuremodelPackage.PRIMITIVE_ATTRIBUTE:
-				return validatePrimitiveAttribute((PrimitiveAttribute)value, diagnostics, context);
-			case featuremodelPackage.INTERVAL_RANGE:
-				return validateIntervalRange((IntervalRange)value, diagnostics, context);
-			case featuremodelPackage.ENUMERATION_RANGE:
-				return validateEnumerationRange((EnumerationRange)value, diagnostics, context);
 			case featuremodelPackage.INTEGER_INTERVAL_RANGE:
 				return validateIntegerIntervalRange((IntegerIntervalRange)value, diagnostics, context);
 			case featuremodelPackage.CONTINOUS_INTERVAL_RANGE:
 				return validateContinousIntervalRange((ContinousIntervalRange)value, diagnostics, context);
-			case featuremodelPackage.ELEMENT_LISTING_ATTRIBUTE:
-				return validateElementListingAttribute((ElementListingAttribute)value, diagnostics, context);
+			case featuremodelPackage.INTEGER_ATTRIBUTE:
+				return validateIntegerAttribute((IntegerAttribute)value, diagnostics, context);
+			case featuremodelPackage.DOUBLE_ATTRIBUTE:
+				return validateDoubleAttribute((DoubleAttribute)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return validateAttributeTypes((AttributeTypes)value, diagnostics, context);
 			default:
@@ -285,42 +272,32 @@ public class featuremodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDefaultValue(DefaultValue defaultValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(defaultValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDefaultValue_DefaultValueMustBeOfSpecifiedType(defaultValue, diagnostics, context);
+	public boolean validateIntegerAttribute(IntegerAttribute integerAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(integerAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(integerAttribute, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the DefaultValueMustBeOfSpecifiedType constraint of '<em>Default Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDefaultValue_DefaultValueMustBeOfSpecifiedType(DefaultValue defaultValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return defaultValue.DefaultValueMustBeOfSpecifiedType(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePrimitiveAttribute(PrimitiveAttribute primitiveAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(primitiveAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(primitiveAttribute, diagnostics, context);
+	public boolean validateDoubleAttribute(DoubleAttribute doubleAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(doubleAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(doubleAttribute, diagnostics, context);
 		return result;
 	}
 
@@ -331,15 +308,6 @@ public class featuremodelValidator extends EObjectValidator {
 	 */
 	public boolean validateIntervalRange(IntervalRange intervalRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(intervalRange, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEnumerationRange(EnumerationRange enumerationRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(enumerationRange, diagnostics, context);
 	}
 
 	/**
@@ -358,23 +326,6 @@ public class featuremodelValidator extends EObjectValidator {
 	 */
 	public boolean validateContinousIntervalRange(ContinousIntervalRange continousIntervalRange, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(continousIntervalRange, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateElementListingAttribute(ElementListingAttribute elementListingAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(elementListingAttribute, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(elementListingAttribute, diagnostics, context);
-		return result;
 	}
 
 	/**

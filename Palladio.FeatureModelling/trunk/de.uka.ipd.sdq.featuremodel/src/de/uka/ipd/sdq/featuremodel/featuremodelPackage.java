@@ -190,7 +190,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getChildRelation()
 	 * @generated
 	 */
-	int CHILD_RELATION = 3;
+	int CHILD_RELATION = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl <em>Feature Group</em>}' class.
@@ -200,7 +200,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getFeatureGroup()
 	 * @generated
 	 */
-	int FEATURE_GROUP = 5;
+	int FEATURE_GROUP = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl <em>Feature Diagram</em>}' class.
@@ -210,7 +210,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getFeatureDiagram()
 	 * @generated
 	 */
-	int FEATURE_DIAGRAM = 6;
+	int FEATURE_DIAGRAM = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -220,7 +220,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getConstraint()
 	 * @generated
 	 */
-	int CONSTRAINT = 7;
+	int CONSTRAINT = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.RequiredConstraintImpl <em>Required Constraint</em>}' class.
@@ -230,7 +230,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getRequiredConstraint()
 	 * @generated
 	 */
-	int REQUIRED_CONSTRAINT = 8;
+	int REQUIRED_CONSTRAINT = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ProhibitsConstraintImpl <em>Prohibits Constraint</em>}' class.
@@ -240,7 +240,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getProhibitsConstraint()
 	 * @generated
 	 */
-	int PROHIBITS_CONSTRAINT = 9;
+	int PROHIBITS_CONSTRAINT = 10;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.SimpleImpl <em>Simple</em>}' class.
@@ -250,7 +250,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getSimple()
 	 * @generated
 	 */
-	int SIMPLE = 4;
+	int SIMPLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -271,23 +271,79 @@ public interface featuremodelPackage extends EPackage {
 	int ATTRIBUTE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__RANGE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.DefaultValueImpl <em>Default Value</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.DefaultValueImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getDefaultValue()
+	 * @see de.uka.ipd.sdq.featuremodel.impl.IntegerAttributeImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getIntegerAttribute()
 	 * @generated
 	 */
-	int DEFAULT_VALUE = 10;
+	int INTEGER_ATTRIBUTE = 13;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.DoubleAttributeImpl <em>Double Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.DoubleAttributeImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getDoubleAttribute()
+	 * @generated
+	 */
+	int DOUBLE_ATTRIBUTE = 14;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl <em>Interval Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getIntervalRange()
+	 * @generated
+	 */
+	int INTERVAL_RANGE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERVAL_RANGE__LOWER_BOUND_INCLUDED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERVAL_RANGE__UPPER_BOUND_INCLUDED = 1;
+
+	/**
+	 * The number of structural features of the '<em>Interval Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERVAL_RANGE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Child Relation</em>' class.
@@ -578,171 +634,6 @@ public interface featuremodelPackage extends EPackage {
 	int PROHIBITS_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEFAULT_VALUE__VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEFAULT_VALUE__TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEFAULT_VALUE__ATTRIBUTE = 2;
-
-	/**
-	 * The number of structural features of the '<em>Default Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEFAULT_VALUE_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.PrimitiveAttributeImpl <em>Primitive Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.PrimitiveAttributeImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getPrimitiveAttribute()
-	 * @generated
-	 */
-	int PRIMITIVE_ATTRIBUTE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE__ID = ATTRIBUTE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Range</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE__RANGE = ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Defaultvalue</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE__DEFAULTVALUE = ATTRIBUTE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Primitive Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl <em>Interval Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getIntervalRange()
-	 * @generated
-	 */
-	int INTERVAL_RANGE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVAL_RANGE__LOWER_BOUND_INCLUDED = 0;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVAL_RANGE__UPPER_BOUND_INCLUDED = 1;
-
-	/**
-	 * The number of structural features of the '<em>Interval Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVAL_RANGE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.EnumerationRangeImpl <em>Enumeration Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.EnumerationRangeImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getEnumerationRange()
-	 * @generated
-	 */
-	int ENUMERATION_RANGE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATION_RANGE__VALUES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Enumeration Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATION_RANGE_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntegerIntervalRangeImpl <em>Integer Interval Range</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -750,7 +641,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getIntegerIntervalRange()
 	 * @generated
 	 */
-	int INTEGER_INTERVAL_RANGE = 14;
+	int INTEGER_INTERVAL_RANGE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
@@ -805,7 +696,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getContinousIntervalRange()
 	 * @generated
 	 */
-	int CONTINOUS_INTERVAL_RANGE = 15;
+	int CONTINOUS_INTERVAL_RANGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
@@ -853,23 +744,13 @@ public interface featuremodelPackage extends EPackage {
 	int CONTINOUS_INTERVAL_RANGE_FEATURE_COUNT = INTERVAL_RANGE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ElementListingAttributeImpl <em>Element Listing Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.ElementListingAttributeImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getElementListingAttribute()
-	 * @generated
-	 */
-	int ELEMENT_LISTING_ATTRIBUTE = 16;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_LISTING_ATTRIBUTE__ID = ATTRIBUTE__ID;
+	int INTEGER_ATTRIBUTE__ID = ATTRIBUTE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -878,7 +759,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_LISTING_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+	int INTEGER_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' containment reference.
@@ -887,16 +768,70 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_LISTING_ATTRIBUTE__RANGE = ATTRIBUTE_FEATURE_COUNT + 0;
+	int INTEGER_ATTRIBUTE__RANGE = ATTRIBUTE__RANGE;
 
 	/**
-	 * The number of structural features of the '<em>Element Listing Attribute</em>' class.
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_LISTING_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+	int INTEGER_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Integer Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__RANGE = ATTRIBUTE__RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Double Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}' enum.
@@ -906,7 +841,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getAttributeTypes()
 	 * @generated
 	 */
-	int ATTRIBUTE_TYPES = 17;
+	int ATTRIBUTE_TYPES = 15;
 
 
 	/**
@@ -995,6 +930,17 @@ public interface featuremodelPackage extends EPackage {
 	EClass getAttribute();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featuremodel.Attribute#getRange <em>Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Range</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Attribute#getRange()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_Range();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.ChildRelation <em>Child Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1005,90 +951,46 @@ public interface featuremodelPackage extends EPackage {
 	EClass getChildRelation();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.DefaultValue <em>Default Value</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.IntegerAttribute <em>Integer Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Default Value</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue
+	 * @return the meta object for class '<em>Integer Attribute</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.IntegerAttribute
 	 * @generated
 	 */
-	EClass getDefaultValue();
+	EClass getIntegerAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.IntegerAttribute#getDefaultValue <em>Default Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue#getValue()
-	 * @see #getDefaultValue()
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.IntegerAttribute#getDefaultValue()
+	 * @see #getIntegerAttribute()
 	 * @generated
 	 */
-	EAttribute getDefaultValue_Value();
+	EAttribute getIntegerAttribute_DefaultValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#getType <em>Type</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.DoubleAttribute <em>Double Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue#getType()
-	 * @see #getDefaultValue()
+	 * @return the meta object for class '<em>Double Attribute</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.DoubleAttribute
 	 * @generated
 	 */
-	EAttribute getDefaultValue_Type();
+	EClass getDoubleAttribute();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.featuremodel.DefaultValue#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.DoubleAttribute#getDefaultValue <em>Default Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Attribute</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.DefaultValue#getAttribute()
-	 * @see #getDefaultValue()
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.DoubleAttribute#getDefaultValue()
+	 * @see #getDoubleAttribute()
 	 * @generated
 	 */
-	EReference getDefaultValue_Attribute();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute <em>Primitive Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Primitive Attribute</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.PrimitiveAttribute
-	 * @generated
-	 */
-	EClass getPrimitiveAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getType()
-	 * @see #getPrimitiveAttribute()
-	 * @generated
-	 */
-	EAttribute getPrimitiveAttribute_Type();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getRange <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Range</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getRange()
-	 * @see #getPrimitiveAttribute()
-	 * @generated
-	 */
-	EReference getPrimitiveAttribute_Range();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getDefaultvalue <em>Defaultvalue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Defaultvalue</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.PrimitiveAttribute#getDefaultvalue()
-	 * @see #getPrimitiveAttribute()
-	 * @generated
-	 */
-	EReference getPrimitiveAttribute_Defaultvalue();
+	EAttribute getDoubleAttribute_DefaultValue();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.IntervalRange <em>Interval Range</em>}'.
@@ -1121,27 +1023,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntervalRange_UpperBoundIncluded();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.EnumerationRange <em>Enumeration Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Enumeration Range</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.EnumerationRange
-	 * @generated
-	 */
-	EClass getEnumerationRange();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.featuremodel.EnumerationRange#getValues <em>Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Values</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.EnumerationRange#getValues()
-	 * @see #getEnumerationRange()
-	 * @generated
-	 */
-	EReference getEnumerationRange_Values();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.IntegerIntervalRange <em>Integer Interval Range</em>}'.
@@ -1206,27 +1087,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContinousIntervalRange_From();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute <em>Element Listing Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Listing Attribute</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.ElementListingAttribute
-	 * @generated
-	 */
-	EClass getElementListingAttribute();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute#getRange <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Range</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.ElementListingAttribute#getRange()
-	 * @see #getElementListingAttribute()
-	 * @generated
-	 */
-	EReference getElementListingAttribute_Range();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup <em>Feature Group</em>}'.
@@ -1512,6 +1372,14 @@ public interface featuremodelPackage extends EPackage {
 		EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
 		/**
+		 * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__RANGE = eINSTANCE.getAttribute_Range();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.ChildRelationImpl <em>Child Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1522,72 +1390,40 @@ public interface featuremodelPackage extends EPackage {
 		EClass CHILD_RELATION = eINSTANCE.getChildRelation();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.DefaultValueImpl <em>Default Value</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.DefaultValueImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getDefaultValue()
+		 * @see de.uka.ipd.sdq.featuremodel.impl.IntegerAttributeImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getIntegerAttribute()
 		 * @generated
 		 */
-		EClass DEFAULT_VALUE = eINSTANCE.getDefaultValue();
+		EClass INTEGER_ATTRIBUTE = eINSTANCE.getIntegerAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DEFAULT_VALUE__VALUE = eINSTANCE.getDefaultValue_Value();
+		EAttribute INTEGER_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getIntegerAttribute_DefaultValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.DoubleAttributeImpl <em>Double Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featuremodel.impl.DoubleAttributeImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getDoubleAttribute()
 		 * @generated
 		 */
-		EAttribute DEFAULT_VALUE__TYPE = eINSTANCE.getDefaultValue_Type();
+		EClass DOUBLE_ATTRIBUTE = eINSTANCE.getDoubleAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEFAULT_VALUE__ATTRIBUTE = eINSTANCE.getDefaultValue_Attribute();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.PrimitiveAttributeImpl <em>Primitive Attribute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.PrimitiveAttributeImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getPrimitiveAttribute()
-		 * @generated
-		 */
-		EClass PRIMITIVE_ATTRIBUTE = eINSTANCE.getPrimitiveAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PRIMITIVE_ATTRIBUTE__TYPE = eINSTANCE.getPrimitiveAttribute_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PRIMITIVE_ATTRIBUTE__RANGE = eINSTANCE.getPrimitiveAttribute_Range();
-
-		/**
-		 * The meta object literal for the '<em><b>Defaultvalue</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PRIMITIVE_ATTRIBUTE__DEFAULTVALUE = eINSTANCE.getPrimitiveAttribute_Defaultvalue();
+		EAttribute DOUBLE_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getDoubleAttribute_DefaultValue();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl <em>Interval Range</em>}' class.
@@ -1614,24 +1450,6 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTERVAL_RANGE__UPPER_BOUND_INCLUDED = eINSTANCE.getIntervalRange_UpperBoundIncluded();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.EnumerationRangeImpl <em>Enumeration Range</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.EnumerationRangeImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getEnumerationRange()
-		 * @generated
-		 */
-		EClass ENUMERATION_RANGE = eINSTANCE.getEnumerationRange();
-
-		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENUMERATION_RANGE__VALUES = eINSTANCE.getEnumerationRange_Values();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntegerIntervalRangeImpl <em>Integer Interval Range</em>}' class.
@@ -1684,24 +1502,6 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTINOUS_INTERVAL_RANGE__FROM = eINSTANCE.getContinousIntervalRange_From();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.ElementListingAttributeImpl <em>Element Listing Attribute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.ElementListingAttributeImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getElementListingAttribute()
-		 * @generated
-		 */
-		EClass ELEMENT_LISTING_ATTRIBUTE = eINSTANCE.getElementListingAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT_LISTING_ATTRIBUTE__RANGE = eINSTANCE.getElementListingAttribute_Range();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl <em>Feature Group</em>}' class.

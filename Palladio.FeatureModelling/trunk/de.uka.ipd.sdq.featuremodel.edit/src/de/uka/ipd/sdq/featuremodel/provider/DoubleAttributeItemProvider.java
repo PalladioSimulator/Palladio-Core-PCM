@@ -7,8 +7,7 @@
 package de.uka.ipd.sdq.featuremodel.provider;
 
 
-import de.uka.ipd.sdq.featuremodel.ElementListingAttribute;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.DoubleAttribute;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 import java.util.Collection;
@@ -17,23 +16,23 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.ElementListingAttribute} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.DoubleAttribute} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ElementListingAttributeItemProvider
+public class DoubleAttributeItemProvider
 	extends AttributeItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +46,7 @@ public class ElementListingAttributeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementListingAttributeItemProvider(AdapterFactory adapterFactory) {
+	public DoubleAttributeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,49 +61,42 @@ public class ElementListingAttributeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDefaultValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Default Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(featuremodelPackage.Literals.ELEMENT_LISTING_ATTRIBUTE__RANGE);
-		}
-		return childrenFeatures;
+	protected void addDefaultValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DoubleAttribute_defaultValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DoubleAttribute_defaultValue_feature", "_UI_DoubleAttribute_type"),
+				 featuremodelPackage.Literals.DOUBLE_ATTRIBUTE__DEFAULT_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ElementListingAttribute.gif.
+	 * This returns DoubleAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ElementListingAttribute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DoubleAttribute"));
 	}
 
 	/**
@@ -115,10 +107,10 @@ public class ElementListingAttributeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ElementListingAttribute)object).getName();
+		String label = ((DoubleAttribute)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ElementListingAttribute_type") :
-			getString("_UI_ElementListingAttribute_type") + " " + label;
+			getString("_UI_DoubleAttribute_type") :
+			getString("_UI_DoubleAttribute_type") + " " + label;
 	}
 
 	/**
@@ -132,9 +124,9 @@ public class ElementListingAttributeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ElementListingAttribute.class)) {
-			case featuremodelPackage.ELEMENT_LISTING_ATTRIBUTE__RANGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(DoubleAttribute.class)) {
+			case featuremodelPackage.DOUBLE_ATTRIBUTE__DEFAULT_VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -150,11 +142,6 @@ public class ElementListingAttributeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(featuremodelPackage.Literals.ELEMENT_LISTING_ATTRIBUTE__RANGE,
-				 featuremodelFactory.eINSTANCE.createEnumerationRange()));
 	}
 
 }

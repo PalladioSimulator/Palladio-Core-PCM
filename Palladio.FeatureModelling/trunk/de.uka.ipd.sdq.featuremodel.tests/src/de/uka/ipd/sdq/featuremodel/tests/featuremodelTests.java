@@ -40,9 +40,8 @@ public class featuremodelTests extends TestSuite {
 		suite.addTestSuite(FeatureDiagramTest.class);
 		suite.addTestSuite(RequiredConstraintTest.class);
 		suite.addTestSuite(ProhibitsConstraintTest.class);
-		suite.addTestSuite(DefaultValueTest.class);
-		suite.addTestSuite(PrimitiveAttributeTest.class);
-		suite.addTestSuite(ElementListingAttributeTest.class);
+		suite.addTestSuite(IntegerAttributeTest.class);
+		suite.addTestSuite(DoubleAttributeTest.class);
 		return suite;
 	}
 

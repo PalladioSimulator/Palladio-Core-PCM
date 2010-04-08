@@ -11,17 +11,15 @@ import de.uka.ipd.sdq.featuremodel.AttributeTypes;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Constraint;
 import de.uka.ipd.sdq.featuremodel.ContinousIntervalRange;
-import de.uka.ipd.sdq.featuremodel.DefaultValue;
-import de.uka.ipd.sdq.featuremodel.ElementListingAttribute;
-import de.uka.ipd.sdq.featuremodel.EnumerationRange;
+import de.uka.ipd.sdq.featuremodel.DoubleAttribute;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.IntegerAttribute;
 import de.uka.ipd.sdq.featuremodel.FeatureState;
 import de.uka.ipd.sdq.featuremodel.IntegerIntervalRange;
 import de.uka.ipd.sdq.featuremodel.IntervalRange;
 import de.uka.ipd.sdq.featuremodel.NamedElement;
-import de.uka.ipd.sdq.featuremodel.PrimitiveAttribute;
 import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
 import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.Simple;
@@ -126,14 +124,14 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass defaultValueEClass = null;
+	private EClass integerAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass primitiveAttributeEClass = null;
+	private EClass doubleAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,13 +139,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * @generated
 	 */
 	private EClass intervalRangeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass enumerationRangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,13 +153,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * @generated
 	 */
 	private EClass continousIntervalRangeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementListingAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -321,6 +305,15 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 */
 	public EClass getAttribute() {
 		return attributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAttribute_Range() {
+		return (EReference)attributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -490,8 +483,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDefaultValue() {
-		return defaultValueEClass;
+	public EClass getIntegerAttribute() {
+		return integerAttributeEClass;
 	}
 
 	/**
@@ -499,8 +492,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDefaultValue_Value() {
-		return (EAttribute)defaultValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIntegerAttribute_DefaultValue() {
+		return (EAttribute)integerAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -508,8 +501,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDefaultValue_Type() {
-		return (EAttribute)defaultValueEClass.getEStructuralFeatures().get(1);
+	public EClass getDoubleAttribute() {
+		return doubleAttributeEClass;
 	}
 
 	/**
@@ -517,44 +510,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDefaultValue_Attribute() {
-		return (EReference)defaultValueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPrimitiveAttribute() {
-		return primitiveAttributeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPrimitiveAttribute_Type() {
-		return (EAttribute)primitiveAttributeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPrimitiveAttribute_Range() {
-		return (EReference)primitiveAttributeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPrimitiveAttribute_Defaultvalue() {
-		return (EReference)primitiveAttributeEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDoubleAttribute_DefaultValue() {
+		return (EAttribute)doubleAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -582,24 +539,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 */
 	public EAttribute getIntervalRange_UpperBoundIncluded() {
 		return (EAttribute)intervalRangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEnumerationRange() {
-		return enumerationRangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEnumerationRange_Values() {
-		return (EReference)enumerationRangeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -661,24 +600,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getElementListingAttribute() {
-		return elementListingAttributeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElementListingAttribute_Range() {
-		return (EReference)elementListingAttributeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getAttributeTypes() {
 		return attributeTypesEEnum;
 	}
@@ -721,6 +642,11 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		attributeEClass = createEClass(ATTRIBUTE);
+		createEReference(attributeEClass, ATTRIBUTE__RANGE);
+
+		intervalRangeEClass = createEClass(INTERVAL_RANGE);
+		createEAttribute(intervalRangeEClass, INTERVAL_RANGE__LOWER_BOUND_INCLUDED);
+		createEAttribute(intervalRangeEClass, INTERVAL_RANGE__UPPER_BOUND_INCLUDED);
 
 		childRelationEClass = createEClass(CHILD_RELATION);
 
@@ -747,23 +673,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 
 		prohibitsConstraintEClass = createEClass(PROHIBITS_CONSTRAINT);
 
-		defaultValueEClass = createEClass(DEFAULT_VALUE);
-		createEAttribute(defaultValueEClass, DEFAULT_VALUE__VALUE);
-		createEAttribute(defaultValueEClass, DEFAULT_VALUE__TYPE);
-		createEReference(defaultValueEClass, DEFAULT_VALUE__ATTRIBUTE);
-
-		primitiveAttributeEClass = createEClass(PRIMITIVE_ATTRIBUTE);
-		createEAttribute(primitiveAttributeEClass, PRIMITIVE_ATTRIBUTE__TYPE);
-		createEReference(primitiveAttributeEClass, PRIMITIVE_ATTRIBUTE__RANGE);
-		createEReference(primitiveAttributeEClass, PRIMITIVE_ATTRIBUTE__DEFAULTVALUE);
-
-		intervalRangeEClass = createEClass(INTERVAL_RANGE);
-		createEAttribute(intervalRangeEClass, INTERVAL_RANGE__LOWER_BOUND_INCLUDED);
-		createEAttribute(intervalRangeEClass, INTERVAL_RANGE__UPPER_BOUND_INCLUDED);
-
-		enumerationRangeEClass = createEClass(ENUMERATION_RANGE);
-		createEReference(enumerationRangeEClass, ENUMERATION_RANGE__VALUES);
-
 		integerIntervalRangeEClass = createEClass(INTEGER_INTERVAL_RANGE);
 		createEAttribute(integerIntervalRangeEClass, INTEGER_INTERVAL_RANGE__TO);
 		createEAttribute(integerIntervalRangeEClass, INTEGER_INTERVAL_RANGE__FROM);
@@ -772,8 +681,11 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		createEAttribute(continousIntervalRangeEClass, CONTINOUS_INTERVAL_RANGE__TO);
 		createEAttribute(continousIntervalRangeEClass, CONTINOUS_INTERVAL_RANGE__FROM);
 
-		elementListingAttributeEClass = createEClass(ELEMENT_LISTING_ATTRIBUTE);
-		createEReference(elementListingAttributeEClass, ELEMENT_LISTING_ATTRIBUTE__RANGE);
+		integerAttributeEClass = createEClass(INTEGER_ATTRIBUTE);
+		createEAttribute(integerAttributeEClass, INTEGER_ATTRIBUTE__DEFAULT_VALUE);
+
+		doubleAttributeEClass = createEClass(DOUBLE_ATTRIBUTE);
+		createEAttribute(doubleAttributeEClass, DOUBLE_ATTRIBUTE__DEFAULT_VALUE);
 
 		// Create enums
 		attributeTypesEEnum = createEEnum(ATTRIBUTE_TYPES);
@@ -820,10 +732,10 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		constraintEClass.getESuperTypes().add(this.getNamedElement());
 		requiredConstraintEClass.getESuperTypes().add(this.getConstraint());
 		prohibitsConstraintEClass.getESuperTypes().add(this.getConstraint());
-		primitiveAttributeEClass.getESuperTypes().add(this.getAttribute());
 		integerIntervalRangeEClass.getESuperTypes().add(this.getIntervalRange());
 		continousIntervalRangeEClass.getESuperTypes().add(this.getIntervalRange());
-		elementListingAttributeEClass.getESuperTypes().add(this.getAttribute());
+		integerAttributeEClass.getESuperTypes().add(this.getAttribute());
+		doubleAttributeEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -845,6 +757,11 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttribute_Range(), this.getIntervalRange(), null, "range", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(intervalRangeEClass, IntervalRange.class, "IntervalRange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntervalRange_LowerBoundIncluded(), ecorePackage.getEBoolean(), "lowerBoundIncluded", null, 1, 1, IntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIntervalRange_UpperBoundIncluded(), ecorePackage.getEBoolean(), "upperBoundIncluded", null, 1, 1, IntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(childRelationEClass, ChildRelation.class, "ChildRelation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -916,34 +833,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 
 		initEClass(prohibitsConstraintEClass, ProhibitsConstraint.class, "ProhibitsConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(defaultValueEClass, DefaultValue.class, "DefaultValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDefaultValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, DefaultValue.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDefaultValue_Type(), this.getAttributeTypes(), "type", null, 1, 1, DefaultValue.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getDefaultValue_Attribute(), this.getPrimitiveAttribute(), this.getPrimitiveAttribute_Defaultvalue(), "attribute", null, 1, 1, DefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(defaultValueEClass, ecorePackage.getEBoolean(), "DefaultValueMustBeOfSpecifiedType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(defaultValueEClass, this.getAttributeTypes(), "showType", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(primitiveAttributeEClass, PrimitiveAttribute.class, "PrimitiveAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimitiveAttribute_Type(), this.getAttributeTypes(), "type", null, 1, 1, PrimitiveAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPrimitiveAttribute_Range(), this.getIntervalRange(), null, "range", null, 0, 1, PrimitiveAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPrimitiveAttribute_Defaultvalue(), this.getDefaultValue(), this.getDefaultValue_Attribute(), "defaultvalue", null, 1, 1, PrimitiveAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(intervalRangeEClass, IntervalRange.class, "IntervalRange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntervalRange_LowerBoundIncluded(), ecorePackage.getEBoolean(), "lowerBoundIncluded", null, 1, 1, IntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getIntervalRange_UpperBoundIncluded(), ecorePackage.getEBoolean(), "upperBoundIncluded", null, 1, 1, IntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(enumerationRangeEClass, EnumerationRange.class, "EnumerationRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumerationRange_Values(), theEcorePackage.getEObject(), null, "values", null, 0, -1, EnumerationRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(integerIntervalRangeEClass, IntegerIntervalRange.class, "IntegerIntervalRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerIntervalRange_To(), ecorePackage.getEInt(), "to", null, 1, 1, IntegerIntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getIntegerIntervalRange_From(), ecorePackage.getEInt(), "from", "0", 1, 1, IntegerIntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -952,8 +841,11 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		initEAttribute(getContinousIntervalRange_To(), ecorePackage.getEDouble(), "to", null, 1, 1, ContinousIntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getContinousIntervalRange_From(), ecorePackage.getEDouble(), "from", null, 1, 1, ContinousIntervalRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(elementListingAttributeEClass, ElementListingAttribute.class, "ElementListingAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementListingAttribute_Range(), this.getEnumerationRange(), null, "range", null, 0, 1, ElementListingAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(integerAttributeEClass, IntegerAttribute.class, "IntegerAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntegerAttribute_DefaultValue(), ecorePackage.getEInt(), "defaultValue", null, 1, 1, IntegerAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(doubleAttributeEClass, DoubleAttribute.class, "DoubleAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDoubleAttribute_DefaultValue(), ecorePackage.getEDouble(), "defaultValue", null, 1, 1, DoubleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(attributeTypesEEnum, AttributeTypes.class, "AttributeTypes");
