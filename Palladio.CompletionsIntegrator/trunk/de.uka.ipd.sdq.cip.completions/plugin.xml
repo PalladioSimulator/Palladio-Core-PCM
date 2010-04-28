@@ -21,5 +21,48 @@
             qvt_file="PubSubAnnotation/Simulate1ToNConnector.qvt">
       </completion>
    </extension>
+   <extension
+         point="de.uka.ipd.sdq.cip.Completion">
+      <Completion
+            HOT="de.uka.ipd.sdq.cip.completions.Completion1"
+            id="de.uka.ipd.sdq.cip.pubsubannotation"
+            image="PubSubAnnotation/Bildschirmfoto.png"
+            name="PubSubAnnotation"
+            qvtscript="PubSubAnnotation/Simulate1ToNConnector.qvt">
+         <Description>
+            Description body text
+         </Description>
+         <Category
+               name="Connector Completion">
+         </Category>
+         <Category
+               name="PCM">
+         </Category>
+         <Category
+               name="MarkCompletion">
+         </Category>
+      </Completion>
+      <Completion
+            id="de.uka.ipd.sdq.cip.threadpool"
+            name="ThreadPool"
+            qvtscript="ThreadPool/ThreadPoolTransformation.qvt">
+         <Description>
+            Description body text
+         </Description>
+         <Category
+               name="Connector Completion">
+         </Category>
+         <Category
+               name="PCM">
+         </Category>
+      </Completion>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.cip.CompletionCategory">
+      <Category
+            id="PCM"
+            name="PCM">
+      </Category>
+   </extension>
 
 </plugin>
