@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
+import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
@@ -25,6 +26,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	ISimProcessDelegate delegate = null;
 	private Process processStatus = null;
 	private long id;
+	private SimDelayResource delayResource = null;
 
 	private boolean isDebug;
 	
@@ -34,6 +36,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		isDebug = model.getConfig().isDebug();
 		logger.debug("Create SimProcess with id "+id);
 		delegate = model.getSimEngineFactory().createSimProcess(this,model,name);
+		this.delayResource = new SimDelayResource(name+"_thinktime", name+"_thinktime");
 	}
 
 	/* (non-Javadoc)
@@ -84,13 +87,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	// Strategy dependent methods
 
 	public void hold(double d) {
-		if (isDebug) {
-			WaitForDelay action = SimucomstatusFactory.eINSTANCE.createWaitForDelay();
-			action.setActionStartTime(this.getModel().getSimulationControl().getCurrentSimulationTime());
-			action.setDelay(d);
-			this.getSimProcessStatus().setCurrentAction(action);
-		}
-		delegate.hold(d);
+		delayResource.process(this, d);
 	}
 
 	public boolean isTerminated() {

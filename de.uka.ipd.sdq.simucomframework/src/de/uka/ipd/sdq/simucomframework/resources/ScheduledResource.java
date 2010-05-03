@@ -80,8 +80,13 @@ public class ScheduledResource extends AbstractScheduledResource {
 				createSimFCFSResource(SchedulingStrategy.FCFS.toString(), getNextResourceId());
 			break;
 		case PROCESSOR_SHARING:
-			scheduledResource = ISchedulingFactory.eINSTANCE.
-				createSimProcessorSharingResource(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId());
+			// Use this scheduler for MASCOTS testing
+			if (numberOfCores == 5) {
+				numberOfCores = 4;
+				scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResourceLinuxO1(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId(), numberOfCores);
+			} else {
+				scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResource(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId(), numberOfCores);
+			}
 			break;
 		case DELAY:
 			scheduledResource = ISchedulingFactory.eINSTANCE.

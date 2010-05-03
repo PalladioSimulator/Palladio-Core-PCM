@@ -7,7 +7,7 @@ public interface ISimProcessDelegate {
 
 	public abstract void scheduleAt(double d);
 
-	public abstract void hold(double d);
+	//public abstract void hold(double d);
 
 	public abstract boolean isTerminated();
 
