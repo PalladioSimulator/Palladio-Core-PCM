@@ -81,7 +81,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 			break;
 		case PROCESSOR_SHARING:
 			scheduledResource = ISchedulingFactory.eINSTANCE.
-				createSimProcessorSharingResource(SchedulingStrategy.FCFS.toString(), getNextResourceId());
+				createSimProcessorSharingResource(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId(), numberOfCores);
 			break;
 		case DELAY:
 			scheduledResource = ISchedulingFactory.eINSTANCE.
@@ -92,7 +92,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.22", numberOfCores);
 			break;
 		case LINUX_2_6_CFS:
-			throw new RuntimeException("Linux 2.6 CFS Scheduler is not supported by the simulation!");
+			scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResource(SchedulingStrategy.LINUX_2_6_CFS.toString(), getNextResourceId(), numberOfCores);
+			break;
 		case WINDOWS_7:
 			// Windows 7, Windows Vista and Windows Server 2003 share the same scheduler
 		case WINDOWS_VISTA:
@@ -101,6 +102,12 @@ public class ScheduledResource extends AbstractScheduledResource {
 			break;
 		case WINDOWS_XP:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows XP", numberOfCores);
+			break;
+		case SPECIAL_WINDOWS:
+			scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResourceWindows(SchedulingStrategy.SPECIAL_WINDOWS.toString(), getNextResourceId(), numberOfCores);
+			break;
+		case SPECIAL_LINUXO1:
+			scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResourceLinuxO1(SchedulingStrategy.SPECIAL_LINUXO1.toString(), getNextResourceId(), numberOfCores);
 			break;
 		}
 		

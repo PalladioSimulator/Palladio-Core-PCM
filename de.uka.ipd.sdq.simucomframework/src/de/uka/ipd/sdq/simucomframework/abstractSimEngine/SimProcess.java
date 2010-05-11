@@ -14,7 +14,6 @@ import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDelay;
 
 public abstract class SimProcess extends SimulationElement 
 implements ISimProcessDelegate, ISchedulableProcess {

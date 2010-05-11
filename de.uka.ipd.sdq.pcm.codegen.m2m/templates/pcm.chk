@@ -104,8 +104,8 @@ context ProcessingResourceSpecification ERROR 'Abstract scheduling (FCFS, PS, or
 	else
 		true;
 
-context ProcessingResourceSpecification ERROR 'Number of cores > 1 only allowed for exact scheduling':
-	if this.schedulingPolicy.toString() != "EXACT" then this.numberOfReplicas == 1 else this.numberOfReplicas > 0;	
+context ProcessingResourceSpecification ERROR 'Number of cores > 1 only allowed for exact scheduling and processor sharing':
+	if ((this.schedulingPolicy.toString() != "EXACT") && (this.schedulingPolicy.toString() != "PROCESSOR_SHARING")) then this.numberOfReplicas == 1 else this.numberOfReplicas > 0;	
 
 context ResourceContainer ERROR 'Only a single resource type CPU allowed for non abstract schedulers. Use No of Replicas instead':
 	if this.operatingSystem_ResourceContainer.toString() != "ABSTRACT" then this.activeResourceSpecifications_ResourceContainer.select(e|e.activeResourceType_ActiveResourceSpecification.entityName == "CPU").size == 1 else true;

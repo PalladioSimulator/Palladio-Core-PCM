@@ -9,5 +9,7 @@ public enum SchedulingStrategy {
 	WINDOWS_VISTA,
 	LINUX_2_6_O1,
 	LINUX_2_6_CFS,
-	WINDOWS_XP
+	WINDOWS_XP,
+	SPECIAL_WINDOWS,
+	SPECIAL_LINUXO1
 }

@@ -13,7 +13,9 @@ public interface ISchedulingFactory {
 	
 	public IActiveResource createSimDelayResource(String resourceName, String resourceId);
 	
-	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId);
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId, int numberOfCores);
+	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, int numberOfCores);
+	public IActiveResource createSimProcessorSharingResourceLinuxO1(String resourceName, String resourceId, int numberOfCores);
 
 	public abstract IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration);
