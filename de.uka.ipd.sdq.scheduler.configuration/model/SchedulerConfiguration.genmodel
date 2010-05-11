@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.scheduler.configuration/src"
     modelPluginID="de.uka.ipd.sdq.scheduler.configuration" modelName="SchedulerConfiguration"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier">
   <foreignModel>SchedulerConfiguration.ecore</foreignModel>
   <genPackages prefix="Scheduler" disposableProviderFactory="true" ecorePackage="SchedulerConfiguration.ecore#/">
     <genClasses ecoreClass="SchedulerConfiguration.ecore#//SchedulerLibrary">
@@ -62,13 +62,10 @@
         <genEnumLiterals ecoreEnumLiteral="SchedulerConfiguration.ecore#//configuration/PassiveResourceType/FAIR"/>
         <genEnumLiterals ecoreEnumLiteral="SchedulerConfiguration.ecore#//configuration/PassiveResourceType/UNFAIR"/>
       </genEnums>
-      <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/TimeValue">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/TimeValue/value"/>
-      </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxBonus"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxSleepAverage"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/threshold"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxSleepAverage"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SchedulerConfiguration.ecore#//configuration/PriorityBoostConfiguration"/>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/LoadBalancing">
@@ -78,7 +75,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/LoadBalancing/instances"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/LoadBalancing/threshold"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/LoadBalancing/maxIterations"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/LoadBalancing/balancingInterval"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/LoadBalancing/balancingInterval"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration/loadBalancing"/>
@@ -88,10 +85,12 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/QueueingConfiguration/initialInstanceSelection"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/QueueingConfiguration/runqueueType"/>
       </genClasses>
-      <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/PredefinedTimeSliceConfiguration"/>
+      <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration/quanta"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration/minQuanta"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration/granularity"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration/timeslice"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration/timeslice"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/PreemptionConfiguration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/PreemptionConfiguration/timesliceConfiguration"/>
@@ -109,7 +108,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/PriorityRange/default"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration/minTimeslice"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration/minTimeslice"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration/minTimeToBeScheduled"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/ActiveResourceConfiguration">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -124,13 +124,13 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/managingResource"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/acquisitionDemand"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/acquisitionDemand"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/resetTimeslice"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/bonus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/degradation"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/timePenalty"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/timePenalty"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/priority"/>
@@ -150,8 +150,15 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/queueingConfiguration"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/inFrontAfterWaiting"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/interval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/Windows"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/interval"/>
+        <genFeatures children="true" createChild="true" propertyCategory="" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/starvationBoost"/>
+      </genClasses>
+      <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/StarvationBoost">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StarvationBoost/starvationLimit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StarvationBoost/boost"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/StarvationBoost/durationInTimeslices"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

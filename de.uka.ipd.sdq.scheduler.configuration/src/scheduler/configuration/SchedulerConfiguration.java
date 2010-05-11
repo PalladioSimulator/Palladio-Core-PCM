@@ -21,8 +21,9 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#getName <em>Name</em>}</li>
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#getQueueingConfiguration <em>Queueing Configuration</em>}</li>
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#isInFrontAfterWaiting <em>In Front After Waiting</em>}</li>
- *   <li>{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}</li>
  *   <li>{@link scheduler.configuration.SchedulerConfiguration#isWindows <em>Windows</em>}</li>
+ *   <li>{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}</li>
+ *   <li>{@link scheduler.configuration.SchedulerConfiguration#getStarvationBoost <em>Starvation Boost</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,32 +163,6 @@ public interface SchedulerConfiguration extends Identifier {
 	void setInFrontAfterWaiting(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Interval</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Interval</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interval</em>' containment reference.
-	 * @see #setInterval(TimeValue)
-	 * @see scheduler.configuration.ConfigurationPackage#getSchedulerConfiguration_Interval()
-	 * @model containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	TimeValue getInterval();
-
-	/**
-	 * Sets the value of the '{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interval</em>' containment reference.
-	 * @see #getInterval()
-	 * @generated
-	 */
-	void setInterval(TimeValue value);
-
-	/**
 	 * Returns the value of the '<em><b>Windows</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
@@ -213,5 +188,57 @@ public interface SchedulerConfiguration extends Identifier {
 	 * @generated
 	 */
 	void setWindows(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interval</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interval</em>' attribute.
+	 * @see #setInterval(double)
+	 * @see scheduler.configuration.ConfigurationPackage#getSchedulerConfiguration_Interval()
+	 * @model
+	 * @generated
+	 */
+	double getInterval();
+
+	/**
+	 * Sets the value of the '{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interval</em>' attribute.
+	 * @see #getInterval()
+	 * @generated
+	 */
+	void setInterval(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Starvation Boost</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Starvation Boost</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Starvation Boost</em>' containment reference.
+	 * @see #setStarvationBoost(StarvationBoost)
+	 * @see scheduler.configuration.ConfigurationPackage#getSchedulerConfiguration_StarvationBoost()
+	 * @model containment="true"
+	 * @generated
+	 */
+	StarvationBoost getStarvationBoost();
+
+	/**
+	 * Sets the value of the '{@link scheduler.configuration.SchedulerConfiguration#getStarvationBoost <em>Starvation Boost</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Starvation Boost</em>' containment reference.
+	 * @see #getStarvationBoost()
+	 * @generated
+	 */
+	void setStarvationBoost(StarvationBoost value);
 
 } // SchedulerConfiguration

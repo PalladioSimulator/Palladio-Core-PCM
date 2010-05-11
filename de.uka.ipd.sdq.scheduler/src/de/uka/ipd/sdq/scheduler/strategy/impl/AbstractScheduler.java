@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import java.util.Deque;
 
+import scheduler.configuration.StarvationBoost;
+
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
@@ -12,9 +14,6 @@ import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public abstract class AbstractScheduler implements IScheduler {
-	public boolean IS_WINDOWS = true;
-	protected static final double WINDOWS_STARVATION_LIMIT = 4000.0;
-
 	protected SimActiveResource resource;
 
 	protected IQueueingStrategy queueing_strategy;
@@ -22,14 +21,16 @@ public abstract class AbstractScheduler implements IScheduler {
 	private boolean in_front_after_waiting;
 
 	protected double scheduling_interval;
+	
+	protected StarvationBoost starvationBoost;
 
 	public AbstractScheduler(SimActiveResource resource,
-			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting, boolean isWindows) {
+			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting, StarvationBoost starvationBoost) {
 		super();
 		this.resource = resource;
 		this.queueing_strategy = queueingStrategy;
 		this.in_front_after_waiting = in_front_after_waiting;
-		IS_WINDOWS = isWindows;
+		this.starvationBoost = starvationBoost;
 	}
 
 	
@@ -130,11 +131,8 @@ public abstract class AbstractScheduler implements IScheduler {
 		waitingQueue.remove(waiting_process);
 		process.setReady();
 		
-		// TODO: Sauber über die Config einweben.
-		// Achtung, Fix für Linux!!
-		if (!IS_WINDOWS){
-			((PreemptiveProcess)process).getTimeslice().enoughTime();
-		}
+		((PreemptiveProcess)process).getTimeslice().updateTimeForScheduling();
+		
 		queueing_strategy.fromWaitingToReady(process, current, in_front_after_waiting);
 		process.toNow();
 		process.update();

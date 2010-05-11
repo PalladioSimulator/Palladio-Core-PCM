@@ -165,29 +165,29 @@ public interface PassiveResourceConfiguration extends Identifier {
 	void setManagingResource(ActiveResourceConfiguration value);
 
 	/**
-	 * Returns the value of the '<em><b>Acquisition Demand</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Acquisition Demand</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Acquisition Demand</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Acquisition Demand</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Acquisition Demand</em>' containment reference.
-	 * @see #setAcquisitionDemand(TimeValue)
+	 * @return the value of the '<em>Acquisition Demand</em>' attribute.
+	 * @see #setAcquisitionDemand(double)
 	 * @see scheduler.configuration.ConfigurationPackage#getPassiveResourceConfiguration_AcquisitionDemand()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model
 	 * @generated
 	 */
-	TimeValue getAcquisitionDemand();
+	double getAcquisitionDemand();
 
 	/**
-	 * Sets the value of the '{@link scheduler.configuration.PassiveResourceConfiguration#getAcquisitionDemand <em>Acquisition Demand</em>}' containment reference.
+	 * Sets the value of the '{@link scheduler.configuration.PassiveResourceConfiguration#getAcquisitionDemand <em>Acquisition Demand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Acquisition Demand</em>' containment reference.
+	 * @param value the new value of the '<em>Acquisition Demand</em>' attribute.
 	 * @see #getAcquisitionDemand()
 	 * @generated
 	 */
-	void setAcquisitionDemand(TimeValue value);
+	void setAcquisitionDemand(double value);
 
 } // PassiveResourceConfiguration

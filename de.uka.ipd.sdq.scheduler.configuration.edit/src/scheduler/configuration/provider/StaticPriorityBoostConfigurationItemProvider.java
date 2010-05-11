@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,8 +27,6 @@ import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.StaticPriorityBoostConfiguration;
 
-import scheduler.provider.SchedulerConfigurationEditPlugin;
-
 /**
  * This is the item provider adapter for a {@link scheduler.configuration.StaticPriorityBoostConfiguration} object.
  * <!-- begin-user-doc -->
@@ -39,11 +35,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class StaticPriorityBoostConfigurationItemProvider
 	extends PriorityBoostConfigurationItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -156,17 +152,6 @@ public class StaticPriorityBoostConfigurationItemProvider
 			(createChildParameter
 				(ConfigurationPackage.Literals.STATIC_PRIORITY_BOOST_CONFIGURATION__STARVATION_BOOST,
 				 ConfigurationFactory.eINSTANCE.createStaticPriorityBoost()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SchedulerConfigurationEditPlugin.INSTANCE;
 	}
 
 }

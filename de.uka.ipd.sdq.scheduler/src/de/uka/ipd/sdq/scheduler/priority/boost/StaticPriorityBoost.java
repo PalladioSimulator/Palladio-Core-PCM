@@ -25,12 +25,11 @@ public class StaticPriorityBoost implements IPriorityBoost {
 
 	
 	public void boost(ProcessWithPriority process) {
-		//if (reset_timeslice && priorityChanges(process)){
 		if (priorityChanges(process) || reset_timeslice){
 			if (reset_timeslice){
 				process.getTimeslice().halfReset();
 			} else {
-				process.getTimeslice().enoughTime();
+				process.getTimeslice().updateTimeForBoosting();
 			}
 			process.setToStaticPriorityWithBonus(bonus);
 			process.setPriorityUpdateStrategy(update_strategy);

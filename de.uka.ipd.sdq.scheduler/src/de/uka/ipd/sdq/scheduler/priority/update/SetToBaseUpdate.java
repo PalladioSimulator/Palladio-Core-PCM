@@ -15,7 +15,7 @@ public class SetToBaseUpdate implements IPriorityUpdateStrategy {
 	}
 
 	public boolean update(ProcessWithPriority process) {
-		if (process.getTimeslice().completelyFinished()){
+		if (process.getTimeslice().isFinished()){
 			currentTimeslices --;
 			if (currentTimeslices <= 0){
 				process.resetDynamicPriority();

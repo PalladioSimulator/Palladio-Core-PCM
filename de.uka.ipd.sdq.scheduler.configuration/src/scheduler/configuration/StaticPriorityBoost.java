@@ -110,29 +110,29 @@ public interface StaticPriorityBoost extends EObject {
 	void setDegradation(PriorityDegradation value);
 
 	/**
-	 * Returns the value of the '<em><b>Time Penalty</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Time Penalty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Time Penalty</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Time Penalty</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Time Penalty</em>' containment reference.
-	 * @see #setTimePenalty(TimeValue)
+	 * @return the value of the '<em>Time Penalty</em>' attribute.
+	 * @see #setTimePenalty(double)
 	 * @see scheduler.configuration.ConfigurationPackage#getStaticPriorityBoost_TimePenalty()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model
 	 * @generated
 	 */
-	TimeValue getTimePenalty();
+	double getTimePenalty();
 
 	/**
-	 * Sets the value of the '{@link scheduler.configuration.StaticPriorityBoost#getTimePenalty <em>Time Penalty</em>}' containment reference.
+	 * Sets the value of the '{@link scheduler.configuration.StaticPriorityBoost#getTimePenalty <em>Time Penalty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time Penalty</em>' containment reference.
+	 * @param value the new value of the '<em>Time Penalty</em>' attribute.
 	 * @see #getTimePenalty()
 	 * @generated
 	 */
-	void setTimePenalty(TimeValue value);
+	void setTimePenalty(double value);
 
 } // StaticPriorityBoost

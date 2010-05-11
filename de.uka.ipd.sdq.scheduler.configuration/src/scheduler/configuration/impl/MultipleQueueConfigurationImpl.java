@@ -52,6 +52,7 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 	 * @ordered
 	 */
 	protected static final boolean IN_FRONT_WHEN_BALANCING_EDEFAULT = true;
+
 	/**
 	 * The cached value of the '{@link #isInFrontWhenBalancing() <em>In Front When Balancing</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -170,7 +171,7 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING:
 				return getLoadBalancing();
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
-				return isInFrontWhenBalancing() ? Boolean.TRUE : Boolean.FALSE;
+				return isInFrontWhenBalancing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,7 +188,7 @@ public class MultipleQueueConfigurationImpl extends QueueingConfigurationImpl im
 				setLoadBalancing((LoadBalancing)newValue);
 				return;
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION__IN_FRONT_WHEN_BALANCING:
-				setInFrontWhenBalancing(((Boolean)newValue).booleanValue());
+				setInFrontWhenBalancing((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

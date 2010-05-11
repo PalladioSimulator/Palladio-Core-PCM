@@ -9,14 +9,17 @@ package scheduler.configuration.impl;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PriorityClass;
 import scheduler.configuration.ProcessConfiguration;
@@ -213,7 +216,7 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 			case ConfigurationPackage.PROCESS_CONFIGURATION__PRIORITY:
 				return getPriority();
 			case ConfigurationPackage.PROCESS_CONFIGURATION__REPLICAS:
-				return new Integer(getReplicas());
+				return getReplicas();
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				return getName();
 			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
@@ -235,7 +238,7 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 				setPriority((PriorityClass)newValue);
 				return;
 			case ConfigurationPackage.PROCESS_CONFIGURATION__REPLICAS:
-				setReplicas(((Integer)newValue).intValue());
+				setReplicas((Integer)newValue);
 				return;
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				setName((String)newValue);

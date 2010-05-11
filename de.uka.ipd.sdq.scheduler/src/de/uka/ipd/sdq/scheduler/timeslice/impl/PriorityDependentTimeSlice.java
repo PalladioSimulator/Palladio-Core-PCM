@@ -5,11 +5,13 @@ import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 
 public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 
-	public PriorityDependentTimeSlice(ProcessWithPriority process, double basic_timeslice, double min_timeslice, int granularity) {
+	private double min_time_to_be_scheduled; // Default value for Linux no x86 systems: 11
+
+	public PriorityDependentTimeSlice(ProcessWithPriority process, double basic_timeslice, double min_timeslice, double min_time_to_be_scheduled) {
 		double computed_timeslice = computeTicksFromPriority(process
 				.getStaticPriority(), basic_timeslice);
 		this.timeslice = Math.max(computed_timeslice, min_timeslice);
-		this.part = this.timeslice / granularity;
+		this.min_time_to_be_scheduled = min_time_to_be_scheduled;
 	}
 
 	/**
@@ -41,5 +43,14 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 		} else {
 			return basicTimeslice;
 		}
+	}
+	
+	@Override
+	public void updateTimeForScheduling() {
+		// if the remaining time is smaller than a jiffies the
+		// timeslice needs to be reset first.
+		if (remaining_time < min_time_to_be_scheduled){
+			remaining_time = 0;
+		} 
 	}
 }

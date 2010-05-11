@@ -7,6 +7,7 @@
 package scheduler.configuration;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

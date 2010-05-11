@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import scheduler.configuration.StarvationBoost;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
@@ -16,8 +17,8 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	
 	public PreemptiveScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
-			double scheduling_interval, boolean isWindows) {
-		super(resource, queueingStrategy, in_front_after_waiting, isWindows);
+			double scheduling_interval, StarvationBoost starvationBoost) {
+		super(resource, queueingStrategy, in_front_after_waiting, starvationBoost);
 		this.scheduling_interval = scheduling_interval;
 	}
 
@@ -41,9 +42,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		toNow(running_process);
 		
 		if (running_process == null){
-		} else if ( running_process.getTimeslice().completelyFinished()) {
-			unschedule(running_process, false, instance);
-		} else if ( running_process.getTimeslice().partFinished()) {
+		} else if ( running_process.getTimeslice().isFinished()) {
 			unschedule(running_process, false, instance);
 		} else {
 			unschedule(running_process, true, instance);
@@ -62,19 +61,25 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	private void scheduleNextProcess(IResourceInstance instance) {
-		if(IS_WINDOWS ){
-			for (IActiveProcess p : queueing_strategy.getStarvingProcesses(instance, WINDOWS_STARVATION_LIMIT)){
-				applyStarvationBoost((ProcessWithPriority)p);
-			}
-				
-		}
+		lookForStarvingProcessesAndApplyStarvationBoost(instance);
+		
 		ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
 		scheduleNextProcess(next_process, instance);
 	}
 
+	private void lookForStarvingProcessesAndApplyStarvationBoost(IResourceInstance instance) {
+		if(starvationBoost != null){
+			for (IActiveProcess p : queueing_strategy.getStarvingProcesses(instance, starvationBoost.getStarvationLimit())){
+				applyStarvationBoost((ProcessWithPriority)p);
+			}
+				
+		}
+		
+	}
+
 	private void applyStarvationBoost(ProcessWithPriority p) {
-		p.setToStaticPriorityWithBonus(20);
-		IPriorityUpdateStrategy priorityUpdateStrategy = new SetToBaseUpdate(2);
+		p.setToStaticPriorityWithBonus(starvationBoost.getBoost());
+		IPriorityUpdateStrategy priorityUpdateStrategy = new SetToBaseUpdate(starvationBoost.getDurationInTimeslices());
 		p.setPriorityUpdateStrategy(priorityUpdateStrategy);
 	}
 
@@ -88,17 +93,12 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	private void unschedule(ProcessWithPriority running_process,
 			boolean next_has_higher_priority, IResourceInstance current) {
 		if (running_process != null) {
-			if (running_process.getTimeslice().completelyFinished()){
+			if (running_process.getTimeslice().isFinished()){
 				running_process.update(); 
-				fromRunningToReady(running_process, current, next_has_higher_priority
-						&& !running_process.getTimeslice().partFinished());
-				running_process.getTimeslice().reset();
+				fromRunningToReady(running_process, current, false);
+				running_process.getTimeslice().fullReset();
 			} else {
-				if (running_process.getTimeslice().partFinished()){
-					running_process.getTimeslice().reset();
-				}
-				fromRunningToReady(running_process, current, next_has_higher_priority
-						&& !running_process.getTimeslice().partFinished());
+				fromRunningToReady(running_process, current, next_has_higher_priority);
 			}
 			if (running_process.getRunQueue().getCurrentLoad() == 1){
 					running_process.getRunQueue().resetStarvationInfo();
@@ -129,7 +129,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				.getRunningProcess();
 		if (running != null) {
 			running.toNow();
-			double remainingTime = running.getTimeslice().getTimeUntilNextInterruption();
+			double remainingTime = running.getTimeslice().getRemainingTime();
 			double currentDemand = running.getCurrentDemand();
 			if ( currentDemand < remainingTime )
 				running.scheduleProceedEvent(this);

@@ -200,29 +200,29 @@ public interface LoadBalancing extends EObject {
 	void setMaxIterations(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Balancing Interval</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Balancing Interval</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Balancing Interval</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Balancing Interval</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Balancing Interval</em>' containment reference.
-	 * @see #setBalancingInterval(TimeValue)
+	 * @return the value of the '<em>Balancing Interval</em>' attribute.
+	 * @see #setBalancingInterval(double)
 	 * @see scheduler.configuration.ConfigurationPackage#getLoadBalancing_BalancingInterval()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model
 	 * @generated
 	 */
-	TimeValue getBalancingInterval();
+	double getBalancingInterval();
 
 	/**
-	 * Sets the value of the '{@link scheduler.configuration.LoadBalancing#getBalancingInterval <em>Balancing Interval</em>}' containment reference.
+	 * Sets the value of the '{@link scheduler.configuration.LoadBalancing#getBalancingInterval <em>Balancing Interval</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Balancing Interval</em>' containment reference.
+	 * @param value the new value of the '<em>Balancing Interval</em>' attribute.
 	 * @see #getBalancingInterval()
 	 * @generated
 	 */
-	void setBalancingInterval(TimeValue value);
+	void setBalancingInterval(double value);
 
 } // LoadBalancing

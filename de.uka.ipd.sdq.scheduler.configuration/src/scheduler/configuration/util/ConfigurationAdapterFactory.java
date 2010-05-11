@@ -8,8 +8,6 @@ package scheduler.configuration.util;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-import de.uka.ipd.sdq.units.UnitCarryingElement;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -68,17 +66,13 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConfigurationSwitch<Adapter> modelSwitch =
 		new ConfigurationSwitch<Adapter>() {
-			@Override
-			public Adapter caseTimeValue(TimeValue object) {
-				return createTimeValueAdapter();
-			}
 			@Override
 			public Adapter caseDynamicPriorityBoostConfiguratioin(DynamicPriorityBoostConfiguratioin object) {
 				return createDynamicPriorityBoostConfiguratioinAdapter();
@@ -100,8 +94,8 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 				return createQueueingConfigurationAdapter();
 			}
 			@Override
-			public Adapter casePredefinedTimeSliceConfiguration(PredefinedTimeSliceConfiguration object) {
-				return createPredefinedTimeSliceConfigurationAdapter();
+			public Adapter caseQuantumTimeSliceConfiguration(QuantumTimeSliceConfiguration object) {
+				return createQuantumTimeSliceConfigurationAdapter();
 			}
 			@Override
 			public Adapter caseTimeSliceConfiguration(TimeSliceConfiguration object) {
@@ -152,8 +146,8 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 				return createSchedulerConfigurationAdapter();
 			}
 			@Override
-			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
-				return createUnitCarryingElementAdapter();
+			public Adapter caseStarvationBoost(StarvationBoost object) {
+				return createStarvationBoostAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -178,20 +172,6 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link scheduler.configuration.TimeValue <em>Time Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see scheduler.configuration.TimeValue
-	 * @generated
-	 */
-	public Adapter createTimeValueAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin <em>Dynamic Priority Boost Configuratioin</em>}'.
@@ -264,16 +244,16 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link scheduler.configuration.PredefinedTimeSliceConfiguration <em>Predefined Time Slice Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link scheduler.configuration.QuantumTimeSliceConfiguration <em>Quantum Time Slice Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see scheduler.configuration.PredefinedTimeSliceConfiguration
+	 * @see scheduler.configuration.QuantumTimeSliceConfiguration
 	 * @generated
 	 */
-	public Adapter createPredefinedTimeSliceConfigurationAdapter() {
+	public Adapter createQuantumTimeSliceConfigurationAdapter() {
 		return null;
 	}
 
@@ -446,16 +426,16 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link scheduler.configuration.StarvationBoost <em>Starvation Boost</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.units.UnitCarryingElement
+	 * @see scheduler.configuration.StarvationBoost
 	 * @generated
 	 */
-	public Adapter createUnitCarryingElementAdapter() {
+	public Adapter createStarvationBoostAdapter() {
 		return null;
 	}
 

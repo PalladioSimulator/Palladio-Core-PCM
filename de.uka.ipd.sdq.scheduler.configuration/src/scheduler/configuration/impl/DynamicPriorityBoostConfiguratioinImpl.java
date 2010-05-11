@@ -7,16 +7,13 @@
 package scheduler.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +23,8 @@ import scheduler.configuration.TimeValue;
  * The following features are implemented:
  * <ul>
  *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getMaxBonus <em>Max Bonus</em>}</li>
- *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getMaxSleepAverage <em>Max Sleep Average</em>}</li>
  *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getThreshold <em>Threshold</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getMaxSleepAverage <em>Max Sleep Average</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,16 +52,6 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	protected int maxBonus = MAX_BONUS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMaxSleepAverage() <em>Max Sleep Average</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxSleepAverage()
-	 * @generated
-	 * @ordered
-	 */
-	protected TimeValue maxSleepAverage;
-
-	/**
 	 * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +70,26 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	 * @ordered
 	 */
 	protected int threshold = THRESHOLD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxSleepAverage() <em>Max Sleep Average</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxSleepAverage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MAX_SLEEP_AVERAGE_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getMaxSleepAverage() <em>Max Sleep Average</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxSleepAverage()
+	 * @generated
+	 * @ordered
+	 */
+	protected double maxSleepAverage = MAX_SLEEP_AVERAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,49 +136,6 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getMaxSleepAverage() {
-		return maxSleepAverage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMaxSleepAverage(TimeValue newMaxSleepAverage, NotificationChain msgs) {
-		TimeValue oldMaxSleepAverage = maxSleepAverage;
-		maxSleepAverage = newMaxSleepAverage;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE, oldMaxSleepAverage, newMaxSleepAverage);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxSleepAverage(TimeValue newMaxSleepAverage) {
-		if (newMaxSleepAverage != maxSleepAverage) {
-			NotificationChain msgs = null;
-			if (maxSleepAverage != null)
-				msgs = ((InternalEObject)maxSleepAverage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE, null, msgs);
-			if (newMaxSleepAverage != null)
-				msgs = ((InternalEObject)newMaxSleepAverage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE, null, msgs);
-			msgs = basicSetMaxSleepAverage(newMaxSleepAverage, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE, newMaxSleepAverage, newMaxSleepAverage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getThreshold() {
 		return threshold;
 	}
@@ -193,13 +157,20 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
-				return basicSetMaxSleepAverage(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public double getMaxSleepAverage() {
+		return maxSleepAverage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxSleepAverage(double newMaxSleepAverage) {
+		double oldMaxSleepAverage = maxSleepAverage;
+		maxSleepAverage = newMaxSleepAverage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE, oldMaxSleepAverage, maxSleepAverage));
 	}
 
 	/**
@@ -211,11 +182,11 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS:
-				return new Integer(getMaxBonus());
+				return getMaxBonus();
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
+				return getThreshold();
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
 				return getMaxSleepAverage();
-			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
-				return new Integer(getThreshold());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,13 +200,13 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS:
-				setMaxBonus(((Integer)newValue).intValue());
-				return;
-			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
-				setMaxSleepAverage((TimeValue)newValue);
+				setMaxBonus((Integer)newValue);
 				return;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
-				setThreshold(((Integer)newValue).intValue());
+				setThreshold((Integer)newValue);
+				return;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
+				setMaxSleepAverage((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,11 +223,11 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS:
 				setMaxBonus(MAX_BONUS_EDEFAULT);
 				return;
-			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
-				setMaxSleepAverage((TimeValue)null);
-				return;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
 				setThreshold(THRESHOLD_EDEFAULT);
+				return;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
+				setMaxSleepAverage(MAX_SLEEP_AVERAGE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,10 +243,10 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 		switch (featureID) {
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS:
 				return maxBonus != MAX_BONUS_EDEFAULT;
-			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
-				return maxSleepAverage != null;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
 				return threshold != THRESHOLD_EDEFAULT;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
+				return maxSleepAverage != MAX_SLEEP_AVERAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -294,6 +265,8 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 		result.append(maxBonus);
 		result.append(", threshold: ");
 		result.append(threshold);
+		result.append(", maxSleepAverage: ");
+		result.append(maxSleepAverage);
 		result.append(')');
 		return result.toString();
 	}

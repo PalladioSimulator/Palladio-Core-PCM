@@ -40,11 +40,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class PreemptionConfigurationItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -156,7 +156,7 @@ public class PreemptionConfigurationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.PREEMPTION_CONFIGURATION__TIMESLICE_CONFIGURATION,
-				 ConfigurationFactory.eINSTANCE.createPredefinedTimeSliceConfiguration()));
+				 ConfigurationFactory.eINSTANCE.createQuantumTimeSliceConfiguration()));
 
 		newChildDescriptors.add
 			(createChildParameter

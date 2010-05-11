@@ -8,8 +8,6 @@ package scheduler.configuration.util;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-import de.uka.ipd.sdq.units.UnitCarryingElement;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -91,13 +89,6 @@ public class ConfigurationSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ConfigurationPackage.TIME_VALUE: {
-				TimeValue timeValue = (TimeValue)theEObject;
-				T result = caseTimeValue(timeValue);
-				if (result == null) result = caseUnitCarryingElement(timeValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN: {
 				DynamicPriorityBoostConfiguratioin dynamicPriorityBoostConfiguratioin = (DynamicPriorityBoostConfiguratioin)theEObject;
 				T result = caseDynamicPriorityBoostConfiguratioin(dynamicPriorityBoostConfiguratioin);
@@ -130,10 +121,10 @@ public class ConfigurationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigurationPackage.PREDEFINED_TIME_SLICE_CONFIGURATION: {
-				PredefinedTimeSliceConfiguration predefinedTimeSliceConfiguration = (PredefinedTimeSliceConfiguration)theEObject;
-				T result = casePredefinedTimeSliceConfiguration(predefinedTimeSliceConfiguration);
-				if (result == null) result = caseTimeSliceConfiguration(predefinedTimeSliceConfiguration);
+			case ConfigurationPackage.QUANTUM_TIME_SLICE_CONFIGURATION: {
+				QuantumTimeSliceConfiguration quantumTimeSliceConfiguration = (QuantumTimeSliceConfiguration)theEObject;
+				T result = caseQuantumTimeSliceConfiguration(quantumTimeSliceConfiguration);
+				if (result == null) result = caseTimeSliceConfiguration(quantumTimeSliceConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,23 +207,14 @@ public class ConfigurationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConfigurationPackage.STARVATION_BOOST: {
+				StarvationBoost starvationBoost = (StarvationBoost)theEObject;
+				T result = caseStarvationBoost(starvationBoost);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Time Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Time Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTimeValue(TimeValue object) {
-		return null;
 	}
 
 	/**
@@ -311,17 +293,17 @@ public class ConfigurationSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Predefined Time Slice Configuration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Quantum Time Slice Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Predefined Time Slice Configuration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Quantum Time Slice Configuration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePredefinedTimeSliceConfiguration(PredefinedTimeSliceConfiguration object) {
+	public T caseQuantumTimeSliceConfiguration(QuantumTimeSliceConfiguration object) {
 		return null;
 	}
 
@@ -506,17 +488,17 @@ public class ConfigurationSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Starvation Boost</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Starvation Boost</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnitCarryingElement(UnitCarryingElement object) {
+	public T caseStarvationBoost(StarvationBoost object) {
 		return null;
 	}
 

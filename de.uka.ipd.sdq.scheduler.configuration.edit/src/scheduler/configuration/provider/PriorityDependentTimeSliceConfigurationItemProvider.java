@@ -13,23 +13,22 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PriorityDependentTimeSliceConfiguration;
-
-import scheduler.provider.SchedulerConfigurationEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link scheduler.configuration.PriorityDependentTimeSliceConfiguration} object.
@@ -39,11 +38,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class PriorityDependentTimeSliceConfigurationItemProvider
 	extends TimeSliceConfigurationItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -66,8 +65,31 @@ public class PriorityDependentTimeSliceConfigurationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMinTimeToBeScheduledPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Time To Be Scheduled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinTimeToBeScheduledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PriorityDependentTimeSliceConfiguration_minTimeToBeScheduled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityDependentTimeSliceConfiguration_minTimeToBeScheduled_feature", "_UI_PriorityDependentTimeSliceConfiguration_type"),
+				 ConfigurationPackage.Literals.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -120,7 +142,7 @@ public class PriorityDependentTimeSliceConfigurationItemProvider
 	@Override
 	public String getText(Object object) {
 		PriorityDependentTimeSliceConfiguration priorityDependentTimeSliceConfiguration = (PriorityDependentTimeSliceConfiguration)object;
-		return getString("_UI_PriorityDependentTimeSliceConfiguration_type") + " " + priorityDependentTimeSliceConfiguration.getGranularity();
+		return getString("_UI_PriorityDependentTimeSliceConfiguration_type") + " " + priorityDependentTimeSliceConfiguration.getTimeslice();
 	}
 
 	/**
@@ -135,8 +157,14 @@ public class PriorityDependentTimeSliceConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PriorityDependentTimeSliceConfiguration.class)) {
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__TIMESLICE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -156,41 +184,7 @@ public class PriorityDependentTimeSliceConfigurationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == ConfigurationPackage.Literals.TIME_SLICE_CONFIGURATION__TIMESLICE ||
-			childFeature == ConfigurationPackage.Literals.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SchedulerConfigurationEditPlugin.INSTANCE;
+				 EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, "0")));
 	}
 
 }

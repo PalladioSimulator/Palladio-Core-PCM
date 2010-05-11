@@ -51,7 +51,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 		if (selectedConf != null) {
 			resourceConf = ConfigurationFactory.eINSTANCE
 					.createActiveResourceConfiguration();
-			resourceConf.setId(getNextResourceId());
+//			resourceConf.setId(getNextResourceId());
 			resourceConf.setName(schedulerName);
 			resourceConf.setReplicas(numReplicas);
 			resourceConf.setSchedulerConfiguration(selectedConf);
@@ -80,13 +80,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 				createSimFCFSResource(SchedulingStrategy.FCFS.toString(), getNextResourceId());
 			break;
 		case PROCESSOR_SHARING:
-			// Use this scheduler for MASCOTS testing
-			if (numberOfCores == 5) {
-				numberOfCores = 4;
-				scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResourceLinuxO1(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId(), numberOfCores);
-			} else {
-				scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResource(SchedulingStrategy.PROCESSOR_SHARING.toString(), getNextResourceId(), numberOfCores);
-			}
+			scheduledResource = ISchedulingFactory.eINSTANCE.
+				createSimProcessorSharingResource(SchedulingStrategy.FCFS.toString(), getNextResourceId());
 			break;
 		case DELAY:
 			scheduledResource = ISchedulingFactory.eINSTANCE.
@@ -113,19 +108,17 @@ public class ScheduledResource extends AbstractScheduledResource {
 	}
 	
 	private void registerProcessWindows(ISchedulableProcess process,
-			IActiveResource resource, int prio) {
+			IActiveResource resource) {
 		if (resourceConf != null) {
 			ProcessConfiguration processConf = ConfigurationFactory.eINSTANCE
 					.createProcessConfiguration();
-			processConf.setId(process.getId());
+//			processConf.setId(process.getId());
 			processConf.setName(process.getId());
-			processConf.setPriority(PriorityClass.AVERAGE);
+			processConf.setPriority(PriorityClass.DEFAULT);
 			processConf.setReplicas(1);
 			ProcessWithPriority p = (ProcessWithPriority) ISchedulingFactory.eINSTANCE
 					.createRunningProcess(process, processConf, resourceConf);
-			p.getStaticPriority().setValue(prio);
-			p.getDynamicPriority().setValue(prio);
-
+			
 			resource.registerProcess(p);
 		}
 	}
@@ -176,7 +169,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 	@Override
 	public void consumeResource(SimProcess thread, double demand) {
-		registerProcessWindows(thread, aResource, 8);
+		registerProcessWindows(thread, aResource);
 		aResource.process(thread, calculateDemand(demand));
 	}
 

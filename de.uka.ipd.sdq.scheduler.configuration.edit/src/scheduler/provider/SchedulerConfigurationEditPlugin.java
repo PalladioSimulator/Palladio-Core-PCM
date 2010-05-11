@@ -8,8 +8,6 @@ package scheduler.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -47,7 +45,6 @@ public final class SchedulerConfigurationEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     IdentifierEditPlugin.INSTANCE,
-		     UnitsEditPlugin.INSTANCE,
 		   });
 	}
 

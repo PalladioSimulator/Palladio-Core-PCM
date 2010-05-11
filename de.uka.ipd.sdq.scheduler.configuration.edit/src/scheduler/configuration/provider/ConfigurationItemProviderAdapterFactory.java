@@ -76,29 +76,6 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link scheduler.configuration.TimeValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimeValueItemProvider timeValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link scheduler.configuration.TimeValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTimeValueAdapter() {
-		if (timeValueItemProvider == null) {
-			timeValueItemProvider = new TimeValueItemProvider(this);
-		}
-
-		return timeValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link scheduler.configuration.DynamicPriorityBoostConfiguratioin} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,26 +145,26 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link scheduler.configuration.PredefinedTimeSliceConfiguration} instances.
+	 * This keeps track of the one adapter used for all {@link scheduler.configuration.QuantumTimeSliceConfiguration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PredefinedTimeSliceConfigurationItemProvider predefinedTimeSliceConfigurationItemProvider;
+	protected QuantumTimeSliceConfigurationItemProvider quantumTimeSliceConfigurationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link scheduler.configuration.PredefinedTimeSliceConfiguration}.
+	 * This creates an adapter for a {@link scheduler.configuration.QuantumTimeSliceConfiguration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPredefinedTimeSliceConfigurationAdapter() {
-		if (predefinedTimeSliceConfigurationItemProvider == null) {
-			predefinedTimeSliceConfigurationItemProvider = new PredefinedTimeSliceConfigurationItemProvider(this);
+	public Adapter createQuantumTimeSliceConfigurationAdapter() {
+		if (quantumTimeSliceConfigurationItemProvider == null) {
+			quantumTimeSliceConfigurationItemProvider = new QuantumTimeSliceConfigurationItemProvider(this);
 		}
 
-		return predefinedTimeSliceConfigurationItemProvider;
+		return quantumTimeSliceConfigurationItemProvider;
 	}
 
 	/**
@@ -444,6 +421,29 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link scheduler.configuration.StarvationBoost} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StarvationBoostItemProvider starvationBoostItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link scheduler.configuration.StarvationBoost}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStarvationBoostAdapter() {
+		if (starvationBoostItemProvider == null) {
+			starvationBoostItemProvider = new StarvationBoostItemProvider(this);
+		}
+
+		return starvationBoostItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -493,7 +493,7 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -542,11 +542,10 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 	 * @generated
 	 */
 	public void dispose() {
-		if (timeValueItemProvider != null) timeValueItemProvider.dispose();
 		if (dynamicPriorityBoostConfiguratioinItemProvider != null) dynamicPriorityBoostConfiguratioinItemProvider.dispose();
 		if (loadBalancingItemProvider != null) loadBalancingItemProvider.dispose();
 		if (multipleQueueConfigurationItemProvider != null) multipleQueueConfigurationItemProvider.dispose();
-		if (predefinedTimeSliceConfigurationItemProvider != null) predefinedTimeSliceConfigurationItemProvider.dispose();
+		if (quantumTimeSliceConfigurationItemProvider != null) quantumTimeSliceConfigurationItemProvider.dispose();
 		if (preemptionConfigurationItemProvider != null) preemptionConfigurationItemProvider.dispose();
 		if (priorityConfigurationItemProvider != null) priorityConfigurationItemProvider.dispose();
 		if (priorityRangeItemProvider != null) priorityRangeItemProvider.dispose();
@@ -558,6 +557,7 @@ public class ConfigurationItemProviderAdapterFactory extends ConfigurationAdapte
 		if (singleQueueConfigurationItemProvider != null) singleQueueConfigurationItemProvider.dispose();
 		if (staticPriorityBoostConfigurationItemProvider != null) staticPriorityBoostConfigurationItemProvider.dispose();
 		if (schedulerConfigurationItemProvider != null) schedulerConfigurationItemProvider.dispose();
+		if (starvationBoostItemProvider != null) starvationBoostItemProvider.dispose();
 	}
 
 }

@@ -8,8 +8,6 @@ package scheduler.configuration;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -65,52 +63,6 @@ public interface ConfigurationPackage extends EPackage {
 	ConfigurationPackage eINSTANCE = scheduler.configuration.impl.ConfigurationPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link scheduler.configuration.impl.TimeValueImpl <em>Time Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see scheduler.configuration.impl.TimeValueImpl
-	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getTimeValue()
-	 * @generated
-	 */
-	int TIME_VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_VALUE__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_VALUE__UNIT_SPECIFICATION = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_VALUE__VALUE = UnitsPackage.UNIT_CARRYING_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Time Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_VALUE_FEATURE_COUNT = UnitsPackage.UNIT_CARRYING_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.PriorityBoostConfigurationImpl <em>Priority Boost Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +70,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPriorityBoostConfiguration()
 	 * @generated
 	 */
-	int PRIORITY_BOOST_CONFIGURATION = 2;
+	int PRIORITY_BOOST_CONFIGURATION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Priority Boost Configuration</em>' class.
@@ -137,7 +89,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getDynamicPriorityBoostConfiguratioin()
 	 * @generated
 	 */
-	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN = 1;
+	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN = 0;
 
 	/**
 	 * The feature id for the '<em><b>Max Bonus</b></em>' attribute.
@@ -149,22 +101,22 @@ public interface ConfigurationPackage extends EPackage {
 	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Max Sleep Average</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 2;
+	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Max Sleep Average</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Dynamic Priority Boost Configuratioin</em>' class.
@@ -183,7 +135,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getLoadBalancing()
 	 * @generated
 	 */
-	int LOAD_BALANCING = 3;
+	int LOAD_BALANCING = 2;
 
 	/**
 	 * The feature id for the '<em><b>Balancing Type</b></em>' attribute.
@@ -240,7 +192,7 @@ public interface ConfigurationPackage extends EPackage {
 	int LOAD_BALANCING__MAX_ITERATIONS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Balancing Interval</b></em>' containment reference.
+	 * The feature id for the '<em><b>Balancing Interval</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -265,7 +217,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getQueueingConfiguration()
 	 * @generated
 	 */
-	int QUEUEING_CONFIGURATION = 5;
+	int QUEUEING_CONFIGURATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Initial Instance Selection</b></em>' attribute.
@@ -302,7 +254,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getMultipleQueueConfiguration()
 	 * @generated
 	 */
-	int MULTIPLE_QUEUE_CONFIGURATION = 4;
+	int MULTIPLE_QUEUE_CONFIGURATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Initial Instance Selection</b></em>' attribute.
@@ -357,25 +309,16 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getTimeSliceConfiguration()
 	 * @generated
 	 */
-	int TIME_SLICE_CONFIGURATION = 7;
+	int TIME_SLICE_CONFIGURATION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Granularity</b></em>' attribute.
+	 * The feature id for the '<em><b>Timeslice</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_SLICE_CONFIGURATION__GRANULARITY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Timeslice</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_SLICE_CONFIGURATION__TIMESLICE = 1;
+	int TIME_SLICE_CONFIGURATION__TIMESLICE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Time Slice Configuration</em>' class.
@@ -384,44 +327,53 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_SLICE_CONFIGURATION_FEATURE_COUNT = 2;
+	int TIME_SLICE_CONFIGURATION_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link scheduler.configuration.impl.PredefinedTimeSliceConfigurationImpl <em>Predefined Time Slice Configuration</em>}' class.
+	 * The meta object id for the '{@link scheduler.configuration.impl.QuantumTimeSliceConfigurationImpl <em>Quantum Time Slice Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see scheduler.configuration.impl.PredefinedTimeSliceConfigurationImpl
-	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPredefinedTimeSliceConfiguration()
+	 * @see scheduler.configuration.impl.QuantumTimeSliceConfigurationImpl
+	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getQuantumTimeSliceConfiguration()
 	 * @generated
 	 */
-	int PREDEFINED_TIME_SLICE_CONFIGURATION = 6;
+	int QUANTUM_TIME_SLICE_CONFIGURATION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Granularity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREDEFINED_TIME_SLICE_CONFIGURATION__GRANULARITY = TIME_SLICE_CONFIGURATION__GRANULARITY;
-
-	/**
-	 * The feature id for the '<em><b>Timeslice</b></em>' containment reference.
+	 * The feature id for the '<em><b>Timeslice</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PREDEFINED_TIME_SLICE_CONFIGURATION__TIMESLICE = TIME_SLICE_CONFIGURATION__TIMESLICE;
+	int QUANTUM_TIME_SLICE_CONFIGURATION__TIMESLICE = TIME_SLICE_CONFIGURATION__TIMESLICE;
 
 	/**
-	 * The number of structural features of the '<em>Predefined Time Slice Configuration</em>' class.
+	 * The feature id for the '<em><b>Quanta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PREDEFINED_TIME_SLICE_CONFIGURATION_FEATURE_COUNT = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 0;
+	int QUANTUM_TIME_SLICE_CONFIGURATION__QUANTA = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Min Quanta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTUM_TIME_SLICE_CONFIGURATION__MIN_QUANTA = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Quantum Time Slice Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTUM_TIME_SLICE_CONFIGURATION_FEATURE_COUNT = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.PreemptionConfigurationImpl <em>Preemption Configuration</em>}' class.
@@ -431,7 +383,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPreemptionConfiguration()
 	 * @generated
 	 */
-	int PREEMPTION_CONFIGURATION = 8;
+	int PREEMPTION_CONFIGURATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Timeslice Configuration</b></em>' containment reference.
@@ -459,7 +411,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPriorityConfiguration()
 	 * @generated
 	 */
-	int PRIORITY_CONFIGURATION = 9;
+	int PRIORITY_CONFIGURATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' containment reference.
@@ -496,7 +448,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPriorityRange()
 	 * @generated
 	 */
-	int PRIORITY_RANGE = 10;
+	int PRIORITY_RANGE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Highest</b></em>' attribute.
@@ -569,19 +521,10 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPriorityDependentTimeSliceConfiguration()
 	 * @generated
 	 */
-	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION = 11;
+	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Granularity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__GRANULARITY = TIME_SLICE_CONFIGURATION__GRANULARITY;
-
-	/**
-	 * The feature id for the '<em><b>Timeslice</b></em>' containment reference.
+	 * The feature id for the '<em><b>Timeslice</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -590,7 +533,7 @@ public interface ConfigurationPackage extends EPackage {
 	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__TIMESLICE = TIME_SLICE_CONFIGURATION__TIMESLICE;
 
 	/**
-	 * The feature id for the '<em><b>Min Timeslice</b></em>' containment reference.
+	 * The feature id for the '<em><b>Min Timeslice</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -599,13 +542,22 @@ public interface ConfigurationPackage extends EPackage {
 	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Min Time To Be Scheduled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Priority Dependent Time Slice Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION_FEATURE_COUNT = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 1;
+	int PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION_FEATURE_COUNT = TIME_SLICE_CONFIGURATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.ActiveResourceConfigurationImpl <em>Active Resource Configuration</em>}' class.
@@ -615,7 +567,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getActiveResourceConfiguration()
 	 * @generated
 	 */
-	int ACTIVE_RESOURCE_CONFIGURATION = 12;
+	int ACTIVE_RESOURCE_CONFIGURATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -670,7 +622,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPassiveResourceConfiguration()
 	 * @generated
 	 */
-	int PASSIVE_RESOURCE_CONFIGURATION = 13;
+	int PASSIVE_RESOURCE_CONFIGURATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -727,7 +679,7 @@ public interface ConfigurationPackage extends EPackage {
 	int PASSIVE_RESOURCE_CONFIGURATION__MANAGING_RESOURCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Acquisition Demand</b></em>' containment reference.
+	 * The feature id for the '<em><b>Acquisition Demand</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -752,7 +704,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getStaticPriorityBoost()
 	 * @generated
 	 */
-	int STATIC_PRIORITY_BOOST = 14;
+	int STATIC_PRIORITY_BOOST = 13;
 
 	/**
 	 * The feature id for the '<em><b>Reset Timeslice</b></em>' attribute.
@@ -782,7 +734,7 @@ public interface ConfigurationPackage extends EPackage {
 	int STATIC_PRIORITY_BOOST__DEGRADATION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Time Penalty</b></em>' containment reference.
+	 * The feature id for the '<em><b>Time Penalty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -807,7 +759,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getProcessConfiguration()
 	 * @generated
 	 */
-	int PROCESS_CONFIGURATION = 15;
+	int PROCESS_CONFIGURATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -871,7 +823,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getSingleQueueConfiguration()
 	 * @generated
 	 */
-	int SINGLE_QUEUE_CONFIGURATION = 16;
+	int SINGLE_QUEUE_CONFIGURATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Initial Instance Selection</b></em>' attribute.
@@ -917,7 +869,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getStaticPriorityBoostConfiguration()
 	 * @generated
 	 */
-	int STATIC_PRIORITY_BOOST_CONFIGURATION = 17;
+	int STATIC_PRIORITY_BOOST_CONFIGURATION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Starvation Boost</b></em>' containment reference.
@@ -945,7 +897,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getSchedulerConfiguration()
 	 * @generated
 	 */
-	int SCHEDULER_CONFIGURATION = 18;
+	int SCHEDULER_CONFIGURATION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1002,22 +954,31 @@ public interface ConfigurationPackage extends EPackage {
 	int SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Interval</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER_CONFIGURATION__INTERVAL = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Windows</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_CONFIGURATION__WINDOWS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+	int SCHEDULER_CONFIGURATION__WINDOWS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER_CONFIGURATION__INTERVAL = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Starvation Boost</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER_CONFIGURATION__STARVATION_BOOST = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Scheduler Configuration</em>' class.
@@ -1026,7 +987,53 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
+	int SCHEDULER_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 8;
+
+	/**
+	 * The meta object id for the '{@link scheduler.configuration.impl.StarvationBoostImpl <em>Starvation Boost</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see scheduler.configuration.impl.StarvationBoostImpl
+	 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getStarvationBoost()
+	 * @generated
+	 */
+	int STARVATION_BOOST = 18;
+
+	/**
+	 * The feature id for the '<em><b>Starvation Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARVATION_BOOST__STARVATION_LIMIT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Boost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARVATION_BOOST__BOOST = 1;
+
+	/**
+	 * The feature id for the '<em><b>Duration In Timeslices</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARVATION_BOOST__DURATION_IN_TIMESLICES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Starvation Boost</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARVATION_BOOST_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}' enum.
@@ -1130,27 +1137,6 @@ public interface ConfigurationPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link scheduler.configuration.TimeValue <em>Time Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Time Value</em>'.
-	 * @see scheduler.configuration.TimeValue
-	 * @generated
-	 */
-	EClass getTimeValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link scheduler.configuration.TimeValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see scheduler.configuration.TimeValue#getValue()
-	 * @see #getTimeValue()
-	 * @generated
-	 */
-	EAttribute getTimeValue_Value();
-
-	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin <em>Dynamic Priority Boost Configuratioin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1172,17 +1158,6 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getDynamicPriorityBoostConfiguratioin_MaxBonus();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin#getMaxSleepAverage <em>Max Sleep Average</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Max Sleep Average</em>'.
-	 * @see scheduler.configuration.DynamicPriorityBoostConfiguratioin#getMaxSleepAverage()
-	 * @see #getDynamicPriorityBoostConfiguratioin()
-	 * @generated
-	 */
-	EReference getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
-
-	/**
 	 * Returns the meta object for the attribute '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin#getThreshold <em>Threshold</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1192,6 +1167,17 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDynamicPriorityBoostConfiguratioin_Threshold();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin#getMaxSleepAverage <em>Max Sleep Average</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Sleep Average</em>'.
+	 * @see scheduler.configuration.DynamicPriorityBoostConfiguratioin#getMaxSleepAverage()
+	 * @see #getDynamicPriorityBoostConfiguratioin()
+	 * @generated
+	 */
+	EAttribute getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.PriorityBoostConfiguration <em>Priority Boost Configuration</em>}'.
@@ -1280,15 +1266,15 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getLoadBalancing_MaxIterations();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.LoadBalancing#getBalancingInterval <em>Balancing Interval</em>}'.
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.LoadBalancing#getBalancingInterval <em>Balancing Interval</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Balancing Interval</em>'.
+	 * @return the meta object for the attribute '<em>Balancing Interval</em>'.
 	 * @see scheduler.configuration.LoadBalancing#getBalancingInterval()
 	 * @see #getLoadBalancing()
 	 * @generated
 	 */
-	EReference getLoadBalancing_BalancingInterval();
+	EAttribute getLoadBalancing_BalancingInterval();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.MultipleQueueConfiguration <em>Multiple Queue Configuration</em>}'.
@@ -1355,14 +1341,36 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getQueueingConfiguration_RunqueueType();
 
 	/**
-	 * Returns the meta object for class '{@link scheduler.configuration.PredefinedTimeSliceConfiguration <em>Predefined Time Slice Configuration</em>}'.
+	 * Returns the meta object for class '{@link scheduler.configuration.QuantumTimeSliceConfiguration <em>Quantum Time Slice Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Predefined Time Slice Configuration</em>'.
-	 * @see scheduler.configuration.PredefinedTimeSliceConfiguration
+	 * @return the meta object for class '<em>Quantum Time Slice Configuration</em>'.
+	 * @see scheduler.configuration.QuantumTimeSliceConfiguration
 	 * @generated
 	 */
-	EClass getPredefinedTimeSliceConfiguration();
+	EClass getQuantumTimeSliceConfiguration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.QuantumTimeSliceConfiguration#getQuanta <em>Quanta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quanta</em>'.
+	 * @see scheduler.configuration.QuantumTimeSliceConfiguration#getQuanta()
+	 * @see #getQuantumTimeSliceConfiguration()
+	 * @generated
+	 */
+	EAttribute getQuantumTimeSliceConfiguration_Quanta();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.QuantumTimeSliceConfiguration#getMinQuanta <em>Min Quanta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Quanta</em>'.
+	 * @see scheduler.configuration.QuantumTimeSliceConfiguration#getMinQuanta()
+	 * @see #getQuantumTimeSliceConfiguration()
+	 * @generated
+	 */
+	EAttribute getQuantumTimeSliceConfiguration_MinQuanta();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.TimeSliceConfiguration <em>Time Slice Configuration</em>}'.
@@ -1375,26 +1383,15 @@ public interface ConfigurationPackage extends EPackage {
 	EClass getTimeSliceConfiguration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link scheduler.configuration.TimeSliceConfiguration#getGranularity <em>Granularity</em>}'.
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.TimeSliceConfiguration#getTimeslice <em>Timeslice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Granularity</em>'.
-	 * @see scheduler.configuration.TimeSliceConfiguration#getGranularity()
-	 * @see #getTimeSliceConfiguration()
-	 * @generated
-	 */
-	EAttribute getTimeSliceConfiguration_Granularity();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.TimeSliceConfiguration#getTimeslice <em>Timeslice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Timeslice</em>'.
+	 * @return the meta object for the attribute '<em>Timeslice</em>'.
 	 * @see scheduler.configuration.TimeSliceConfiguration#getTimeslice()
 	 * @see #getTimeSliceConfiguration()
 	 * @generated
 	 */
-	EReference getTimeSliceConfiguration_Timeslice();
+	EAttribute getTimeSliceConfiguration_Timeslice();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.PreemptionConfiguration <em>Preemption Configuration</em>}'.
@@ -1536,15 +1533,26 @@ public interface ConfigurationPackage extends EPackage {
 	EClass getPriorityDependentTimeSliceConfiguration();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.PriorityDependentTimeSliceConfiguration#getMinTimeslice <em>Min Timeslice</em>}'.
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.PriorityDependentTimeSliceConfiguration#getMinTimeslice <em>Min Timeslice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Min Timeslice</em>'.
+	 * @return the meta object for the attribute '<em>Min Timeslice</em>'.
 	 * @see scheduler.configuration.PriorityDependentTimeSliceConfiguration#getMinTimeslice()
 	 * @see #getPriorityDependentTimeSliceConfiguration()
 	 * @generated
 	 */
-	EReference getPriorityDependentTimeSliceConfiguration_MinTimeslice();
+	EAttribute getPriorityDependentTimeSliceConfiguration_MinTimeslice();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.PriorityDependentTimeSliceConfiguration#getMinTimeToBeScheduled <em>Min Time To Be Scheduled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Time To Be Scheduled</em>'.
+	 * @see scheduler.configuration.PriorityDependentTimeSliceConfiguration#getMinTimeToBeScheduled()
+	 * @see #getPriorityDependentTimeSliceConfiguration()
+	 * @generated
+	 */
+	EAttribute getPriorityDependentTimeSliceConfiguration_MinTimeToBeScheduled();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.ActiveResourceConfiguration <em>Active Resource Configuration</em>}'.
@@ -1655,15 +1663,15 @@ public interface ConfigurationPackage extends EPackage {
 	EReference getPassiveResourceConfiguration_ManagingResource();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.PassiveResourceConfiguration#getAcquisitionDemand <em>Acquisition Demand</em>}'.
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.PassiveResourceConfiguration#getAcquisitionDemand <em>Acquisition Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Acquisition Demand</em>'.
+	 * @return the meta object for the attribute '<em>Acquisition Demand</em>'.
 	 * @see scheduler.configuration.PassiveResourceConfiguration#getAcquisitionDemand()
 	 * @see #getPassiveResourceConfiguration()
 	 * @generated
 	 */
-	EReference getPassiveResourceConfiguration_AcquisitionDemand();
+	EAttribute getPassiveResourceConfiguration_AcquisitionDemand();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.StaticPriorityBoost <em>Static Priority Boost</em>}'.
@@ -1709,15 +1717,15 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getStaticPriorityBoost_Degradation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.StaticPriorityBoost#getTimePenalty <em>Time Penalty</em>}'.
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.StaticPriorityBoost#getTimePenalty <em>Time Penalty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Time Penalty</em>'.
+	 * @return the meta object for the attribute '<em>Time Penalty</em>'.
 	 * @see scheduler.configuration.StaticPriorityBoost#getTimePenalty()
 	 * @see #getStaticPriorityBoost()
 	 * @generated
 	 */
-	EReference getStaticPriorityBoost_TimePenalty();
+	EAttribute getStaticPriorityBoost_TimePenalty();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.ProcessConfiguration <em>Process Configuration</em>}'.
@@ -1881,17 +1889,6 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getSchedulerConfiguration_InFrontAfterWaiting();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Interval</em>'.
-	 * @see scheduler.configuration.SchedulerConfiguration#getInterval()
-	 * @see #getSchedulerConfiguration()
-	 * @generated
-	 */
-	EReference getSchedulerConfiguration_Interval();
-
-	/**
 	 * Returns the meta object for the attribute '{@link scheduler.configuration.SchedulerConfiguration#isWindows <em>Windows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1901,6 +1898,71 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSchedulerConfiguration_Windows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.SchedulerConfiguration#getInterval <em>Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interval</em>'.
+	 * @see scheduler.configuration.SchedulerConfiguration#getInterval()
+	 * @see #getSchedulerConfiguration()
+	 * @generated
+	 */
+	EAttribute getSchedulerConfiguration_Interval();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link scheduler.configuration.SchedulerConfiguration#getStarvationBoost <em>Starvation Boost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Starvation Boost</em>'.
+	 * @see scheduler.configuration.SchedulerConfiguration#getStarvationBoost()
+	 * @see #getSchedulerConfiguration()
+	 * @generated
+	 */
+	EReference getSchedulerConfiguration_StarvationBoost();
+
+	/**
+	 * Returns the meta object for class '{@link scheduler.configuration.StarvationBoost <em>Starvation Boost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Starvation Boost</em>'.
+	 * @see scheduler.configuration.StarvationBoost
+	 * @generated
+	 */
+	EClass getStarvationBoost();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.StarvationBoost#getStarvationLimit <em>Starvation Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Starvation Limit</em>'.
+	 * @see scheduler.configuration.StarvationBoost#getStarvationLimit()
+	 * @see #getStarvationBoost()
+	 * @generated
+	 */
+	EAttribute getStarvationBoost_StarvationLimit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.StarvationBoost#getBoost <em>Boost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Boost</em>'.
+	 * @see scheduler.configuration.StarvationBoost#getBoost()
+	 * @see #getStarvationBoost()
+	 * @generated
+	 */
+	EAttribute getStarvationBoost_Boost();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.StarvationBoost#getDurationInTimeslices <em>Duration In Timeslices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration In Timeslices</em>'.
+	 * @see scheduler.configuration.StarvationBoost#getDurationInTimeslices()
+	 * @see #getStarvationBoost()
+	 * @generated
+	 */
+	EAttribute getStarvationBoost_DurationInTimeslices();
 
 	/**
 	 * Returns the meta object for enum '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}'.
@@ -2025,24 +2087,6 @@ public interface ConfigurationPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link scheduler.configuration.impl.TimeValueImpl <em>Time Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see scheduler.configuration.impl.TimeValueImpl
-		 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getTimeValue()
-		 * @generated
-		 */
-		EClass TIME_VALUE = eINSTANCE.getTimeValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIME_VALUE__VALUE = eINSTANCE.getTimeValue_Value();
-
-		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl <em>Dynamic Priority Boost Configuratioin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2061,20 +2105,20 @@ public interface ConfigurationPackage extends EPackage {
 		EAttribute DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS = eINSTANCE.getDynamicPriorityBoostConfiguratioin_MaxBonus();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Sleep Average</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = eINSTANCE.getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
-
-		/**
 		 * The meta object literal for the '<em><b>Threshold</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD = eINSTANCE.getDynamicPriorityBoostConfiguratioin_Threshold();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Sleep Average</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = eINSTANCE.getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.PriorityBoostConfigurationImpl <em>Priority Boost Configuration</em>}' class.
@@ -2145,12 +2189,12 @@ public interface ConfigurationPackage extends EPackage {
 		EAttribute LOAD_BALANCING__MAX_ITERATIONS = eINSTANCE.getLoadBalancing_MaxIterations();
 
 		/**
-		 * The meta object literal for the '<em><b>Balancing Interval</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Balancing Interval</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LOAD_BALANCING__BALANCING_INTERVAL = eINSTANCE.getLoadBalancing_BalancingInterval();
+		EAttribute LOAD_BALANCING__BALANCING_INTERVAL = eINSTANCE.getLoadBalancing_BalancingInterval();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.MultipleQueueConfigurationImpl <em>Multiple Queue Configuration</em>}' class.
@@ -2205,14 +2249,30 @@ public interface ConfigurationPackage extends EPackage {
 		EAttribute QUEUEING_CONFIGURATION__RUNQUEUE_TYPE = eINSTANCE.getQueueingConfiguration_RunqueueType();
 
 		/**
-		 * The meta object literal for the '{@link scheduler.configuration.impl.PredefinedTimeSliceConfigurationImpl <em>Predefined Time Slice Configuration</em>}' class.
+		 * The meta object literal for the '{@link scheduler.configuration.impl.QuantumTimeSliceConfigurationImpl <em>Quantum Time Slice Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see scheduler.configuration.impl.PredefinedTimeSliceConfigurationImpl
-		 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getPredefinedTimeSliceConfiguration()
+		 * @see scheduler.configuration.impl.QuantumTimeSliceConfigurationImpl
+		 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getQuantumTimeSliceConfiguration()
 		 * @generated
 		 */
-		EClass PREDEFINED_TIME_SLICE_CONFIGURATION = eINSTANCE.getPredefinedTimeSliceConfiguration();
+		EClass QUANTUM_TIME_SLICE_CONFIGURATION = eINSTANCE.getQuantumTimeSliceConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Quanta</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUANTUM_TIME_SLICE_CONFIGURATION__QUANTA = eINSTANCE.getQuantumTimeSliceConfiguration_Quanta();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Quanta</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUANTUM_TIME_SLICE_CONFIGURATION__MIN_QUANTA = eINSTANCE.getQuantumTimeSliceConfiguration_MinQuanta();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.TimeSliceConfigurationImpl <em>Time Slice Configuration</em>}' class.
@@ -2225,20 +2285,12 @@ public interface ConfigurationPackage extends EPackage {
 		EClass TIME_SLICE_CONFIGURATION = eINSTANCE.getTimeSliceConfiguration();
 
 		/**
-		 * The meta object literal for the '<em><b>Granularity</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Timeslice</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME_SLICE_CONFIGURATION__GRANULARITY = eINSTANCE.getTimeSliceConfiguration_Granularity();
-
-		/**
-		 * The meta object literal for the '<em><b>Timeslice</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIME_SLICE_CONFIGURATION__TIMESLICE = eINSTANCE.getTimeSliceConfiguration_Timeslice();
+		EAttribute TIME_SLICE_CONFIGURATION__TIMESLICE = eINSTANCE.getTimeSliceConfiguration_Timeslice();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.PreemptionConfigurationImpl <em>Preemption Configuration</em>}' class.
@@ -2353,12 +2405,20 @@ public interface ConfigurationPackage extends EPackage {
 		EClass PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION = eINSTANCE.getPriorityDependentTimeSliceConfiguration();
 
 		/**
-		 * The meta object literal for the '<em><b>Min Timeslice</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Min Timeslice</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE = eINSTANCE.getPriorityDependentTimeSliceConfiguration_MinTimeslice();
+		EAttribute PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE = eINSTANCE.getPriorityDependentTimeSliceConfiguration_MinTimeslice();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Time To Be Scheduled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED = eINSTANCE.getPriorityDependentTimeSliceConfiguration_MinTimeToBeScheduled();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.ActiveResourceConfigurationImpl <em>Active Resource Configuration</em>}' class.
@@ -2445,12 +2505,12 @@ public interface ConfigurationPackage extends EPackage {
 		EReference PASSIVE_RESOURCE_CONFIGURATION__MANAGING_RESOURCE = eINSTANCE.getPassiveResourceConfiguration_ManagingResource();
 
 		/**
-		 * The meta object literal for the '<em><b>Acquisition Demand</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Acquisition Demand</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND = eINSTANCE.getPassiveResourceConfiguration_AcquisitionDemand();
+		EAttribute PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND = eINSTANCE.getPassiveResourceConfiguration_AcquisitionDemand();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.StaticPriorityBoostImpl <em>Static Priority Boost</em>}' class.
@@ -2487,12 +2547,12 @@ public interface ConfigurationPackage extends EPackage {
 		EAttribute STATIC_PRIORITY_BOOST__DEGRADATION = eINSTANCE.getStaticPriorityBoost_Degradation();
 
 		/**
-		 * The meta object literal for the '<em><b>Time Penalty</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Time Penalty</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATIC_PRIORITY_BOOST__TIME_PENALTY = eINSTANCE.getStaticPriorityBoost_TimePenalty();
+		EAttribute STATIC_PRIORITY_BOOST__TIME_PENALTY = eINSTANCE.getStaticPriorityBoost_TimePenalty();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.ProcessConfigurationImpl <em>Process Configuration</em>}' class.
@@ -2623,20 +2683,62 @@ public interface ConfigurationPackage extends EPackage {
 		EAttribute SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING = eINSTANCE.getSchedulerConfiguration_InFrontAfterWaiting();
 
 		/**
-		 * The meta object literal for the '<em><b>Interval</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEDULER_CONFIGURATION__INTERVAL = eINSTANCE.getSchedulerConfiguration_Interval();
-
-		/**
 		 * The meta object literal for the '<em><b>Windows</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SCHEDULER_CONFIGURATION__WINDOWS = eINSTANCE.getSchedulerConfiguration_Windows();
+
+		/**
+		 * The meta object literal for the '<em><b>Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULER_CONFIGURATION__INTERVAL = eINSTANCE.getSchedulerConfiguration_Interval();
+
+		/**
+		 * The meta object literal for the '<em><b>Starvation Boost</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULER_CONFIGURATION__STARVATION_BOOST = eINSTANCE.getSchedulerConfiguration_StarvationBoost();
+
+		/**
+		 * The meta object literal for the '{@link scheduler.configuration.impl.StarvationBoostImpl <em>Starvation Boost</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see scheduler.configuration.impl.StarvationBoostImpl
+		 * @see scheduler.configuration.impl.ConfigurationPackageImpl#getStarvationBoost()
+		 * @generated
+		 */
+		EClass STARVATION_BOOST = eINSTANCE.getStarvationBoost();
+
+		/**
+		 * The meta object literal for the '<em><b>Starvation Limit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STARVATION_BOOST__STARVATION_LIMIT = eINSTANCE.getStarvationBoost_StarvationLimit();
+
+		/**
+		 * The meta object literal for the '<em><b>Boost</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STARVATION_BOOST__BOOST = eINSTANCE.getStarvationBoost_Boost();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration In Timeslices</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STARVATION_BOOST__DURATION_IN_TIMESLICES = eINSTANCE.getStarvationBoost_DurationInTimeslices();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.InstanceToBalance <em>Instance To Balance</em>}' enum.

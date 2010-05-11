@@ -16,6 +16,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -28,7 +30,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.StaticPriorityBoost;
 
@@ -42,11 +43,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class StaticPriorityBoostItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -233,7 +234,7 @@ public class StaticPriorityBoostItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.STATIC_PRIORITY_BOOST__TIME_PENALTY,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
+				 EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, "0")));
 	}
 
 	/**

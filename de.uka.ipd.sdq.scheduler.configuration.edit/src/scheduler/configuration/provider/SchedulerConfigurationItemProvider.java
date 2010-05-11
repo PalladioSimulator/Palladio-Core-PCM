@@ -43,11 +43,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class SchedulerConfigurationItemProvider
 	extends IdentifierItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -73,6 +73,8 @@ public class SchedulerConfigurationItemProvider
 			addNamePropertyDescriptor(object);
 			addInFrontAfterWaitingPropertyDescriptor(object);
 			addWindowsPropertyDescriptor(object);
+			addIntervalPropertyDescriptor(object);
+			addStarvationBoostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -144,6 +146,50 @@ public class SchedulerConfigurationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Interval feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIntervalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulerConfiguration_interval_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulerConfiguration_interval_feature", "_UI_SchedulerConfiguration_type"),
+				 ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__INTERVAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Starvation Boost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStarvationBoostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulerConfiguration_starvationBoost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulerConfiguration_starvationBoost_feature", "_UI_SchedulerConfiguration_type"),
+				 ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__STARVATION_BOOST,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -158,7 +204,7 @@ public class SchedulerConfigurationItemProvider
 			childrenFeatures.add(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__PRIORITY_CONFIGURATION);
 			childrenFeatures.add(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__PREEMPTION_CONFIGURATION);
 			childrenFeatures.add(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION);
-			childrenFeatures.add(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__INTERVAL);
+			childrenFeatures.add(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__STARVATION_BOOST);
 		}
 		return childrenFeatures;
 	}
@@ -216,12 +262,13 @@ public class SchedulerConfigurationItemProvider
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__NAME:
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__PRIORITY_CONFIGURATION:
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__PREEMPTION_CONFIGURATION:
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION:
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -261,8 +308,8 @@ public class SchedulerConfigurationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__INTERVAL,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
+				(ConfigurationPackage.Literals.SCHEDULER_CONFIGURATION__STARVATION_BOOST,
+				 ConfigurationFactory.eINSTANCE.createStarvationBoost()));
 	}
 
 	/**

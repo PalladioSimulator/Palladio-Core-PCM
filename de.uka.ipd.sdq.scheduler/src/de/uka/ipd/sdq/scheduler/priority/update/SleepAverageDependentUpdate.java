@@ -33,9 +33,9 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 			double starvation_limit = max_sleep_average * process.getRunQueue().getCurrentLoad();
 			boolean process_starving = process.getRunQueue().processStarving(starvation_limit);
 			if (isInteractive(process) 
-					&& process.getTimeslice().completelyFinished()
+					&& process.getTimeslice().isFinished()
 					&& !process_starving){
-				process.getTimeslice().reset();
+				process.getTimeslice().fullReset();
 			}
 		}
 		return true;

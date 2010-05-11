@@ -31,12 +31,12 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	@Override
 	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 
-		if (((PreemptiveProcess) process).getTimeslice().completelyFinished()) {
+		if (((PreemptiveProcess) process).getTimeslice().isFinished()) {
 			updateStarvationTime();
 		}
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
-			if (preemptiveProcess.getTimeslice().completelyFinished()) {
+			if (preemptiveProcess.getTimeslice().isFinished()) {
 				expiredPriorityArray.add(process, inFront);
 			} else {
 				activePriorityArray.add(process, inFront);

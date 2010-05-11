@@ -21,7 +21,6 @@ import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PassiveResourceConfiguration;
 import scheduler.configuration.PassiveResourceType;
 import scheduler.configuration.StaticPriorityBoost;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,14 +122,24 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 	protected ActiveResourceConfiguration managingResource;
 
 	/**
-	 * The cached value of the '{@link #getAcquisitionDemand() <em>Acquisition Demand</em>}' containment reference.
+	 * The default value of the '{@link #getAcquisitionDemand() <em>Acquisition Demand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAcquisitionDemand()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue acquisitionDemand;
+	protected static final double ACQUISITION_DEMAND_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAcquisitionDemand() <em>Acquisition Demand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAcquisitionDemand()
+	 * @generated
+	 * @ordered
+	 */
+	protected double acquisitionDemand = ACQUISITION_DEMAND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,7 +309,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getAcquisitionDemand() {
+	public double getAcquisitionDemand() {
 		return acquisitionDemand;
 	}
 
@@ -309,33 +318,11 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAcquisitionDemand(TimeValue newAcquisitionDemand, NotificationChain msgs) {
-		TimeValue oldAcquisitionDemand = acquisitionDemand;
+	public void setAcquisitionDemand(double newAcquisitionDemand) {
+		double oldAcquisitionDemand = acquisitionDemand;
 		acquisitionDemand = newAcquisitionDemand;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND, oldAcquisitionDemand, newAcquisitionDemand);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAcquisitionDemand(TimeValue newAcquisitionDemand) {
-		if (newAcquisitionDemand != acquisitionDemand) {
-			NotificationChain msgs = null;
-			if (acquisitionDemand != null)
-				msgs = ((InternalEObject)acquisitionDemand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND, null, msgs);
-			if (newAcquisitionDemand != null)
-				msgs = ((InternalEObject)newAcquisitionDemand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND, null, msgs);
-			msgs = basicSetAcquisitionDemand(newAcquisitionDemand, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND, newAcquisitionDemand, newAcquisitionDemand));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND, oldAcquisitionDemand, acquisitionDemand));
 	}
 
 	/**
@@ -348,8 +335,6 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 		switch (featureID) {
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__STATIC_PRIORITY_BOOST_CONFIGURATION:
 				return basicSetStaticPriorityBoostConfiguration(null, msgs);
-			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND:
-				return basicSetAcquisitionDemand(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -365,7 +350,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__STATIC_PRIORITY_BOOST_CONFIGURATION:
 				return getStaticPriorityBoostConfiguration();
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__CAPACITY:
-				return new Integer(getCapacity());
+				return getCapacity();
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__TYPE:
 				return getType();
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__NAME:
@@ -391,7 +376,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 				setStaticPriorityBoostConfiguration((StaticPriorityBoost)newValue);
 				return;
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__CAPACITY:
-				setCapacity(((Integer)newValue).intValue());
+				setCapacity((Integer)newValue);
 				return;
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__TYPE:
 				setType((PassiveResourceType)newValue);
@@ -403,7 +388,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 				setManagingResource((ActiveResourceConfiguration)newValue);
 				return;
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND:
-				setAcquisitionDemand((TimeValue)newValue);
+				setAcquisitionDemand((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -433,7 +418,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 				setManagingResource((ActiveResourceConfiguration)null);
 				return;
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND:
-				setAcquisitionDemand((TimeValue)null);
+				setAcquisitionDemand(ACQUISITION_DEMAND_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -458,7 +443,7 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__MANAGING_RESOURCE:
 				return managingResource != null;
 			case ConfigurationPackage.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND:
-				return acquisitionDemand != null;
+				return acquisitionDemand != ACQUISITION_DEMAND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -479,6 +464,8 @@ public class PassiveResourceConfigurationImpl extends IdentifierImpl implements 
 		result.append(type);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", acquisitionDemand: ");
+		result.append(acquisitionDemand);
 		result.append(')');
 		return result.toString();
 	}

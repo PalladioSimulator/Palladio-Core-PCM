@@ -26,15 +26,6 @@ public interface ConfigurationFactory extends EFactory {
 	ConfigurationFactory eINSTANCE = scheduler.configuration.impl.ConfigurationFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Time Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Time Value</em>'.
-	 * @generated
-	 */
-	TimeValue createTimeValue();
-
-	/**
 	 * Returns a new object of class '<em>Dynamic Priority Boost Configuratioin</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,13 +53,13 @@ public interface ConfigurationFactory extends EFactory {
 	MultipleQueueConfiguration createMultipleQueueConfiguration();
 
 	/**
-	 * Returns a new object of class '<em>Predefined Time Slice Configuration</em>'.
+	 * Returns a new object of class '<em>Quantum Time Slice Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Predefined Time Slice Configuration</em>'.
+	 * @return a new object of class '<em>Quantum Time Slice Configuration</em>'.
 	 * @generated
 	 */
-	PredefinedTimeSliceConfiguration createPredefinedTimeSliceConfiguration();
+	QuantumTimeSliceConfiguration createQuantumTimeSliceConfiguration();
 
 	/**
 	 * Returns a new object of class '<em>Preemption Configuration</em>'.
@@ -168,6 +159,15 @@ public interface ConfigurationFactory extends EFactory {
 	 * @generated
 	 */
 	SchedulerConfiguration createSchedulerConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Starvation Boost</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Starvation Boost</em>'.
+	 * @generated
+	 */
+	StarvationBoost createStarvationBoost();
 
 	/**
 	 * Returns the package supported by this factory.

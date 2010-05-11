@@ -18,6 +18,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -43,11 +45,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class PassiveResourceConfigurationItemProvider
 	extends IdentifierItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -266,7 +268,7 @@ public class PassiveResourceConfigurationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
+				 EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, "0")));
 	}
 
 	/**

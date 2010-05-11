@@ -27,17 +27,17 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import scheduler.configuration.ConfigurationPackage;
-import scheduler.configuration.PriorityRange;
+import scheduler.configuration.StarvationBoost;
 
 import scheduler.provider.SchedulerConfigurationEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link scheduler.configuration.PriorityRange} object.
+ * This is the item provider adapter for a {@link scheduler.configuration.StarvationBoost} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PriorityRangeItemProvider
+public class StarvationBoostItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -51,7 +51,7 @@ public class PriorityRangeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PriorityRangeItemProvider(AdapterFactory adapterFactory) {
+	public StarvationBoostItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,30 +66,49 @@ public class PriorityRangeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHighestPropertyDescriptor(object);
-			addHighPropertyDescriptor(object);
-			addAveragePropertyDescriptor(object);
-			addLowPropertyDescriptor(object);
-			addLowestPropertyDescriptor(object);
-			addDefaultPropertyDescriptor(object);
+			addStarvationLimitPropertyDescriptor(object);
+			addBoostPropertyDescriptor(object);
+			addDurationInTimeslicesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Highest feature.
+	 * This adds a property descriptor for the Starvation Limit feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHighestPropertyDescriptor(Object object) {
+	protected void addStarvationLimitPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PriorityRange_highest_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_highest_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__HIGHEST,
+				 getString("_UI_StarvationBoost_starvationLimit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StarvationBoost_starvationLimit_feature", "_UI_StarvationBoost_type"),
+				 ConfigurationPackage.Literals.STARVATION_BOOST__STARVATION_LIMIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Boost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBoostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StarvationBoost_boost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StarvationBoost_boost_feature", "_UI_StarvationBoost_type"),
+				 ConfigurationPackage.Literals.STARVATION_BOOST__BOOST,
 				 true,
 				 false,
 				 false,
@@ -99,19 +118,19 @@ public class PriorityRangeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the High feature.
+	 * This adds a property descriptor for the Duration In Timeslices feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHighPropertyDescriptor(Object object) {
+	protected void addDurationInTimeslicesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PriorityRange_high_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_high_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__HIGH,
+				 getString("_UI_StarvationBoost_durationInTimeslices_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StarvationBoost_durationInTimeslices_feature", "_UI_StarvationBoost_type"),
+				 ConfigurationPackage.Literals.STARVATION_BOOST__DURATION_IN_TIMESLICES,
 				 true,
 				 false,
 				 false,
@@ -121,102 +140,14 @@ public class PriorityRangeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Average feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAveragePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PriorityRange_average_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_average_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__AVERAGE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Low feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLowPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PriorityRange_low_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_low_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__LOW,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lowest feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLowestPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PriorityRange_lowest_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_lowest_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__LOWEST,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Default feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDefaultPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PriorityRange_default_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PriorityRange_default_feature", "_UI_PriorityRange_type"),
-				 ConfigurationPackage.Literals.PRIORITY_RANGE__DEFAULT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns PriorityRange.gif.
+	 * This returns StarvationBoost.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PriorityRange"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StarvationBoost"));
 	}
 
 	/**
@@ -227,8 +158,8 @@ public class PriorityRangeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		PriorityRange priorityRange = (PriorityRange)object;
-		return getString("_UI_PriorityRange_type") + " " + priorityRange.getHighest();
+		StarvationBoost starvationBoost = (StarvationBoost)object;
+		return getString("_UI_StarvationBoost_type") + " " + starvationBoost.getStarvationLimit();
 	}
 
 	/**
@@ -242,13 +173,10 @@ public class PriorityRangeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PriorityRange.class)) {
-			case ConfigurationPackage.PRIORITY_RANGE__HIGHEST:
-			case ConfigurationPackage.PRIORITY_RANGE__HIGH:
-			case ConfigurationPackage.PRIORITY_RANGE__AVERAGE:
-			case ConfigurationPackage.PRIORITY_RANGE__LOW:
-			case ConfigurationPackage.PRIORITY_RANGE__LOWEST:
-			case ConfigurationPackage.PRIORITY_RANGE__DEFAULT:
+		switch (notification.getFeatureID(StarvationBoost.class)) {
+			case ConfigurationPackage.STARVATION_BOOST__STARVATION_LIMIT:
+			case ConfigurationPackage.STARVATION_BOOST__BOOST:
+			case ConfigurationPackage.STARVATION_BOOST__DURATION_IN_TIMESLICES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

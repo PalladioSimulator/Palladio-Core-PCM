@@ -13,9 +13,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -27,11 +27,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
-
-import scheduler.provider.SchedulerConfigurationEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link scheduler.configuration.DynamicPriorityBoostConfiguratioin} object.
@@ -41,11 +38,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class DynamicPriorityBoostConfiguratioinItemProvider
 	extends PriorityBoostConfigurationItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -208,18 +205,7 @@ public class DynamicPriorityBoostConfiguratioinItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SchedulerConfigurationEditPlugin.INSTANCE;
+				 EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, "0")));
 	}
 
 }

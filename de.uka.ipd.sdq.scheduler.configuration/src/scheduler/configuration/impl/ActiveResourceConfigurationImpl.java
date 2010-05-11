@@ -196,7 +196,7 @@ public class ActiveResourceConfigurationImpl extends IdentifierImpl implements A
 				if (resolve) return getSchedulerConfiguration();
 				return basicGetSchedulerConfiguration();
 			case ConfigurationPackage.ACTIVE_RESOURCE_CONFIGURATION__REPLICAS:
-				return new Integer(getReplicas());
+				return getReplicas();
 			case ConfigurationPackage.ACTIVE_RESOURCE_CONFIGURATION__NAME:
 				return getName();
 		}
@@ -215,7 +215,7 @@ public class ActiveResourceConfigurationImpl extends IdentifierImpl implements A
 				setSchedulerConfiguration((SchedulerConfiguration)newValue);
 				return;
 			case ConfigurationPackage.ACTIVE_RESOURCE_CONFIGURATION__REPLICAS:
-				setReplicas(((Integer)newValue).intValue());
+				setReplicas((Integer)newValue);
 				return;
 			case ConfigurationPackage.ACTIVE_RESOURCE_CONFIGURATION__NAME:
 				setName((String)newValue);

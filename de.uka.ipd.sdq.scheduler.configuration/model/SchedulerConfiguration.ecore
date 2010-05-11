@@ -20,18 +20,13 @@
   </eClassifiers>
   <eSubpackages name="configuration" nsURI="http://sdq.ipd.uka.de/scheduler/configuration/1.0"
       nsPrefix="">
-    <eClassifiers xsi:type="ecore:EClass" name="TimeValue" eSuperTypes="../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DynamicPriorityBoostConfiguratioin"
         eSuperTypes="#//configuration/PriorityBoostConfiguration">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxBonus" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="maxSleepAverage" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSleepAverage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PriorityBoostConfiguration" abstract="true"/>
     <eClassifiers xsi:type="ecore:EEnum" name="InstanceToBalance">
@@ -51,8 +46,7 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIterations" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="balancingInterval" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="balancingInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="LoadBalancingType">
       <eLiterals name="IDLE_TO_ONE"/>
@@ -88,14 +82,12 @@
       <eLiterals name="ACTIVE_AND_EXPIRED"/>
       <eLiterals name="SINGLE" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PredefinedTimeSliceConfiguration"
-        eSuperTypes="#//configuration/TimeSliceConfiguration"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantumTimeSliceConfiguration" eSuperTypes="#//configuration/TimeSliceConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quanta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minQuanta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeSliceConfiguration" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="granularity" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="timeslice" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeslice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PreemptionConfiguration">
       <eStructuralFeatures xsi:type="ecore:EReference" name="timesliceConfiguration"
@@ -136,8 +128,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PriorityDependentTimeSliceConfiguration"
         eSuperTypes="#//configuration/TimeSliceConfiguration">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="minTimeslice" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTimeslice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTimeToBeScheduled"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ProcessSelection">
       <eLiterals name="PREFER_IDEAL_AND_LAST"/>
@@ -164,8 +157,7 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="managingResource" ordered="false"
           eType="#//configuration/ActiveResourceConfiguration"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="acquisitionDemand" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="acquisitionDemand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StaticPriorityBoost">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resetTimeslice" ordered="false"
@@ -174,8 +166,7 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="degradation" ordered="false"
           lowerBound="1" eType="#//configuration/PriorityDegradation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="timePenalty" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timePenalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PassiveResourceType">
       <eLiterals name="FAIR"/>
@@ -212,11 +203,18 @@
           ordered="false" eType="#//configuration/QueueingConfiguration" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="inFrontAfterWaiting"
           ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interval" ordered="false"
-          lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Windows" unique="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="starvationBoost" eType="#//configuration/StarvationBoost"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StarvationBoost">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="starvationLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="boost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationInTimeslices"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

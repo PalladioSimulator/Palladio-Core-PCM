@@ -7,10 +7,8 @@
 package scheduler.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -21,7 +19,6 @@ import scheduler.configuration.LoadBalancing;
 import scheduler.configuration.LoadBalancingType;
 import scheduler.configuration.PreferredPriority;
 import scheduler.configuration.PreferredWaitingTime;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -164,14 +161,24 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 	protected int maxIterations = MAX_ITERATIONS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBalancingInterval() <em>Balancing Interval</em>}' containment reference.
+	 * The default value of the '{@link #getBalancingInterval() <em>Balancing Interval</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBalancingInterval()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue balancingInterval;
+	protected static final double BALANCING_INTERVAL_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getBalancingInterval() <em>Balancing Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBalancingInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected double balancingInterval = BALANCING_INTERVAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,7 +330,7 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getBalancingInterval() {
+	public double getBalancingInterval() {
 		return balancingInterval;
 	}
 
@@ -332,47 +339,11 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBalancingInterval(TimeValue newBalancingInterval, NotificationChain msgs) {
-		TimeValue oldBalancingInterval = balancingInterval;
+	public void setBalancingInterval(double newBalancingInterval) {
+		double oldBalancingInterval = balancingInterval;
 		balancingInterval = newBalancingInterval;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL, oldBalancingInterval, newBalancingInterval);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBalancingInterval(TimeValue newBalancingInterval) {
-		if (newBalancingInterval != balancingInterval) {
-			NotificationChain msgs = null;
-			if (balancingInterval != null)
-				msgs = ((InternalEObject)balancingInterval).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL, null, msgs);
-			if (newBalancingInterval != null)
-				msgs = ((InternalEObject)newBalancingInterval).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL, null, msgs);
-			msgs = basicSetBalancingInterval(newBalancingInterval, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL, newBalancingInterval, newBalancingInterval));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL:
-				return basicSetBalancingInterval(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL, oldBalancingInterval, balancingInterval));
 	}
 
 	/**
@@ -392,9 +363,9 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 			case ConfigurationPackage.LOAD_BALANCING__INSTANCES:
 				return getInstances();
 			case ConfigurationPackage.LOAD_BALANCING__THRESHOLD:
-				return new Double(getThreshold());
+				return getThreshold();
 			case ConfigurationPackage.LOAD_BALANCING__MAX_ITERATIONS:
-				return new Integer(getMaxIterations());
+				return getMaxIterations();
 			case ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL:
 				return getBalancingInterval();
 		}
@@ -422,13 +393,13 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 				setInstances((InstanceToBalance)newValue);
 				return;
 			case ConfigurationPackage.LOAD_BALANCING__THRESHOLD:
-				setThreshold(((Double)newValue).doubleValue());
+				setThreshold((Double)newValue);
 				return;
 			case ConfigurationPackage.LOAD_BALANCING__MAX_ITERATIONS:
-				setMaxIterations(((Integer)newValue).intValue());
+				setMaxIterations((Integer)newValue);
 				return;
 			case ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL:
-				setBalancingInterval((TimeValue)newValue);
+				setBalancingInterval((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -461,7 +432,7 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 				setMaxIterations(MAX_ITERATIONS_EDEFAULT);
 				return;
 			case ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL:
-				setBalancingInterval((TimeValue)null);
+				setBalancingInterval(BALANCING_INTERVAL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -488,7 +459,7 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 			case ConfigurationPackage.LOAD_BALANCING__MAX_ITERATIONS:
 				return maxIterations != MAX_ITERATIONS_EDEFAULT;
 			case ConfigurationPackage.LOAD_BALANCING__BALANCING_INTERVAL:
-				return balancingInterval != null;
+				return balancingInterval != BALANCING_INTERVAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -515,6 +486,8 @@ public class LoadBalancingImpl extends EObjectImpl implements LoadBalancing {
 		result.append(threshold);
 		result.append(", maxIterations: ");
 		result.append(maxIterations);
+		result.append(", balancingInterval: ");
+		result.append(balancingInterval);
 		result.append(')');
 		return result.toString();
 	}

@@ -21,7 +21,7 @@ import scheduler.configuration.PreemptionConfiguration;
 import scheduler.configuration.PriorityConfiguration;
 import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
-import scheduler.configuration.TimeValue;
+import scheduler.configuration.StarvationBoost;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +35,9 @@ import scheduler.configuration.TimeValue;
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getQueueingConfiguration <em>Queueing Configuration</em>}</li>
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#isInFrontAfterWaiting <em>In Front After Waiting</em>}</li>
- *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getInterval <em>Interval</em>}</li>
  *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#isWindows <em>Windows</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getInterval <em>Interval</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.SchedulerConfigurationImpl#getStarvationBoost <em>Starvation Boost</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,16 +115,6 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	protected boolean inFrontAfterWaiting = IN_FRONT_AFTER_WAITING_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInterval() <em>Interval</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterval()
-	 * @generated
-	 * @ordered
-	 */
-	protected TimeValue interval;
-
-	/**
 	 * The default value of the '{@link #isWindows() <em>Windows</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,6 +133,36 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	 * @ordered
 	 */
 	protected boolean windows = WINDOWS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInterval() <em>Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double INTERVAL_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getInterval() <em>Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected double interval = INTERVAL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getStarvationBoost() <em>Starvation Boost</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStarvationBoost()
+	 * @generated
+	 * @ordered
+	 */
+	protected StarvationBoost starvationBoost;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -338,49 +359,6 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getInterval() {
-		return interval;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInterval(TimeValue newInterval, NotificationChain msgs) {
-		TimeValue oldInterval = interval;
-		interval = newInterval;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL, oldInterval, newInterval);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterval(TimeValue newInterval) {
-		if (newInterval != interval) {
-			NotificationChain msgs = null;
-			if (interval != null)
-				msgs = ((InternalEObject)interval).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL, null, msgs);
-			if (newInterval != null)
-				msgs = ((InternalEObject)newInterval).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL, null, msgs);
-			msgs = basicSetInterval(newInterval, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL, newInterval, newInterval));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isWindows() {
 		return windows;
 	}
@@ -402,6 +380,70 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getInterval() {
+		return interval;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterval(double newInterval) {
+		double oldInterval = interval;
+		interval = newInterval;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL, oldInterval, interval));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StarvationBoost getStarvationBoost() {
+		return starvationBoost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStarvationBoost(StarvationBoost newStarvationBoost, NotificationChain msgs) {
+		StarvationBoost oldStarvationBoost = starvationBoost;
+		starvationBoost = newStarvationBoost;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST, oldStarvationBoost, newStarvationBoost);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStarvationBoost(StarvationBoost newStarvationBoost) {
+		if (newStarvationBoost != starvationBoost) {
+			NotificationChain msgs = null;
+			if (starvationBoost != null)
+				msgs = ((InternalEObject)starvationBoost).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST, null, msgs);
+			if (newStarvationBoost != null)
+				msgs = ((InternalEObject)newStarvationBoost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST, null, msgs);
+			msgs = basicSetStarvationBoost(newStarvationBoost, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST, newStarvationBoost, newStarvationBoost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -411,8 +453,8 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				return basicSetPreemptionConfiguration(null, msgs);
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION:
 				return basicSetQueueingConfiguration(null, msgs);
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
-				return basicSetInterval(null, msgs);
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
+				return basicSetStarvationBoost(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -434,11 +476,13 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION:
 				return getQueueingConfiguration();
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
-				return isInFrontAfterWaiting() ? Boolean.TRUE : Boolean.FALSE;
+				return isInFrontAfterWaiting();
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
+				return isWindows();
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
 				return getInterval();
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
-				return isWindows() ? Boolean.TRUE : Boolean.FALSE;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
+				return getStarvationBoost();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -464,13 +508,16 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				setQueueingConfiguration((QueueingConfiguration)newValue);
 				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
-				setInFrontAfterWaiting(((Boolean)newValue).booleanValue());
-				return;
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
-				setInterval((TimeValue)newValue);
+				setInFrontAfterWaiting((Boolean)newValue);
 				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
-				setWindows(((Boolean)newValue).booleanValue());
+				setWindows((Boolean)newValue);
+				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
+				setInterval((Double)newValue);
+				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
+				setStarvationBoost((StarvationBoost)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -499,11 +546,14 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
 				setInFrontAfterWaiting(IN_FRONT_AFTER_WAITING_EDEFAULT);
 				return;
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
-				setInterval((TimeValue)null);
-				return;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
 				setWindows(WINDOWS_EDEFAULT);
+				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
+				setInterval(INTERVAL_EDEFAULT);
+				return;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
+				setStarvationBoost((StarvationBoost)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -527,10 +577,12 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 				return queueingConfiguration != null;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING:
 				return inFrontAfterWaiting != IN_FRONT_AFTER_WAITING_EDEFAULT;
-			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
-				return interval != null;
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION__WINDOWS:
 				return windows != WINDOWS_EDEFAULT;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__INTERVAL:
+				return interval != INTERVAL_EDEFAULT;
+			case ConfigurationPackage.SCHEDULER_CONFIGURATION__STARVATION_BOOST:
+				return starvationBoost != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -551,6 +603,8 @@ public class SchedulerConfigurationImpl extends IdentifierImpl implements Schedu
 		result.append(inFrontAfterWaiting);
 		result.append(", Windows: ");
 		result.append(windows);
+		result.append(", interval: ");
+		result.append(interval);
 		result.append(')');
 		return result.toString();
 	}

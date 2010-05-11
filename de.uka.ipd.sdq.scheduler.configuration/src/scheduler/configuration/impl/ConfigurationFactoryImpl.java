@@ -61,11 +61,10 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ConfigurationPackage.TIME_VALUE: return createTimeValue();
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN: return createDynamicPriorityBoostConfiguratioin();
 			case ConfigurationPackage.LOAD_BALANCING: return createLoadBalancing();
 			case ConfigurationPackage.MULTIPLE_QUEUE_CONFIGURATION: return createMultipleQueueConfiguration();
-			case ConfigurationPackage.PREDEFINED_TIME_SLICE_CONFIGURATION: return createPredefinedTimeSliceConfiguration();
+			case ConfigurationPackage.QUANTUM_TIME_SLICE_CONFIGURATION: return createQuantumTimeSliceConfiguration();
 			case ConfigurationPackage.PREEMPTION_CONFIGURATION: return createPreemptionConfiguration();
 			case ConfigurationPackage.PRIORITY_CONFIGURATION: return createPriorityConfiguration();
 			case ConfigurationPackage.PRIORITY_RANGE: return createPriorityRange();
@@ -77,6 +76,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 			case ConfigurationPackage.SINGLE_QUEUE_CONFIGURATION: return createSingleQueueConfiguration();
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST_CONFIGURATION: return createStaticPriorityBoostConfiguration();
 			case ConfigurationPackage.SCHEDULER_CONFIGURATION: return createSchedulerConfiguration();
+			case ConfigurationPackage.STARVATION_BOOST: return createStarvationBoost();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -153,16 +153,6 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue createTimeValue() {
-		TimeValueImpl timeValue = new TimeValueImpl();
-		return timeValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DynamicPriorityBoostConfiguratioin createDynamicPriorityBoostConfiguratioin() {
 		DynamicPriorityBoostConfiguratioinImpl dynamicPriorityBoostConfiguratioin = new DynamicPriorityBoostConfiguratioinImpl();
 		return dynamicPriorityBoostConfiguratioin;
@@ -193,9 +183,9 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PredefinedTimeSliceConfiguration createPredefinedTimeSliceConfiguration() {
-		PredefinedTimeSliceConfigurationImpl predefinedTimeSliceConfiguration = new PredefinedTimeSliceConfigurationImpl();
-		return predefinedTimeSliceConfiguration;
+	public QuantumTimeSliceConfiguration createQuantumTimeSliceConfiguration() {
+		QuantumTimeSliceConfigurationImpl quantumTimeSliceConfiguration = new QuantumTimeSliceConfigurationImpl();
+		return quantumTimeSliceConfiguration;
 	}
 
 	/**
@@ -306,6 +296,16 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	public SchedulerConfiguration createSchedulerConfiguration() {
 		SchedulerConfigurationImpl schedulerConfiguration = new SchedulerConfigurationImpl();
 		return schedulerConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StarvationBoost createStarvationBoost() {
+		StarvationBoostImpl starvationBoost = new StarvationBoostImpl();
+		return starvationBoost;
 	}
 
 	/**

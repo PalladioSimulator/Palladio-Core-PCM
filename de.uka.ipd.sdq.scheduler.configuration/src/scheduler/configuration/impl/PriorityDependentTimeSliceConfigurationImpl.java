@@ -7,16 +7,13 @@
 package scheduler.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PriorityDependentTimeSliceConfiguration;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +23,7 @@ import scheduler.configuration.TimeValue;
  * The following features are implemented:
  * <ul>
  *   <li>{@link scheduler.configuration.impl.PriorityDependentTimeSliceConfigurationImpl#getMinTimeslice <em>Min Timeslice</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.PriorityDependentTimeSliceConfigurationImpl#getMinTimeToBeScheduled <em>Min Time To Be Scheduled</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,14 +31,44 @@ import scheduler.configuration.TimeValue;
  */
 public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfigurationImpl implements PriorityDependentTimeSliceConfiguration {
 	/**
-	 * The cached value of the '{@link #getMinTimeslice() <em>Min Timeslice</em>}' containment reference.
+	 * The default value of the '{@link #getMinTimeslice() <em>Min Timeslice</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMinTimeslice()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue minTimeslice;
+	protected static final double MIN_TIMESLICE_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getMinTimeslice() <em>Min Timeslice</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinTimeslice()
+	 * @generated
+	 * @ordered
+	 */
+	protected double minTimeslice = MIN_TIMESLICE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinTimeToBeScheduled() <em>Min Time To Be Scheduled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinTimeToBeScheduled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double MIN_TIME_TO_BE_SCHEDULED_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getMinTimeToBeScheduled() <em>Min Time To Be Scheduled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinTimeToBeScheduled()
+	 * @generated
+	 * @ordered
+	 */
+	protected double minTimeToBeScheduled = MIN_TIME_TO_BE_SCHEDULED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,7 +94,7 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getMinTimeslice() {
+	public double getMinTimeslice() {
 		return minTimeslice;
 	}
 
@@ -75,14 +103,11 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMinTimeslice(TimeValue newMinTimeslice, NotificationChain msgs) {
-		TimeValue oldMinTimeslice = minTimeslice;
+	public void setMinTimeslice(double newMinTimeslice) {
+		double oldMinTimeslice = minTimeslice;
 		minTimeslice = newMinTimeslice;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE, oldMinTimeslice, newMinTimeslice);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE, oldMinTimeslice, minTimeslice));
 	}
 
 	/**
@@ -90,18 +115,8 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinTimeslice(TimeValue newMinTimeslice) {
-		if (newMinTimeslice != minTimeslice) {
-			NotificationChain msgs = null;
-			if (minTimeslice != null)
-				msgs = ((InternalEObject)minTimeslice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE, null, msgs);
-			if (newMinTimeslice != null)
-				msgs = ((InternalEObject)newMinTimeslice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE, null, msgs);
-			msgs = basicSetMinTimeslice(newMinTimeslice, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE, newMinTimeslice, newMinTimeslice));
+	public double getMinTimeToBeScheduled() {
+		return minTimeToBeScheduled;
 	}
 
 	/**
@@ -109,13 +124,11 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
-				return basicSetMinTimeslice(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setMinTimeToBeScheduled(double newMinTimeToBeScheduled) {
+		double oldMinTimeToBeScheduled = minTimeToBeScheduled;
+		minTimeToBeScheduled = newMinTimeToBeScheduled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED, oldMinTimeToBeScheduled, minTimeToBeScheduled));
 	}
 
 	/**
@@ -128,6 +141,8 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
 				return getMinTimeslice();
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED:
+				return getMinTimeToBeScheduled();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,7 +156,10 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
-				setMinTimeslice((TimeValue)newValue);
+				setMinTimeslice((Double)newValue);
+				return;
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED:
+				setMinTimeToBeScheduled((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -156,7 +174,10 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
-				setMinTimeslice((TimeValue)null);
+				setMinTimeslice(MIN_TIMESLICE_EDEFAULT);
+				return;
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED:
+				setMinTimeToBeScheduled(MIN_TIME_TO_BE_SCHEDULED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -171,9 +192,29 @@ public class PriorityDependentTimeSliceConfigurationImpl extends TimeSliceConfig
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE:
-				return minTimeslice != null;
+				return minTimeslice != MIN_TIMESLICE_EDEFAULT;
+			case ConfigurationPackage.PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED:
+				return minTimeToBeScheduled != MIN_TIME_TO_BE_SCHEDULED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (minTimeslice: ");
+		result.append(minTimeslice);
+		result.append(", minTimeToBeScheduled: ");
+		result.append(minTimeToBeScheduled);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PriorityDependentTimeSliceConfigurationImpl

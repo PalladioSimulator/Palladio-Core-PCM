@@ -7,17 +7,14 @@
 package scheduler.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.TimeSliceConfiguration;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +23,6 @@ import scheduler.configuration.TimeValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link scheduler.configuration.impl.TimeSliceConfigurationImpl#getGranularity <em>Granularity</em>}</li>
  *   <li>{@link scheduler.configuration.impl.TimeSliceConfigurationImpl#getTimeslice <em>Timeslice</em>}</li>
  * </ul>
  * </p>
@@ -35,34 +31,24 @@ import scheduler.configuration.TimeValue;
  */
 public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements TimeSliceConfiguration {
 	/**
-	 * The default value of the '{@link #getGranularity() <em>Granularity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGranularity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int GRANULARITY_EDEFAULT = 1;
-
-	/**
-	 * The cached value of the '{@link #getGranularity() <em>Granularity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGranularity()
-	 * @generated
-	 * @ordered
-	 */
-	protected int granularity = GRANULARITY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTimeslice() <em>Timeslice</em>}' containment reference.
+	 * The default value of the '{@link #getTimeslice() <em>Timeslice</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTimeslice()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue timeslice;
+	protected static final double TIMESLICE_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getTimeslice() <em>Timeslice</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeslice()
+	 * @generated
+	 * @ordered
+	 */
+	protected double timeslice = TIMESLICE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,28 +74,7 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getGranularity() {
-		return granularity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGranularity(int newGranularity) {
-		int oldGranularity = granularity;
-		granularity = newGranularity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY, oldGranularity, granularity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TimeValue getTimeslice() {
+	public double getTimeslice() {
 		return timeslice;
 	}
 
@@ -118,47 +83,11 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTimeslice(TimeValue newTimeslice, NotificationChain msgs) {
-		TimeValue oldTimeslice = timeslice;
+	public void setTimeslice(double newTimeslice) {
+		double oldTimeslice = timeslice;
 		timeslice = newTimeslice;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE, oldTimeslice, newTimeslice);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTimeslice(TimeValue newTimeslice) {
-		if (newTimeslice != timeslice) {
-			NotificationChain msgs = null;
-			if (timeslice != null)
-				msgs = ((InternalEObject)timeslice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE, null, msgs);
-			if (newTimeslice != null)
-				msgs = ((InternalEObject)newTimeslice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE, null, msgs);
-			msgs = basicSetTimeslice(newTimeslice, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE, newTimeslice, newTimeslice));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
-				return basicSetTimeslice(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE, oldTimeslice, timeslice));
 	}
 
 	/**
@@ -169,8 +98,6 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY:
-				return new Integer(getGranularity());
 			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
 				return getTimeslice();
 		}
@@ -185,11 +112,8 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY:
-				setGranularity(((Integer)newValue).intValue());
-				return;
 			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
-				setTimeslice((TimeValue)newValue);
+				setTimeslice((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,11 +127,8 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY:
-				setGranularity(GRANULARITY_EDEFAULT);
-				return;
 			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
-				setTimeslice((TimeValue)null);
+				setTimeslice(TIMESLICE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -221,10 +142,8 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY:
-				return granularity != GRANULARITY_EDEFAULT;
 			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
-				return timeslice != null;
+				return timeslice != TIMESLICE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -239,8 +158,8 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (granularity: ");
-		result.append(granularity);
+		result.append(" (timeslice: ");
+		result.append(timeslice);
 		result.append(')');
 		return result.toString();
 	}

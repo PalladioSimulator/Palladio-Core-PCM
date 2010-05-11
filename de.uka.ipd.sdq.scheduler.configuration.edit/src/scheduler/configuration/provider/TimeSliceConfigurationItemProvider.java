@@ -16,19 +16,18 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.TimeSliceConfiguration;
 
@@ -42,11 +41,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class TimeSliceConfigurationItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -69,31 +68,8 @@ public class TimeSliceConfigurationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGranularityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Granularity feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGranularityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TimeSliceConfiguration_granularity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimeSliceConfiguration_granularity_feature", "_UI_TimeSliceConfiguration_type"),
-				 ConfigurationPackage.Literals.TIME_SLICE_CONFIGURATION__GRANULARITY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -135,7 +111,7 @@ public class TimeSliceConfigurationItemProvider
 	@Override
 	public String getText(Object object) {
 		TimeSliceConfiguration timeSliceConfiguration = (TimeSliceConfiguration)object;
-		return getString("_UI_TimeSliceConfiguration_type") + " " + timeSliceConfiguration.getGranularity();
+		return getString("_UI_TimeSliceConfiguration_type") + " " + timeSliceConfiguration.getTimeslice();
 	}
 
 	/**
@@ -150,11 +126,8 @@ public class TimeSliceConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeSliceConfiguration.class)) {
-			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__GRANULARITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ConfigurationPackage.TIME_SLICE_CONFIGURATION__TIMESLICE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -174,7 +147,7 @@ public class TimeSliceConfigurationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ConfigurationPackage.Literals.TIME_SLICE_CONFIGURATION__TIMESLICE,
-				 ConfigurationFactory.eINSTANCE.createTimeValue()));
+				 EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, "0")));
 	}
 
 	/**

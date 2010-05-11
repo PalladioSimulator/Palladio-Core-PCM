@@ -7,7 +7,6 @@ import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
 import scheduler.configuration.LoadBalancing;
 import scheduler.configuration.PassiveResourceConfiguration;
-import scheduler.configuration.PredefinedTimeSliceConfiguration;
 import scheduler.configuration.PreemptionConfiguration;
 import scheduler.configuration.PreferredPriority;
 import scheduler.configuration.PreferredWaitingTime;
@@ -18,6 +17,7 @@ import scheduler.configuration.PriorityDependentTimeSliceConfiguration;
 import scheduler.configuration.PriorityRange;
 import scheduler.configuration.ProcessConfiguration;
 import scheduler.configuration.ProcessSelection;
+import scheduler.configuration.QuantumTimeSliceConfiguration;
 import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
 import scheduler.configuration.TimeSliceConfiguration;
@@ -40,7 +40,6 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.process.PreferIdealAn
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.impl.PriorityManagerImpl;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -152,7 +151,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 				resource = new SimUnfairPassiveResource(configuration
 						.getCapacity(), configuration.getName(), configuration
 						.getId(), priority_boost, managing_resource,
-						configuration.getAcquisitionDemand().getValue(),true);
+						configuration.getAcquisitionDemand(),true);
 				break;
 
 			default:
@@ -235,7 +234,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		if (boostConfiguration instanceof DynamicPriorityBoostConfiguratioin) {
 			DynamicPriorityBoostConfiguratioin dynamic = (DynamicPriorityBoostConfiguratioin) boostConfiguration;
 			return new SleepAverageDependentUpdate(process, dynamic
-					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
+					.getMaxSleepAverage(), dynamic.getMaxBonus());
 		}
 		return null;
 	}
@@ -271,27 +270,25 @@ public class SchedulingFactory implements ISchedulingFactory {
 			final ActiveProcess process) {
 
 		ConfigurationSwitch<ITimeSlice> timesliceSwitch = new ConfigurationSwitch<ITimeSlice>() {
+			
 			@Override
-			public ITimeSlice casePredefinedTimeSliceConfiguration(
-					PredefinedTimeSliceConfiguration configuration) {
-				double timeslice = configuration.getTimeslice().getValue();
-				int granularity = configuration.getGranularity();
-				// TODO tatsächliche Konfiguration auslesen.
-				// return new DiscreteTimeSlice();
-				// return new ContinuousTimeSlice(timeslice, granularity);
-				return new QuantumTimeSlice(timeslice, granularity);
+			public ITimeSlice caseQuantumTimeSliceConfiguration(
+					QuantumTimeSliceConfiguration configuration) {
+				double timeslice = configuration.getTimeslice();
+				int quanta = configuration.getQuanta();
+				int min_quanta = configuration.getMinQuanta();
+				return new QuantumTimeSlice(timeslice,quanta,min_quanta);
 			}
-
+			
 			@Override
 			public ITimeSlice casePriorityDependentTimeSliceConfiguration(
 					PriorityDependentTimeSliceConfiguration configuration) {
-				double timeslice = configuration.getTimeslice().getValue();
-				double min_timeslice = configuration.getMinTimeslice()
-						.getValue();
-				int granularity = configuration.getGranularity();
+				double timeslice = configuration.getTimeslice();
+				double min_timeslice = configuration.getMinTimeslice();
+				double min_time_to_be_scheduled = configuration.getMinTimeToBeScheduled();
 				return new PriorityDependentTimeSlice(
 						(ProcessWithPriority) process, timeslice,
-						min_timeslice, granularity);
+						min_timeslice, min_time_to_be_scheduled);
 			}
 		};
 
@@ -317,9 +314,9 @@ public class SchedulingFactory implements ISchedulingFactory {
 				configuration.getQueueingConfiguration(),
 				process_queue_prototype, (SimActiveResource) scheduled_resource);
 		boolean in_front_after_waiting = configuration.isInFrontAfterWaiting();
-		double scheduling_interval = configuration.getInterval().getValue();
+		double scheduling_interval = configuration.getInterval();
 		return new PreemptiveScheduler((SimActiveResource) scheduled_resource,
-				queueing_strategy, in_front_after_waiting, scheduling_interval, configuration.isWindows());
+				queueing_strategy, in_front_after_waiting, scheduling_interval, configuration.getStarvationBoost());
 	}
 
 	private IProcessQueue createProcessQueue(PriorityConfiguration configuration) {
@@ -412,7 +409,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 			}
 			boost = new de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost(
 					update_strategy, configuration.getBonus(),
-					(int) configuration.getTimePenalty().getValue(),
+					(int) configuration.getTimePenalty(),
 					configuration.isResetTimeslice());
 		}
 		return boost;
@@ -433,8 +430,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 	}
 
 	public ILoadBalancer createLoadBalancer(LoadBalancing load_balancing) {
-		double balance_interval = load_balancing.getBalancingInterval()
-				.getValue();
+		double balance_interval = load_balancing.getBalancingInterval();
 		double threshold = load_balancing.getThreshold();
 		boolean prio_increasing = load_balancing.getPreferredPriority() == PreferredPriority.HIGHER;
 		boolean queue_ascending = load_balancing.getPreferredWaitingTime() == PreferredWaitingTime.SHORT;

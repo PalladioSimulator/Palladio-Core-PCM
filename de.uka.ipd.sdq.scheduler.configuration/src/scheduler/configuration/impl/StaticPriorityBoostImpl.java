@@ -7,10 +7,8 @@
 package scheduler.configuration.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -18,7 +16,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PriorityDegradation;
 import scheduler.configuration.StaticPriorityBoost;
-import scheduler.configuration.TimeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,14 +95,24 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 	protected PriorityDegradation degradation = DEGRADATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTimePenalty() <em>Time Penalty</em>}' containment reference.
+	 * The default value of the '{@link #getTimePenalty() <em>Time Penalty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTimePenalty()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue timePenalty;
+	protected static final double TIME_PENALTY_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getTimePenalty() <em>Time Penalty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimePenalty()
+	 * @generated
+	 * @ordered
+	 */
+	protected double timePenalty = TIME_PENALTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,7 +201,7 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeValue getTimePenalty() {
+	public double getTimePenalty() {
 		return timePenalty;
 	}
 
@@ -203,47 +210,11 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTimePenalty(TimeValue newTimePenalty, NotificationChain msgs) {
-		TimeValue oldTimePenalty = timePenalty;
+	public void setTimePenalty(double newTimePenalty) {
+		double oldTimePenalty = timePenalty;
 		timePenalty = newTimePenalty;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY, oldTimePenalty, newTimePenalty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTimePenalty(TimeValue newTimePenalty) {
-		if (newTimePenalty != timePenalty) {
-			NotificationChain msgs = null;
-			if (timePenalty != null)
-				msgs = ((InternalEObject)timePenalty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY, null, msgs);
-			if (newTimePenalty != null)
-				msgs = ((InternalEObject)newTimePenalty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY, null, msgs);
-			msgs = basicSetTimePenalty(newTimePenalty, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY, newTimePenalty, newTimePenalty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY:
-				return basicSetTimePenalty(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY, oldTimePenalty, timePenalty));
 	}
 
 	/**
@@ -255,9 +226,9 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__RESET_TIMESLICE:
-				return isResetTimeslice() ? Boolean.TRUE : Boolean.FALSE;
+				return isResetTimeslice();
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__BONUS:
-				return new Integer(getBonus());
+				return getBonus();
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__DEGRADATION:
 				return getDegradation();
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY:
@@ -275,16 +246,16 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__RESET_TIMESLICE:
-				setResetTimeslice(((Boolean)newValue).booleanValue());
+				setResetTimeslice((Boolean)newValue);
 				return;
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__BONUS:
-				setBonus(((Integer)newValue).intValue());
+				setBonus((Integer)newValue);
 				return;
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__DEGRADATION:
 				setDegradation((PriorityDegradation)newValue);
 				return;
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY:
-				setTimePenalty((TimeValue)newValue);
+				setTimePenalty((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,7 +279,7 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 				setDegradation(DEGRADATION_EDEFAULT);
 				return;
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY:
-				setTimePenalty((TimeValue)null);
+				setTimePenalty(TIME_PENALTY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -329,7 +300,7 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__DEGRADATION:
 				return degradation != DEGRADATION_EDEFAULT;
 			case ConfigurationPackage.STATIC_PRIORITY_BOOST__TIME_PENALTY:
-				return timePenalty != null;
+				return timePenalty != TIME_PENALTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,6 +321,8 @@ public class StaticPriorityBoostImpl extends EObjectImpl implements StaticPriori
 		result.append(bonus);
 		result.append(", degradation: ");
 		result.append(degradation);
+		result.append(", timePenalty: ");
+		result.append(timePenalty);
 		result.append(')');
 		return result.toString();
 	}

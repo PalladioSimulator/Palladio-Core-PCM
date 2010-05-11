@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -32,8 +30,6 @@ import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.MultipleQueueConfiguration;
 import scheduler.configuration.ResourceInstanceSelection;
 
-import scheduler.provider.SchedulerConfigurationEditPlugin;
-
 /**
  * This is the item provider adapter for a {@link scheduler.configuration.MultipleQueueConfiguration} object.
  * <!-- begin-user-doc -->
@@ -42,11 +38,11 @@ import scheduler.provider.SchedulerConfigurationEditPlugin;
  */
 public class MultipleQueueConfigurationItemProvider
 	extends QueueingConfigurationItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -189,17 +185,6 @@ public class MultipleQueueConfigurationItemProvider
 			(createChildParameter
 				(ConfigurationPackage.Literals.MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING,
 				 ConfigurationFactory.eINSTANCE.createLoadBalancing()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SchedulerConfigurationEditPlugin.INSTANCE;
 	}
 
 }

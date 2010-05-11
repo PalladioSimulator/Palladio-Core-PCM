@@ -309,17 +309,17 @@ public class PriorityRangeImpl extends EObjectImpl implements PriorityRange {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_RANGE__HIGHEST:
-				return new Integer(getHighest());
+				return getHighest();
 			case ConfigurationPackage.PRIORITY_RANGE__HIGH:
-				return new Integer(getHigh());
+				return getHigh();
 			case ConfigurationPackage.PRIORITY_RANGE__AVERAGE:
-				return new Integer(getAverage());
+				return getAverage();
 			case ConfigurationPackage.PRIORITY_RANGE__LOW:
-				return new Integer(getLow());
+				return getLow();
 			case ConfigurationPackage.PRIORITY_RANGE__LOWEST:
-				return new Integer(getLowest());
+				return getLowest();
 			case ConfigurationPackage.PRIORITY_RANGE__DEFAULT:
-				return new Integer(getDefault());
+				return getDefault();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -333,22 +333,22 @@ public class PriorityRangeImpl extends EObjectImpl implements PriorityRange {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ConfigurationPackage.PRIORITY_RANGE__HIGHEST:
-				setHighest(((Integer)newValue).intValue());
+				setHighest((Integer)newValue);
 				return;
 			case ConfigurationPackage.PRIORITY_RANGE__HIGH:
-				setHigh(((Integer)newValue).intValue());
+				setHigh((Integer)newValue);
 				return;
 			case ConfigurationPackage.PRIORITY_RANGE__AVERAGE:
-				setAverage(((Integer)newValue).intValue());
+				setAverage((Integer)newValue);
 				return;
 			case ConfigurationPackage.PRIORITY_RANGE__LOW:
-				setLow(((Integer)newValue).intValue());
+				setLow((Integer)newValue);
 				return;
 			case ConfigurationPackage.PRIORITY_RANGE__LOWEST:
-				setLowest(((Integer)newValue).intValue());
+				setLowest((Integer)newValue);
 				return;
 			case ConfigurationPackage.PRIORITY_RANGE__DEFAULT:
-				setDefault(((Integer)newValue).intValue());
+				setDefault((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

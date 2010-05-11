@@ -8,8 +8,6 @@ package scheduler.configuration.impl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -30,7 +28,6 @@ import scheduler.configuration.LoadBalancingType;
 import scheduler.configuration.MultipleQueueConfiguration;
 import scheduler.configuration.PassiveResourceConfiguration;
 import scheduler.configuration.PassiveResourceType;
-import scheduler.configuration.PredefinedTimeSliceConfiguration;
 import scheduler.configuration.PreemptionConfiguration;
 import scheduler.configuration.PreferredPriority;
 import scheduler.configuration.PreferredWaitingTime;
@@ -42,15 +39,16 @@ import scheduler.configuration.PriorityDependentTimeSliceConfiguration;
 import scheduler.configuration.PriorityRange;
 import scheduler.configuration.ProcessConfiguration;
 import scheduler.configuration.ProcessSelection;
+import scheduler.configuration.QuantumTimeSliceConfiguration;
 import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.ResourceInstanceSelection;
 import scheduler.configuration.RunQueueType;
 import scheduler.configuration.SchedulerConfiguration;
 import scheduler.configuration.SingleQueueConfiguration;
+import scheduler.configuration.StarvationBoost;
 import scheduler.configuration.StaticPriorityBoost;
 import scheduler.configuration.StaticPriorityBoostConfiguration;
 import scheduler.configuration.TimeSliceConfiguration;
-import scheduler.configuration.TimeValue;
 
 import scheduler.impl.SchedulerPackageImpl;
 
@@ -61,13 +59,6 @@ import scheduler.impl.SchedulerPackageImpl;
  * @generated
  */
 public class ConfigurationPackageImpl extends EPackageImpl implements ConfigurationPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass timeValueEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,7 +99,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass predefinedTimeSliceConfigurationEClass = null;
+	private EClass quantumTimeSliceConfigurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +184,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * @generated
 	 */
 	private EClass schedulerConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass starvationBoostEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,20 +289,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link ConfigurationPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -316,13 +304,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		if (isInited) return (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage(ConfigurationPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ConfigurationPackageImpl theConfigurationPackage = (ConfigurationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ConfigurationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ConfigurationPackageImpl());
+		ConfigurationPackageImpl theConfigurationPackage = (ConfigurationPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ConfigurationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ConfigurationPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		SchedulerPackageImpl theSchedulerPackage = (SchedulerPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SchedulerPackage.eNS_URI) instanceof SchedulerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SchedulerPackage.eNS_URI) : SchedulerPackage.eINSTANCE);
@@ -338,25 +325,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		// Mark meta-data to indicate it can't be changed
 		theConfigurationPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(ConfigurationPackage.eNS_URI, theConfigurationPackage);
 		return theConfigurationPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTimeValue() {
-		return timeValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimeValue_Value() {
-		return (EAttribute)timeValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -382,8 +354,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDynamicPriorityBoostConfiguratioin_MaxSleepAverage() {
-		return (EReference)dynamicPriorityBoostConfiguratioinEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDynamicPriorityBoostConfiguratioin_Threshold() {
+		return (EAttribute)dynamicPriorityBoostConfiguratioinEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -391,7 +363,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDynamicPriorityBoostConfiguratioin_Threshold() {
+	public EAttribute getDynamicPriorityBoostConfiguratioin_MaxSleepAverage() {
 		return (EAttribute)dynamicPriorityBoostConfiguratioinEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -472,8 +444,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoadBalancing_BalancingInterval() {
-		return (EReference)loadBalancingEClass.getEStructuralFeatures().get(6);
+	public EAttribute getLoadBalancing_BalancingInterval() {
+		return (EAttribute)loadBalancingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -535,8 +507,26 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPredefinedTimeSliceConfiguration() {
-		return predefinedTimeSliceConfigurationEClass;
+	public EClass getQuantumTimeSliceConfiguration() {
+		return quantumTimeSliceConfigurationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuantumTimeSliceConfiguration_Quanta() {
+		return (EAttribute)quantumTimeSliceConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuantumTimeSliceConfiguration_MinQuanta() {
+		return (EAttribute)quantumTimeSliceConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -553,17 +543,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeSliceConfiguration_Granularity() {
+	public EAttribute getTimeSliceConfiguration_Timeslice() {
 		return (EAttribute)timeSliceConfigurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTimeSliceConfiguration_Timeslice() {
-		return (EReference)timeSliceConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -688,8 +669,17 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPriorityDependentTimeSliceConfiguration_MinTimeslice() {
-		return (EReference)priorityDependentTimeSliceConfigurationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPriorityDependentTimeSliceConfiguration_MinTimeslice() {
+		return (EAttribute)priorityDependentTimeSliceConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPriorityDependentTimeSliceConfiguration_MinTimeToBeScheduled() {
+		return (EAttribute)priorityDependentTimeSliceConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -787,8 +777,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPassiveResourceConfiguration_AcquisitionDemand() {
-		return (EReference)passiveResourceConfigurationEClass.getEStructuralFeatures().get(5);
+	public EAttribute getPassiveResourceConfiguration_AcquisitionDemand() {
+		return (EAttribute)passiveResourceConfigurationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -832,8 +822,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStaticPriorityBoost_TimePenalty() {
-		return (EReference)staticPriorityBoostEClass.getEStructuralFeatures().get(3);
+	public EAttribute getStaticPriorityBoost_TimePenalty() {
+		return (EAttribute)staticPriorityBoostEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -976,8 +966,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchedulerConfiguration_Interval() {
-		return (EReference)schedulerConfigurationEClass.getEStructuralFeatures().get(5);
+	public EAttribute getSchedulerConfiguration_Windows() {
+		return (EAttribute)schedulerConfigurationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -985,8 +975,53 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchedulerConfiguration_Windows() {
+	public EAttribute getSchedulerConfiguration_Interval() {
 		return (EAttribute)schedulerConfigurationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchedulerConfiguration_StarvationBoost() {
+		return (EReference)schedulerConfigurationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStarvationBoost() {
+		return starvationBoostEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStarvationBoost_StarvationLimit() {
+		return (EAttribute)starvationBoostEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStarvationBoost_Boost() {
+		return (EAttribute)starvationBoostEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStarvationBoost_DurationInTimeslices() {
+		return (EAttribute)starvationBoostEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1107,13 +1142,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		isCreated = true;
 
 		// Create classes and their features
-		timeValueEClass = createEClass(TIME_VALUE);
-		createEAttribute(timeValueEClass, TIME_VALUE__VALUE);
-
 		dynamicPriorityBoostConfiguratioinEClass = createEClass(DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN);
 		createEAttribute(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS);
-		createEReference(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE);
 		createEAttribute(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD);
+		createEAttribute(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE);
 
 		priorityBoostConfigurationEClass = createEClass(PRIORITY_BOOST_CONFIGURATION);
 
@@ -1124,7 +1156,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(loadBalancingEClass, LOAD_BALANCING__INSTANCES);
 		createEAttribute(loadBalancingEClass, LOAD_BALANCING__THRESHOLD);
 		createEAttribute(loadBalancingEClass, LOAD_BALANCING__MAX_ITERATIONS);
-		createEReference(loadBalancingEClass, LOAD_BALANCING__BALANCING_INTERVAL);
+		createEAttribute(loadBalancingEClass, LOAD_BALANCING__BALANCING_INTERVAL);
 
 		multipleQueueConfigurationEClass = createEClass(MULTIPLE_QUEUE_CONFIGURATION);
 		createEReference(multipleQueueConfigurationEClass, MULTIPLE_QUEUE_CONFIGURATION__LOAD_BALANCING);
@@ -1134,11 +1166,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(queueingConfigurationEClass, QUEUEING_CONFIGURATION__INITIAL_INSTANCE_SELECTION);
 		createEAttribute(queueingConfigurationEClass, QUEUEING_CONFIGURATION__RUNQUEUE_TYPE);
 
-		predefinedTimeSliceConfigurationEClass = createEClass(PREDEFINED_TIME_SLICE_CONFIGURATION);
+		quantumTimeSliceConfigurationEClass = createEClass(QUANTUM_TIME_SLICE_CONFIGURATION);
+		createEAttribute(quantumTimeSliceConfigurationEClass, QUANTUM_TIME_SLICE_CONFIGURATION__QUANTA);
+		createEAttribute(quantumTimeSliceConfigurationEClass, QUANTUM_TIME_SLICE_CONFIGURATION__MIN_QUANTA);
 
 		timeSliceConfigurationEClass = createEClass(TIME_SLICE_CONFIGURATION);
-		createEAttribute(timeSliceConfigurationEClass, TIME_SLICE_CONFIGURATION__GRANULARITY);
-		createEReference(timeSliceConfigurationEClass, TIME_SLICE_CONFIGURATION__TIMESLICE);
+		createEAttribute(timeSliceConfigurationEClass, TIME_SLICE_CONFIGURATION__TIMESLICE);
 
 		preemptionConfigurationEClass = createEClass(PREEMPTION_CONFIGURATION);
 		createEReference(preemptionConfigurationEClass, PREEMPTION_CONFIGURATION__TIMESLICE_CONFIGURATION);
@@ -1156,7 +1189,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(priorityRangeEClass, PRIORITY_RANGE__DEFAULT);
 
 		priorityDependentTimeSliceConfigurationEClass = createEClass(PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION);
-		createEReference(priorityDependentTimeSliceConfigurationEClass, PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE);
+		createEAttribute(priorityDependentTimeSliceConfigurationEClass, PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIMESLICE);
+		createEAttribute(priorityDependentTimeSliceConfigurationEClass, PRIORITY_DEPENDENT_TIME_SLICE_CONFIGURATION__MIN_TIME_TO_BE_SCHEDULED);
 
 		activeResourceConfigurationEClass = createEClass(ACTIVE_RESOURCE_CONFIGURATION);
 		createEReference(activeResourceConfigurationEClass, ACTIVE_RESOURCE_CONFIGURATION__SCHEDULER_CONFIGURATION);
@@ -1169,13 +1203,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(passiveResourceConfigurationEClass, PASSIVE_RESOURCE_CONFIGURATION__TYPE);
 		createEAttribute(passiveResourceConfigurationEClass, PASSIVE_RESOURCE_CONFIGURATION__NAME);
 		createEReference(passiveResourceConfigurationEClass, PASSIVE_RESOURCE_CONFIGURATION__MANAGING_RESOURCE);
-		createEReference(passiveResourceConfigurationEClass, PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND);
+		createEAttribute(passiveResourceConfigurationEClass, PASSIVE_RESOURCE_CONFIGURATION__ACQUISITION_DEMAND);
 
 		staticPriorityBoostEClass = createEClass(STATIC_PRIORITY_BOOST);
 		createEAttribute(staticPriorityBoostEClass, STATIC_PRIORITY_BOOST__RESET_TIMESLICE);
 		createEAttribute(staticPriorityBoostEClass, STATIC_PRIORITY_BOOST__BONUS);
 		createEAttribute(staticPriorityBoostEClass, STATIC_PRIORITY_BOOST__DEGRADATION);
-		createEReference(staticPriorityBoostEClass, STATIC_PRIORITY_BOOST__TIME_PENALTY);
+		createEAttribute(staticPriorityBoostEClass, STATIC_PRIORITY_BOOST__TIME_PENALTY);
 
 		processConfigurationEClass = createEClass(PROCESS_CONFIGURATION);
 		createEAttribute(processConfigurationEClass, PROCESS_CONFIGURATION__PRIORITY);
@@ -1195,8 +1229,14 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__NAME);
 		createEReference(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__QUEUEING_CONFIGURATION);
 		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__IN_FRONT_AFTER_WAITING);
-		createEReference(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__INTERVAL);
 		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__WINDOWS);
+		createEAttribute(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__INTERVAL);
+		createEReference(schedulerConfigurationEClass, SCHEDULER_CONFIGURATION__STARVATION_BOOST);
+
+		starvationBoostEClass = createEClass(STARVATION_BOOST);
+		createEAttribute(starvationBoostEClass, STARVATION_BOOST__STARVATION_LIMIT);
+		createEAttribute(starvationBoostEClass, STARVATION_BOOST__BOOST);
+		createEAttribute(starvationBoostEClass, STARVATION_BOOST__DURATION_IN_TIMESLICES);
 
 		// Create enums
 		instanceToBalanceEEnum = createEEnum(INSTANCE_TO_BALANCE);
@@ -1235,7 +1275,6 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
@@ -1243,10 +1282,9 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		timeValueEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
 		dynamicPriorityBoostConfiguratioinEClass.getESuperTypes().add(this.getPriorityBoostConfiguration());
 		multipleQueueConfigurationEClass.getESuperTypes().add(this.getQueueingConfiguration());
-		predefinedTimeSliceConfigurationEClass.getESuperTypes().add(this.getTimeSliceConfiguration());
+		quantumTimeSliceConfigurationEClass.getESuperTypes().add(this.getTimeSliceConfiguration());
 		priorityDependentTimeSliceConfigurationEClass.getESuperTypes().add(this.getTimeSliceConfiguration());
 		activeResourceConfigurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		passiveResourceConfigurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
@@ -1256,13 +1294,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		schedulerConfigurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(timeValueEClass, TimeValue.class, "TimeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimeValue_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, TimeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(dynamicPriorityBoostConfiguratioinEClass, DynamicPriorityBoostConfiguratioin.class, "DynamicPriorityBoostConfiguratioin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDynamicPriorityBoostConfiguratioin_MaxBonus(), ecorePackage.getEInt(), "maxBonus", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDynamicPriorityBoostConfiguratioin_MaxSleepAverage(), this.getTimeValue(), null, "maxSleepAverage", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDynamicPriorityBoostConfiguratioin_Threshold(), ecorePackage.getEInt(), "threshold", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDynamicPriorityBoostConfiguratioin_MaxSleepAverage(), ecorePackage.getEDouble(), "maxSleepAverage", null, 0, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(priorityBoostConfigurationEClass, PriorityBoostConfiguration.class, "PriorityBoostConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1273,7 +1308,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getLoadBalancing_Instances(), this.getInstanceToBalance(), "instances", null, 1, 1, LoadBalancing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getLoadBalancing_Threshold(), ecorePackage.getEDouble(), "threshold", null, 1, 1, LoadBalancing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getLoadBalancing_MaxIterations(), ecorePackage.getEInt(), "maxIterations", null, 1, 1, LoadBalancing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoadBalancing_BalancingInterval(), this.getTimeValue(), null, "balancingInterval", null, 1, 1, LoadBalancing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLoadBalancing_BalancingInterval(), ecorePackage.getEDouble(), "balancingInterval", null, 0, 1, LoadBalancing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multipleQueueConfigurationEClass, MultipleQueueConfiguration.class, "MultipleQueueConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultipleQueueConfiguration_LoadBalancing(), this.getLoadBalancing(), null, "loadBalancing", null, 1, 1, MultipleQueueConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1283,11 +1318,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getQueueingConfiguration_InitialInstanceSelection(), this.getResourceInstanceSelection(), "initialInstanceSelection", null, 1, 1, QueueingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getQueueingConfiguration_RunqueueType(), this.getRunQueueType(), "runqueueType", null, 1, 1, QueueingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(predefinedTimeSliceConfigurationEClass, PredefinedTimeSliceConfiguration.class, "PredefinedTimeSliceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(quantumTimeSliceConfigurationEClass, QuantumTimeSliceConfiguration.class, "QuantumTimeSliceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQuantumTimeSliceConfiguration_Quanta(), ecorePackage.getEInt(), "quanta", null, 0, 1, QuantumTimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuantumTimeSliceConfiguration_MinQuanta(), ecorePackage.getEInt(), "minQuanta", null, 0, 1, QuantumTimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeSliceConfigurationEClass, TimeSliceConfiguration.class, "TimeSliceConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimeSliceConfiguration_Granularity(), ecorePackage.getEInt(), "granularity", "1", 1, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getTimeSliceConfiguration_Timeslice(), this.getTimeValue(), null, "timeslice", null, 1, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getTimeSliceConfiguration_Timeslice(), ecorePackage.getEDouble(), "timeslice", null, 0, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(preemptionConfigurationEClass, PreemptionConfiguration.class, "PreemptionConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPreemptionConfiguration_TimesliceConfiguration(), this.getTimeSliceConfiguration(), null, "timesliceConfiguration", null, 1, 1, PreemptionConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1305,7 +1341,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getPriorityRange_Default(), ecorePackage.getEInt(), "default", null, 1, 1, PriorityRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(priorityDependentTimeSliceConfigurationEClass, PriorityDependentTimeSliceConfiguration.class, "PriorityDependentTimeSliceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPriorityDependentTimeSliceConfiguration_MinTimeslice(), this.getTimeValue(), null, "minTimeslice", null, 1, 1, PriorityDependentTimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPriorityDependentTimeSliceConfiguration_MinTimeslice(), ecorePackage.getEDouble(), "minTimeslice", null, 0, 1, PriorityDependentTimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPriorityDependentTimeSliceConfiguration_MinTimeToBeScheduled(), ecorePackage.getEDouble(), "minTimeToBeScheduled", null, 0, 1, PriorityDependentTimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activeResourceConfigurationEClass, ActiveResourceConfiguration.class, "ActiveResourceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActiveResourceConfiguration_SchedulerConfiguration(), this.getSchedulerConfiguration(), null, "schedulerConfiguration", null, 1, 1, ActiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1318,13 +1355,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getPassiveResourceConfiguration_Type(), this.getPassiveResourceType(), "type", null, 1, 1, PassiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPassiveResourceConfiguration_Name(), ecorePackage.getEString(), "name", null, 1, 1, PassiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPassiveResourceConfiguration_ManagingResource(), this.getActiveResourceConfiguration(), null, "managingResource", null, 0, 1, PassiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPassiveResourceConfiguration_AcquisitionDemand(), this.getTimeValue(), null, "acquisitionDemand", null, 1, 1, PassiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPassiveResourceConfiguration_AcquisitionDemand(), ecorePackage.getEDouble(), "acquisitionDemand", null, 0, 1, PassiveResourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticPriorityBoostEClass, StaticPriorityBoost.class, "StaticPriorityBoost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaticPriorityBoost_ResetTimeslice(), ecorePackage.getEBoolean(), "resetTimeslice", null, 1, 1, StaticPriorityBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStaticPriorityBoost_Bonus(), ecorePackage.getEInt(), "bonus", null, 1, 1, StaticPriorityBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getStaticPriorityBoost_Degradation(), this.getPriorityDegradation(), "degradation", null, 1, 1, StaticPriorityBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getStaticPriorityBoost_TimePenalty(), this.getTimeValue(), null, "timePenalty", null, 1, 1, StaticPriorityBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStaticPriorityBoost_TimePenalty(), ecorePackage.getEDouble(), "timePenalty", null, 0, 1, StaticPriorityBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processConfigurationEClass, ProcessConfiguration.class, "ProcessConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessConfiguration_Priority(), this.getPriorityClass(), "priority", null, 1, 1, ProcessConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1344,8 +1381,14 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getSchedulerConfiguration_Name(), ecorePackage.getEString(), "name", null, 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSchedulerConfiguration_QueueingConfiguration(), this.getQueueingConfiguration(), null, "queueingConfiguration", null, 0, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSchedulerConfiguration_InFrontAfterWaiting(), ecorePackage.getEBoolean(), "inFrontAfterWaiting", null, 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSchedulerConfiguration_Interval(), this.getTimeValue(), null, "interval", null, 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSchedulerConfiguration_Windows(), ecorePackage.getEBoolean(), "Windows", "true", 1, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchedulerConfiguration_Interval(), ecorePackage.getEDouble(), "interval", null, 0, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchedulerConfiguration_StarvationBoost(), this.getStarvationBoost(), null, "starvationBoost", null, 0, 1, SchedulerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(starvationBoostEClass, StarvationBoost.class, "StarvationBoost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStarvationBoost_StarvationLimit(), ecorePackage.getEDouble(), "starvationLimit", null, 0, 1, StarvationBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStarvationBoost_Boost(), ecorePackage.getEInt(), "boost", null, 0, 1, StarvationBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStarvationBoost_DurationInTimeslices(), ecorePackage.getEInt(), "durationInTimeslices", null, 0, 1, StarvationBoost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(instanceToBalanceEEnum, InstanceToBalance.class, "InstanceToBalance");
