@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
+import de.uka.ipd.sdq.scheduler.resources.passive.SimSimpleFairPassiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
@@ -26,7 +27,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 		
 	public IPassiveResource createPassiveResource(String typeID, int capacity) {
 		if (managingResource == null){
-			return getPassiveResource(typeID, capacity);
+			return getSimplePassiveResource(typeID, capacity);
 		} else {
 			switch (operatingSystem) {
 			case WINDOWS_SERVER_2003:
@@ -79,7 +80,8 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 		  }
 	   }
 
-	  private IPassiveResource getPassiveResource(String name, int capacity) {
-		       return new SimFairPassiveResource(capacity, name, name, null,null);
-	   }
+	  private IPassiveResource getSimplePassiveResource(String name, int capacity) {
+		  //return new SimFairPassiveResource(capacity, name, name, null,null);
+		  return new SimSimpleFairPassiveResource(capacity, name, name);
+	  }
 }
