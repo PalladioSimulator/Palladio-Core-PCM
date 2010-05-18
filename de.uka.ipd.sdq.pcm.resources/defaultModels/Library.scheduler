@@ -33,7 +33,7 @@
       </boostConfiguration>
     </priorityConfiguration>
     <preemptionConfiguration>
-      <timesliceConfiguration xsi:type="QuantumTimeSliceConfiguration" quanta="6" minQuanta="2"/>
+      <timesliceConfiguration xsi:type="QuantumTimeSliceConfiguration" timeslice="31.5" quanta="6" minQuanta="2"/>
     </preemptionConfiguration>
     <queueingConfiguration xsi:type="MultipleQueueConfiguration" runqueueType="SINGLE" InFrontWhenBalancing="false">
       <loadBalancing preferredWaitingTime="SHORT" maxIterations="1"/>

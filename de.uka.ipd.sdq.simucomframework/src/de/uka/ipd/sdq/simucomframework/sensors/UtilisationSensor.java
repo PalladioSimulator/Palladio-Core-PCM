@@ -2,17 +2,11 @@ package de.uka.ipd.sdq.simucomframework.sensors;
 
 import java.util.Hashtable;
 
-import javax.naming.spi.StateFactory;
-
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
-import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class UtilisationSensor implements IActiveResourceStateSensor{

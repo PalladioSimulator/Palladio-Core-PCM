@@ -14,6 +14,11 @@ public class QuantumTimeSlice implements ITimeSlice {
 	
 	public QuantumTimeSlice(double timeslice, int quanta, int min_quanta) {
 		super();
+		
+		assert timeslice > 0 : "Timeslice must be larger than 0.";
+		assert quanta > 0 : "Quanta must be larger than 0.";
+		assert min_quanta > 0 : "Min Quanta must be larger than 0.";
+		
 		this.timeslice = timeslice;
 		this.quanta = quanta;
 		this.min_quanta = min_quanta;

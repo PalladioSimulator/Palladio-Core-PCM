@@ -46,7 +46,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 
 	public void addActiveResource(String typeID, String description, String processingRate, Double mttf, Double mttr, String units, SchedulingStrategy strategy, int numberOfReplicas) {
 		activeResources.put(typeID, 
-				new ScheduledResource(myModel, typeID, description, processingRate, mttf, mttr, units, strategy, numberOfReplicas));
+				new ScheduledResource(myModel, typeID, description, processingRate, mttf, mttr, strategy, numberOfReplicas));
 		
 		if ( strategy == SchedulingStrategy.LINUX_2_6_O1 || strategy == SchedulingStrategy.LINUX_2_6_CFS || strategy == SchedulingStrategy.WINDOWS_SERVER_2003 || strategy == SchedulingStrategy.WINDOWS_XP || strategy == SchedulingStrategy.WINDOWS_VISTA || strategy == SchedulingStrategy.WINDOWS_7) {
 			assert this.managingResource == null;
