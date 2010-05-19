@@ -105,18 +105,4 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 		return this.isTerminated;
 	}
 	
-	public void addTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ForkedBehaviourProcess.addTerminatedObserver has not been implemented yet.");
-	}
-
-	public void fireTerminated() {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ForkedBehaviourProcess.fireTerminated has not been implemented yet.");
-	}
-
-	public void removeTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method ForkedBehaviourProcess.removeTerminatedObserver has not been implemented yet.");
-	}
 }

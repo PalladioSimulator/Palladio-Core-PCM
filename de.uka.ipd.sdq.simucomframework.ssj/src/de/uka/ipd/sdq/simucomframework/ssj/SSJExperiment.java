@@ -84,15 +84,14 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	}
 
 	public void stop() {
-		if (this.isRunning) {
-			this.isRunning = false;
-			
 			logger.info("Simulation stop requested!");
 			// createStopEvent().schedule(0);
 			this.model.getResourceRegistry().deactivateAllActiveResources();
 			this.model.getResourceRegistry().deactivateAllPassiveResources();
 			logger.info("Scheduled Simulation Stop Event now");
 			logger.warn("Simulation took " + this.model.getSimulationControl().getCurrentSimulationTime()+" simulation seconds");
+			if (this.isRunning) {
+				this.isRunning = false;
 		}
 	}
 

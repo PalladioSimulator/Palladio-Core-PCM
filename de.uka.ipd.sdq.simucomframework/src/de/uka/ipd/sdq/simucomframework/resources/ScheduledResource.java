@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SimpleTimeSpanSensor;
+import de.uka.ipd.sdq.simucomframework.sensors.SimpleUsilisationSensor;
 import de.uka.ipd.sdq.simucomframework.sensors.UtilisationSensor;
 
 /**
@@ -33,6 +34,9 @@ public class ScheduledResource extends AbstractScheduledResource {
 	IActiveResource aResource = null;
 	ActiveResourceConfiguration resourceConf = null;
 	private SimpleTimeSpanSensor demandedTimeSensor;
+	private int numberOfCores;
+	private double totalDemandedTime;
+	private SimpleUsilisationSensor utilisationSensor;
 
 	
 	public ScheduledResource(SimuComModel myModel, 
@@ -46,9 +50,11 @@ public class ScheduledResource extends AbstractScheduledResource {
 		super (myModel, typeID, description, strategy);
 		this.processingRate = processingRate;
 		logger.debug("Creating scheduled resource with strategy "+strategy.name()+" and "+numberOfCores+" replicas!");
-		aResource = getScheduledResource(strategy, numberOfCores);	
+		aResource = getScheduledResource(strategy, numberOfCores, "Utilisation of " + typeID + " " + description);
+		this.numberOfCores = numberOfCores;
 		
 		this.demandedTimeSensor = new SimpleTimeSpanSensor(myModel, "Demanded time at " + description);
+		this.utilisationSensor = new SimpleUsilisationSensor(myModel, "Overall Utilisation of " + typeID + " " + description);
 		
 		// Reliability Stuff.
 		this.mttf = mttf;
@@ -70,7 +76,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 	}
 
 	/* Loads scheduler configuration */
-	private IActiveResource getResource(String schedulerLibFileName, String schedulerName, int numReplicas) {
+	private IActiveResource getResource(String schedulerLibFileName, String schedulerName, int numReplicas, String sensorDescription) {
 		
 		SchedulerLibrary lib = (SchedulerLibrary) SchedulerTools
 				.loadFromXMI(schedulerLibFileName);
@@ -89,18 +95,18 @@ public class ScheduledResource extends AbstractScheduledResource {
 			resourceConf.setSchedulerConfiguration(selectedConf);
 			IActiveResource resource = ISchedulingFactory.eINSTANCE
 					.createActiveResource(resourceConf);
-			addResourceSensors(resource);
+			addResourceSensors(resource, sensorDescription);
 			return resource;
 		}
 		return null;
 	}
 	
-	private void addResourceSensors(IActiveResource resource) {
-		UtilisationSensor utilisationSensor = new UtilisationSensor(this.getModel());
+	private void addResourceSensors(IActiveResource resource, String description) {
+		UtilisationSensor utilisationSensor = new UtilisationSensor(this.getModel(), description);
 		((SimActiveResource) resource).addObserver(utilisationSensor);
 	}
 
-	private IActiveResource getScheduledResource(SchedulingStrategy strategy, int numberOfCores)
+	private IActiveResource getScheduledResource(SchedulingStrategy strategy, int numberOfCores, String sensorDescription)
 	{
 		IActiveResource scheduledResource = null;
 
@@ -121,7 +127,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 			break;
 		// active resources scheduled by improved scheduler
 		case LINUX_2_6_O1:
-			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.22", numberOfCores);
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Linux 2.6.22", numberOfCores, sensorDescription);
 			break;
 		case LINUX_2_6_CFS:
 			scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResource(SchedulingStrategy.LINUX_2_6_CFS.toString(), getNextResourceId(), numberOfCores);
@@ -130,10 +136,10 @@ public class ScheduledResource extends AbstractScheduledResource {
 			// Windows 7, Windows Vista and Windows Server 2003 share the same scheduler
 		case WINDOWS_VISTA:
 		case WINDOWS_SERVER_2003:
-			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows 2003", numberOfCores);
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows 2003", numberOfCores, sensorDescription);
 			break;
 		case WINDOWS_XP:
-			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows XP", numberOfCores);
+			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY, "Windows XP", numberOfCores, sensorDescription);
 			break;
 		case SPECIAL_WINDOWS:
 			scheduledResource = ISchedulingFactory.eINSTANCE.createSimProcessorSharingResourceWindows(SchedulingStrategy.SPECIAL_WINDOWS.toString(), getNextResourceId(), numberOfCores);
@@ -177,11 +183,13 @@ public class ScheduledResource extends AbstractScheduledResource {
 		registerProcessWindows(process, aResource);
 		double concreteDemand = calculateDemand(abstractDemand);
 		this.demandedTimeSensor.record(concreteDemand);
+		this.totalDemandedTime += concreteDemand / numberOfCores;
 		aResource.process(process, concreteDemand);
 	}
 
 	@Override
 	public void deactivateResource() {
+		this.utilisationSensor.setTotalResourceDemand(totalDemandedTime);
 		aResource.stop();
 	}
 

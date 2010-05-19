@@ -11,37 +11,45 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class UtilisationSensor implements IActiveResourceStateSensor{
 
-	Hashtable<String, StateSensor> instance_sensors = new Hashtable<String, StateSensor>();
+	private Hashtable<String, StateSensor> instance_sensors = new Hashtable<String, StateSensor>();
 	private SimuComModel model;
 	private State idle_state;
 	private State busy_state;
+	private String description;
 
 	
-	public UtilisationSensor(SimuComModel model){
+	public UtilisationSensor(SimuComModel model, String description){
 		this.model = model;
+		this.description = description;
 		this.idle_state = SensorHelper.createOrReuseState(model.getDAOFactory(), "Idle");
 		this.busy_state = SensorHelper.createOrReuseState(model.getDAOFactory(), "Busy");
+		this.instance_sensors = new Hashtable<String, StateSensor>();
 	}
 	
 	private StateSensor getStateSensor(String id){
-		StateSensor sensor =SensorHelper.createOrReuseStateSensor(model.getDAOFactory(), model.getExperimentDatastore(), id, idle_state);
-		sensor.addSensorState(idle_state);
-		sensor.addSensorState(busy_state);
+		StateSensor sensor = instance_sensors.get(id);
+		if (sensor == null){
+			sensor =SensorHelper.createOrReuseStateSensor(model.getDAOFactory(), model.getExperimentDatastore(), id, idle_state);
+			sensor.addSensorState(idle_state);
+			sensor.addSensorState(busy_state);
+			instance_sensors.put(id, sensor);
+		}
 		return sensor;
 	}
-	
+
 	@Override
 	public void update(SimResourceInstance instance) {
+		String id = "Core " + (instance.getId()+1) + " " + description;
 		if (instance.isIdle()){
-			addState(instance.getName(), idle_state);
+			addState(id, idle_state);
 		} else {
-			addState(instance.getName(), busy_state);
+			addState(id, busy_state);
 			
 		}
 	}
 
-	private void addState(String name, State state) {
+	private void addState(String id, State state) {
 		double now = SchedulingFactory.getUsedSimulator().time();
-		model.getCurrentExperimentRun().addStateMeasurement(getStateSensor("Utilisation_" + name),state, now);
+		model.getCurrentExperimentRun().addStateMeasurement(getStateSensor(id),state, now);
 	}
 }

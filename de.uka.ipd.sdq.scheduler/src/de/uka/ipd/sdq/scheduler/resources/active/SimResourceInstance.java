@@ -121,18 +121,18 @@ public class SimResourceInstance implements IResourceInstance {
 	public boolean equals(Object obj) {
 		if (obj instanceof SimResourceInstance) {
 			SimResourceInstance instance = (SimResourceInstance) obj;
-			return this.getId().equals(instance.getId());
+			return this.getId() == instance.getId();
 		}
 		return false;
 	}
 
-	public String getId() {
-		return containing_resource.getId() + number;
+	public int getId() {
+		return number;
 	}
 
 	@Override
 	public int hashCode() {
-		return getId().hashCode();
+		return (getName() + getId()).hashCode();
 	}
 
 	public double getNextSchedEventTime() {
@@ -169,5 +169,5 @@ public class SimResourceInstance implements IResourceInstance {
 	public int getQueueLength() {
 		return containing_resource.getQueueLengthFor(this);
 	}
-	
+
 }

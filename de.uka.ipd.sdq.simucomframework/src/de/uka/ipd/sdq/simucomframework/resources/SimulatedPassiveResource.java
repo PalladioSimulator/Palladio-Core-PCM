@@ -129,20 +129,5 @@ public class SimulatedPassiveResource extends SimProcess {
 		if (!this.isTerminated()){
 			this.activate();
 		}
-	}
-	
-	public void addTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method SimulatedPassiveResource.addTerminatedObserver has not been implemented yet.");
-	}
-
-	public void fireTerminated() {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method SimulatedPassiveResource.fireTerminated has not been implemented yet.");
-	}
-
-	public void removeTerminatedObserver(IActiveResource o) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("The method SimulatedPassiveResource.removeTerminatedObserver has not been implemented yet.");
-	}
+	}	
 }
