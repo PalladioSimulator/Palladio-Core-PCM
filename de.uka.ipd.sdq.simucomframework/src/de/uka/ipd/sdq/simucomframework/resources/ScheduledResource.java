@@ -189,7 +189,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 	@Override
 	public void deactivateResource() {
-		this.utilisationSensor.setTotalResourceDemand(totalDemandedTime);
+		this.utilisationSensor.setTotalResourceDemand(totalDemandedTime, this.numberOfCores);
 		aResource.stop();
 	}
 

@@ -25,8 +25,8 @@ public class SimpleUsilisationSensor {
 		this.simulationControl = model.getSimulationControl();
 	}
 	
-	public void setTotalResourceDemand(double resourceDemand){
-		double totalTime = simulationControl.getCurrentSimulationTime();
+	public void setTotalResourceDemand(double resourceDemand, int numberOfCores){
+		double totalTime = simulationControl.getCurrentSimulationTime()*numberOfCores;		
 		experimentRun.addStateMeasurement(this.sensor, busy, 0);
 		experimentRun.addStateMeasurement(this.sensor, idle, resourceDemand);
 		experimentRun.addStateMeasurement(this.sensor, busy, totalTime);
