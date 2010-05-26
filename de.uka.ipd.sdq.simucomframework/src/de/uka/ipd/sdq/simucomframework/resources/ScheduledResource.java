@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SimpleTimeSpanSensor;
-import de.uka.ipd.sdq.simucomframework.sensors.SimpleUsilisationSensor;
+import de.uka.ipd.sdq.simucomframework.sensors.OverallUtilisationSensor;
 import de.uka.ipd.sdq.simucomframework.sensors.UtilisationSensor;
 
 /**
@@ -36,7 +36,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 	private SimpleTimeSpanSensor demandedTimeSensor;
 	private int numberOfCores;
 	private double totalDemandedTime;
-	private SimpleUsilisationSensor utilisationSensor;
+	private OverallUtilisationSensor utilisationSensor;
 
 	
 	public ScheduledResource(SimuComModel myModel, 
@@ -54,7 +54,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 		this.numberOfCores = numberOfCores;
 		
 		this.demandedTimeSensor = new SimpleTimeSpanSensor(myModel, "Demanded time at " + description);
-		this.utilisationSensor = new SimpleUsilisationSensor(myModel, "Overall Utilisation of " + typeID + " " + description);
+		this.utilisationSensor = new OverallUtilisationSensor(myModel, "Overall Utilisation of " + typeID + " " + description);
 		
 		// Reliability Stuff.
 		this.mttf = mttf;
@@ -183,7 +183,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 		registerProcessWindows(process, aResource);
 		double concreteDemand = calculateDemand(abstractDemand);
 		this.demandedTimeSensor.record(concreteDemand);
-		this.totalDemandedTime += concreteDemand / numberOfCores;
+		this.totalDemandedTime += concreteDemand;
 		aResource.process(process, concreteDemand);
 	}
 

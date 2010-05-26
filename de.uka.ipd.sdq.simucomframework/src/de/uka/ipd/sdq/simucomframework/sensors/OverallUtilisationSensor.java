@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
-public class SimpleUsilisationSensor {
+public class OverallUtilisationSensor {
 	
 	private StateSensor sensor;
 	private ExperimentRun experimentRun;
@@ -14,7 +14,7 @@ public class SimpleUsilisationSensor {
 	private State idle;
 	private State busy;
 
-	public SimpleUsilisationSensor(SimuComModel model, String description) {
+	public OverallUtilisationSensor(SimuComModel model, String description) {
 		super();
 		idle = SensorHelper.createOrReuseState(model.getDAOFactory(), "idle");
 		busy = SensorHelper.createOrReuseState(model.getDAOFactory(), "busy");
