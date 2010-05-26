@@ -1,11 +1,8 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
-import javax.management.RuntimeErrorException;
+import java.util.List;
 
-import de.uka.ipd.sdq.cip.launchconfig.AbstractPCMCompletionWorkflowRunConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
-import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 
 /**
@@ -17,6 +14,9 @@ extends AbstractPCMCompletionWorkflowRunConfiguration{
 	private SensitivityAnalysisConfiguration sensitivityAnalysisConfiguration = null;
 	private boolean sensitivityAnalysisEnabled;
 	private boolean simulateLinkingResources;
+	private boolean simulateFailures;
+	
+	private String featureConfigFile;
 
 	public boolean isSensitivityAnalysisEnabled() {
 		return sensitivityAnalysisEnabled;
@@ -51,6 +51,15 @@ extends AbstractPCMCompletionWorkflowRunConfiguration{
 		checkFixed();
 		this.simulateLinkingResources = simulateLinkingResources;
 	}
+
+	public boolean getSimulateFailures() {
+		return simulateFailures;
+	}
+
+	public void setSimulateFailures(boolean simulateFailures) {
+		checkFixed();
+		this.simulateFailures = simulateFailures;
+	}
 	
 	public void setSensitivityAnalysisConfiguration(
 			SensitivityAnalysisConfiguration sensitivityConfig) {
@@ -68,5 +77,36 @@ extends AbstractPCMCompletionWorkflowRunConfiguration{
 	public void setDefaults() {
 		throw new RuntimeException("Not implemented. No defaults defined.");
 	}
+	
+	
+	/**
+	 * @return Returns the filename of the mark model instance containing the PCM connector completion configuration
+	 */
+	public String getFeatureConfigFile() {
+		return featureConfigFile;
+	}
+
+	/** Sets the filename of the mark model for connector completions
+	 * @param featureConfigFile File name of the connector completion file
+	 */
+	public void setFeatureConfigFile(String featureConfigFile) {
+		checkFixed();
+		this.featureConfigFile = featureConfigFile;
+	}
+
+	/**
+	 * Call super.getPCMModelFiles and then add my own featureconfig file.
+	 */
+	@Override
+	public List<String> getPCMModelFiles() {
+		List<String> pcmModelFiles = super.getPCMModelFiles();
+		
+		if (featureConfigFile != null)
+			pcmModelFiles.add(featureConfigFile);
+		
+		return pcmModelFiles;
+	}
+	
+
 
 }

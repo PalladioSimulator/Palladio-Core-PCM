@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.CoreException;
 
-import de.uka.ipd.sdq.cip.workflow.jobs.CompletionTransformationChainJob;
+import de.uka.ipd.sdq.cip.workflow.jobs.CompletionJob;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
@@ -47,7 +47,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		// 2. Validate PCM Models
 		this.addJob(new ValidatePCMModelsJob(configuration));
 		
-		if(configuration.getCompletionConfig().getActiveCompletionCount() > 0)
+/*		if(configuration.getCompletionConfig().getActiveCompletionCount() > 0)
 		{
 			// 3. Apply Completions
 			//BRG
@@ -59,28 +59,33 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 			// 4. Revalidate PCM Models
 			if(configuration.getCompletionConfig().shouldRevalidate())
 				this.addJob(new ValidatePCMModelsJob(configuration));
+		}*/
+		
+		// 3. Apply Completions
+		if (configuration.getCompletionConfiguration() != null) {
+			this.add(new CompletionJob(configuration));
 		}
 		
-		// 5. Apply connector completion transformation
+		// 4. Apply connector completion transformation
 		if (configuration.getSimulateLinkingResources()) {
 			this.addJob(new ApplyConnectorCompletionsJob(configuration));
 		}
 		
-		// 6. Create new Eclipse plugin project
+		// 5. Create new Eclipse plugin project
 		this.addJob(new CreatePluginProjectJob(configuration));
 
-		// 7. Generate the plugin's code using oAW
+		// 6. Generate the plugin's code using oAW
 		this.addJob(new TransformPCMToCodeJob(configuration));
 		this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
 
-		// 8. Compile the plugin
+		// 7. Compile the plugin
 		this.addJob(new CompilePluginCodeJob(configuration));
 
-		// 9. Jar the compiled code into a JAR bundle
+		// 8. Jar the compiled code into a JAR bundle
 		IJobWithResult<byte[]> buildBundleJob = new BuildPluginJarJob(configuration);
 		this.addJob(buildBundleJob);
 		
-		// 10. Transfer the JAR to a free simulation dock and simulate it
+		// 9. Transfer the JAR to a free simulation dock and simulate it
 		this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
 	}
 }

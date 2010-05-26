@@ -33,12 +33,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;bundle-version="3.5.0",
  de.uka.ipd.sdq.featureinstance.editor;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
- de.uka.ipd.sdq.cip;bundle-version="1.0.0",
- de.uka.ipd.sdq.cip.launchconfig;bundle-version="1.0.0";visibility:=reexport,
  de.uka.ipd.sdq.featureinstance.editor;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcm.edit;bundle-version="3.1.0",
  org.eclipse.emf.edit.ui;bundle-version="2.5.0",
- de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0"
+ de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0",
+ de.uka.ipd.sdq.cip;bundle-version="2.0.0",
+ de.uka.ipd.sdq.cip.runtime;bundle-version="1.0.0",
+ de.uka.ipd.sdq.cip.pcm;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig,

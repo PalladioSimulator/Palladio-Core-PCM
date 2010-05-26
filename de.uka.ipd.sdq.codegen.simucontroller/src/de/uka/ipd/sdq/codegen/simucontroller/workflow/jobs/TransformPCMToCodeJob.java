@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xpand2.output.Outlet;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.IJob;
@@ -47,8 +48,10 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		// First generate the jobs
-		// 1. Generate the repository
-		this.addJob(this.getGeneratorJob(getRepositoryTransformationSlots(), REPOSITORY_ROOT_EXPAND_EXPRESSION));
+		// 1. Generate all repositories
+		for(int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
+			this.addJob(this.getGeneratorJob(getRepositoryTransformationSlots(repositoryIndex), REPOSITORY_ROOT_EXPAND_EXPRESSION));
+		}
 		if (configuration.getSimulateLinkingResources()) {
 			this.addJob(this.getGeneratorJob(getMiddlewareRepositorySlots(), REPOSITORY_ROOT_EXPAND_EXPRESSION));
 			this.addJob(this.getGeneratorJob(getCompletionRepositorySlots(), REPOSITORY_ROOT_EXPAND_EXPRESSION));
@@ -60,7 +63,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		// 3. Generate the allocation
 		this.addJob(this.getGeneratorJob(getSystemTransformationSlots(), ALLOCATION_ROOT_EXPAND_EXPRESSION));
 
-		// 4. Generate the usgae
+		// 4. Generate the usage
 		this.addJob(this.getGeneratorJob(getSystemTransformationSlots(), USAGE_ROOT_EXPAND_EXPRESSION));
 		
 		// Now let them run
@@ -123,7 +126,9 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		
 		sC2.put("middleware",pcmPartition.getMiddlewareRepository());
-		sC2.put("featureConfig",pcmPartition.getFeatureConfig());
+		if (configuration.getSimulateLinkingResources()) { 
+			sC2.put("featureConfig",pcmPartition.getFeatureConfig());
+		}
 		sC2.put("system",pcmPartition.getSystem());
 		sC2.put("allocation",pcmPartition.getAllocation());
 		sC2.put("usage",pcmPartition.getUsageModel());
@@ -133,11 +138,19 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	/**
 	 * @return
 	 */
-	private HashMap<String, EObject> getRepositoryTransformationSlots() {
+	private HashMap<String, EObject> getRepositoryTransformationSlots(int repositoryIndex) {
 		HashMap<String,EObject> sC2 = new HashMap<String, EObject>();
 		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		sC2.put("pcmmodel",pcmPartition.getRepository());
+		sC2.put("pcmmodel",pcmPartition.getRepositories().get(repositoryIndex));
 		return sC2;
+	}
+	
+	/**
+	 * @return
+	 */
+	private int getRepositoryCount() {
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+		return pcmPartition.getRepositories().size();
 	}
 		
 	private String getBasePath() {

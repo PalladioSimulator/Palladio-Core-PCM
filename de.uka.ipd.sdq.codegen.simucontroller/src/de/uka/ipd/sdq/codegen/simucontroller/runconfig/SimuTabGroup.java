@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
-import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
-import de.uka.ipd.sdq.cip.launchconfig.CompletionTab;
+import de.uka.ipd.sdq.cip.runtime.runconfig.tabs.CipCompletionTab;
+import de.uka.ipd.sdq.cip.runtime.runconfig.tabs.CipConfigTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.FileNamesInputTab;
 
@@ -26,7 +26,8 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 				new SimuComConfigurationTab(),
 				new SimuConfigurationTab(),
 				new FeatureOptionsTab(),
-				new CompletionTab(),
+				new CipCompletionTab(),
+				new CipConfigTab(),
 				commonTab
 		};
 		setTabs(tabs);

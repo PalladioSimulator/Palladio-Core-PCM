@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.cip.runconfig.CompletionConfiguration;
+import de.uka.ipd.sdq.cip.pcm.configuration.PCMCompletionRunConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
@@ -28,15 +28,14 @@ extends
 		else
 			config.setInteractive(true);
 
-		// TODO: Put this in a config builder for building completion based PCM analysis runs
-		config.setFeatureConfigFile( getStringAttribute(ConstantsContainer.FEATURE_CONFIG) );
-		
 		config.setSimulateLinkingResources(getBooleanAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES));
-		//Only SimuCom needs this model, the PCM Solver does not. 
-		config.setFeatureConfigFile( getStringAttribute(ConstantsContainer.FEATURE_CONFIG));
-		
+		config.setSimulateFailures(getBooleanAttribute(ConstantsContainer.SIMULATE_FAILURES));
 		config.setCleanupCode(getBooleanAttribute(ConstantsContainer.DELETE_PLUGIN));
 		config.setPluginID(getStringAttribute(ConstantsContainer.PLUGIN_ID));
+		
+		//This loads the feature config for Steffen's Connector Completions
+		//TODO: Integrate this in CIP process. 
+		config.setFeatureConfigFile( getStringAttribute(ConstantsContainer.FEATURE_CONFIG) );
 		
 		config.setSensitivityAnalysisEnabled(
 				hasValidSensitvityVariableAttribute(ConstantsContainer.VARIABLE_TEXT));
@@ -51,7 +50,7 @@ extends
 		}
 		
 		config.setSimuComConfiguration(new SimuComConfig(properties, 0, config.isDebug()));
-		config.setCompletionConfig(new CompletionConfiguration(properties));
+		config.setCompletionConfiguration(new PCMCompletionRunConfiguration(config, properties));
 	}
 	
 	private boolean hasValidSensitvityVariableAttribute(String attribute) throws CoreException {

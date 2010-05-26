@@ -144,17 +144,19 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 	
-	private AllocationContext findServerSideMiddlewareAllocationContext() {
-		//Hauck: Changed code here because of changed metamodel. Please check.
-		ResourceContainer container = null;
-		if (linkingRes != null) {
-			if ((linkingRes.getConnectedResourceContainers_LinkingResource() != null) && (linkingRes.getConnectedResourceContainers_LinkingResource().size()>1)) {
-				linkingRes.getConnectedResourceContainers_LinkingResource().get(1);
-			}
-		} 
-		if (container == null) {
-			findContainer(connector.getRequiringAssemblyContext_AssemblyConnector());
-		}
+	private AllocationContext findServerSideMiddlewareAllocationContext(){
+		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringAssemblyContext_AssemblyConnector()) : linkingRes.getConnectedResourceContainers_LinkingResource().get(0) ;
+//	private AllocationContext findServerSideMiddlewareAllocationContext() {
+//		//Hauck: Changed code here because of changed metamodel. Please check.
+//		ResourceContainer container = null;
+//		if (linkingRes != null) {
+//			if ((linkingRes.getConnectedResourceContainers_LinkingResource() != null) && (linkingRes.getConnectedResourceContainers_LinkingResource().size()>1)) {
+//				linkingRes.getConnectedResourceContainers_LinkingResource().get(1);
+//			}
+//		} 
+//		if (container == null) {
+//			findContainer(connector.getRequiringAssemblyContext_AssemblyConnector());
+//		}
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 
@@ -183,10 +185,21 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	 * @return The linking resource on which the given connector is deployed
 	 */
 	private LinkingResource findLinkingResource(AssemblyConnector con) {
-		//Hauck: Changed code here because of changed metamodel. Please check.
+		ResourceContainer requiredSide=findContainer(con.getRequiringAssemblyContext_AssemblyConnector());
+		ResourceContainer providedSide=findContainer(con.getProvidingAssemblyContext_AssemblyConnector());
+		
+		if(requiredSide==providedSide) //same container
+			return null;
+		
 		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingResources__ResourceEnvironment()){
-			if (lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) &&
-					lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector())))
+			if (lr.getConnectedResourceContainers_LinkingResource().contains(requiredSide) &&
+				lr.getConnectedResourceContainers_LinkingResource().contains(providedSide))
+
+//		//Hauck: Changed code here because of changed metamodel. Please check.
+//		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingResources__ResourceEnvironment()){
+//			if (lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) &&
+//					lr.getConnectedResourceContainers_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector())))
+
 				return lr;
 		}
 		if (findContainer(con.getRequiringAssemblyContext_AssemblyConnector()) != findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))
