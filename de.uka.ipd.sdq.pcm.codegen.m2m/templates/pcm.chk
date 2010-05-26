@@ -62,7 +62,7 @@ context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The r
 	this.providedRole_AssemblyConnector.providedInterface__ProvidedRole == this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole
 	|| this.providedRole_AssemblyConnector.providedInterface__ProvidedRole.ancestorInterfaces_Interface.contains(this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole);
 
-context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
+context UsageScenario ERROR 'UsageScenario ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
 
 context ClosedWorkload ERROR 'Closed Workload must have a population > 0':
@@ -75,7 +75,7 @@ context ProcessingResourceSpecification ERROR 'Processing Rate must be set for P
 	this.processingRate_ProcessingResourceSpecification != null && this.processingRate_ProcessingResourceSpecification.specification != '';
 	
 context Repository ERROR 'Repository should contain at least one element':
-	this.components__Repository.size > 0 || this.datatypes_Repository.size > 0 || this.interfaces__Repository.size > 0;
+	this.components__Repository.size > 0 || this.datatypes_Repository.size > 0 || this.interfaces__Repository.size > 0 || this.failureTypes.size > 0;
 	
 context LinkingResource ERROR 'No specification for Linking Resource '+this.entityName+' given':
 	this.communicationLinkResourceSpecifications_LinkingResource != null;

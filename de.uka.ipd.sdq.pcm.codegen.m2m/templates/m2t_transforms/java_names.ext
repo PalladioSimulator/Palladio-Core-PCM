@@ -83,6 +83,9 @@ implementationPackage(UsageScenario u) :
 implementationPackage(RepositoryComponent c) :
    c.repository_RepositoryComponent.basePackageName()+".impl";
 
+implementationPackage(FailureType ft) :
+	ft.repository_FailureType.basePackageName()+".exceptions";
+
 // Name of the main class implementing a system
 className(ComposedStructure s) :
    s.javaName();

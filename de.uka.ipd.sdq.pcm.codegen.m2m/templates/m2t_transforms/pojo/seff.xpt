@@ -31,7 +31,7 @@
 «ENDDEFINE»
 
 «DEFINE BranchTransition FOR AbstractBranchTransition»
-   «ERROR "Unknown branch transition found!"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/pojo/seff.xpt]: Unknown branch transition found!"»
 «ENDDEFINE»
 
 «DEFINE BranchTransition FOR GuardedBranchTransition»

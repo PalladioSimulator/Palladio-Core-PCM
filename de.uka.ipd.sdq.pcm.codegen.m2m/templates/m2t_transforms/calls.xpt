@@ -17,7 +17,7 @@
 	«EXPAND PreCallTM(call, prefix, parameterUsages) FOR this»
    	«prefix»«this.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
-	«EXPAND PostCallTM(call, outParameterUsages) FOR this»
+	«EXPAND PostCallTM(call, prefix, outParameterUsages) FOR this»
 «ENDDEFINE»
 
 
@@ -33,5 +33,5 @@
 // Template method for code to be executed after 
 // an external call
 // ----------------------------------
-«DEFINE PostCallTM(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR Signature»
 «ENDDEFINE»

@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+
 «IMPORT repository»
 «IMPORT core::entity»
 «IMPORT system»
@@ -15,6 +16,7 @@
    «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
    «EXPAND ComponentRoot FOREACH this.components__Repository»
 «ENDDEFINE»
+
 
 «DEFINE InterfaceFile FOR Interface»
    «FILE this.getFileName() INTERFACES»
@@ -33,7 +35,7 @@
   Note: it does not even work to compare IF this.metaType == subsystem::SubSystem, because it cannot find the 
   type subsystem::SubSystem at runtime. «ENDREM»
   «IF ""+this.metaType == "subsystem::SubSystem"»
-    «ERROR "Info: Caught wrongly expanded SubSystem "+this.entityName +"(type "+this.metaType+") in DEFINE ComponentRoot FOR RepositoryComponent."»
+    «ERROR "OAW GENERATION ERROR [m2t_transforms/repository.xpt]: Caught wrongly expanded SubSystem "+this.entityName +"(type "+this.metaType+") in DEFINE ComponentRoot FOR RepositoryComponent."»
     «EXPAND CompositeComponentRoot FOR (subsystem::SubSystem)this»
   «ELSE»
     «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»

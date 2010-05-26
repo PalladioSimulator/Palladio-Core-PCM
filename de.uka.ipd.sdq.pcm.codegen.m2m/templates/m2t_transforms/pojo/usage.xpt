@@ -20,7 +20,7 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR Workload»
-	«ERROR "This should never get called!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/pojo/usage.xpt]: This should never get called!"»
 «ENDDEFINE»
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR OpenWorkload»

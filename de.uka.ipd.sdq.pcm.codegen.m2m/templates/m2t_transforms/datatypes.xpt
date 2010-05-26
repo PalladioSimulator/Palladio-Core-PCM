@@ -3,7 +3,7 @@
 «IMPORT repository»
 
 «DEFINE DataType FOR DataType»
-	«ERROR "Unknown Datatype found"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
 «ENDDEFINE»
 
 «DEFINE DataType FOR PrimitiveDataType»

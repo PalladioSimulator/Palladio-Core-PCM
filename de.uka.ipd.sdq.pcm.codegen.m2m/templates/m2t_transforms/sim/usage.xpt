@@ -73,14 +73,14 @@
 		// of waiting at a resource
 		ctx.setSimProcess(thread);
 		
-		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaVariableName()»
 		{
 		
 			// Here comes the usage scenario code...
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 		
 		}
-		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaVariableName()»
 		
 		// A run through this usage model is complete
 		// The counter for main measurements is incremented by the SimProcess.internalLifeCycle that called this 
@@ -93,7 +93,7 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadClass(UsageScenario u) FOR Workload»
-	«ERROR "AbstractWorkload found! This is imposible!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage.xpt]: AbstractWorkload found! This is imposible!"»
 «ENDDEFINE»
 
 «DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»

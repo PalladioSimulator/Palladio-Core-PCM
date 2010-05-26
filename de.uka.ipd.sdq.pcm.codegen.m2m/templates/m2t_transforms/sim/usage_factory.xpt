@@ -29,7 +29,7 @@
 «ENDDEFINE» 
 
 «DEFINE UsageFactoryBaseClass FOR Workload»
-	«ERROR "AbstractWorkload found! This is imposible!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is imposible!"»
 «ENDDEFINE»
 
 «DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
@@ -57,7 +57,7 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR Workload»
-	«ERROR "AbstractWorkload found! This is imposible!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is imposible!"»
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR ClosedWorkload»

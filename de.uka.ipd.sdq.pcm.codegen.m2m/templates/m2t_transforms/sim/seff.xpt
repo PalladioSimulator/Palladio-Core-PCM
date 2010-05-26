@@ -25,20 +25,39 @@
    } 
 «ENDDEFINE»
 
+
+
 «DEFINE Action FOR InternalAction»
     // Simulate a failure that occurs with a predefined probability:
-    if (ctx.getModel().getConfig().getSimulateFailures()) {
-        double failureProbability;
-        try {
-		    failureProbability = Double.parseDouble("«this.failureProbability»");
-		} catch (NumberFormatException exception) {
-		    failureProbability = 0.0;
-		}
-  		if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {
-   		   	throw new de.uka.ipd.sdq.simucomframework.exceptions.InternalActionFailedException();
-  		}
+    if (ctx.getModel().getConfig().getSimulateFailures()) {   
+    	double accProbability = 0;
+    	double randValue = Math.random();
+    	«EXPAND FailureOccurrence FOREACH this.failureOccurrenceDescriptions»
     }
 	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
+«ENDDEFINE»
+
+«DEFINE FailureOccurrence FOR FailureOccurrenceDescription»
+    «LET "failureProbability"+this.failureType.javaName() AS fp»
+		double «fp»;
+        try {
+			    «fp» = Double.parseDouble("«this.failureProbability»");
+		} catch (NumberFormatException exception) {
+			    «fp» = 0.0;
+		}
+			accProbability += «fp»;
+	  		if ((«fp» > 0.0) && (accProbability >= randValue)) {
+				«EXPAND RaiseFailure FOR this.failureType»
+  		}
+	«ENDLET» 
+«ENDDEFINE»
+
+«DEFINE RaiseFailure FOR FailureType»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/seff.xpt]: Unknown FailureType found: " + this.entityName + " (type = " + this.metaType + "; id = " + this.id + ")"» 
+«ENDDEFINE»
+
+«DEFINE RaiseFailure FOR ApplicationFailureType»
+	de.uka.ipd.sdq.simucomframework.exceptions.ApplicationFailureException.raise("«this.javaName()»"); 
 «ENDDEFINE»
 
 «DEFINE Action FOR BranchAction»
@@ -58,7 +77,7 @@
 «ENDDEFINE»
 
 «DEFINE BranchTransition(String counterNumber) FOR AbstractBranchTransition»
-   «ERROR "Unknown branch transition found!"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/sim/seff.xpt]: Unknown branch transition found!"»
 «ENDDEFINE»
 
 «DEFINE BranchTransition(String counterNumber) FOR GuardedBranchTransition»

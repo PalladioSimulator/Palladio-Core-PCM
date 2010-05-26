@@ -13,5 +13,5 @@
 
 // What to do with the actual demand is target dependant
 «DEFINE ResourceDemandTM FOR ParametricResourceDemand»
-	«ERROR "ResourceDemandTM is a template method and must be overridden"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/resources.xpt]: ResourceDemandTM is a template method and must be overridden"»
 «ENDDEFINE»

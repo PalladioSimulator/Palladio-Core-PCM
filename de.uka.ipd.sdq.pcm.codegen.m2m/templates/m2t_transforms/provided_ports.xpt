@@ -90,11 +90,11 @@
 «ENDDEFINE»
 
 «DEFINE PortDelegationDelegatingCallTM FOR Signature»
-	«ERROR "PortDelegationDelegatingCallTM must be overridden"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/provided_ports.xpt]: PortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
-	«ERROR "ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/provided_ports.xpt]: ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE PortMemberVars FOR ProvidedRole»

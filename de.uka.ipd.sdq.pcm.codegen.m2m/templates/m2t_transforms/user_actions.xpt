@@ -8,7 +8,7 @@
 
 «DEFINE UserAction FOR AbstractUserAction»
 	// Unknown user action - bad!
-	«ERROR "ERROR: Unknown user action!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/user_actions.xpt]: Unknown user action!"»
 «ENDDEFINE»
 
 «DEFINE UserAction FOR Start»

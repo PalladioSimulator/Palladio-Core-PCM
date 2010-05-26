@@ -25,15 +25,15 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE ReturnTypeTM FOR Signature»
-	«ERROR "ReturnTypeTM must be overridden"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE ParameterListTM FOR Signature»
-   «ERROR "ParameterListTemplate method must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterListTemplate method must be overridden"»
 «ENDDEFINE»
 
 «DEFINE ParameterUsageListTM FOR Signature»
-   «ERROR "ParameterUsageTemplate method must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»
@@ -52,7 +52,7 @@ public class «this.javaName()»
 //-----
 // Generate method implementations by traversing the SEFF
 «DEFINE ComponentService FOR ServiceEffectSpecification»
-	«ERROR "Unknown Service Effect Specification found!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!"»
 «ENDDEFINE»
 
 «DEFINE ComponentServiceSignature FOR Signature»
@@ -86,7 +86,7 @@ public class «this.javaName()»
 // Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
 // ComposedStructure
 «DEFINE ComponentImplementation FOR RepositoryComponent»
- «ERROR this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers."» 
+ «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: " + this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers."» 
 «ENDDEFINE»
 
 «DEFINE ComponentImplementation FOR ImplementationComponentType»
