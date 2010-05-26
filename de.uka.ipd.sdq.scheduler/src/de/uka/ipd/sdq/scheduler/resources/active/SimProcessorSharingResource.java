@@ -63,6 +63,12 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		if (shortest!=null){
 			processingFinished.setProcess(shortest);
 			double time = running_processes.get(shortest) * getSpeed();
+			
+			// avoid trouble caused by rounding issues
+			time = MathTools.equalsDouble(time, 0) ? 0.0 : time; 
+			
+			assert time >= 0 : "Remaining time ("+ time +")small than zero!";
+			
 			processingFinished.schedule(time);
 		}
 	}

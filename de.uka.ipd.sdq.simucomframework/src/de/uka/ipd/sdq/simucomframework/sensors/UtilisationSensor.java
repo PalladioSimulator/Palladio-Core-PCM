@@ -29,7 +29,7 @@ public class UtilisationSensor implements IActiveResourceStateSensor{
 	private StateSensor getStateSensor(String id){
 		StateSensor sensor = instance_sensors.get(id);
 		if (sensor == null){
-			sensor =SensorHelper.createOrReuseStateSensor(model.getDAOFactory(), model.getExperimentDatastore(), id, idle_state);
+			sensor = SensorHelper.createOrReuseStateSensor(model.getDAOFactory(), model.getExperimentDatastore(), id, idle_state);
 			sensor.addSensorState(idle_state);
 			sensor.addSensorState(busy_state);
 			instance_sensors.put(id, sensor);
