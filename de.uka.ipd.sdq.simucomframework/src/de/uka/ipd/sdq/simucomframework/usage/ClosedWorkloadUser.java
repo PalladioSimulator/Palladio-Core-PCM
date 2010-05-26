@@ -107,14 +107,4 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 		this.scheduleAt(0);
 	}
 
-	/**
-	 * Resets the static failure counters of the user class.
-	 */
-	public static void resetFailureCounters() {
-		INTERNALACTIONFAILURECOUNT = 0;
-		COMMUNICATIONLINKFAILURECOUNT = 0;
-		RESOURCEUNAVAILABILITYCOUNT = 0;
-		USERCOUNT = 0;
-		RUNCOUNT = 0;
-	}
 }

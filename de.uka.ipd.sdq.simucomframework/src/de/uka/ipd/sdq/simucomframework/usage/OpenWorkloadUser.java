@@ -62,30 +62,4 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		this.scheduleAt(0);
 	}
 
-	/**
-	 * Retrieves the failure counter values of the user class.
-	 * 
-	 * @param type
-	 *            the type of faiure to retrieve
-	 * @return the failure count
-	 */
-	public static int getFailureCount(SimulationFailureType type) {
-		switch (type) {
-		case InternalActionFailed:
-			return INTERNALACTIONFAILURECOUNT;
-		case CommunicationLinkFailed:
-			return COMMUNICATIONLINKFAILURECOUNT;
-		default:
-			return RESOURCEUNAVAILABILITYCOUNT;
-		}
-	}
-
-	/**
-	 * Resets the static failure counters of the user class.
-	 */
-	public static void resetFailureCounters() {
-		INTERNALACTIONFAILURECOUNT = 0;
-		COMMUNICATIONLINKFAILURECOUNT = 0;
-		RESOURCEUNAVAILABILITYCOUNT = 0;
-	}
 }

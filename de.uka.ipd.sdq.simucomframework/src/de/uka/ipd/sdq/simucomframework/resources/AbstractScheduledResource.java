@@ -80,19 +80,19 @@ public abstract class AbstractScheduledResource extends Entity {
 
 		// Check first if the resource is currently available.
 		// This works for the standard resource types (CPU, HDD, DELAY).
-		if (!isAvailable) {
+		/*if (!isAvailable) {
 			EnvironmentFailureException.raise(this.getName());
-		}
+		}*/
 
 		// If the resource can fail, simulate a failure with the given probability.
 		// This works for communication link resources (LAN), but only if the
 		// "simulate linking resources" option is activated. Otherwise, the
 		// commlink failure is triggered out of the OAW generated code.
-		if (canFail) {
+		/*if (canFail) {
 			if (Math.random() < failureProbability) {
 				EnvironmentFailureException.raise(this.getName());
 			}
-		}
+		}*/
 	/**
 	 * Template method. Implementers have to use the given demand and return the
 	 * time span needed to process the demand on this resource.
