@@ -77,7 +77,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 			result = pfFactory.createBoxedPDF(list, this.getUnit());
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
-			System.exit(1); // should never happen
+			throw new RuntimeException(e); // should never happen
 		}
 		return result;
 	}
@@ -155,7 +155,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		} catch (UnknownPDFTypeException e) {
 			// should never happen...
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return sPDF.getFourierTransform();
 	}
@@ -171,7 +171,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		} catch (UnknownPDFTypeException e) {
 			// should never happen...
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return sPDF.getInverseFourierTransform();
 	}
@@ -297,7 +297,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		} catch (DoubleSampleException e) {
 			// should never happen
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return bpdf;
 	}
@@ -337,12 +337,25 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return 0;
 	}
 
+	/** 
+	 * {@inheritDoc}
+	 * 
+	 * Scalar must not be 0. If it is 0, a RuntimeException is thrown.
+	 * @param scalar must not be 0 
+	 */
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
+		
 		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
-		for (IContinuousSample oldSample : samples) {
-			newSamples.add(pfFactory.createContinuousSample(oldSample
-					.getValue()
-					* scalar, oldSample.getProbability()));
+		if (scalar != 0){
+			for (IContinuousSample oldSample : samples) {
+				newSamples.add(pfFactory.createContinuousSample(oldSample
+						.getValue()
+						* scalar, oldSample.getProbability()));
+			}
+		} else {
+			//TODO: Is there a better way to handle a factor 0 for stretching the domain? Maybe creating a static 0-PDF?
+			//TODO: Introduce proper error handling in whole probfunction package. 
+			throw new RuntimeException("Error: Stretching the domain of PDF "+this.toString()+" with factor 0 is undefined. Please change your models so that no PDf is multiplied by 0.");
 		}
 
 		IBoxedPDF result = null;
@@ -350,14 +363,23 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 			result = pfFactory.createBoxedPDF(newSamples, this.getUnit());
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
-			System.exit(1); // should never happen
+			throw new RuntimeException(e);
 		}
 		return result;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Returns itself if scalar == 0. 
+	 */
 	public IProbabilityDensityFunction shiftDomain(double scalar)
 			throws DomainNotNumbersException {
 		// Achtung: does not work with negative scalars!
+		
+		if (scalar == 0){
+			return this;
+		}
 		
 		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
 		if (samples.get(0).getProbability() != 0.0){
@@ -373,7 +395,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 			result = pfFactory.createBoxedPDF(newSamples, this.getUnit());
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
-			System.exit(1); // should never happen
+			throw new RuntimeException(e); // should never happen
 		}
 		return result;
 	}

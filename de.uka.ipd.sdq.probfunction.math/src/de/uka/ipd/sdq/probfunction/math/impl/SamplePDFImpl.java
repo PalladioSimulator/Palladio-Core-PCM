@@ -475,7 +475,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		} catch (SizeTooSmallException e) {
 			// should never happen...
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return operands;
 	}
@@ -543,7 +543,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		} catch (ProbabilityFunctionException e) {
 			// should never happen
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return resultList;
 	}

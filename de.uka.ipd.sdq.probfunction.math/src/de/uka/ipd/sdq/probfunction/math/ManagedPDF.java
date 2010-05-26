@@ -114,7 +114,7 @@ public class ManagedPDF {
 							.transformToPDF(modelPDF);
 				} catch (ProbabilityFunctionException e) {
 					e.printStackTrace();
-					System.exit(1);
+					throw new RuntimeException(e);
 				}
 			} else if (pdfFrequencyDomain != null)
 				try {
@@ -122,7 +122,7 @@ public class ManagedPDF {
 							.getInverseFourierTransform();
 				} catch (FunctionNotInFrequencyDomainException e) {
 					e.printStackTrace();
-					System.exit(1);
+					throw new RuntimeException(e);
 				}
 		}
 		return pdfTimeDomain;
@@ -135,7 +135,7 @@ public class ManagedPDF {
 						.transformToBoxedPDF(getPdfTimeDomain());
 			} catch (ProbabilityFunctionException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return this.boxedPdfTimeDomain;
@@ -148,7 +148,7 @@ public class ManagedPDF {
 						.transformToSamplePDF(getPdfTimeDomain());
 			} catch (UnknownPDFTypeException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return this.samplePdfTimeDomain;
@@ -162,7 +162,7 @@ public class ManagedPDF {
 						.transformToSamplePDF(getPdfFrequencyDomain());
 			} catch (UnknownPDFTypeException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return this.samplePdfFrequencyDomain;
@@ -176,7 +176,7 @@ public class ManagedPDF {
 							.getFourierTransform();
 				} catch (FunctionNotInTimeDomainException e) {
 					e.printStackTrace();
-					System.exit(1);
+					throw new RuntimeException(e);
 				}
 		}
 		return pdfFrequencyDomain;
@@ -249,7 +249,7 @@ public class ManagedPDF {
 			}
 		} catch (ProbabilityFunctionException e) {
 			e.printStackTrace();
-			System.exit(-1);
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -261,7 +261,7 @@ public class ManagedPDF {
 			}
 		} catch (ProbabilityFunctionException e) {
 			e.printStackTrace();
-			System.exit(1);
+			throw new RuntimeException(e);
 		}
 		return this.modelPDF;
 	}
@@ -333,7 +333,7 @@ public class ManagedPDF {
 						.transformToModelBoxedPDF(getBoxedPdfTimeDomain());
 			} catch (ProbabilityFunctionException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return modelBoxedPDF;
@@ -346,7 +346,7 @@ public class ManagedPDF {
 						.transformToModelSamplePDF(getSamplePdfTimeDomain());
 			} catch (UnknownPDFTypeException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return modelSamplePDF;
@@ -358,7 +358,7 @@ public class ManagedPDF {
 				meanValue = this.getPdfTimeDomain().getArithmeticMeanValue();
 			} catch (ProbabilityFunctionException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return meanValue;
@@ -382,7 +382,7 @@ public class ManagedPDF {
 						.getSamplePdfTimeDomain().getCumulativeFunction();
 			} catch (FunctionNotInTimeDomainException e) {
 				e.printStackTrace();
-				System.exit(-1);
+				throw new RuntimeException(e);
 			}
 		}
 		return this.cumulativeDistributionFunction;
@@ -394,8 +394,7 @@ public class ManagedPDF {
 					pdf.getSamplePdfTimeDomain());
 		} catch (ProbabilityFunctionException e) {
 			e.printStackTrace();
-			System.exit(-1);
-			return -1;
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -446,7 +445,7 @@ public class ManagedPDF {
 			this.setPdf(sPDF);
 		} catch (ProbabilityFunctionException e) {
 			e.printStackTrace();
-			System.exit(-1);
+			throw new RuntimeException(e);
 		}
 	}
 

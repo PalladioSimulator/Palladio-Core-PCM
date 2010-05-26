@@ -330,6 +330,8 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	 * an Integer and all sample values are Integer, then the resulting PMF will
 	 * also contain Integer-samples.
 	 * 
+	 * Scalar must not be equal to 0 if Operation is stretch. 
+	 * 
 	 * @author Koziolek (kill me)
 	 * @param scalar
 	 *            the factor to shift or stretch the domain
