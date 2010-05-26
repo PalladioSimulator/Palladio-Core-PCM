@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_ouk7gENrEd-pZZUqcsg6lQ" entityName="FailureTypes">
+  <failureTypes xsi:type="EnvironmentFailureType" id="_HlRi4UNsEd-z_dlODpG6uw" entityName="ResourceFailure (CPU)">
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+  </failureTypes>
+  <failureTypes xsi:type="EnvironmentFailureType" id="_P0TZ10NsEd-z_dlODpG6uw" entityName="CommunicationFailure (LAN)">
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+  </failureTypes>
+  <failureTypes xsi:type="EnvironmentFailureType" id="_L-N5F0NsEd-z_dlODpG6uw" entityName="ResourceFailure (HDD)">
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+  </failureTypes>
+  <failureTypes xsi:type="EnvironmentFailureType" id="_41yAR0PGEd-ZmrACNr1Mew" entityName="ResourceFailure (DELAY)">
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
+  </failureTypes>
+</Repository>
