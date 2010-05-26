@@ -4,9 +4,8 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
-import de.uka.ipd.sdq.simucomframework.exceptions.CommunicationLinkFailedException;
-import de.uka.ipd.sdq.simucomframework.exceptions.InternalActionFailedException;
-import de.uka.ipd.sdq.simucomframework.exceptions.ResourceNotAvailableException;
+import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
+import de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -24,12 +23,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	private IScenarioRunner scenarioRunner;
 	private String thinkTime;
 
-	// Failure counters:
-	private static int INTERNALACTIONFAILURECOUNT = 0;
-	private static int COMMUNICATIONLINKFAILURECOUNT = 0;
-	private static int RESOURCEUNAVAILABILITYCOUNT = 0;
 	private static int USERCOUNT = 0;
-	private static int RUNCOUNT = 0;
 
 	/**
 	 * Constructor of the closed workload user
@@ -61,20 +55,15 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 		// Repeat usage scenario runs as long as simulation is running:
 		while (getModel().getSimulationControl().isRunning()) {
 			try {
-				RUNCOUNT++;
+				if (this.getModel().getConfig().getSimulateFailures()) {
+					FailureStatistics.getInstance().increaseRunCount();
+					// FailureStatistics.getInstance().printRunCount(logger);
+				}
 				scenarioRunner(this);
-			} catch (InternalActionFailedException exception) {
-				logger.debug(this.getName()
-						+ " experienced InternalActionFailedException.");
-				INTERNALACTIONFAILURECOUNT++;
-			} catch (CommunicationLinkFailedException exception) {
-				logger.debug(this.getName()
-						+ " experienced CommunicationLinkFailedException.");
-				COMMUNICATIONLINKFAILURECOUNT++;
-			} catch (ResourceNotAvailableException exception) {
-				logger.debug(this.getName()
-						+ " experienced ResourceNotAvailableException.");
-				RESOURCEUNAVAILABILITYCOUNT++;
+			} catch (FailureException exception) {		
+				if (this.getModel().getConfig().getSimulateFailures()) {
+					FailureStatistics.getInstance().increaseSystemFailureCounter(exception.getFailureType());
+				}
 			} finally {
 				// Increase measurements counter manually as usage scenario run
 				// is not finished:
@@ -88,18 +77,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 		// Print failure statistics after last user is finished:
 		if (USERCOUNT == 0) {
 			if (this.getModel().getConfig().getSimulateFailures()) {
-				logger.warn("Total usage scenario runs: " + RUNCOUNT);
-				logger.warn("Internal action failures: "
-						+ INTERNALACTIONFAILURECOUNT);
-				logger.warn("Communication link failures: "
-						+ COMMUNICATIONLINKFAILURECOUNT);
-				logger.warn("Resource unavailability failures: "
-						+ RESOURCEUNAVAILABILITYCOUNT);
-				logger
-						.warn("Total probability of success: "
-								+ (1 - (double) (INTERNALACTIONFAILURECOUNT
-										+ COMMUNICATIONLINKFAILURECOUNT + RESOURCEUNAVAILABILITYCOUNT)
-										/ (double) RUNCOUNT));
+				FailureStatistics.getInstance().printFailureStatistics(logger);
 			}
 		}
 	}

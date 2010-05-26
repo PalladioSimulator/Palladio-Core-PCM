@@ -9,6 +9,10 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Entity;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
+import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
+import de.uka.ipd.sdq.simucomframework.exceptions.EnvironmentFailureException;
+import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
+import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.ActiveResouce;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
@@ -74,7 +78,21 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public abstract void consumeResource(SimProcess thread, double demand);
 
+		// Check first if the resource is currently available.
+		// This works for the standard resource types (CPU, HDD, DELAY).
+		if (!isAvailable) {
+			EnvironmentFailureException.raise(this.getName());
+		}
 
+		// If the resource can fail, simulate a failure with the given probability.
+		// This works for communication link resources (LAN), but only if the
+		// "simulate linking resources" option is activated. Otherwise, the
+		// commlink failure is triggered out of the OAW generated code.
+		if (canFail) {
+			if (Math.random() < failureProbability) {
+				EnvironmentFailureException.raise(this.getName());
+			}
+		}
 	/**
 	 * Template method. Implementers have to use the given demand and return the
 	 * time span needed to process the demand on this resource.

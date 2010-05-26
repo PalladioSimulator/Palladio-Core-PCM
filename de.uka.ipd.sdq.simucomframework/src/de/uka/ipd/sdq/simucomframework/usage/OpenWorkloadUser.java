@@ -1,9 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
-import de.uka.ipd.sdq.simucomframework.exceptions.CommunicationLinkFailedException;
-import de.uka.ipd.sdq.simucomframework.exceptions.InternalActionFailedException;
-import de.uka.ipd.sdq.simucomframework.exceptions.ResourceNotAvailableException;
+import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
+import de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -17,11 +16,6 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 
 	private IScenarioRunner scenarioRunner;
 	
-	// Failure counters:
-	private static int INTERNALACTIONFAILURECOUNT = 0;
-	private static int COMMUNICATIONLINKFAILURECOUNT = 0;
-	private static int RESOURCEUNAVAILABILITYCOUNT = 0;
-
 	public OpenWorkloadUser(SimuComModel owner, String name,
 			IScenarioRunner scenarioRunner) {
 		super(owner, name);
@@ -38,19 +32,12 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		logger.debug(this.getName() + " started! I'm alive!!!");
 		try {
 			scenarioRunner(this);
-		} catch (InternalActionFailedException exception) {
-			logger.debug(this.getName()
-					+ " experienced InternalActionFailedException.");
-			INTERNALACTIONFAILURECOUNT++;
-		} catch (CommunicationLinkFailedException exception) {
-			logger.debug(this.getName()
-					+ " experienced CommunicationLinkFailedException.");
-			COMMUNICATIONLINKFAILURECOUNT++;
-		} catch (ResourceNotAvailableException exception) {
-			logger.debug(this.getName()
-					+ " experienced ResourceNotAvailableException.");
-			RESOURCEUNAVAILABILITYCOUNT++;
-		} finally {
+		} catch (FailureException exception) {		
+			if (this.getModel().getConfig().getSimulateFailures()) {
+				FailureStatistics.getInstance().increaseSystemFailureCounter(exception.getFailureType());
+			}
+		}
+		finally {
 			// Increase measurements counter manually as usage scenario run is not finished:
 			this.getModel().increaseMainMeasurementsCount();
 		}

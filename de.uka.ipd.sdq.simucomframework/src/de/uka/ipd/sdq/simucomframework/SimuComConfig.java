@@ -30,6 +30,7 @@ public class SimuComConfig implements Serializable {
 	public static String SIMULATION_TIME = "simTime";
 	public static String VERBOSE_LOGGING = "verboseLogging";
 	public static String SIMULATE_FAILURES = "simulateFailures";
+	public static String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
 	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
 	public static String CONFIDENCE_LEVEL = "confidenceLevel";
 	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
@@ -41,6 +42,7 @@ public class SimuComConfig implements Serializable {
 	private long simuTime;
 	private boolean verboseLogging;
 	private boolean simulateFailures = false;
+	private boolean simulateLinkingResources = false;
 	private long datasourceID;
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
@@ -57,8 +59,9 @@ public class SimuComConfig implements Serializable {
 	 * @param configuration a map which maps configuration option IDs to their values. 
 	 * The required keys are SimuComConfig.EXPERIMENT_RUN, SimuComConfig.SIMULATION_TIME 
 	 * SimuComConfig.MAXIMUM_MEASUREMENT_COUNT SimuComConfig.VERBOSE_LOGGING, 
-	 * SimuComConfig.DATASOURCE_ID. Optional keys are SimuComConfig.SIMULATE_FAILURES and
-	 * USE_CONFIDENCE. If USE_CONFIDENCE is set to true, you also need to set 
+	 * SimuComConfig.DATASOURCE_ID. Optional keys are SimuComConfig.SIMULATE_FAILURES,
+	 * SimuComConfig.SIMULATE_LINKING_RESOURCES and SimuComConfig.USE_CONFIDENCE. If
+	 * SimuComConfig.USE_CONFIDENCE is set to true, you also need to set 
 	 * SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.CONFIDENCE_HALFWIDTH, 
 	 * SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.CONFIDENCE_MODELELEMENT_URI 
 	 * 
@@ -82,6 +85,11 @@ public class SimuComConfig implements Serializable {
 			if (configuration.containsKey(SIMULATE_FAILURES)){
 				this.simulateFailures = (Boolean)configuration.get(
 						SIMULATE_FAILURES);
+			}
+			
+			if (configuration.containsKey(SIMULATE_LINKING_RESOURCES)){
+				this.simulateLinkingResources = (Boolean)configuration.get(
+						SIMULATE_LINKING_RESOURCES);
 			}
 			
 			// confidence information is optional in the map. It this.useConfidence defaults to false.
@@ -134,6 +142,10 @@ public class SimuComConfig implements Serializable {
 	
 	public boolean getSimulateFailures() {
 		return simulateFailures;
+	}
+	
+	public boolean getSimulateLinkingResources() {
+		return simulateLinkingResources;
 	}
 
 	public long getDatasourceID() {
