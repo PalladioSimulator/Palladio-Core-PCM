@@ -1,0 +1,174 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+«IMPORT completions»
+«IMPORT repository»
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+
+
+«DEFINE Action FOR ExternalCallAction»
+/* ExternalCallAction - START */
+ 	{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+	«LET javaVariableName("tries_"+ this.calledService_ExternalService.javaSignature()) AS triesVar»
+	int «triesVar» = 1 + «this.retryCount»; //The call plus the retries
+
+	//Execute the external call until it succeeds or the maximal try count is exeeded.
+	for(int retries=0; retries<«triesVar»; ++retries) {
+		«EXPAND InitFailureHandling FOR this»	
+		try {
+		    «EXPAND m2t_transforms::calls::Call(this,
+		       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+		    	this.inputParameterUsages_ExternalCallAction, this.outputVariableUsages_ExternalCallAction) FOR this.calledService_ExternalService»
+		    	break; // success, go on.
+    	}
+    	«EXPAND CatchFailureExceptions FOR this-»
+ 		if(failureException != null) {
+ 					//failure occurred
+ 			if(!(«EXPAND CheckIfExceptionIsHandled FOR this-»)) //is this failure type handled?
+ 				throw failureException;
+
+			if(retries == «triesVar»-1) {//retry count exceeded?
+			 	//yes, could not be handled => failure
+				throw failureException;
+		}
+			
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics.getInstance().increaseHandledFailureCounter(failureException.getFailureType()); //count handled failure
+	}
+	}
+	«ENDLET»
+}/* ExternalCallAction - END */
+«ENDDEFINE»
+
+«DEFINE Action FOR RecoveryBlockAction»
+{ /* RecoveryBlockAction - START */
+	«EXPAND InitFailureHandling FOR this-»
+	«LET this.recoveryBlockalternativeBehaviours.findPrimaryAlterantive() AS primary»
+		«EXPAND PrimaryRecoveryBlockAlternative FOR primary-»
+		«EXPAND NextRecoveryBlockAlternative FOR primary.nextAlternative-»
+	«ENDLET»
+	
+	// no more alternatives.
+	if(failureException!=null) { //failure occurred? 
+		throw failureException;
+	}
+} /* RecoveryBlockAction - END */
+«ENDDEFINE»
+
+«DEFINE PrimaryRecoveryBlockAlternative FOR RecoveryBlockAlternativeBehaviour»
+/* PrimaryRecoveryBlockAlternative - START */
+try {
+	«EXPAND m2t_transforms::java_core::Actions FOR this.steps_Behaviour.findStart()-»
+}
+«EXPAND CatchFailureExceptions FOR this.nextAlternative-»
+/* PrimaryRecoveryBlockAlternative - END */
+«ENDDEFINE»
+
+«DEFINE NextRecoveryBlockAlternative FOR RecoveryBlockAlternativeBehaviour»
+«IF this!=null»
+	/* NextRecoveryBlockAlternative - START */
+	if(failureException!=null && //all other alternatives are only executed if previously there was a failure 
+		(«EXPAND CheckIfExceptionIsHandled FOR this-»)) { //and the failure is handled by this alternative
+
+		try {
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureException originalFailureException = failureException;
+			failureException=null; //new attempt.
+			«EXPAND m2t_transforms::java_core::Actions FOR this.steps_Behaviour.findStart()-»
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics.getInstance().increaseHandledFailureCounter(originalFailureException.getFailureType()); //count handled failure
+		}
+		«EXPAND CatchFailureExceptions FOR this.nextAlternative-»
+	}
+	/* NextRecoveryBlockAlternative - END */
+	«EXPAND NextRecoveryBlockAlternative FOR this.nextAlternative-»
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE CheckIfExceptionIsHandled FOR FailureHandlingEntity»
+	«IF this.failuretype.size==0» «REM» No failure types handled!«ENDREM»
+		false
+	«ELSE»
+		«FOREACH this.failuretype AS failureType SEPARATOR "||"»
+			«EXPAND CheckFailureTypeMatch FOR failureType-»
+		«ENDFOREACH»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch FOR FailureType»
+«ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: Unknown FailureType "+this.entityName»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch FOR ApplicationFailureType»
+failureException.getFailureType().equals("«this.entityName»")
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch FOR EnvironmentFailureType»
+failureException.getFailureType().equals("«this.processingresourcetype.entityName»")
+«ENDDEFINE»
+
+«DEFINE InitFailureHandling FOR Object»
+	de.uka.ipd.sdq.simucomframework.exceptions.FailureException failureException=null;
+	int stackSize=ctx.getStack().size();
+«ENDDEFINE»
+
+«DEFINE CatchFailureExceptions FOR FailureHandlingEntity»
+	«IF this != null»
+		catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
+			failureException=ex;
+		}
+		finally {
+			//clean up stack if exceptions was thrown
+			//remove all additional stack frames; they are invalid now
+			int stackSizeDifference=ctx.getStack().size()-stackSize;
+			for(int frameCount=0; frameCount<stackSizeDifference; ++frameCount) {
+				ctx.getStack().removeStackFrame();
+			}
+		}
+	«ELSE»
+		finally {}
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: InternalAction is a template method and must be overridden"»
+«ENDDEFINE»
+ 
+«DEFINE Action FOR BranchAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR AcquireAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+«ENDDEFINE»

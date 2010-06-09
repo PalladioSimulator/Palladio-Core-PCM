@@ -1,0 +1,163 @@
+import core::entity;
+import entity;
+import repository;
+import system;
+import core::composition;
+import usagemodel;
+import allocation;
+import completions;
+
+String removeAllSpecialChars(String s) : 
+   JAVA de.uka.sdq.pcm.transformations.Helper.removeAllSpecialChars(java.lang.String)
+;
+
+// Generate a java name by replacing all characters which are not java conform
+javaName(Entity e) :
+    e.entityName.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_").replaceAll("\\(","_").replaceAll("\\)","_");
+
+// Generate a java name by replacing all characters which are not java conform
+javaString(String s) :
+   s.replaceAll('"','\\\\"').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_");
+
+javaVariableName(String s) :
+   s.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_").replaceAll("\\(","_").replaceAll("\\)","_");
+
+specificationString(String s) :
+   s.replaceAll('"','\\\\"').removeAllSpecialChars();
+ 
+String javaSignature(OperationSignature s) :
+   s.entityName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
+         
+// TODO: Disable in Code Generations!
+String posInInterface(OperationSignature s, int pos) :
+	s.interface__OperationSignature.signatures__OperationInterface.get(pos) == s ? pos : s.posInInterface(pos+1); 
+	
+// ID of a single port class
+portClassName(OperationProvidedRole r) :
+   r.providedInterface__OperationProvidedRole.javaName()+"_"+r.providingEntity__ProvidedRole.javaName();
+
+// Name of the class containing the interfaces of the required roles
+contextClassName(InterfaceRequiringEntity c) :
+   c.javaName()+"Context";
+   
+contextInterfaceName(InterfaceRequiringEntity c) :
+   "I"+c.javaName()+"Context";
+   
+// ID of a member variable used in the main component implementation to store the singleton port
+// instance
+portMemberVar(OperationProvidedRole r) :
+   "m_port"+r.javaName();
+   
+// Name of the getter Method used to get the singleton port instances
+// of the provided ports
+portGetter(OperationProvidedRole r) :
+   "getPort"+r.javaName();
+
+// Base package of a generated system   
+basePackageName(Entity s) :
+   s.javaName().toLowerCase();
+      
+implementationPackage(Entity e) :
+   "should never be called!";
+
+// Base package of the implementation of an interface
+implementationPackage(Interface i) :
+   i.repository_Interface.basePackageName();
+   
+// Base package of the implementation of a system
+implementationPackage(System s) :
+   s.basePackageName()+".impl";
+  
+// Base package of the implementation of a system
+implementationPackage(Completion s) :
+   s.basePackageName()+".impl";
+  
+// Base package of the implementation of a system
+implementationPackage(UsageScenario u) :
+   u.basePackageName()+".impl";
+      
+// Package name of the implementation classes implementing a component     
+implementationPackage(RepositoryComponent c) :
+   c.repository_RepositoryComponent.basePackageName()+".impl";
+
+implementationPackage(FailureType ft) :
+	ft.repository_FailureType.basePackageName()+".exceptions";
+
+// Name of the main class implementing a system
+className(ComposedStructure s) :
+   s.javaName();
+
+fqnAllocationContextPackage(Allocation a) :
+   a.system_Allocation.implementationPackage()+".allocation";
+
+fqnAllocationContextClass(Allocation a) :
+   a.javaName()+"RuntimeContext";
+      
+fqnAllocationContext(Allocation a) :
+	a.fqnAllocationContextPackage()+"."+a.fqnAllocationContextClass();
+	
+// ------------------- FQNs (full qualified names) -------------------
+fqn(Entity e) :
+  "Should never be called";
+
+fqn(Interface i) :
+  i.implementationPackage()+"."+i.javaName();
+     
+fqn(RepositoryComponent c) :
+  c.implementationPackage()+"."+c.javaName();
+
+fqn(System s) :
+  s.implementationPackage()+"."+s.javaName();
+
+// Completion should be matched by RepositoryComponent
+//fqn(Completion s) :
+//  s.implementationPackage()+"."+s.javaName();
+
+fqn(UsageScenario us) :
+  us.implementationPackage()+"."+us.javaName();
+ 
+fqnContextPackage(Entity c) :
+  c.implementationPackage()+".contexts";
+
+fqnContext(InterfaceRequiringEntity c) :
+  c.fqnContextPackage()+"."+c.contextClassName();
+
+fqnContextInterface(InterfaceRequiringEntity c) :
+  c.fqnContextPackage()+".I"+c.contextClassName();
+
+fqnPortPackage(OperationProvidedRole pr) :
+  pr.providingEntity__ProvidedRole.implementationPackage()+".ports";
+
+fqnPort(OperationProvidedRole pr) :
+  pr.providingEntity__ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
+
+beanName(RepositoryComponent c) :
+  c.javaName()+'Bean';
+
+fqnInterface(InterfaceProvidingEntity c) :
+  c.implementationPackage()+'.I'+c.javaName();
+
+interfaceName(InterfaceProvidingEntity c) :
+  'I'+c.javaName();
+    
+dummyComponentName(RequiredRole rr):
+	rr.requiringEntity__RequiredRole.javaName()+"Dummy";
+
+fqnDummyComponentPackage(RequiredRole rr):
+	"dummies";
+
+fqnDummyComponent(RequiredRole rr):
+  rr.fqnDummyComponentPackage()+"."+rr.dummyComponentName();
+  
+// ---------------- End FQN -------------------
+
+// Convert a FQ package name to a directory path
+fqnToDirectoryPath(String fqn) :
+   fqn.replaceAll("\\.","/");
+        
+getFileName(Entity e) :
+  e.implementationPackage().fqnToDirectoryPath()+"/"+e.javaName()+".java";
+  
