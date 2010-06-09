@@ -60,7 +60,7 @@ public class OperationsTabItemProvider extends ItemProviderDecorator implements
 					.getReturntype__Signature());
 			break;
 		case OperationsEditorSection.SIGNATURENAME_COLUMN_INDEX:
-			result = signature.getServiceName();
+			result = signature.getEntityName();
 			break;
 		case OperationsEditorSection.PARAMETER_COLUMN_INDEX:
 			result = parser.setParametersToString(signature
