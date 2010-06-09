@@ -158,7 +158,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_PxJ9rjpREduKtOWw2f6nDA"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_PxJ9oTpREduKtOWw2f6nDA" lineColor="0" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PxJ9ojpREduKtOWw2f6nDA" x="8712" y="15312"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PxJ9ojpREduKtOWw2f6nDA" x="8184" y="15444"/>
         </children>
         <children xmi:id="_Xa9AkDpREduKtOWw2f6nDA" element="_XazPkDpREduKtOWw2f6nDA">
           <children xmi:id="_Xa9AkzpREduKtOWw2f6nDA" type="ImageCompartment">
@@ -1446,11 +1446,11 @@
           </children>
           <children xmi:id="_PjpqnXvjEdu44vtaHAHjTA" type="FromMultiplicityLabel" element="_PiTmwXvjEdu44vtaHAHjTA">
             <children xmi:id="_Pjpqn3vjEdu44vtaHAHjTA" type="FromMultiplicity" element="_PiTmwXvjEdu44vtaHAHjTA"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PjpqnnvjEdu44vtaHAHjTA" x="546" y="-632"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_PjpqnnvjEdu44vtaHAHjTA" x="-285" y="534"/>
           </children>
           <children xmi:id="_PjpqoHvjEdu44vtaHAHjTA" type="FromRoleLabel" element="_PiTmwXvjEdu44vtaHAHjTA">
             <children xmi:id="_PjpqonvjEdu44vtaHAHjTA" type="FromRole" element="_PiTmwXvjEdu44vtaHAHjTA"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PjpqoXvjEdu44vtaHAHjTA" x="228" y="-1282"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_PjpqoXvjEdu44vtaHAHjTA" x="-285" y="-1092"/>
           </children>
           <children xmi:id="_Pjpqo3vjEdu44vtaHAHjTA" type="ToQualifierLabel" element="_PiTmwnvjEdu44vtaHAHjTA">
             <children xmi:id="_PjpqpXvjEdu44vtaHAHjTA" type="QualifierCompartment" element="_PiTmwnvjEdu44vtaHAHjTA">
@@ -2583,7 +2583,7 @@
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_AFIL0DpgEduKtOWw2f6nDA"/>
       </ownedLiteral>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Pw2boDpREduKtOWw2f6nDA" name="Variable">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Pw2boDpREduKtOWw2f6nDA" name="StoExVariable">
       <generalization xmi:id="_SUKs8DpREduKtOWw2f6nDA" general="_GKoIQDpREduKtOWw2f6nDA"/>
       <ownedAttribute xmi:id="_PiTmwXvjEdu44vtaHAHjTA" name="id_Variable" type="_d6r7MHlqEduf8pXqmhjnpw" association="_PiTmwHvjEdu44vtaHAHjTA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PiTmxHvjEdu44vtaHAHjTA" value="1"/>
