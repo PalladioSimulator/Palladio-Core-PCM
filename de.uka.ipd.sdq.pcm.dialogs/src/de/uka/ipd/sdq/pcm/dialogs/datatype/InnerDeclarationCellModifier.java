@@ -10,14 +10,14 @@ import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
 public class InnerDeclarationCellModifier implements ICellModifier {
 
 	private PalladioDataTypeDialog dialog;
 	private List<String> columnNames;
-	private InnerDeclaration declaration;
+	private Variable declaration;
 	
 	private TransactionalEditingDomain editingDomain;
 
@@ -55,7 +55,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 
 		Assert.isNotNull(element);
 		TableItem item = (TableItem) element;
-		declaration = (InnerDeclaration) item.getData();
+		declaration = (Variable) item.getData();
 
 		switch (columnIndex) {
 		case CreateEditorContents.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
@@ -84,11 +84,12 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				declaration.setDatatype_InnerDeclaration(dataType);
+				
+			 declaration.setDataType__Variable(dataType);
 			}
 		};
 
-		if (!dataType.equals(declaration.getDatatype_InnerDeclaration())) {
+		if (!dataType.equals(declaration.getDataType__Variable())) {
 			recCommand.setLabel("Set InnerDeclaration DataType");
 			editingDomain.getCommandStack().execute(recCommand);
 		}

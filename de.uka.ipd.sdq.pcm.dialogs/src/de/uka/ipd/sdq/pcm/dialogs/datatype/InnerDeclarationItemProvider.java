@@ -6,7 +6,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 
 /**
  * This class is a decorator for the generated EMF.Edit item providers. It
@@ -51,7 +51,7 @@ ITableItemLabelProvider, IItemLabelProvider {
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
 
-		InnerDeclaration declaration = (InnerDeclaration) element;
+		Variable declaration = (Variable) element;
 
 		switch (columnIndex) {
 		case CreateEditorContents.ICON_COLUMN_INDEX:
@@ -65,7 +65,7 @@ ITableItemLabelProvider, IItemLabelProvider {
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
 			result = ParameterRepresentation.dataTypeToString(declaration
-					.getDatatype_InnerDeclaration());
+					.getDataType__Variable());
 			break;
 		default:
 			break;

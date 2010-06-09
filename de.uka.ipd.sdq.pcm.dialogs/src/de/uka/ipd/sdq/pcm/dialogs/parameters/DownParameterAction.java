@@ -7,8 +7,8 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
  /**
 	 * This adapter class provides default implementations for the methods
@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 public class DownParameterAction extends EditorContentsSelectionAction
 		implements SelectionListener {
 
-	private Signature parentSignature;
+	private OperationSignature parentSignature;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -29,7 +29,7 @@ public class DownParameterAction extends EditorContentsSelectionAction
 	 */
 	private TransactionalEditingDomain editingDomain = null;
 
-	public DownParameterAction(Signature signature) {
+	public DownParameterAction(OperationSignature signature) {
 		this.parentSignature = signature;
 		this.editingDomain = TransactionUtil.getEditingDomain(signature);
 	}
@@ -38,9 +38,9 @@ public class DownParameterAction extends EditorContentsSelectionAction
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-		final Parameter selectedParameter = (Parameter) getSelectedDeclaration();
-		final EList<Parameter> parameters = parentSignature
-				.getParameters__Signature();
+		final Variable selectedParameter = (Variable) getSelectedDeclaration();
+		final EList<Variable> parameters = parentSignature
+				.getParameters__OperationSignature();
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override

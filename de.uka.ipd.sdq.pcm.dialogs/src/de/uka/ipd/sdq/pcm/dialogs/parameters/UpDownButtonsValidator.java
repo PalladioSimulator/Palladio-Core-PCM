@@ -5,10 +5,9 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.dialogs.Messages;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.PalladioDataTypeDialog;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /**
  * The Class place the validate methods for CompositeDataType and
@@ -44,12 +43,12 @@ public class UpDownButtonsValidator {
 			contents.setDeleteItemsEnabled(false);
 			contents.setDownItemsEnabled(false);
 			contents.setUpItemsEnabled(false);
-		} else if (selection instanceof Parameter) {
-			Parameter parameter = (Parameter) selection;
+		} else if (selection instanceof Variable) {
+			Variable parameter = (Variable) selection;
 			UpDownButtonsValidator.getSingelton().validateParameter(parameter);
 			contents.setDeleteItemsEnabled(true);
-		} else if (selection instanceof InnerDeclaration) {
-			InnerDeclaration declaration = (InnerDeclaration) selection;
+		} else if (selection instanceof Variable) {
+			Variable declaration = (Variable) selection;
 			UpDownButtonsValidator.getSingelton().validateInnerDeclaration(
 					declaration);
 			contents.setDeleteItemsEnabled(true);
@@ -60,9 +59,9 @@ public class UpDownButtonsValidator {
 	 * Validate (Enabled/Unenabled) up-, down-button in the ParameterDialog.
 	 * Call if selection instanceof Parameter.
 	 */
-	public void validateParameter(Parameter parameter) {
-		Signature signature = parameter.getSignature_Parameter();
-		EList<Parameter> parameters = signature.getParameters__Signature();
+	public void validateParameter(Variable parameter) {
+		OperationSignature signature = parameter.getOperationSignature__Variable();
+		EList<Variable> parameters = signature.getParameters__OperationSignature();
 		validate(parameters.indexOf(parameter), parameters.size());
 	}
 	
@@ -70,18 +69,18 @@ public class UpDownButtonsValidator {
 	 * Validate (Enabled/Unenabled) up-, down-button in the DataTypeDialog. Call
 	 * if selection instanceof InnerDeclaration.
 	 */
-	public void validateInnerDeclaration(InnerDeclaration declaration) {
+	public void validateInnerDeclaration(Variable declaration) {
 		if (declaration.eContainer() instanceof CompositeDataType) {
 			CompositeDataType dataType = (CompositeDataType) declaration
 					.eContainer();
-			EList<InnerDeclaration> declarations = dataType
-					.getInnerDeclaration_CompositeDataType();
+			EList<Variable> declarations = dataType
+					.getMembers__CompositeDataType();
 			validate(declarations.indexOf(declaration), declarations.size());
 		}
 	}
 	
-	public boolean validdateDeclarationInnerDataType(InnerDeclaration declaration, PalladioDataTypeDialog dialog){
-		if (declaration.getDatatype_InnerDeclaration() == null) {
+	public boolean validdateDeclarationInnerDataType(Variable declaration, PalladioDataTypeDialog dialog){
+		if (declaration.getDataType__Variable() == null) {
 			dialog.setErrorMessage(Messages.DataTypeDialog_ErrorMsgInnerName);
 			return false;
 		}

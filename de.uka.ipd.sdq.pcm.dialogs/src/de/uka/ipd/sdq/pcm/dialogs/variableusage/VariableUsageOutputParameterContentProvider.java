@@ -2,10 +2,9 @@ package de.uka.ipd.sdq.pcm.dialogs.variableusage;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 public class VariableUsageOutputParameterContentProvider extends
 		VariableUsageContentProvider {
@@ -15,19 +14,20 @@ public class VariableUsageOutputParameterContentProvider extends
 		/**
 		 * Signatur
 		 */
-		if (parent instanceof Signature) {
-			Signature signature = (Signature) parent;
-			ArrayList<Parameter> outputParameter = new ArrayList<Parameter>();
-			for (Parameter p : signature.getParameters__Signature()) {
+		if (parent instanceof OperationSignature) {
+			OperationSignature signature = (OperationSignature) parent;
+			ArrayList<Variable> outputParameter = new ArrayList<Variable>();
+			for (Variable p : signature.getParameters__OperationSignature()) {
+				/* FIXME: re-enable
 				if (p.getModifier__Parameter() == ParameterModifier.OUT || 
 					p.getModifier__Parameter() == ParameterModifier.INOUT){
 					outputParameter.add(p);
-				}
+				}*/
 			}
-			if (signature.getReturntype__Signature() != null){
-				Parameter ret = RepositoryFactory.eINSTANCE.createParameter();
-				ret.setDatatype__Parameter(signature.getReturntype__Signature());
-				ret.setParameterName("RETURN");
+			if (signature.getReturntype__OperationSignature() != null){
+				Variable ret = ParameterFactory.eINSTANCE.createVariable();
+				ret.setDataType__Variable(signature.getReturntype__OperationSignature().getCompositeDataType__Variable());
+				ret.setEntityName("RETURN");
 				outputParameter.add(ret);
 			}
 			return outputParameter.toArray();

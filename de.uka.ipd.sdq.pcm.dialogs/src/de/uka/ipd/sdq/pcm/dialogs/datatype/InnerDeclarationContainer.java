@@ -1,13 +1,14 @@
 package de.uka.ipd.sdq.pcm.dialogs.datatype;
 
-import de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl;
+import de.uka.ipd.sdq.pcm.parameter.impl.VariableImpl;
+
 
 /**
  * Container class for InnerDeclaration with parent object
  * 
  * @author Roman Andrej
  */
-public class InnerDeclarationContainer extends InnerDeclarationImpl{
+public class InnerDeclarationContainer extends VariableImpl{
 	
 	private Object parent;
 	private Object object;

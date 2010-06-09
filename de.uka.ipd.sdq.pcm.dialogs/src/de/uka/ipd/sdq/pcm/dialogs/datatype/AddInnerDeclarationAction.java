@@ -5,8 +5,9 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
@@ -51,17 +52,16 @@ public class AddInnerDeclarationAction extends SelectionAdapter {
 					compositeDataType = RepositoryFactory.eINSTANCE
 							.createCompositeDataType();
 				}
-				InnerDeclaration declaration = RepositoryFactory.eINSTANCE
-						.createInnerDeclaration();
+				Variable variable = ParameterFactory.eINSTANCE.createVariable();
 				// Build the name with count
-				String declaratonName = "DeclarationName"
+				String declarationName = "DeclarationName"
 						+ (compositeDataType
-								.getInnerDeclaration_CompositeDataType().size() + 1);
+								.getMembers__CompositeDataType().size() + 1);
 
-				declaration.setEntityName(declaratonName);
+				variable.setEntityName(declarationName);
 
-				compositeDataType.getInnerDeclaration_CompositeDataType().add(
-						declaration);
+				compositeDataType.getMembers__CompositeDataType().add(
+						variable);
 			}
 		};
 

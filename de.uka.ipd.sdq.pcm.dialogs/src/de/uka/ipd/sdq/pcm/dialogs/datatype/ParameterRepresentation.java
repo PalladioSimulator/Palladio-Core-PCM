@@ -6,8 +6,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
@@ -45,11 +45,11 @@ public class ParameterRepresentation {
 	/**
 	 * The method create the string list of parameter (parameter1, parameter2, ...)
 	 */
-	public static String parametersToString(EList<Parameter> parameters) {
+	public static String parametersToString(EList<Variable> parameters) {
 		String result = "";
 
-		for (Iterator<Parameter> it = parameters.iterator(); it.hasNext();) {
-			result += it.next().getParameterName() + ", ";
+		for (Iterator<Variable> it = parameters.iterator(); it.hasNext();) {
+			result += it.next().getEntityName() + ", ";
 		}
 		return deleteComma(result);
 	}

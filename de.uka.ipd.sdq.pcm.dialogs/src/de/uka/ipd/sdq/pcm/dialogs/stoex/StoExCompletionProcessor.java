@@ -15,11 +15,10 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
  * @author Snowball
@@ -37,7 +36,7 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	/**
 	 * 
 	 */
-	public StoExCompletionProcessor(Parameter[] context) {
+	public StoExCompletionProcessor(Variable[] context) {
 		templateProcessor = new StoExTemplateCompletionProcessor();
 		
 		defaultCharacterisations.put("BYTESIZE", "Characterise the memory footprint in bytes");
@@ -50,18 +49,18 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			String[] parameterPrefixes = getPrefixesFor(context[i]);
 			for (String parameterPrefix : parameterPrefixes) {
 				if (parameterPrefix.startsWith("RETURN"))
-					parameterNames.put(parameterPrefix, "Call Result " + context[i].getParameterName());
+					parameterNames.put(parameterPrefix, "Call Result " + context[i].getEntityName());
 				else
-					parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getParameterName());
+					parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getEntityName());
 			}
 		}
 		
 	}
 
-	private String[] getPrefixesFor(Parameter parameter) {
+	private String[] getPrefixesFor(Variable parameter) {
 		ArrayList<String> prefixes = new ArrayList<String>();
-		prefixes.add(parameter.getParameterName());
-		appendDatatypePrefixes(prefixes,parameter.getParameterName(),parameter.getDatatype__Parameter());
+		prefixes.add(parameter.getEntityName());
+		appendDatatypePrefixes(prefixes,parameter.getEntityName(),parameter.getDataType__Variable());
 		return prefixes.toArray(new String[]{});
 	}
 
@@ -69,12 +68,12 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			String parameterName, DataType datatype__Parameter) {
 		if (datatype__Parameter instanceof CollectionDataType) {
 			prefixes.add(parameterName+".INNER");
-			appendDatatypePrefixes(prefixes,parameterName+".INNER", ((CollectionDataType)datatype__Parameter).getInnerType_CollectionDataType());
+			appendDatatypePrefixes(prefixes,parameterName+".INNER", ((CollectionDataType)datatype__Parameter).getInnerDataType__CollectionDataType());
 		} else if (datatype__Parameter instanceof CompositeDataType) {
 			CompositeDataType cdt = (CompositeDataType) datatype__Parameter;
-			for (InnerDeclaration inner : cdt.getInnerDeclaration_CompositeDataType()) {
+			for (Variable inner : cdt.getMembers__CompositeDataType()) {
 				prefixes.add(parameterName+"."+inner.getEntityName());
-				appendDatatypePrefixes(prefixes, parameterName+"."+inner.getEntityName(), inner.getDatatype_InnerDeclaration());
+				appendDatatypePrefixes(prefixes, parameterName+"."+inner.getEntityName(), inner.getDataType__Variable());
 			}
 		}
 	}

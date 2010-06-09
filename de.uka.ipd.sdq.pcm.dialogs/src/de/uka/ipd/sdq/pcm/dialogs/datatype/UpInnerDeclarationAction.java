@@ -8,8 +8,8 @@ import org.eclipse.swt.events.SelectionListener;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.EditorContentsSelectionAction;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.UpDownButtonsValidator;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
 /**
  * This adapter class provides default implementations for the methods described
@@ -33,11 +33,11 @@ public class UpInnerDeclarationAction extends EditorContentsSelectionAction impl
 	 */
 	public void widgetSelected(SelectionEvent e) {
 
-		final InnerDeclaration selectedDeclaration = (InnerDeclaration) getSelectedDeclaration();
+		final Variable selectedDeclaration = (Variable) getSelectedDeclaration();
 		CompositeDataType parentDataType = (CompositeDataType) selectedDeclaration
 				.eContainer();
-		final EList<InnerDeclaration> declarations = parentDataType
-				.getInnerDeclaration_CompositeDataType();
+		final EList<Variable> declarations = parentDataType
+				.getMembers__CompositeDataType();
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override

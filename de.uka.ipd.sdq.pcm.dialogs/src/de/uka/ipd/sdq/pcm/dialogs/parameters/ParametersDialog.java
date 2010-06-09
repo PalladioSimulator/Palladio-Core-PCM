@@ -19,8 +19,8 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
 import de.uka.ipd.sdq.pcm.dialogs.Messages;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
@@ -34,7 +34,7 @@ public class ParametersDialog extends TitleAreaDialog {
 
 	private ComposedAdapterFactory adapterFactory;
 
-	private Signature signature;
+	private OperationSignature signature;
 
 	/**
 	 * Creates a dialog with the given parent and edited properties name
@@ -43,7 +43,7 @@ public class ParametersDialog extends TitleAreaDialog {
 	 *            -object that returns the current parent shell columnName -
 	 *            edited properties
 	 */
-	public ParametersDialog(Shell parentShell, Signature signature) {
+	public ParametersDialog(Shell parentShell, OperationSignature signature) {
 		super(parentShell);
 		this.signature = signature;
 
@@ -76,7 +76,7 @@ public class ParametersDialog extends TitleAreaDialog {
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Parameter.class);
+		filterList.add(Variable.class);
 		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
 
 		adapterFactory = new ComposedAdapterFactory();

@@ -9,11 +9,10 @@ import org.eclipse.jface.viewers.Viewer;
 
 import de.uka.ipd.sdq.pcm.dialogs.datatype.DataTypeContainer;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.InnerDeclarationContainer;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -63,15 +62,15 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 		/**
 		 * Parameter
 		 */
-		if (parent instanceof Parameter) {
-			Parameter parameter = (Parameter) parent;
-			DataType dataType = (DataType) parameter.getDatatype__Parameter();
+		if (parent instanceof Variable) {
+			Variable parameter = (Variable) parent;
+			DataType dataType = (DataType) parameter.getDataType__Variable();
 			
 			if (dataType instanceof CompositeDataType) {
 				return getCompositeTypeElements(dataType, parameter);
 			}
 			else if (dataType instanceof CollectionDataType) {
-				return new Object[] {new DataTypeContainer(((CollectionDataType)dataType).getInnerType_CollectionDataType(),parent)};
+				return new Object[] {new DataTypeContainer(((CollectionDataType)dataType).getInnerDataType__CollectionDataType(),parent)};
 			}
 			else
 				return new Object[]{};
@@ -104,7 +103,7 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 
 			CollectionDataType collDataType = (CollectionDataType) innerType;
 			return new Object[] { new DataTypeContainer(collDataType
-					.getInnerType_CollectionDataType(),parent) };
+					.getInnerDataType__CollectionDataType(),parent) };
 		}
 
 		return new Object[0];
@@ -116,9 +115,9 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 */
 	private DataType getTreeDeclarationInner(Object parent) {
 		InnerDeclarationContainer treeDeclaration = (InnerDeclarationContainer) parent;
-		InnerDeclaration declaration = (InnerDeclaration) treeDeclaration
+		Variable declaration = (Variable) treeDeclaration
 				.getObject();
-		return declaration.getDatatype_InnerDeclaration();
+		return declaration.getDataType__Variable();
 	}
 
 	/**
@@ -134,7 +133,7 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 			
 		}
 		CollectionDataType collDataType = (CollectionDataType) dataType;
-		return collDataType.getInnerType_CollectionDataType();
+		return collDataType.getInnerDataType__CollectionDataType();
 	}
 	
 	/**
@@ -144,13 +143,13 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 */
 	private Object[] getCompositeTypeElements(DataType dataType, Object parent) {
 		CompositeDataType compDataType = (CompositeDataType) dataType;
-		EList<InnerDeclaration> list = compDataType
-				.getInnerDeclaration_CompositeDataType();
+		EList<Variable> list = compDataType
+				.getMembers__CompositeDataType();
 		Object[] objects = new Object[list.size()];
 		
 		int i = 0;
 		
-		for (InnerDeclaration inner : list)
+		for (Variable inner : list)
 			objects[i++] = new InnerDeclarationContainer(inner, parent);
 		
 		return objects;
@@ -169,9 +168,9 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 */
 	public boolean hasChildren(Object element) {
 		
-		if (element instanceof Parameter) {
-			Parameter parameter = (Parameter) element;
-			DataType dataType = parameter.getDatatype__Parameter();
+		if (element instanceof Variable) {
+			Variable parameter = (Variable) element;
+			DataType dataType = parameter.getDataType__Variable();
 			return hasChildren(dataType);
 		}
 		

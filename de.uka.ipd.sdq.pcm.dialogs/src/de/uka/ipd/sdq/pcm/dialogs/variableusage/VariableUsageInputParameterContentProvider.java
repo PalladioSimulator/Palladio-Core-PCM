@@ -2,9 +2,8 @@ package de.uka.ipd.sdq.pcm.dialogs.variableusage;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 public class VariableUsageInputParameterContentProvider extends
 		VariableUsageContentProvider {
@@ -14,15 +13,16 @@ public class VariableUsageInputParameterContentProvider extends
 		/**
 		 * Signatur
 		 */
-		if (parent instanceof Signature) {
-			Signature signature = (Signature) parent;
-			ArrayList<Parameter> inputParameter = new ArrayList<Parameter>();
-			for (Parameter p : signature.getParameters__Signature()) {
+		if (parent instanceof OperationSignature) {
+			OperationSignature signature = (OperationSignature) parent;
+			ArrayList<Variable> inputParameter = new ArrayList<Variable>();
+			for (Variable p : signature.getParameters__OperationSignature()) {
+				/* FIXME: re-enable modifiers
 				if (p.getModifier__Parameter() == ParameterModifier.NONE || 
 					p.getModifier__Parameter() == ParameterModifier.IN || 
 					p.getModifier__Parameter() == ParameterModifier.INOUT){
 					inputParameter.add(p);
-				}
+				}*/
 			}
 			return inputParameter.toArray();
 		} else 

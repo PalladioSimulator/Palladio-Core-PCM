@@ -35,7 +35,7 @@ public class TestLabelProvider implements ITableLabelProvider {
 		case ExceptionsDialog.ICON_COLUMN_INDEX:
 			break;
 		case ExceptionsDialog.CONTEXT_COLUMN_INDEX:
-			result = ((Signature) exceptionType.eContainer()).getServiceName();
+			result = ((Signature) exceptionType.eContainer()).getEntityName();
 			break;
 		case ExceptionsDialog.NAME_COLUMN_INDEX:
 			result = getExceptionName(exceptionType);

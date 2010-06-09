@@ -19,10 +19,10 @@ import org.eclipse.swt.widgets.Shell;
 import de.uka.ipd.sdq.pcm.dialogs.Messages;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.UpDownButtonsValidator;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
@@ -85,7 +85,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			 */
 			entityInnerType = ParameterRepresentation
 					.dataTypeToString(collectionDataType
-							.getInnerType_CollectionDataType());
+							.getInnerDataType__CollectionDataType());
 
 			// create DataTypeDialog
 			create();
@@ -252,14 +252,14 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		boolean state = true;
 
 		if (compositeDataType == null
-				|| compositeDataType.getInnerDeclaration_CompositeDataType()
+				|| compositeDataType.getMembers__CompositeDataType()
 						.isEmpty()) {
 			setErrorMessage(Messages.DataTypeDialog_ErrorMsgInner);
 			return false;
 		} else {
-			EList<InnerDeclaration> declarations = compositeDataType
-					.getInnerDeclaration_CompositeDataType();
-			for (InnerDeclaration declaration : declarations) {
+			EList<Variable> declarations = compositeDataType
+					.getMembers__CompositeDataType();
+			for (Variable declaration : declarations) {
 				state &= UpDownButtonsValidator.getSingelton()
 						.validdateDeclarationInnerDataType(declaration, this);
 			}

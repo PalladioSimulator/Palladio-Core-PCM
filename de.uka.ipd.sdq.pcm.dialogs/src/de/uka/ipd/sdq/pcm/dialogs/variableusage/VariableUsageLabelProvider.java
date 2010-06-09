@@ -9,11 +9,10 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
 import de.uka.ipd.sdq.pcm.dialogs.datatype.DataTypeContainer;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.InnerDeclarationContainer;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 
 /**
@@ -49,11 +48,11 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 	@Override
 	public String getText(Object object) {
 		
-		if (object instanceof Parameter) {
-			Parameter p = (Parameter) object;
-			String result = p.getParameterName();
-			if (p.getDatatype__Parameter() != null) {
-				result += ": " + super.getText(p.getDatatype__Parameter());
+		if (object instanceof Variable) {
+			Variable p = (Variable) object;
+			String result = p.getEntityName();
+			if (p.getDataType__Variable() != null) {
+				result += ": " + super.getText(p.getDataType__Variable());
 			}
 			return result;
 		}
@@ -64,8 +63,8 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 		}
 		
 		if (object instanceof InnerDeclarationContainer) {
-			InnerDeclaration declaration = getTreeDeclarationObject(object);
-			DataType dataType = declaration.getDatatype_InnerDeclaration();
+			Variable declaration = getTreeDeclarationObject(object);
+			DataType dataType = declaration.getDataType__Variable();
 			
 			String typeName = "";
 
@@ -79,7 +78,7 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 			}
 			if (dataType instanceof PrimitiveDataType) {
 				PrimitiveDataType primType = (PrimitiveDataType) dataType;
-				typeName = primType.getType().getName();
+				typeName = primType.getEntityName();
 			}
 			
 			return declaration.getEntityName() + ": " + typeName;
@@ -98,9 +97,9 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 	/**
 	 * @return - return the InnerDeclaration from TreeDeclaration-Object
 	 */
-	private InnerDeclaration getTreeDeclarationObject(Object object) {
+	private Variable getTreeDeclarationObject(Object object) {
 		InnerDeclarationContainer treeDeclaration = (InnerDeclarationContainer) object;
-		return (InnerDeclaration) treeDeclaration.getObject();
+		return (Variable) treeDeclaration.getObject();
 	}
 	
 	private String getNameDataType(DataType dataType) {

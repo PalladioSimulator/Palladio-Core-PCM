@@ -41,7 +41,7 @@ public class DataTypeCommand {
 					collectionDataType = (CollectionDataType) dataType;
 					String typeName = collectionDataType.getEntityName();
 					DataType innerType = collectionDataType
-							.getInnerType_CollectionDataType();
+						.getInnerDataType__CollectionDataType();
 
 					if ((entityName != null) && (!typeName.equals(entityName)))
 						collectionDataType.setEntityName(entityName);
@@ -49,7 +49,7 @@ public class DataTypeCommand {
 					if ((innerDataType != null)
 							&& (!innerType.equals(innerDataType)))
 						collectionDataType
-								.setInnerType_CollectionDataType(innerDataType);
+								.setInnerDataType__CollectionDataType(innerDataType);
 				} else {
 					// Create new DataType
 					collectionDataType = RepositoryFactory.eINSTANCE
@@ -62,7 +62,7 @@ public class DataTypeCommand {
 
 					collectionDataType.setEntityName(entityName);
 					collectionDataType
-							.setInnerType_CollectionDataType(innerDataType);
+							.setInnerDataType__CollectionDataType(innerDataType);
 				}
 			}
 		};

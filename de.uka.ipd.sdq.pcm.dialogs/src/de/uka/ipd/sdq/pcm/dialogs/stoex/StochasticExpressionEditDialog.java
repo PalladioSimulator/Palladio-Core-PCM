@@ -13,10 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.errorhandling.IIssue;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
@@ -40,7 +41,7 @@ public class StochasticExpressionEditDialog extends
 		this.expectedType = expectedType;
 	}
 
-	public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, Parameter[] context) {
+	public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, Variable[] context) {
 		super(parent,context);
 		this.expectedType = expectedType;
 	}
@@ -137,31 +138,33 @@ public class StochasticExpressionEditDialog extends
 		return new StoExTokenMapper();
 	}
 	
-	public static TypeEnum getTypeFromVariableCharacterisation(VariableCharacterisation ch){
-		switch(ch.getType()){
-			case BYTESIZE:
-			case NUMBER_OF_ELEMENTS:
-				return TypeEnum.INT;
+	public static TypeEnum getTypeFromVariableCharacterisation(VariableSetter ch){
+
+		if(ch.getVariableCharacteristic__VariableSetter().getCharacterisationDefinition__VariableCharacteristic().equals(VariableCharacterisationType.BYTESIZE) || /* FIXME: use type ids from the characterisation repository */
+				ch.getVariableCharacteristic__VariableSetter().getCharacterisationDefinition__VariableCharacteristic().equals(VariableCharacterisationType.NUMBER_OF_ELEMENTS)){
+
+			return TypeEnum.INT;
 		}
 		return TypeEnum.ANY;
  	}
 	
-	private Parameter[] getContext(EObject rv) {
-		Parameter[] parameters = new Parameter[]{};
+	private Variable[] getContext(EObject rv) {
+		Variable[] parameters = new Variable[]{};
 
 		ResourceDemandingSEFF seff = getSEFF(
 				rv);
 
-		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null) {
-			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF() instanceof OperationSignature && ((OperationSignature)seff.getDescribedService__SEFF()).getParameters__OperationSignature() != null) {
+			parameters = (Variable[]) ((OperationSignature)seff.getDescribedService__SEFF()).getParameters__OperationSignature().toArray();
 			ExternalCallAction eca = getParentCallAction(rv);
 			if (eca != null && isOutputCharacterisation(eca,rv) && eca.getCalledService_ExternalService() != null &&
-					eca.getCalledService_ExternalService().getReturntype__Signature() != null) {
-				Parameter[] parametersWithReturn = new Parameter[parameters.length+1];
+					eca.getCalledService_ExternalService().getReturntype__OperationSignature() != null) {
+				Variable[] parametersWithReturn = new Variable[parameters.length+1];
 				System.arraycopy(parameters,0,parametersWithReturn,0,parameters.length);
-				parametersWithReturn[parameters.length] = RepositoryFactory.eINSTANCE.createParameter();
-				parametersWithReturn[parameters.length].setDatatype__Parameter(eca.getCalledService_ExternalService().getReturntype__Signature());
-				parametersWithReturn[parameters.length].setParameterName("RETURN");
+				parametersWithReturn[parameters.length] = ParameterFactory.eINSTANCE.createVariable();
+				// FIXME after decision you to use return values
+				//parametersWithReturn[parameters.length].setDataType__Variable(eca.getCalledService_ExternalService().getReturntype__OperationSignature());
+				parametersWithReturn[parameters.length].setEntityName("RETURN");
 				parameters = parametersWithReturn;
 			}
 		}
@@ -169,10 +172,11 @@ public class StochasticExpressionEditDialog extends
 	}
 
 	private boolean isOutputCharacterisation(ExternalCallAction eca, EObject rv) {
-		for (VariableUsage vu : eca.getOutputVariableUsages_ExternalCallAction()){
-			if (vu.getVariableCharacterisation_VariableUsage().contains(rv))
-				return true;
-		}
+		//FIXME: commented out
+//		for (VariableSetter vu : eca.getSetVariableReturns__CallReturnAction()){
+//			if (vu.getVariableCharacterisation__SetVariable().contains(rv))
+//				return true;
+//		}
 		return false;
 	}
 

@@ -10,8 +10,8 @@ import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
  * The class define the CellModifire for the ParametersDialog
@@ -22,7 +22,7 @@ public class ParametersCellModifier implements ICellModifier {
 
 	private TableViewer viewer;
 	private List<String> columnNames;
-	private Parameter parameter;
+	private Variable parameter;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -67,7 +67,7 @@ public class ParametersCellModifier implements ICellModifier {
 
 		Assert.isNotNull(element);
 		TableItem item = (TableItem) element;
-		parameter = (Parameter) item.getData();
+		parameter = (Variable) item.getData();
 
 		switch (columnIndex) {
 		case CreateEditorContents.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
@@ -94,11 +94,11 @@ public class ParametersCellModifier implements ICellModifier {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				parameter.setDatatype__Parameter(dataType);
+				parameter.setDataType__Variable(dataType);
 			}
 		};
 
-		if (!dataType.equals(parameter.getDatatype__Parameter())) {
+		if (!dataType.equals(parameter.getDataType__Variable())) {
 			recCommand.setDescription("Edit Parameter Property");
 			recCommand.setLabel("Set parameter DataType");
 			editingDomain.getCommandStack().execute(recCommand);
@@ -114,11 +114,11 @@ public class ParametersCellModifier implements ICellModifier {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				parameter.setParameterName(value);
+				parameter.setEntityName(value);
 			}
 		};
 
-		if (!value.equals(parameter.getParameterName())) {
+		if (!value.equals(parameter.getEntityName())) {
 			recCommand.setLabel("Set ParameterName");
 			editingDomain.getCommandStack().execute(recCommand);
 		}

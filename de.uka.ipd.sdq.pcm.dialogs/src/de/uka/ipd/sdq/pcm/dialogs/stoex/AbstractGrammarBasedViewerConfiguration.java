@@ -22,7 +22,7 @@ import org.eclipse.jface.text.source.IAnnotationModel;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 
 /**
  * @author Snowball
@@ -33,13 +33,13 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 	private IAnnotationModel annotationModel;
 	private Class myLexerClass;
 	private ITokenMapper myMapper;
-	private Parameter[] context = null;
+	private Variable[] context = null;
 	private ContentAssistant myAssistant;
 
 	/**
 	 * 
 	 */
-	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Parameter[] context, Class lexerClass, ITokenMapper myMapper) {
+	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Variable[] context, Class lexerClass, ITokenMapper myMapper) {
 		this.annotationModel = annotationModel;
 		this.myLexerClass = lexerClass;
 		this.myMapper = myMapper;

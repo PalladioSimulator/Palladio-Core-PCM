@@ -6,7 +6,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /** @author roman */
 public class ExceptionsItemProvider extends ItemProviderDecorator implements
@@ -47,7 +47,7 @@ public class ExceptionsItemProvider extends ItemProviderDecorator implements
 		case ExceptionsDialog.ICON_COLUMN_INDEX:
 			break;
 		case ExceptionsDialog.CONTEXT_COLUMN_INDEX:
-			result = ((Signature) exceptionType.eContainer()).getServiceName();
+			result = ((OperationSignature) exceptionType.eContainer()).getEntityName();
 			break;
 		case ExceptionsDialog.NAME_COLUMN_INDEX:
 			result = getExceptionName(exceptionType);

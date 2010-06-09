@@ -43,8 +43,10 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
 import de.uka.ipd.sdq.pcm.dialogs.SWTResourceManager;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
+
+import org.antlr.runtime.RecognitionException;
 
 /**
  * @author Snowball
@@ -66,7 +68,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	private Object result = null;
 	private String resultText = null;
 	
-	protected Parameter[] context = null;
+	protected Variable[] context = null;
 
 	/**
 	 * Constructor.
@@ -77,7 +79,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	public AbstractGrammerBasedEditDialog(Shell parent) {
 		super(parent);
 		newText = getInitialText();
-		this.context = new Parameter[]{};
+		this.context = new Variable[]{};
 		// make the possible change dialogue size.
 		this.setShellStyle(SWT.RESIZE|SWT.MAX);
 	}
@@ -90,7 +92,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	 * @param context -
 	 *            A list of parameters used in code completion
 	 */
-	public AbstractGrammerBasedEditDialog(Shell parent, Parameter[] context) {
+	public AbstractGrammerBasedEditDialog(Shell parent, Variable[] context) {
 		super(parent);
 		newText = getInitialText();
 		this.context = context;

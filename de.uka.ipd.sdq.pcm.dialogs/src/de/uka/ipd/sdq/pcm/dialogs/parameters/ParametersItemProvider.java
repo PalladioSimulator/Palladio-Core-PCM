@@ -6,7 +6,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
 import de.uka.ipd.sdq.pcm.dialogs.datatype.ParameterRepresentation;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
@@ -51,23 +51,23 @@ public class ParametersItemProvider extends ItemProviderDecorator implements
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
-		Parameter parameter = (Parameter) element;
+		Variable parameter = (Variable) element;
 
 		switch (columnIndex) {
 		case CreateEditorContents.ICON_COLUMN_INDEX:
 			break;
 		case CreateEditorContents.CONTEXT_COLUMN_INDEX:
-			result = ((Signature) parameter.eContainer()).getServiceName();
+			result = ((Signature) parameter.eContainer()).getEntityName();
 			break;
 		case CreateEditorContents.NAME_COLUMN_INDEX:
-			if (parameter.getParameterName() != null)
-				result = parameter.getParameterName();
+			if (parameter.getEntityName() != null)
+				result = parameter.getEntityName();
 			else
 				result = "null";
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
 			result = ParameterRepresentation.dataTypeToString(parameter
-					.getDatatype__Parameter());
+					.getDataType__Variable());
 			break;
 		default:
 			break;

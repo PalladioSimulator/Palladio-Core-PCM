@@ -8,9 +8,9 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /**
  * The class define an action, which a new parameter for the signature adds.
@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  */
 public class AddParameterAction extends SelectionAdapter{
 
-	private Signature parentSignature = null;
+	private OperationSignature parentSignature = null;
 	private String parameterName = "null";
 
 	/**
@@ -28,7 +28,7 @@ public class AddParameterAction extends SelectionAdapter{
 	 */
 	private TransactionalEditingDomain editingDomain = null;
 
-	public AddParameterAction(Signature parentSignature) {
+	public AddParameterAction(OperationSignature parentSignature) {
 		this.parentSignature = parentSignature;
 		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
 	}
@@ -40,15 +40,15 @@ public class AddParameterAction extends SelectionAdapter{
 	public void widgetSelected(SelectionEvent e) {
 		Assert.isNotNull(parentSignature);
 
-		final EList<Parameter> parameters = parentSignature
-				.getParameters__Signature();
+		final EList<Variable> parameters = parentSignature
+				.getParameters__OperationSignature();
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				Parameter parameter = RepositoryFactory.eINSTANCE
-						.createParameter();
-				parameter.setParameterName(parameterName);
+				Variable parameter = ParameterFactory.eINSTANCE
+						.createVariable();
+				parameter.setEntityName(parameterName);
 				parameters.add(parameter);
 			}
 		};
