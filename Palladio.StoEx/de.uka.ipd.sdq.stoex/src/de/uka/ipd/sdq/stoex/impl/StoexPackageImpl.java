@@ -41,6 +41,7 @@ import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.StringLiteral;
@@ -48,7 +49,6 @@ import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Unary;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.units.UnitsPackage;
 
@@ -92,7 +92,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableEClass = null;
+	private EClass stoExVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -331,20 +331,10 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link StoexPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -356,7 +346,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		if (isInited) return (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StoexPackageImpl theStoexPackage = (StoexPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof StoexPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new StoexPackageImpl());
+		StoexPackageImpl theStoexPackage = (StoexPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StoexPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StoexPackageImpl());
 
 		isInited = true;
 
@@ -372,6 +362,9 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		// Mark meta-data to indicate it can't be changed
 		theStoexPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(StoexPackage.eNS_URI, theStoexPackage);
 		return theStoexPackage;
 	}
 
@@ -425,8 +418,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariable() {
-		return variableEClass;
+	public EClass getStoExVariable() {
+		return stoExVariableEClass;
 	}
 
 	/**
@@ -434,8 +427,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariable_Id_Variable() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(0);
+	public EReference getStoExVariable_Id_Variable() {
+		return (EReference)stoExVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1005,8 +998,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		namespaceReferenceEClass = createEClass(NAMESPACE_REFERENCE);
 		createEReference(namespaceReferenceEClass, NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE);
 
-		variableEClass = createEClass(VARIABLE);
-		createEReference(variableEClass, VARIABLE__ID_VARIABLE);
+		stoExVariableEClass = createEClass(STO_EX_VARIABLE);
+		createEReference(stoExVariableEClass, STO_EX_VARIABLE__ID_VARIABLE);
 
 		atomEClass = createEClass(ATOM);
 
@@ -1130,7 +1123,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		// Add supertypes to classes
 		variableReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
 		namespaceReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
-		variableEClass.getESuperTypes().add(this.getAtom());
+		stoExVariableEClass.getESuperTypes().add(this.getAtom());
 		atomEClass.getESuperTypes().add(this.getUnary());
 		unaryEClass.getESuperTypes().add(this.getPower());
 		powerEClass.getESuperTypes().add(this.getProduct());
@@ -1166,8 +1159,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEClass(namespaceReferenceEClass, NamespaceReference.class, "NamespaceReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNamespaceReference_InnerReference_NamespaceReference(), this.getAbstractNamedReference(), null, "innerReference_NamespaceReference", null, 1, 1, NamespaceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariable_Id_Variable(), this.getAbstractNamedReference(), null, "id_Variable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(stoExVariableEClass, StoExVariable.class, "StoExVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStoExVariable_Id_Variable(), this.getAbstractNamedReference(), null, "id_Variable", null, 1, 1, StoExVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(atomEClass, Atom.class, "Atom", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

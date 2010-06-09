@@ -103,7 +103,7 @@ public class DoubleLiteralImpl extends NumericLiteralImpl implements DoubleLiter
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StoexPackage.DOUBLE_LITERAL__VALUE:
-				return new Double(getValue());
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,7 +117,7 @@ public class DoubleLiteralImpl extends NumericLiteralImpl implements DoubleLiter
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StoexPackage.DOUBLE_LITERAL__VALUE:
-				setValue(((Double)newValue).doubleValue());
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

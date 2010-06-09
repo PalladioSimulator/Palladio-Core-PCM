@@ -21,9 +21,9 @@ import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
@@ -165,7 +165,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseVariable(de.uka.ipd.sdq.pcm.core.stochastics.Variable)
 	 */
 	@Override
-	public String caseVariable(Variable object) {
+	public String caseStoExVariable(StoExVariable object) {
 		String result = (String)doSwitch(object.getId_Variable());
 		// TODO: Move this part: result += "." + object.getCharacterisationType().getLiteral();
 		return result;

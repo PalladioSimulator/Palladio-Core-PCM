@@ -158,7 +158,7 @@ public class PowerExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.POWER_EXPRESSION__BASE,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -213,7 +213,7 @@ public class PowerExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.POWER_EXPRESSION__EXPONENT,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

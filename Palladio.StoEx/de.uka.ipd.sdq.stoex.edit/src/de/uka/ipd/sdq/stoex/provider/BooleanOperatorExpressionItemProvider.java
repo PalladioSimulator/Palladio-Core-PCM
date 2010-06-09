@@ -191,7 +191,7 @@ public class BooleanOperatorExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__LEFT,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -266,7 +266,7 @@ public class BooleanOperatorExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__RIGHT,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

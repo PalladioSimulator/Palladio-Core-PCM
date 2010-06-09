@@ -29,7 +29,7 @@
     <eLiterals name="LESSEQUAL" value="4"/>
     <eLiterals name="GREATEREQUAL" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Atom">
+  <eClassifiers xsi:type="ecore:EClass" name="StoExVariable" eSuperTypes="#//Atom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="id_Variable" ordered="false"
         lowerBound="1" eType="#//AbstractNamedReference"/>
   </eClassifiers>

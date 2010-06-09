@@ -31,12 +31,12 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
 /**
@@ -92,7 +92,7 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 		switch (eClass.getClassifierID()) {
 			case StoexPackage.VARIABLE_REFERENCE: return createVariableReference();
 			case StoexPackage.NAMESPACE_REFERENCE: return createNamespaceReference();
-			case StoexPackage.VARIABLE: return createVariable();
+			case StoexPackage.STO_EX_VARIABLE: return createStoExVariable();
 			case StoexPackage.TERM_EXPRESSION: return createTermExpression();
 			case StoexPackage.PRODUCT_EXPRESSION: return createProductExpression();
 			case StoexPackage.PROBABILITY_FUNCTION_LITERAL: return createProbabilityFunctionLiteral();
@@ -181,9 +181,9 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable createVariable() {
-		VariableImpl variable = new VariableImpl();
-		return variable;
+	public StoExVariable createStoExVariable() {
+		StoExVariableImpl stoExVariable = new StoExVariableImpl();
+		return stoExVariable;
 	}
 
 	/**

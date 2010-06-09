@@ -43,13 +43,13 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Unary;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class StochasticExpressionsParser extends Parser {
@@ -1062,8 +1062,8 @@ public class StochasticExpressionsParser extends Parser {
                     id=scoped_id();
                     _fsp--;
 
-                     a = StoexFactory.eINSTANCE.createVariable();
-                    		  	((Variable)a).setId_Variable(id);
+                     a = StoexFactory.eINSTANCE.createStoExVariable();
+                    		  	((StoExVariable)a).setId_Variable(id);
                     		  
 
                     }

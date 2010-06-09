@@ -50,13 +50,13 @@ public interface StoexFactory extends EFactory {
 	NamespaceReference createNamespaceReference();
 
 	/**
-	 * Returns a new object of class '<em>Variable</em>'.
+	 * Returns a new object of class '<em>Sto Ex Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable</em>'.
+	 * @return a new object of class '<em>Sto Ex Variable</em>'.
 	 * @generated
 	 */
-	Variable createVariable();
+	StoExVariable createStoExVariable();
 
 	/**
 	 * Returns a new object of class '<em>Term Expression</em>'.

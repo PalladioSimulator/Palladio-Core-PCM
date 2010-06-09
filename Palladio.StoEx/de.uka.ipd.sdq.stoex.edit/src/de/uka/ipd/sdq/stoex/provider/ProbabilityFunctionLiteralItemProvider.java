@@ -177,6 +177,16 @@ public class ProbabilityFunctionLiteralItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
 				 ProbfunctionFactory.eINSTANCE.createNormalDistribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 ProbfunctionFactory.eINSTANCE.createLognormalDistribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 ProbfunctionFactory.eINSTANCE.createGammaDistribution()));
 	}
 
 }

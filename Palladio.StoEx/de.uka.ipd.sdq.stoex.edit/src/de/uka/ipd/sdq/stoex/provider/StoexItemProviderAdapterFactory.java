@@ -128,26 +128,26 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.Variable} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.StoExVariable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableItemProvider variableItemProvider;
+	protected StoExVariableItemProvider stoExVariableItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.Variable}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.StoExVariable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableAdapter() {
-		if (variableItemProvider == null) {
-			variableItemProvider = new VariableItemProvider(this);
+	public Adapter createStoExVariableAdapter() {
+		if (stoExVariableItemProvider == null) {
+			stoExVariableItemProvider = new StoExVariableItemProvider(this);
 		}
 
-		return variableItemProvider;
+		return stoExVariableItemProvider;
 	}
 
 	/**
@@ -568,7 +568,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -619,7 +619,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	public void dispose() {
 		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
 		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
-		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (stoExVariableItemProvider != null) stoExVariableItemProvider.dispose();
 		if (termExpressionItemProvider != null) termExpressionItemProvider.dispose();
 		if (productExpressionItemProvider != null) productExpressionItemProvider.dispose();
 		if (probabilityFunctionLiteralItemProvider != null) probabilityFunctionLiteralItemProvider.dispose();

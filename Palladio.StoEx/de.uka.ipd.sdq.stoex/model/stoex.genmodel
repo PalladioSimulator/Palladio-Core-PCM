@@ -23,7 +23,7 @@
     <details key="OPERATION_BODIES" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>stoex.uml</foreignModel>
+  <foreignModel>file:/C:/111/stoex.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Stoex" basePackage="de.uka.ipd.sdq"
       disposableProviderFactory="true" ecorePackage="stoex.ecore#/">
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">
@@ -56,9 +56,9 @@
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NamespaceReference/innerReference_NamespaceReference"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//Variable">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="stoex.ecore#//StoExVariable">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference stoex.ecore#//Variable/id_Variable"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference stoex.ecore#//StoExVariable/id_Variable"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Atom"/>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="stoex.ecore#//Unary"/>

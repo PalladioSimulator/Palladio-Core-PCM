@@ -160,7 +160,7 @@ public class IfElseExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.IF_ELSE_EXPRESSION__IF_EXPRESSION,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -235,7 +235,7 @@ public class IfElseExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.IF_ELSE_EXPRESSION__ELSE_EXPRESSION,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -310,7 +310,7 @@ public class IfElseExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.IF_ELSE_EXPRESSION__CONDITION_EXPRESSION,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

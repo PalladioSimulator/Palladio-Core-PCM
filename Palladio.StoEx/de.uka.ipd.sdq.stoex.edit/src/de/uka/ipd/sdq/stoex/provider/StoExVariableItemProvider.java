@@ -1,17 +1,19 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2009, SDQ, IPD, U Karlsruhe
  *
  * $Id$
  */
 package de.uka.ipd.sdq.stoex.provider;
 
 
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,21 +22,19 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.stoex.Variable} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.stoex.StoExVariable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableItemProvider
+public class StoExVariableItemProvider
 	extends AtomItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class VariableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableItemProvider(AdapterFactory adapterFactory) {
+	public StoExVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,9 +80,9 @@ public class VariableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_id_Variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_id_Variable_feature", "_UI_Variable_type"),
-				 StoexPackage.Literals.VARIABLE__ID_VARIABLE,
+				 getString("_UI_StoExVariable_id_Variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StoExVariable_id_Variable_feature", "_UI_StoExVariable_type"),
+				 StoexPackage.Literals.STO_EX_VARIABLE__ID_VARIABLE,
 				 true,
 				 false,
 				 true,
@@ -92,14 +92,14 @@ public class VariableItemProvider
 	}
 
 	/**
-	 * This returns Variable.gif.
+	 * This returns StoExVariable.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Variable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StoExVariable"));
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class VariableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Variable_type");
+		return getString("_UI_StoExVariable_type");
 	}
 
 	/**

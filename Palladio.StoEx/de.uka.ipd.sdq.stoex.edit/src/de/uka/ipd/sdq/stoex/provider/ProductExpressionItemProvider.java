@@ -191,7 +191,7 @@ public class ProductExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -251,7 +251,7 @@ public class ProductExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

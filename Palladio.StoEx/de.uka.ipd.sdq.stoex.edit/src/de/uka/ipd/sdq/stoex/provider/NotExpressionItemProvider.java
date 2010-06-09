@@ -156,7 +156,7 @@ public class NotExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.NOT_EXPRESSION__INNER,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

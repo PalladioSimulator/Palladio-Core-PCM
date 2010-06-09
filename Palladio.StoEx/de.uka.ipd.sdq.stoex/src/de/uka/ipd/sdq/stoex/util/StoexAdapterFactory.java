@@ -35,12 +35,12 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.Unary;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
 
@@ -119,8 +119,8 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createNamespaceReferenceAdapter();
 			}
 			@Override
-			public Adapter caseVariable(Variable object) {
-				return createVariableAdapter();
+			public Adapter caseStoExVariable(StoExVariable object) {
+				return createStoExVariableAdapter();
 			}
 			@Override
 			public Adapter caseAtom(Atom object) {
@@ -293,16 +293,16 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Variable <em>Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.StoExVariable <em>Sto Ex Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.Variable
+	 * @see de.uka.ipd.sdq.stoex.StoExVariable
 	 * @generated
 	 */
-	public Adapter createVariableAdapter() {
+	public Adapter createStoExVariableAdapter() {
 		return null;
 	}
 

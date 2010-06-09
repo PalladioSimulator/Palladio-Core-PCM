@@ -37,10 +37,10 @@ import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.operations.AddOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.CompareOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.DivOperation;
@@ -187,7 +187,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Skips variables. This visitor cannot handle variables. Use the
 	 * PCM Solver to handle variables in stochastic expressions.
 	 */
-	public Object caseVariable(Variable var){
+	public Object caseStoExVariable(StoExVariable var){
 		// Cannot handle variables! Use inheritance to add this.
 		return var;
 	}

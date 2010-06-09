@@ -1,40 +1,42 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2009, SDQ, IPD, U Karlsruhe
  *
  * $Id$
  */
 package de.uka.ipd.sdq.stoex.impl;
 
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.StoExVariable;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.stoex.Variable;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable</b></em>'.
+ * An implementation of the model object '<em><b>Sto Ex Variable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.stoex.impl.VariableImpl#getId_Variable <em>Id Variable</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.stoex.impl.StoExVariableImpl#getId_Variable <em>Id Variable</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VariableImpl extends AtomImpl implements Variable {
+public class StoExVariableImpl extends AtomImpl implements StoExVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * The cached value of the '{@link #getId_Variable() <em>Id Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -50,7 +52,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableImpl() {
+	protected StoExVariableImpl() {
 		super();
 	}
 
@@ -61,7 +63,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return StoexPackage.Literals.VARIABLE;
+		return StoexPackage.Literals.STO_EX_VARIABLE;
 	}
 
 	/**
@@ -75,7 +77,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 			id_Variable = (AbstractNamedReference)eResolveProxy(oldId_Variable);
 			if (id_Variable != oldId_Variable) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StoexPackage.VARIABLE__ID_VARIABLE, oldId_Variable, id_Variable));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StoexPackage.STO_EX_VARIABLE__ID_VARIABLE, oldId_Variable, id_Variable));
 			}
 		}
 		return id_Variable;
@@ -99,7 +101,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 		AbstractNamedReference oldId_Variable = id_Variable;
 		id_Variable = newId_Variable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StoexPackage.VARIABLE__ID_VARIABLE, oldId_Variable, id_Variable));
+			eNotify(new ENotificationImpl(this, Notification.SET, StoexPackage.STO_EX_VARIABLE__ID_VARIABLE, oldId_Variable, id_Variable));
 	}
 
 	/**
@@ -110,7 +112,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StoexPackage.VARIABLE__ID_VARIABLE:
+			case StoexPackage.STO_EX_VARIABLE__ID_VARIABLE:
 				if (resolve) return getId_Variable();
 				return basicGetId_Variable();
 		}
@@ -125,7 +127,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StoexPackage.VARIABLE__ID_VARIABLE:
+			case StoexPackage.STO_EX_VARIABLE__ID_VARIABLE:
 				setId_Variable((AbstractNamedReference)newValue);
 				return;
 		}
@@ -140,7 +142,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StoexPackage.VARIABLE__ID_VARIABLE:
+			case StoexPackage.STO_EX_VARIABLE__ID_VARIABLE:
 				setId_Variable((AbstractNamedReference)null);
 				return;
 		}
@@ -155,10 +157,10 @@ public class VariableImpl extends AtomImpl implements Variable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StoexPackage.VARIABLE__ID_VARIABLE:
+			case StoexPackage.STO_EX_VARIABLE__ID_VARIABLE:
 				return id_Variable != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //VariableImpl
+} //StoExVariableImpl

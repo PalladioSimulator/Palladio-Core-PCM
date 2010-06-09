@@ -156,7 +156,7 @@ public class ParenthesisItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.PARENTHESIS__INNER_EXPRESSION,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

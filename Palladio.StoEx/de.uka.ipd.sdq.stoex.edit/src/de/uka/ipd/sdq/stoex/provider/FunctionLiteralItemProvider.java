@@ -187,7 +187,7 @@ public class FunctionLiteralItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL,
-				 StoexFactory.eINSTANCE.createVariable()));
+				 StoexFactory.eINSTANCE.createStoExVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter

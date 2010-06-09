@@ -103,7 +103,7 @@ public class BoolLiteralImpl extends AtomImpl implements BoolLiteral {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StoexPackage.BOOL_LITERAL__VALUE:
-				return isValue() ? Boolean.TRUE : Boolean.FALSE;
+				return isValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,7 +117,7 @@ public class BoolLiteralImpl extends AtomImpl implements BoolLiteral {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StoexPackage.BOOL_LITERAL__VALUE:
-				setValue(((Boolean)newValue).booleanValue());
+				setValue((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2009, SDQ, IPD, U Karlsruhe
  *
  * $Id$
  */
@@ -9,21 +8,21 @@ package de.uka.ipd.sdq.stoex;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Variable</b></em>'.
+ * A representation of the model object '<em><b>Sto Ex Variable</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.stoex.Variable#getId_Variable <em>Id Variable</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.stoex.StoExVariable#getId_Variable <em>Id Variable</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.stoex.StoexPackage#getVariable()
+ * @see de.uka.ipd.sdq.stoex.StoexPackage#getStoExVariable()
  * @model
  * @generated
  */
-public interface Variable extends Atom {
+public interface StoExVariable extends Atom {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,14 +40,14 @@ public interface Variable extends Atom {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id Variable</em>' reference.
 	 * @see #setId_Variable(AbstractNamedReference)
-	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getVariable_Id_Variable()
+	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getStoExVariable_Id_Variable()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	AbstractNamedReference getId_Variable();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.stoex.Variable#getId_Variable <em>Id Variable</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.stoex.StoExVariable#getId_Variable <em>Id Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id Variable</em>' reference.
@@ -57,4 +56,4 @@ public interface Variable extends Atom {
 	 */
 	void setId_Variable(AbstractNamedReference value);
 
-} // Variable
+} // StoExVariable

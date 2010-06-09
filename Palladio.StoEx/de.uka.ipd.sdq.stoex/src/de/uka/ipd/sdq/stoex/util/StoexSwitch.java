@@ -35,12 +35,12 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.Unary;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
 
@@ -144,18 +144,18 @@ public class StoexSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StoexPackage.VARIABLE: {
-				Variable variable = (Variable)theEObject;
-				T result = caseVariable(variable);
-				if (result == null) result = caseAtom(variable);
-				if (result == null) result = caseUnary(variable);
-				if (result == null) result = casePower(variable);
-				if (result == null) result = caseProduct(variable);
-				if (result == null) result = caseTerm(variable);
-				if (result == null) result = caseComparison(variable);
-				if (result == null) result = caseBooleanExpression(variable);
-				if (result == null) result = caseIfElse(variable);
-				if (result == null) result = caseExpression(variable);
+			case StoexPackage.STO_EX_VARIABLE: {
+				StoExVariable stoExVariable = (StoExVariable)theEObject;
+				T result = caseStoExVariable(stoExVariable);
+				if (result == null) result = caseAtom(stoExVariable);
+				if (result == null) result = caseUnary(stoExVariable);
+				if (result == null) result = casePower(stoExVariable);
+				if (result == null) result = caseProduct(stoExVariable);
+				if (result == null) result = caseTerm(stoExVariable);
+				if (result == null) result = caseComparison(stoExVariable);
+				if (result == null) result = caseBooleanExpression(stoExVariable);
+				if (result == null) result = caseIfElse(stoExVariable);
+				if (result == null) result = caseExpression(stoExVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -521,17 +521,17 @@ public class StoexSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sto Ex Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sto Ex Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariable(Variable object) {
+	public T caseStoExVariable(StoExVariable object) {
 		return null;
 	}
 

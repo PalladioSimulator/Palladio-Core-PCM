@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
-import de.uka.ipd.sdq.stoex.Variable;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
@@ -202,12 +202,11 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * If the behaviour is changed here, the exception handling in  
 	 * {@link ExpressionSolveVisitor#extractIPMFFromLiteral} needs to be adjusted, too. 
 	 */
-	public Object caseVariable(Variable var){
+	public Object caseVariable(StoExVariable var){
 		//logger.debug("Found variable: " + var.getId_Variable());
 		if (var instanceof CharacterisedVariable) {
 			CharacterisedVariable chVar = (CharacterisedVariable) var;
-			VariableCharacterisationType chType = chVar
-					.getCharacterisationType();
+			VariableCharacterisationType chType = chVar.getCharacterisationDefinition();
 			if (chType == VariableCharacterisationType.VALUE 
 			 || chType == VariableCharacterisationType.TYPE
 			 || chType == VariableCharacterisationType.STRUCTURE) {

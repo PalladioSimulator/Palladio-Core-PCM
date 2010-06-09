@@ -334,14 +334,14 @@ public interface StoexPackage extends EPackage {
 	int ATOM_FEATURE_COUNT = UNARY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.VariableImpl <em>Variable</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.StoExVariableImpl <em>Sto Ex Variable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.stoex.impl.VariableImpl
-	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getVariable()
+	 * @see de.uka.ipd.sdq.stoex.impl.StoExVariableImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStoExVariable()
 	 * @generated
 	 */
-	int VARIABLE = 3;
+	int STO_EX_VARIABLE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
@@ -350,16 +350,16 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__ID_VARIABLE = ATOM_FEATURE_COUNT + 0;
+	int STO_EX_VARIABLE__ID_VARIABLE = ATOM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Variable</em>' class.
+	 * The number of structural features of the '<em>Sto Ex Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+	int STO_EX_VARIABLE_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.TermExpressionImpl <em>Term Expression</em>}' class.
@@ -1094,25 +1094,25 @@ public interface StoexPackage extends EPackage {
 	EReference getNamespaceReference_InnerReference_NamespaceReference();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Variable <em>Variable</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.StoExVariable <em>Sto Ex Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable</em>'.
-	 * @see de.uka.ipd.sdq.stoex.Variable
+	 * @return the meta object for class '<em>Sto Ex Variable</em>'.
+	 * @see de.uka.ipd.sdq.stoex.StoExVariable
 	 * @generated
 	 */
-	EClass getVariable();
+	EClass getStoExVariable();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.stoex.Variable#getId_Variable <em>Id Variable</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.stoex.StoExVariable#getId_Variable <em>Id Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Id Variable</em>'.
-	 * @see de.uka.ipd.sdq.stoex.Variable#getId_Variable()
-	 * @see #getVariable()
+	 * @see de.uka.ipd.sdq.stoex.StoExVariable#getId_Variable()
+	 * @see #getStoExVariable()
 	 * @generated
 	 */
-	EReference getVariable_Id_Variable();
+	EReference getStoExVariable_Id_Variable();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Atom <em>Atom</em>}'.
@@ -1802,14 +1802,14 @@ public interface StoexPackage extends EPackage {
 		EReference NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE = eINSTANCE.getNamespaceReference_InnerReference_NamespaceReference();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.VariableImpl <em>Variable</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.StoExVariableImpl <em>Sto Ex Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.stoex.impl.VariableImpl
-		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getVariable()
+		 * @see de.uka.ipd.sdq.stoex.impl.StoExVariableImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStoExVariable()
 		 * @generated
 		 */
-		EClass VARIABLE = eINSTANCE.getVariable();
+		EClass STO_EX_VARIABLE = eINSTANCE.getStoExVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Id Variable</b></em>' reference feature.
@@ -1817,7 +1817,7 @@ public interface StoexPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE__ID_VARIABLE = eINSTANCE.getVariable_Id_Variable();
+		EReference STO_EX_VARIABLE__ID_VARIABLE = eINSTANCE.getStoExVariable_Id_Variable();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.AtomImpl <em>Atom</em>}' class.
