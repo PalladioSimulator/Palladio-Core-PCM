@@ -16,7 +16,7 @@ import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
@@ -85,8 +85,8 @@ public class PalladioAdapterFactoryContentProvider extends
 
 	protected TypeEnum getExpectedType(RandomVariable rv) {
 		TypeEnum expectedType = TypeEnum.ANY; 
-		if (rv instanceof VariableCharacterisation){
-			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
+		if (rv instanceof VariableSetter){
+			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableSetter) rv);
 		}
 		return expectedType;
 	}	
